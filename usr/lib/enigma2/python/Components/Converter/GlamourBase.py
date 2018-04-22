@@ -186,7 +186,7 @@ class GlamourBase(Poll, Converter, object):
         isid = str(tpinfo.get("is_id", 0)) 
         plscode = str(tpinfo.get("pls_code", 0))
         plsmode = str(tpinfo.get("pls_mode", None))
-        if (plsmode == "None") or (isid == "-1") or (isid == "255") or ((isid == "0") and (plscode == "1")):
+        if (plsmode == "None") or (isid == "-1") or (isid == "255") or ((isid == "0") and (plscode == "1")) or ((isid == "0") and (plsmode == "Gold")):
             isid = plscode = plsmode = ""
         else:
             isid = (" IS:") + isid
@@ -201,6 +201,8 @@ class GlamourBase(Poll, Converter, object):
         orbw = float(orbpos - 3600)/10.0
         if (orbe >= 179.7) and (orbe <= 180.3):
             sat = "Intelsat 18"
+        elif (orbe >= 173.5) and (orbe <= 174.5):
+            sat = "Eutelsat 174A"
         elif (orbe >= 171.7) and (orbe <= 172.3):
             sat = "Eutelsat 172A,172B"
         elif (orbe >= 168.7) and (orbe <= 169.3):
@@ -341,8 +343,10 @@ class GlamourBase(Poll, Converter, object):
             sat = "ABS 4"
         elif (orbe >= 60.3) and (orbe <= 60.4):
             sat = "Astra 2C"
-        elif (orbe >= 58.8) and (orbe <= 60.2):
+        elif (orbe >= 59.4) and (orbe <= 60.2):
             sat = "Intelsat 33e"
+        elif (orbe >= 58.8) and (orbe <= 59.3):
+            sat = "Eutelsat 59A"
         elif (orbe >= 58.3) and (orbe <= 58.7):
             sat = "KazSat 3"
         elif (orbe >= 56.8) and (orbe <= 57.3):
