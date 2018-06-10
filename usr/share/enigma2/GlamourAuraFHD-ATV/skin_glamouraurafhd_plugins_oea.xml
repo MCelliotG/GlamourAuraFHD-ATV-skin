@@ -90,7 +90,7 @@
     <widget name="pic4" position="1210,740" size="128,128" zPosition="2" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/clock.png" position="540,880" size="40,40" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" alphatest="blend" position="1070,800" size="120,60" zPosition="3" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_epg_big.png" alphatest="blend" position="1070,870" size="120,60" zPosition="3" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" alphatest="blend" position="1070,870" size="120,60" zPosition="3" transparent="1" />
   </screen>
   <screen name="ConfigWeatherMSN" position="0,0" size="1920,1080" title="Config WeatherMSN" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -99,7 +99,7 @@
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/msnweather.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget name="HelpWindow" position="540,695" zPosition="8" size="1,1" transparent="1" alphatest="blend" />
-    <panel name="RedKey2" />
+    <panel name="RGBKeys1" />
   </screen>  
   
   <!-- YouTube Plugin -->
