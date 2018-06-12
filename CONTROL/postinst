@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -f /tmp/GlamourAuraFHD-ATV/skin.xml ]; then
+  rm -rf /usr/share/enigma2/GlamourAuraFHD-ATV/
+  mv /tmp/GlamourAuraFHD-ATV /usr/share/enigma2/
+fi
+echo "                                                                                "
+echo "Glamour Aura FHD skin for OpenATV is now successfully installed in your receiver"
+echo "                             Enjoy!!!                                           "
