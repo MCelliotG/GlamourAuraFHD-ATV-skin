@@ -102,4 +102,3 @@ class GlamNextEvents(Converter, object):
 			return f.format(begin = begin, end = end, title = title)
 		else:
 			return ""
- 
