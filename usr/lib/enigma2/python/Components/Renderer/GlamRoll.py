@@ -52,5 +52,3 @@ class GlamRoll(VariableText, Renderer):
 			        self.text = txttmp.encode("utf8")
 		if self.status != "end":
 			self.moveTimerText.start(130)
-
- 

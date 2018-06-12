@@ -104,4 +104,3 @@ class GlamTP(VariableText, Renderer):
                     except:
                         pass
                     self.text = (streamtype + " " + streamurl + orbpos + ch + freq + terra + pol + sys + mod + sr + fec + const)
-

@@ -409,5 +409,3 @@ class GlamRun(Renderer):
 		
 		self.P += self.mStep
 		self.mTimer.start(timeout,True)
-
-
