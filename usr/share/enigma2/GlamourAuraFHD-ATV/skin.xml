@@ -1382,8 +1382,7 @@
     <widget source="session.CurrentService" render="Label" position="370,767" size="1520,80" font="Regular; 60" valign="center" noWrap="1" backgroundColor="cyan1" transparent="1" zPosition="9" halign="center">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="session.CurrentService" render="ChannelNumber" position="50,735" size="300,70" font="Numbers; 65" valign="bottom" halign="center" noWrap="1" backgroundColor="transparent" transparent="1" foregroundColor="white" zPosition="9">
-    </widget>
+    <!--widget source="session.CurrentService" render="ChannelNumber" position="50,735" size="300,70" font="Numbers; 65" valign="bottom" halign="center" noWrap="1" backgroundColor="transparent" transparent="1" foregroundColor="white" zPosition="9" /-->
     <!-- Picon -->
     <widget source="session.CurrentService" render="Picon" position="50,803" zPosition="4" size="300,180" transparent="1" alphatest="blend">
       <convert type="ServiceName">Reference</convert>
@@ -2045,26 +2044,26 @@
   </screen>
   <!-- 10.4 DURATION AND PROGRESS -->
   <screen name="MovieD+P" flags="wfNoBorder">
-  <widget source="session.CurrentService" render="Label" position="255,910" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" shadowColor="black" shadowOffset="-1,-1" transparent="1" noWrap="1" zPosition="1">
-    <convert type="ServicePosition">Position,ShowHours</convert>
-  </widget>
-  <eLabel name="sliderbg" position="465,935" size="1200,4" backgroundColor="grey" foregroundColor="grey" zPosition="3" />
-  <widget source="session.CurrentService" render="PositionGauge" position="465,910" size="1205,55" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_bluemovie.png:1200,20" alphatest="blend" zPosition="6">
-    <convert type="ServicePosition">Gauge</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/aurapointer_blueinfobar.png" alphatest="blend" transparent="1" zPosition="4">
-    <convert type="ServicePosition">Position,ShowHours</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="1695,910" size="180,52" font="Numbers; 45" halign="left" valign="center" backgroundColor="background20" transparent="1" noWrap="1">
-    <convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="930,870" size="180,50" font="Numbers; 45" halign="center" valign="bottom" backgroundColor="background20" transparent="1" foregroundColor="sky" noWrap="1" zPosition="9">
-    <convert type="ServicePosition">Length,ShowHours</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="255,960" size="1620,32" backgroundColor="background20" transparent="1" zPosition="12" font="Regular; 24" halign="left" valign="center" noWrap="1">
-  <convert type="GlamourBase">FreqInfo</convert>
-</widget>
-</screen>
+    <widget source="session.CurrentService" render="Label" position="255,910" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" shadowColor="black" shadowOffset="-1,-1" transparent="1" noWrap="1" zPosition="1">
+      <convert type="ServicePosition">Position,ShowHours</convert>
+    </widget>
+    <eLabel name="sliderbg" position="465,935" size="1200,4" backgroundColor="grey" foregroundColor="grey" zPosition="3" />
+    <widget source="session.CurrentService" render="PositionGauge" position="465,910" size="1205,55" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_bluemovie.png:1200,20" alphatest="blend" zPosition="6">
+      <convert type="ServicePosition">Gauge</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/aurapointer_blueinfobar.png" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ServicePosition">Position,ShowHours</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1695,910" size="180,52" font="Numbers; 45" halign="left" valign="center" backgroundColor="background20" transparent="1" noWrap="1">
+      <convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="930,870" size="180,50" font="Numbers; 45" halign="center" valign="bottom" backgroundColor="background20" transparent="1" foregroundColor="sky" noWrap="1" zPosition="9">
+      <convert type="ServicePosition">Length,ShowHours</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="255,960" size="1620,32" backgroundColor="background20" transparent="1" zPosition="12" font="Regular; 24" halign="left" valign="center" noWrap="1">
+      <convert type="GlamourBase">FreqInfo</convert>
+    </widget>
+  </screen>
   <!-- 10.5 MOVIE AND SERVICE INFOS -->
   <screen name="MovieServiceInfos" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_rec_off.png" position="950,1016" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
@@ -2358,10 +2357,10 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Bitrate and CPU info -->
-    <eLabel text="Audio:" font="Regular; 26" position="1647,895" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
+    <!--eLabel text="Audio:" font="Regular; 26" position="1647,895" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
     <widget source="session.CurrentService" render="Label" position="1747,895" size="140,35" font="Regular; 26" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center">
       <convert type="GlamBitrate">%A Kb/s</convert>
-    </widget>
+    </widget-->
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="370,708" zPosition="-1" size="1520,130" alphatest="on" transparent="1" />
     <panel name="MainInfobar" />
@@ -3431,10 +3430,10 @@
     <!-- Frequency Info  -->
     <widget position="50,995" size="720,40" source="ServiceEvent" render="GlamTP" font="Regular; 26" noWrap="1" halign="center" valign="center" backgroundColor="grey2" zPosition="8" transparent="1" foregroundColor="amarillo" />
     <!-- Bitrate Info  -->
-    <eLabel text="Audio:" font="RegularB; 26" position="1700,852" size="85,35" transparent="1" zPosition="5" foregroundColor="cyan1" backgroundColor="background20" halign="center" noWrap="1" valign="center" />
+    <!--eLabel text="Audio:" font="RegularB; 26" position="1700,852" size="85,35" transparent="1" zPosition="5" foregroundColor="cyan1" backgroundColor="background20" halign="center" noWrap="1" valign="center" />
     <widget source="session.CurrentService" render="Label" position="1780,852" size="110,35" font="RegularB; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="cyan1" noWrap="1" valign="center" text="320 Kb/s">
       <convert type="GlamBitrate">%A Kb/s</convert>
-    </widget>
+    </widget-->
   </screen>
   <!-- 03. Simple Channel Selection -->
   <screen name="SimpleChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
@@ -4140,17 +4139,17 @@ if not self["videofps"].text:
   <!-- ### MOVIE SCREENS -->
   <!-- 01. Movie Player -->
   <screen name="MoviePlayer" position="0,0" size="1920,1080" title="InfoBar" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-  <!-- CLOCK -->
-  <panel name="ClockLabel1" flags="wfNoBorder" />
-  <!-- BACKGROUND -->
-  <panel name="MovieBG" flags="wfNoBorder" />
-  <!-- NAME -->
-  <panel name="MovieN1" flags="wfNoBorder" />
-  <!-- MOVIE DURATION AND PROGRESS -->
-  <panel name="MovieD+P" flags="wfNoBorder" />
-  <!-- MOVIE AND SERVICE INFOS -->
-  <panel name="MovieServiceInfos" flags="wfNoBorder" />
-</screen>
+    <!-- CLOCK -->
+    <panel name="ClockLabel1" flags="wfNoBorder" />
+    <!-- BACKGROUND -->
+    <panel name="MovieBG" flags="wfNoBorder" />
+    <!-- NAME -->
+    <panel name="MovieN1" flags="wfNoBorder" />
+    <!-- MOVIE DURATION AND PROGRESS -->
+    <panel name="MovieD+P" flags="wfNoBorder" />
+    <!-- MOVIE AND SERVICE INFOS -->
+    <panel name="MovieServiceInfos" flags="wfNoBorder" />
+  </screen>
   <!-- 02. Media player -->
   <screen name="MediaPlayer" position="center,center" size="1920,1080" title="Media player" backgroundColor="transparent" flags="wfNoBorder">
     <eLabel name="mediaplayer" position="0,555" size="1920,375" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
