@@ -1,0 +1,10 @@
+#!/bin/sh
+rm -rf /usr/share/enigma2/GlamourAuraFHD-ATV
+rm -rf /usr/lib/enigma2/python/Components/Converter/Glam*
+rm -rf /usr/lib/enigma2/python/Components/Renderer/Glam*
+echo "                                                                     "
+echo "Glamour Aura FHD ATV skin was successfully removed from your receiver"
+echo "                                                                     "
+echo "The GUI of your receiver is now rebooting....                        "
+sleep 5
+init 4 && sleep 5 && init 3

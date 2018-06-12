@@ -1,0 +1,30 @@
+#!/bin/sh
+echo "                                   *******                                  "
+echo "                         ******               *****                         "
+echo "                    ****                            ****                    "
+echo "                 ***                                     ***                "
+echo "               **     GLAMOUR AURA FHD SKIN FOR OPENATV      **             "
+echo "                            a skin by MCelliotG                             "
+echo "                                                                            "
+echo "                                                                            "
+echo "                         ***** DISCLAIMER ****                              "
+echo "Glamour Aura FHD ATV skin requires a minimal dual core CPU @ 1000Mhz.       "
+echo "Glamour Aura FHD ATV is NOT guaranteed to work on slower or older receivers."
+echo "                                                                            "
+echo "                                                                            "
+echo "                                                                            "
+echo "                                                                            "
+echo "Checking if a previous version of Glamour Aura FHD ATV skin is installed"
+if [ -f /usr/share/enigma2/GlamourAuraFHD-ATV/skin.xml ]; then
+    cp -R /usr/share/enigma2/GlamourAuraFHD-ATV/ /tmp
+    rm -rf /usr/share/enigma2/GlamourAuraFHD-ATV
+    rm -rf /usr/lib/enigma2/python/Components/Converter/Glam*
+    rm -rf /usr/lib/enigma2/python/Components/Renderer/Glam*
+    echo "                                                   "
+    echo "Previous GlamourAuraFHD-ATV skin installation      "
+    echo "    was found and removed successfully!            "
+    echo "                                                   "
+fi
+echo "                                                           "
+echo "Glamour Aura FHD ATV skin is now being installed...        "
+echo "                                                           "
