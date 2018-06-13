@@ -891,7 +891,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="entries" font="Regular; 30" position="540,75" size="1305,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="entries" rowSplit1="45" rowSplit2="80" rowHeight="50" iconMargin="10" DayNameFont="Regular;28" EventNameFont="Regular;30" ServiceNameFont="Regular;30" position="540,75" size="1305,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="120" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="AutoTimerPreview" position="0,0" size="1920,1080" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
