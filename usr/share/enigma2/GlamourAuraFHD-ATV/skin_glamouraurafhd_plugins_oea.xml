@@ -835,7 +835,7 @@
     <panel name="FullKeys2" />
   </screen>
     
-    <!-- AutoTimer -->   
+  <!-- AutoTimer -->
   <screen name="MPHelp" position="0,0" size="1920,1080" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
     <panel name="ClockLabel1" />
@@ -849,17 +849,17 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,600" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget source="help" render="Label" position="540,680" size="1305,150" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="8" foregroundColor="cyan1" />
-    <panel name="RGKeys1" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget source="help" render="Label" position="540,725" size="1305,130" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="8" foregroundColor="cyan1" valign="top" />
+    <panel name="FullKeys1" />
   </screen>
   <screen name="AutoTimerEditor" position="0,0" size="1920,1080" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,600" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget source="help" render="Label" position="540,680" size="1305,150" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="8" foregroundColor="cyan1" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget source="help" render="Label" position="540,725" size="1305,130" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="8" foregroundColor="cyan1" valign="top" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="AutoTimerFilterEditor" position="center,center" size="1920,1080" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
@@ -883,23 +883,23 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="AutoTimerOverview" position="0,0" size="1920,1080" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
-    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="entries" rowSplit1="45" rowSplit2="80" rowHeight="50" iconMargin="10" DayNameFont="Regular;28" EventNameFont="Regular;30" ServiceNameFont="Regular;30" position="540,75" size="1305,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="120" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="FullKeys1" />
-  </screen>
+  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" flags="wfNoBorder" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="entries" font="Regular; 28" rowSplit1="45" rowSplit2="80" rowHeight="50" iconMargin="10" DayNameFont="Regular;28" EventNameFont="Regular;30" ServiceNameFont="Regular;30" position="540,75" size="1305,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="120" enableWrapAround="1" transparent="1" zPosition="9" />
+  <panel name="FullKeys1" />
+</screen>
   <screen name="AutoTimerPreview" position="0,0" size="1920,1080" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="timerlist" render="Listbox" position="540,60" size="1305,720" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" transparent="1" zPosition="2">
+    <widget source="timerlist" render="Listbox" position="540,75" size="1305,720" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" transparent="1" zPosition="2">
       <convert type="TemplatedMultiContent">
                         {"template": [
                                     MultiContentEntryText(pos=(10, 0), size=(1290,45), text = 3, font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
