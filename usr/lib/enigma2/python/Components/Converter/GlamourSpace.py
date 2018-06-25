@@ -53,7 +53,7 @@ class GlamourSpace(Poll, Converter):
             self.type = self.DATASPACE
         elif "FlashInfo" in type:
             self.type = self.FLASHINFO
-        if self.type in (self.FLASHINFO, self.DATASPACE, self.HDDSPACE, self.USBSPACE):
+        if self.type in (self.FLASHINFO, self.DATASPACE, self.HDDSPACE, self.USBSPACE, self.NETSPACE):
             self.poll_interval = 5000
         else:
             self.poll_interval = 1000
@@ -123,28 +123,6 @@ class GlamourSpace(Poll, Converter):
                 if swapfree == "" and swaptotal == "":
                     return ("N/A")
                 return ("Swap: ") + swapfree + swaptotal
-                
-        elif (self.type == self.NETSPACE):
-            while True:
-                netspace = "LanHDD: N/A"
-                try:
-                    nets = popen("df -h").readlines()
-                    for line in nets:
-                        if "//" in line and "hdd" in line:
-                            lisp = line.split()
-                            if "hdd" in lisp[0] and "media/net" in lisp[5]:
-                                netuse = lisp[4].replace(" ","")
-                                netuse = ("%s ") % netuse
-                                netfree = str(lisp[3].replace(" ",""))
-                                netfree = ("(%s Free, ") % netfree
-                                nettotal = str(lisp[1].replace(" ",""))
-                                nettotal = ("%s Total)") % nettotal             
-                                netspace = (("LanHDD: ") + netuse + netfree + nettotal)
-                                nets.kill()
-                                break
-                except:
-                    pass
-                return netspace  
 
         else:
             entry = {self.MEMTOTAL: ("Mem", "Mem", "Ram"),
@@ -153,9 +131,10 @@ class GlamourSpace(Poll, Converter):
              self.SWAPFREE: ("Swap", "Swap", "Swap"),
              self.USBSPACE: ("/media/usb", "/media/usb", "USB"),
              self.HDDSPACE: ("/media/hdd", "/media/hdd", "HDD"),
+             self.NETSPACE: ("/media/net/LanHDD", "/media/net/LanHDD", "LanHDD"),
              self.FLASHINFO: ("/", "/usr/lib/enigma2/python/Plugins/Extensions/OpenMultiboot", "Flash"),
              self.DATASPACE: ("/data", "/var/volatile", "Data")}[self.type]
-            if self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE):
+            if self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE, self.NETSPACE):
                 lisp = self.getDiskInfo(entry[0])
             elif self.type in (self.MEMTOTAL, self.MEMFREE, self.SWAPTOTAL, self.SWAPFREE):
                 lisf = self.getMemInfo(entry[0])
@@ -186,9 +165,10 @@ class GlamourSpace(Poll, Converter):
              self.SWAPTOTAL: "Swap",
              self.SWAPFREE: "Swap"}[self.type]
             result = self.getMemInfo(entry)[3]
-        elif self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE):
+        elif self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE, self.NETSPACE):
             path = {self.USBSPACE: "/media/usb",
              self.HDDSPACE: "/media/hdd",
+             self.NETSPACE: "/media/net/LanHDD",
              self.FLASHINFO: "/",
              self.DATASPACE: "/data"}[self.type]
             result = self.getDiskInfo(path)[3]
