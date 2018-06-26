@@ -72,7 +72,8 @@
     <color name="yellow" value="#00f2e000" />
   </colors>
   <fonts>
-    <font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />
+    <font filename="/usr/share/fonts/lcd.ttf" name="LCDA" scale="100" />
+    <font filename="/usr/share/fonts/nmsbd.ttf" name="FdLcD" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/consola.ttf" name="Console" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurar.ttf" name="Regular" scale="100" replacement="1" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurab.ttf" name="RegularB" scale="100" />
@@ -1778,28 +1779,28 @@
   </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,420" zPosition="-6" size="400,240" alphatest="on" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,440" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,445" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
-      <convert type="GlamourExtra">Temperature</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddtemp.png" position="45,480" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
-      <convert type="GlamourExtra">HDDTemp</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,520" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,525" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
-      <convert type="GlamourExtra">CPULoad</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,560" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,565" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1">
-      <convert type="GlamourExtra">CPU:$0 C1:$1 C2:$2</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,600" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,605" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
-      <convert type="GlamourExtra">CPUSpeed</convert>
-    </widget>
-  </screen>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,420" zPosition="-6" size="400,240" alphatest="on" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,440" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="90,445" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
+    <convert type="GlamourExtra">Temperature</convert>
+  </widget>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddtemp.png" position="45,480" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
+    <convert type="GlamourExtra">HDDTemp</convert>
+  </widget>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,520" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="90,525" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
+    <convert type="GlamourExtra">CPULoad</convert>
+  </widget>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,560" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="90,565" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1">
+    <convert type="GlamourExtra">CPU:$0 C1:$1 C2:$2</convert>
+  </widget>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,600" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="90,605" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
+    <convert type="GlamourExtra">CPUSpeed</convert>
+  </widget>
+</screen>
   <!-- HDD/USB Infopanel -->
   <screen name="HDDInfoPanel" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddspace.png" position="1105,820" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
@@ -2683,7 +2684,7 @@
   <!-- 06. RDS info display -->
   <screen name="RdsInfoDisplay" position="0,0" size="1920,1080" zPosition="-2" backgroundColor="transparent" flags="wfNoBorder">
     <widget name="RassLogo" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_rass_on.png" position="120,915" size="84,40" alphatest="on" zPosition="3" />
-    <widget name="RadioText" position="210,880" size="1650,50" font="LCD; 45" noWrap="1" backgroundColor="background40" foregroundColor="cyan1" halign="left" valign="bottom" transparent="0" zPosition="7" />
+    <widget name="RadioText" position="210,880" size="1650,50" font="LCDA; 45" noWrap="1" backgroundColor="background40" foregroundColor="cyan1" halign="left" valign="bottom" transparent="0" zPosition="7" />
     <widget name="RtpText" position="210,935" size="1650,50" font="RegularB; 36" noWrap="1" backgroundColor="background40" foregroundColor="amarillo" halign="left" valign="center" transparent="0" zPosition="9" />
   </screen>
   <!-- 07. Virtual Keyboard -->
@@ -3104,7 +3105,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt335.png" position="380,835" size="810,45" zPosition="-3" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb335.png" position="1085,850" size="500,30" zPosition="-3" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_rass_off.png" position="1605,798" size="84,37" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="RdsDecoder" render="Label" position="380,790" size="1075,45" font="LCD; 42" halign="center" valign="center" foregroundColor="cyan" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
+    <widget source="RdsDecoder" render="Label" position="380,790" size="1075,45" font="LCDA; 42" halign="center" valign="center" foregroundColor="cyan" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
       <convert type="RdsInfo">RadioText</convert>
     </widget>
     <widget source="RdsDecoder" render="Label" position="380,835" size="1075,45" font="RegularB; 30" halign="center" valign="top" foregroundColor="amarillo" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
