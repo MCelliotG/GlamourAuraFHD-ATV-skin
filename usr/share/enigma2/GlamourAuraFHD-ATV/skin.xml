@@ -2392,36 +2392,7 @@
   </screen>
   <!-- 04. Subservices Quickzap -->
   <screen name="SubservicesQuickzap" position="0,0" size="1920,1080" title="Subservices" backgroundColor="transparent" flags="wfNoBorder">
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Tuner Infobar -->
-    <panel name="TunerInfobar" />
-    <panel name="TunerInfo" />
-    <!-- Service info and icons -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="440,942" zPosition="-3" size="1480,40" alphatest="off" transparent="1" />
-    <panel name="IconsInfobar" />
-    <!-- MIDDLE INFOBAR MAIN INFO -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="370,708" zPosition="-1" size="1520,130" alphatest="on" transparent="1" />
-    <panel name="MainInfobar" />
-    <!-- Provider -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="955,133" zPosition="-2" size="675,50" alphatest="on" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <!-- Crypt Info -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1700,35" alphatest="blend" transparent="1" />
-    <panel name="CryptInfo" />
-    <panel name="CamName" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="200,1030" zPosition="-2" size="1720,35" alphatest="on" transparent="1" />
-    <!-- ECM Info -->
-    <panel name="ECMInfo" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,980" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
-    <!--/* WEATHER WIDGET -->
-    <panel name="WeatherToday" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar" />
+    <panel name="InfoBar" />
   </screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
@@ -3447,6 +3418,9 @@
     <widget source="Title" render="Label" position="655,40" size="990,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
     <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
     <panel name="FullKeys3" />
+  </screen>
+  <screen name="SlimChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ChannelSelection" />
   </screen>
   <!-- 04. Audio Selection -->
   <screen name="AudioSelection" title="Audio Selection" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
