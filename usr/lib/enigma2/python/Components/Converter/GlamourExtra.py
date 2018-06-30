@@ -46,7 +46,7 @@ class GlamourExtra(Poll, Converter):
                 pos += 1
         self.curr_info = self.getCpuInfo(self.type)
 
-        self.list = []       
+        self.list = []
         if "CPULoad" in type:
             self.type = self.CPULOAD
         elif "CPUSpeed" in type:
@@ -54,29 +54,21 @@ class GlamourExtra(Poll, Converter):
         elif "Temperature" in type:
             self.type = self.TEMPERATURE
         elif "HDDTemp" in type:
-            self.type = self.HDDTEMP 
+            self.type = self.HDDTEMP
         elif "FanSpeed" in type:
             self.type = self.FANSPEED
-            
         if self.type in (self.CPU_TOTAL, self.CPU_ALL):
             self.poll_interval = 500
         else:
             self.poll_interval = 7000
-        self.poll_enabled = True            
-            
-    def doSuspend(self, suspended):
-        if suspended:
-            self.poll_enabled = False
-        else:
-            self.downstream_elements.changed((self.CHANGED_POLL,))
-            self.poll_enabled = True
-            
-            
+        self.poll_enabled = True
+
+
     @cached
     def getText(self):
         res = self.sfmt
         self.prev_info, self.curr_info = self.curr_info, self.getCpuInfo(self.type)
-        text = ""          
+        text = ""
         for i in range(len(self.curr_info)):
             try:
                 p = 100 * (self.curr_info[i][2] - self.prev_info[i][2]) / (self.curr_info[i][1] - self.prev_info[i][1])
@@ -95,7 +87,7 @@ class GlamourExtra(Poll, Converter):
                 except:
                     load = ""
                 cpuload = load.replace("\n", "").replace(" ","")
-                return ("CPU Load: %s") % cpuload     
+                return ("CPU Load: %s") % cpuload
                    
         elif (self.type == self.TEMPERATURE):
             while True:
@@ -126,25 +118,22 @@ class GlamourExtra(Poll, Converter):
                     return ("CPU Temp: ") + cputemp
                 if cputemp == "":
                     return systemp
-                return systemp + "  " + ("CPU: ") + cputemp  
-                
+                return systemp + "  " + ("CPU: ") + cputemp
+
         elif (self.type == self.HDDTEMP):
-            while True:
-                hddtemp = "N/A"
-                htemp = ""
-                try:
-                    htemp = popen("hddtemp -n -q /dev/sda").readline()
-                    htemp = str(int(htemp))
-                    hddtemp = "HDD Temp: " + htemp + "°C"
-                    htemp.kill()
-                    break
-                except:
-                    pass
-                if htemp == "" or htemp == "0":
-                    return ("No HDD temp data")
-                else:
-                    return hddtemp  
-                    
+            hddtemp = "N/A"
+            htemp = ""
+            try:
+                htemp = popen("hddtemp -n -q /dev/sda").readline()
+                htemp = str(int(htemp))
+                hddtemp = "HDD Temp: " + htemp + "°C"
+            except:
+                pass
+            if htemp == "" or htemp == "0":
+                return ("No HDD temp data")
+            else:
+                return hddtemp
+
         elif (self.type == self.CPUSPEED):
             try:
                 cpuspeed = 0
@@ -164,7 +153,7 @@ class GlamourExtra(Poll, Converter):
                 return ("CPU Speed: %s MHz") % cpuspeed
             except:
                 return ""
-            
+
         elif (self.type == self.FANSPEED):
             if fileExists("proc/stb/fp/fan_speed"):
                 for line in open("/proc/stb/fp/fan_speed"):
