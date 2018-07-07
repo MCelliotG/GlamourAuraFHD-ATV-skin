@@ -59,12 +59,6 @@ class GlamourSpace(Poll, Converter):
             self.poll_interval = 1000
         self.poll_enabled = True
 
-    def doSuspend(self, suspended):
-        if suspended:
-            self.poll_enabled = False
-        else:
-            self.downstream_elements.changed((self.CHANGED_POLL,))
-            self.poll_enabled = True
 
     @cached
     def getText(self):
@@ -131,7 +125,7 @@ class GlamourSpace(Poll, Converter):
              self.SWAPFREE: ("Swap", "Swap", "Swap"),
              self.USBSPACE: ("/media/usb", "/media/usb", "USB"),
              self.HDDSPACE: ("/media/hdd", "/media/hdd", "HDD"),
-             self.NETSPACE: ("/media/net/LanHDD", "/media/net/LanHDD", "LanHDD"),
+             self.NETSPACE: ("/media/net/hdd", "/media/net/hdd", "LanHDD"),
              self.FLASHINFO: ("/", "/usr/lib/enigma2/python/Plugins/Extensions/OpenMultiboot", "Flash"),
              self.DATASPACE: ("/data", "/var/volatile", "Data")}[self.type]
             if self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE, self.NETSPACE):
@@ -168,7 +162,7 @@ class GlamourSpace(Poll, Converter):
         elif self.type in (self.USBSPACE, self.HDDSPACE, self.FLASHINFO, self.DATASPACE, self.NETSPACE):
             path = {self.USBSPACE: "/media/usb",
              self.HDDSPACE: "/media/hdd",
-             self.NETSPACE: "/media/net/LanHDD",
+             self.NETSPACE: "/media/net/hdd",
              self.FLASHINFO: "/",
              self.DATASPACE: "/data"}[self.type]
             result = self.getDiskInfo(path)[3]

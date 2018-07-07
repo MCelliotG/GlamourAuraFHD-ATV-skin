@@ -408,7 +408,7 @@ class GlamourBase(Poll, Converter, object):
         elif (orbe >= 30.9) and (orbe <= 31.1):
             sat = "Eutelsat 31A/Hylas 2"
         elif (orbe >= 30.7) and (orbe <= 30.8):
-            sat = "Eutelsat 31A"  
+            sat = "Eutelsat 31A"
         elif (orbe >= 30.2) and (orbe <= 30.6):
             sat = "Arabsat 5A"
         elif (orbe >= 28.0) and (orbe <= 28.8):
@@ -476,9 +476,9 @@ class GlamourBase(Poll, Converter, object):
         elif (orbw <= -17.8) and (orbw >= -18.3):
             sat = " Intelsat 37e"  
         elif (orbw <= -19.8) and (orbw >= -20.3):
-            sat = "NSS 7"  
+            sat = "NSS 7"
         elif (orbw <= -21.8) and (orbw >= -22.4):
-            sat = "SES 4" 
+            sat = "SES 4"
         elif (orbw <= -24.2) and (orbw >= -24.6):
             sat = "Intelsat 905" 
         elif (orbw <= -24.7) and (orbw >= -25.2):
@@ -486,9 +486,9 @@ class GlamourBase(Poll, Converter, object):
         elif (orbw <= -27.2) and (orbw >= -27.8):
             sat = "Intelsat 907" 
         elif (orbw <= -29.3) and (orbw >= -29.7):
-            sat = "Intelsat 701"                    
+            sat = "Intelsat 701"
         elif (orbw <= -29.8) and (orbw >= -30.5):
-            sat = "Hispasat 30W-4,30W-5"
+            sat = "Hispasat 30W-5,30W-6"
         elif (orbw <= -31.2) and (orbw >= -31.8):
             sat = "Intelsat 25"
         elif (orbw <= -33.3) and (orbw >= -33.7):
@@ -496,7 +496,7 @@ class GlamourBase(Poll, Converter, object):
         elif (orbw <= -34.2) and (orbw >= -34.8):
             sat = "Intelsat 35e"
         elif (orbw <= -35.7) and (orbw >= -36.3):
-            sat = "Eutelsat 36 West A,W1"
+            sat = "Eutelsat 36 W1"
         elif (orbw <= -37.2) and (orbw >= -37.7):
             sat = "NSS 10/Telstar 11N"
         elif (orbw <= -40.2) and (orbw >= -40.8):
