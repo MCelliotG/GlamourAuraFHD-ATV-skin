@@ -60,7 +60,7 @@ class GlamourExtra(Poll, Converter):
         if self.type in (self.CPU_TOTAL, self.CPU_ALL):
             self.poll_interval = 500
         else:
-            self.poll_interval = 7000
+            self.poll_interval = 8000
         self.poll_enabled = True
 
 
@@ -124,9 +124,11 @@ class GlamourExtra(Poll, Converter):
             hddtemp = "N/A"
             htemp = ""
             try:
-                htemp = popen("hddtemp -n -q /dev/sda").readline()
-                htemp = str(int(htemp))
-                hddtemp = "HDD Temp: " + htemp + "°C"
+                if fileExists("/usr/sbin/hddtemp"):
+                    htemp = popen("hddtemp -n -q /dev/sda").readline()
+                    htemp = str(int(htemp))
+                    hddtemp = "HDD Temp: " + htemp + "°C"
+                    htemp.close()
             except:
                 pass
             if htemp == "" or htemp == "0":
@@ -155,11 +157,14 @@ class GlamourExtra(Poll, Converter):
                 return ""
 
         elif (self.type == self.FANSPEED):
+            fanspeed = "No Fan detected"
+            fansp = ""
             if fileExists("proc/stb/fp/fan_speed"):
                 for line in open("/proc/stb/fp/fan_speed"):
                     fansp = line.strip('\n')
+                    return ("Fan Speed: %s") % fansp
             else:
-                fansp = "N/A"
+                return fanspeed
 
 
         return text
