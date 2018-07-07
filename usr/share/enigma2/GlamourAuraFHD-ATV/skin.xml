@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <skin>
   <!-- Glamour Aura FHD by MCelliot_g for OpenATV based images -->
   <!-- LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. -->
@@ -68,12 +69,13 @@
     <color name="transRed" value="#00800000" />
     <color name="transWhite" value="#25ffffff" />
     <color name="turquoise" value="#00149baf" />
+    <color name="unc1cdc1" value="#00c1cdc1" />
+    <color name="unc3c3c9" value="#00c3c3c9" />
     <color name="white" value="#00ffffff" />
     <color name="yellow" value="#00f2e000" />
   </colors>
   <fonts>
     <font filename="/usr/share/fonts/lcd.ttf" name="LCDA" scale="100" />
-    <font filename="/usr/share/fonts/nmsbd.ttf" name="FdLcD" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/consola.ttf" name="Console" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurar.ttf" name="Regular" scale="100" replacement="1" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurab.ttf" name="RegularB" scale="100" />
@@ -162,6 +164,34 @@
       <pixmap pos="bpBottom" filename="GlamourAuraFHD-ATV/window/bs_b.png" />
       <pixmap pos="bpBottomRight" filename="GlamourAuraFHD-ATV/window/bs_br.png" />
     </borderset>
+  </windowstyle>
+  <windowstyle type="skinned" id="1">
+    <color name="Background" color="black" />
+    <color name="LabelForeground" color="white" />
+    <color name="ListboxBackground" color="black" />
+    <color name="ListboxForeground" color="white" />
+    <color name="ListboxSelectedBackground" color="black" />
+    <color name="ListboxSelectedForeground" color="white" />
+    <color name="ListboxMarkedBackground" color="black" />
+    <color name="ListboxMarkedForeground" color="white" />
+    <color name="ListboxMarkedAndSelectedBackground" color="black" />
+    <color name="ListboxMarkedAndSelectedForeground" color="white" />
+    <color name="WindowTitleForeground" color="yellow" />
+    <color name="WindowTitleBackground" color="black" />
+  </windowstyle>
+  <windowstyle type="skinned" id="2">
+    <color name="Background" color="black" />
+    <color name="LabelForeground" color="black" />
+    <color name="ListboxBackground" color="black" />
+    <color name="ListboxForeground" color="white" />
+    <color name="ListboxSelectedBackground" color="black" />
+    <color name="ListboxSelectedForeground" color="white" />
+    <color name="ListboxMarkedBackground" color="black" />
+    <color name="ListboxMarkedForeground" color="white" />
+    <color name="ListboxMarkedAndSelectedBackground" color="black" />
+    <color name="ListboxMarkedAndSelectedForeground" color="white" />
+    <color name="WindowTitleForeground" color="white" />
+    <color name="WindowTitleBackground" color="black" />
   </windowstyle>
   <!-- PANELS -->
   <!-- 01. Key Panels -->
@@ -1779,40 +1809,44 @@
   </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,420" zPosition="-6" size="400,240" alphatest="on" transparent="1" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,440" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="90,445" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
-    <convert type="GlamourExtra">Temperature</convert>
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddtemp.png" position="45,480" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
-    <convert type="GlamourExtra">HDDTemp</convert>
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,520" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="90,525" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
-    <convert type="GlamourExtra">CPULoad</convert>
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,560" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="90,565" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1">
-    <convert type="GlamourExtra">CPU:$0 C1:$1 C2:$2</convert>
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,600" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="90,605" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
-    <convert type="GlamourExtra">CPUSpeed</convert>
-  </widget>
-</screen>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,420" zPosition="-6" size="400,240" alphatest="on" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,440" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,445" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
+      <convert type="GlamourExtra">Temperature</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,480" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
+      <convert type="GlamourExtra">FanSpeed</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,520" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,525" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
+      <convert type="GlamourExtra">CPULoad</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,560" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,565" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1">
+      <convert type="GlamourExtra">CPU:$0 C1:$1 C2:$2</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,600" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,605" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
+      <convert type="GlamourExtra">CPUSpeed</convert>
+    </widget>
+  </screen>
   <!-- HDD/USB Infopanel -->
   <screen name="HDDInfoPanel" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddspace.png" position="1105,820" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1160,825" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDspace" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddtemp.png" position="1105,820" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1160,825" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
+      <convert type="GlamourExtra">HDDTemp</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddspace.png" position="1105,860" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1160,865" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDspace" noWrap="1">
       <convert type="GlamourSpace">HDDSpace,Full</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/usbspace.png" position="1105,900" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1160,905" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="USBspace" noWrap="1" foregroundColor="amarillo">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/usbspace.png" position="1105,940" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1160,945" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="USBspace" noWrap="1" foregroundColor="amarillo">
       <convert type="GlamourSpace">USBSpace,Full</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/netspace.png" position="1105,860" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1160,865" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="Netspace" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/netspace.png" position="1105,900" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1160,905" size="580,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="Netspace" noWrap="1">
       <convert type="GlamourSpace">NetSpace,Full</convert>
     </widget>
   </screen>
@@ -2271,42 +2305,42 @@
   </screen>
   <!-- 02. Second Infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-  <!-- Clock -->
-  <panel name="ClockLabel2" />
-  <!--Tuner Infobar -->
-  <panel name="TunerInfobar" />
-  <panel name="TunerInfo" />
-  <!-- Service info and icons -->
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
-  <panel name="IconsInfobar" />
-  <!-- MIDDLE INFOBAR MAIN INFO -->
-  <panel name="MainInfobar" />
-  <!-- Provider name and Reference -->
-  <panel name="P+RInfobar" />
-  <!-- Current and next event -->
-  <panel name="EventInfobar" />
-  <!-- Pid and Reference info -->
-  <panel name="PIDSInfobar" />
-  <!-- CPU Info and Temp Info Panel -->
-  <panel name="CPUTempInfobar" />
-  <!-- Memory Info -->
-  <panel name="MemoryInfobar" />
-  <!-- Crypt Info -->
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1700,35" alphatest="blend" transparent="1" />
-  <panel name="CryptInfo" />
-  <panel name="CamName" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="150,1030" zPosition="-2" size="1770,35" alphatest="on" transparent="1" />
-  <!-- ECM Info -->
-  <panel name="ECMInfo" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,980" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-  <!-- Bitrate -->
-  <!--panel name="BitrateInfobar" /-->
-  <!--/* WEATHER WIDGETS -->
-  <panel name="Weather1" />
-  <panel name="Weather2" />
-  <!-- WEATHER Current Temp on Infobar -->
-  <panel name="WeatherInfobar" />
-</screen>
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Tuner Infobar -->
+    <panel name="TunerInfobar" />
+    <panel name="TunerInfo" />
+    <!-- Service info and icons -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
+    <panel name="IconsInfobar" />
+    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <panel name="MainInfobar" />
+    <!-- Provider name and Reference -->
+    <panel name="P+RInfobar" />
+    <!-- Current and next event -->
+    <panel name="EventInfobar" />
+    <!-- Pid and Reference info -->
+    <panel name="PIDSInfobar" />
+    <!-- CPU Info and Temp Info Panel -->
+    <panel name="CPUTempInfobar" />
+    <!-- Memory Info -->
+    <panel name="MemoryInfobar" />
+    <!-- Crypt Info -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1700,35" alphatest="blend" transparent="1" />
+    <panel name="CryptInfo" />
+    <panel name="CamName" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="150,1030" zPosition="-2" size="1770,35" alphatest="on" transparent="1" />
+    <!-- ECM Info -->
+    <panel name="ECMInfo" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,980" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Bitrate -->
+    <!--panel name="BitrateInfobar" /-->
+    <!--/* WEATHER WIDGETS -->
+    <panel name="Weather1" />
+    <panel name="Weather2" />
+    <!-- WEATHER Current Temp on Infobar -->
+    <panel name="WeatherInfobar" />
+  </screen>
   <!-- 03. Radio Infobar -->
   <!-- Radio Infobar -->
   <screen name="RadioInfoBar" position="0,0" size="1920,1080" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
@@ -2947,7 +2981,7 @@
     <panel name="MainBackgroundCS" />
     <panel name="ClockLabel3" />
     <widget source="Title" render="Label" position="785,35" size="855,100" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="on" transparent="1" />
     <widget source="ServiceEvent" render="Picon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
@@ -2971,7 +3005,7 @@
     <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="370,155" size="295,8" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,250" size="715,530" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,250" size="715,530" font="RegularB; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRoll" position="50,790" size="715,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
@@ -3001,12 +3035,12 @@
     <panel name="FullKeysCC" />
     <!-- Title & Channel List -->
     <widget source="Title" render="Label" position="785,35" size="870,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="785,135" size="1095,650" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
+    <widget name="list" position="785,135" size="1095,650" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
     <!-- Event Infos -->
     <widget source="ServiceEvent" render="Label" position="45,30" size="715,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRoll" position="50,188" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="amarillo" zPosition="7">
+    <widget source="ServiceEvent" render="GlamRoll" position="50,190" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="black" zPosition="7">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="45,135" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
@@ -3403,7 +3437,7 @@
       <convert type="GlamourAccess">EcmInfo</convert>
     </widget>
     <!-- Frequency Info  -->
-    <widget position="50,995" size="720,40" source="ServiceEvent" render="GlamTP" font="Regular; 26" noWrap="1" halign="center" valign="center" backgroundColor="grey2" zPosition="8" transparent="1" foregroundColor="amarillo" />
+    <widget position="50,995" size="720,40" source="ServiceEvent" render="GlamTP" font="Regular; 26" noWrap="1" halign="center" valign="center" backgroundColor="grey2" zPosition="8" transparent="1" foregroundColor="black" />
     <!-- Bitrate Info  -->
     <!--eLabel text="Audio:" font="RegularB; 26" position="1700,852" size="85,35" transparent="1" zPosition="5" foregroundColor="cyan1" backgroundColor="background20" halign="center" noWrap="1" valign="center" />
     <widget source="session.CurrentService" render="Label" position="1780,852" size="110,35" font="RegularB; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="cyan1" noWrap="1" valign="center" text="320 Kb/s">
@@ -3416,7 +3450,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <ePixmap position="135,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tv.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="Title" render="Label" position="655,40" size="990,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
+    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
     <panel name="FullKeys3" />
   </screen>
   <screen name="SlimChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
@@ -3784,22 +3818,21 @@ if not self["videofps"].text:
   <screen name="EPGSelectionMulti" position="center,center" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="Title" render="Label" position="645,75" size="1005,60" font="RegularB; 40" backgroundColor="background20" halign="center" transparent="1" foregroundColor="sky" zPosition="3" />
     <widget source="Event" render="Label" position="60,150" size="565,100" font="Caps; 36" backgroundColor="transWhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,260" size="565,740" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="665,230" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmultiblue90.png" alphatest="blend" zPosition="5" />
-    <eLabel name="new eLabel" position="705,210" size="1110,3" zPosition="1" backgroundColor="grey" />
-    <widget name="now_button_sel" position="667,142" size="675,55" zPosition="2" pixmap="GlamourAuraFHD-ATV/epg/epg_now.png" />
-    <widget name="next_button_sel" position="667,142" size="675,55" zPosition="2" pixmap="GlamourAuraFHD-ATV/epg/epg_next.png" />
-    <widget name="more_button_sel" position="667,142" size="675,55" zPosition="2" pixmap="GlamourAuraFHD-ATV/epg/epg_more.png" />
-    <widget name="now_text" position="667,142" size="225,55" zPosition="3" text="NOW" font="RegularB; 30" halign="center" backgroundColor="dark" transparent="1" foregroundColor="amarillo" noWrap="1" valign="bottom" />
-    <widget name="next_text" position="892,142" size="225,55" zPosition="3" text="NEXT" font="RegularB; 30" halign="center" backgroundColor="dark" transparent="1" foregroundColor="amarillo" noWrap="1" valign="bottom" />
-    <widget name="more_text" position="1117,142" size="225,55" zPosition="3" text="MORE" font="RegularB; 30" halign="center" backgroundColor="dark" transparent="1" foregroundColor="amarillo" noWrap="1" valign="bottom" />
-    <widget name="date" position="1342,142" size="525,55" font="Regular; 30" valign="center" halign="right" transparent="1" noWrap="1" backgroundColor="background20" zPosition="5" />
+    <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmultiblue90.png" alphatest="blend" zPosition="5" />
+    <eLabel name="new eLabel" position="665,210" size="1200,3" zPosition="5" backgroundColor="cyan" foregroundColor="cyan1" />
+    <widget name="now_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_now.png" alphatest="blend" transparent="1" />
+    <widget name="next_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_next.png" alphatest="blend" transparent="1" />
+    <widget name="more_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_more.png" alphatest="blend" transparent="1" />
+    <widget name="now_text" position="675,140" size="220,60" zPosition="6" text="NOW" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" valign="center" />
+    <widget name="next_text" position="915,140" size="220,60" zPosition="6" text="NEXT" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" valign="center" />
+    <widget name="more_text" position="1150,140" size="220,60" zPosition="6" text="MORE" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="amarillo" transparent="1" noWrap="1" valign="center" />
+    <widget name="date" position="1380,145" size="480,60" font="Regular; 28" valign="center" halign="right" transparent="1" noWrap="1" backgroundColor="background20" zPosition="5" foregroundColor="yellow" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
     <panel name="FullKeys3" />
   </screen>
@@ -5124,7 +5157,6 @@ if not self["videofps"].text:
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="hddlist" font="Regular; 30" position="541,93" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="5" />
-    <panel name="HDDInfoPanel" />
   </screen>
   <!-- 02. HDD setup -->
   <screen name="HarddiskSetup" position="0,0" size="1920,1080" title="HDD Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -5137,7 +5169,6 @@ if not self["videofps"].text:
     <widget name="bus" position="540,330" size="1305,75" font="Regular; 34" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget name="initializetext" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <panel name="HDDInfoPanel" />
   </screen>
   <screen name="HddSetup" position="0,0" size="1920,1080" title="Hard Drive Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -5165,7 +5196,6 @@ if not self["videofps"].text:
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="wait" position="540,90" size="1305,700" font="RegularB; 40" transparent="1" zPosition="5" halign="center" />
-    <panel name="HDDInfoPanel" />
   </screen>
   <!-- 04. HDD partitions -->
   <screen name="HddPartitions" position="0,0" size="1920,1080" title="Hard Drive Partitions" flags="wfNoBorder" backgroundColor="transparent">
@@ -5605,7 +5635,7 @@ if not self["videofps"].text:
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="ServiceList_desc" render="Label" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" />
-    <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
+    <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
     <widget source="ServiceList_info" render="Label" position="540,150" size="1305,700" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="lightciel" />
     <panel name="FullKeys1" />
   </screen>
@@ -5625,7 +5655,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
     <widget source="introduction" render="Label" position="540,770" size="1305,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -5635,7 +5665,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="3" />
     <widget source="introduction" render="Label" position="540,770" size="1305,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>

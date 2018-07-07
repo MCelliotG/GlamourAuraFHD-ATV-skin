@@ -26,7 +26,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <ePixmap position="135,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/channelselection.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="Title" render="Label" position="655,40" size="990,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" progressPercentWidth="75" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
+    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" itemHeight="50" zPosition="3" />
     <panel name="FullKeys3" />
   </screen>
   <screen name="EventViewSimple" position="0,0" size="1920,1080" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
@@ -406,20 +406,20 @@
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/memory.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="AboutScrollLabel" render="Label" position="542,90" size="1305,750" font="Regular; 32" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
   <screen name="SystemNetworkInfo" position="0,0" size="1920,1080" title="System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
     <panel name="MainBackground2" flags="wfNoBorder" />
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/network.png" alphatest="on" transparent="1" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="607,850" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="IF" render="Label" position="540,75" size="745,45" font="RegularB; 36" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="4" />
     <eLabel position="540,127" size="750,3" backgroundColor="grey" zPosition="5" />
     <widget source="Statustext" render="Label" position="1320,75" size="270,45" font="Regular; 36" backgroundColor="background20" transparent="1" halign="right" zPosition="4" />
     <widget name="statuspic" position="1590,45" size="225,75" pixmaps="GlamourAuraFHD-ATV/buttons/aura_green.png,GlamourAuraFHD-ATV/buttons/aura_grey.png" transparent="1" alphatest="blend" />
     <widget source="IFtext" render="Label" font="RegularB; 33" backgroundColor="background20" foregroundColor="white" halign="left" position="540,140" size="745,45" transparent="1" zPosition="4" />
     <widget name="AboutScrollLabel" itemHeight="50" font="Regular;30" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" halign="left" position="540,190" size="1305,650" transparent="1" zPosition="9" />
-    <widget source="key_red" render="Label" position="540,850" size="360,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="center" />
+    <panel name="RedKey1" />
   </screen>
   <screen name="SoftwareUpdateChanges" position="0,0" size="1920,1080" title="Software Update Changes" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -455,7 +455,7 @@
     </widget>
     <widget source="introduction" render="Label" position="540,700" size="1305,150" font="Regular; 30" foregroundColor="sky" halign="center" backgroundColor="background20" valign="center" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1555,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1699,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
     <panel name="RedKey2" />
   </screen>
   <screen name="ImageBackup" position="0,0" size="1920,1080" title="Image Backup" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
@@ -479,10 +479,8 @@
     <widget name="text" render="Label" position="540,90" size="1305,80" font="Regular; 32" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
     <widget name="list" font="Regular; 30" position="542,190" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
   </screen>
-  
 
-  
-  
+
   <!-- 04. HDD SCREENS -->
   <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -495,6 +493,7 @@
     <widget source="hdd" render="Label" position="540,530" size="1305,200" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" scrollbarMode="showOnDemand" />
     <widget source="MountsHeader" render="Label" position="540,740" size="1305,50" font="RegularB; 36" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="turquoise" />
     <widget source="mounts" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,790" size="1305,160" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
 
   <screen name="HddMount" position="0,0" size="1920,1080" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -810,128 +809,16 @@
     <widget source="session.CurrentService" render="Label" position="885,10" size="950,35" font="Regular; 26" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="background20" halign="right" valign="center" noWrap="1" text="PidInfo">
       <convert type="GlamourBase">PidHexInfo</convert>
     </widget>
-  </screen>  
-  <screen name="SecondInfoBarECM" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Tuner Infobar -->
-    <panel name="TunerInfobar" />
-    <panel name="TunerInfo" />
-    <!-- Service info and icons -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
-    <panel name="IconsInfobar" />
-    <!-- MIDDLE INFOBAR MAIN INFO -->
-    <panel name="MainInfobar" />
-    <!-- Provider name and Reference -->
-    <panel name="P+RInfobar" />
-    <!-- Current and next event -->
-    <panel name="EventInfobar" />
-    <!-- Pid and Reference info -->
-    <panel name="PIDSInfobar" />
-    <!-- CPU Info and Temp Info Panel -->
-    <panel name="CPUTempInfobar" />
-    <!-- Memory Info -->
-    <panel name="MemoryInfobar" />
-    <!-- Crypt Info -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1700,35" alphatest="blend" transparent="1" />
-    <panel name="CryptInfo" />
-    <panel name="CamName" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="150,1030" zPosition="-2" size="1770,35" alphatest="on" transparent="1" />
-    <!-- ECM Info -->
-    <panel name="ECMInfo" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,980" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
-    <!--/* WEATHER WIDGETS -->
-    <panel name="Weather1" />
-    <panel name="Weather2" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar" />
   </screen>
+    <!-- SECOND INFOBAR ECM -->
+    <screen name="SecondInfoBarECM" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="SecondInfoBar" />
+  </screen>
+    <!-- EVENT VIEW EPG SELECT -->
   <screen name="EventViewEPGSelect" title="Eventview EPG Select" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventviewaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="Title" render="GlamRoll" position="40,340" size="600,60" font="RegularB; 32" backgroundColor="background20" halign="center" noWrap="1" transparent="1" foregroundColor="sky" zPosition="3" />
-    <widget name="channel" position="665,85" size="975,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />
-    <widget name="datetime" position="125,585" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="4" />
-    <widget name="duration" position="125,685" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="5" />
-    <widget name="FullDescription" position="665,165" size="1210,770" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
-    <widget source="session.Event_Now" render="Label" position="40,400" size="600,90" transparent="1" zPosition="8" foregroundColor="cyan1" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
-      <convert type="EventName">Genre</convert>
-    </widget>
-    <widget source="session.Event_Now" render="Label" position="40,490" size="600,70" transparent="1" zPosition="8" foregroundColor="cyan" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
-      <convert type="EventName">Rating</convert>
-    </widget>
-    <widget source="session.Event_Next" render="Label" position="37,890" size="600,105" transparent="1" zPosition="8" foregroundColor="black" font="RegularB; 30" halign="center" valign="center" backgroundColor="grey2">
-      <convert type="EventName">NameNext</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1552,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
-    <ePixmap position="50,640" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
-    <ePixmap position="555,640" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
-    <widget source="session.CurrentService" render="Label" position="40,765" size="600,75" font="Numbers; 32" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="grey2" halign="center" valign="center" text="PidHexInfo">
-      <convert type="GlamourBase">PidHexInfo</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hd_off.png" position="50,850" size="50,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" position="50,850" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hd_on.png" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">VideoHeight</convert>
-      <convert type="ValueRange">720,1988</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_dolby_off.png" position="165,850" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_dolby_on.png" position="165,850" size="84,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsMultichannel</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_4k_off.png" position="105,850" size="52,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_4k_on.png" position="105,850" size="52,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">VideoWidth</convert>
-      <convert type="ValueRange">2800,4400</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_wide_off.png" position="260,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_wide_on.png" position="260,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsWidescreen</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hbbtv_off.png" position="320,850" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" position="320,850" size="84,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hbbtv_on.png" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">HasHBBTV</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_txt_off.png" position="410,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_txt_on.png" position="410,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">HasTelext</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_sub_off.png" position="470,850" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_sub_on.png" position="470,850" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">SubtitlesAvailable</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_crypt_off.png" position="595,850" size="33,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_crypt_on.png" position="595,850" size="33,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsCrypted</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_stream_off.png" position="530,850" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_stream_on.png" position="530,850" size="60,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsStreaming</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <eLabel position="97,665" size="465,3" backgroundColor="dark" foregroundColor="darkgrey" zPosition="4" />
-    <widget source="session.Event_Now" render="Progress" position="97,662" size="465,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" borderWidth="0" transparent="1" zPosition="5">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="GlamRefString">CurrentRef</convert>
-    </widget>
-    <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="ServiceName">Reference</convert>
-    </widget>
-    <panel name="FullKeys3" />
+    <panel name="EventView" />
   </screen>
-  
-  
+
   <!-- 09. ZAP SCREENS -->
   <screen name="HistoryZapSelector" position="0,0" size="1920,1080" title="History Zap Selector" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground2" flags="wfNoBorder" />
