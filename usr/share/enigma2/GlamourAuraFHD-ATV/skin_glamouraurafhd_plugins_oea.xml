@@ -101,6 +101,131 @@
     <widget name="HelpWindow" position="540,695" zPosition="8" size="1,1" transparent="1" alphatest="blend" />
     <panel name="RGBKeys1" />
   </screen>  
+
+  <!-- Weather Plugin -->
+  <screen name="MSNWeatherPluginSearch" position="0,0" size="1920,1080" title="Config WeatherMSN" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/msnweather.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="entrylist" font="Regular; 30" position="540,90" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
+    <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="MSNWeatherPlugin" position="0, 0" flags="wfNoBorders" transparent="0" backgroundColor="transparent" size="1920, 1080">
+    <widget render="Label" source="caption" position="540,70" zPosition="4" size="1320,60" font="RegularB; 45" transparent="1" foregroundColor="cyan1" halign="center" backgroundColor="background20" />
+    <widget render="Label" source="observationtime" position="605,140" zPosition="6" size="680,45" font="Regular; 30" transparent="1" halign="left" valign="bottom" backgroundColor="background20" foregroundColor="lightciel" />
+    <widget render="Label" source="observationpoint" position="540,190" zPosition="7" size="1320,45" font="Regular; 30" transparent="1" halign="left" backgroundColor="background20" />
+    <widget name="currenticon" position="540,270" zPosition="6" size="125,105" alphatest="blend" transparent="1" />
+    <widget render="Label" source="currentTemp" position="680,270" zPosition="1" size="200,60" font="Numbers; 60" transparent="1" foregroundColor="cyan1" backgroundColor="background20" />
+    <widget render="Label" source="feelsliketemp" position="680,330" zPosition="5" size="400,45" font="Regular; 30" transparent="1" valign="bottom" backgroundColor="background20" foregroundColor="lightciel" />
+    <widget render="Label" source="condition" position="1090,270" zPosition="7" size="770,40" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="wind_condition" position="1090,310" zPosition="8" size="770,40" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="humidity" position="1090,350" zPosition="7" size="770,40" font="Regular; 28" valign="bottom" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="weekday1" position="540,470" zPosition="4" size="264,40" halign="center" valign="center" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget name="weekday1_icon" position="610,510" zPosition="5" size="125,105" alphatest="blend" />
+    <widget render="Label" source="weekday1_temp" position="540,625" zPosition="5" size="264,160" halign="center" valign="top" font="Regular; 25" transparent="1" />
+    <widget render="Label" source="weekday2" position="804,470" zPosition="4" size="264,40" halign="center" valign="center" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget name="weekday2_icon" position="870,510" zPosition="5" size="125,105" alphatest="blend" />
+    <widget render="Label" source="weekday2_temp" position="804,625" zPosition="5" size="264,160" halign="center" valign="top" font="Regular; 25" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="weekday3" position="1068,470" zPosition="4" size="264,40" halign="center" valign="center" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget name="weekday3_icon" position="1140,510" zPosition="5" size="125,105" alphatest="blend" />
+    <widget render="Label" source="weekday3_temp" position="1068,625" zPosition="5" size="264,160" halign="center" valign="top" font="Regular; 25" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="weekday4" position="1332,470" zPosition="4" size="264,40" halign="center" valign="center" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget name="weekday4_icon" position="1405,512" zPosition="5" size="125,105" alphatest="blend" />
+    <widget render="Label" source="weekday4_temp" position="1332,625" zPosition="5" size="264,160" halign="center" valign="top" font="Regular; 25" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="weekday5" position="1596,470" zPosition="4" size="264,40" halign="center" valign="center" font="Regular; 28" transparent="1" backgroundColor="background20" />
+    <widget name="weekday5_icon" position="1665,510" zPosition="5" size="125,105" alphatest="blend" />
+    <widget render="Label" source="weekday5_temp" position="1596,625" zPosition="5" size="264,160" halign="center" valign="top" font="Regular; 25" transparent="1" backgroundColor="background20" />
+    <widget render="Label" source="statustext" position="540,270" zPosition="-1" size="1280,500" font="RegularB; 40" halign="center" valign="center" transparent="0" foregroundColor="amarillo" />
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/msnweather.png" alphatest="on" transparent="1" zPosition="5" />
+    <eLabel position="540,455" size="1300,3" backgroundColor="cyan" zPosition="2" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/angle.png" position="540,135" size="50,50" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" alphatest="blend" position="1739,869" size="120,60" zPosition="3" transparent="1" />
+  </screen>
+  <screen name="MSNWeatherPluginEntryConfigScreen" position="0,0" size="1920,1080" title="Config WeatherMSN" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/msnweather.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
+    <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="MSNWeatherPluginEntriesListConfigScreen" position="0,0" size="1920,1080" title="Config WeatherMSN" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/msnweather.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="entrylist" font="Regular; 30" position="540,90" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
+    <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
+    <panel name="FullKeys1" />
+  </screen>
+
+  <!-- Foreca -->
+  <screen name="ForecaPreviewCache" position="1200,500" size="80,80" flags="wfNoBorder" backgroundColor="background20">
+    <widget name="spinner" position="0,0" zPosition="4" size="80,80" alphatest="blend" />
+  </screen>
+  <screen name="ForecaPreview" position="0,0" size="1920,1080" title="Foreca Preview" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/foreca.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="465,120" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
+    <ePixmap position="470,780" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
+    <ePixmap position="540,55" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
+    <ePixmap position="1790,55" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
+    <widget name="MainList" position="540,120" size="1305,720" backgroundColor="background20" foregroundColor="orange" foregroundColorSelected="cyan1" backgroundColorSelected="background20" itemHeight="120" font0="Regular;28" font1="Regular;27" font2="Regular;27" font3="Regular;27" setTime="10,40,90,50" setPict="100,10,95,95" setPictScale="1" setTemp="210,10,150,50" setTempUnits="230,60,120,50" setWindPict="360,40,50,50" setWindPictScale="1" setWind="420,10,130,50" setWindUnits="420,60,130,50" text1Pos="555,40,330,50" text2Pos="890,5,410,40" text3Pos="890,45,410,40" text4Pos="890,85,410,40" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" zPosition="5" />
+    <widget source="Titel" render="Label" position="595,60" zPosition="3" size="1195,50" font="RegularB; 34" valign="center" halign="center" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
+    <widget source="Titel2" render="Label" position="595,60" zPosition="2" size="1195,50" font="RegularB; 34" valign="center" halign="center" transparent="1" foregroundColor="orange" backgroundColor="background20" />
+    <eLabel position="540,115" zPosition="4" size="1305,2" foregroundColor="cyan" backgroundColor="cyan2" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu.png" position="1370,855" size="50,30" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="key_menu" render="Label" position="1425,855" zPosition="8" size="120,40" font="Regular; 25" valign="center" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_ok.png" position="1140,855" size="50,30" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="key_ok" render="Label" position="1195,855" zPosition="8" size="120,40" font="Regular; 25" valign="center" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info.png" position="1600,855" size="50,30" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="key_info" render="Label" position="1655,855" zPosition="2" size="120,40" font="Regular; 25" valign="center" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_help.png" position="1800,855" size="50,30" alphatest="blend" transparent="1" zPosition="5" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="CityPanel" position="0,0" size="1920,1080" title="Select a city" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/foreca.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="Mlist" font="Regular; 30" position="540,60" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="540,880" size="68,45" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="key_ok" render="Label" position="615,885" zPosition="8" size="240,40" font="Regular; 25" valign="center" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_help_big.png" position="539,815" size="120,60" alphatest="blend" transparent="1" zPosition="5" />
+    <panel name="GYBKeys1" />
+  </screen>
+  <screen name="SatPanel" position="0,0" size="1920,1080" title="Satellite photos" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/foreca.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="Mlist" font="Regular;45" position="542,70" size="1305,720" itemHeight="120" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" zPosition="5" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="SatPanelb" position="0,0" size="1920,1080" title="Satellite photos" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/foreca.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="Mlist" font="Regular;45" position="542,70" size="1305,840" itemHeight="120" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" zPosition="5" />
+  </screen>
+  <screen name="PicSetup" position="0,0" size="1920,1080" title="SlideShow Settings" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/foreca.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="Mlist" font="Regular; 30" position="540,70" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
+    <panel name="RGKeys1" />
+  </screen>
+  
   
   <!-- YouTube Plugin -->
   <!-- MAIN -->
