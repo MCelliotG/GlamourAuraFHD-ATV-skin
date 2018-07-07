@@ -69,8 +69,6 @@
     <color name="transRed" value="#00800000" />
     <color name="transWhite" value="#25ffffff" />
     <color name="turquoise" value="#00149baf" />
-    <color name="unc1cdc1" value="#00c1cdc1" />
-    <color name="unc3c3c9" value="#00c3c3c9" />
     <color name="white" value="#00ffffff" />
     <color name="yellow" value="#00f2e000" />
   </colors>
