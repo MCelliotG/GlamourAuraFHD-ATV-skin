@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<skin>
+﻿<skin>
   <!-- Glamour Aura FHD by MCelliot_g for OpenATV based images -->
   <!-- LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. -->
   <!-- This skin was created for new generation Enigma2 receivers. MINIMAL requirement is an STB running Enigma2 with a dual CPU @ 1000 MHz. -->
@@ -23,7 +22,8 @@
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_emc.xml" />
   <colors>
     <color name="amarillo" value="#00ffffc6" />
-    <color name="background" value="#40000000" />
+    <color name="background" value="#30000000" />
+    <color name="background10" value="#10000000" />
     <color name="background20" value="#20000000" />
     <color name="background40" value="#40000000" />
     <color name="background90" value="#90000000" />
@@ -55,7 +55,6 @@
     <color name="purple" value="#006c0aab" />
     <color name="rds_text_bg" value="#00003258" />
     <color name="red" value="#00ff0000" />
-    <color name="red2" value="#00f23d21" />
     <color name="rssviewtop" value="#45005050" />
     <color name="sky" value="#0018b9ce" />
     <color name="transAccent" value="#4018b9ce" />
@@ -192,6 +191,10 @@
     <color name="WindowTitleForeground" color="white" />
     <color name="WindowTitleBackground" color="black" />
   </windowstyle>
+  <switchpixmap>
+    <pixmap name="menu_on" filename="GlamourAuraFHD-ATV/switches/menu_on.png" size="60,20" alphatest="blend" />
+    <pixmap name="menu_off" filename="GlamourAuraFHD-ATV/switches/menu_off.png" size="60,20" alphatest="blend" />
+  </switchpixmap>
   <!-- PANELS -->
   <!-- 01. Key Panels -->
   <screen name="FullKeysCC" flags="wfNoBorder">
@@ -1416,7 +1419,7 @@
     </widget>
     <!--widget source="session.CurrentService" render="ChannelNumber" position="50,735" size="300,70" font="Numbers; 65" valign="bottom" halign="center" noWrap="1" backgroundColor="transparent" transparent="1" foregroundColor="white" zPosition="9" /-->
     <!-- Picon -->
-    <widget source="session.CurrentService" render="Picon" position="50,803" zPosition="4" size="300,180" transparent="1" alphatest="blend">
+    <widget source="session.CurrentService" render="GlamPicon" position="50,803" zPosition="4" size="300,180" transparent="1" alphatest="blend">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!-- Current and next event -->
@@ -2763,7 +2766,7 @@
   <screen name="NumberZapPicon" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="background90">
     <widget name="number" position="556,490" size="809,100" halign="center" font="Numbers; 80" backgroundColor="preTrans" foregroundColor="transpWhite" transparent="1" noWrap="1" />
     <widget name="servicename" position="0,590" size="1920,140" backgroundColor="preTrans" transparent="1" font="RegularB; 80" valign="center" halign="center" foregroundColor="transWhite" noWrap="1" />
-    <widget source="Service" render="Picon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
+    <widget source="Service" render="GlamPicon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
       <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
@@ -2869,7 +2872,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/about.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="AboutScrollLabel" position="540,90" size="1305,720" font="Regular; 36" halign="left" backgroundColor="background" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
+    <widget name="AboutScrollLabel" position="540,90" size="1305,720" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
     <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
     <panel name="FullKeys1" />
   </screen>
@@ -2879,8 +2882,8 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/info.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="TranslatorName" render="Label" position="540,90" size="1305,165" font="Regular; 36" halign="left" backgroundColor="background" transparent="1" foregroundColor="sky" zPosition="6" />
-    <widget source="TranslationInfo" render="Label" position="540,270" size="1305,585" font="Regular; 36" halign="left" backgroundColor="background" transparent="1" zPosition="8" />
+    <widget source="TranslatorName" render="Label" position="540,90" size="1305,165" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="6" />
+    <widget source="TranslationInfo" render="Label" position="540,270" size="1305,585" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" zPosition="8" />
     <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
   </screen>
   <!-- 03. CommitInfo -->
@@ -2889,7 +2892,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/info.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background" transparent="1" foregroundColor="cyan1" zPosition="6" />
+    <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
     <ePixmap position="1845,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="1845,735" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
     <ePixmap position="540,35" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
@@ -2902,7 +2905,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/info.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 30" halign="left" backgroundColor="background" transparent="1" foregroundColor="cyan1" zPosition="6" />
+    <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
     <ePixmap position="1845,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="1845,735" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
     <ePixmap position="540,35" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
@@ -2982,7 +2985,7 @@
     <widget source="Title" render="Label" position="785,35" size="855,100" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
     <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="ServiceEvent" render="Picon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
+    <widget source="ServiceEvent" render="GlamPicon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="265,30" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
@@ -3120,7 +3123,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Picon and TunerInfos  -->
-    <widget source="ServiceEvent" render="Picon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
+    <widget source="ServiceEvent" render="GlamPicon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1512,885" size="30,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -3594,10 +3597,10 @@
     <widget source="session.Event_Now" render="Progress" position="97,662" size="465,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" borderWidth="0" transparent="1" zPosition="5">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
+    <widget source="Title" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
       <convert type="GlamRefString">CurrentRef</convert>
     </widget>
-    <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
+    <widget source="ServiceEvent" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <panel name="FullKeys3" />
