@@ -832,6 +832,7 @@
   <!-- Event Descriptions -->
   <ePixmap position="1055,895" size="810,45" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" transparent="1" alphatest="blend" />
   <ePixmap position="230,820" size="540,45" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowt540.png" transparent="1" alphatest="blend" />
+  <ePixmap position="925,820" size="65,60" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" transparent="1" alphatest="blend" />
   <widget source="Event" render="Label" position="80,820" size="850,40" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" valign="center">
     <convert type="EventName">Name</convert>
   </widget>
