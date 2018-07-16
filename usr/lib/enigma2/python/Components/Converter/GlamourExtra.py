@@ -4,8 +4,8 @@
 
 from Components.Converter.Converter import Converter 
 from Components.Element import cached 
-from Poll import Poll 
-import os
+from Poll import Poll
+from enigma import eConsoleAppContainer 
 from os import system, path, popen
 from Tools.Directories import fileExists
 
@@ -23,6 +23,7 @@ class GlamourExtra(Poll, Converter):
     def __init__(self, type):
         Converter.__init__(self, type)
         Poll.__init__(self)
+        self.container = eConsoleAppContainer()
         self.type = type
         self.short_list = True
         self.cpu_count = 0
@@ -125,7 +126,8 @@ class GlamourExtra(Poll, Converter):
             htemp = ""
             try:
                 if fileExists("/usr/sbin/hddtemp"):
-                    htemp = popen("hddtemp -n -q /dev/sda").readline()
+                    cmd = "hddtemp -n -q /dev/sda"
+                    htemp = self.container.execute(cmd).readline()
                     htemp = str(int(htemp))
                     hddtemp = "HDD Temp: " + htemp + "°C"
                     htemp.close()
