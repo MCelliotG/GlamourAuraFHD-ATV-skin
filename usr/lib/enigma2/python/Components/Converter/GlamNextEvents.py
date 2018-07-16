@@ -16,7 +16,7 @@ class GlamNextEvents(Converter, object):
 	Event2 = 1
 	Event3 = 2
 	Event4 = 3
-	Event5 = 4		
+	Event5 = 4
 	PrimeTime = 5
 	noDuration = 10
 	onlyDuration = 11
@@ -28,7 +28,7 @@ class GlamNextEvents(Converter, object):
 		self.epgcache = eEPGCache.getInstance()
 
 		args = type.split(',')
-		if len(args) != 2: 
+		if len(args) != 2:
 			raise ElementError("type must contain exactly 2 arguments")
 	
 		type = args.pop(0)
