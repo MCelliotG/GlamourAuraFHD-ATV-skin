@@ -17,7 +17,7 @@ class GlamourExtra(Poll, Converter):
     HDDTEMP = 4
     CPULOAD = 5
     CPUSPEED = 6
-    FANSPEED = 7
+    FANINFO = 7
 
 
     def __init__(self, type):
@@ -55,12 +55,12 @@ class GlamourExtra(Poll, Converter):
             self.type = self.TEMPERATURE
         elif "HDDTemp" in type:
             self.type = self.HDDTEMP
-        elif "FanSpeed" in type:
-            self.type = self.FANSPEED
+        elif "FanInfo" in type:
+            self.type = self.FANINFO
         if self.type in (self.CPU_TOTAL, self.CPU_ALL):
             self.poll_interval = 500
         else:
-            self.poll_interval = 8000
+            self.poll_interval = 7000
         self.poll_enabled = True
 
 
@@ -76,7 +76,7 @@ class GlamourExtra(Poll, Converter):
                 p = 0
             res = res.replace("$" + str(i), "% 3d%%" % p)
             text = res.replace("$?", "%d" % self.cpu_count)
-                    
+
         if (self.type == self.CPULOAD):
             cpuload = ""
             if fileExists("/proc/loadavg"):
@@ -156,15 +156,31 @@ class GlamourExtra(Poll, Converter):
             except:
                 return ""
 
-        elif (self.type == self.FANSPEED):
-            fanspeed = "No Fan detected"
-            fansp = ""
-            if fileExists("proc/stb/fp/fan_speed"):
-                for line in open("/proc/stb/fp/fan_speed"):
-                    fansp = line.strip('\n')
-                    return ("Fan Speed: %s") % fansp
-            else:
-                return fanspeed
+
+        if (self.type == self.FANINFO):
+            fs = ""
+            fv = ""
+            fp = ""
+            try:
+                if fileExists("/proc/stb/fp/fan_speed"):
+                    fs = str(open("/proc/stb/fp/fan_speed", "r").readline().strip())
+                    fs = ("Speed: %s  ") % fs
+                    fs.close()
+                if fileExists("/proc/stb/fp/fan_vlt"):
+                    fv = int(open("/proc/stb/fp/fan_vlt", "r").readline().strip(), 16)
+                    fv = str(fv)
+                    fv = ("V: %s  ") % fv
+                    fv.close()
+                if fileExists("/proc/stb/fp/fan_pwm"):
+                    fp = int(open("/proc/stb/fp/fan_pwm", "r").readline().strip(), 16)
+                    fp = str(fp)
+                    fp = ("PWM: %s  ") % fp
+                    fp.close()
+            except:
+                pass
+            if fs == "":
+                return "Fan Info: N/A"
+            return fs + fv + fp
 
 
         return text

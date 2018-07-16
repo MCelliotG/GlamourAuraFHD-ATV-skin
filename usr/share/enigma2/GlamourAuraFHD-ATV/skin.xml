@@ -1,4 +1,4 @@
-﻿<skin>
+<skin>
   <!-- Glamour Aura FHD by MCelliot_g for OpenATV based images -->
   <!-- LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. -->
   <!-- This skin was created for new generation Enigma2 receivers. MINIMAL requirement is an STB running Enigma2 with a dual CPU @ 1000 MHz. -->
@@ -407,11 +407,11 @@
   <screen name="MainMenu1" flags="wfNoBorder">
     <widget source="menu" render="Listbox" position="770,60" size="990,880" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [ MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
-				"fonts": [gFont("Regular", 45)],
-				"itemHeight": 80
-				}
-			</convert>
+        {"template": [ MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+        "fonts": [gFont("Regular", 45)],
+        "itemHeight": 80
+        }
+      </convert>
     </widget>
     <ePixmap position="1770,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="1770,850" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
@@ -425,29 +425,29 @@
   <screen name="MenuCL" flags="wfNoBorder">
     <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/cutselectionblue.png" alphatest="blend" transparent="1" zPosition="13">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos=(0,0), size=(450, 50), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
-						MultiContentEntryText(pos=(450,0), size=(180, 50), text = 2, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
-					],
-				 "fonts": [gFont("Regular", 33)],
-				 "itemHeight": 50
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryText(pos=(0,0), size=(450, 50), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
+            MultiContentEntryText(pos=(450,0), size=(180, 50), text = 2, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
+          ],
+         "fonts": [gFont("Regular", 33)],
+         "itemHeight": 50
+        }
+      </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/skin_default/icons/mp_buttons.png" position="1440,960" size="192,40" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
   <screen name="MenuPM" flags="wfNoBorder">
     <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos = (30, 22), size = (72, 72), flags = BT_SCALE, png = 2), # index 2 is the status pixmap
-						MultiContentEntryText(pos = (115, 5), size = (1155, 60), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryText(pos = (115, 65), size = (1155, 55), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
-					],
-				"fonts": [gFont("RegularB", 36),gFont("Regular", 27)],
-				"itemHeight": 120
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryPixmapAlphaBlend(pos = (30, 22), size = (72, 72), flags = BT_SCALE, png = 2), # index 2 is the status pixmap
+            MultiContentEntryText(pos = (115, 5), size = (1155, 60), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+            MultiContentEntryText(pos = (115, 65), size = (1155, 55), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
+          ],
+        "fonts": [gFont("RegularB", 36),gFont("Regular", 27)],
+        "itemHeight": 120
+        }
+      </convert>
     </widget>
   </screen>
   <!-- 02-0. Menu General -->
@@ -1228,10 +1228,10 @@
     <widget name="text" position="800,60" size="1050,400" font="Regular; 34" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
     <widget source="list" render="Listbox" position="800,460" size="1050,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1050.png" alphatest="blend" zPosition="13">
       <convert type="TemplatedMultiContent">
-	{"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
-	 "fonts": [gFont("Regular", 33)],
-	 "itemHeight": 50
-			}
+  {"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
+   "fonts": [gFont("Regular", 33)],
+   "itemHeight": 50
+      }
   </convert>
     </widget>
     <widget name="config" font="Regular; 30" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1050.png" alphatest="blend" transparent="1" />
@@ -1817,8 +1817,8 @@
       <convert type="GlamourExtra">Temperature</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,480" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
-      <convert type="GlamourExtra">FanSpeed</convert>
+    <widget source="session.CurrentService" render="Label" position="90,485" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1">
+      <convert type="GlamourExtra">FanInfo</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,520" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,525" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
@@ -2611,23 +2611,23 @@
     <panel name="Title1" flags="wfNoBorder" />
     <widget source="menu" render="Listbox" position="770,45" size="990,640" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [ 
-						MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
+        {"template": [ 
+            MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
                                         ],
-				"fonts": [gFont("Regular", 45)],
-				"itemHeight": 80
-				}
-			</convert>
+        "fonts": [gFont("Regular", 45)],
+        "itemHeight": 80
+        }
+      </convert>
     </widget>
     <widget source="menu" render="Listbox" position="830,685" size="860,170" scrollbarMode="showNever" selectionDisabled="1" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (0, 0), size = (850, 145), flags = RT_HALIGN_CENTER|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
-					],
-				"fonts": [gFont("Regular", 32)],
-				"itemHeight": 170
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryText(pos = (0, 0), size = (850, 145), flags = RT_HALIGN_CENTER|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
+          ],
+        "fonts": [gFont("Regular", 32)],
+        "itemHeight": 170
+        }
+      </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/softwaremanager.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" position="1570,885" size="120,60" alphatest="blend" transparent="1" zPosition="5" />
@@ -2642,11 +2642,11 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/menu.png" position="50,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="menu" render="Listbox" position="770,60" size="820,880" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselection990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [ MultiContentEntryText(pos = (60, 0), size = (700, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
-				"fonts": [gFont("Regular", 45)],
-				"itemHeight": 80
-				}
-			</convert>
+        {"template": [ MultiContentEntryText(pos = (60, 0), size = (700, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+        "fonts": [gFont("Regular", 45)],
+        "itemHeight": 80
+        }
+      </convert>
     </widget>
     <ePixmap position="625,260" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="625,715" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
@@ -2767,7 +2767,7 @@
     <widget name="number" position="556,490" size="809,100" halign="center" font="Numbers; 80" backgroundColor="preTrans" foregroundColor="transpWhite" transparent="1" noWrap="1" />
     <widget name="servicename" position="0,590" size="1920,140" backgroundColor="preTrans" transparent="1" font="RegularB; 80" valign="center" halign="center" foregroundColor="transWhite" noWrap="1" />
     <widget source="Service" render="GlamPicon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
-      <convert type="ServiceName">Reference</convert>
+      <convert type="GlamRefString">CurrentRef</convert>
     </widget>
   </screen>
   <!-- ###STATES -->
@@ -2986,7 +2986,7 @@
     <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="on" transparent="1" />
     <widget source="ServiceEvent" render="GlamPicon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="ServiceName">Reference</convert>
+      <convert type="GlamRefString">ServicelistRef</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="265,30" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
@@ -3124,7 +3124,7 @@
     </widget>
     <!-- Picon and TunerInfos  -->
     <widget source="ServiceEvent" render="GlamPicon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
-      <convert type="ServiceName">Reference</convert>
+      <convert type="GlamRefString">ServicelistRef</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1512,885" size="30,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_av.png" position="1512,885" size="30,30" zPosition="2" alphatest="blend" transparent="1">
@@ -3482,25 +3482,25 @@
     <widget name="switchdescription" position="880,443" size="870,50" font="Regular; 30" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="center" />
     <widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="770,500" size="1055,450" selectionPixmap="GlamourAuraFHD-ATV/selections/streamselectionblue.png" alphatest="blend" zPosition="3" transparent="1">
       <convert type="TemplatedMultiContent">
-				{"templates":
-					{"default": (50, [
-						MultiContentEntryText(pos = (0, 8),   size = (50, 50),  font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 1), # key,
-						MultiContentEntryText(pos = (60, 8),  size = (80, 50),  font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 2), # number,
-						MultiContentEntryText(pos = (160, 8), size = (250, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 3), # description,
-						MultiContentEntryText(pos = (420, 8), size = (450, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 4), # language,
-						MultiContentEntryText(pos = (980, 8), size = (30, 50),  font = 1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 5), # selection,
-					], True, "showNever"),
-					"notselected": (50, [
-						MultiContentEntryText(pos = (0, 8),   size = (50, 50),  font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 1), # key,
-						MultiContentEntryText(pos = (60, 8),  size = (80, 50),  font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 2), # number,
-						MultiContentEntryText(pos = (160, 8), size = (250, 50), font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 3), # description,
-						MultiContentEntryText(pos = (420, 8), size = (450, 50), font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 4), # language,
-						MultiContentEntryText(pos = (980, 8), size = (30, 50),  font = 2, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 5), # selection,
-					], False, "showNever")
-					},
-				"fonts": [gFont("Regular", 32), gFont("Regular", 28), gFont("Regular", 26)],
-				"itemHeight": 50
-				}
+        {"templates":
+          {"default": (50, [
+            MultiContentEntryText(pos = (0, 8),   size = (50, 50),  font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 1), # key,
+            MultiContentEntryText(pos = (60, 8),  size = (80, 50),  font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 2), # number,
+            MultiContentEntryText(pos = (160, 8), size = (250, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 3), # description,
+            MultiContentEntryText(pos = (420, 8), size = (450, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 4), # language,
+            MultiContentEntryText(pos = (980, 8), size = (30, 50),  font = 1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 5), # selection,
+          ], True, "showNever"),
+          "notselected": (50, [
+            MultiContentEntryText(pos = (0, 8),   size = (50, 50),  font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 1), # key,
+            MultiContentEntryText(pos = (60, 8),  size = (80, 50),  font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 2), # number,
+            MultiContentEntryText(pos = (160, 8), size = (250, 50), font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 3), # description,
+            MultiContentEntryText(pos = (420, 8), size = (450, 50), font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER,  text = 4), # language,
+            MultiContentEntryText(pos = (980, 8), size = (30, 50),  font = 2, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 5), # selection,
+          ], False, "showNever")
+          },
+        "fonts": [gFont("Regular", 32), gFont("Regular", 28), gFont("Regular", 26)],
+        "itemHeight": 50
+        }
       </convert>
     </widget>
   </screen>
@@ -3511,14 +3511,14 @@
     <panel name="Title1" flags="wfNoBorder" />
     <widget source="languages" render="Listbox" position="770,90" size="990,810" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenuselectionblue990.png" alphatest="on" zPosition="4">
       <convert type="TemplatedMultiContent">
-				{"template": [
-				MultiContentEntryText(pos = (150,0), size = (800, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the language name,
-				MultiContentEntryPixmap(pos = (40, 20), size = (60, 40), png = 2), # index 2 is the pixmap
-				],
-				"fonts": [gFont("Regular", 45)],
-				"itemHeight": 90
-				}
-			</convert>
+        {"template": [
+        MultiContentEntryText(pos = (150,0), size = (800, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the language name,
+        MultiContentEntryPixmap(pos = (40, 20), size = (60, 40), png = 2), # index 2 is the pixmap
+        ],
+        "fonts": [gFont("Regular", 45)],
+        "itemHeight": 90
+        }
+      </convert>
     </widget>
     <ePixmap position="255,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/languages.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
@@ -4091,13 +4091,13 @@ if not self["videofps"].text:
     <widget name="message" position="540,75" font="RegularB; 34" size="1305,150" valign="center" halign="center" foregroundColor="sky" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,235" size="1305,660" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
-					MultiContentEntryText(pos = (90, 5), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-					],
-					"fonts": [gFont("Regular", 34)],
-					"itemHeight": 60
-				}
+        {"template": [
+          MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
+          MultiContentEntryText(pos = (90, 5), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+          ],
+          "fonts": [gFont("Regular", 34)],
+          "itemHeight": 60
+        }
      </convert>
     </widget>
   </screen>
@@ -4308,14 +4308,14 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimselectionblue.png" alphatest="blend" zPosition="4">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
-						MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
-					],
-				 "fonts": [gFont("RegularB", 36), gFont("Regular", 23)],
-				 "itemHeight": 180
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
+            MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
+          ],
+         "fonts": [gFont("RegularB", 36), gFont("Regular", 23)],
+         "itemHeight": 180
+        }
+      </convert>
     </widget>
   </screen>
   <!-- 02. Nim setup -->
@@ -4619,16 +4619,16 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/networkadapter.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,650" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" transparent="1" zPosition="4">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (80, 80), png = 3), # index 3 is the interface pixmap
-					MultiContentEntryPixmapAlphaBlend(pos = (90, 45), size = (30, 30), png = 4), # index 4 is the default pixmap
-					MultiContentEntryText(pos = (120, 5), size = (1150, 60), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the interfacename
-					MultiContentEntryText(pos = (120, 65), size = (1150, 50), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
-				],
-				"fonts": [gFont("RegularB", 36),gFont("RegularL", 28)],
-				"itemHeight": 120
-				}
-			</convert>
+        {"template": [
+          MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (80, 80), png = 3), # index 3 is the interface pixmap
+          MultiContentEntryPixmapAlphaBlend(pos = (90, 45), size = (30, 30), png = 4), # index 4 is the default pixmap
+          MultiContentEntryText(pos = (120, 5), size = (1150, 60), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the interfacename
+          MultiContentEntryText(pos = (120, 65), size = (1150, 50), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
+        ],
+        "fonts": [gFont("RegularB", 36),gFont("RegularL", 28)],
+        "itemHeight": 120
+        }
+      </convert>
     </widget>
     <widget name="introduction" position="540,740" size="1305,100" font="RegularB; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" />
     <panel name="FullKeys1" />
@@ -4682,18 +4682,18 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos = (10, 8), size = (72, 72), png = 1), # index 1 is the expandable/expanded/verticalline icon
-						MultiContentEntryText(pos = (80, 5), size = (1260, 55), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
-						MultiContentEntryText(pos = (250, 5), size = (1050, 50), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
-						MultiContentEntryText(pos = (250, 55), size = (1050, 35), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
-						MultiContentEntryPixmapAlphaBlend(pos = (65, 8), size = (72, 72), png = 5), # index 5 is the nfs/cifs icon
-						MultiContentEntryPixmapAlphaBlend(pos = (110, 8), size = (72, 72), png = 6), # index 6 is the isMounted icon
-					],
-				"fonts": [gFont("Regular", 28),gFont("RegularL", 24),gFont("RegularB", 36)],
-				"itemHeight": 90
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryPixmapAlphaBlend(pos = (10, 8), size = (72, 72), png = 1), # index 1 is the expandable/expanded/verticalline icon
+            MultiContentEntryText(pos = (80, 5), size = (1260, 55), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
+            MultiContentEntryText(pos = (250, 5), size = (1050, 50), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
+            MultiContentEntryText(pos = (250, 55), size = (1050, 35), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
+            MultiContentEntryPixmapAlphaBlend(pos = (65, 8), size = (72, 72), png = 5), # index 5 is the nfs/cifs icon
+            MultiContentEntryPixmapAlphaBlend(pos = (110, 8), size = (72, 72), png = 6), # index 6 is the isMounted icon
+          ],
+        "fonts": [gFont("Regular", 28),gFont("RegularL", 24),gFont("RegularB", 36)],
+        "itemHeight": 90
+        }
+      </convert>
     </widget>
     <widget source="infotext" render="Label" position="540,725" size="1305,100" zPosition="3" font="Regular; 33" halign="center" transparent="1" foregroundColor="sky" backgroundColor="background20" />
     <panel name="FullKeys1" />
@@ -4718,14 +4718,14 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="config" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="4">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (100, 10), size = (1200, 55), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryPixmapAlphaBlend(pos = (10, 10), size = (72, 72), png = 3), # index 4 is the status pixmap
-					],
-				"fonts": [gFont("Regular", 36)],
-				"itemHeight": 90
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryText(pos = (100, 10), size = (1200, 55), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+            MultiContentEntryPixmapAlphaBlend(pos = (10, 10), size = (72, 72), png = 3), # index 4 is the status pixmap
+          ],
+        "fonts": [gFont("Regular", 36)],
+        "itemHeight": 90
+        }
+      </convert>
     </widget>
     <widget source="introduction" render="Label" position="541,735" size="1305,100" zPosition="3" font="Regular; 33" halign="center" transparent="1" foregroundColor="sky" backgroundColor="background20" />
     <panel name="RYKeys1" />
@@ -4834,17 +4834,17 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/wlan.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,720" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" zPosition="4">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (10, 5), size = (700, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
-						MultiContentEntryText(pos = (10, 55), size = (340, 35), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
-						MultiContentEntryText(pos = (350, 55), size = (340, 35), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
-						MultiContentEntryText(pos = (720, 5), size = (580, 50), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
-						MultiContentEntryText(pos = (720, 55), size = (580, 35), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
-					],
-				"fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
-				"itemHeight": 90
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryText(pos = (10, 5), size = (700, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
+            MultiContentEntryText(pos = (10, 55), size = (340, 35), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
+            MultiContentEntryText(pos = (350, 55), size = (340, 35), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
+            MultiContentEntryText(pos = (720, 5), size = (580, 50), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
+            MultiContentEntryText(pos = (720, 55), size = (580, 35), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
+          ],
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
+        "itemHeight": 90
+        }
+      </convert>
     </widget>
     <panel name="RGYKeys1" />
   </screen>
@@ -4970,16 +4970,16 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
-						MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-						MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-						MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
-					],
-				"fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
-				"itemHeight": 90
-				}
-			</convert>
+        {"template": [
+            MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
+            MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+            MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
+          ],
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
+        "itemHeight": 90
+        }
+      </convert>
     </widget>
     <panel name="RGKeys1" />
   </screen>
@@ -5004,21 +5004,21 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-			{"templates":
-				{"default": (80,[
-						MultiContentEntryPixmapAlphaBlend(pos = (30, 4), size = (72, 72), flags = BT_SCALE, png = 5), # index 5 is the status pixmap
-						MultiContentEntryText(pos = (120, 2), size = (1180, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-						MultiContentEntryText(pos = (120, 50), size = (1155, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-					]),
-				"category": (80,[
-						MultiContentEntryText(pos = (20, 2), size = (1280, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-						MultiContentEntryText(pos = (20, 50), size = (1280, 40), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the description
-					])
-				},
-				"fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
-				"itemHeight": 80
-			}
-			</convert>
+      {"templates":
+        {"default": (80,[
+            MultiContentEntryPixmapAlphaBlend(pos = (30, 4), size = (72, 72), flags = BT_SCALE, png = 5), # index 5 is the status pixmap
+            MultiContentEntryText(pos = (120, 2), size = (1180, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (120, 50), size = (1155, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+          ]),
+        "category": (80,[
+            MultiContentEntryText(pos = (20, 2), size = (1280, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (20, 50), size = (1280, 40), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the description
+          ])
+        },
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
+        "itemHeight": 80
+      }
+      </convert>
     </widget>
     <widget source="status" render="Label" position="540,760" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
     <panel name="FullKeys1" />
@@ -5119,14 +5119,14 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,70" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryText(pos = (50, 5), size = (1250, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
-					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (36, 36), flags = BT_SCALE, png = 1),
-					],
-					"fonts": [gFont("Regular", 32),
-					"itemHeight": 50
-				}
-	  </convert>
+        {"template": [
+          MultiContentEntryText(pos = (50, 5), size = (1250, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
+          MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (36, 36), flags = BT_SCALE, png = 1),
+          ],
+          "fonts": [gFont("Regular", 32),
+          "itemHeight": 50
+        }
+    </convert>
     </widget>
     <panel name="RGKeys2" />
   </screen>
@@ -5179,14 +5179,14 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
-					MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-					MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-					],
-					"fonts": [gFont("Regular", 34)],
-					"itemHeight": 70
-				}
+        {"template": [
+          MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
+          MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+          MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+          ],
+          "fonts": [gFont("Regular", 34)],
+          "itemHeight": 70
+        }
      </convert>
     </widget>
     <panel name="FullKeys1" />
@@ -5208,14 +5208,14 @@ if not self["videofps"].text:
     <widget name="label_disk" position="540,50" font="RegularB; 34" size="1305,60" valign="center" halign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,120" size="1305,700" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
-					MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-					MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-					],
-					"fonts": [gFont("Regular", 34)],
-					"itemHeight": 70
-				}
+        {"template": [
+          MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
+          MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+          MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+          ],
+          "fonts": [gFont("Regular", 34)],
+          "itemHeight": 70
+        }
      </convert>
     </widget>
     <panel name="FullKeys1" />
@@ -5228,14 +5228,14 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
-					MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-					MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-					],
-					"fonts": [gFont("Regular", 34)],
-					"itemHeight": 70
-				}
+        {"template": [
+          MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
+          MultiContentEntryText(pos = (90, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+          MultiContentEntryText(pos = (700, 10), size = (600, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+          ],
+          "fonts": [gFont("Regular", 34)],
+          "itemHeight": 70
+        }
      </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -5343,6 +5343,23 @@ if not self["videofps"].text:
     <widget name="logentry" position="540,635" size="1305,195" font="Regular; 30" transparent="1" foregroundColor="cyan1" backgroundColor="background20" valign="center" halign="left" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
+  <!-- 06. Record Timer Question -->
+  <screen name="RecordTimerQuestion" position="560,50" size="550,155" zPosition="10" backgroundColor="background20" flags="wfNoBorder" >
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,150" zPosition="-10" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="10,120" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
+    <widget name="text" position="0,0" size="0,0" font="Regular;33" foregroundColor="white" backgroundColor="background20" />
+    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/audioselectionblue.png" alphatest="blend" zPosition="5" />
+  </screen>
+  <!-- 07. Remove Timer Question -->
+  <screen name="RemoveTimerQuestion" position="560,50" size="550,150" zPosition="10" backgroundColor="background20" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,150" zPosition="-10" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="10,120" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
+    <widget name="text" position="0,0" size="0,0" font="Regular;33" foregroundColor="white" backgroundColor="background20" />
+    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/audioselectionblue.png" alphatest="blend" zPosition="5" />
+    <applet type="onLayoutFinish">
+      self.autoResize()
+    </applet>
+  </screen>
   <!-- ### INPUT DEVICES -->
   <!-- 01. Input Device Selection -->
   <screen name="InputDeviceSelection" position="0,0" size="1920,1080" title="Select input device" flags="wfNoBorder" backgroundColor="transparent">
@@ -5352,12 +5369,12 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-	      {"template": [
-	      MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), flags = BT_SCALE, png = 2), # index 3 is the interface pixmap
-	      MultiContentEntryText(pos = (100, 5), size = (1200, 85), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 1), # index 1 is the interfacename
-	      ],
-	      "fonts": [gFont("Regular", 36),gFont("Regular", 32)],
-	      "itemHeight": 90}
+        {"template": [
+        MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), flags = BT_SCALE, png = 2), # index 3 is the interface pixmap
+        MultiContentEntryText(pos = (100, 5), size = (1200, 85), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 1), # index 1 is the interfacename
+        ],
+        "fonts": [gFont("Regular", 36),gFont("Regular", 32)],
+        "itemHeight": 90}
       </convert>
     </widget>
     <widget source="introduction" render="Label" position="540,730" size="1305,90" zPosition="3" font="Regular; 33" halign="center" transparent="1" foregroundColor="sky" backgroundColor="background20" />
@@ -5554,13 +5571,13 @@ if not self["videofps"].text:
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/pictures.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraHD/selections/listselectionblue.png" alphatest="blend" selectionDisabled="1" backgroundColor="background20" transparent="1">
       <convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryText(pos = (10, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 0),
-					MultiContentEntryText(pos = (660, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 1)],
-					"fonts": [gFont("Regular", 33)],
-					"itemHeight": 50
-				}
-			</convert>
+        {"template": [
+          MultiContentEntryText(pos = (10, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 0),
+          MultiContentEntryText(pos = (660, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 1)],
+          "fonts": [gFont("Regular", 33)],
+          "itemHeight": 50
+        }
+      </convert>
     </widget>
     <panel name="RedKey2" />
   </screen>
