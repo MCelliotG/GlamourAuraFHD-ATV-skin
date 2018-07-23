@@ -1419,7 +1419,7 @@
     </widget>
     <!--widget source="session.CurrentService" render="ChannelNumber" position="50,735" size="300,70" font="Numbers; 65" valign="bottom" halign="center" noWrap="1" backgroundColor="transparent" transparent="1" foregroundColor="white" zPosition="9" /-->
     <!-- Picon -->
-    <widget source="session.CurrentService" render="GlamPicon" position="50,803" zPosition="4" size="300,180" transparent="1" alphatest="blend">
+    <widget source="session.CurrentService" render="Picon" position="50,803" zPosition="4" size="300,180" transparent="1" alphatest="blend">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!-- Current and next event -->
@@ -2766,7 +2766,7 @@
   <screen name="NumberZapPicon" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="background90">
     <widget name="number" position="556,490" size="809,100" halign="center" font="Numbers; 80" backgroundColor="preTrans" foregroundColor="transpWhite" transparent="1" noWrap="1" />
     <widget name="servicename" position="0,590" size="1920,140" backgroundColor="preTrans" transparent="1" font="RegularB; 80" valign="center" halign="center" foregroundColor="transWhite" noWrap="1" />
-    <widget source="Service" render="GlamPicon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
+    <widget source="Service" render="Picon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
       <convert type="GlamRefString">CurrentRef</convert>
     </widget>
   </screen>
@@ -2985,9 +2985,9 @@
     <widget source="Title" render="Label" position="785,35" size="855,100" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
     <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="ServiceEvent" render="GlamPicon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="GlamRefString">ServicelistRef</convert>
-    </widget>
+    <widget source="ServiceEvent" render="Picon" position="40,50" size="220,132" transparent="1" alphatest="blend" zPosition="4">
+  <convert type="GlamRefString">ServicelistRef</convert>
+</widget>
     <widget source="ServiceEvent" render="Label" position="265,30" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
@@ -3123,7 +3123,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Picon and TunerInfos  -->
-    <widget source="ServiceEvent" render="GlamPicon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
+    <widget source="ServiceEvent" render="Picon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
       <convert type="GlamRefString">ServicelistRef</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1512,885" size="30,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -3597,10 +3597,10 @@
     <widget source="session.Event_Now" render="Progress" position="97,662" size="465,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" borderWidth="0" transparent="1" zPosition="5">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Title" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
+    <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
       <convert type="GlamRefString">CurrentRef</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
+    <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <panel name="FullKeys3" />
@@ -5344,7 +5344,7 @@ if not self["videofps"].text:
     <panel name="FullKeys1" />
   </screen>
   <!-- 06. Record Timer Question -->
-  <screen name="RecordTimerQuestion" position="560,50" size="550,155" zPosition="10" backgroundColor="background20" flags="wfNoBorder" >
+  <screen name="RecordTimerQuestion" position="560,50" size="550,155" zPosition="10" backgroundColor="background20" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,150" zPosition="-10" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="10,120" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
     <widget name="text" position="0,0" size="0,0" font="Regular;33" foregroundColor="white" backgroundColor="background20" />

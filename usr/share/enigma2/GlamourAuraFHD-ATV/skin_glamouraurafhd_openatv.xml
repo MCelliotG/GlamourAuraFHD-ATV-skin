@@ -103,10 +103,10 @@
     <widget source="session.Event_Now" render="Progress" position="97,662" size="465,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" borderWidth="0" transparent="1" zPosition="5">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Title" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
+    <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
       <convert type="GlamRefString">CurrentRef</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamPicon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
+    <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <panel name="FullKeys3" />
@@ -871,19 +871,19 @@
   <widget name="Active3" position="800,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
   <widget name="Active4" position="1155,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
   <widget name="Active5" position="1510,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
-  <widget source="piconCh1" render="GlamPicon" position="90,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh1" render="Picon" position="90,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh2" render="GlamPicon" position="445,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh2" render="Picon" position="445,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh3" render="GlamPicon" position="800,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh3" render="Picon" position="800,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh4" render="GlamPicon" position="1155,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh4" render="Picon" position="1155,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh5" render="GlamPicon" position="1510,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh5" render="Picon" position="1510,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
   <widget name="list1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgvertselectionblue.png" alphatest="blend" position="90,225" scrollbarMode="showAlways" size="350,595" zPosition="5" TimeForegroundColor="yellow" TimeBackgroundColor="background40" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="background20" EntryForegroundColor="lightciel" EntryBackgroundColor="background20" EntryForegroundColorSelected="amarillo" EntryBackgroundColorSelected="clearsky" EntryForegroundColorNow="white" EntryBackgroundColorNow="clearorange" EntryForegroundColorNowSelected="white" EntryBackgroundColorNowSelected="clearsky" EntryForegroundColorPast="darkgrey" EntryBackgroundColorPast="transpdark" EntryForegroundColorPastSelected="lightciel" EntryBackgroundColorPastSelected="transpdark" EntryBorderColor="cyan" TimeFontVertical="Caps;27" EventFontVertical="Regular;23" transparent="1" />
@@ -963,13 +963,13 @@
   <widget name="Active1" position="90,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
   <widget name="Active2" position="445,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
   <widget name="Active3" position="800,145" size="350,80" backgroundColor="clearpurple" transparent="0" zPosition="2" />
-  <widget source="piconCh1" render="GlamPicon" position="90,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh1" render="Picon" position="90,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh2" render="GlamPicon" position="445,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh2" render="Picon" position="445,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
-  <widget source="piconCh3" render="GlamPicon" position="800,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
+  <widget source="piconCh3" render="Picon" position="800,160" size="80,50" zPosition="3" alphatest="blend" transparent="1">
     <convert type="ServiceName">Reference</convert>
   </widget>
   <widget name="list1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgvertselectionblue.png" alphatest="blend" position="90,225" scrollbarMode="showAlways" size="350,675" zPosition="5" TimeForegroundColor="yellow" TimeBackgroundColor="background40" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="background20" EntryForegroundColor="lightciel" EntryBackgroundColor="background20" EntryForegroundColorSelected="amarillo" EntryBackgroundColorSelected="clearsky" EntryForegroundColorNow="white" EntryBackgroundColorNow="clearorange" EntryForegroundColorNowSelected="white" EntryBackgroundColorNowSelected="clearsky" EntryForegroundColorPast="darkgrey" EntryBackgroundColorPast="transpdark" EntryForegroundColorPastSelected="lightciel" EntryBackgroundColorPastSelected="transpdark" EntryBorderColor="cyan" TimeFontVertical="Caps;27" EventFontVertical="Regular;23" transparent="1" />
