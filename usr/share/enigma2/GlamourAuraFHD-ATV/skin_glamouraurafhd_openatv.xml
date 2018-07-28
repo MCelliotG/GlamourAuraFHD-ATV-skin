@@ -860,7 +860,7 @@
   <widget name="lab1" position="90,225" size="1775,80" font="Regular;36" halign="center" valign="center" zPosition="20" backgroundColor="background20" foregroundColor="white" transparent="1" />
   <widget name="bouquetlist" position="90,145" size="1775,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" />
   <!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
-  <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,250" zPosition="-10" />
+  <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh1" backgroundColor="transpdark" foregroundColor="white" position="170,145" size="270,80" zPosition="3" transparent="1" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh2" backgroundColor="transpdark" foregroundColor="white" position="525,145" size="270,80" zPosition="3" transparent="1" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh3" backgroundColor="transpdark" foregroundColor="white" position="880,145" size="270,80" zPosition="3" transparent="1" />
@@ -956,7 +956,7 @@
   <widget name="lab1" position="90,225" size="1065,80" font="Regular;36" halign="center" valign="center" zPosition="20" backgroundColor="background20" foregroundColor="white" transparent="1" />
   <widget name="bouquetlist" position="90,145" size="1065,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" />
   <!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
-  <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,250" zPosition="-10" />
+  <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh1" backgroundColor="transpdark" foregroundColor="white" position="170,145" size="270,80" zPosition="3" transparent="1" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh2" backgroundColor="transpdark" foregroundColor="white" position="525,145" size="270,80" zPosition="3" transparent="1" />
   <widget font="RegularB; 27" halign="center" valign="center" name="currCh3" backgroundColor="transpdark" foregroundColor="white" position="880,145" size="270,80" zPosition="3" transparent="1" />
