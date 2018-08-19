@@ -1,5 +1,6 @@
 ﻿#  GlamourExtra Converter
 #  Modded and recoded by MCelliotG for use in Glamour skins or standalone
+#  HDDtemp new detection added by betacentauri, many thanks!!!
 #  If you use this Converter for other skins and rename it, please keep the first and second line adding your credits below
 
 from Components.Converter.Converter import Converter 
@@ -51,19 +52,34 @@ class GlamourExtra(Poll, Converter):
         if "CPULoad" in type:
             self.type = self.CPULOAD
         elif "CPUSpeed" in type:
-            self.type = self.CPUSPEED 
+            self.type = self.CPUSPEED
         elif "Temperature" in type:
             self.type = self.TEMPERATURE
         elif "HDDTemp" in type:
             self.type = self.HDDTEMP
+            self.hddtemp_output = ""
+            self.hddtemp = "Waiting for HDD Temp Data..."
+            self.container.appClosed.append(self.runFinished)
+            self.container.dataAvail.append(self.dataAvail)
+            self.container.execute("hddtemp -n -q /dev/sda")
         elif "FanInfo" in type:
             self.type = self.FANINFO
-        if self.type in (self.CPU_TOTAL, self.CPU_ALL):
+        if self.type in (self.CPU_TOTAL, self.CPU_ALL, self.HDDTEMP):
             self.poll_interval = 500
         else:
             self.poll_interval = 7000
         self.poll_enabled = True
 
+
+    def dataAvail(self, strData):
+        self.hddtemp_output = self.hddtemp_output + strData
+
+    def runFinished(self, retval):
+        htemp = str(int(self.hddtemp_output))
+        if htemp is "0" or htemp is None:
+            self.hddtemp = "No HDD Temp Data"
+        else:
+            self.hddtemp = "HDD Temp: " + htemp + "°C"
 
     @cached
     def getText(self):
@@ -122,21 +138,7 @@ class GlamourExtra(Poll, Converter):
                 return systemp + "  " + ("CPU: ") + cputemp
 
         elif (self.type == self.HDDTEMP):
-            hddtemp = "N/A"
-            htemp = ""
-            try:
-                if fileExists("/usr/sbin/hddtemp"):
-                    cmd = "hddtemp -n -q /dev/sda"
-                    htemp = self.container.execute(cmd).readline()
-                    htemp = str(int(htemp))
-                    hddtemp = "HDD Temp: " + htemp + "°C"
-                    htemp.close()
-            except:
-                pass
-            if htemp == "" or htemp == "0":
-                return ("No HDD temp data")
-            else:
-                return hddtemp
+            return self.hddtemp
 
         elif (self.type == self.CPUSPEED):
             try:

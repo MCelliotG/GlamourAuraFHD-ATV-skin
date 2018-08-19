@@ -29,20 +29,28 @@ class GlamourBase(Poll, Converter, object):
     IS2160 = 12
     IS480 = 13
     IS360 = 14
-    IS240 = 15
-    IS144 = 16
-    ISPROGRESSIVE = 17
-    ISINTERLACED = 18
-    HASMPEG2 = 19
-    HASAVC = 20
-    HASMPEG1 = 21
-    HASMPEG4VC = 22
-    HASVC1 = 23
-    HASVC1SM = 24
-    HASHEVC = 25
-    STREAMURL = 26
-    STREAMTYPE = 27
-    ISSTREAMING = 28
+    IS288 = 15
+    IS240 = 16
+    IS144 = 17
+    ISPROGRESSIVE = 18
+    ISINTERLACED = 19
+    STREAMURL = 20
+    STREAMTYPE = 21
+    ISSTREAMING = 22
+    HASMPEG2 = 23
+    HASAVC = 24
+    HASH263 = 25
+    HASVC1 = 26
+    HASMPEG4VC = 27
+    HASHEVC = 28
+    HASMPEG1 = 29
+    HASVP8 = 30
+    HASVP9 = 31
+    HASVP6 = 32
+    HASDIVX = 33
+    HASXVID = 34
+    HASSPARK = 35
+
 
 
     def __init__(self, type):
@@ -83,6 +91,8 @@ class GlamourBase(Poll, Converter, object):
             self.type = self.IS480
         elif "Is360" in type:
             self.type = self.IS360
+        elif "Is288" in type:
+            self.type = self.IS288
         elif "Is240" in type:
             self.type = self.IS240
         elif "Is144" in type:
@@ -91,26 +101,38 @@ class GlamourBase(Poll, Converter, object):
             self.type = self.ISPROGRESSIVE
         elif "IsInterlaced" in type:
             self.type = self.ISINTERLACED
-        elif "HasMPEG2" in type:
-            self.type = self.HASMPEG2
-        elif "HasAVC" in type:
-            self.type = self.HASAVC
-        elif "HasMPEG1" in type:
-            self.type = self.HASMPEG1
-        elif "HasMPEG4VC" in type:
-            self.type = self.HASMPEG4VC
-        elif "HasVC1" in type:
-            self.type = self.HASVC1
-        elif "HasVC1SM" in type:
-            self.type = self.HASVC1SM
-        elif "HasHEVC" in type:
-            self.type = self.HASHEVC
         elif "StreamUrl" in type:
             self.type = self.STREAMURL
         elif "StreamType" in type:
             self.type = self.STREAMTYPE
         elif "IsStreaming" in type:
             self.type = self.ISSTREAMING
+        elif "HasMPEG2" in type:
+            self.type = self.HASMPEG2
+        elif "HasAVC" in type:
+            self.type = self.HASAVC
+        elif "HasH263" in type:
+            self.type = self.HASH263
+        elif "HasVC1" in type:
+            self.type = self.HASVC1
+        elif "HasMPEG4VC" in type:
+            self.type = self.HASMPEG4VC
+        elif "HasHEVC" in type:
+            self.type = self.HASHEVC
+        elif "HasMPEG1" in type:
+            self.type = self.HASMPEG1
+        elif "HasVP8" in type:
+            self.type = self.HASVP8
+        elif "HasVP9" in type:
+            self.type = self.HASVP9
+        elif "HasVP6" in type:
+            self.type = self.HASVP6
+        elif "HasDIVX" in type:
+            self.type = self.HASDIVX
+        elif "HasXVID" in type:
+            self.type = self.HASXVID
+        elif "HasSPARK" in type:
+            self.type = self.HASSPARK
 
 
 ######### COMMON VARIABLES #################
@@ -132,7 +154,7 @@ class GlamourBase(Poll, Converter, object):
         return str(fps.replace(".000","")) + " fps "
 
     def videocodec(self, info):
-        vcodec =  ("MPEG2", "AVC", "MPEG1", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "")[info.getInfo(iServiceInformation.sVideoType)]
+        vcodec = ("MPEG2", "AVC", "H263", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "H265", "VP8", "VP9", "CAVS", "VP6", "MPEG1", "DIVX 3.11", "DIVX 4", "DIVX 5", "XVID", "SPARK", "N/A 11", "N/A 12",  "N/A 17", "N/A 19", "N/A 20", "")[info.getInfo(iServiceInformation.sVideoType)]
         return str(vcodec)
 
     def frequency(self, tp):
@@ -506,7 +528,7 @@ class GlamourBase(Poll, Converter, object):
         elif (orbw <= -44.7) and (orbw >= -45.3):
             sat = "Intelsat 14"
         elif (orbw <= -47.2) and (orbw >= -47.8):
-            sat = "NSS 806"
+            sat = "NSS 806/SES-14"
         elif (orbw <= -49.8) and (orbw >= -50.3):
             sat = "Intelsat 29E,1R"
         elif (orbw <= -52.7) and (orbw >= -53.3):
@@ -834,18 +856,18 @@ class GlamourBase(Poll, Converter, object):
             xresol = info.getInfo(iServiceInformation.sVideoWidth)
             yresol = info.getInfo(iServiceInformation.sVideoHeight)
             progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
-            vcodec =  ("MPEG2", "AVC", "MPEG1", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "")[info.getInfo(iServiceInformation.sVideoType)]
+            vcodec = ("MPEG2", "AVC", "H263", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "H265", "VP8", "VP9", "CAVS", "VP6", "MPEG1", "DIVX 3.11", "DIVX 4", "DIVX 5", "XVID", "SPARK", "N/A 11", "N/A 12",  "N/A 17", "N/A 19", "N/A 20", "")[info.getInfo(iServiceInformation.sVideoType)]
             streamurl = self.streamurl()
             if (self.type == self.IS1080):
                 if (xresol >= 1880) and (xresol <= 2000) or (yresol >= 900) and (yresol <= 1090):
                     return True
                 return False
             elif (self.type == self.IS720):
-                if (yresol >= 640) and (yresol <= 740):
+                if (yresol >= 601) and (yresol <= 740):
                     return True
                 return False
             elif (self.type == self.IS576):
-                if (yresol >= 540) and (yresol <= 580):
+                if (yresol >= 501) and (yresol <= 600):
                     return True
                 return False
             elif (self.type == self.IS1440):
@@ -861,15 +883,19 @@ class GlamourBase(Poll, Converter, object):
                     return True
                 return False
             elif (self.type == self.IS360):
-                if (yresol >= 320) and (yresol <= 370):
+                if (yresol >= 300) and (yresol <= 379):
+                    return True
+                return False
+            elif (self.type == self.IS288):
+                if (yresol >= 261) and (yresol <= 299):
                     return True
                 return False
             elif (self.type == self.IS240):
-                if (yresol >= 200) and (yresol <= 260):
+                if (yresol >= 181) and (yresol <= 260):
                     return True
                 return False
             elif (self.type == self.IS144):
-                if (yresol >= 130) and (yresol <= 160):
+                if (yresol >= 120) and (yresol <= 180):
                     return True
                 return False
             elif (self.type == self.ISPROGRESSIVE):
@@ -880,6 +906,10 @@ class GlamourBase(Poll, Converter, object):
                 if progrs == "i":
                     return True
                 return False
+            elif (self.type == self.ISSTREAMING):
+                if streamurl:
+                    return True
+                return False
             elif (self.type == self.HASMPEG2):
                 if vcodec == "MPEG2":
                     return True
@@ -888,30 +918,52 @@ class GlamourBase(Poll, Converter, object):
                 if vcodec == "AVC":
                     return True
                 return False
-            elif (self.type == self.HASMPEG1):
-                if vcodec == "MPEG1":
+            elif (self.type == self.HASH263):
+                if vcodec == "H263":
+                    return True
+                return False
+            elif (self.type == self.HASVC1):
+                if "VC1" in vcodec:
                     return True
                 return False
             elif (self.type == self.HASMPEG4VC):
                 if vcodec == "MPEG4-VC":
                     return True
                 return False
-            elif (self.type == self.HASVC1):
-                if vcodec == "VC1":
-                    return True
-                return False
-            elif (self.type == self.HASVC1SM):
-                if vcodec == "VC1-SM":
-                    return True
-                return False
             elif (self.type == self.HASHEVC):
-                if vcodec == "HEVC":
+                if vcodec == "HEVC" or vcodec == "H265":
                     return True
                 return False
-            elif (self.type == self.ISSTREAMING):
-                if streamurl:
+            elif (self.type == self.HASMPEG1):
+                if vcodec == "MPEG1":
                     return True
                 return False
+            elif (self.type == self.HASVP8):
+                if vcodec == "VP8" or vcodec == "CAVS":
+                    return True
+                return False
+            elif (self.type == self.HASVP9):
+                if vcodec == "VP9":
+                    return True
+                return False
+            elif (self.type == self.HASVP6):
+                if vcodec == "VP6":
+                    return True
+                return False
+            elif (self.type == self.HASDIVX):
+                if "DIVX" in vcodec:
+                    return True
+                return False
+            elif (self.type == self.HASXVID):
+                if "XVID" in vcodec:
+                    return True
+                return False
+            elif (self.type == self.HASSPARK):
+                if vcodec == "SPARK":
+                    return True
+                return False
+
+
 
     boolean = property(getBoolean)
 
