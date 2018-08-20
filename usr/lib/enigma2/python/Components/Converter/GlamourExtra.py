@@ -75,11 +75,16 @@ class GlamourExtra(Poll, Converter):
         self.hddtemp_output = self.hddtemp_output + strData
 
     def runFinished(self, retval):
-        htemp = str(int(self.hddtemp_output))
-        if htemp is "0" or htemp is None:
-            self.hddtemp = "No HDD Temp Data"
-        else:
-            self.hddtemp = "HDD Temp: " + htemp + "°C"
+        temp = str(self.hddtemp_output)
+        if "No such file or directory" in temp:
+            htemp = ""
+            self.hddtemp = "HDD Temp: N/A"
+        if not "No such file or directory" in temp:
+            htemp = str(int(temp))
+            if htemp == "0" or htemp is None:
+                self.hddtemp = "HDD idle or N/A"
+            else:
+                self.hddtemp = "HDD Temp: " + htemp + "°C"
 
     @cached
     def getText(self):

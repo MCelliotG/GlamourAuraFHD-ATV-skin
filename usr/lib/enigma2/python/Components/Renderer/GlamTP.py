@@ -51,7 +51,7 @@ class GlamTP(VariableText, Renderer):
                     tpinfo = ConvertToHumanReadable(tp)
                     refstr = self.source.service.toString()
                     curref = refstr.replace("%3a", ":")
-                    streamtype = streamurl = freq = ch = pol = sys = mod = const = fec = sr = orbpos = isid = plsmode = plscode = ""
+                    streamtype = streamurl = freq = ch = pol = sys = mod = const = fec = sr = orbpos = mis = ""
                     try:
                         if curref.startswith("1:7:"):
                             curref = ""
@@ -123,14 +123,14 @@ class GlamTP(VariableText, Renderer):
                             plscode = str(tpinfo.get("pls_code", 0))
                             plsmode = str(tpinfo.get("pls_mode", None))
                             if (plsmode == "None") or (isid == "-1") or (isid == "255") or ((isid == "0") and (plscode == "1")) or ((isid == "0") and (plsmode == "Gold")):
-                                isid = plscode = plsmode = ""
+                                mis = ""
+                            elif ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
+                                mis = ("IS:") + isid
                             else:
-                                isid = ("IS:") + isid
-                                plscode = (" ") + plscode.replace("262143","")
-                                plsmode = (" ") + plsmode.replace("Unknown","")
+                                mis = ("IS:") + isid + (" ") + plsmode.replace("Unknown","") + (" ") + plscode.replace("262143","") 
                     except:
                         pass
-                    self.text = streamtype + streamurl + orbpos + ch + freq + pol + sys + mod + sr + fec + const + isid + plsmode + plscode
+                    self.text = streamtype + streamurl + orbpos + ch + freq + pol + sys + mod + sr + fec + const + mis
                 text_width = self.instance.calculateSize().width()
                 if (self.instance and (text_width > self.sizeX)):
                     self.x = len(self.text.decode("utf8")) 
