@@ -1,4 +1,5 @@
 ﻿#  GlamourBase converter
+#  codecs map by PliExtraInfo
 #  Modded and recoded by MCelliotG for use in Glamour skins or standalone
 #  If you use this Converter for other skins and rename it, please keep the first and second line
 
@@ -12,6 +13,33 @@ from string import upper
 from Tools.Transponder import ConvertToHumanReadable, getChannelNumber
 from os import rename, system
 from Components.config import config
+
+# codec map
+codecs = {
+    -1: "N/A",
+    0: "MPEG2",
+    1: "AVC",
+    2: "H263",
+    3: "VC1",
+    4: "MPEG4-VC",
+    5: "VC1-SM",
+    6: "MPEG1",
+    7: "HEVC",
+    8: "VB8",
+    9: "VB9",
+    10: "XVID",
+    11: "N/A 11",
+    12: "N/A 12",
+    13: "DIVX 3.11",
+    14: "DIVX 4",
+    15: "DIVX 5",
+    16: "AVC",
+    17: "N/A 17",
+    18: "VB6",
+    19: "N/A 19",
+    20: "N/A 20",
+    21: "SPARK",
+}
 
 class GlamourBase(Poll, Converter, object):
     FREQINFO = 0
@@ -154,7 +182,7 @@ class GlamourBase(Poll, Converter, object):
         return str(fps.replace(".000","")) + " fps "
 
     def videocodec(self, info):
-        vcodec = ("MPEG2", "AVC", "H263", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "H265", "VP8", "VP9", "CAVS", "VP6", "MPEG1", "DIVX 3.11", "DIVX 4", "DIVX 5", "XVID", "SPARK", "N/A 11", "N/A 12",  "N/A 17", "N/A 19", "N/A 20", "")[info.getInfo(iServiceInformation.sVideoType)]
+        vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
         return str(vcodec)
 
     def frequency(self, tp):
@@ -209,12 +237,11 @@ class GlamourBase(Poll, Converter, object):
         plscode = str(tpinfo.get("pls_code", 0))
         plsmode = str(tpinfo.get("pls_mode", None))
         if (plsmode == "None") or (isid == "-1") or (isid == "255") or ((isid == "0") and (plscode == "1")) or ((isid == "0") and (plsmode == "Gold")):
-            isid = plscode = plsmode = ""
+            return ""
+        elif ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
+            return (" IS:") + isid
         else:
-            isid = (" IS:") + isid
-            plscode = (" ") + plscode.replace("262143","")
-            plsmode = (" ") + plsmode.replace("Unknown","")
-        return isid + plsmode + plscode 
+            return (" IS:") + isid + (" ") + plsmode.replace("Unknown","") + (" ") + plscode.replace("262143","")
 
     def satname(self, tp):
         orbpos = tp.get("orbital_position")
@@ -856,7 +883,7 @@ class GlamourBase(Poll, Converter, object):
             xresol = info.getInfo(iServiceInformation.sVideoWidth)
             yresol = info.getInfo(iServiceInformation.sVideoHeight)
             progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
-            vcodec = ("MPEG2", "AVC", "H263", "MPEG4-VC", "VC1", "VC1-SM", "HEVC", "H265", "VP8", "VP9", "CAVS", "VP6", "MPEG1", "DIVX 3.11", "DIVX 4", "DIVX 5", "XVID", "SPARK", "N/A 11", "N/A 12",  "N/A 17", "N/A 19", "N/A 20", "")[info.getInfo(iServiceInformation.sVideoType)]
+            vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
             streamurl = self.streamurl()
             if (self.type == self.IS1080):
                 if (xresol >= 1880) and (xresol <= 2000) or (yresol >= 900) and (yresol <= 1090):
@@ -939,15 +966,15 @@ class GlamourBase(Poll, Converter, object):
                     return True
                 return False
             elif (self.type == self.HASVP8):
-                if vcodec == "VP8" or vcodec == "CAVS":
+                if vcodec == "VB8" or vcodec == "CAVS":
                     return True
                 return False
             elif (self.type == self.HASVP9):
-                if vcodec == "VP9":
+                if vcodec == "VB9":
                     return True
                 return False
             elif (self.type == self.HASVP6):
-                if vcodec == "VP6":
+                if vcodec == "VB6":
                     return True
                 return False
             elif (self.type == self.HASDIVX):
