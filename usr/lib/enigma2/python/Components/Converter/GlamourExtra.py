@@ -76,10 +76,10 @@ class GlamourExtra(Poll, Converter):
 
     def runFinished(self, retval):
         temp = str(self.hddtemp_output)
-        if "No such file or directory" in temp:
+        if "No such file or directory" in temp or "not found" in temp:
             htemp = ""
             self.hddtemp = "HDD Temp: N/A"
-        if not "No such file or directory" in temp:
+        else:
             htemp = str(int(temp))
             if htemp == "0" or htemp is None:
                 self.hddtemp = "HDD idle or N/A"
