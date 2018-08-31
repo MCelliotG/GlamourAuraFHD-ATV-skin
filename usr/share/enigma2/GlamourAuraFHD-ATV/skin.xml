@@ -1706,7 +1706,7 @@
       <convert type="GlamourBase">HasVC1</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/h263.png" position="820,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/h.263.png" position="820,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
       <convert type="GlamourBase">HasH263</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1740,6 +1740,10 @@
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/mpeg4vc.png" position="820,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
       <convert type="GlamourBase">HasMPEG4VC</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/avs.png" position="820,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasAVS</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Resolution info -->
@@ -2198,7 +2202,7 @@
       <convert type="GlamourBase">HasVC1</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/h263.png" position="1297,1015" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/h.263.png" position="1297,1015" size="84,30" zPosition="6" alphatest="blend" transparent="1">
       <convert type="GlamourBase">HasH263</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -2232,6 +2236,10 @@
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/mpeg4vc.png" position="1297,1015" size="84,30" zPosition="6" alphatest="blend" transparent="1">
       <convert type="GlamourBase">HasMPEG4VC</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/codecs/avs.png" position="1297,1015" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasAVS</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/resolution/arrow_off.png" position="1200,1015" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
