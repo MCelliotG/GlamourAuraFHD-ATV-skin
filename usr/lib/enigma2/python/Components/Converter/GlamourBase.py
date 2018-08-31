@@ -33,7 +33,7 @@ codecs = {
     13: "DIVX 3.11",
     14: "DIVX 4",
     15: "DIVX 5",
-    16: "AVC",
+    16: "AVS",
     17: "N/A 17",
     18: "VB6",
     19: "N/A 19",
@@ -78,6 +78,7 @@ class GlamourBase(Poll, Converter, object):
     HASDIVX = 33
     HASXVID = 34
     HASSPARK = 35
+    HASAVS = 36
 
 
 
@@ -161,6 +162,8 @@ class GlamourBase(Poll, Converter, object):
             self.type = self.HASXVID
         elif "HasSPARK" in type:
             self.type = self.HASSPARK
+        elif "HasAVS" in type:
+            self.type = self.HASAVS
 
 
 ######### COMMON VARIABLES #################
@@ -942,7 +945,7 @@ class GlamourBase(Poll, Converter, object):
                     return True
                 return False
             elif (self.type == self.HASAVC):
-                if vcodec == "AVC":
+                if vcodec == "AVC" or vcodec == "MPEG4":
                     return True
                 return False
             elif (self.type == self.HASH263):
@@ -966,15 +969,15 @@ class GlamourBase(Poll, Converter, object):
                     return True
                 return False
             elif (self.type == self.HASVP8):
-                if vcodec == "VB8" or vcodec == "CAVS":
+                if vcodec == "VB8" or vcodec == "VP8":
                     return True
                 return False
             elif (self.type == self.HASVP9):
-                if vcodec == "VB9":
+                if vcodec == "VB9" or vcodec == "VP9":
                     return True
                 return False
             elif (self.type == self.HASVP6):
-                if vcodec == "VB6":
+                if vcodec == "VB6" or vcodec == "VP6":
                     return True
                 return False
             elif (self.type == self.HASDIVX):
@@ -989,7 +992,10 @@ class GlamourBase(Poll, Converter, object):
                 if vcodec == "SPARK":
                     return True
                 return False
-
+            elif (self.type == self.HASAVS):
+                if "AVS" in vcodec:
+                    return True
+                return False
 
 
     boolean = property(getBoolean)
