@@ -10,7 +10,7 @@ import NavigationInstance
 from ServiceReference import ServiceReference, resolveAlternate 
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
 from string import upper 
-from Tools.Transponder import ConvertToHumanReadable, getChannelNumber
+from Tools.Transponder import ConvertToHumanReadable
 from os import rename, system
 from Components.config import config
 
@@ -873,6 +873,7 @@ class GlamourBase(Poll, Converter, object):
 
         elif (self.type == self.PIDHEXINFO):
             return str(self.streamtype())
+
     text = property(getText)
 
 
