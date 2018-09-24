@@ -145,7 +145,7 @@ class GlamTP(VariableText, Renderer):
         self.moveTimerText.stop()
         if self.x > 0:
             txttmp = self.backtext.decode("utf8","ignore")[self.idx:]
-            self.text = txttmp.encode("utf8","ignore").replace("/n","").replace("/r","")
+            self.text = txttmp.encode("utf8","ignore").replace("\n","").replace("\r"," ")
             self.idx = self.idx+1
             self.x = self.x-1
         if self.x == 0: 
