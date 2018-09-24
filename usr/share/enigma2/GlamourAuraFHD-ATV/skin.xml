@@ -50,7 +50,7 @@
     <color name="mustard" value="#00bf9217" />
     <color name="orange" value="#00f47d19" />
     <color name="orange2" value="#00c3461b" />
-    <color name="pink" value="#00a61d4d" />
+    <color name="pink" value="#00ffaaf4" />
     <color name="preTrans" value="#bbffffff" />
     <color name="purple" value="#006c0aab" />
     <color name="rds_text_bg" value="#00003258" />
@@ -100,7 +100,7 @@
     <alias name="HelpMenuList" font="Regular" size="30" height="50" />
     <alias name="Dreamexplorer" font="Regular" size="30" height="50" />
     <alias name="TextNormal" font="Regular" size="30" height="50" />
-    <alias name="VirtualKeyboard" font="RegularB" size="40" height="60" />
+    <alias name="VirtualKeyboard" font="RegularB" size="34" height="60" />
   </fonts>
   <parameters>
     <parameter name="EpgListIcon" value="10,20,40,40,5" />
@@ -132,7 +132,7 @@
     <parameter name="HelpMenuListExtHlp0" value="5,0,1000,50" />
     <parameter name="HelpMenuListExtHlp1" value="10,0,990,50" />
     <parameter name="HelpMenuListHlp" value="10,0,1000,60" />
-    <parameter name="ConfigListSeperator" value="600, " />
+    <parameter name="ConfigListSeperator" value="600" />
     <parameter name="MenuListFont" value="30" />
     <parameter name="ServiceInfo" value="0,0,1050,50" />
     <parameter name="ServiceInfoLeft" value="0,0,525,50" />
@@ -1020,6 +1020,10 @@
       <convert type="MenuEntryCompare">setup_epggraphical</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/epgvertical.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">setup_epgvertical</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/crossepg.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">crossepg</convert>
       <convert type="ConditionalShowHide" />
@@ -1165,44 +1169,44 @@
   </screen>
   <!-- 03. Clock Labels -->
   <screen name="ClockLabel1" flags="wfNoBorder">
-    <eLabel name="clockin" position="0,45" size="65,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="65,0" zPosition="1" size="225,195" alphatest="on" transparent="0" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="65,105" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="170,40" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
-    <widget source="global.CurrentTime" render="Label" position="75,35" size="90,80" font="Numbers; 75" halign="left" transparent="1" valign="center" backgroundColor="deepgrey" foregroundColor="white" zPosition="6" noWrap="1">
+    <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="50,0" zPosition="1" size="225,195" alphatest="on" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="155,40" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <widget source="global.CurrentTime" render="Label" position="60,35" size="90,80" font="Numbers; 75" halign="left" transparent="1" valign="center" backgroundColor="deepgrey" foregroundColor="white" zPosition="6" noWrap="1">
       <convert type="ClockToText">Format:%H</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="75,105" size="60,60" font="Numbers; 46" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="sky" zPosition="7" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="60,105" size="60,60" font="Numbers; 46" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="sky" zPosition="7" noWrap="1">
       <convert type="ClockToText">Format:%M</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="130,105" size="35,60" font="Numbers; 30" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="amarillo" zPosition="7" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="115,105" size="35,60" font="Numbers; 30" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="amarillo" zPosition="7" noWrap="1">
       <convert type="ClockToText">Format:%S</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="172,105" size="105,45" font="Caps; 27" halign="center" backgroundColor="deepgrey" transparent="1" zPosition="2" valign="top" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="160,105" size="105,45" font="Caps; 27" halign="center" backgroundColor="deepgrey" transparent="1" zPosition="2" valign="top" noWrap="1">
       <convert type="ClockToText">Format:%e %b.</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="172,60" size="105,45" font="Caps; 30" halign="center" backgroundColor="sky" transparent="1" zPosition="2" valign="bottom" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="160,60" size="105,45" font="Caps; 30" halign="center" backgroundColor="sky" transparent="1" zPosition="2" valign="bottom" noWrap="1">
       <convert type="ClockToText">Format:%a</convert>
     </widget>
   </screen>
   <screen name="ClockLabel2" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="1630,0" zPosition="1" size="225,195" alphatest="off" transparent="0" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="1735,40" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1855,55" zPosition="-8" size="65,85" alphatest="blend" transparent="1" />
-    <eLabel name="clockin" position="1855,55" size="65,85" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <widget source="global.CurrentTime" render="Label" position="1635,35" size="90,80" font="Numbers; 75" halign="left" transparent="1" valign="center" backgroundColor="deepgrey" foregroundColor="white" zPosition="6" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="1655,0" zPosition="1" size="225,195" alphatest="off" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1880,55" zPosition="-8" size="40,85" alphatest="blend" transparent="1" />
+    <eLabel name="clockin" position="1880,55" size="40,85" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="1765,35" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <widget source="global.CurrentTime" render="Label" position="1665,35" size="90,80" font="Numbers; 75" halign="left" transparent="1" valign="center" backgroundColor="deepgrey" foregroundColor="white" zPosition="6" noWrap="1">
       <convert type="ClockToText">Format:%H</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="1635,105" size="60,60" font="Numbers; 46" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="sky" zPosition="7" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="1665,100" size="60,60" font="Numbers; 46" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="sky" zPosition="7" noWrap="1">
       <convert type="ClockToText">Format:%M</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="1690,105" size="35,60" font="Numbers; 30" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="amarillo" zPosition="7" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="1720,100" size="35,60" font="Numbers; 30" halign="right" transparent="1" valign="top" backgroundColor="deepgrey" foregroundColor="amarillo" zPosition="7" noWrap="1">
       <convert type="ClockToText">Format:%S</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="1740,105" size="105,45" font="Caps; 27" halign="center" backgroundColor="deepgrey" transparent="1" zPosition="2" valign="top" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="1770,100" size="105,45" font="Caps; 27" halign="center" backgroundColor="deepgrey" transparent="1" zPosition="2" valign="top" noWrap="1">
       <convert type="ClockToText">Format:%e %b.</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="1740,60" size="105,45" font="Caps; 30" halign="center" backgroundColor="sky" transparent="1" zPosition="2" valign="bottom" noWrap="1">
+    <widget source="global.CurrentTime" render="Label" position="1770,55" size="105,45" font="Caps; 30" halign="center" backgroundColor="sky" transparent="1" zPosition="2" valign="bottom" noWrap="1">
       <convert type="ClockToText">Format:%a</convert>
     </widget>
   </screen>
@@ -1331,83 +1335,83 @@
   </screen>
   <!-- 07. Weather -->
   <screen name="Weather1" flags="wfNoBorder">
-    <widget source="global.CurrentTime" render="Label" position="70,35" zPosition="5" size="335,40" font="RegularB; 30" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="55,35" zPosition="5" size="335,40" font="RegularB; 30" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Location</convert>
     </widget>
     <!--/* TODAY -->
-    <widget source="global.CurrentTime" render="Label" position="70,70" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sday0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="55,70" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sday0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Shortday1</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="120,70" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="105,70" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Date1</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="70,95" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="55,95" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High0" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Hightemp1</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="80,128" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="65,128" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Lowtemp1</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="165,100" size="60,60" zPosition="4" alphatest="blend">
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="150,100" size="60,60" zPosition="4" alphatest="blend">
       <convert type="GlamMSNWeather">Picon1</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="237,70" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="222,70" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <!--/* TOMORROW -->
-    <widget source="global.CurrentTime" render="Label" position="245,70" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sday1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="230,70" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sday1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Shortday2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="295,70" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="280,70" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Date2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="245,95" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="230,95" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Hightemp2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="255,128" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="240,128" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Lowtemp2</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="340,100" size="60,60" zPosition="4" alphatest="blend">
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="325,100" size="60,60" zPosition="4" alphatest="blend">
       <convert type="GlamMSNWeather">Picon2</convert>
     </widget>
     <!--/* BACKGROUND -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/weather_back.png" position="65,0" zPosition="1" size="345,195" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="65,105" alphatest="blend" transparent="1" />
-    <eLabel name="clockin" position="0,45" size="65,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/weather_back.png" position="50,0" zPosition="1" size="345,195" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
+    <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   </screen>
   <screen name="Weather2" flags="wfNoBorder">
-    <eLabel text="Hum:" position="70,160" size="60,35" halign="left" font="Regular; 24" foregroundColor="amarillo" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
-    <widget source="global.CurrentTime" render="Label" position="130,160" zPosition="5" size="75,35" font="Regular; 24" halign="center" transparent="1" text="Humidity" foregroundColor="amarillo" noWrap="1" backgroundColor="background40" valign="top">
+    <eLabel text="Hum:" position="55,160" size="60,35" halign="left" font="Regular; 24" foregroundColor="amarillo" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
+    <widget source="global.CurrentTime" render="Label" position="115,160" zPosition="5" size="75,35" font="Regular; 24" halign="center" transparent="1" text="Humidity" foregroundColor="amarillo" noWrap="1" backgroundColor="background40" valign="top">
       <convert type="GlamMSNWeather">Humidity</convert>
     </widget>
-    <eLabel text="Precip:" position="250,160" size="75,35" halign="left" font="Regular; 24" foregroundColor="cyan2" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
-    <widget source="global.CurrentTime" render="Label" position="325,160" zPosition="5" size="85,35" font="Regular; 24" halign="center" transparent="1" text="Precip1" foregroundColor="cyan2" noWrap="1" backgroundColor="background40" valign="top">
+    <eLabel text="Precip:" position="235,160" size="75,35" halign="left" font="Regular; 24" foregroundColor="cyan2" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
+    <widget source="global.CurrentTime" render="Label" position="310,160" zPosition="5" size="85,35" font="Regular; 24" halign="center" transparent="1" text="Precip1" foregroundColor="cyan2" noWrap="1" backgroundColor="background40" valign="top">
       <convert type="GlamMSNWeather">Precip1</convert>
     </widget>
   </screen>
   <screen name="WeatherToday" flags="wfNoBorder">
     <!--/* TODAY -->
-    <widget source="global.CurrentTime" render="Label" position="70,30" zPosition="2" size="90,35" font="Regular; 23" halign="center" text="Sdate" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="55,30" zPosition="2" size="90,35" font="Regular; 23" halign="center" text="Sdate" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Shortdate</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="70,60" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="55,60" zPosition="2" size="90,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Hightemp1</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="80,95" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="65,95" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
       <convert type="GlamMSNWeather">Lowtemp1</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="65,125" zPosition="2" size="225,70" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="center" foregroundColor="lightciel" backgroundColor="black">
+    <widget source="global.CurrentTime" render="Label" position="50,125" zPosition="2" size="225,70" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="center" foregroundColor="lightciel" backgroundColor="black">
       <convert type="GlamMSNWeather">Skytext</convert>
     </widget>
-    <eLabel text="Hum:" position="170,100" size="60,30" halign="center" font="Regular; 23" foregroundColor="amarillo" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
-    <widget source="global.CurrentTime" render="Label" position="220,100" zPosition="2" size="70,30" font="Regular; 23" halign="center" text="Hum" transparent="1" valign="top" backgroundColor="black" foregroundColor="amarillo" noWrap="1">
+    <eLabel text="Hum:" position="155,100" size="60,30" halign="center" font="Regular; 23" foregroundColor="amarillo" backgroundColor="background40" transparent="1" valign="top" zPosition="3" noWrap="1" />
+    <widget source="global.CurrentTime" render="Label" position="215,100" zPosition="2" size="70,30" font="Regular; 23" halign="center" text="Hum" transparent="1" valign="top" backgroundColor="black" foregroundColor="amarillo" noWrap="1">
       <convert type="GlamMSNWeather">Humidity</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="195,30" size="60,60" zPosition="4" alphatest="blend">
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big" position="180,30" size="60,60" zPosition="4" alphatest="blend">
       <convert type="GlamMSNWeather">Picon</convert>
     </widget>
     <!--/* BACKGROUND -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="65,0" zPosition="1" size="225,195" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="65,105" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="167,20" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
-    <eLabel name="clockin" position="0,45" size="65,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="50,0" zPosition="1" size="225,195" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="152,20" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   </screen>
   <!-- 08. INFOBARS -->
   <!-- MAIN INFOBAR -->
@@ -1464,160 +1468,366 @@
   <!--Tuner Infobar -->
   <screen name="TunerInfobar" flags="wfNoBorder">
     <!-- Frequency, Orbital & Streamtypes -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="400,35" zPosition="-12" size="1230,95" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="430,50" size="750,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular; 26" halign="center" valign="center" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="395,40" zPosition="-12" size="1260,85" alphatest="off" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="410,50" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">FreqInfo</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="430,85" size="750,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular; 26" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="410,85" size="870,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">Orbital</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1125,80" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1100,95" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
+    <eLabel position="1280,57" size="2,65" halign="center" font="Regular; 25" backgroundColor="blue" transparent="0" valign="center" zPosition="6" noWrap="1" foregroundColor="blue" />
+    <eLabel position="1445,42" size="1,65" halign="center" font="Regular; 25" backgroundColor="cyan" transparent="0" valign="center" zPosition="6" noWrap="1" foregroundColor="cyan" />
     <!-- Signal info -->
-    <eLabel text="SNR:" position="1193,50" size="60,35" halign="left" font="Regular; 26" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
-    <widget source="session.FrontendStatus" render="Label" position="1245,50" size="100,35" font="Regular; 26" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan1" zPosition="3" noWrap="1" valign="center">
+    <eLabel text="SNR:" position="1285,42" size="60,30" halign="center" font="Regular; 25" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
+    <widget source="session.FrontendStatus" render="Label" position="1340,42" size="105,30" font="Regular; 25" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan1" zPosition="3" noWrap="1" valign="center">
       <convert type="FrontendInfo">SNR</convert>
     </widget>
-    <eLabel text="AGC:" position="1348,50" size="65,35" halign="left" font="Regular; 26" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
-    <widget source="session.FrontendStatus" render="Label" position="1395,50" size="75,35" font="Regular; 26" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan" valign="center" zPosition="3" noWrap="1">
+    <eLabel text="AGC:" position="1285,69" size="60,30" halign="center" font="Regular; 25" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
+    <widget source="session.FrontendStatus" render="Label" position="1340,69" size="105,30" font="Regular; 25" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan" valign="center" zPosition="3" noWrap="1">
       <convert type="FrontendInfo">AGC</convert>
     </widget>
-    <eLabel text="BER:" position="1470,50" size="60,35" halign="left" font="Regular; 26" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
-    <widget source="session.FrontendStatus" render="Label" position="1525,50" size="105,35" font="Regular; 26" backgroundColor="background20" transparent="1" halign="left" foregroundColor="cyan" valign="center" zPosition="3">
+    <eLabel text="BER:" position="1285,95" size="60,30" halign="center" font="Regular; 25" backgroundColor="background20" transparent="1" valign="center" zPosition="2" noWrap="1" />
+    <widget source="session.FrontendStatus" render="Label" position="1340,95" size="105,30" font="Regular; 25" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan" valign="center" zPosition="3" noWrap="1">
       <convert type="FrontendInfo">BER</convert>
     </widget>
   </screen>
-  <!-- Tuner Infobar -->
-  <screen name="TunerInfo" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1192,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_av.png" position="1192,85" size="30,30" zPosition="2" alphatest="blend">
+  <!-- Tuners Info -->
+  <screen name="TunersInfo" flags="wfNoBorder">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1450,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_A</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_av.png" position="1450,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">1</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_on.png" position="1192,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_on.png" position="1450,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">0,0</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_un.png" position="1225,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_av.png" position="1225,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_un.png" position="1475,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_B</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_av.png" position="1475,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">2</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_on.png" position="1225,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_b_on.png" position="1475,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">1,1</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_un.png" position="1255,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_av.png" position="1255,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_un.png" position="1500,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_C</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_av.png" position="1500,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">4</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_on.png" position="1255,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_c_on.png" position="1500,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">2,2</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_un.png" position="1285,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_av.png" position="1285,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_un.png" position="1525,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_D</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_av.png" position="1525,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">8</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_on.png" position="1285,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_d_on.png" position="1525,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">3,3</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_un.png" position="1315,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_av.png" position="1315,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_un.png" position="1550,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_E</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_av.png" position="1550,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">16</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_on.png" position="1315,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_e_on.png" position="1550,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">4,4</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_un.png" position="1345,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_av.png" position="1345,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_un.png" position="1575,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_F</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_av.png" position="1575,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">32</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_on.png" position="1345,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_f_on.png" position="1575,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">5,5</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_un.png" position="1375,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_av.png" position="1375,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_un.png" position="1598,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_G</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_av.png" position="1598,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">64</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_on.png" position="1375,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_g_on.png" position="1598,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">6,6</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_un.png" position="1412,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_av.png" position="1412,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_un.png" position="1625,45" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_H</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_av.png" position="1625,45" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">128</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_on.png" position="1412,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_h_on.png" position="1625,45" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">7,7</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_un.png" position="1442,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_av.png" position="1442,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_un.png" position="1450,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_I</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_av.png" position="1450,70" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">256</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_on.png" position="1442,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_i_on.png" position="1450,70" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">8,8</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_un.png" position="1468,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_av.png" position="1468,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_un.png" position="1472,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_J</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_av.png" position="1472,70" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">512</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_on.png" position="1468,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_j_on.png" position="1472,70" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">9,9</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_un.png" position="1502,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_av.png" position="1502,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_un.png" position="1502,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_K</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_av.png" position="1502,70" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">1024</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_on.png" position="1502,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_k_on.png" position="1502,70" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">10,10</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_un.png" position="1532,85" size="30,30" zPosition="1" alphatest="blend" />
-    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_av.png" position="1532,85" size="30,30" zPosition="2" alphatest="blend">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_un.png" position="1526,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_L</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_av.png" position="1526,70" size="25,25" zPosition="2" alphatest="blend">
       <convert type="TunerInfo">TunerUseMask</convert>
       <convert type="ValueBitTest">2048</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_on.png" position="1532,85" size="30,30" zPosition="3" alphatest="blend">
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_l_on.png" position="1526,70" size="25,25" zPosition="3" alphatest="blend">
       <convert type="FrontendInfo">NUMBER</convert>
       <convert type="ValueRange">11,11</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_m_un.png" position="1550,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_M</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_m_av.png" position="1550,70" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">4096</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_m_on.png" position="1550,70" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">12,12</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_n_un.png" position="1575,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_N</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_n_av.png" position="1575,70" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">8192</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_n_on.png" position="1575,70" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">13,13</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_o_un.png" position="1600,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_O</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_o_av.png" position="1600,70" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">8192</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_o_on.png" position="1600,70" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">14,14</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_p_un.png" position="1625,70" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_P</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_p_av.png" position="1625,70" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">16384</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_p_on.png" position="1625,70" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">15,15</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_q_un.png" position="1450,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_Q</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_q_av.png" position="1450,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">32768</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_q_on.png" position="1450,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">16,16</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_r_un.png" position="1475,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_R</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_r_av.png" position="1475,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">65536</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_r_on.png" position="1475,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">17,17</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_s_un.png" position="1500,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_S</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_s_av.png" position="1500,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">131072</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_s_on.png" position="1500,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">18,18</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_t_un.png" position="1525,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_T</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_t_av.png" position="1525,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">262144</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_t_on.png" position="1525,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">19,19</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_u_un.png" position="1550,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_U</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_u_av.png" position="1550,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">524288</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_u_on.png" position="1550,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">20,20</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_v_un.png" position="1575,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_V</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_v_av.png" position="1575,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">1048576</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_v_on.png" position="1575,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">21,21</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_w_un.png" position="1600,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_W</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_w_av.png" position="1600,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">2097152</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_w_on.png" position="1600,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">22,22</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_x_un.png" position="1625,95" size="25,25" zPosition="1" alphatest="blend">
+      <convert type="GlamourTuners">Tuner_X</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_x_av.png" position="1625,95" size="25,25" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">4194304</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_x_on.png" position="1625,95" size="25,25" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">23,23</convert>
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
@@ -1756,11 +1966,11 @@
   </screen>
   <!-- Provider name and Reference -->
   <screen name="P+RInfobar" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider2IB.png" position="400,133" zPosition="-12" size="1230,50" alphatest="on" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider2IB.png" position="425,130" zPosition="-12" size="1240,50" alphatest="on" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1045,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
       <convert type="ServiceName">Provider</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
+    <widget source="session.CurrentService" render="GlamRoll" position="440,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
       <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
@@ -2339,7 +2549,7 @@
     <panel name="ClockLabel2" />
     <!--Tuner Infobar -->
     <panel name="TunerInfobar" />
-    <panel name="TunerInfo" />
+    <panel name="TunersInfo" />
     <!-- Service info and icons -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="on" transparent="1" />
     <panel name="IconsInfobar" />
@@ -2347,8 +2557,8 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="on" transparent="1" />
     <panel name="MainInfobar" />
     <!-- Provider -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="955,133" zPosition="-2" size="675,50" alphatest="on" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="on" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1045,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
       <convert type="ServiceName">Provider</convert>
     </widget>
     <!-- Crypt Info -->
@@ -2372,7 +2582,7 @@
     <panel name="ClockLabel2" />
     <!--Tuner Infobar -->
     <panel name="TunerInfobar" />
-    <panel name="TunerInfo" />
+    <panel name="TunersInfo" />
     <!-- Service info and icons -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
     <panel name="IconsInfobar" />
@@ -2412,7 +2622,7 @@
     <!-- Infobar background -->
     <!--Tuner Infobar -->
     <panel name="TunerInfobar" />
-    <panel name="TunerInfo" />
+    <panel name="TunersInfo" />
     <!-- Service info and icons -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/audio/audio_off.png" position="1538,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -2811,7 +3021,7 @@
     <eLabel name="menubig" position="0,0" size="1920,1080" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap position="585,150" size="750,225" pixmap="GlamourAuraFHD-ATV/menu/screensaver.png" alphatest="blend" transparent="1" zPosition="6" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/power.png" position="760,600" size="400,400" transparent="1" alphatest="blend" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname2.png" position="175,930" zPosition="2" size="1570,150" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname2.png" position="240,930" zPosition="2" size="1570,150" alphatest="blend" transparent="1" />
     <widget name="text" position="115,390" size="1690,210" font="RegularB; 40" halign="center" foregroundColor="cyan1" backgroundColor="background20" valign="center" transparent="1" zPosition="8" />
   </screen>
   <!-- 13. Numberzaps -->

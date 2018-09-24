@@ -132,6 +132,13 @@ class GlamourExtra(Poll, Converter):
                         ctemp = open("/sys/devices/virtual/thermal/thermal_zone0/temp").read()[:2]
                         cputemp = ctemp.replace("\n", "") + "°C"
                         ctemp.close()
+                    elif fileExists("/proc/hisi/msp/pm_cpu"):
+                        for line in open("/proc/hisi/msp/pm_cpu").readlines():
+                            line = [x.strip() for x in line.strip().split(":")]
+                            if line[0] in ("Tsensor"):
+                                ctemp = line[1].split("=")
+                                ctemp = line[1].split(" ")
+                                cputemp = ctemp[2] + "°C"
                 except:
                     pass
                 if systemp == "" and cputemp == "":
