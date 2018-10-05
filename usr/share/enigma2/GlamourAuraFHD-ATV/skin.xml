@@ -3211,7 +3211,7 @@
       <convert type="ServiceInfo">HasHBBTV</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" backgroundColor="background20" foregroundColor="cyan2" render="Label" font="RegularB; 30" position="640,720" size="935,45" halign="left" valign="bottom" transparent="1" zPosition="9">
+    <widget source="session.CurrentService" backgroundColor="background20" foregroundColor="cyan2" render="GlamRoll" font="RegularB;30" position="640,720" size="935,45" halign="left" valign="center" transparent="1" zPosition="9">
       <convert type="ServiceInfo">HasHBBTV</convert>
     </widget>
     <widget backgroundColor="background20" foregroundColor="sky" source="session.CurrentService" render="Label" font="Regular; 30" position="540,770" size="1335,175" halign="left" valign="top" transparent="1" zPosition="8">
