@@ -365,9 +365,68 @@
     <widget name="stars" position="215,215" size="375,40" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_filled.png" alphatest="blend" transparent="1" zPosition="6" />
     <panel name="FullKeys4" flags="wfNoBorder" />
   </screen>
-  
-  
-  
+
+
+    <!-- TMDB -->
+  <screen name="TMBD" position="0,0" size="1920,1080" title="TMBD Details Plugin" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackgroundClock" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="150,385" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
+    <widget name="detailslabel" position="650,70" size="895,80" font="Regular; 32" zPosition="12" transparent="1" backgroundColor="background20" valign="bottom" halign="left" foregroundColor="lightciel" />
+    <widget name="castlabel" position="650,480" size="1225,370" font="Regular; 30" zPosition="8" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="cyan1" />
+    <widget name="extralabel" position="650,150" size="1225,320" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
+    <widget name="ratinglabel" position="160,210" size="380,40" halign="left" font="Regular; 30" zPosition="7" transparent="1" backgroundColor="sky" valign="center" noWrap="1" />
+    <widget name="voteslabel" position="160,250" size="380,40" halign="left" font="Regular; 30" zPosition="7" transparent="1" backgroundColor="sky" valign="center" noWrap="1" />
+    <widget name="statusbar" position="55,890" size="585,80" font="Regular; 30" zPosition="8" transparent="1" backgroundColor="sky" halign="center" valign="top" />
+    <widget name="poster" position="150,290" size="400,600" alphatest="blend" transparent="1" zPosition="12" />
+    <widget name="menu" font="Regular; 30" position="650,150" size="1225,315" itemHeight="45" selectionPixmap="GlamourAuraFHD-ATV/selections/satfinderselblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="starsbg" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_empty.png" position="160,170" zPosition="5" size="375,40" transparent="1" alphatest="blend" />
+    <widget name="stars" position="160,170" size="375,40" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_filled.png" alphatest="blend" transparent="1" zPosition="6" />
+    <widget font="RegularB; 30" name="title" position="55,70" size="585,100" transparent="1" valign="bottom" foregroundColor="amarillo" backgroundColor="sky" zPosition="4" halign="center" />
+    <panel name="FullKeys4" flags="wfNoBorder" />
+  </screen>
+  <screen name="TMBDSettings" position="0,0" size="1920,1080" title="TMBD Settings" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="TmbdYTTrailerList" position="0,0" size="1920,1080" title="YT Trailer-List" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="list" render="Listbox" position="540,90" size="1305,840" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
+      <convert type="TemplatedMultiContent">
+      {"template": [
+      MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=3), # Thumbnail
+      MultiContentEntryText(pos=(200,0), size=(1100,120), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=1, color=0x90e6, color_sel=0xdeff)],
+      "fonts": [gFont("RegularB",34)],
+      "itemHeight": 120}
+      </convert>
+    </widget>
+    <widget name="thumbnail" position="75,720" size="165,120" transparent="1" zPosition="9" />
+  </screen>
+  <screen name="KinopoiskConfiguration" position="0,0" size="1920,1080" title="Kinopoisk Configuration" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" flags="wfNoBorder" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="menu" font="Regular; 30" position="540,90" size="1305,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  </screen>
+  <screen name="KinoRu" position="0,0" size="1920,1080" title="TMBD Details Plugin" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="TMBD" />
+  </screen>
+  <screen name="MovielistPreviewPositionerCoordinateEdit" position="0,0" size="1920,1080" title="TMBD Settings" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="TMBDSettings" />
+  </screen>
+
+
     <!-- SHOUTcast -->
   <screen name="SHOUTcastWidget" position="0,0" size="1920,1080" title="SHOUTcast" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />

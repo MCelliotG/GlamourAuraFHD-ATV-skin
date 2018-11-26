@@ -216,13 +216,18 @@ class GlamourAccess(Poll, Converter, object):
     def getBoolean(self):
         service = self.source.service
         info = service and service.info()
+        ecm_info = self.ecmfile()
+        self.poll_interval = self.timespan
+        self.poll_enabled = True
         if not info:
             return False
         caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+
         if self.type is self.FTA:
             if caids:
                 return False
             return True
+
         if self.type is self.ISCRYPTED:
             if caids:
                 return True
@@ -330,9 +335,6 @@ class GlamourAccess(Poll, Converter, object):
                         return True
                 return False
 
-            self.poll_interval = self.timespan
-            self.poll_enabled = True
-            ecm_info = self.ecmfile()
             if ecm_info:
                 caid = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
                 if self.type == self.BETAECM:
@@ -438,13 +440,14 @@ class GlamourAccess(Poll, Converter, object):
     def getText(self):
         ecminfo = ""
         server = ""
+        ecm_info = self.ecmfile()
+        self.poll_interval = self.timespan
+        self.poll_enabled = True
         service = self.source.service
-
         if service:
+            info = service and service.info()
+
             if self.type == self.CRYPTINFO:
-                self.poll_interval = self.timespan
-                self.poll_enabled = True
-                ecm_info = self.ecmfile()
                 if fileExists("/tmp/ecm.info"):
                     try:
                         caid = "%0.4X" % int(ecm_info.get("caid", ""), 16)
@@ -454,18 +457,16 @@ class GlamourAccess(Poll, Converter, object):
                 else:
                     return "Cannot decode"
 
-        if service:
-            info = service and service.info()
             if info:
                 caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+
                 if self.type == self.CAMNAME:
                     return self.CamName()
+
                 if self.type == self.CAIDINFO:
                     return self.CaidInfo()
+
                 if caids:
-                    self.poll_interval = self.timespan
-                    self.poll_enabled = True
-                    ecm_info = self.ecmfile()
                     if len(caids) > 0:
                         caidlist = self.CaidList()
                         caidtxt = self.CaidTxtList()
@@ -503,22 +504,16 @@ class GlamourAccess(Poll, Converter, object):
                         port = ecm_info.get("port", "")
                         source = ecm_info.get("source", "")
                         server = ecm_info.get("server", "")
+                        hops = ecm_info.get("hops", "")
+                        system = ecm_info.get("system", "")
 
                         frm = ecm_info.get("from", "")
-                        if frm:
-                            frm = "@" + frm
-                            if len(frm) > 36:
-                                frm = "%s..." % frm[:35]
-
-                        hops = ecm_info.get("hops", "")
-                        if hops:
-                            hops = "Hops: " + hops
-
-                        system = ecm_info.get("system", "")
+                        if len(frm) > 36:
+                            frm = "%s..." % frm[:35]
 
                         provider = ecm_info.get("provider", "")
                         if provider:
-                            provider = "Provider: " + provider
+                            provider = "Prov: " + provider
 
                         reader = ecm_info.get("reader", "")
                         if len(reader) > 36:
@@ -581,39 +576,44 @@ class GlamourAccess(Poll, Converter, object):
 
                         if self.type == self.ECMINFO:
                             if source == "emu":
-                                ecminfo = "CA: %s:%s  PID:%s  Source: %s%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
+                                ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
                             elif reader is not "" and source == "net" and port is not "":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s%s  Prtc:%s (%s)  Source: %s:%s  %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
                             elif reader is not "" and source == "net":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s%s  Ptrc:%s (%s)  Source: %s  %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
                             elif reader is not "" and source is not "net":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s%s  Prtc:%s (local) - %s  %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
                             elif server == "" and port == "" and protocol is not "":
-                                ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s)  %s  Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
+                                ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s)  Hops: %s  Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
                             elif server == "" and port == "" and protocol == "":
                                 ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time.replace("msec", "ms"))
                             else:
                                 try:
-                                    ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s)  %s  Ecm Time: %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"))
+                                    ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s)  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
                                 except:
                                     pass
 
                         if self.type == self.SHORTINFO:
                             if source == "emu":
-                                ecminfo = "CA: %s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
+                                ecminfo = "%s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
                             elif server == "" and port == "":
-                                ecminfo = "CA: %s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
+                                ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
                             else:
                                 try:
-                                    ecminfo = "CA: %s:%s - %s  Addr: %s:%s  %s" % (caid, prov, source, server, port, ecm_time.replace("msec", "ms"))
+                                    if reader is not "":
+                                        ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, frm, hops, ecm_time.replace("msec", "ms"))
+                                    else:
+                                        ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, server, hops, ecm_time.replace("msec", "ms"))
                                 except:
                                     pass
 
-                    elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
+                    elif self.type == self.ECMINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
                         ecminfo = "Service with %s encryption (%s)" % (caidtxt, caidlist)
+                    elif self.type == self.SHORTINFO:
+                        ecminfo = "Service with %s encryption" % (caidtxt)
                 elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
                     ecminfo = "FTA service"
-        return ecminfo
+        return str(ecminfo)
 
     text = property(getText)
 
