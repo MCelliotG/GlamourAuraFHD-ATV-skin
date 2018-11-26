@@ -616,14 +616,11 @@
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/blind_scan.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="rotorstatus" position="540,30" size="405,45" font="Regular; 30" halign="left" valign="top" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="yellow" />
     <widget name="config" font="Regular; 30" position="540,75" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="description" position="540,725" size="1305,150" font="Regular; 28" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
-    <widget name="introduction" position="945,30" size="900,45" font="Regular; 30" halign="center" valign="center" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="green" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="577,885" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="915,885" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1245,885" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="red" position="540,877" size="300,82" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="center" />
-    <widget name="green" position="877,877" size="300,82" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="center" />
-    <widget name="yellow" position="1207,877" size="300,82" zPosition="6" font="Regular; 30" halign="center" valign="center" backgroundColor="background20" transparent="1" />
+    <widget name="description" position="540,725" size="1305,150" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
+    <widget name="introduction" position="945,30" size="900,45" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="green" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,725" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <panel name="FullKeys1" />
   </screen>
 
     <!-- DMM Blindscan --> 
