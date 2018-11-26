@@ -239,12 +239,18 @@ class GlamourBase(Poll, Converter, object):
         isid = str(tpinfo.get("is_id", 0)) 
         plscode = str(tpinfo.get("pls_code", 0))
         plsmode = str(tpinfo.get("pls_mode", None))
-        if (plsmode == "None") or (isid == "-1") or (isid == "255") or ((isid == "0") and (plscode == "1")) or ((isid == "0") and (plsmode == "Gold")):
-            return ""
-        elif ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
-            return (" IS:") + isid
+        if (plsmode == "None") or (plsmode == "Unknown") or ((plsmode is not "None") and (plscode == "0")):
+           plsmode = ""
+        if (isid == "None") or (isid == "-1") or (isid == "0") or (isid == "255"):
+           isid = ""
         else:
-            return (" IS:") + isid + (" ") + plsmode.replace("Unknown","") + (" ") + plscode.replace("262143","")
+           isid = (" IS:") + isid
+        if (plscode == "None") or (plscode == "-1") or (plscode == "0") or (isid == "262143"):
+           plscode = ""
+        if ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
+            return isid
+        else:
+            return isid + (" ") + plsmode + (" ") + plscode
 
     def satname(self, tp):
         orbpos = tp.get("orbital_position")
@@ -565,7 +571,9 @@ class GlamourBase(Poll, Converter, object):
             sat = "Intelsat 23"
         elif (orbw <= -53.7) and (orbw >= -54.3):
             sat = "Inmarsat-3 F5"
-        elif (orbw <= -55.2) and (orbw >= -55.8):
+        elif (orbw <= -54.7) and (orbw >= -55.2):
+            sat = "Inmarsat-5 F2"
+        elif (orbw <= -55.3) and (orbw >= -55.8):
             sat = "Intelsat 34"
         elif (orbw <= -57.7) and (orbw >= -58.3):
             sat = "Intelsat 16,21"
