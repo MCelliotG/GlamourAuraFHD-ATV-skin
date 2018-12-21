@@ -614,15 +614,22 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/blind_scan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="rotorstatus" position="540,30" size="405,45" font="Regular; 30" halign="left" valign="top" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="yellow" />
     <widget name="config" font="Regular; 30" position="540,75" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="description" position="540,725" size="1305,150" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
-    <widget name="introduction" position="945,30" size="900,45" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="green" />
+    <eLabel text="Lock:" position="540,30" size="125,45" font="Regular; 30" halign="right" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="cyan1" valign="top" />
+    <widget source="Frontend" render="Pixmap" position="680,25" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_on.png" alphatest="blend" transparent="1" zPosition="4">
+    <convert type="FrontendInfo">LOCK</convert>
+    <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="Frontend" render="Pixmap" position="680,25" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_off.png" alphatest="blend" transparent="1" zPosition="3">
+    <convert type="FrontendInfo">LOCK</convert>
+    <convert type="ConditionalShowHide">Invert</convert>
+    </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,725" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget name="description" position="540,725" size="1305,150" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
-
+  
     <!-- DMM Blindscan --> 
   <screen name="DmmBlindscan" position="0,0" size="1920,1080" title="Blindscan" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -839,7 +846,33 @@
     <panel name="RGKeys1" />
   </screen>
 
-    
+  <screen name="AC3LipSync" position="30,30" size="1040,600" title="Audio Sync" zPosition="11" backgroundColor="transparent" flags="wfNoBorder">
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
+  <eLabel position="0,0" size="960,90" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+  <eLabel position="0,90" size="90,430" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="960,0" zPosition="-11" size="75,90" alphatest="off" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="0,520" zPosition="-11" size="90,75" alphatest="off" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="155,45" size="810,45" zPosition="-10" alphatest="blend" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="895,35" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/icons/menuicons/autovolume.png" position="105,105" size="180,180" zPosition="3" alphatest="on" transparent="1" />
+  <widget name="ServiceInfoLabel" position="25,5" size="220,40" font="Regular; 28" backgroundColor="background20" transparent="1" noWrap="1" valign="bottom" zPosition="5" />
+  <widget name="ServiceInfo" position="245,5" size="380,40" font="Regular; 28" backgroundColor="background20" foregroundColor="cyan2" transparent="1" noWrap="1" valign="bottom" zPosition="5" />
+  <widget name="ChannelImg" pixmaps="GlamourAuraFHD-ATV/icons/lock_off.png,GlamourAuraFHD-ATV/icons/lock_on.png" position="25,40" size="45,45" transparent="1" alphatest="on" zPosition="4" />
+  <widget name="ChannelLabel" position="80,50" size="220,40" font="Regular; 28" halign="left" valign="bottom" transparent="1" backgroundColor="background20" foregroundColors="grey,orange" noWrap="1" zPosition="4" />
+  <widget name="GlobalImg" pixmaps="GlamourAuraFHD-ATV/icons/lock_off.png,GlamourAuraFHD-ATV/icons/lock_on.png" position="310,40" zPosition="2" size="45,45" transparent="1" alphatest="on" />
+  <widget name="GlobalLabel" position="365,50" size="260,40" font="Regular; 28" halign="left" valign="bottom" transparent="1" backgroundColor="background20" foregroundColors="amarillo,grey" noWrap="1" zPosition="4" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/audio_late.png" position="32,105" size="25,450" alphatest="blend" transparent="1" zPosition="5" />
+  <widget name="AudioSliderBar" pixmap="GlamourAuraFHD-ATV/pointers/audio_early.png" position="32,105" size="25,450" transparent="1" orientation="orBottomToTop" alphatest="blend" zPosition="6" />
+  <widget name="AudioSlider" position="0,315" size="90,40" font="Regular; 27" halign="center" valign="center" backgroundColor="background20" transparent="1" noWrap="1" zPosition="7" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="630,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_green.png" position="840,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_blue.png" position="630,45" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
+  <widget name="key_red" position="685,5" size="155,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
+  <widget name="key_green" position="895,5" size="75,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
+  <widget name="key_blue" position="685,45" size="210,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
+</screen>
+
+
     <!-- Hdmi Cec Plugin -->
   <screen name="HdmiCecPlugin" position="0,0" size="1920,1080" title="HDMI-CEC Configuration" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />

@@ -34,43 +34,45 @@ class GlamourAccess(Poll, Converter, object):
     TGFCAS = 16
     PANCAS = 17
     EXSCAS = 18
-    BETAECM = 19
-    IRDECM = 20
-    SECAECM = 21
-    VIAECM = 22
-    NAGRAECM = 23
-    CRWECM = 24
-    NDSECM = 25
-    CONAXECM = 26
-    DRCECM = 27
-    BISSECM = 28
-    BULECM = 29
-    VMXECM = 30
-    PWVECM = 31
-    TBGECM = 32
-    TGFECM = 33
-    PANECM = 34
-    EXSECM = 35
-    CODICAS = 36
-    RUSCAS = 37
-    AGTCAS = 38
-    CAIDINFO = 39
-    PROV = 40
-    NET = 41
-    EMU = 42
-    CRD = 43
-    CRDTXT = 44
-    FTA = 45
-    CACHE = 46
-    CRYPT = 47
-    CRYPTINFO = 48
-    CAMNAME = 49
-    ADDRESS = 50
-    ECMTIME = 51
-    FORMAT = 52
-    ECMINFO = 53
-    SHORTINFO = 54
-    ISCRYPTED = 55
+    RUSCAS = 19
+    BETAECM = 20
+    IRDECM = 21
+    SECAECM = 22
+    VIAECM = 23
+    NAGRAECM = 24
+    CRWECM = 25
+    NDSECM = 26
+    CONAXECM = 27
+    DRCECM = 28
+    BISSECM = 29
+    BULECM = 30
+    VMXECM = 31
+    PWVECM = 32
+    TBGECM = 33
+    TGFECM = 34
+    PANECM = 35
+    EXSECM = 36
+    RUSECM = 37
+    CODICAS = 38
+    CGDCAS = 39
+    AGTCAS = 40
+    CAIDINFO = 41
+    PROV = 42
+    NET = 43
+    EMU = 44
+    CRD = 45
+    CRDTXT = 46
+    FTA = 47
+    CACHE = 48
+    CRYPT = 49
+    CRYPTINFO = 50
+    CAMNAME = 51
+    ADDRESS = 52
+    ECMTIME = 53
+    FORMAT = 54
+    ECMINFO = 55
+    SHORTINFO = 56
+    ISCRYPTED = 57
     timespan = 1000
 
     def __init__(self, type):
@@ -114,6 +116,8 @@ class GlamourAccess(Poll, Converter, object):
             self.type = self.PANCAS
         elif type == "ExsCaS":
             self.type = self.EXSCAS
+        elif type == "RusCaS":
+            self.type = self.RUSCAS
         elif type == "BetaEcm":
             self.type = self.BETAECM
         elif type == "IrdEcm":
@@ -148,10 +152,12 @@ class GlamourAccess(Poll, Converter, object):
             self.type = self.PANECM
         elif type == "ExsEcm":
             self.type = self.EXSECM
+        elif type == "RusEcm":
+            self.type = self.RUSECM
         elif type == "CodiCaS":
             self.type = self.CODICAS
-        elif type == "RusCaS":
-            self.type = self.RUSCAS
+        elif type == "CgdCaS":
+            self.type = self.CGDCAS
         elif type == "AgtCaS":
             self.type = self.AGTCAS
         elif type == "CaidInfo":
@@ -319,14 +325,19 @@ class GlamourAccess(Poll, Converter, object):
                     if ("%0.4X" % int(caid))[:4] >= "2700" and ("%0.4X" % int(caid))[:4] <= "27FF":
                         return True
                 return False
+            if self.type == self.RUSCAS:
+                for caid in caids:
+                    if ("%0.4X" % int(caid))[:4] >= "A100" and ("%0.4X" % int(caid))[:4] <= "A1FF":
+                        return True
+                return False
             if self.type == self.CODICAS:
                 for caid in caids:
                     if ("%0.4X" % int(caid))[:4] >= "2200" and ("%0.4X" % int(caid))[:4] <= "22FF":
                         return True
                 return False
-            if self.type == self.RUSCAS:
+            if self.type == self.CGDCAS:
                 for caid in caids:
-                    if ("%0.4X" % int(caid))[:4] >= "A100" and ("%0.4X" % int(caid))[:4] <= "A1FF":
+                    if ("%0.4X" % int(caid))[:4] == "4AEA" or ("%0.4X" % int(caid))[:4] >= "1EC0" and ("%0.4X" % int(caid))[:4] <= "1ECF":
                         return True
                 return False
             if self.type == self.AGTCAS:
@@ -403,6 +414,10 @@ class GlamourAccess(Poll, Converter, object):
                     return False
                 if self.type == self.EXSECM:
                     if caid >= "2700" and caid <= "27FF":
+                        return True
+                    return False
+                if self.type == self.RUSECM:
+                    if caid >= "A100" and caid <= "A1FF":
                         return True
                     return False
 
@@ -840,14 +855,12 @@ class GlamourAccess(Poll, Converter, object):
                     caid = "DigiCrypt"
                 if caid.startswith("4AD"):
                     caid = "FireCrypt"
-                if caid.startswith("4AF6"):
+                if caid.startswith("4AF6") or caid.startswith("4B0"):
                     caid = "Tongfang"
                 if caid.startswith("4AFC"):
                     caid = "PanAccess"
-                if caid.startswith("4B0"):
-                    caid = "Tongfang"
                 if caid.startswith("4B2"):
-                    caid = "Redlight CAS"
+                    caid = "MultiKom DS"
                 if caid.startswith("4AF8"):
                     caid = "Griffin"
                 if caid.startswith("53"):
@@ -876,6 +889,8 @@ class GlamourAccess(Poll, Converter, object):
                     caid = "IBM"
                 if caid.startswith("16"):
                     caid = "Nera"
+                if caid.startswith("19"):
+                    caid = "Titan"
                 if caid.startswith("20"):
                     caid = "Telefonica Servicios Audiovisuales"
                 if caid.startswith("21"):
@@ -920,7 +935,9 @@ class GlamourAccess(Poll, Converter, object):
                     caid = "Runcom"
                 if caid.startswith("4AC"):
                     caid = "Latens"
-                if caid.startswith("4AEA"):
+                if caid.startswith("4AF4"):
+                    caid = "Marlin"
+                if caid.startswith("4AEA") or caid.startswith("1EC"):
                     caid = "CryptoGuard"
                 if caid.startswith("00"):
                     caid = "Unknown"
@@ -980,14 +997,12 @@ class GlamourAccess(Poll, Converter, object):
                     caid = caid + " (DigiCrypt) "
                 if caid.startswith("4AD"):
                     caid = caid + " (FireCrypt) "
-                if caid.startswith("4AF6"):
+                if caid.startswith("4AF6") or caid.startswith("4B0"):
                     caid = caid + " (Tongfang) "
                 if caid.startswith("4AFC"):
                     caid = caid + " (PanAccess) "
-                if caid.startswith("4B0"):
-                    caid = caid + " (Tongfang) "
                 if caid.startswith("4B2"):
-                    caid = caid + " (Redlight CAS) "
+                    caid = caid + " (MultiKom DS) "
                 if caid.startswith("4AF8"):
                     caid = caid + " (Griffin) "
                 if caid.startswith("53"):
@@ -1016,6 +1031,8 @@ class GlamourAccess(Poll, Converter, object):
                     caid = caid + " (IBM) "
                 if caid.startswith("16"):
                     caid = caid + " (Nera) "
+                if caid.startswith("19"):
+                    caid = caid + " (Titan) "
                 if caid.startswith("20"):
                     caid = caid + " (Telefonica Servicios Audiovisuales) "
                 if caid.startswith("21"):
@@ -1060,7 +1077,9 @@ class GlamourAccess(Poll, Converter, object):
                     caid = caid + " (Runcom) "
                 if caid.startswith("4AC"):
                     caid = caid + " (Latens) "
-                if caid.startswith("4AEA"):
+                if caid.startswith("4AF4"):
+                    caid = caid + " (Marlin) "
+                if caid.startswith("4AEA") or caid.startswith("1EC"):
                     caid = caid + " (CryptoGuard) "
                 if caid.startswith("00"):
                     caid = " Unknown "
