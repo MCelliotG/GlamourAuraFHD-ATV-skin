@@ -44,7 +44,7 @@ class GlamourExtra(Poll, Converter):
                 if pos < len(self.sfmt) - 1 and self.sfmt[pos + 1].isdigit():
                     x = int(self.sfmt[pos + 1])
                     if x > self.cpu_count:
-                        self.sfmt = self.sfmt.replace("$" + self.sfmt[pos + 1], "n/a")
+                        self.sfmt = self.sfmt.replace("$" + self.sfmt[pos + 1], "")
                 pos += 1
         self.curr_info = self.getCpuInfo(self.type)
 

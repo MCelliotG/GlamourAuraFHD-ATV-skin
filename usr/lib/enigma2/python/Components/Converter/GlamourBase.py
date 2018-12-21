@@ -11,8 +11,14 @@ from ServiceReference import ServiceReference, resolveAlternate
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
 from string import upper 
 from Tools.Transponder import ConvertToHumanReadable
-from os import rename, system
 from Components.config import config
+from Tools.Directories import fileExists
+
+
+def sp(text):
+    if text:
+        text += " "
+    return text
 
 # codec map
 codecs = {
@@ -25,8 +31,8 @@ codecs = {
     5: "VC1-SM",
     6: "MPEG1",
     7: "HEVC",
-    8: "VB8",
-    9: "VB9",
+    8: "VP8",
+    9: "VP9",
     10: "XVID",
     11: "N/A 11",
     12: "N/A 12",
@@ -35,7 +41,7 @@ codecs = {
     15: "DIVX 5",
     16: "AVS",
     17: "N/A 17",
-    18: "VB6",
+    18: "VP6",
     19: "N/A 19",
     20: "N/A 20",
     21: "SPARK",
@@ -79,7 +85,11 @@ class GlamourBase(Poll, Converter, object):
     HASXVID = 34
     HASSPARK = 35
     HASAVS = 36
-
+    ISSDR = 37
+    ISHDR = 38
+    ISHDR10 = 39
+    ISHLG = 40
+    HDRINFO = 41
 
 
     def __init__(self, type):
@@ -164,6 +174,16 @@ class GlamourBase(Poll, Converter, object):
             self.type = self.HASSPARK
         elif "HasAVS" in type:
             self.type = self.HASAVS
+        elif "IsSDR" in type:
+            self.type = self.ISSDR
+        elif "IsHDR" in type:
+            self.type = self.ISHDR
+        elif "IsHDR10" in type:
+            self.type = self.ISHDR10
+        elif "IsHLG" in type:
+            self.type = self.ISHLG
+        elif "HDRInfo" in type:
+            self.type = self.HDRINFO
 
 
 ######### COMMON VARIABLES #################
@@ -185,8 +205,23 @@ class GlamourBase(Poll, Converter, object):
         return str(fps.replace(".000","")) + " fps "
 
     def videocodec(self, info):
-        vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
+        if fileExists("/etc/image-version"):
+            for line in open("/etc/image-version"):
+                if "=OE-Alliance" in line:
+                    vcodec = ("MPEG2", "MPEG4", "MPEG1", "MPEG4-II", "VC1", "VC1-SM", "HEVC", "H265", "AVS", "N/A" )[info and info.getInfo(iServiceInformation.sVideoType)]
+        else:
+            vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
         return str(vcodec)
+
+    def hdr(self, info):
+        try:
+            gamma = ("SDR", "HDR", "HDR10", "HLG", "")[info.getInfo(iServiceInformation.sGamma)]
+        except:
+            gamma = None
+        if gamma:
+            return str(gamma)
+        else:
+            return ""
 
     def frequency(self, tp):
         freq = (tp.get("frequency") + 500)
@@ -233,7 +268,22 @@ class GlamourBase(Poll, Converter, object):
         lp = str(tpinfo.get("code_rate_lp"))
         hp = str(tpinfo.get("code_rate_hp"))
         gi = str(tpinfo.get("guard_interval"))
-        return " LP: " + lp + " HP: " + hp + " GI: " + gi
+        return "LP: " + lp + " HP: " + hp + " GI: " + gi
+
+    def plpid(self, tpinfo):
+        plpid = str(tpinfo.get("plp_id", 0))
+        if plpid == "None" or plpid == "-1":
+            return ""
+        else:
+            return ("PLP ID:") + plpid
+
+    def t2mi_plpid(self, tpinfo):
+        t2mi_plpid = str(tpinfo.get("t2mi_plp_id"))
+        if t2mi_plpid == "None" or t2mi_plpid == "-1":
+            return ""
+        else:
+            return ("T2MI ID:") + t2mi_plpid
+
 
     def multistream(self, tpinfo):
         isid = str(tpinfo.get("is_id", 0)) 
@@ -241,16 +291,16 @@ class GlamourBase(Poll, Converter, object):
         plsmode = str(tpinfo.get("pls_mode", None))
         if (plsmode == "None") or (plsmode == "Unknown") or ((plsmode is not "None") and (plscode == "0")):
            plsmode = ""
-        if (isid == "None") or (isid == "-1") or (isid == "0") or (isid == "255"):
+        if (isid == "None") or (isid == "-1") or (isid == "0"):
            isid = ""
         else:
-           isid = (" IS:") + isid
-        if (plscode == "None") or (plscode == "-1") or (plscode == "0") or (isid == "262143"):
+           isid = ("IS:") + isid
+        if (plscode == "None") or (plscode == "-1") or (plscode == "0"):
            plscode = ""
         if ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
             return isid
         else:
-            return isid + (" ") + plsmode + (" ") + plscode
+            return sp(isid) + sp(plsmode) + plscode
 
     def satname(self, tp):
         orbpos = tp.get("orbital_position")
@@ -763,7 +813,7 @@ class GlamourBase(Poll, Converter, object):
         else:
             onid = "ONID:" + str(onid).zfill(4)
         if (vpid >= 0) or (apid >= 0) or (sid >= 0) or (tsid >= 0) or (onid >= 0):
-            pidinfo = vpid + " " + apid + " " + sid + " " + pcrpid + " " + pmtpid + " " + tsid + " " + onid
+            pidinfo = sp(vpid) + sp(apid) + sp(sid) + sp(pcrpid) + sp(pmtpid) + sp(tsid) + onid
             return pidinfo
         else:
             return ""
@@ -805,7 +855,7 @@ class GlamourBase(Poll, Converter, object):
         else:
             onid = "ONID:" + str(hex(onid)[2:]).upper().zfill(4)
         if (vpid >= 0) or (apid >= 0) or (sid >= 0) or (tsid >= 0) or (onid >= 0):
-            pidhexinfo = vpid + " " + apid + " " + sid + " " + pcrpid + " " + pmtpid + " " + tsid + " " + onid
+            pidhexinfo = sp(vpid) + sp(apid) + sp(sid) + sp(pcrpid) + sp(pmtpid) + sp(tsid) + onid
             return pidhexinfo
         else:
             return ""
@@ -832,16 +882,20 @@ class GlamourBase(Poll, Converter, object):
                 return self.streamurl()
             else:
                 if "DVB-S" in self.tunertype(tp):
-                    if "is_id" in tpinfo or "pls_code" in tpinfo or "pls_mode" in tpinfo:
-                        return self.system(tpinfo) + " " + self.modulation(tpinfo) + " " + self.frequency(tp) + " " + self.polarization(tpinfo) + " " + self.symbolrate(tp) + " " + self.fecinfo(tpinfo) + self.multistream(tpinfo)
+                    satf = sp(self.system(tpinfo)) + sp(self.modulation(tpinfo)) + sp(self.frequency(tp)) + sp(self.polarization(tpinfo)) + sp(self.symbolrate(tp)) + sp(self.fecinfo(tpinfo))
+                    if "is_id" in tpinfo or "pls_code" in tpinfo or "pls_mode" in tpinfo or "t2mi_plp_id" in tpinfo:
+                        return satf + sp(self.multistream(tpinfo)) + self.t2mi_plpid(tpinfo)
                     else:
-                        return self.system(tpinfo) + " " + self.modulation(tpinfo) + " " + self.frequency(tp) + " " + self.polarization(tpinfo) + " " + self.symbolrate(tp) + " " + self.fecinfo(tpinfo)
+                        return satf
                 elif "DVB-C" in self.tunertype(tp):
-                    return self.frequency(tp) + " Mhz " + " " + self.modulation(tpinfo) + "  SR:" + self.symbolrate(tp) + "  " + "FEC:" + self.fecinfo(tpinfo)
-                elif "DVB-T" in self.tunertype(tp):
-                    return self.channel(tpinfo) + " (" + self.terrafreq(tp) + " Mhz)" + " " + self.constellation(tpinfo) + self.terrafec(tpinfo)
+                    return sp(self.frequency(tp)) + sp("Mhz") + sp(self.modulation(tpinfo)) + sp("SR:") + sp(self.symbolrate(tp)) + sp("FEC:") + self.fecinfo(tpinfo)
+                elif self.tunertype(tp) == "DVB-T":
+                    terf = sp(self.channel(tpinfo)) + "(" + sp(self.terrafreq(tp)) + sp("Mhz)") + sp(self.constellation(tpinfo)) + sp(self.terrafec(tpinfo))
+                    return terf
+                elif self.tunertype(tp) == "DVB-T2":
+                    return terf + self.plpid(tpinfo)
                 elif "ATSC" in self.tunertype(tp):
-                    return self.terrafreq(tp) + " Mhz " + " " + self.modulation(tpinfo)
+                    return sp(self.terrafreq(tp)) + sp("Mhz") + self.modulation(tpinfo)
                 return ""
 
         elif (self.type == self.ORBITAL):
@@ -850,7 +904,7 @@ class GlamourBase(Poll, Converter, object):
                 return self.streamtype()
             else:
                 if "DVB-S" in self.tunertype(tp):
-                    return self.satname(tp) + " (" + self.orbital(tp) + ")"
+                    return sp(self.satname(tp)) + "(" + self.orbital(tp) + ")"
                 elif "DVB-C" in self.tunertype(tp) or "DVB-T" in self.tunertype(tp) or "ATSC" in self.tunertype(tp):
                     return self.system(tpinfo)
                 return ""
@@ -882,6 +936,9 @@ class GlamourBase(Poll, Converter, object):
         elif (self.type == self.PIDHEXINFO):
             return str(self.streamtype())
 
+        elif (self.type == self.HDRINFO):
+            return self.hdr(info)
+
     text = property(getText)
 
 
@@ -891,12 +948,13 @@ class GlamourBase(Poll, Converter, object):
         info = service and service.info()
         if not info:
             return False
-        else: 
+        else:
             xresol = info.getInfo(iServiceInformation.sVideoWidth)
             yresol = info.getInfo(iServiceInformation.sVideoHeight)
             progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
-            vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
+            vcodec = self.videocodec(info)
             streamurl = self.streamurl()
+            gamma = self.hdr(info)
             if (self.type == self.IS1080):
                 if (xresol >= 1880) and (xresol <= 2000) or (yresol >= 900) and (yresol <= 1090):
                     return True
@@ -1005,7 +1063,22 @@ class GlamourBase(Poll, Converter, object):
                 if "AVS" in vcodec:
                     return True
                 return False
-
+            elif (self.type == self.ISSDR):
+                if "SDR" in gamma:
+                    return True
+                return False
+            elif (self.type == self.ISHDR):
+                if gamma == "HDR":
+                    return True
+                return False
+            elif (self.type == self.ISHDR10):
+                if gamma == "HDR10":
+                    return True
+                return False
+            elif (self.type == self.ISHLG):
+                if "HLG" in gamma:
+                    return True
+                return False
 
     boolean = property(getBoolean)
 
