@@ -1,4 +1,4 @@
-#Glamour Aura FHD-ATV skin by MCelliot_g for OpenATV based images#
+#Glamour Aura FHD-ATV skin by MCelliot_g for OpenATV/OE-Alliance based images#
 
 LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007.
 
