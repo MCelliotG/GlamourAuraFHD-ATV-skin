@@ -1,5 +1,5 @@
 <skin>
-  <!-- Glamour Aura FHD by MCelliot_g for OpenATV based images -->
+  <!-- Glamour Aura FHD by MCelliot_g for OpenATV/OE-Alliance based images -->
   <!-- LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. -->
   <!-- This skin was created for new generation Enigma2 receivers. MINIMAL requirement is an STB running Enigma2 with a dual CPU @ 1000 MHz. -->
   <!-- This skin is not guaranteed to work in older E2 receivers with slower CPUs. Use at your own risk. -->
@@ -19,6 +19,7 @@
   </output>
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_openatv.xml" />
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_plugins_oea.xml" />
+  <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_images_oea.xml" />
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_emc.xml" />
   <colors>
     <color name="amarillo" value="#00ffffc6" />
@@ -569,6 +570,18 @@
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/multiboot.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">nfr4x_boot</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/camd.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">Blue Panel</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/panel+.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">Green Panel</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/menuicons/multiboot.png" position="515,425" size="180,180" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">opd_boot</convert>
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
@@ -1130,6 +1143,7 @@
   <screen name="MenuCam" flags="wfNoBorder">
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">ci_setup</convert>
+      <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">ci_assign</convert>
@@ -2086,8 +2100,8 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,560" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,565" size="330,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1">
-  <convert type="GlamourExtra">CPU:$0 ($1$2$3 $4)</convert>
-</widget>
+      <convert type="GlamourExtra">CPU:$0 ($1$2$3 $4)</convert>
+    </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,600" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,605" size="310,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
       <convert type="GlamourExtra">CPUSpeed</convert>
@@ -2120,202 +2134,202 @@
   </screen>
   <!--  Crypt info -->
   <screen name="CryptInfo" flags="wfNoBorder" position="0,0">
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/beta_no.png" position="550,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/beta_emm.png" position="550,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BetaCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/beta_ecm.png" position="550,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BetaEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/ird_no.png" position="597,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ird_emm.png" position="597,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">IrdCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ird_ecm.png" position="597,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">IrdEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/seca_no.png" position="642,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/seca_emm.png" position="642,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">SecaCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/seca_ecm.png" position="642,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">SecaEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/via_no.png" position="685,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/via_emm.png" position="685,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ViaCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/via_ecm.png" position="685,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ViaEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/nagra_no.png" position="733,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nagra_emm.png" position="733,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">NagraCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nagra_ecm.png" position="733,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">NagraEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/cw_no.png" position="790,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cw_emm.png" position="790,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">CrwCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cw_ecm.png" position="790,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">CrwEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/nds_no.png" position="848,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nds_emm.png" position="848,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">NdsCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nds_ecm.png" position="848,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">NdsEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/conax_no.png" position="903,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/conax_emm.png" position="903,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ConaxCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/conax_ecm.png" position="903,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ConaxEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/biss_no.png" position="950,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/biss_emm.png" position="950,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BissCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/biss_ecm.png" position="950,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BissEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/bul_no.png" position="998,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/bul_emm.png" position="998,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BulCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/bul_ecm.png" position="998,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">BulEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/drc_no.png" position="1051,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/drc_emm.png" position="1051,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">DrcCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/drc_ecm.png" position="1051,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">DrcEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/power_no.png" position="1103,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/power_emm.png" position="1103,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">PwvCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/power_ecm.png" position="1103,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">PwvEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/vmx_no.png" position="1158,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/vmx_emm.png" position="1158,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">VmxCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/vmx_ecm.png" position="1158,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">VmxEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/tbg_no.png" position="1212,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tbg_emm.png" position="1212,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">TbgCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tbg_ecm.png" position="1212,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">TbgEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/tgf_no.png" position="1260,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tgf_emm.png" position="1260,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">TgfCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tgf_ecm.png" position="1260,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">TgfEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/pan_no.png" position="1310,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/pan_emm.png" position="1310,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">PanCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/pan_ecm.png" position="1310,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">PanEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/exs_no.png" position="1360,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/exs_emm.png" position="1360,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ExsCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/exs_ecm.png" position="1360,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">ExsEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="GlamourAuraFHD-ATV/caids/ru_no.png" position="1410,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ru_emm.png" position="1410,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">RusCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ru_ecm.png" position="1410,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">RusEcm</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cgd_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">CgdCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/agt_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">AgtCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cc_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">CodiCaS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/emu.png" position="1515,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Emu</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/crd.png" position="1515,995" size="65,25" zPosition="4" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Crd</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/net.png" position="1515,995" size="65,25" zPosition="5" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Net</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cache.png" position="1515,995" size="65,25" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Cache</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/fta.png" position="1515,995" size="65,25" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Fta</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="CiModuleControl" allVisible="1" position="1595,990" size="250,35" transparent="1" font="RegularB; 27" backgroundColor="sky" foregroundColor="amarillo" zPosition="5" />
-</screen>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/beta_no.png" position="550,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/beta_emm.png" position="550,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BetaCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/beta_ecm.png" position="550,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BetaEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/ird_no.png" position="597,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ird_emm.png" position="597,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">IrdCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ird_ecm.png" position="597,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">IrdEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/seca_no.png" position="642,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/seca_emm.png" position="642,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">SecaCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/seca_ecm.png" position="642,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">SecaEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/via_no.png" position="685,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/via_emm.png" position="685,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ViaCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/via_ecm.png" position="685,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ViaEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/nagra_no.png" position="733,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nagra_emm.png" position="733,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">NagraCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nagra_ecm.png" position="733,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">NagraEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/cw_no.png" position="790,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cw_emm.png" position="790,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">CrwCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cw_ecm.png" position="790,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">CrwEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/nds_no.png" position="848,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nds_emm.png" position="848,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">NdsCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/nds_ecm.png" position="848,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">NdsEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/conax_no.png" position="903,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/conax_emm.png" position="903,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ConaxCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/conax_ecm.png" position="903,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ConaxEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/biss_no.png" position="950,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/biss_emm.png" position="950,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BissCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/biss_ecm.png" position="950,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BissEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/bul_no.png" position="998,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/bul_emm.png" position="998,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BulCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/bul_ecm.png" position="998,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">BulEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/drc_no.png" position="1051,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/drc_emm.png" position="1051,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">DrcCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/drc_ecm.png" position="1051,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">DrcEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/power_no.png" position="1103,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/power_emm.png" position="1103,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">PwvCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/power_ecm.png" position="1103,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">PwvEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/vmx_no.png" position="1158,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/vmx_emm.png" position="1158,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">VmxCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/vmx_ecm.png" position="1158,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">VmxEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/tbg_no.png" position="1212,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tbg_emm.png" position="1212,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">TbgCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tbg_ecm.png" position="1212,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">TbgEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/tgf_no.png" position="1260,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tgf_emm.png" position="1260,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">TgfCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/tgf_ecm.png" position="1260,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">TgfEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/pan_no.png" position="1310,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/pan_emm.png" position="1310,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">PanCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/pan_ecm.png" position="1310,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">PanEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/exs_no.png" position="1360,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/exs_emm.png" position="1360,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ExsCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/exs_ecm.png" position="1360,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">ExsEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/caids/ru_no.png" position="1410,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ru_emm.png" position="1410,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">RusCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/ru_ecm.png" position="1410,995" size="50,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">RusEcm</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cgd_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">CgdCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/agt_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">AgtCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cc_emm.png" position="1462,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">CodiCaS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/emu.png" position="1515,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Emu</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/crd.png" position="1515,995" size="65,25" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Crd</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/net.png" position="1515,995" size="65,25" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Net</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/cache.png" position="1515,995" size="65,25" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Cache</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/caids/fta.png" position="1515,995" size="65,25" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Fta</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="CiModuleControl" allVisible="1" position="1595,990" size="250,35" transparent="1" font="RegularB; 27" backgroundColor="sky" foregroundColor="amarillo" zPosition="5" />
+  </screen>
   <!--  Ecm info -->
   <screen name="ECMInfo" flags="wfNoBorder">
     <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="280,1030" size="1600,35" font="Numbers; 30" halign="left" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="center" noWrap="1" foregroundColor="amarillo">
@@ -2634,7 +2648,7 @@
     <panel name="TunerInfobar" />
     <panel name="TunersInfo" />
     <!-- Service info and icons -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="400,942" zPosition="-3" size="1520,40" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_blueglass.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
     <panel name="IconsInfobar" />
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <panel name="MainInfobar" />
@@ -4913,39 +4927,39 @@ if not self["videofps"].text:
   </screen>
   <!-- 09. Service scan -->
   <screen name="ServiceScan" position="0,0" size="1920,1080" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
-    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-s.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="FrontendInfo">TYPE</convert>
-      <convert type="ValueRange">0,0</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-c.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="FrontendInfo">TYPE</convert>
-      <convert type="ValueRange">1,1</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-t.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="FrontendInfo">TYPE</convert>
-      <convert type="ValueRange">2,2</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/atsc.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="FrontendInfo">TYPE</convert>
-      <convert type="ValueRange">3,3</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget name="network" position="540,90" size="1320,50" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" />
-    <widget name="transponder" position="540,140" size="697,50" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
-    <widget name="scan_state" position="540,195" size="1320,50" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="4" />
-    <widget name="pass" position="1237,140" size="622,50" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" position="660,280" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
-    <widget name="scan_progress" position="660,283" size="1155,25" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_blue.png" transparent="1" alphatest="blend" zPosition="5" />
-    <widget name="servicelist" font="Regular; 30" position="540,345" size="1320,600" itemHeight="50" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/scanselectionblue.png" alphatest="blend" zPosition="5" />
-    <panel name="RGKeysUP1" />
-  </screen>
+  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" flags="wfNoBorder" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-s.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
+    <convert type="FrontendInfo">TYPE</convert>
+    <convert type="ValueRange">0,0</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-c.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
+    <convert type="FrontendInfo">TYPE</convert>
+    <convert type="ValueRange">1,1</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dvb-t.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
+    <convert type="FrontendInfo">TYPE</convert>
+    <convert type="ValueRange">2,2</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="FrontendInfo" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/atsc.png" position="540,245" size="96,96" transparent="1" alphatest="blend" zPosition="5">
+    <convert type="FrontendInfo">TYPE</convert>
+    <convert type="ValueRange">3,3</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget name="network" position="540,110" size="1320,45" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="amarillo" noWrap="1" />
+  <widget name="transponder" position="540,155" size="800,45" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
+  <widget name="scan_state" position="540,200" size="1320,45" font="Regular; 30" backgroundColor="background20" transparent="1" zPosition="4" />
+  <widget name="pass" position="1340,155" size="520,45" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" position="660,280" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
+  <widget name="scan_progress" position="660,283" size="1155,25" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_blue.png" transparent="1" alphatest="blend" zPosition="5" />
+  <widget name="servicelist" font="Regular; 30" position="540,345" size="1320,600" itemHeight="50" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/scanselectionblue.png" alphatest="blend" zPosition="5" />
+  <panel name="RGKeysUP1" />
+</screen>
   <!-- 10. Fast scan -->
   <screen name="FastScanScreen" position="0,0" size="1920,1080" title="Fast scan" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" flags="wfNoBorder" />
@@ -5475,7 +5489,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" flags="wfNoBorder" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
       {"templates":
         {"default": (80,[
@@ -5493,7 +5507,7 @@ if not self["videofps"].text:
       }
       </convert>
     </widget>
-    <widget source="status" render="Label" position="540,760" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
+    <widget source="status" render="Label" position="540,810" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 09. Plugin Manager Info -->
