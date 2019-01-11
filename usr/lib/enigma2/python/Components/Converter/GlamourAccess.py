@@ -8,11 +8,17 @@ from enigma import iServiceInformation, iPlayableService
 from Tools.Directories import fileExists
 from Components.Element import cached
 from string import upper
-from Components.config import config
+from Components.config import config, ConfigText, ConfigSubsection
 from Poll import Poll
 import os
 info = {}
 old_ecm_mtime = None
+try:
+    config.softcam_actCam = ConfigText()
+    config.softcam_actCam2 = ConfigText()
+except:
+    pass
+
 
 class GlamourAccess(Poll, Converter, object):
     CAID = 0
@@ -456,6 +462,7 @@ class GlamourAccess(Poll, Converter, object):
         ecminfo = ""
         server = ""
         ecm_info = self.ecmfile()
+        ecmpath = self.ecmpath()
         self.poll_interval = self.timespan
         self.poll_enabled = True
         service = self.source.service
@@ -463,7 +470,7 @@ class GlamourAccess(Poll, Converter, object):
             info = service and service.info()
 
             if self.type == self.CRYPTINFO:
-                if fileExists("/tmp/ecm.info"):
+                if fileExists(ecmpath):
                     try:
                         caid = "%0.4X" % int(ecm_info.get("caid", ""), 16)
                         return "%s" % self.CaidsDecoded.get(caid[:2])
@@ -519,7 +526,11 @@ class GlamourAccess(Poll, Converter, object):
                         port = ecm_info.get("port", "")
                         source = ecm_info.get("source", "")
                         server = ecm_info.get("server", "")
-                        hops = ecm_info.get("hops", "")
+                        hops = hop = ecm_info.get("hops", "")
+                        if hops:
+                            hops = " Hops: %s" % hops
+                        if hop:
+                            hop = "(%s)" % hop
                         system = ecm_info.get("system", "")
 
                         frm = ecm_info.get("from", "")
@@ -593,18 +604,18 @@ class GlamourAccess(Poll, Converter, object):
                             if source == "emu":
                                 ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
                             elif reader is not "" and source == "net" and port is not "":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
                             elif reader is not "" and source == "net":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
                             elif reader is not "" and source is not "net":
-                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+                                ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
                             elif server == "" and port == "" and protocol is not "":
-                                ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s)  Hops: %s  Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
+                                ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s) %s Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
                             elif server == "" and port == "" and protocol == "":
                                 ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time.replace("msec", "ms"))
                             else:
                                 try:
-                                    ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s)  Hops: %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+                                    ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s) %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
                                 except:
                                     pass
 
@@ -616,9 +627,9 @@ class GlamourAccess(Poll, Converter, object):
                             else:
                                 try:
                                     if reader is not "":
-                                        ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, frm, hops, ecm_time.replace("msec", "ms"))
+                                        ecminfo = "%s:%s - %s %s - %s" % (caid, prov, frm, hop, ecm_time.replace("msec", "ms"))
                                     else:
-                                        ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, server, hops, ecm_time.replace("msec", "ms"))
+                                        ecminfo = "%s:%s - %s %s - %s" % (caid, prov, server, hop, ecm_time.replace("msec", "ms"))
                                 except:
                                     pass
 
@@ -667,7 +678,7 @@ class GlamourAccess(Poll, Converter, object):
 #OE-A
         if fileExists("/etc/image-version") and not fileExists("/etc/.emustart"):
             for line in open("/etc/image-version"):
-                if "=AAF" in line or "=openATV" in line or "=opendroid" in line:
+                if "=openATV" in line:
                     if config.softcam.actCam.value:
                         cam1 = config.softcam.actCam.value
                         if " CAM 1" in cam1  or "no cam" in cam1:
@@ -678,6 +689,17 @@ class GlamourAccess(Poll, Converter, object):
                             cam2 = ""
                         else:
                             cam2 = "+" + cam2
+                elif "=opendroid" in line:
+                    cam1 = config.softcam_actCam.value
+                    if cam1:
+                        if " CAM 1" in cam1  or "no cam" in cam1:
+                            cam1 = "No CAM active"
+                    cam2 = config.softcam_actCam2.value
+                    if cam2:
+                        if " CAM 2" in cam2 or "no cam" in cam2 or " CAM" in cam2:
+                            cam2 = ""
+                        else:
+                            cam2 = "/" + cam2
                 elif "=vuplus" in line:
                     if fileExists("/tmp/.emu.info"):
                         for line in open("/tmp/.emu.info"):
@@ -1096,20 +1118,47 @@ class GlamourAccess(Poll, Converter, object):
                 return "Free to air or no descriptor"
 
 
+    def ecmpath(self):
+        ecmpath = None
+        if fileExists("/tmp/ecm7.info"):
+            ecmpath = "/tmp/ecm7.info"
+        elif fileExists("/tmp/ecm6.info") and not fileExists("tmp/ecm7.info"):
+            ecmpath = "/tmp/ecm6.info"
+        elif fileExists("/tmp/ecm5.info") and not fileExists("tmp/ecm6.info"):
+            ecmpath = "/tmp/ecm5.info"
+        elif fileExists("/tmp/ecm4.info") and not fileExists("tmp/ecm5.info"):
+            ecmpath = "/tmp/ecm4.info"
+        elif fileExists("/tmp/ecm3.info") and not fileExists("tmp/ecm4.info"):
+            ecmpath = "/tmp/ecm3.info"
+        elif fileExists("/tmp/ecm2.info") and not fileExists("tmp/ecm3.info"):
+            ecmpath = "/tmp/ecm2.info"
+        elif fileExists("/tmp/ecm1.info") and not fileExists("tmp/ecm2.info"):
+            ecmpath = "/tmp/ecm1.info"
+        elif fileExists("/tmp/ecm0.info") and not fileExists("/tmp/ecm1.info"):
+            ecmpath = "/tmp/ecm0.info"
+        else:
+            try:
+                ecmpath = "/tmp/ecm.info"
+            except:
+                pass
+        return ecmpath
+
+
     def ecmfile(self):
         global info
         global old_ecm_mtime
         ecm = None
+        ecmpath = self.ecmpath()
         service = self.source.service
         if service:
             try:
-                ecm_mtime = os.stat("/tmp/ecm.info").st_mtime
-                if not os.stat("/tmp/ecm.info").st_size > 0:
+                ecm_mtime = os.stat(ecmpath).st_mtime
+                if not os.stat(ecmpath).st_size > 0:
                     info = {}
                 if ecm_mtime == old_ecm_mtime:
                     return info
                 old_ecm_mtime = ecm_mtime
-                ecmf = open("/tmp/ecm.info", "rb")
+                ecmf = open(ecmpath, "rb")
                 ecm = ecmf.readlines()
             except:
                 old_ecm_mtime = None

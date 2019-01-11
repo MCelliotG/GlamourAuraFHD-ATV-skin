@@ -205,12 +205,11 @@ class GlamourBase(Poll, Converter, object):
         return str(fps.replace(".000","")) + " fps "
 
     def videocodec(self, info):
+        vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
         if fileExists("/etc/image-version"):
             for line in open("/etc/image-version"):
-                if "=OE-Alliance" in line:
+                if "=OE-Alliance" in line or "=openESI" in line:
                     vcodec = ("MPEG2", "MPEG4", "MPEG1", "MPEG4-II", "VC1", "VC1-SM", "HEVC", "H265", "AVS", "N/A" )[info and info.getInfo(iServiceInformation.sVideoType)]
-        else:
-            vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
         return str(vcodec)
 
     def hdr(self, info):
