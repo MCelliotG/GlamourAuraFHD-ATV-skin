@@ -74,18 +74,18 @@
   
     <!-- EMC Screens -->
   <screen name="EnhancedMovieCenterMenu" position="0,0" size="1920,1080" title="Enhanced Movie Center Menu" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys2" />
   </screen>
   
   <screen name="EMCPlaylistScreen" position="0,0" size="1920,1080" title="EMC Playlist" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="playlist" font="Regular; 32" position="540,90" size="1320,750" posWidth="70" nameWidth="1100" posColor="amarillo" posColorSel="orange" nameColor="white" nameColorSel="lightciel" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="595,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
@@ -99,25 +99,25 @@
   </screen>
   
   <screen name="EMCPlaylistSetup" position="0,0" size="1920,1080" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   
   <screen name="EMCFilebrowser" position="0,0" size="1920,1080" title="EMC Filebrowser" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="filelist" font="Regular; 32" position="540,90" size="1320,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   
   <screen name="EMCMovieInfoSetup" position="0,0" size="1920,1080" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeys1" />
@@ -126,7 +126,7 @@
   <screen name="MovieInfoTMDb" position="0,0" size="1920,1080" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="660,840" size="100,100" pixmap="GlamourAuraFHD-ATV/icons/tmdb-small.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="cyan1" zPosition="7" transparent="1" backgroundColor="background20" />
     <widget name="starsbg" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_empty.png" position="140,660" zPosition="5" size="375,40" alphatest="blend" transparent="1" />
@@ -155,7 +155,7 @@
   <screen name="EMCImdbScan" position="0,0" size="1920,1080" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="1325,660" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
     <widget name="Setup" position="1440,660" size="400,50" font="RegularB; 33" valign="center" zPosition="6" transparent="1" />
     <ePixmap position="1335,710" size="75,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" transparent="1" alphatest="blend" />
@@ -178,9 +178,9 @@
   </screen>
   
   <screen name="imdbSetup" position="0,0" size="1920,1080" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,437" size="400,205" pixmap="GlamourAuraFHD-ATV/icons/imdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeys1" />
@@ -189,7 +189,7 @@
   <screen name="getCover" position="0,0" size="1920,1080" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="info" position="50,745" size="580,200" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
     <widget name="poster" position="150,145" size="400,600" alphatest="on" transparent="0" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/nocover.png" position="150,145" size="400,600" alphatest="blend" transparent="1" zPosition="4" />
@@ -198,9 +198,9 @@
   </screen>
   
   <screen name="MovieMenu" position="0,0" size="1920,1080" title="Menu EMC" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" font="Regular; 32" position="540,70" size="1320,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="StringList" />
@@ -208,9 +208,9 @@
   </screen>
   
     <screen name="MovieInfoPreview" position="0,0" size="1920,1080" title="Movie Information Preview" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,437" size="400,205" pixmap="GlamourAuraFHD-ATV/icons/imdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="movie_name" position="540,90" size="1305,80" font="RegularB;35" halign="center" valign="center" foregroundColor="sky" zPosition="7" transparent="1" backgroundColor="background20" />
     <widget name="previewtext" position="540,180" size="1305,750" font="Regular; 32" zPosition="6" transparent="1" backgroundColor="background20" />
@@ -219,7 +219,7 @@
   <screen name="DownloadMovieInfo" position="0,0" size="1920,1080" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="660,840" size="100,100" pixmap="GlamourAuraFHD-ATV/icons/tmdb-small.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="sky" zPosition="7" transparent="1" backgroundColor="background20" />
     <widget name="movielist" font="Regular; 32" position="660,145" size="1150,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
@@ -232,9 +232,9 @@
   </screen>
   
   <screen name="MovieInfoSetup" position="0,0" size="1920,1080" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeys1" />
@@ -242,15 +242,15 @@
   
   <screen name="EMCMediaCenter" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
    <!-- CLOCK -->
-   <panel name="ClockLabel1" flags="wfNoBorder" />
+   <panel name="ClockLabel1" />
    <!-- BACKGROUND -->
-    <panel name="MovieBG" flags="wfNoBorder" />
+    <panel name="MovieBG" />
    <!-- NAME -->
-    <panel name="MovieN2" flags="wfNoBorder" />
+    <panel name="MovieN2" />
     <!-- MOVIE DURATION AND PROGRESS -->
-    <panel name="MovieD+P" flags="wfNoBorder" />
+    <panel name="MovieD+P" />
     <!-- MOVIE AND SERVICE INFOS -->
-    <panel name="MovieServiceInfos" flags="wfNoBorder" />
+    <panel name="MovieServiceInfos" />
     <!-- COVER -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/nocover-medium.png" position="55,750" size="200,300" zPosition="10" alphatest="on" transparent="1" />
     <widget name="Cover" position="55,750" size="200,300" zPosition="11" alphatest="on" backgroundColor="transparent" foregroundColor="transparent" />
@@ -278,20 +278,20 @@
     <!--panel name="EMCExtended" /-->
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1550,40" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,85" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
-    <panel name="FullKeys3" flags="wfNoBorder" />
+    <panel name="FullKeys3" />
   </screen>
 
 <screen name="EMCMediaCenterOwn" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
    <!-- CLOCK -->
-   <panel name="ClockLabel1" flags="wfNoBorder" />
+   <panel name="ClockLabel1" />
    <!-- BACKGROUND -->
-    <panel name="MovieBG" flags="wfNoBorder" />
+    <panel name="MovieBG" />
    <!-- NAME -->
-    <panel name="MovieN2" flags="wfNoBorder" />
+    <panel name="MovieN2" />
     <!-- MOVIE DURATION AND PROGRESS -->
     <panel name="MovieD+P" flags="wfNoBorder" />
     <!-- MOVIE AND SERVICE INFOS -->
-    <panel name="MovieServiceInfos" flags="wfNoBorder" />
+    <panel name="MovieServiceInfos" />
     <!-- COVER -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/nocover-medium.png" position="55,750" size="200,300" zPosition="10" alphatest="on" transparent="1" />
     <widget name="Cover" position="55,750" size="200,300" zPosition="11" alphatest="on" backgroundColor="transparent" foregroundColor="transparent" />

@@ -6,20 +6,20 @@
   <!-- OPENATV -->
   
   <!-- 01. SIMPLE SCREENS -->
-  <screen name="MovieSelectionSlim" position="0,0" size="1920,1080" title="Movie Center" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="MovieSelectionSlim" position="0,0" size="1920,1080" title="Movie Center" flags="wfNoBorder" backgroundColor="transparent">
   <!-- Background -->
   <panel name="MainBackgroundClock" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="on" transparent="1" />
   <!-- Layout -->
-  <panel name="MovieSLayout" flags="wfNoBorder" />
+  <panel name="MovieSLayout" />
   <!-- Infos -->
-  <panel name="MovieSInfo" flags="wfNoBorder" />
+  <panel name="MovieSInfo" />
   <!-- Icons -->
-  <panel name="MovieSIcons" flags="wfNoBorder" />
+  <panel name="MovieSIcons" />
   <!-- Keys -->
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="665,905" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="765,905" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
-  <panel name="FullKeys3" flags="wfNoBorder" />
+  <panel name="FullKeys3" />
   </screen>
   <screen name="mySmallChannelSelection" title="my Small Channel Selection" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
     <panel name="MainBackgroundClock" />
@@ -115,18 +115,18 @@
 
   <!-- 02. NETWORK SCREENS -->
   <screen name="NetworkMacSetup" position="0,0" size="1920,1080" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/nim2.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="RGKeys1" />
   </screen>
   <screen name="NetworkSamba" position="0,0" size="1920,1080" title="Samba Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/samba.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -136,16 +136,16 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkSambaLog" position="0,0" size="1920,1080" title="Network Samba Log" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/samba.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="infotext" font="Console; 30" position="540,90" size="1305,850" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" zPosition="5" />
   </screen>
   <screen name="NetworkInadyn" position="0,0" size="1920,1080" title="Inadyn Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/inadyn.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,120" size="500,50" valign="center" halign="right" transparent="1" zPosition="3" />
     <widget name="labdisabled" font="Regular;30" backgroundColor="deepgrey" foregroundColor="white" position="1050,120" size="640,50" valign="center" halign="center" zPosition="7" />
@@ -169,42 +169,42 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkInadynSetup" position="0,0" size="1920,1080" title="Inadyn Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/inadyn.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkInadynLog" position="0,0" size="1920,1080" title="Network Inadyn Log" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/inadyn.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="infotext" font="Console; 30" position="540,90" size="1305,850" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" zPosition="5" />
   </screen>
   <screen name="NetworkuShareSetup" position="0,0" size="1920,1080" title="Network uShare Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ushare.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="uShareSelection" position="0,0" size="1920,1080" title="uShare Selection" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ushare.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkNfs" position="0,0" size="1920,1080" title="Network Nfs" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netnfs.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -214,9 +214,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkTelnet" position="0,0" size="1920,1080" title="Network Telnet" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/telnet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -226,9 +226,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkFtp" position="0,0" size="1920,1080" title="Network Ftp" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netftp.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -238,9 +238,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkOpenvpn" position="0,0" size="1920,1080" title="Network Openvpn" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netvpn.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -250,9 +250,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkSABnzbd" position="0,0" size="1920,1080" title="SABnzbd Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/sabnzbd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -262,9 +262,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkAfp" position="0,0" size="1920,1080" title="AFP Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netafp.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -274,9 +274,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkMiniDLNA" position="0,0" size="1920,1080" title="AFP Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/minidlna.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,120" size="500,50" valign="center" halign="right" transparent="1" zPosition="4" />
     <widget name="labdisabled" font="Regular; 30" backgroundColor="deepgrey" foregroundColor="white" position="1050,120" size="640,50" valign="center" halign="center" zPosition="7" />
@@ -307,9 +307,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkuShare" position="0,0" size="1920,1080" title="uShare Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ushare.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,120" size="500,50" valign="center" halign="right" transparent="1" zPosition="4" />
     <widget name="labdisabled" font="Regular; 30" backgroundColor="deepgrey" position="1050,120" size="640,50" valign="center" halign="center" zPosition="7" />
@@ -343,13 +343,13 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="NetworkMountsMenu" position="0,0" size="1920,1080" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="menulist" font="Regular; 45" position="540,90" size="1305,560" itemHeight="80" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" zPosition="5" />
     <widget source="introduction" render="Label" position="540,645" size="1305,200" font="RegularB; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" valign="center" />
-    <panel name="RedKey2" />
+    <panel name="RedKey1" />
   </screen>
   <screen name="RestartNetwork" position="0, 0" flags="wfNoBorders" title="Restart Network Adapter" backgroundColor="transparent" size="1920, 1080">
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/network.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
@@ -358,13 +358,13 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="label" position="810,185" size="1050,630" font="RegularB; 34" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
   <screen name="Bouquet1" position="0,0" size="1920,1080" title="IPTV Bouquet" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/bouquet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys2" />
@@ -373,25 +373,25 @@
 
   <!-- 03. INFO SCREENS -->
   <screen name="Infopanel" position="0,0" size="1920,1080" title="Infopanel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="Mlist" font="Regular; 45" position="800,90" size="960,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="3" />
     <widget name="label1" position="810,865" size="950,80" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
   <screen name="Info" position="0,0" size="1920,1080" title="Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="label1" position="812,90" size="960,750" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="cyan" />
     <widget name="label2" position="810,865" size="950,80" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
   <screen name="AboutOE" position="0,0" size="1920,1080" title="About" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/about.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="lab1" render="Label" position="540,60" size="1305,50" font="RegularB; 34" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="2" />
     <widget source="lab2" render="Label" position="540,110" size="650,50" font="Regular; 30" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="6" />
@@ -401,17 +401,17 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="SystemMemoryInfo" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/memory.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="AboutScrollLabel" render="Label" position="542,90" size="1305,750" font="Regular; 32" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
   <screen name="SystemNetworkInfo" position="0,0" size="1920,1080" title="System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/network.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="IF" render="Label" position="540,75" size="745,45" font="RegularB; 36" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="4" />
     <eLabel position="540,127" size="750,3" backgroundColor="grey" zPosition="5" />
@@ -422,26 +422,26 @@
     <panel name="RedKey1" />
   </screen>
   <screen name="SoftwareUpdateChanges" position="0,0" size="1920,1080" title="Software Update Changes" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" render="Label" position="543,90" size="1305,750" font="Regular; 32" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
     <panel name="RGKeys1" />
   </screen>
   <screen name="SoftwareManagerSetup" position="0,0" size="1920,1080" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" position="540,60" size="1305,600" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="introduction" render="Label" position="540,660" size="1305,200" font="Regular; 30" backgroundColor="background20" foregroundColor="sky" zPosition="13" transparent="1" />
     <panel name="RGKeys1" />
   </screen>
   <screen name="SoftwareManagerInfo" position="0,0" size="1920,1080" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,600" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorMarkedSelected="amarillo" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -462,9 +462,9 @@
     <widget source="backgroundable" render="FixedLabel" text="Continue in the background" position="1200,810" size="650,50" zPosition="2" valign="center" font="Regular;30" halign="center" noWrap="1" foregroundColor="cyan" backgroundColor="background20" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/backup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="info-hdd" position="540,50" zPosition="3" size="1305,250" font="RegularB; 32" halign="center" valign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" />
     <widget name="info-multi" position="540,560" zPosition="6" size="1305,250" font="Regular; 32" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" />
@@ -472,9 +472,9 @@
     <panel name="FullKeys1" />
   </screen>
     <screen name="SoftwareUpdateChoices" position="0,0" size="1920,1080" title="Software Update Choices" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" render="Label" position="540,90" size="1305,80" font="Regular; 32" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
     <widget name="list" font="Regular; 30" position="542,190" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
@@ -483,9 +483,9 @@
 
   <!-- 04. HDD SCREENS -->
   <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="TunerHeader" render="Label" position="540,60" size="1305,50" font="RegularB; 36" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
     <widget source="nims" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,110" size="1305,370" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
@@ -497,9 +497,9 @@
   </screen>
 
   <screen name="HddMount" position="0,0" size="1920,1080" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -516,9 +516,9 @@
   </screen>
 
   <screen name="DevicePanelConf" position="0,0" size="1920,1080" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeys1" />
@@ -526,18 +526,18 @@
 
   <!-- 05. HOTKEY SCREENS -->
   <screen name="ButtonSetup" position="0,0" size="1920,1080" title="Button Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hotkey.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" font="Regular; 30" position="540,60" size="650,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="5" />
     <widget name="choosen" font="Regular; 30" position="1190,60" size="670,750" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="6" />
     <widget name="description" font="Regular; 30" backgroundColor="background20" position="540,820" size="1305,120" transparent="1" zPosition="11" foregroundColor="sky" />
   </screen>
   <screen name="ButtonSetupSelect" position="0,0" size="1920,1080" title="Button Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hotkey.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" font="Regular; 30" position="540,60" size="650,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="5" />
     <widget name="choosen" font="Regular; 30" position="1190,60" size="670,650" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="6" />
@@ -548,9 +548,9 @@
 
   <!-- 06. VOLUME SCREENS -->
   <screen name="Volume_adjust" position="0,0" size="1920,1080" title="Volume Adjust" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/volumeadjust.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="ServiceList.desc" position="540,60" size="1105,50" font="RegularB; 34" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan" />
     <widget name="ServiceList" font="Regular; 32" position="540,120" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
@@ -559,17 +559,17 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="Change_volume" position="0,0" size="1920,1080" title="Change Volume" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/volumeadjust.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="Volume_Config" position="0,0" size="1920,1080" title="Volume Config" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tv.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,60" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget source="infotext" render="Label" font="Regular; 29" backgroundColor="background20" position="540,720" size="1305,140" transparent="1" zPosition="6" foregroundColor="sky" />
@@ -578,9 +578,9 @@
 
   <!-- 07. QUICK MENU -->
   <screen name="QuickMenu" position="0,0" size="1920,1080" title="Quick Menu" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/quickmenu.png" alphatest="on" transparent="1" zPosition="5" />
     <eLabel position="1161,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
     <eLabel position="1162,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
@@ -592,9 +592,9 @@
     <panel name="FullKeys2" />
   </screen>
   <screen name="QuickMenuDevices" position="0,0" size="1920,1080" title="Quick Menu Devices" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="devicelist" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -612,9 +612,9 @@
     <widget source="lab1" render="Label" font="Regular; 30" backgroundColor="background20" position="540,830" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
   </screen>
   <screen name="ShowSoftcamPackages" position="0,0" size="1920,1080" title="Show Softcam Packages" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -632,9 +632,9 @@
     <panel name="RGKeys1" />
   </screen>
   <screen name="SoftwarePanel" position="0,0" size="1920,1080" title="Software Panel" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="packagetext" position="1190,190" size="350,50" zPosition="5" font="RegularB; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
     <widget name="packagenr" position="1550,190" size="150,50" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan" />
@@ -664,9 +664,9 @@
     <widget name="key_green" position="1480,50" size="350,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="XtraPluginsSelection" title="Xtra Plugin" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="RGYKeys1" />
@@ -1018,9 +1018,9 @@
 
   <!-- 09. ZAP SCREENS -->
   <screen name="HistoryZapSelector" position="0,0" size="1920,1080" title="History Zap Selector" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/numzap.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="541,50" size="1305,900" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/zapselectionblue.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -1039,9 +1039,9 @@
     </widget>
   </screen>
   <screen name="ZapHistoryBrowser" title="ZapHistoryBrowser" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/numzap.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,90" size="1305,750" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" enableWrapAround="1" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys1" />
@@ -1050,9 +1050,9 @@
 
   <!-- 10. FLASH SCREENS -->
   <screen name="FlashOnline" position="0,0" size="1920,1080" title="Flash On The Fly" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="info-local" position="540,50" zPosition="3" size="1305,300" font="RegularB; 32" halign="center" valign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" />
     <widget name="info-online" position="540,610" zPosition="6" size="1305,250" font="Regular; 32" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" />
@@ -1060,17 +1060,17 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="doFlashImage" position="0,0" size="1920,1080" title="About" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="imageList" position="530,75" size="1305,750" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/wlanselectionblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="DeviceBrowser" position="0,0" size="1920,1080" title="Device Browser" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="imageList" position="530,75" size="1305,700" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/wlanselectionblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="message" render="Label" position="530,783" size="1305,50" font="Regular;30" backgroundColor="background" foregroundColor="sky" halign="center" transparent="1" zPosition="5" />
@@ -1081,38 +1081,38 @@
   <!-- 11. CCCAM SCREENS -->
   <!-- CCcam Info -->
   <screen name="CCcamInfoMain" position="0,0" size="1920,1080" title="CCcam Main Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="menu" position="540,75" size="1305,850" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="CCcamInfoConfigSwitcher" position="0,0" size="1920,1080" title="CCcamInfo Config Switcher" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys2" />
   </screen>
   <screen name="CCcamInfoEcmInfoSelection" position="0,0" size="1920,1080" title="CCcamInfo EcmInfo Selection" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,850" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="CCcamInfoInfoScreen" position="0,0" size="1920,1080" title="CCcamInfo Info Screen" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="540,75" size="1305,850" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="CCcamShareViewMenu" position="0,0" size="1920,1080" title="CCcam Share View Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,700" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="uphops" position="540,775" size="640,50" font="Regular;32" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="amarillo" />
@@ -1122,56 +1122,56 @@
     <widget name="title" position="540,885" size="1300,50" halign="center" font="Regular;32" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="cyan1" />
   </screen>
   <screen name="CCcamInfoSubMenu" position="0,0" size="1920,1080" title="CCcamInfo Sub Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,550" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="info" position="540,640" size="1305,300" font="Regular; 30" transparent="1" backgroundColor="background" zPosition="7" foregroundColor="cyan1" />
   </screen>
   <screen name="CCcamInfoServerMenu" position="0,0" size="1920,1080" title="CCcamInfo Server Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,550" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="info" position="540,640" size="1305,300" font="Regular; 30" transparent="1" backgroundColor="background" zPosition="7" foregroundColor="cyan1" />
   </screen>
   <screen name="CCcamInfoConfigMenu" position="0,0" size="1920,1080" title="CCcamInfo Config Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" position="540,75" size="1305,850" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="CCcamInfoRemoteBoxMenu" position="0,0" size="1920,1080" title="CCcamInfo Remote Box Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys2" />
   </screen>
   <screen name="CCcamInfoShareInfo" position="0,0" size="1920,1080" title="CCcamInfo Share Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,50" size="1305,810" font="Regular; 28" backgroundColor="background20" foregroundColor="white" itemHeight="90" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys2" />
   </screen>
   <screen name="CCcamInfoMenuConfig" position="0,0" size="1920,1080" title="CCcamInfo Menu Config" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,60" size="1305,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="RGYKeys2" />
   </screen>
   <screen name="EcmInfoConfigMenu" position="0,0" size="1920,1080" title="EcmInfo Config Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" alphatest="blend" position="540,875" size="120,60" zPosition="3" transparent="1" />
@@ -1182,40 +1182,40 @@
   <!-- 12. OSCAM SCREENS -->
   <!-- Oscam Info -->
   <screen name="OscamInfoMenu" position="0,0" size="1920,1080" title="OscamInfo Main Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="mainmenu" position="530,75" size="1305,850" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="oscECMInfo" position="0,0" size="1920,1080" title="Oscam ECM Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="output" position="530,75" size="1355,850" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
   <screen name="OscamInfoConfigScreen" position="0,0" size="1920,1080" title="Oscam Info Setup" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" position="530,75" size="1305,350" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="status" position="530,425" size="1305,350" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="RGKeys1" />
   </screen>
   <screen name="oscInfo" position="0,0" size="1920,1080" title="Oscam Client Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="output" position="530,75" size="1355,750" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="oscReaderStats" position="0,0" size="1920,1080" title="OscamReader Stats" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="output" render="Listbox" position="530,40" size="1305,900" backgroundColor="background20" foregroundColor="white" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1">
       <convert type="TemplatedMultiContent">
@@ -1236,9 +1236,9 @@
     </widget>
   </screen>
   <screen name="oscEntitlements" position="0,0" size="1920,1080" title="OscamReader Entitlements" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="output" render="Listbox" position="530,130" size="1305,810" backgroundColor="background20" foregroundColor="white" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1">
       <convert type="TemplatedMultiContent">
@@ -1268,9 +1268,9 @@
     <eLabel position="1350,30" size="490,90" backgroundColor="background20" zPosition="6" foregroundColor="sky" transparent="1" text="Providers" font="RegularB; 32" valign="bottom" halign="center" />
   </screen>
   <screen name="CCcamInfoRemoteBoxMenu" position="0,0" size="1920,1080" title="CCcamInfo Remote Box Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="FullKeys2" />
@@ -1279,9 +1279,9 @@
 
   <!-- 13. JOB/CRON SCREENS -->
   <screen name="CronTimers" position="0,0" size="1920,1080" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crontimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="570,50" size="500,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1080,50" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -1302,9 +1302,9 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="CronManager" position="0,0" size="1920,1080" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crontimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="820,750" size="350,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
     <widget name="labactive" position="1180,750" size="350,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
@@ -1325,18 +1325,18 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="SetupCronConf" position="0,0" size="1920,1080" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crontimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="RedKey2" />
   </screen>
   <screen name="ScriptExecuter" title="Script Executer" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/console.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="labstatus" position="540,90" size="1305,80" font="RegularB; 36" valign="center" noWrap="1" foregroundColor="cyan1" backgroundColor="background20" transparent="1" zPosition="3" />
     <widget source="list" render="Listbox" position="540,180" size="1305,650" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" transparent="1" zPosition="5">
@@ -1352,9 +1352,9 @@
     <panel name="RedKey2" />
   </screen>
   <screen name="ScriptRunner" position="0,0" size="1920,1080" title="Job Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/console.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="540,90" size="1305,50" font="RegularB; 34" valign="center" transparent="1" zPosition="3" foregroundColor="cyan1" halign="center" noWrap="1" />
     <widget name="list" position="540,145" size="1305,700" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
@@ -1364,18 +1364,18 @@
 
   <!-- 14. LOG SCREENS -->
   <screen name="LogManager" position="0,0" size="1920,1080" title="Log Manager" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,50" size="1305,650" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="LogsSize" position="540,705" size="1305,150" font="Regular; 30" foregroundColor="white" halign="center" backgroundColor="background20" valign="top" transparent="1" zPosition="4" />
     <panel name="FullKeys2" />
   </screen>
   <screen name="LogManagerViewLog" position="0,0" size="1920,1080" title="Log Manager - View Log" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" position="540,90" size="1305,850" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   </screen>
@@ -1383,9 +1383,9 @@
 
   <!-- 15. WIZARD SCREENS -->
   <screen name="MessageBoxWizard" title="Message Wizard..." position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="ErrorPixmap" position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/message/attention.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="QuestionPixmap" position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/message/question.png" alphatest="on" transparent="1" zPosition="6" />
     <widget name="InfoPixmap" position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/message/information.png" alphatest="on" transparent="1" zPosition="7" />
@@ -1394,27 +1394,27 @@
     <panel name="RemoteWizard" />
   </screen>
   <screen name="TutorialWizard" title="Tutorial Wizard..." position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="wizard" position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/expert.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="Wizard1" />
     <panel name="LanguageKey" />
     <panel name="RemoteWizard" />
   </screen>
   <screen name="CleanupWizardConfiguration" position="0,0" size="1920,1080" title="CleanupWizard settings" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cleanup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,92" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget source="status" render="Label" position="540,745" size="1305,100" halign="left" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="cyan" backgroundColor="background20" />
     <panel name="RGKeys4" />
   </screen>
   <screen name="CleanupWizard" position="0,0" size="1920,1080" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="wizard" position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cleanup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="800,75" size="1050,350" font="Regular; 34" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
     <widget source="list" render="Listbox" position="800,430" size="1050,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13">
@@ -1434,242 +1434,242 @@
   
   <!-- 16. SETUP SCREENS -->
   <screen name="AnimationSetupConfig" title="AnimationSetupConfig" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/animation.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="RGYKeys1" />
   </screen>
   <screen name="AnimationSetupScreen" title="Animation Setup" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="1920,1080">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/animation.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" font="Regular; 30" position="540,90" size="1305,600" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <widget source="introduction" render="Label" position="540,700" size="1305,150" font="Regular; 30" backgroundColor="background20" foregroundColor="sky" zPosition="13" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="AudioSetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/audiosetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="VideoSetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videosettings.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_osd3d" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/auto_3d.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="SetupInfo" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/information.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgsettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgsettings.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgmulti" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgmulti.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgenhanced" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgenhanced.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epginfobar" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epginfobar.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epginfobargraphical" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epginfobargraphical.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epggraphical" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epggraphical.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_subtitlesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/subsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_dvdplayer" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dvd.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_logs" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_time" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timezone.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_keyboard" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/keyboard.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_userinterface" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ui.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_recording" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/recordsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_timeshift" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timeshift.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_specialfeatures" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_display" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/displaysetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_channelselection" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/channelselection.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_usage" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/customize.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_remotesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/remotesetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_autolanguagesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autolang.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_harddisk" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="TimeshiftSettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timeshift.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="RecordingSettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/recordsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
     <panel name="RGKeysUP1" />
   </screen>
   <screen name="PowerTimerEditList" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/powertimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timerselectionblue.png" alphatest="blend" zPosition="5" />
     <panel name="FullKeys1" />
@@ -1680,7 +1680,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1620,400" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="770,270" zPosition="-2" size="1150,130" alphatest="on" transparent="0" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="355,355" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videoclipping.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="790,405" size="1055,250" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/streamselectionblue.png" alphatest="blend" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="885,680" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -1695,13 +1695,13 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <widget name="label" position="810,90" size="1050,800" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
   <screen name="LED_GigaSetup" position="0,0" size="1920,1080" title="VideoEnhancement Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/gigaled.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,750" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,830" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -1710,40 +1710,42 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="PiPSetup" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/pipsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="540,120" size="1305,700" halign="left" font="Regular; 33" backgroundColor="background20" foregroundColor="sky" zPosition="1" transparent="1" />
   </screen>
-  
-  
+
+
   <!-- 17. MULTIBOOT -->
-  <screen name="MultiBootStartupOPT" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+  <screen name="MultiBootStartup" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <eLabel name="line" position="540,378" size="1305,2" backgroundColor="cyan1" zPosition="4" />
+    <ePixmap position="585,425" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="1745,425" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="blend" />
+    <widget source="config" render="Label" position="640,400" size="1100,100" itemHeight="50" valign="center" halign="center" font="RegularB; 42" enableWrapAround="1" transparent="1" scrollbarMode="showOnDemand" foregroundColor="cyan1" backgroundColor="background20" zPosition="3" />
+    <eLabel name="line" position="540,520" size="1305,2" backgroundColor="cyan1" zPosition="4" />
     <panel name="RGYKeys1" />
-    <ePixmap position="540,200" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
-    <ePixmap position="1790,200" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
-    <ePixmap position="1175,520" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
-    <ePixmap position="1175,615" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
-    <widget source="config" render="Label" position="540,90" size="1305,100" itemHeight="50" valign="center" halign="center" font="RegularB; 40" enableWrapAround="1" transparent="1" scrollbarMode="showOnDemand" foregroundColor="cyan1" backgroundColor="background20" zPosition="3" />
-    <eLabel text="Press left/right to select Image" backgroundColor="background20" font="Regular; 30" foregroundColor="white" halign="center" position="541,204" size="1305,50" transparent="1" zPosition="3" />
-    <eLabel text="Press up/down to select Bootoption (Standard/Experimental)" backgroundColor="background20" font="Regular; 30" foregroundColor="white" halign="center" position="540,570" size="1305,50" transparent="1" zPosition="5" />
-    <widget source="options" render="Label" position="540,270" size="1305,250" halign="center" valign="center" font="Regular; 34" backgroundColor="black" foregroundColor="lightciel" transparent="1" zPosition="6" />
-    <widget name="description" position="540,670" size="1305,180" halign="center" valign="center" font="Regular; 30" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
-    <widget name="cancel" position="0,0" size="0,0" />
-    <widget name="ok" position="0,0" size="0,0" />
   </screen>
-  
-  
+  <screen name="MultiBootStartupOPT" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MultiBootStartup" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1655,70" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <ePixmap position="1175,535" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="1175,690" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="blend" />
+    <widget source="options" render="Label" position="540,600" size="1305,80" halign="center" valign="center" font="Regular; 34" backgroundColor="background20" foregroundColor="amarillo" transparent="1" zPosition="6" />
+    <widget name="description" position="540,280" size="1305,80" halign="center" valign="center" font="Regular; 32" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
+  </screen>
+
+
     <!-- 18. CI SCREENS -->
   <screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,320" size="500,50" valign="center" halign="right" transparent="1" zPosition="4" />
     <widget name="labdisabled" font="Regular; 30" backgroundColor="deepgrey" position="1050,320" size="640,50" valign="center" halign="center" zPosition="7" />
@@ -1761,9 +1763,9 @@
     <panel name="RGYKeys2" />
   </screen>
   <screen name="CIHelperSetup" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" position="540,90" size="1305,750" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <panel name="RGKeys1" />
@@ -1772,9 +1774,9 @@
   
   <!-- 19. SWAP SCREENS -->
   <screen name="SwapManager" position="0, 0" flags="wfNoBorders" title="Swap File Manager" transparent="0" backgroundColor="transparent" size="1920, 1080">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/swap.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart_off" position="945,405" zPosition="3" pixmap="GlamourAuraFHD-ATV/skin_default/icons/lock_off.png" size="40,40" alphatest="on" transparent="1" />
     <widget name="autostart_on" position="945,405" zPosition="7" pixmap="GlamourAuraFHD-ATV/skin_default/icons/lock_on.png" size="40,40" alphatest="on" transparent="0" />
@@ -1789,9 +1791,9 @@
     <panel name="RGYKeys2" />
   </screen>
   <screen name="Swap" position="0, 0" flags="wfNoBorders" title="Swap File Manager" transparent="0" backgroundColor="transparent" size="1920, 1080">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/swap.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart_off" position="945,405" zPosition="3" pixmap="GlamourAuraFHD-ATV/skin_default/icons/lock_off.png" size="40,40" alphatest="on" transparent="1" />
     <widget name="autostart_on" position="945,405" zPosition="7" pixmap="GlamourAuraFHD-ATV/skin_default/icons/lock_on.png" size="40,40" alphatest="on" transparent="0" />
