@@ -6,9 +6,9 @@
   <!--  ######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
   <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="actifcam" position="540,265" size="1320,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
@@ -26,9 +26,9 @@
 
   <!-- 02. GreenPanel -->
   <screen name="GreenPanel" position="0,0" size="1920,1080" title="Green Panel" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="on" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="50,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="95,733" size="560,35" font="Numbers; 30" zPosition="6" backgroundColor="darkgrey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="dark">
@@ -56,9 +56,9 @@
 
   <!-- 03. OPD Panel -->
     <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="Mlist" font="Regular; 45" position="800,90" size="960,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="3" />
     <widget name="label1" position="810,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
@@ -66,7 +66,7 @@
   
   <!-- 04. opdBoot Logo Selector -->
   <screen name="opdBootLogoSelector" position="0,0" size="1920,1080" title="opdBoot Logo Selector" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="MenuBackground" flags="wfNoBorder" />
+    <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
@@ -80,9 +80,9 @@
 
   <!-- 05. Devices Manager -->
     <screen name="DeviceManager" position="0,0" size="1920,1080" title="Devices Manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -103,16 +103,16 @@
 
   <!-- 06. OPENDROID IPK Tools Panel -->
   <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
   </screen>
   <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
@@ -125,9 +125,9 @@
 
   <!-- 07. Manual Install Tgz Packages -->
   <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
@@ -140,9 +140,9 @@
 
   <!-- 08. Feed Install -->
   <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
@@ -155,9 +155,9 @@
 
   <!-- 09. Advanced Install -->
   <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
@@ -172,9 +172,9 @@
 
   <!-- 10. Panel Ipk remove -->
   <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
@@ -189,9 +189,9 @@
 
   <!-- 11. OPENDROID Addons Manager -->
   <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -204,9 +204,9 @@
 
   <!-- 12. OPENDROID Download Manager -->
   <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
-    <panel name="MainBackground1" flags="wfNoBorder" />
+    <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="list" font="Regular; 36" position="800,140" size="930,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
     <widget name="info" position="800,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan1" />
@@ -219,7 +219,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="20,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenuselectionblue990.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel position="1130,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
@@ -234,9 +234,9 @@
 
   <!-- 14. Installation Process -->
   <screen name="Installer_Addons" position="0,0" size="1920,1080" flags="wfNoBorder" title="Installation Process" backgroundColor="transparent">
-  <panel name="MainBackground1" flags="wfNoBorder" />
+  <panel name="MainBackground1" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <widget name="infotext" position="810,60" size="930,800" font="RegularB; 32" backgroundColor="background20" zPosition="4" foregroundColor="sky" enableWrapAround="1" halign="left" transparent="1" valign="center" />
   <widget name="info" position="810,865" size="830,75" font="Regular; 32" backgroundColor="background20" zPosition="4" foregroundColor="white" halign="left" valign="top" transparent="1" />
   <ePixmap position="255,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
@@ -245,9 +245,9 @@
 
   <!-- 15. Add Part -->
   <screen name="AddPart" title="Add Partition" position="center,center" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" flags="wfNoBorder" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" flags="wfNoBorder" />
+    <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeysUP1" />
@@ -255,9 +255,9 @@
 
   <!-- 16. OPDBOOT SCREENS -->
   <screen name="OPDBootImageChoose" position="0,0" size="1920,1080" title="OPDBoot Image Choose" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="label2" position="640,90" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
   <widget name="label3" position="640,135" size="400,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
@@ -279,9 +279,9 @@
 </screen>
 
   <screen name="OPDBootInstallation" position="0,0" size="1920,1080" title="OPDBoot - Installation" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
   <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
@@ -290,9 +290,9 @@
 </screen>
 
   <screen name="OPDBootImageInstall" position="0,0" size="1920,1080" title="OPDBoot - Image Installation" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
@@ -300,9 +300,9 @@
  </screen>
 
   <screen name="OPDChooseOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download OnLine Images" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -319,9 +319,9 @@
 </screen>
 
   <screen name="DownloadOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download Image" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <panel name="RGKeys2" />
@@ -329,9 +329,9 @@
 
   <!-- 17. PasswdScreen -->
   <screen name="PasswdScreen" position="0,0" size="1920,1080" title="Change Root Password" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/pininput.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <panel name="FullKeys1" />
@@ -339,9 +339,9 @@
 
   <!-- 18. OscamSmartcard -->
   <screen name="OscamSmartcard" position="0,0" size="1920,1080" title="OscamSmartcard" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" flags="wfNoBorder" />
+  <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
-  <panel name="Title1" flags="wfNoBorder" />
+  <panel name="Title1" />
   <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/fileselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />

@@ -3,7 +3,7 @@ from enigma import ePixmap
 from Tools.Directories import fileExists, SCOPE_CURRENT_SKIN, resolveFilename
 
 class GlamAudioIcon(Renderer):
-	searchPaths = (resolveFilename(SCOPE_CURRENT_SKIN), '/usr/share/enigma2/skin_default/')
+	searchPaths = (resolveFilename(SCOPE_CURRENT_SKIN), "/usr/share/enigma2/skin_default/")
 
 	def __init__(self):
 		Renderer.__init__(self)
@@ -24,7 +24,7 @@ class GlamAudioIcon(Renderer):
 			else:
 				attribs.append((attrib,value))
 			if attrib == "size":
-				value = value.split(',')
+				value = value.split(",")
 				if len(value) == 2:
 					self.size = value[0] + "x" + value[1]
 		self.skinAttributes = attribs
