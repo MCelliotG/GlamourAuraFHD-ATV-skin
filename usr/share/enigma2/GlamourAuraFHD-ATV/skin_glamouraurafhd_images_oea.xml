@@ -5,23 +5,46 @@
 
   <!--  ######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
-  <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
+<screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent" alphatest="on">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="Title2" />
+    <ePixmap position="100,865" size="180,180" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="actifcam" position="540,265" size="1320,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
-    <widget name="actifcam2" position="540,320" size="1320,50" font="RegularL; 30" transparent="1" foregroundColor="cyan2" backgroundColor="background20" halign="left" zPosition="5" />
-    <widget name="ecminfo" position="540,380" size="1000,560" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="1575,380" size="225,75" alphatest="blend" zPosition="4" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1575,540" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1575,700" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1575,860" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="key_red" position="1540,370" size="295,85" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1540,530" size="295,85" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="1540,690" size="295,85" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_blue" position="1540,850" size="295,85" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="actifcam" position="540,260" size="650,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
+    <widget name="actifcam2" position="1200,260" size="660,50" font="RegularL; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
+    <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
+    <panel name="CPUTempInfobar" />
+    <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="1360,360" size="400,155" font="Regular; 42" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="1" foregroundColor="cyan2" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="1235,570" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,575" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="amarillo">
+      <convert type="GlamourSpace">FlashInfo,Simple</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ramspace.png" position="1235,610" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,615" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="RAMinfo" noWrap="1" halign="left">
+      <convert type="GlamourSpace">RAMInfo</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/swap.png" position="1235,650" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,655" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="SwapInfo" noWrap="1" halign="left">
+      <convert type="GlamourSpace">SwapInfo</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddtemp.png" position="1235,690" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,695" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDTemp" noWrap="1">
+      <convert type="GlamourExtra">HDDTemp</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/hddspace.png" position="1235,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,735" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="HDDspace" noWrap="1">
+      <convert type="GlamourSpace">HDDSpace,Full</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/usbspace.png" position="1235,770" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,775" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="USBspace" noWrap="1" foregroundColor="amarillo">
+      <convert type="GlamourSpace">USBSpace,Full</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/netspace.png" position="1235,810" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1280,815" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="Netspace" noWrap="1">
+      <convert type="GlamourSpace">NetSpace,Full</convert>
+    </widget>
+    <panel name="FullKeys1" />
   </screen>
 
   <!-- 02. GreenPanel -->
@@ -327,7 +350,49 @@
   <panel name="RGKeys2" />
  </screen>
 
-  <!-- 17. PasswdScreen -->
+  <!-- 17. Commit Info -->
+<screen name="CommitInfo" position="0,0" size="1920,1080" title="Commit Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
+  <ePixmap position="1845,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
+  <ePixmap position="1845,735" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
+  <ePixmap position="540,35" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
+  <ePixmap position="775,35" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
+  <panel name="FullKeys1" />
+</screen>
+
+  <!-- 18. Memory Info -->
+<screen name="MemoryInfo" position="0,0" size="1920,1080" title="Memory Info" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/memory.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="lmemtext" font="Regular; 26" position="540,60" size="405,785" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
+  <widget name="lmemvalue" font="Regular; 26" position="540,60" size="405,785" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
+  <widget name="rmemtext" font="Regular; 26" position="1110,60" size="405,635" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
+  <widget name="rmemvalue" font="Regular; 26" position="1110,60" size="405,635" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
+  <widget name="pfree" position="945,140" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
+  <widget name="pused" position="945,740" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
+  <widget name="slide" position="1057,60" size="30,785" render="Progress" zPosition="1" borderWidth="1" orientation="orBottomToTop" foregroundColor="cyan1" backgroundColor="background20" borderColor="white" />
+  <widget name="info" position="1110,712" size="720,225" font="Regular; 30" zPosition="3" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
+  <panel name="FullKeysV2" />
+</screen>
+
+  <!-- 19. ModelPic -->
+  <screen name="ModelPic" position="0,0" size="1920,1080" title="ModelPic" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="model" position="540,270" size="1305,300" font="Regular; 45" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
+  <widget name="boxpic" position="840,600" size="700,200" transparent="1" alphatest="blend" zPosition="6" />
+  <panel name="FullKeys1" />
+</screen>
+
+  <!-- 20. PasswdScreen -->
   <screen name="PasswdScreen" position="0,0" size="1920,1080" title="Change Root Password" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
@@ -337,7 +402,7 @@
   <panel name="FullKeys1" />
 </screen>
 
-  <!-- 18. OscamSmartcard -->
+  <!-- 21. OscamSmartcard -->
   <screen name="OscamSmartcard" position="0,0" size="1920,1080" title="OscamSmartcard" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
   <panel name="ClockLabel1" />
@@ -358,4 +423,14 @@
   <widget name="INFOTXT" position="540,705" size="650,150" zPosition="8" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="amarillo" />
   <eLabel text="OscamSmartcard 2.4 by arn354 and Undertaker Mod team OPD" position="825,90" size="1000,45" zPosition="6" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="sky" />
 </screen>
+
+  <!-- 22. Usb Format -->
+<screen name="UsbFormat" position="0,0" size="1920,1080" title="UsbFormat" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/usb.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="lab1" position="540,90" size="1305,750" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
+    <panel name="RGKeys1" />
+  </screen>
 </skin>
