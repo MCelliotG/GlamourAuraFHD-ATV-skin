@@ -19,6 +19,7 @@ class GlamourExtra(Poll, Converter):
 	CPULOAD = 5
 	CPUSPEED = 6
 	FANINFO = 7
+	UPTIME = 8
 
 
 	def __init__(self, type):
@@ -29,7 +30,7 @@ class GlamourExtra(Poll, Converter):
 		self.short_list = True
 		self.cpu_count = 0
 		self.prev_info = self.getCpuInfo(self.CPU_CALC)
-		
+
 		if not type or type == "Total":
 			self.type = self.CPU_TOTAL
 			self.sfmt = "CPU: $0"
@@ -55,6 +56,8 @@ class GlamourExtra(Poll, Converter):
 			self.type = self.CPUSPEED
 		elif "Temperature" in type:
 			self.type = self.TEMPERATURE
+		elif "Uptime" in type:
+			self.type = self.UPTIME
 		elif "HDDTemp" in type:
 			self.type = self.HDDTEMP
 			self.hddtemp_output = ""
@@ -103,51 +106,45 @@ class GlamourExtra(Poll, Converter):
 			cpuload = ""
 			if fileExists("/proc/loadavg"):
 				try:
-					l = open("/proc/loadavg", "r")
-					load = l.readline(4)
-					l.close()
+					with open("/proc/loadavg", "r") as l:
+						load = l.readline(4)
 				except:
 					load = ""
 				cpuload = load.replace("\n", "").replace(" ","")
 				return ("CPU Load: %s") % cpuload
-				   
+
 		elif (self.type == self.TEMPERATURE):
-			while True:
-				systemp = ""
-				cputemp = ""
-				try:
-					if fileExists("/proc/stb/sensors/temp0/value"):
-						stemp = open("/proc/stb/sensors/temp0/value").readline()
-						systemp = "Sys Temp: " + stemp.replace("\n", "") + "°C"
-						stemp.close()
-					elif fileExists("/proc/stb/fp/temp_sensor"):
-						stemp = open("/proc/stb/fp/temp_sensor").readline()
-						systemp = "Board: " + stemp.replace("\n", "") + "°C"
-						stemp.close()
-					if fileExists("/proc/stb/fp/temp_sensor_avs"):
-						ctemp = open("/proc/stb/fp/temp_sensor_avs").readline()
-						cputemp = ctemp.replace("\n", "") + "°C"
-						ctemp.close()
-					elif fileExists("/sys/devices/virtual/thermal/thermal_zone0/temp"):
-						ctemp = open("/sys/devices/virtual/thermal/thermal_zone0/temp").read()[:2]
-						cputemp = ctemp.replace("\n", "") + "°C"
-						ctemp.close()
-					elif fileExists("/proc/hisi/msp/pm_cpu"):
-						for line in open("/proc/hisi/msp/pm_cpu").readlines():
-							line = [x.strip() for x in line.strip().split(":")]
-							if line[0] in ("Tsensor"):
-								ctemp = line[1].split("=")
-								ctemp = line[1].split(" ")
-								cputemp = ctemp[2] + "°C"
-				except:
-					pass
-				if systemp == "" and cputemp == "":
-					return "Temperature: N/A"
-				if systemp == "":
-					return ("CPU Temp: ") + cputemp
-				if cputemp == "":
-					return systemp
-				return systemp + "  " + ("CPU: ") + cputemp
+			systemp = ""
+			cputemp = ""
+			try:
+				if fileExists("/proc/stb/sensors/temp0/value"):
+					with open("/proc/stb/sensors/temp0/value") as stemp:
+						systemp = "Sys Temp: " + stemp.readline().replace("\n", "") + "°C"
+				elif fileExists("/proc/stb/fp/temp_sensor"):
+					with open("/proc/stb/fp/temp_sensor") as stemp:
+						systemp = "Board: " + stemp.readline().replace("\n", "") + "°C"
+				if fileExists("/proc/stb/fp/temp_sensor_avs"):
+					with open("/proc/stb/fp/temp_sensor_avs") as ctemp:
+						cputemp = ctemp.readline().replace("\n", "") + "°C"
+				elif fileExists("/sys/devices/virtual/thermal/thermal_zone0/temp"):
+					with open("/sys/devices/virtual/thermal/thermal_zone0/temp") as ctemp:
+						cputemp = ctemp.read()[:2].replace("\n", "") + "°C"
+				elif fileExists("/proc/hisi/msp/pm_cpu"):
+					for line in open("/proc/hisi/msp/pm_cpu").readlines():
+						line = [x.strip() for x in line.strip().split(":")]
+						if line[0] in ("Tsensor"):
+							ctemp = line[1].split("=")
+							ctemp = line[1].split(" ")
+							cputemp = ctemp[2] + "°C"
+			except:
+				pass
+			if systemp == "" and cputemp == "":
+				return "Temperature: N/A"
+			if systemp == "":
+				return ("CPU Temp: ") + cputemp
+			if cputemp == "":
+				return systemp
+			return systemp + "  " + ("CPU: ") + cputemp
 
 		elif (self.type == self.HDDTEMP):
 			return self.hddtemp
@@ -165,13 +162,12 @@ class GlamourExtra(Poll, Converter):
 					except:
 						try:
 							import binascii
-							cpuspeed = int(int(binascii.hexlify(open('/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency', 'rb').read()), 16) / 100000000) * 100
+							cpuspeed = int(int(binascii.hexlify(open("/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency", "rb").read()), 16) / 100000000) * 100
 						except:
 							cpuspeed = "-"
 				return ("CPU Speed: %s MHz") % cpuspeed
 			except:
 				return ""
-
 
 		if (self.type == self.FANINFO):
 			fs = ""
@@ -179,25 +175,47 @@ class GlamourExtra(Poll, Converter):
 			fp = ""
 			try:
 				if fileExists("/proc/stb/fp/fan_speed"):
-					fs = str(open("/proc/stb/fp/fan_speed", "r").readline().strip())
-					fs = ("Speed: %s  ") % fs
-					fs.close()
+					with open("/proc/stb/fp/fan_speed", "r") as fs:
+						fs = str(fs.readline().strip())
+						fs = ("Speed: %s  ") % fs
 				if fileExists("/proc/stb/fp/fan_vlt"):
-					fv = int(open("/proc/stb/fp/fan_vlt", "r").readline().strip(), 16)
-					fv = str(fv)
-					fv = ("V: %s  ") % fv
-					fv.close()
+					with open("/proc/stb/fp/fan_vlt", "r") as fv:
+						fv = str(int(fv.readline().strip(), 16))
+						fv = ("V: %s  ") % fv
 				if fileExists("/proc/stb/fp/fan_pwm"):
-					fp = int(open("/proc/stb/fp/fan_pwm", "r").readline().strip(), 16)
-					fp = str(fp)
-					fp = ("PWM: %s  ") % fp
-					fp.close()
+					with open("/proc/stb/fp/fan_pwm", "r") as fp:
+						fp = str(int(fp.readline().strip(), 16))
+						fp = ("PWM: %s  ") % fp
 			except:
 				pass
 			if fs == "":
 				return "Fan Info: N/A"
 			return fs + fv + fp
 
+		elif (self.type == self.UPTIME):
+			try:
+				with open("/proc/uptime", "r") as up:
+					uptime_info = up.read().split()
+			except:
+				return "Uptime: N/A"
+				uptime_info = None
+			if uptime_info is not None:
+				total_seconds = float(uptime_info[0])
+				MINUTE = 60
+				HOUR = MINUTE * 60
+				DAY = HOUR * 24
+				days = int(total_seconds / DAY)
+				hours = int(total_seconds % DAY / HOUR)
+				minutes = int(total_seconds % HOUR / MINUTE)
+				seconds = int(total_seconds % MINUTE)
+				uptime = ""
+				if days > 0:
+					uptime += str(days) + " " + (days == 1 and "day" or "days") + ", "
+				if len(uptime) > 0 or hours > 0:
+					uptime += str(hours) + " " + (hours == 1 and "hr" or "hrs") + ", "
+				if len(uptime) > 0 or minutes > 0:
+					uptime += str(minutes) + " " + (minutes == 1 and "min" or "mins")
+				return "Uptime: %s" % uptime
 
 		return text
 
@@ -220,32 +238,28 @@ class GlamourExtra(Poll, Converter):
 		res = []
 		calc_cpus = cpu == self.CPU_CALC and self.cpu_count == 0
 		try:
-			fd = open("/proc/stat", "r")
-			for l in fd:
-				if l[0] != "c":
-					continue
-				if l.find("cpu") == 0 and validCpu(l[3]):
-					if calc_cpus:
-						self.cpu_count += 1
+			with open("/proc/stat", "r") as fd:
+				for l in fd:
+					if l[0] is not "c":
 						continue
-					total = busy = 0
-					tmp = l.split()
-					for i in range(1, len(tmp)):
-						tmp[i] = int(tmp[i])
-						total += tmp[i]
-
-					busy = total - tmp[4] - tmp[5]
-					if self.short_list:
-						res.append([tmp[0], total, busy])
-					else:
-						tmp.insert(1, total)
-						tmp.insert(2, busy)
-						res.append(tmp)
-
-			fd.close()
+					if l.find("cpu") == 0 and validCpu(l[3]):
+						if calc_cpus:
+							self.cpu_count += 1
+							continue
+						total = busy = 0
+						tmp = l.split()
+						for i in range(1, len(tmp)):
+							tmp[i] = int(tmp[i])
+							total += tmp[i]
+						busy = total - tmp[4] - tmp[5]
+						if self.short_list:
+							res.append([tmp[0], total, busy])
+						else:
+							tmp.insert(1, total)
+							tmp.insert(2, busy)
+							res.append(tmp)
 		except:
 			pass
-
 		return res
 
 

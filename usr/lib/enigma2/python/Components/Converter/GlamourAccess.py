@@ -444,13 +444,10 @@ class GlamourAccess(Poll, Converter, object):
 						return True
 					return False
 				if self.type == self.EMU:
-					return using == "emu" or source == "emu" or source == "card" or reader == "emu" or source.find("card") > -1 or source.find("emu") > -1 or source.find("biss") > -1 or source.find("tb") > -1 or reader.find("constant_cw") > -1 or protocol.find("constcw") > -1
+					return using == "emu" or source == "emu" or source == "card" or reader == "emu" or source.find("card") > -1 or source.find("emu") > -1 or source.find("biss") > -1 or source.find("tb") > -1 or reader.find("constant_cw") > -1 or protocol.find("constcw") > -1 or protocol.find("static") > -1
 				if self.type == self.NET:
-					if using == "CCcam-s2s":
-						return 1
-					if source == "net" and frm.find("cache") == -1 and source.find("emu") == -1 and reader.find("constant_cw") == -1 and protocol.find("constcw") == -1:
+					if source == "net" and not "unsupported" in protocol and not "cache" in frm and not "static" in protocol:
 						return True
-				else:
 					return False
 		return False
 
@@ -528,19 +525,18 @@ class GlamourAccess(Poll, Converter, object):
 						server = ecm_info.get("server", "")
 						hops = hop = ecm_info.get("hops", "")
 						if hops:
-							hops = " Hops: %s" % hops
-						if hop:
-							hop = "(%s)" % hop
+							if hops > "0":
+								hops = " Hops: %s" % hops
+								hop = "(%s)" % hop
+							else:
+								hops = hop = ""
 						system = ecm_info.get("system", "")
-
 						frm = ecm_info.get("from", "")
 						if len(frm) > 36:
 							frm = "%s..." % frm[:35]
-
 						provider = ecm_info.get("provider", "")
 						if provider:
 							provider = "Prov: " + provider
-
 						reader = ecm_info.get("reader", "")
 						if len(reader) > 36:
 							reader = "%s..." % reader[:35]

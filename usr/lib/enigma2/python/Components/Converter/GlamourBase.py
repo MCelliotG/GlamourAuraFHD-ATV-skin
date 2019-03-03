@@ -271,34 +271,39 @@ class GlamourBase(Poll, Converter, object):
 
 	def t2mi_info(self, tpinfo):
 		try:
-			t2mi_id = str(tpinfo.get("t2mi_plp_id"))
+			t2mi_id = str(tpinfo.get("t2mi_plp_id",-1))
+			t2mi_pid = str(tpinfo.get("t2mi_pid"))
 			if fileExists("/etc/image-version"):
-				if t2mi_id == "None" or t2mi_id == "-1" or t2mi_id == "0":
-					return ""
+				if t2mi_id == "None" or t2mi_id == "-1" or t2mi_id == "0" or t2mi_id > "255":
+					t2mi_id = ""
 				else:
-					return ("T2MI PLP:") + t2mi_id
+					t2mi_id = sp("T2MI PLP") + t2mi_id
 			else:
-				if t2mi_id == "None" or t2mi_id == "-1":
-					return ""
+				if t2mi_id == "None" or t2mi_id == "-1" or t2mi_id > "255":
+					t2mi_id = ""
 				else:
-					return ("T2MI PLP:") + t2mi_id
+					t2mi_id = sp("T2MI PLP") + t2mi_id
+			if t2mi_pid == "None":
+				t2mi_pid = ""
+			else:
+				t2mi_pid = sp("PID") + t2mi_pid
+			return sp(t2mi_id) + sp(t2mi_pid)
 		except:
 			return ""
-
 
 	def multistream(self, tpinfo):
 		isid = str(tpinfo.get("is_id", 0)) 
 		plscode = str(tpinfo.get("pls_code", 0))
 		plsmode = str(tpinfo.get("pls_mode", None))
-		if (plsmode == "None") or (plsmode == "Unknown") or ((plsmode is not "None") and (plscode == "0")):
-		   plsmode = ""
-		if (isid == "None") or (isid == "-1") or (isid == "0"):
-		   isid = ""
+		if plsmode == "None" or plsmode == "Unknown" or (plsmode is not "None" and plscode == "0"):
+			plsmode = ""
+		if isid == "None" or isid == "-1" or isid == "0":
+			isid = ""
 		else:
-		   isid = ("IS:") + isid
-		if (plscode == "None") or (plscode == "-1") or (plscode == "0"):
-		   plscode = ""
-		if ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
+			isid = ("IS:") + isid
+		if plscode == "None" or plscode == "-1" or plscode == "0":
+			plscode = ""
+		if (plscode == "0" and plsmode == "Gold") or (plscode == "1" and plsmode == "Root"):
 			return isid
 		else:
 			return sp(isid) + sp(plsmode) + sp(plscode)
@@ -360,10 +365,12 @@ class GlamourBase(Poll, Converter, object):
 			sat = "AsiaSat 4"
 		elif (orbe >= 119.8) and (orbe <= 120.3):
 			sat = "AsiaSat 6/Thaicom 7"
-		elif (orbe >= 119.2) and (orbe <= 119.7):
+		elif (orbe >= 119.4) and (orbe <= 119.7):
 			sat = "Thaicom 4"
+		elif (orbe >= 118.8) and (orbe <= 119.3):
+			sat = "Bangabandhu 1"
 		elif (orbe >= 117.8) and (orbe <= 118.3):
-			sat = "Telkom 2"
+			sat = "Telkom 3S"
 		elif (orbe >= 115.8) and (orbe <= 116.3):
 			sat = "ABS 7/KoreaSat 6,7"
 		elif (orbe >= 115.3) and (orbe <= 115.7):
@@ -397,7 +404,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbe >= 96.2) and (orbe <= 96.7):
 			sat = "Express AM33"
 		elif (orbe >= 94.7) and (orbe <= 95.3):
-			sat = "NSS 6/SES 8"
+			sat = "NSS 6/SES 8,12"
 		elif (orbe >= 93.0) and (orbe <= 93.8):
 			sat = "Insat 4B/G-Sat 15"
 		elif (orbe >= 92.0) and (orbe <= 92.5):

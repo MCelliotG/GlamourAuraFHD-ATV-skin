@@ -57,7 +57,7 @@ class GlamTP(VariableText, Renderer):
 					tpinfo = ConvertToHumanReadable(tp)
 					refstr = self.source.service.toString()
 					curref = refstr.replace("%3a", ":")
-					streamtype = streamurl = freq = ch = pol = sys = mod = const = fec = sr = orbpos = isid = plsmode = plscode = plpid = t2mi_plpid = ""
+					streamtype = streamurl = freq = ch = pol = sys = mod = const = fec = sr = orbpos = isid = plsmode = plscode = plpid = t2mi_id = t2mi_pid = ""
 					try:
 						if curref.startswith("1:7:"):
 							curref = ""
@@ -103,13 +103,22 @@ class GlamTP(VariableText, Renderer):
 								plpid = ""
 						if "t2mi_plp_id" in tp and "DVB-S2" in sys:
 							try:
-								t2mi_plpid = (str(tpinfo.get("t2mi_plp_id")))
-								if t2mi_plpid == "-1" or t2mi_plpid == "None":
-									t2mi_plpid = ""
+								t2mi_id = (str(tpinfo.get("t2mi_plp_id",-1)))
+								if t2mi_id == "-1" or t2mi_id == "None" or t2mi_id > "255":
+									t2mi_id = ""
 								else:
-									t2mi_plpid = ("T2MI PLP:") + t2mi_plpid
+									t2mi_id = sp("T2MI PLP") + sp(t2mi_id)
 							except:
-								t2mi_plpid = ""
+								t2mi_id = ""
+						if "t2mi_pid" in tp and "DVB-S2" in sys:
+							try:
+								t2mi_pid = (str(tpinfo.get("t2mi_pid")))
+								if t2mi_pid == "None":
+									t2mi_pid = ""
+								else:
+									t2mi_pid = sp("PID") + t2mi_pid
+							except:
+								t2mi_pid = ""
 						if "modulation" in tp: 
 							try:
 								mod = (str(tpinfo.get("modulation")))
@@ -145,19 +154,19 @@ class GlamTP(VariableText, Renderer):
 							isid = str(tpinfo.get("is_id", 0))
 							plscode = str(tpinfo.get("pls_code", 0))
 							plsmode = str(tpinfo.get("pls_mode", None))
-							if (plsmode == "None") or (plsmode == "Unknown") or ((plsmode is not "None") and (plscode == "0")):
+							if plsmode == "None" or plsmode == "Unknown" or (plsmode is not "None" and plscode == "0"):
 								plsmode = ""
-							if (isid == "None") or (isid == "-1") or (isid == "0"):
+							if isid == "None" or isid == "-1" or isid == "0":
 								isid = ""
 							else:
 								isid = ("IS:") + isid
-							if (plscode == "None") or (plscode == "-1") or (plscode == "0"):
+							if plscode == "None" or plscode == "-1" or plscode == "0":
 								plscode = ""
-							if ((plscode == "0") and (plsmode == "Gold")) or ((plscode == "1") and (plsmode == "Root")):
+							if (plscode == "0" and plsmode == "Gold") or (plscode == "1" and plsmode == "Root"):
 								plscode = plsmode = ""
 					except:
 						pass
-					self.text = sp(streamtype) + sp(streamurl) + sp(orbpos) + ch + sp(freq) + sp(pol) + sp(sys) + sp(mod) + sp(plpid) + sp(sr) + sp(fec) + sp(const) + sp(isid) + sp(plsmode) + sp(plscode) + t2mi_plpid
+					self.text = sp(streamtype) + sp(streamurl) + sp(orbpos) + ch + sp(freq) + sp(pol) + sp(sys) + sp(mod) + sp(plpid) + sp(sr) + sp(fec) + sp(const) + sp(isid) + sp(plsmode) + sp(plscode) + sp(t2mi_id) + t2mi_pid
 				text_width = self.instance.calculateSize().width()
 				if (self.instance and (text_width > self.sizeX)):
 					self.x = len(self.text.decode("utf8")) 
