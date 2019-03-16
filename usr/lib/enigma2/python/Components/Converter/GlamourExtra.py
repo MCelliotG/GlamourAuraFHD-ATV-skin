@@ -26,7 +26,7 @@ class GlamourExtra(Poll, Converter):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
 		self.container = eConsoleAppContainer()
-		self.type = type
+		type = type.split(",")
 		self.short_list = True
 		self.cpu_count = 0
 		self.prev_info = self.getCpuInfo(self.CPU_CALC)
@@ -36,7 +36,7 @@ class GlamourExtra(Poll, Converter):
 			self.sfmt = "CPU: $0"
 		else:
 			self.type = self.CPU_ALL
-			self.sfmt = txt = str(type)
+			self.sfmt = txt = str(type[0])
 			pos = 0
 			while True:
 				pos = self.sfmt.find("$", pos)
@@ -50,6 +50,7 @@ class GlamourExtra(Poll, Converter):
 		self.curr_info = self.getCpuInfo(self.type)
 
 		self.list = []
+		self.shortFormat = "Short" in type
 		if "CPULoad" in type:
 			self.type = self.CPULOAD
 		elif "CPUSpeed" in type:
@@ -111,7 +112,7 @@ class GlamourExtra(Poll, Converter):
 				except:
 					load = ""
 				cpuload = load.replace("\n", "").replace(" ","")
-				return ("CPU Load: %s") % cpuload
+				return "CPU Load: %s" % cpuload
 
 		elif (self.type == self.TEMPERATURE):
 			systemp = ""
@@ -141,10 +142,10 @@ class GlamourExtra(Poll, Converter):
 			if systemp == "" and cputemp == "":
 				return "Temperature: N/A"
 			if systemp == "":
-				return ("CPU Temp: ") + cputemp
+				return "CPU Temp: " + cputemp
 			if cputemp == "":
 				return systemp
-			return systemp + "  " + ("CPU: ") + cputemp
+			return systemp + "  " + "CPU: " + cputemp
 
 		elif (self.type == self.HDDTEMP):
 			return self.hddtemp
@@ -165,7 +166,7 @@ class GlamourExtra(Poll, Converter):
 							cpuspeed = int(int(binascii.hexlify(open("/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency", "rb").read()), 16) / 100000000) * 100
 						except:
 							cpuspeed = "-"
-				return ("CPU Speed: %s MHz") % cpuspeed
+				return "CPU Speed: %s MHz" % cpuspeed
 			except:
 				return ""
 
@@ -177,15 +178,15 @@ class GlamourExtra(Poll, Converter):
 				if fileExists("/proc/stb/fp/fan_speed"):
 					with open("/proc/stb/fp/fan_speed", "r") as fs:
 						fs = str(fs.readline().strip())
-						fs = ("Speed: %s  ") % fs
+						fs = "Speed: %s  " % fs
 				if fileExists("/proc/stb/fp/fan_vlt"):
 					with open("/proc/stb/fp/fan_vlt", "r") as fv:
 						fv = str(int(fv.readline().strip(), 16))
-						fv = ("V: %s  ") % fv
+						fv = "V: %s  " % fv
 				if fileExists("/proc/stb/fp/fan_pwm"):
 					with open("/proc/stb/fp/fan_pwm", "r") as fp:
 						fp = str(int(fp.readline().strip(), 16))
-						fp = ("PWM: %s  ") % fp
+						fp = "PWM: %s  " % fp
 			except:
 				pass
 			if fs == "":
@@ -204,17 +205,20 @@ class GlamourExtra(Poll, Converter):
 				MINUTE = 60
 				HOUR = MINUTE * 60
 				DAY = HOUR * 24
-				days = int(total_seconds / DAY)
-				hours = int(total_seconds % DAY / HOUR)
-				minutes = int(total_seconds % HOUR / MINUTE)
-				seconds = int(total_seconds % MINUTE)
+				days = str(int(total_seconds / DAY))
+				hours = str(int(total_seconds % DAY / HOUR))
+				minutes = str(int(total_seconds % HOUR / MINUTE))
+				seconds = str(int(total_seconds % MINUTE))
 				uptime = ""
-				if days > 0:
-					uptime += str(days) + " " + (days == 1 and "day" or "days") + ", "
-				if len(uptime) > 0 or hours > 0:
-					uptime += str(hours) + " " + (hours == 1 and "hr" or "hrs") + ", "
-				if len(uptime) > 0 or minutes > 0:
-					uptime += str(minutes) + " " + (minutes == 1 and "min" or "mins")
+				if self.shortFormat:
+					uptime = "%sd %sh %sm %ss" % (days, hours, minutes, seconds)
+				else:
+					if days > "0":
+						uptime += days + " " + (days == "1" and "day" or "days") + ", "
+					if len(uptime) > 0 or hours > "0":
+						uptime += hours + " " + (hours == "1" and "hr" or "hrs") + ", "
+					if len(uptime) > 0 or minutes > "0":
+						uptime += minutes + " " + (minutes == "1" and "min" or "mins")
 				return "Uptime: %s" % uptime
 
 		return text

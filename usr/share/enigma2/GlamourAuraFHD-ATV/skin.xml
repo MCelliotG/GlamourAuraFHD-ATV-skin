@@ -2139,7 +2139,7 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/uptime.png" position="45,620" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,625" size="330,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="Uptime" halign="left" noWrap="1">
-      <convert type="GlamourExtra">Uptime</convert>
+      <convert type="GlamourExtra">Uptime,Short</convert>
     </widget>
   </screen>
   <!-- HDD/USB Infopanel -->
@@ -4807,12 +4807,12 @@ if not self["videofps"].text:
   <!-- ### TUNER MENUS -->
   <!-- 01. Nim selection -->
   <screen name="NimSelection" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimselectionblue.png" alphatest="blend" zPosition="4">
-      <convert type="TemplatedMultiContent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimselectionblue.png" alphatest="blend" zPosition="4">
+    <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
             MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
@@ -4821,8 +4821,9 @@ if not self["videofps"].text:
          "itemHeight": 180
         }
       </convert>
-    </widget>
-  </screen>
+  </widget>
+  <ePixmap position="1725,950" size="120,60" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" alphatest="blend" transparent="1" zPosition="5" />
+</screen>
   <!-- 02. Nim setup -->
   <screen name="NimSetup" position="0,0" size="1920,1080" title="Reception settings" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
