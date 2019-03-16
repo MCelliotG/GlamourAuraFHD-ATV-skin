@@ -40,7 +40,7 @@ class GlamRoll(VariableText, Renderer):
 		if self.instance:
 			text_width = self.instance.calculateSize().width()
 			if (self.instance and (text_width > self.sizeX)):
-				self.x = len(self.text.decode("utf8")) 
+				self.x = len(self.text.decode("utf8","ignore"))
 				self.idx = 0
 				self.backtext = self.text
 				self.status = "start" 
@@ -64,6 +64,6 @@ class GlamRoll(VariableText, Renderer):
 				while text_width > self.sizeX:
 					self.text = self.text[:-1]
 					text_width = self.instance.calculateSize().width()
-				self.text = self.text[:-3] + "..."
+				self.text = self.text[:-4] + " ..."
 		if self.status is not "end":
 			self.moveTimerText.start(150)

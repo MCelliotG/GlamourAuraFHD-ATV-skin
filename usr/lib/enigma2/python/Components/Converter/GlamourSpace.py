@@ -63,60 +63,59 @@ class GlamourSpace(Poll, Converter):
 	@cached
 	def getText(self):
 		text = "N/A"
-			
+
 		if (self.type == self.RAMINFO):
-			while True:
-				ramfree = ""
-				ramavail = ""
-				ramtotal = ""
-				try:
-					if fileExists("/proc/meminfo"):
-						raminfo = open("/proc/meminfo").readlines()
+			ramfree = ""
+			ramavail = ""
+			ramtotal = ""
+			try:
+				if fileExists("/proc/meminfo"):
+					with open("/proc/meminfo") as ram:
+						raminfo = ram.readlines()
 						for lines in raminfo:
 							lisp = lines.split()
 							if (lisp[0].startswith("MemFree:")):
 								ramfree = str(float(lisp[1]) / 1024)
-								ramfree = ("%.6s MB Free, ") % ramfree
+								ramfree = "%.6s MB Free, " % ramfree
 							if (lisp[0].startswith("MemAvailable:")):
 								ramavail = str(float(lisp[1]) / 1024)
-								ramavail = ("%.6s MB Avail. ") % ramavail
+								ramavail = "%.6s MB Avail. " % ramavail
 							if (lisp[0].startswith("MemTotal:")):
 								ramtotal = str(int(lisp[1]) / 1024)
-								ramtotal = ("%s MB Total ") % ramtotal
-						raminfo.close()  
-						break	  
-				except:
-					pass
-				if ramfree == "" and ramavail == "" and ramtotal == "":
-					return ("N/A")
-				return ("RAM: ") + ramfree + ramavail + ramtotal
-				 
+								ramtotal = "%s MB Total " % ramtotal 
+			except:
+				pass
+			if ramfree == "" and ramavail == "" and ramtotal == "":
+				return "N/A"
+			return "RAM: " + ramfree + ramavail + ramtotal
+
 		elif (self.type == self.SWAPINFO):
-			while True:
-				swapfree = ""
-				swapcached = ""
-				swaptotal = ""
-				try:
-					if fileExists("/proc/meminfo"):
-						swpinfo = open("/proc/meminfo").readlines()
+			swapfree = ""
+			swapcached = ""
+			swaptotal = ""
+			try:
+				if fileExists("/proc/meminfo"):
+					with open("/proc/meminfo") as swp:
+						swpinfo = swp.readlines()
 						for lines in swpinfo:
 							lisp = lines.split()
 							if (lisp[0].startswith("SwapFree:")):
 								swapfree = str(int(lisp[1]) / 1024)
-								swapfree = ("%s MB Free, ") % swapfree
-							#if (lisp[0].startswith("SwapCached:")):
-								#swapcached = str(int(lisp[1]) / 1024)
-								#swapcached = ("%s MB Cached, ") % swapcached
+								swapfree = "%s MB Free, " % swapfree
+							if (lisp[0].startswith("SwapCached:")):
+								swapcached = str(int(lisp[1]) / 1024)
+								swapcached = "%s MB Cached, " % swapcached
 							if (lisp[0].startswith("SwapTotal:")):
 								swaptotal = str(int(lisp[1]) / 1024)
-								swaptotal = ("%s MB Total ") % swaptotal
-						swpinfo.close()  
-						break	  
-				except:
-					pass
-				if swapfree == "" and swaptotal == "":
-					return ("N/A")
-				return ("Swap: ") + swapfree + swaptotal
+								swaptotal = "%s MB Total " % swaptotal
+			except:
+				pass
+			if swapfree == "" and swaptotal == "":
+				return "N/A"
+			elif self.fullFormat:
+				return "Swap: %s %s %s" % (swapfree, swapcached, swaptotal)
+			else:
+			 return "Swap: %s %s" % (swapfree, swaptotal)
 
 		else:
 			entry = {self.MEMTOTAL: ("Mem", "Mem", "Ram"),
@@ -173,7 +172,6 @@ class GlamourSpace(Poll, Converter):
 	range = 100
 
 
-
 	def getMemInfo(self, value):
 		result = [0,
 		 0,
@@ -181,21 +179,19 @@ class GlamourSpace(Poll, Converter):
 		 0]
 		try:
 			check = 0
-			fd = open("/proc/meminfo")
-			for line in fd:
-				if value + "Total" in line:
-					check += 1
-					result[0] = int(line.split()[1]) * 1024
-				elif value + "Free" in line:
-					check += 1
-					result[2] = int(line.split()[1]) * 1024
-				if check > 1:
-					if result[0] > 0:
-						result[1] = result[0] - result[2]
-						result[3] = result[1] * 100 / result[0]
-					break
-
-			fd.close()
+			with open("/proc/meminfo") as fd:
+				for line in fd:
+					if value + "Total" in line:
+						check += 1
+						result[0] = int(line.split()[1]) * 1024
+					elif value + "Free" in line:
+						check += 1
+						result[2] = int(line.split()[1]) * 1024
+					if check > 1:
+						if result[0] > 0:
+							result[1] = result[0] - result[2]
+							result[3] = result[1] * 100 / result[0]
+						break
 		except:
 			pass
 
@@ -205,16 +201,13 @@ class GlamourSpace(Poll, Converter):
 
 		def isMountPoint():
 			try:
-				fd = open("/proc/mounts", "r")
-				for line in fd:
-					l = line.split()
-					if len(l) > 1 and l[1] == path:
-						return True
-
-				fd.close()
+				with open("/proc/mounts", "r") as fd:
+					for line in fd:
+						l = line.split()
+						if len(l) > 1 and l[1] == path:
+							return True
 			except:
 				return None
-
 			return False
 
 		result = [0,
