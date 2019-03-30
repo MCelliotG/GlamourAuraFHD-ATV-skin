@@ -40,7 +40,7 @@ class GlamourAccess(Poll, Converter, object):
 	TGFCAS = 16
 	PANCAS = 17
 	EXSCAS = 18
-	RUSCAS = 19
+	CGDCAS = 19
 	BETAECM = 20
 	IRDECM = 21
 	SECAECM = 22
@@ -58,27 +58,28 @@ class GlamourAccess(Poll, Converter, object):
 	TGFECM = 34
 	PANECM = 35
 	EXSECM = 36
-	RUSECM = 37
-	CODICAS = 38
-	CGDCAS = 39
+	CGDECM = 37
+	RUSCAS = 38
+	CODICAS = 39
 	AGTCAS = 40
-	CAIDINFO = 41
-	PROV = 42
-	NET = 43
-	EMU = 44
-	CRD = 45
-	CRDTXT = 46
-	FTA = 47
-	CACHE = 48
-	CRYPT = 49
-	CRYPTINFO = 50
-	CAMNAME = 51
-	ADDRESS = 52
-	ECMTIME = 53
-	FORMAT = 54
-	ECMINFO = 55
-	SHORTINFO = 56
-	ISCRYPTED = 57
+	SAMCAS = 41
+	CAIDINFO = 42
+	PROV = 43
+	NET = 44
+	EMU = 45
+	CRD = 46
+	CRDTXT = 47
+	FTA = 48
+	CACHE = 49
+	CRYPT = 50
+	CRYPTINFO = 51
+	CAMNAME = 52
+	ADDRESS = 53
+	ECMTIME = 54
+	FORMAT = 55
+	ECMINFO = 56
+	SHORTINFO = 57
+	ISCRYPTED = 58
 	timespan = 1000
 
 	def __init__(self, type):
@@ -158,14 +159,16 @@ class GlamourAccess(Poll, Converter, object):
 			self.type = self.PANECM
 		elif type == "ExsEcm":
 			self.type = self.EXSECM
-		elif type == "RusEcm":
-			self.type = self.RUSECM
+		elif type == "CgdEcm":
+			self.type = self.CGDECM
 		elif type == "CodiCaS":
 			self.type = self.CODICAS
 		elif type == "CgdCaS":
 			self.type = self.CGDCAS
 		elif type == "AgtCaS":
 			self.type = self.AGTCAS
+		elif type == "SamCaS":
+			self.type = self.SAMCAS
 		elif type == "CaidInfo":
 			self.type = self.CAIDINFO
 		elif type == "ProvID":
@@ -229,6 +232,7 @@ class GlamourAccess(Poll, Converter, object):
 		service = self.source.service
 		info = service and service.info()
 		ecm_info = self.ecmfile()
+		protocol = str(ecm_info.get("protocol", ""))
 		self.poll_interval = self.timespan
 		self.poll_enabled = True
 		if not info:
@@ -236,16 +240,19 @@ class GlamourAccess(Poll, Converter, object):
 		caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
 
 		if self.type is self.FTA:
-			if caids:
-				return False
-			return True
+			if not caids and not ecm_info:
+				return True
+			elif ecm_info:
+				if "fta" in protocol:
+					return True
+			return False
 
 		if self.type is self.ISCRYPTED:
 			if caids:
 				return True
 			return False
 
-		if caids:
+		if caids or ecm_info:
 			if self.type == self.BETACAS:
 				for caid in caids:
 					if ("%0.4X" % int(caid))[:4] >= "1700" and ("%0.4X" % int(caid))[:4] <= "17FF":
@@ -351,6 +358,11 @@ class GlamourAccess(Poll, Converter, object):
 					if ("%0.4X" % int(caid))[:4] >= "4800" and ("%0.4X" % int(caid))[:4] <= "48FF":
 						return True
 				return False
+			if self.type == self.SAMCAS:
+				for caid in caids:
+					if ("%0.4X" % int(caid))[:4] == "4B64":
+						return True
+				return False
 
 			if ecm_info:
 				caid = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
@@ -422,8 +434,8 @@ class GlamourAccess(Poll, Converter, object):
 					if caid >= "2700" and caid <= "27FF":
 						return True
 					return False
-				if self.type == self.RUSECM:
-					if caid >= "A100" and caid <= "A1FF":
+				if self.type == self.CGDECM:
+					if caid == "4AEA" or caid >= "1EC0" and caid <= "1ECF":
 						return True
 					return False
 
@@ -485,7 +497,7 @@ class GlamourAccess(Poll, Converter, object):
 				if self.type == self.CAIDINFO:
 					return self.CaidInfo()
 
-				if caids:
+				if caids or ecm_info:
 					if len(caids) > 0:
 						caidlist = self.CaidList()
 						caidtxt = self.CaidTxtList()
@@ -597,11 +609,13 @@ class GlamourAccess(Poll, Converter, object):
 							return ecminfo[:-1]
 
 						if self.type == self.ECMINFO:
-							if source == "emu":
+							if "fta" in protocol:
+								ecminfo = "FTA service"
+							elif source == "emu":
 								ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
 							elif reader is not "" and source == "net" and port is not "":
 								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
-							elif reader is not "" and source == "net":
+							elif reader is not "" and source == "net" and not "fta" in protocol:
 								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
 							elif reader is not "" and source is not "net":
 								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
@@ -616,7 +630,9 @@ class GlamourAccess(Poll, Converter, object):
 									pass
 
 						if self.type == self.SHORTINFO:
-							if source == "emu":
+							if "fta" in protocol:
+								ecminfo = "FTA service"
+							elif source == "emu":
 								ecminfo = "%s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
 							elif server == "" and port == "":
 								ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
@@ -863,7 +879,7 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "VeriMatrix"
 				if caid.startswith("4AE1") or caid.startswith("4AE5") or caid.startswith("4AE7") or caid.startswith("4AE0"):
 					caid = "DreCrypt"
-				if caid.startswith("7B") or caid.startswith("50"):
+				if caid.startswith("7BE0") or caid.startswith("50"):
 					caid = "DreCrypt"
 				if caid.startswith("27"):
 					caid = "ExSet/PolyChipher"
@@ -873,6 +889,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "DigiCrypt"
 				if caid.startswith("4AD"):
 					caid = "FireCrypt"
+				if caid.startswith("4AF0"):
+					caid = "ABV"
 				if caid.startswith("4AF6") or caid.startswith("4B0"):
 					caid = "Tongfang"
 				if caid.startswith("4AFC"):
@@ -1017,6 +1035,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (DigiCrypt) "
 				if caid.startswith("4AD"):
 					caid = caid + " (FireCrypt) "
+				if caid.startswith("4AF0"):
+					caid = caid + " (ABV) "
 				if caid.startswith("4AF6") or caid.startswith("4B0"):
 					caid = caid + " (Tongfang) "
 				if caid.startswith("4AFC"):

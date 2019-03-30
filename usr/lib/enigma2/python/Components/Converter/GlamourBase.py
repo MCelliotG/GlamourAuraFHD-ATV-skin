@@ -529,10 +529,8 @@ class GlamourBase(Poll, Converter, object):
 			sat = "Arabsat 5A"
 		elif (orbe >= 28.0) and (orbe <= 28.8):
 			sat = "Astra 2E,2F,2G"
-		elif (orbe >= 25.8) and (orbe <= 26.3):
-			sat = "Badr 4,5,6,7"
-		elif (orbe >= 25.0) and (orbe <= 25.7):
-			sat = "Es'hail 1,2"
+		elif (orbe >= 25.2) and (orbe <= 26.3):
+			sat = "Badr 4,5,6,7/Es'hail 1,2"
 		elif (orbe >= 23.0) and (orbe <= 23.8):
 			sat = "Astra 3B"
 		elif (orbe >= 21.4) and (orbe <= 21.8):

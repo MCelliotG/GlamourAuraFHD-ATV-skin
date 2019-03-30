@@ -178,20 +178,19 @@ class GlamourExtra(Poll, Converter):
 				if fileExists("/proc/stb/fp/fan_speed"):
 					with open("/proc/stb/fp/fan_speed", "r") as fs:
 						fs = str(fs.readline().strip())
-						fs = "Speed: %s  " % fs
 				if fileExists("/proc/stb/fp/fan_vlt"):
 					with open("/proc/stb/fp/fan_vlt", "r") as fv:
 						fv = str(int(fv.readline().strip(), 16))
-						fv = "V: %s  " % fv
 				if fileExists("/proc/stb/fp/fan_pwm"):
 					with open("/proc/stb/fp/fan_pwm", "r") as fp:
 						fp = str(int(fp.readline().strip(), 16))
-						fp = "PWM: %s  " % fp
 			except:
 				pass
 			if fs == "":
 				return "Fan Info: N/A"
-			return fs + fv + fp
+			if self.shortFormat:
+				return "%s - %sV - P:%s" % (fs, fv, fp)
+			return "Speed: %s V: %s PWM: %s" % (fs, fv, fp)
 
 		elif (self.type == self.UPTIME):
 			try:
