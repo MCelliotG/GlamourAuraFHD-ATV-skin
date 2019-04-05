@@ -104,21 +104,15 @@ class GlamTP(VariableText, Renderer):
 						if "t2mi_plp_id" in tp and "DVB-S2" in sys:
 							try:
 								t2mi_id = (str(tpinfo.get("t2mi_plp_id",-1)))
+								t2mi_pid = (str(tpinfo.get("t2mi_pid")))
 								if t2mi_id == "-1" or t2mi_id == "None" or t2mi_id > "255":
 									t2mi_id = ""
-								else:
-									t2mi_id = sp("T2MI PLP") + sp(t2mi_id)
-							except:
-								t2mi_id = ""
-						if "t2mi_pid" in tp and "DVB-S2" in sys:
-							try:
-								t2mi_pid = (str(tpinfo.get("t2mi_pid")))
-								if t2mi_pid == "None":
 									t2mi_pid = ""
 								else:
+									t2mi_id = sp("T2MI PLP") + t2mi_id
 									t2mi_pid = sp("PID") + t2mi_pid
 							except:
-								t2mi_pid = ""
+								t2mi_id = ""
 						if "modulation" in tp: 
 							try:
 								mod = (str(tpinfo.get("modulation")))
