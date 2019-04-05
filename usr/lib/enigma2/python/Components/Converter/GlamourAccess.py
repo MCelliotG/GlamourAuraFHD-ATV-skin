@@ -458,7 +458,7 @@ class GlamourAccess(Poll, Converter, object):
 				if self.type == self.EMU:
 					return using == "emu" or source == "emu" or source == "card" or reader == "emu" or source.find("card") > -1 or source.find("emu") > -1 or source.find("biss") > -1 or source.find("tb") > -1 or reader.find("constant_cw") > -1 or protocol.find("constcw") > -1 or protocol.find("static") > -1
 				if self.type == self.NET:
-					if source == "net" and not "unsupported" in protocol and not "cache" in frm and not "static" in protocol:
+					if source == "net" and not "unsupported" in protocol and not "cache" in frm and not "static" in protocol and not "fta" in protocol:
 						return True
 					return False
 		return False
@@ -827,7 +827,7 @@ class GlamourAccess(Poll, Converter, object):
 			info = service and service.info()
 			if info:
 				caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
-		return caids
+		return sorted(caids)
 
 
 	def CaidList(self):
@@ -845,10 +845,10 @@ class GlamourAccess(Poll, Converter, object):
 
 	def CaidTxtList(self):
 		catxt = ""
-		caids = self.Caids()
+		caidtxt = ""
+		caids = self.CaidList().strip(",").split()
 		if caids:
 			for caid in caids:
-				caid = self.int2hex(caid).upper().zfill(4)
 				if caid.startswith("01"):
 					caid = "Seca"
 				if caid.startswith("05"):
@@ -977,15 +977,19 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "Samsung/TVKey"
 				if caid.startswith("4AEA") or caid.startswith("1EC"):
 					caid = "CryptoGuard"
-				if caid.startswith("00"):
-					caid = "Unknown"
+				if caid.startswith("0000"):
+					caid = "no or unknown"
 				catxt += caid + ","
-				calist = catxt.rstrip(",").split(",")
-				calist = list(set(calist))
-				if len(calist) > 1:
-					caidtxt = ", ".join(calist[:-1]) + " & " + calist[-1]
-				else:
-					caidtxt = calist[0]
+				caidtxt = catxt.replace(","," ").split()
+				calist = []
+				for ca in caidtxt:
+					if ca not in calist:
+						calist.append(ca)
+						calist = list(calist)
+						if len(calist) > 1:
+							caidtxt = ", ".join(calist[:-1]) + " & " + calist[-1]
+						else:
+							caidtxt = calist[0]
 		return caidtxt
 
 
@@ -1123,8 +1127,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (Samsung/TVKey) "
 				if caid.startswith("4AEA") or caid.startswith("1EC"):
 					caid = caid + " (CryptoGuard) "
-				if caid.startswith("00"):
-					caid = " Unknown "
+				if caid.startswith("0000"):
+					caid = ""
 				caidlist += " " + caid
 			if config.osd.language.value == "el_GR":
 				caidlist = "Συστήματα κωδικοποίησης: " + caidlist
