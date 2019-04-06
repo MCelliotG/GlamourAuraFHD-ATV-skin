@@ -273,19 +273,11 @@ class GlamourBase(Poll, Converter, object):
 		try:
 			t2mi_id = str(tpinfo.get("t2mi_plp_id",-1))
 			t2mi_pid = str(tpinfo.get("t2mi_pid"))
-			if fileExists("/etc/image-version"):
-				if t2mi_id == "None" or t2mi_id == "-1" or t2mi_id == "0" or t2mi_id > "255":
-					t2mi_id = ""
-				else:
-					t2mi_id = sp("T2MI PLP") + t2mi_id
-			else:
-				if t2mi_id == "None" or t2mi_id == "-1" or t2mi_id > "255":
-					t2mi_id = ""
-				else:
-					t2mi_id = sp("T2MI PLP") + t2mi_id
-			if t2mi_pid == "None":
+			if t2mi_id == "None" or t2mi_id == "-1":
+				t2mi_id = ""
 				t2mi_pid = ""
 			else:
+				t2mi_id = sp("T2MI PLP") + t2mi_id
 				t2mi_pid = sp("PID") + t2mi_pid
 			return sp(t2mi_id) + sp(t2mi_pid)
 		except:
