@@ -110,7 +110,10 @@ class GlamTP(VariableText, Renderer):
 									t2mi_pid = ""
 								else:
 									t2mi_id = sp("T2MI PLP") + t2mi_id
-									t2mi_pid = sp("PID") + t2mi_pid
+									if t2mi_pid == "None":
+										t2mi_pid = ""
+									else:
+										t2mi_pid = sp("PID") + t2mi_pid
 							except:
 								t2mi_id = ""
 						if "modulation" in tp: 
