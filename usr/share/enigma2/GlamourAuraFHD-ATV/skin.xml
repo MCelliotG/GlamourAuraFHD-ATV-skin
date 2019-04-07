@@ -202,17 +202,17 @@
   <!-- PANELS -->
   <!-- 01. Key Panels -->
   <screen name="FullKeysCC" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="810,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1050,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1290,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
-    <widget name="key_red" render="Label" position="810,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_green" render="Label" position="1050,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_yellow" render="Label" position="1290,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_blue" render="Label" position="1530,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-  </screen>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="810,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1050,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1290,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
+  <widget name="key_red" position="810,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  <widget name="key_green" position="1050,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  <widget name="key_yellow" position="1290,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  <widget name="key_blue" position="1530,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+</screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -238,10 +238,10 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1005,960" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1305,960" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1605,960" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="key_red" render="Label" position="665,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_green" render="Label" position="965,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_yellow" render="Label" position="1265,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="key_blue" render="Label" position="1565,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_red" position="665,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_green" position="965,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_yellow" position="1265,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_blue" position="1565,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
   </screen>
   <screen name="FullKeys4" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="690,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -422,9 +422,9 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="green" render="Label" position="850,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
-    <widget name="yellow" render="Label" position="1170,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
-    <widget name="blue" render="Label" position="1490,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
+    <widget name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
+    <widget name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
+    <widget name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
   </screen>
   <screen name="MenuCL" flags="wfNoBorder">
     <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/cutselectionblue.png" alphatest="blend" transparent="1" zPosition="13">
@@ -482,7 +482,7 @@
       <convert type="MenuEntryCompare">timer_menu</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/scart.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/Scart.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">scart_switch</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -2371,10 +2371,10 @@
   </screen>
   <!--  Ecm info -->
   <screen name="ECMInfo" flags="wfNoBorder">
-  <widget source="session.CurrentService" render="Label" position="110,1030" size="1800,35" font="Numbers; 30" halign="left" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="center" noWrap="1" foregroundColor="amarillo">
-    <convert type="GlamourAccess">EcmInfo</convert>
-  </widget>
-</screen>
+    <widget source="session.CurrentService" render="Label" position="110,1030" size="1800,35" font="Numbers; 30" halign="left" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="center" noWrap="1" foregroundColor="amarillo">
+      <convert type="GlamourAccess">EcmInfo</convert>
+    </widget>
+  </screen>
   <!-- 09. SETUP TEMPLATES -->
   <!-- 09-01.Common Setup -->
   <screen name="SetupCommon" flags="wfNoBorder">
@@ -4053,7 +4053,7 @@
     <widget name="channel" position="665,85" size="795,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />
     <widget name="datetime" position="125,585" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="4" />
     <widget name="duration" position="125,685" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="5" />
-    <widget name="epg_description" position="665,160" size="1210,780" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
+    <widget name="FullDescription" position="665,160" size="1210,780" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
     <widget source="session.Event_Now" render="Label" position="40,390" size="600,90" transparent="1" zPosition="8" foregroundColor="lightciel" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
       <convert type="EventName">Genre</convert>
     </widget>
@@ -4392,8 +4392,14 @@ if not self["videofps"].text:
     <eLabel position="150,235" size="390,2" backgroundColor="grey" zPosition="6" />
     <widget name="timeline_text" position="650,135" size="1220,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
     <eLabel position="650,195" size="1220,3" backgroundColor="cyan1" zPosition="8" />
-    <widget name="list" position="650,205" size="1220,720" itemHeight="60" ServiceFont="Regular;30" piconWidth="320" ServiceBackgroundColor="background20" ServiceBackgroundColorSelected="rssviewtop" ServiceBorderColor="grey" ServiceBorderWidth="1" ServiceNameForegroundColor="white" ServiceForegroundColorSelected="amarillo" EntryFont="Regular;30" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="timeline_now" position="665,205" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
+    <widget name="list" position="650,205" size="1220,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="timeline0" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline1" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline2" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline3" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline4" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline5" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline_now" position="665,204" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
     <panel name="FullKeys3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1552,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
   </screen>
@@ -4405,8 +4411,14 @@ if not self["videofps"].text:
     <widget source="Title" render="Label" position="240,45" size="1420,90" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
     <widget name="timeline_text" position="239,133" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
     <eLabel position="240,195" size="1620,3" backgroundColor="cyan1" zPosition="8" />
-    <widget name="list" position="240,200" size="1620,720" itemHeight="60" ServiceFont="Regular;30" piconWidth="320" ServiceBackgroundColor="background20" ServiceBackgroundColorSelected="rssviewtop" ServiceBorderColor="grey" ServiceBorderWidth="1" ServiceNameForegroundColor="white" ServiceForegroundColorSelected="amarillo" EntryFont="Regular;30" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="timeline_now" position="255,200" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
+    <widget name="list" position="240,200" size="1620,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="timeline0" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline1" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline2" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline3" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline4" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline5" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
+    <widget name="timeline_now" position="255,199" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
     <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
@@ -4441,17 +4453,17 @@ if not self["videofps"].text:
     <widget source="Event" render="Progress" position="400,935" size="1305,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_blue.png" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget name="list" position="240,200" size="1620,660" itemHeight="60" ServiceFont="Regular;30" piconWidth="320" ServiceBackgroundColor="background20" ServiceBackgroundColorSelected="rssviewtop" ServiceBorderColor="grey" ServiceBorderWidth="1" ServiceNameForegroundColor="white" ServiceForegroundColorSelected="amarillo" EntryFont="Regular;30" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="list" position="240,200" size="1620,660" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="240,200" size="1620,660" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
     <widget name="timeline_text" position="240,135" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
     <eLabel position="240,190" size="1620,3" backgroundColor="cyan1" zPosition="8" />
     <widget name="timeline_now" position="255,200" zPosition="9" size="18,660" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <widget name="timeline0" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline1" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline2" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline3" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline4" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline5" position="232,210" size="1,630" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
+    <widget name="timeline0" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline1" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline2" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline3" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline4" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline5" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
     <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
@@ -4479,21 +4491,21 @@ if not self["videofps"].text:
       <convert type="EventTime">Progress</convert>
     </widget>
     <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
-    <ePixmap position="239,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
+    <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,320" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceFont="Regular;30" piconWidth="320" ServiceBackgroundColor="background20" ServiceBackgroundColorSelected="rssviewtop" ServiceBorderColor="grey" ServiceBorderWidth="1" ServiceNameForegroundColor="white" ServiceForegroundColorSelected="amarillo" EntryFont="Regular;30" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="240,180" size="1620,360" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
     <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" foregroundColor="yellow" />
     <eLabel position="240,180" size="1620,3" backgroundColor="cyan1" zPosition="22" />
-    <widget name="timeline_now" position="255,180" zPosition="9" size="18,360" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <widget name="timeline0" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline1" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline2" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline3" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline4" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
-    <widget name="timeline5" position="232,190" size="1,330" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="6" />
+    <widget name="timeline_now" position="255,181" zPosition="9" size="18,360" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
+    <widget name="timeline0" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline1" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline2" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline3" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline4" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
+    <widget name="timeline5" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
     <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
     <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
