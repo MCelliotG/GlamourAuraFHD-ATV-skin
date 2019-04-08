@@ -2026,4 +2026,105 @@
   <eLabel text="MOVE" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   <eLabel text="COPY" position="1580,245" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
 </screen>
+
+
+    <!-- File Commander -->
+  <screen name="FileCommanderScreen" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+  <eLabel name="menubig" position="410,0" size="1420,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1140,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1780,90" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1200,120" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="420,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1060,90" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="480,120" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
+  <ePixmap position="20,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="list_left" font="Regular; 30" position="420,200" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <eLabel position="1130,60" size="2,800" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
+  <eLabel position="1134,60" size="2,800" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
+  <widget name="list_right" font="Regular; 30" position="1140,200" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="list_left_head1" position="420,60" size="705,90" font="Regular; 30" foregroundColor="cyan1" zPosition="5" transparent="1" backgroundColor="background20" valign="center" />
+  <widget source="list_left_head2" render="Listbox" position="420,155" size="700,40" foregroundColor="amarillo" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
+    <convert type="TemplatedMultiContent">
+		{"template": [
+		MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+		MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+		MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+		],
+		"fonts": [gFont("Regular", 28)],
+		"itemHeight": 40,
+		"selectionEnabled": False
+		}
+       </convert>
+  </widget>
+  <widget name="list_right_head1" position="1140,60" size="705,90" font="Regular; 30" foregroundColor="cyan" zPosition="5" backgroundColor="background20" transparent="1" valign="center" />
+  <widget source="list_right_head2" render="Listbox" position="1140,155" size="705,40" foregroundColor="lightciel" backgroundColor="background20" selectionDisabled="1" transparent="1">
+    <convert type="TemplatedMultiContent">
+		{"template": [
+		MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+		MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+		MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+		],
+		"fonts": [gFont("Regular", 28)],
+		"itemHeight": 40,
+		"selectionEnabled": False
+		}
+       </convert>
+  </widget>
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="420,855" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="445,900" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
+  <panel name="FullKeys2" />
+</screen>
+
+  <screen name="FileCommanderContextMenu" position="center,center" size="1920,1080" title="FileCommander Context Menu" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground3" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1050.png" alphatest="blend" zPosition="7" />
+    <ePixmap position="255,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+  </screen>
+
+  <screen name="FileCommanderScreenFileSelect" position="0,0" size="1920,1080" title="Filebrowser" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="FileCommanderScreen" />
+  </screen>
+
+  <screen name="FileCommanderFileStatInfo" position="center,center" size="1920,1080" title="File/Directory Status Information" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <widget name="filename" position="540,90" size="1305,80" font="RegularB; 20" zPosition="8" transparent="1" foregroundColor="cyan2" backgroundColor="background20" valign="center" />
+    <widget source="list" render="Listbox" position="540,185" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" selectionDisabled="1" transparent="1" zPosition="9">
+      <convert type="TemplatedMultiContent">
+     {"template": [
+      MultiContentEntryText(pos = (5, 0), size = (450, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is a label
+      MultiContentEntryText(pos = (455, 0), size = (845, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the information
+      ],
+      "fonts": [gFont("Regular", 28)],
+      "itemHeight": 50,
+      "selectionEnabled": False
+     }
+    </convert>
+    </widget>
+  </screen>
+
+
+    <!-- Simple Umount -->
+  <screen name="SimpleUmount" position="0,0" size="1920,1080" title="SimpleUmount rel. %s" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/usb.png" alphatest="on" transparent="1" zPosition="5" />
+<widget name="wdg_label_instruction" position="540,75" size="1305,80" font="RegularB; 34" zPosition="4" transparent="1" foregroundColor="sky" backgroundColor="background20" />
+<widget name="wdg_label_legend_1" position="540,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
+<widget name="wdg_label_legend_2" position="830,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
+<widget name="wdg_label_legend_3" position="1120,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
+<widget name="wdg_label_legend_4" position="1410,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
+<widget name="wdg_menulist_device" position="540,230" size="1305,650" font="Console; 35" itemHeight="50" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
+<widget name="wdg_config" position="540,880" size="1305,50" font="Regular; 30" itemHeight="50" transparent="1" foregroundColor="cyan1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
+</screen>
+
 </skin>

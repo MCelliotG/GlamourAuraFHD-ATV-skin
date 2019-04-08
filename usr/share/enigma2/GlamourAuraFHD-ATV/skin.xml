@@ -69,8 +69,6 @@
     <color name="transRed" value="#00800000" />
     <color name="transWhite" value="#25ffffff" />
     <color name="turquoise" value="#00149baf" />
-    <color name="un50000000" value="#50000000" />
-    <color name="unff1100" value="#00ff1100" />
     <color name="white" value="#00ffffff" />
     <color name="yellow" value="#00f2e000" />
   </colors>
@@ -202,17 +200,17 @@
   <!-- PANELS -->
   <!-- 01. Key Panels -->
   <screen name="FullKeysCC" flags="wfNoBorder">
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="810,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1050,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1290,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
-  <widget name="key_red" position="810,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-  <widget name="key_green" position="1050,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-  <widget name="key_yellow" position="1290,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-  <widget name="key_blue" position="1530,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-</screen>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="810,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1050,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1290,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="key_red" position="810,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_green" position="1050,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_yellow" position="1290,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="key_blue" position="1530,975" size="225,60" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  </screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -1218,7 +1216,7 @@
   <!-- 03. Clock Labels -->
   <screen name="ClockLabel1" flags="wfNoBorder">
     <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="50,0" zPosition="1" size="225,195" alphatest="on" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="50,0" zPosition="1" size="225,195" alphatest="on" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="155,40" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="60,35" size="90,80" font="Numbers; 75" halign="left" transparent="1" valign="center" backgroundColor="deepgrey" foregroundColor="white" zPosition="6" noWrap="1">
@@ -1238,7 +1236,7 @@
     </widget>
   </screen>
   <screen name="ClockLabel2" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="1655,0" zPosition="1" size="225,195" alphatest="off" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clock_back.png" position="1655,0" zPosition="1" size="225,195" alphatest="off" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1880,55" zPosition="-8" size="40,85" alphatest="blend" transparent="1" />
     <eLabel name="clockin" position="1880,55" size="40,85" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="1765,35" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
@@ -2123,7 +2121,7 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,465" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1" foregroundColor="white">
-      <convert type="GlamourExtra">FanInfo</convert>
+      <convert type="GlamourExtra">FanInfo,Short</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,505" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
@@ -2389,7 +2387,7 @@
   <!-- 10.1 BACKGROUND -->
   <screen name="MovieBG" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_movie.png" position="0,870" zPosition="-2" size="1920,210" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_moviename.png" position="0,690" zPosition="-2" size="1920,180" alphatest="on" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_moviename.png" position="0,690" zPosition="-2" size="1920,180" alphatest="on" />
   </screen>
   <!-- 10.2 NAME1 -->
   <screen name="MovieN1" flags="wfNoBorder">
@@ -2815,7 +2813,7 @@
     <panel name="MainMenuTiles" />
   </screen>
   <!-- 01. Main Menu -->
-  <screen name="menu_mainmenu" position="0,0" size="1920,1080" title="Main menu" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="menu_mainmenu" position="0,0" size="1920,1080" title="Main menu" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/menu.png" alphatest="on" transparent="1" zPosition="5" />
@@ -3151,7 +3149,7 @@
   </screen>
   <!-- 02. Videomode -->
   <screen name="VideoMode" position="0,200" zPosition="14" size="720,55" backgroundColor="transparent" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_timeshift.png" position="0,0" zPosition="-2" size="720,55" alphatest="off" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_timeshift.png" position="0,0" zPosition="-2" size="720,55" alphatest="off" />
     <widget name="videomode" position="50,3" size="650,50" font="Regular; 34" halign="center" backgroundColor="background20" transparent="1" zPosition="6" noWrap="1" />
   </screen>
   <!-- 03. Buffer Indicator -->
@@ -3161,7 +3159,7 @@
     <widget name="status" position="45,0" size="650,55" font="Regular; 34" halign="center" backgroundColor="background20" transparent="1" zPosition="6" noWrap="1" foregroundColor="lightciel" valign="bottom" />
   </screen>
   <!-- 04. PVR State -->
-  <screen name="PVRState" position="610,0" zPosition="12" size="700,250" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="PVRState" position="610,0" zPosition="12" size="700,250" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,250" zPosition="-10" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="0,0" size="700,175" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom2.png" position="0,175" zPosition="-11" size="700,75" alphatest="off" transparent="1" />
@@ -3169,7 +3167,7 @@
     <widget name="speed" position="340,20" size="300,200" font="Numbers; 130" halign="center" valign="center" foregroundColor="cyan2" backgroundColor="background90" transparent="1" zPosition="12" noWrap="1" />
   </screen>
   <!-- 05. Seekbar -->
-  <screen name="Seekbar" position="610,0" zPosition="12" size="700,250" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="Seekbar" position="610,0" zPosition="12" size="700,250" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,250" zPosition="-10" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="0,0" size="700,175" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom2.png" position="0,175" zPosition="-11" size="700,75" alphatest="off" transparent="1" />
@@ -3223,6 +3221,27 @@
     <widget source="backgroundable" render="FixedLabel" text="Continue in background" position="1500,850" size="305,95" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
+  </screen>
+  <!-- 07. Task List -->
+  <screen name="TaskListScreen" position="0,0" size="1920,1080" title="Task List" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/powertimer.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="tasklist" render="Listbox" position="540,120" size="1305,720" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" scrollbarMode="showOnDemand" transparent="1" zPosition="7">
+      <convert type="TemplatedMultiContent">
+	{"template": [
+	MultiContentEntryText(pos = (5, 5), size = (1290, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # name
+	MultiContentEntryText(pos = (5, 50), size = (300, 30), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # state
+	MultiContentEntryProgress(pos = (305, 55), size = (830, 20), percent = -3), # progress
+	MultiContentEntryText(pos = (1170, 50), size = (120, 30), font=1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 4), # percentage
+	],
+	"fonts": [gFont("Regular", 33),gFont("Regular", 25)],
+	"itemHeight": 80
+	}
+   </convert>
+    </widget>
+    <panel name="RedKey2" />
   </screen>
   <!-- ###INFO SCREENS -->
   <!-- 01. About -->
@@ -4225,7 +4244,7 @@
     <panel name="Title1" />
   </screen>
   <!-- 11. Subtitle Quickmenu -->
-  <screen name="QuickSubtitlesConfigMenu" title="Subtitle Quickmenu" position="0,0" size="1920,575" flags="wfNoBorder" backgroundColor="transparent" transparent="0">
+  <screen name="QuickSubtitlesConfigMenu" title="Subtitle Quickmenu" position="0,0" size="1920,575" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="0,0" size="1150,500" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight2.png" position="1150,0" zPosition="-11" size="75,575" alphatest="off" transparent="1" />
@@ -4695,7 +4714,7 @@ if not self["videofps"].text:
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadetop.png" position="700,90" zPosition="-11" size="1220,75" alphatest="off" transparent="1" name="mediaback" />
     <eLabel name="mediaback" position="700,165" size="1220,105" zPosition="-11" backgroundColor="background20" foregroundColor="background20" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,555" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="125,425" zPosition="-2" size="1570,130" alphatest="on" transparent="0" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="125,425" zPosition="-2" size="1570,130" alphatest="on" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <widget name="coverArt" position="300,60" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/media.png" transparent="1" alphatest="on" zPosition="4" />

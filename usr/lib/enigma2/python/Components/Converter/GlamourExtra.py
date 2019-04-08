@@ -190,7 +190,8 @@ class GlamourExtra(Poll, Converter):
 				return "Fan Info: N/A"
 			if self.shortFormat:
 				return "%s - %sV - P:%s" % (fs, fv, fp)
-			return "Speed: %s V: %s PWM: %s" % (fs, fv, fp)
+			else:
+				return "Speed: %s V: %s PWM: %s" % (fs, fv, fp)
 
 		elif (self.type == self.UPTIME):
 			try:
