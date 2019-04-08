@@ -78,7 +78,7 @@
   </screen>
 
   <!-- 03. OPD Panel -->
-    <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+    <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -125,14 +125,14 @@
   </screen>
 
   <!-- 06. OPENDROID IPK Tools Panel -->
-  <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
   </screen>
-  <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -147,7 +147,7 @@
   </screen>
 
   <!-- 07. Manual Install Tgz Packages -->
-  <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -162,7 +162,7 @@
   </screen>
 
   <!-- 08. Feed Install -->
-  <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -177,7 +177,7 @@
   </screen>
 
   <!-- 09. Advanced Install -->
-  <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -194,7 +194,7 @@
   </screen>
 
   <!-- 10. Panel Ipk remove -->
-  <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -211,7 +211,7 @@
   </screen>
 
   <!-- 11. OPENDROID Addons Manager -->
-  <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -226,7 +226,7 @@
   </screen>
 
   <!-- 12. OPENDROID Download Manager -->
-  <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />

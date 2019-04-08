@@ -372,7 +372,7 @@
   
 
   <!-- 03. INFO SCREENS -->
-  <screen name="Infopanel" position="0,0" size="1920,1080" title="Infopanel" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="Infopanel" position="0,0" size="1920,1080" title="Infopanel" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -380,7 +380,7 @@
     <widget name="Mlist" font="Regular; 45" position="800,90" size="960,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="3" />
     <widget name="label1" position="810,865" size="950,80" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
-  <screen name="Info" position="0,0" size="1920,1080" title="Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="Info" position="0,0" size="1920,1080" title="Info" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -400,7 +400,7 @@
     <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
     <panel name="FullKeys1" />
   </screen>
-  <screen name="SystemMemoryInfo" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="SystemMemoryInfo" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -408,7 +408,7 @@
     <widget name="AboutScrollLabel" render="Label" position="542,90" size="1305,750" font="Regular; 32" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
-  <screen name="SystemNetworkInfo" position="0,0" size="1920,1080" title="System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="SystemNetworkInfo" position="0,0" size="1920,1080" title="System Info" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -482,7 +482,7 @@
 
 
   <!-- 04. HDD SCREENS -->
-  <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" transparent="0">
+  <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -989,7 +989,7 @@
 </screen>
 
     <!-- 08e. Infobar Event View -->
-  <screen name="InfoBarEventView" position="0,195" size="1920,550" title="" backgroundColor="transparent" flags="wfNoBorder" zPosition="30" alphatest="blend">
+  <screen name="InfoBarEventView" position="0,195" size="1920,550" title="" backgroundColor="transparent" flags="wfNoBorder" zPosition="30" >
     <ePixmap position="65,295" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
     <ePixmap position="1800,295" size="52,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnow.png" position="200,90" zPosition="-2" size="1520,230" alphatest="blend" transparent="1" />
@@ -1779,7 +1779,7 @@
   
   
   <!-- 19. SWAP SCREENS -->
-  <screen name="SwapManager" position="0, 0" flags="wfNoBorders" title="Swap File Manager" transparent="0" backgroundColor="transparent" size="1920, 1080">
+  <screen name="SwapManager" position="0, 0" flags="wfNoBorders" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -1796,7 +1796,7 @@
     <widget name="active" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="green" zPosition="4" noWrap="1" />
     <panel name="RGYKeys2" />
   </screen>
-  <screen name="Swap" position="0, 0" flags="wfNoBorders" title="Swap File Manager" transparent="0" backgroundColor="transparent" size="1920, 1080">
+  <screen name="Swap" position="0, 0" flags="wfNoBorders" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
