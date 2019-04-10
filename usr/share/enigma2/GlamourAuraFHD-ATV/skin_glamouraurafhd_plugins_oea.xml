@@ -405,8 +405,8 @@
     <widget name="Mlist" font="Regular; 30" position="540,70" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="RGKeys1" />
   </screen>
-  
-  
+
+
   <!-- YouTube Plugin -->
   <!-- MAIN -->
   <screen name="YouTubeMain" position="0,0" size="1920,1080" title="YouTube" flags="wfNoBorder" backgroundColor="transparent">
@@ -419,11 +419,11 @@
       <convert type="TemplatedMultiContent">
       {"template": [
       MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=2), # Thumbnail
-      MultiContentEntryText(pos=(220,0), size=(1100,60), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=3, color=0x90e6, color_sel=0xdeff), # Title
-      MultiContentEntryText(pos=(220, 65), size=(550,45), font=1, flags=RT_HALIGN_LEFT, text=4), # Views
-      MultiContentEntryText(pos=(770,65), size=(550,45), font=1, flags=RT_HALIGN_LEFT, text=5), # Duration
+      MultiContentEntryText(pos=(220,0), size=(1100,90), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text=3, color=0x90e6, color_sel=0xdeff), # Title
+      MultiContentEntryText(pos=(220, 85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=4), # Views
+      MultiContentEntryText(pos=(770,85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=5), # Duration
                   ],
-      "fonts": [gFont("RegularB",34), gFont("Regular",26)],
+      "fonts": [gFont("RegularB",32), gFont("Regular",26)],
       "itemHeight": 120}
       </convert>
     </widget>
@@ -463,14 +463,14 @@
       {"template": [
       MultiContentEntryText(pos=(10,0), size=(580,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1, color=0x90e6, color_sel=0xdeff), # Title
       MultiContentEntryText(pos=(585,0), size=(320,50), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, text=2), # State
-      MultiContentEntryProgress(pos=(910,5), size=(180,35), percent=-3, backColor=0x90e6, backcolorSelected=0xdeff), # Progress
-      MultiContentEntryText(pos=(1120,0), size=(180,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # Percentage
+      MultiContentEntryProgress(pos=(910,10), size=(180,25), percent=-3, borderWidth=2), # Progress
+      MultiContentEntryText(pos=(1120,0), size=(180,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4) # Percentage
                   ],
-      "fonts": [gFont("RegularB",32)],
+      "fonts": [gFont("RegularB", 32)],
       "itemHeight": 50}
       </convert>
     </widget>
-    <panel name="RedKey2" />
+    <panel name="RedKey1" />
   </screen>
   <!-- INFO -->
   <screen name="YouTubeInfo" position="0,0" size="1920,1080" title="YouTube Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -487,8 +487,8 @@
     <widget name="published" position="540,550" size="400,100" font="Regular; 30" zPosition="9" transparent="1" backgroundColor="background20" />
     <panel name="RedKey2" />
   </screen> 
-  
-  
+
+
       <!-- EPG Importer -->
   <screen name="EPGImportConfig" position="0,0" size="1920,1080" title="EPG Import Configuration" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
