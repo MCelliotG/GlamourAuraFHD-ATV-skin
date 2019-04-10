@@ -5,8 +5,7 @@
   <!-- This skin is not guaranteed to work in older E2 receivers with slower CPUs. Use at your own risk. -->
   <!-- This skin is FREE software. You can use it for free on your E2 receivers running OpenATV 6.0 and newer images. -->
   <!-- You are NOT allowed to modify the first line of the skin and its graphics. -->
-  <!-- The skin is OPEN source. The ipk is distributed with closed converters/renderers but all SOURCE code is available on Github. -->
-  <!-- The source code of this skin is available at https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin/ -->
+  <!-- The skin is OPEN source. The source code of this skin is available at https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin/ -->
   <!-- This skin has original graphics made by MCelliotG. You are allowed to modify the code for personal use as long as you keep this License for the skin. -->
   <!-- You are NOT allowed to redistribute the skin with any modifications without the author's permission. -->
   <!-- The converters and renderers used in the skin can be modified and redistributed as noted. -->
@@ -3295,7 +3294,7 @@
     <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/rfmod.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="ScrollLabel" position="540,75" size="1305,100" font="RegularB;32" halign="left" transparent="1" zPosition="8" backgroundColor="background20" foregroundColor="sky" />
-    <widget name="ScrollLabel2" position="540,190" size="1305,650" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD/selections/auraselectionbluefhd.png" zPosition="5" />
+    <widget name="ScrollLabel2" position="540,190" size="1305,650" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="5" />
     <panel name="RBKeys2" />
   </screen>
   <!-- ###SELECTION SCREENS -->
@@ -4871,14 +4870,16 @@ if not self["videofps"].text:
   </screen>
   <!-- 02. Nim setup -->
   <screen name="NimSetup" position="0,0" size="1920,1080" title="Reception settings" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/scanselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="description" position="540,810" size="1320,50" font="Regular; 31" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
-    <panel name="FullKeys1" />
-  </screen>
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="config" font="Regular; 30" position="540,50" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/setupselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="description" size="1320,160" font="Regular; 29" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" valign="center" position="540,725" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,725" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,840" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+  <panel name="FullKeys1" />
+</screen>
   <!-- 03. Sat equipment setup -->
   <screen name="SecParameterSetup" position="0,0" size="1920,1080" title="Satellite equipment control" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
@@ -4975,7 +4976,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,60" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/scanselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="introduction" position="540,815" size="1320,50" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
+    <widget name="introduction" position="540,810" size="1320,50" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
     <panel name="RGKeys1" />
   </screen>
   <!-- 08. Scan simple -->
