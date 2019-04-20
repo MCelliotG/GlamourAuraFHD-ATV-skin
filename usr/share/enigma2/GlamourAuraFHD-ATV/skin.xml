@@ -2096,12 +2096,30 @@
     </widget>
   </screen>
   <screen name="BitrateViewerExtra" zPosition="22" backgroundColor="transparent" position="200,40" size="273,100" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/bitrate_back.png" position="0,0" zPosition="2" size="273,100" alphatest="on" transparent="1" />
-    <widget render="Label" source="video_caption" font="Regular; 26" position="0,10" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
-    <widget render="Label" source="audio_caption" font="Regular; 26" position="0,60" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
-    <widget render="Label" source="video" font="Regular; 26" position="100,10" size="170,35" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center" />
-    <widget render="Label" source="audio" font="Regular; 26" position="100,60" size="170,35" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center" />
-  </screen>
+ <!-- Compact Info -->
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/bitrate_back.png" position="0,0" zPosition="2" size="273,100" alphatest="on" transparent="1" />
+  <widget render="Label" source="video_caption" font="Regular; 26" position="0,10" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
+  <widget render="Label" source="audio_caption" font="Regular; 26" position="0,60" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
+  <widget render="Label" source="video" font="Regular; 26" position="100,10" size="170,35" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center" />
+  <widget render="Label" source="audio" font="Regular; 26" position="100,60" size="170,35" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center" />
+ <!-- Full Info -->
+  <widget source="vcur" render="Label" text="V:" position="5,0" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="center" />
+  <widget name="vcur" position="50,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget source="vavg" render="Label" text="avg" position="125,0" size="45,30" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget name="vavg" position="170,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget source="vmin" render="Label" text="min" position="5,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget name="vmin" position="50,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" noWrap="1" />
+  <widget source="vmax" render="Label" text="max" position="125,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget name="vmax" position="170,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+  <widget source="acur" render="Label" text="A:" position="5,50" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="center" />
+  <widget name="acur" position="50,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget source="aavg" render="Label" text="avg" position="125,50" size="45,30" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget name="aavg" position="170,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget source="amin" render="Label" text="min" position="5,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget name="amin" position="50,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget source="amax" render="Label" text="max" position="125,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <widget name="amax" position="170,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+</screen>
   <!-- Weather Infobar -->
   <screen name="WeatherInfobar" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="480,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
