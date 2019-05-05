@@ -30,86 +30,7 @@
     <panel name="FullKeys3" />
   </screen>
   <screen name="EventViewSimple" position="0,0" size="1920,1080" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventviewaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="Title" render="GlamRoll" position="40,340" size="600,60" font="RegularB; 32" backgroundColor="background20" halign="center" noWrap="1" transparent="1" foregroundColor="sky" zPosition="3" />
-    <widget name="channel" position="665,85" size="975,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />
-    <widget name="datetime" position="125,585" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="4" />
-    <widget name="duration" position="125,685" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="5" />
-    <widget name="epg_description" position="665,165" size="1210,770" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
-    <widget source="session.Event_Now" render="Label" position="40,400" size="600,90" transparent="1" zPosition="8" foregroundColor="cyan1" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
-      <convert type="EventName">Genre</convert>
-    </widget>
-    <widget source="session.Event_Now" render="Label" position="40,490" size="600,70" transparent="1" zPosition="8" foregroundColor="cyan" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
-      <convert type="EventName">Rating</convert>
-    </widget>
-    <widget source="session.Event_Next" render="Label" position="37,890" size="600,105" transparent="1" zPosition="8" foregroundColor="black" font="RegularB; 30" halign="center" valign="center" backgroundColor="grey2">
-      <convert type="EventName">NameNext</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1552,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
-    <ePixmap position="50,640" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
-    <ePixmap position="555,640" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
-    <widget source="session.CurrentService" render="Label" position="40,765" size="600,75" font="Numbers; 32" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="grey2" halign="center" valign="center" text="PidHexInfo">
-      <convert type="GlamourBase">PidHexInfo</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hd_off.png" position="50,850" size="50,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" position="50,850" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hd_on.png" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">VideoHeight</convert>
-      <convert type="ValueRange">720,1988</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_dolby_off.png" position="165,850" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_dolby_on.png" position="165,850" size="84,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsMultichannel</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_4k_off.png" position="105,850" size="52,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_4k_on.png" position="105,850" size="52,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">VideoWidth</convert>
-      <convert type="ValueRange">2800,4400</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_wide_off.png" position="260,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_wide_on.png" position="260,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsWidescreen</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hbbtv_off.png" position="320,850" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" position="320,850" size="84,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_hbbtv_on.png" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">HasHBBTV</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_txt_off.png" position="410,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_txt_on.png" position="410,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">HasTelext</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_sub_off.png" position="470,850" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_sub_on.png" position="470,850" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">SubtitlesAvailable</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_crypt_off.png" position="595,850" size="33,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_crypt_on.png" position="595,850" size="33,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsCrypted</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_stream_off.png" position="530,850" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/ico_stream_on.png" position="530,850" size="60,30" zPosition="4" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsStreaming</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <eLabel position="97,665" size="465,3" backgroundColor="dark" foregroundColor="darkgrey" zPosition="4" />
-    <widget source="session.Event_Now" render="Progress" position="97,662" size="465,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" borderWidth="0" transparent="1" zPosition="5">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="GlamRefString">CurrentRef</convert>
-    </widget>
-    <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="ServiceName">Reference</convert>
-    </widget>
-    <panel name="FullKeys3" />
+    <panel name="EventView" />
   </screen>
 
 
@@ -1725,6 +1646,27 @@
 
 
   <!-- 17. MULTIBOOT -->
+  <screen name="MultiBootSelector" position="0,0" size="1920,1080" title="MultiBoot Selector" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <eLabel name="line" position="540,170" size="1305,2" backgroundColor="cyan1" zPosition="4" />
+    <ePixmap position="535,275" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="640,275" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="blend" />
+    <widget name="config" position="700,180" size="1095,500" itemHeight="50" font="RegularB; 38" enableWrapAround="1" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionblue.png" alphatest="blend" zPosition="7" />
+    <eLabel name="line2" position="540,690" size="1305,2" backgroundColor="cyan" zPosition="4" />
+    <ePixmap position="590,220" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="587,325" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="blend" />
+    <widget source="options" render="Label" position="540,700" size="1305,150" halign="center" valign="center" font="Regular; 34" backgroundColor="background20" foregroundColor="amarillo" transparent="1" zPosition="6" />
+    <widget source="description" render="Label" position="540,60" size="1305,105" halign="center" valign="center" font="RegularB; 36" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
+    <panel name="RGYKeys1" />
+</screen>
+
+  <screen name="MultiBootWizard" position="0,0" size="1920,1080" title="MultiBoot Wizard" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MultiBootSelector" />
+</screen>
+
   <screen name="MultiBootStartup" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
@@ -1737,6 +1679,7 @@
     <eLabel name="line" position="540,520" size="1305,2" backgroundColor="cyan1" zPosition="4" />
     <panel name="RGYKeys1" />
   </screen>
+
   <screen name="MultiBootStartupOPT" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MultiBootStartup" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1655,70" size="120,60" alphatest="blend" zPosition="4" transparent="1" />

@@ -660,7 +660,11 @@
       <convert type="MenuEntryCompare">service_searching_selection</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/parental.png" position="520,400" size="120,120" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">cam_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" position="580,500" size="120,120" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">cam_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1168,15 +1172,19 @@
   </screen>
   <!-- 02-17. MenuCam -->
   <screen name="MenuCam" flags="wfNoBorder">
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">ci_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">ci_assign</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-  </screen>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">ci_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">ci_assign</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/parental.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">parental_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+</screen>
   <!-- 02-18. MenuShutdown -->
   <screen name="MenuShutdown" flags="wfNoBorder">
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/deep_standby.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
@@ -2096,30 +2104,30 @@
     </widget>
   </screen>
   <screen name="BitrateViewerExtra" zPosition="22" backgroundColor="transparent" position="200,40" size="273,100" flags="wfNoBorder">
- <!-- Compact Info -->
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/bitrate_back.png" position="0,0" zPosition="2" size="273,100" alphatest="on" transparent="1" />
-  <widget render="Label" source="video_caption" font="Regular; 26" position="0,10" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
-  <widget render="Label" source="audio_caption" font="Regular; 26" position="0,60" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
-  <widget render="Label" source="video" font="Regular; 26" position="100,10" size="170,35" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center" />
-  <widget render="Label" source="audio" font="Regular; 26" position="100,60" size="170,35" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center" />
- <!-- Full Info -->
-  <widget source="vcur" render="Label" text="V:" position="5,0" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="center" />
-  <widget name="vcur" position="50,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget source="vavg" render="Label" text="avg" position="125,0" size="45,30" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget name="vavg" position="170,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget source="vmin" render="Label" text="min" position="5,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget name="vmin" position="50,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" noWrap="1" />
-  <widget source="vmax" render="Label" text="max" position="125,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget name="vmax" position="170,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-  <widget source="acur" render="Label" text="A:" position="5,50" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="center" />
-  <widget name="acur" position="50,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget source="aavg" render="Label" text="avg" position="125,50" size="45,30" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget name="aavg" position="170,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget source="amin" render="Label" text="min" position="5,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget name="amin" position="50,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget source="amax" render="Label" text="max" position="125,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-  <widget name="amax" position="170,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-</screen>
+    <!-- Compact Info -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/bitrate_back.png" position="0,0" zPosition="2" size="273,100" alphatest="on" transparent="1" />
+    <widget render="Label" source="video_caption" font="Regular; 26" position="0,10" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
+    <widget render="Label" source="audio_caption" font="Regular; 26" position="0,60" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
+    <widget render="Label" source="video" font="Regular; 26" position="100,10" size="170,35" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center" />
+    <widget render="Label" source="audio" font="Regular; 26" position="100,60" size="170,35" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center" />
+    <!-- Full Info -->
+    <widget source="vcur" render="Label" text="V:" position="5,0" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="center" />
+    <widget name="vcur" position="50,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget source="vavg" render="Label" text="avg" position="125,0" size="45,30" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget name="vavg" position="170,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget source="vmin" render="Label" text="min" position="5,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget name="vmin" position="50,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" noWrap="1" />
+    <widget source="vmax" render="Label" text="max" position="125,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget name="vmax" position="170,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
+    <widget source="acur" render="Label" text="A:" position="5,50" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="center" />
+    <widget name="acur" position="50,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget source="aavg" render="Label" text="avg" position="125,50" size="45,30" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget name="aavg" position="170,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget source="amin" render="Label" text="min" position="5,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget name="amin" position="50,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget source="amax" render="Label" text="max" position="125,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+    <widget name="amax" position="170,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  </screen>
   <!-- Weather Infobar -->
   <screen name="WeatherInfobar" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="480,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
@@ -2977,13 +2985,14 @@
   </screen>
   <!-- 17. Menu Cam -->
   <screen name="menu_cam" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
-    <ePixmap position="125,425" size="180,180" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
-    <panel name="MainMenu1" />
-    <panel name="MenuCam" />
-  </screen>
+  <panel name="MenuBackground" />
+  <panel name="ClockLabel1" />
+  <ePixmap position="210,500" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
+  <ePixmap position="150,400" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
+  <panel name="Title1" />
+  <panel name="MainMenu1" />
+  <panel name="MenuCam" />
+</screen>
   <!-- 18. Menu Shutdown -->
   <screen name="menu_shutdown" position="0,0" size="1920,1080" title="Standby /restart" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MenuBackground" />
@@ -4099,7 +4108,8 @@
     <widget name="channel" position="665,85" size="795,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />
     <widget name="datetime" position="125,585" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="4" />
     <widget name="duration" position="125,685" size="405,60" font="RegularB; 36" halign="center" backgroundColor="cyan2" transparent="1" zPosition="5" />
-    <widget name="FullDescription" position="665,160" size="1210,780" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
+    <widget name="epg_description" position="665,160" size="1210,780" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
+    <widget name="FullDescription" position="665,160" size="0,0" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="1" />
     <widget source="session.Event_Now" render="Label" position="40,390" size="600,90" transparent="1" zPosition="8" foregroundColor="lightciel" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
       <convert type="EventName">Genre</convert>
     </widget>
@@ -5938,6 +5948,18 @@ if not self["videofps"].text:
     <applet type="onLayoutFinish">
       self.autoResize()
     </applet>
+  </screen>
+  <!-- 08. Sleep Timer -->
+  <screen name="SleepTimerEdit" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="75,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/sleep.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" transparent="1" zPosition="9" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,775" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget name="description" position="542,775" size="1305,80" font="Regular; 33" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="5" />
+    <panel name="RGKeys1" />
   </screen>
   <!-- ### INPUT DEVICES -->
   <!-- 01. Input Device Selection -->
