@@ -910,7 +910,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("03"):
 					caid = "Kabel Deutschland"
 				if caid.startswith("04"):
-					caid = "Eurodec"
+					caid = "EuroDec"
 				if caid.startswith("08"):
 					caid = "Matra"
 				if caid.startswith("11"):
@@ -940,7 +940,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("47"):
 					caid = "General Instruments/Motorola"
 				if caid.startswith("48"):
-					caid = "AccessGate/Telemann"
+					caid = "AccessGate"
 				if caid.startswith("4AC"):
 					caid = "Latens"
 				if caid.startswith("0A"):
@@ -1029,8 +1029,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "GkWare e.K."
 				if caid.startswith("4B62"):
 					caid = "GMA New Media"
-				if caid.startswith("5448"):
-					caid = "Gospell"
+				if caid.startswith("5448") or caid.startswith("7AC8"):
+					caid = "Gospell VisionCrypt"
 				if caid.startswith("4B04"):
 					caid = "Great Wall"
 				if caid.startswith("4AE5"):
@@ -1081,8 +1081,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "Runcom"
 				if caid >= "4B50" and caid <= "4B53":
 					caid = "Safeview India"
-				if caid.startswith("2719"):
-					caid = "S-Curious"
+				if caid.startswith("2719") or caid.startswith("EAD0"):
+					caid = "InCrypt"
 				if caid.startswith("4348"):
 					caid = "Secure TV"
 				if caid.startswith("4AF5"):
@@ -1108,11 +1108,11 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = "Unitend"
 				if caid >= "4B30" and caid <= "4B31":
-					caid = "VTC"
+					caid = "ViCAS"
 				if caid >= "5607" and caid <= "5608":
 					caid = "Viewscenes"
 				if caid >= "4AD4" and caid <= "4AD5":
-					caid = "Widevine"
+					caid = "OmniCrypt"
 				if caid.startswith("4B07") or caid >= "2713" and caid <= "2714":
 					caid = "Wuhan"
 				if caid.startswith("4ADA"):
@@ -1204,7 +1204,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("03"):
 					caid = caid + " (Kabel Deutschland) "
 				if caid.startswith("04"):
-					caid = caid + " (Eurodec) "
+					caid = caid + " (EuroDec) "
 				if caid.startswith("08"):
 					caid = caid + " (Matra) "
 				if caid.startswith("11"):
@@ -1234,7 +1234,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("47"):
 					caid = caid + " (General Instruments/Motorola) "
 				if caid.startswith("48"):
-					caid = caid + " (AccessGate/Telemann) "
+					caid = caid + " (AccessGate) "
 				if caid.startswith("4AC"):
 					caid = caid + " (Latens) "
 				if caid.startswith("0A"):
@@ -1323,8 +1323,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (GkWare e.K.) "
 				if caid.startswith("4B62"):
 					caid = caid + " (GMA New Media) "
-				if caid.startswith("5448"):
-					caid = caid + " (Gospell) "
+				if caid.startswith("5448") or caid.startswith("7AC8"):
+					caid = caid + " (Gospell VisionCrypt) "
 				if caid.startswith("4B04"):
 					caid = caid + " (Great Wall) "
 				if caid.startswith("4AE5"):
@@ -1375,8 +1375,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (Runcom) "
 				if caid >= "4B50" and caid <= "4B53":
 					caid = caid + " (Safeview India) "
-				if caid.startswith("2719"):
-					caid = caid + " (S-Curious) "
+				if caid.startswith("2719") or caid.startswith("EAD0"):
+					caid = caid + " (InCrypt) "
 				if caid.startswith("4348"):
 					caid = caid + " (Secure TV) "
 				if caid.startswith("4AF5"):
@@ -1402,11 +1402,11 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = caid + " (Unitend) "
 				if caid >= "4B30" and caid <= "4B31":
-					caid = caid + " (VTC) "
+					caid = caid + " (ViCAS) "
 				if caid >= "5607" and caid <= "5608":
 					caid = caid + " (Viewscenes) "
 				if caid >= "4AD4" and caid <= "4AD5":
-					caid = caid + " (Widevine) "
+					caid = caid + " (OmniCrypt) "
 				if caid.startswith("4B07") or caid >= "2713" and caid <= "2714":
 					caid = caid + " (Wuhan) "
 				if caid.startswith("4ADA"):
