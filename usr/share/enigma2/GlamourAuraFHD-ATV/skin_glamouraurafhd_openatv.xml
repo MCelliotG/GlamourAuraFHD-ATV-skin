@@ -976,14 +976,21 @@
 
 
   <!-- 10. FLASH SCREENS -->
-  <screen name="FlashOnline" position="0,0" size="1920,1080" title="Flash On The Fly" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="FlashImage" position="0,0" size="1920,1080" title="Flash Image" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="info-local" position="540,50" zPosition="3" size="1305,300" font="RegularB; 32" halign="center" valign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" />
-    <widget name="info-online" position="540,610" zPosition="6" size="1305,250" font="Regular; 32" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" />
-    <widget name="info-flash" position="540,355" size="1305,250" font="Regular; 30" backgroundColor="background20" foregroundColor="white" halign="center" transparent="1" zPosition="4" />
+    <widget name="header" position="600,315" size="1170,150" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="5" halign="center" foregroundColor="sky" valign="center" />
+    <widget name="info" position="600,475" size="1170,180" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="top" />
+    <widget name="progress" position="600,665" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_blue.png" alphatest="blend" transparent="1" zPosition="7" />
+  </screen>
+  <screen name="FlashOnline" position="0,0" size="1920,1080" title="Select Image" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="list" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="doFlashImage" position="0,0" size="1920,1080" title="About" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
