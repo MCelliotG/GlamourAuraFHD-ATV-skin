@@ -100,7 +100,9 @@
     <alias name="HelpMenuList" font="Regular" size="30" height="50" />
     <alias name="Dreamexplorer" font="Regular" size="30" height="50" />
     <alias name="TextNormal" font="Regular" size="30" height="50" />
-    <alias name="VirtualKeyboard" font="RegularB" size="34" height="60" />
+    <alias name="VirtualKeyBoard" font="RegularB" size="34" height="60" />
+    <alias name="FallbackReceiverList0" font="Regular" size="30" height="50" />
+    <alias name="FallbackReceiverList1" font="Regular" size="30" height="50" />
   </fonts>
   <parameters>
     <parameter name="EpgListIcon" value="10,20,40,40,5" />
@@ -137,7 +139,10 @@
     <parameter name="ServiceInfo" value="0,0,1050,50" />
     <parameter name="ServiceInfoLeft" value="0,0,525,50" />
     <parameter name="ServiceInfoRight" value="530,0,525,50" />
-    <parameter name="VirtualKeyboard" value="90,60" />
+    <parameter name="VirtualKeyBoard" value="90,60" />
+    <parameter name="VirtualKeyBoardShiftColors" value="grey,white,cyan1,pink" />
+    <parameter name="FallbackReceiverListName" value="10,0,640,50" />
+    <parameter name="FallbackReceiverListIP" value="650,0,640,50" />
   </parameters>
   <windowstyle type="skinned" id="0">
     <title offset="35,45" font="RegularB;42" />
@@ -531,10 +536,6 @@
       <convert type="MenuEntryCompare">filecommand</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/multiquick.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">multi_quick</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dreamplex.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">dreamplex</convert>
       <convert type="ConditionalShowHide" />
@@ -741,6 +742,10 @@
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/bouquet.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">autobouquetsmakermaker</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/multiquick.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">MisPlsLcnScanScreen</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/satip.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -1172,19 +1177,19 @@
   </screen>
   <!-- 02-17. MenuCam -->
   <screen name="MenuCam" flags="wfNoBorder">
-  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
-    <convert type="MenuEntryCompare">ci_setup</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
-    <convert type="MenuEntryCompare">ci_assign</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/parental.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
-    <convert type="MenuEntryCompare">parental_setup</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-</screen>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">ci_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">ci_assign</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/parental.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">parental_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+  </screen>
   <!-- 02-18. MenuShutdown -->
   <screen name="MenuShutdown" flags="wfNoBorder">
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/deep_standby.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
@@ -2985,14 +2990,14 @@
   </screen>
   <!-- 17. Menu Cam -->
   <screen name="menu_cam" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MenuBackground" />
-  <panel name="ClockLabel1" />
-  <ePixmap position="210,500" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
-  <ePixmap position="150,400" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
-  <panel name="Title1" />
-  <panel name="MainMenu1" />
-  <panel name="MenuCam" />
-</screen>
+    <panel name="MenuBackground" />
+    <panel name="ClockLabel1" />
+    <ePixmap position="210,500" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="150,400" size="120,120" scale="1" pixmap="GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="Title1" />
+    <panel name="MainMenu1" />
+    <panel name="MenuCam" />
+  </screen>
   <!-- 18. Menu Shutdown -->
   <screen name="menu_shutdown" position="0,0" size="1920,1080" title="Standby /restart" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MenuBackground" />
@@ -3077,25 +3082,20 @@
   </screen>
   <!-- 07. Virtual Keyboard -->
   <screen name="VirtualKeyBoard" position="0,0" size="1920,1080" zPosition="99" title="Virtual KeyBoard" flags="wfNoBorder" backgroundColor="transparent">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="442,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="menubig" position="675,0" size="1155,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="675,1005" zPosition="-11" size="1155,75" alphatest="off" transparent="1" />
+    <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="225,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/keyboard.png" alphatest="on" transparent="1" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" position="690,240" size="1155,70" transparent="1" alphatest="blend" zPosition="5" />
-    <widget name="list" position="710,330" size="1100,500" enableWrapAround="1" transparent="0" selectionDisabled="1" zPosition="3" />
-    <widget name="header" position="690,85" size="1155,135" font="Regular; 42" halign="center" transparent="1" noWrap="1" zPosition="4" foregroundColor="cyan1" backgroundColor="background20" />
-    <widget name="text" position="690,245" size="1155,70" zPosition="9" font="Regular;40" noWrap="1" halign="center" transparent="1" backgroundColor="sky" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="715,855" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1015,855" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1315,855" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1615,855" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <eLabel text="Delete" position="680,845" size="300,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <eLabel text="OK" position="980,845" size="300,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget source="country" render="Label" position="1280,845" size="300,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <eLabel text="Caps" position="1580,845" size="300,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <ePixmap position="560,75" size="120,60" pixmap="GlamourAuraFHD-ATV/buttons/key_help_big.png" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap position="700,75" size="120,60" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap position="85,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/keyboard.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" position="540,240" size="1305,70" transparent="1" alphatest="blend" zPosition="5" />
+    <widget name="list" position="550,330" size="1288,420" enableWrapAround="1" transparent="1" itemHeight="60" selectionDisabled="1" zPosition="5" />
+    <widget name="prompt" position="540,145" size="1305,90" font="Regular; 40" halign="center" transparent="1" noWrap="1" zPosition="4" foregroundColor="cyan1" backgroundColor="background20" valign="bottom" />
+    <widget name="text" position="540,240" size="1305,70" zPosition="9" font="Regular;40" noWrap="1" halign="center" transparent="1" backgroundColor="sky" valign="bottom" />
+    <widget name="locale" position="560,800" size="1000,50" font="Regular; 30" transparent="1" zPosition="7" foregroundColor="orange" backgroundColor="background20" />
+    <widget name="mode" position="1700,750" size="120,100" font="Regular; 40" halign="center" transparent="1" valign="center" zPosition="7" foregroundColor="lightciel" backgroundColor="background20" />
+    <widget name="language" position="560,750" size="1000,50" font="Regular; 30" transparent="1" zPosition="6" foregroundColor="amarillo" backgroundColor="background20" />
+    <panel name="FullKeys1" />
   </screen>
   <!-- 08. Numerical Input -->
   <screen name="NumericalTextInputHelpDialog" position="540,855" size="1305,90" backgroundColor="background20" flags="wfNoBorder" zPosition="12">

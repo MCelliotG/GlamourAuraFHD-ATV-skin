@@ -1468,7 +1468,7 @@
   </screen>
 
     <!-- Auto Bouquets Maker --> 
-  <screen name="AutoBouquetsMaker" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker" position="0,0" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="abmback" position="485,570" size="1435,330" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="485,900" zPosition="-11" size="1435,75" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1620,570" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
@@ -1516,7 +1516,7 @@
     <widget name="description" position="540,745" size="1305,100" halign="left" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="cyan" backgroundColor="background20" />
     <panel name="RGKeys1" />
   </screen>
-  <screen name="AutoBouquetsMaker_HideSections" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker_HideSections" position="0,0" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -1535,7 +1535,7 @@
     </widget>
     <panel name="RGKeys1" />
   </screen>
-  <screen name="AutoBouquetsMaker_KeepBouquets" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker_KeepBouquets" position="0,0" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -1554,7 +1554,7 @@
     </widget>
     <panel name="RGKeys1" />
   </screen>
-  <screen name="AutoBouquetsMaker_UpdateProviders" position="-3,-2" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker_UpdateProviders" position="-3,-2" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="abmback" position="485,570" size="1435,330" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="485,900" zPosition="-11" size="1435,75" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1620,570" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
@@ -1566,7 +1566,7 @@
     <widget name="status" position="540,735" size="1170,150" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="top" foregroundColor="amarillo" />
     <widget name="progress" position="540,890" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_blue.png" alphatest="blend" transparent="1" zPosition="7" />
   </screen>
-  <screen name="AutoBouquetsMaker_DeleteBouquets" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker_DeleteBouquets" position="0,0" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -1603,7 +1603,7 @@
     </widget>
     <panel name="FullKeys2" />
   </screen>
-  <screen name="AutoBouquetsMaker_About" position="0,0" size="1920,1080" title="PiP Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="AutoBouquetsMaker_About" position="0,0" size="1920,1080" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
@@ -2169,17 +2169,51 @@
 
     <!-- Simple Umount -->
   <screen name="SimpleUmount" position="0,0" size="1920,1080" title="SimpleUmount rel. %s" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/usb.png" alphatest="on" transparent="1" zPosition="5" />
-<widget name="wdg_label_instruction" position="540,75" size="1305,80" font="RegularB; 34" zPosition="4" transparent="1" foregroundColor="sky" backgroundColor="background20" />
-<widget name="wdg_label_legend_1" position="540,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
-<widget name="wdg_label_legend_2" position="830,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
-<widget name="wdg_label_legend_3" position="1120,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
-<widget name="wdg_label_legend_4" position="1410,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
-<widget name="wdg_menulist_device" position="540,230" size="1305,650" font="Console; 35" itemHeight="50" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
-<widget name="wdg_config" position="540,880" size="1305,50" font="Regular; 30" itemHeight="50" transparent="1" foregroundColor="cyan1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
+   <panel name="MainBackground2" />
+   <panel name="ClockLabel1" />
+   <panel name="Title1" />
+   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/usb.png" alphatest="on" transparent="1" zPosition="5" />
+   <widget name="wdg_label_instruction" position="540,75" size="1305,80" font="RegularB; 34" zPosition="4" transparent="1" foregroundColor="sky" backgroundColor="background20" />
+   <widget name="wdg_label_legend_1" position="540,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
+   <widget name="wdg_label_legend_2" position="830,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
+   <widget name="wdg_label_legend_3" position="1120,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
+   <widget name="wdg_label_legend_4" position="1410,165" size="280,50" font="Regular; 30" zPosition="5" transparent="1" backgroundColor="background20" />
+   <widget name="wdg_menulist_device" position="540,230" size="1305,650" font="Console; 35" itemHeight="50" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
+   <widget name="wdg_config" position="540,880" size="1305,50" font="Regular; 30" itemHeight="50" transparent="1" foregroundColor="cyan1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" zPosition="6" />
 </screen>
 
+    <!-- Mis Pls Lcn Scan -->
+  <screen name="MisPlsLcnScan" position="0,0" size="1920,1080" title="MisPlsLcnScan" flags="wfNoBorder" backgroundColor="transparent">
+    <eLabel name="back" position="240,930" size="1680,60" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="240,990" zPosition="-11" size="1680,75" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1720,929" size="200,150" zPosition="-10" alphatest="blend" transparent="1" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="280,850" zPosition="-2" size="1570,80" alphatest="on" />
+    <panel name="ClockLabel1" />
+    <ePixmap position="50,885" size="180,180" pixmap="GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" scale="1" transparent="1" zPosition="5" />
+    <widget name="background" position="0,0" size="0,0" zPosition="-1" />
+    <widget name="action" position="260,930" size="1170,45" font="RegularB; 35" backgroundColor="background20" transparent="1" zPosition="5" halign="center" foregroundColor="sky" valign="center" />
+    <widget name="status" position="260,975" size="1170,45" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="center" foregroundColor="amarillo" />
+    <widget name="progress" position="260,1020" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_blue.png" alphatest="blend" transparent="1" zPosition="7" />
+    <widget source="Frontend" conditional="Frontend" render="Pixmap" position="1440,935" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_on.png" alphatest="blend" transparent="1" zPosition="4">
+    <convert type="FrontendInfo">LOCK</convert>
+    <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="Frontend" conditional="Frontend" render="Pixmap" position="1440,935" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_off.png" alphatest="blend" transparent="1" zPosition="3">
+    <convert type="FrontendInfo">LOCK</convert>
+    <convert type="ConditionalShowHide">Invert</convert>
+    </widget>
+    <widget source="Frontend" conditional="Frontend" render="Label" position="1490,935" size="130,45" font="Numbers; 42" halign="center" backgroundColor="background20" zPosition="6" transparent="1" foregroundColor="cyan1">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <eLabel text="/" position="1615,935" size="25,45" font="Numbers; 42" backgroundColor="background20" foregroundColor="white" zPosition="6" transparent="1" />
+    <widget source="Frontend" conditional="Frontend" render="Label" position="1635,935" size="130,45" font="Numbers; 42" halign="center" backgroundColor="background20" zPosition="6" transparent="1" foregroundColor="cyan">
+      <convert type="FrontendInfo">SNRdB</convert>
+    </widget>
+    <widget source="progress_text" render="Label" position="1435,980" size="180,45" font="Numbers; 38" halign="right" backgroundColor="background20" zPosition="6" transparent="1" foregroundColor="amarillo">
+      <convert type="ProgressToText">InText</convert>
+    </widget>
+    <widget source="progress_text" render="Label" position="1640,980" size="125,45" font="Numbers; 38" halign="center" backgroundColor="background20" zPosition="6" transparent="1" foregroundColor="amarillo">
+      <convert type="ProgressToText">InPercent</convert>
+    </widget>
+  </screen>
 </skin>
