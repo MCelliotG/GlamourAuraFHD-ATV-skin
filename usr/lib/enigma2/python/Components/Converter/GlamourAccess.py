@@ -667,9 +667,16 @@ class GlamourAccess(Poll, Converter, object):
 		if fileExists("/etc/init.d/softcam") and not fileExists("/etc/image-version") or fileExists("/etc/init.d/cardserver") and not fileExists("/etc/image-version"):
 			try:
 				for line in open("/etc/init.d/softcam"):
-					if line.find("echo") > -1:
+					if line.startswith("CAMNAME="):
+						cam1 = "%s" % line.split('"')[1]
+					elif line.find("echo") > -1:
 						camdname.append(line)
-				camdlist = "%s" % camdname[1].split('"')[1]
+				cam2 = "%s" % camdname[1].split('"')[1]
+				if not cam1:
+					camdlist = cam2
+				else:
+					camdlist = cam1
+				return camdlist
 			except:
 				pass
 			try:
@@ -896,7 +903,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B63"):
 					caid = "redCrypter"
 				if caid.startswith("4B64"):
-					caid = "Samsung/TVKey"
+					caid = "Samsung/TV Key"
 				if caid.startswith("4AF0") or caid >= "4B4B" and caid <= "4B4D":
 					caid = "ABV"
 				if caid >= "2700" and caid <= "270F":
@@ -1190,7 +1197,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B63"):
 					caid = caid + " (redCrypter) "
 				if caid.startswith("4B64"):
-					caid = caid + " (Samsung/TVKey) "
+					caid = caid + " (Samsung/TV Key) "
 				if caid.startswith("4AF0") or caid >= "4B4B" and caid <= "4B4D":
 					caid = caid + " (ABV) "
 				if caid >= "2700" and caid <= "270F":
