@@ -3150,7 +3150,7 @@
     <widget name="number" position="556,490" size="809,100" halign="center" font="Numbers; 80" backgroundColor="preTrans" foregroundColor="transpWhite" transparent="1" noWrap="1" />
     <widget name="servicename" position="0,590" size="1920,140" backgroundColor="preTrans" transparent="1" font="RegularB; 80" valign="center" halign="center" foregroundColor="transWhite" noWrap="1" />
     <widget source="Service" render="Picon" position="760,250" zPosition="4" size="400,240" transparent="1" alphatest="blend">
-      <convert type="GlamRefString">CurrentRef</convert>
+      <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
   <!-- ###STATES -->
@@ -3333,7 +3333,7 @@
     <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselectionbluebig.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="on" transparent="1" />
     <widget source="ServiceEvent" render="Picon" position="40,35" size="220,132" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="GlamRefString">ServicelistRef</convert>
+      <convert type="ServiceName">Reference</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="265,15" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
@@ -3502,7 +3502,7 @@
     <eLabel position="1681,790" size="2,75" halign="center" font="Regular; 25" backgroundColor="blue" transparent="0" valign="center" zPosition="6" noWrap="1" foregroundColor="blue" />
     <eLabel position="1682,790" size="1,75" halign="center" font="Regular; 25" backgroundColor="cyan" transparent="0" valign="center" zPosition="6" noWrap="1" foregroundColor="cyan" />
     <widget source="ServiceEvent" render="Picon" position="45,790" zPosition="4" size="330,198" transparent="1" alphatest="blend">
-      <convert type="GlamRefString">ServicelistRef</convert>
+      <convert type="ServiceName">Reference</convert>
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/tuner_a_un.png" position="1685,790" size="25,25" zPosition="1" alphatest="blend">
       <convert type="GlamourTuners">Tuner_A</convert>
