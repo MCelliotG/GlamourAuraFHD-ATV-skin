@@ -698,33 +698,57 @@ class GlamourAccess(Poll, Converter, object):
 		if fileExists("/etc/image-version") and not fileExists("/etc/.emustart"):
 			for line in open("/etc/image-version"):
 				if "=openATV" in line:
-					if config.softcam.actCam.value:
-						cam1 = config.softcam.actCam.value
-						if " CAM 1" in cam1  or "no cam" in cam1:
-							cam1 = "No CAM active"
-					if config.softcam.actCam2.value:
-						cam2 = config.softcam.actCam2.value
-						if " CAM 2" in cam2 or "no cam" in cam2 or " CAM" in cam2:
-							cam2 = ""
+					try:
+						if config.softcam.actCam.value:
+							cam1 = config.softcam.actCam.value
+							if " CAM 1" in cam1  or "no cam" in cam1:
+								cam1 = "No CAM active"
+						if config.softcam.actCam2.value:
+							cam2 = config.softcam.actCam2.value
+							if " CAM 2" in cam2 or "no cam" in cam2 or " CAM" in cam2:
+								cam2 = ""
+							else:
+								cam2 = "+" + cam2
+					except:
+						pass
+					try:
+						for line in open("/etc/init.d/softcam"):
+							if "Short-Description" in line:
+								cam1 = "%s" % line.split(':')[1]
+							if line.startswith("CAMNAME="):
+								cam1 = "%s" % line.split('"')[1]
+							elif line.find("echo") > -1:
+								camdname.append(line)
+						cam2 = "%s" % camdname[1].split('"')[1]
+						if not cam1:
+							return cam2
 						else:
-							cam2 = "+" + cam2
+							return cam1
+					except:
+						pass
+					try:
+						for line in open("/etc/init.d/cardserver"):
+							if line.find("echo") > -1:
+								sername.append(line)
+						cam2 = " %s" % sername[1].split('"')[1]
+						if not cam2 or cam2 == "None":
+							cam2 = ""
+					except:
+						pass
 				elif "=opendroid" in line:
-					cam1 = config.softcam_actCam.value
-					if cam1:
-						if " CAM 1" in cam1  or "no cam" in cam1:
-							cam1 = "No CAM active"
-					cam2 = config.softcam_actCam2.value
-					if cam2:
-						if " CAM 2" in cam2 or "no cam" in cam2 or " CAM" in cam2:
-							cam2 = ""
-						else:
-							cam2 = "/" + cam2
-				elif "=vuplus" in line:
-					if fileExists("/tmp/.emu.info"):
-						for line in open("/tmp/.emu.info"):
-							cam1 = line.strip("\n")
-				elif "version=" in line and fileExists("/etc/CurrentBhCamName"):
-					cam1 = open("/etc/CurrentBhCamName").read()
+					try:
+						cam1 = config.softcam_actCam.value
+						if cam1:
+							if " CAM 1" in cam1  or "no cam" in cam1:
+								cam1 = "No CAM active"
+						cam2 = config.softcam_actCam2.value
+						if cam2:
+							if " CAM 2" in cam2 or "no cam" in cam2 or " CAM" in cam2:
+								cam2 = ""
+							else:
+								cam2 = "/" + cam2
+					except:
+						pass
 			return "%s%s" % (cam1, cam2)
 #BLACKHOLE
 		if fileExists("/etc/CurrentDelCamName"):
