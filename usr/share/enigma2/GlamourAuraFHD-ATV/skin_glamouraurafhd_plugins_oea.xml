@@ -71,7 +71,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/audio/audio_off.png" position="1450,1015" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="GlamAudioIcon" position="1450,1015" size="84,30" alphatest="blend" path="GlamourAuraFHD-ATV/icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" render="GlamAudioIcon" position="1450,1015" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="255,930" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" shadowColor="black" shadowOffset="-1,-1" transparent="1" noWrap="1">
