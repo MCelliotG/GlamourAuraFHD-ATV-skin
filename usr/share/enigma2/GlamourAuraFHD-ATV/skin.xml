@@ -1177,6 +1177,10 @@
   </screen>
   <!-- 02-17. MenuCam -->
   <screen name="MenuCam" flags="wfNoBorder">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">softcam_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">ci_setup</convert>
       <convert type="ConditionalShowHide" />
@@ -2191,10 +2195,10 @@
   </screen>
   <!--  Cam Name -->
   <screen name="CamName" flags="wfNoBorder">
-  <widget source="session.CurrentService" render="Label" position="50,990" size="500,35" font="Numbers; 30" halign="left" zPosition="2" backgroundColor="deepgrey" transparent="1" text="CCCam2.3.0+Oscam svn11370" valign="center" noWrap="1" foregroundColor="sky">
-    <convert type="GlamourAccess">CamName</convert>
-  </widget>
-</screen>
+    <widget source="session.CurrentService" render="Label" position="50,990" size="500,35" font="Numbers; 30" halign="left" zPosition="2" backgroundColor="deepgrey" transparent="1" text="CCCam2.3.0+Oscam svn11370" valign="center" noWrap="1" foregroundColor="sky">
+      <convert type="GlamourAccess">CamName</convert>
+    </widget>
+  </screen>
   <!--  Crypt info -->
   <screen name="CryptInfo" flags="wfNoBorder" position="0,0">
     <ePixmap pixmap="GlamourAuraFHD-ATV/caids/beta_no.png" position="550,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
