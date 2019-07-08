@@ -701,7 +701,7 @@ class GlamourAccess(Poll, Converter, object):
 					try:
 						if config.softcam.actCam.value:
 							cam1 = config.softcam.actCam.value
-							if " CAM 1" in cam1  or "no cam" in cam1:
+							if " CAM 1" in cam1 or "no cam" in cam1:
 								cam1 = "No CAM active"
 						if config.softcam.actCam2.value:
 							cam2 = config.softcam.actCam2.value
@@ -712,14 +712,23 @@ class GlamourAccess(Poll, Converter, object):
 					except:
 						pass
 					try:
-						for line in open("/etc/init.d/softcam"):
-							if "Short-Description" in line:
-								cam1 = "%s" % line.split(':')[1]
-							if line.startswith("CAMNAME="):
-								cam1 = "%s" % line.split('"')[1]
-							elif line.find("echo") > -1:
-								camdname.append(line)
-						cam2 = "%s" % camdname[1].split('"')[1]
+						if fileExists("/tmp/.oscam/oscam.version"):
+							for line in open("/tmp/.oscam/oscam.version"):
+								if line.startswith("Version:"):
+									cam1 = "%s" % line.split(':')[1].replace(" ","")
+						elif fileExists("/tmp/.ncam/ncam.version"):
+							for line in open("/tmp/.ncam/ncam.version"):
+								if line.startswith("Version:"):
+									cam1 = "%s" % line.split(':')[1].replace(" ","")
+						else:
+							for line in open("/etc/init.d/softcam"):
+								if "Short-Description" in line:
+									cam1 = "%s" % line.split(':')[1].replace(" ","")
+								if line.startswith("CAMNAME="):
+									cam1 = "%s" % line.split('"')[1]
+								elif line.find("echo") > -1:
+									camdname.append(line)
+							cam2 = "%s" % camdname[1].split('"')[1]
 						if not cam1:
 							return cam2
 						else:
@@ -739,7 +748,7 @@ class GlamourAccess(Poll, Converter, object):
 					try:
 						cam1 = config.softcam_actCam.value
 						if cam1:
-							if " CAM 1" in cam1  or "no cam" in cam1:
+							if " CAM 1" in cam1 or "no cam" in cam1:
 								cam1 = "No CAM active"
 						cam2 = config.softcam_actCam2.value
 						if cam2:
