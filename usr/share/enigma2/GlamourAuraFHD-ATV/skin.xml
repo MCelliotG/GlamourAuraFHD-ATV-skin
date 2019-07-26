@@ -492,7 +492,7 @@
       <convert type="MenuEntryCompare">info_screen</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/plugin.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/plugins.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">plugin_selection</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -657,7 +657,7 @@
       <convert type="MenuEntryCompare">epg_menu</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dish.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dish-big.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">service_searching_selection</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -944,7 +944,7 @@
   </screen>
   <!-- 02-10. MenuExtended -->
   <screen name="MenuExtended" flags="wfNoBorder">
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">hardisk_selection</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1095,63 +1095,67 @@
   </screen>
   <!-- 02-15. MenuNetwork -->
   <screen name="MenuNetwork" flags="wfNoBorder">
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/networkadapter.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">device_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netmounts_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netafp.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netafp_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netftp.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netftp_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/inadyn.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">Inadyn_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/minidlna.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">minidlna_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netnfs.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netnfs_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/webif.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">openwebif</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netvpn.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netvpn_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/sabnzbd.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netsabnzbd_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/samba.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netsmba_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/telnet.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">nettelnet_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ushare.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netushare_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/nim2.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
-      <convert type="MenuEntryCompare">netrts_setup</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
-  </screen>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/networkadapter.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">device_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netmounts_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/pininput.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">password_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netafp.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netafp_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netftp.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netftp_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/inadyn.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">Inadyn_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/minidlna.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">minidlna_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netnfs.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netnfs_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/webif.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">openwebif</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/netvpn.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netvpn_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/sabnzbd.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netsabnzbd_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/samba.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netsmba_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/telnet.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">nettelnet_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/ushare.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netushare_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/nim2.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <convert type="MenuEntryCompare">netrts_setup</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+</screen>
   <!-- 02-16. MenuHarddisk -->
   <screen name="MenuHDD" flags="wfNoBorder">
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/hddinit.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
@@ -1531,7 +1535,7 @@
   <screen name="TunerInfobar" flags="wfNoBorder">
     <!-- Frequency, Orbital & Streamtypes -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="395,40" zPosition="-12" size="1260,85" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="410,50" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="GlamRoll" position="410,50" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">FreqInfo</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="410,85" size="870,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular;26" halign="center" valign="center" noWrap="1">
@@ -2887,7 +2891,7 @@
   <screen name="menu_scan" position="0,0" size="1920,1080" title="Service searching" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dish.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dish-big.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuScan" />
@@ -2986,7 +2990,7 @@
   <screen name="menu_harddisk" position="0,0" size="1920,1080" title="Standby /restart" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
-    <ePixmap position="150,425" size="180,180" scale="1" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="150,425" size="180,180" scale="1" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuHDD" />
@@ -4687,7 +4691,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="message" position="540,75" font="RegularB; 34" size="1305,150" valign="center" halign="center" foregroundColor="sky" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,235" size="1305,660" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionblue1305.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -4706,7 +4710,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="message" position="630,315" font="RegularB; 34" size="1215,120" valign="center" halign="left" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget alphatest="blend" name="logo" position="540,335" size="72,72" transparent="1" zPosition="7" />
   </screen>
@@ -5007,7 +5011,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dish.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dish-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/scanselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 07. Scan setup -->
@@ -5508,7 +5512,7 @@ if not self["videofps"].text:
     <widget source="session.CurrentService" render="Label" position="95,733" size="560,35" font="Numbers; 30" zPosition="6" backgroundColor="darkgrey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="dark">
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/plugin.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/plugins.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="list" position="770,140" size="990,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenuselectionblue990.png" alphatest="blend" zPosition="3" />
     <panel name="RGKeysUP3" />
   </screen>
@@ -5759,7 +5763,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="hddlist" font="Regular; 30" position="541,93" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" zPosition="5" />
   </screen>
   <!-- 02. HDD setup -->
@@ -5767,7 +5771,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="model" position="540,90" size="1305,75" font="Regular; 34" transparent="1" zPosition="5" />
     <widget name="capacity" position="540,210" size="1305,75" font="Regular; 34" transparent="1" zPosition="5" />
     <widget name="bus" position="540,330" size="1305,75" font="Regular; 34" transparent="1" zPosition="5" />
@@ -5798,7 +5802,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="wait" position="540,90" size="1305,700" font="RegularB; 40" transparent="1" zPosition="5" halign="center" />
   </screen>
   <!-- 04. HDD partitions -->
@@ -6156,7 +6160,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget name="wizard" position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/plugin.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="wizard" position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/plugins.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="Wizard1" />
     <panel name="LanguageKey" />
   </screen>
@@ -6235,7 +6239,7 @@ if not self["videofps"].text:
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/plugin.png" position="50,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/plugins.png" position="50,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="statusbar" render="Label" position="540,275" size="1305,600" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
   </screen>
 </skin>
