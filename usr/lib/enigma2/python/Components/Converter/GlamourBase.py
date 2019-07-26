@@ -192,7 +192,7 @@ class GlamourBase(Poll, Converter, object):
 		yresol = info.getInfo(iServiceInformation.sVideoHeight)
 		progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
 		if (xresol > 0):
-			videosize = str(xresol) + "x" + str(yresol) + str(progrs)
+			videosize = "%sx%s%s" % (xresol, yresol, progrs)
 			return videosize
 		else:
 			return ""
@@ -202,11 +202,11 @@ class GlamourBase(Poll, Converter, object):
 		if (fps < 0) or (fps == -1):
 			return ""
 		fps = "%6.3f" % (fps/1000.)
-		return str(fps.replace(".000","")) + " fps "
+		return "%s fps" % (fps.replace(".000",""))
 
 	def videocodec(self, info):
 		vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
-		return str(vcodec)
+		return "%s" % (vcodec)
 
 	def hdr(self, info):
 		try:
@@ -214,7 +214,7 @@ class GlamourBase(Poll, Converter, object):
 		except:
 			gamma = None
 		if gamma:
-			return str(gamma)
+			return "%s" % (gamma)
 		else:
 			return ""
 
@@ -295,7 +295,7 @@ class GlamourBase(Poll, Converter, object):
 		if isid == "None" or isid == "-1" or isid == "0":
 			isid = ""
 		else:
-			isid = ("IS:") + isid
+			isid = "IS:%s" % (isid)
 		if plscode == "None" or plscode == "-1" or plscode == "0":
 			plscode = ""
 		if (plscode == "0" and plsmode == "Gold") or (plscode == "1" and plsmode == "Root"):
@@ -481,7 +481,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbe >= 49.7) and (orbe <= 50.3):
 			sat = "Türksat 4B"
 		elif (orbe >= 48.7) and (orbe <= 49.3):
-			sat = "Yamal 202"
+			sat = "Yamal 601"
 		elif (orbe >= 47.8) and (orbe <= 48.5):
 			sat = "Eutelsat 48D"
 		elif (orbe >= 47.6) and (orbe <= 47.7):
@@ -503,7 +503,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbe >= 39.8) and (orbe <= 40.3):
 			sat = "Express AM7"
 		elif (orbe >= 38.7) and (orbe <= 39.3):
-			sat = "HellasSat 2,3"
+			sat = "HellasSat 3,4"
 		elif (orbe >= 37.9) and (orbe <= 38.5):
 			sat = "Paksat 1R"
 		elif (orbe >= 37.6) and (orbe <= 37.8):
@@ -923,7 +923,7 @@ class GlamourBase(Poll, Converter, object):
 			vidsize = self.videosize(info)
 			fps = self.framerate(info)
 			vidcodec = self.videocodec(info)
-			return vidsize + "   " + fps + "   " + vidcodec
+			return "%s   %s   %s" % (vidsize, fps, vidcodec)
 
 		elif (self.type == self.PIDINFO):
 			return self.pidstring(info)
