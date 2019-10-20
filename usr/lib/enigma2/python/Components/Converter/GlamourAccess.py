@@ -1014,7 +1014,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4AF3"):
 					caid = "Baustem"
 				if caid.startswith("4AB") or caid >= "4AD2" and caid <= "4AD3" or caid >= "4B0A" and caid <= "4B0B" or caid >= "4AF9" and caid <= "4AFA":
-					caid = "Beijing/Digicrypt"
+					caid = "Beijing Compunicate/Digicrypt"
 				if caid >= "AA00" and caid <= "AA01":
 					caid = "Best CAS"
 				if caid.startswith("4A8"):
@@ -1308,7 +1308,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4AF3"):
 					caid = caid + " (Baustem) "
 				if caid.startswith("4AB") or caid >= "4AD2" and caid <= "4AD3" or caid >= "4B0A" and caid <= "4B0B" or caid >= "4AF9" and caid <= "4AFA":
-					caid = caid + " (Beijing/Digicrypt) "
+					caid = caid + " (Beijing Compunicate/Digicrypt) "
 				if caid >= "AA00" and caid <= "AA01":
 					caid = caid + " (Best CAS) "
 				if caid.startswith("4A8"):
