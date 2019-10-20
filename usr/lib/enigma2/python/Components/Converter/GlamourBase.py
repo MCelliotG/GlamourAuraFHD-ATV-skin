@@ -304,8 +304,7 @@ class GlamourBase(Poll, Converter, object):
 			return sp(isid) + sp(plsmode) + sp(plscode)
 
 	def satname(self, tp):
-		orbpos = tp.get("orbital_position")
-		orbpos = int(orbpos)
+		orbpos = int(tp.get("orbital_position"))
 		orbe = float(orbpos)/10.0
 		orbw = float(orbpos - 3600)/10.0
 		if (orbe >= 179.7) and (orbe <= 180.3):
@@ -449,7 +448,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbe >= 62.9) and (orbe <= 63.2):
 			sat = "ComsatBW-1"
 		elif (orbe >= 61.7) and (orbe <= 62.3):
-			sat = "Intelsat 902"
+			sat = "Intelsat 39"
 		elif (orbe >= 60.8) and (orbe <= 61.2):
 			sat = "ABS 4"
 		elif (orbe >= 60.3) and (orbe <= 60.4):
