@@ -105,7 +105,7 @@ class GlamTP(VariableText, Renderer):
 							try:
 								t2mi_id = (str(tpinfo.get("t2mi_plp_id",-1)))
 								t2mi_pid = (str(tpinfo.get("t2mi_pid")))
-								if t2mi_id == "-1" or t2mi_id == "None" or t2mi_id > "255":
+								if t2mi_id == "-1" or t2mi_id == "None" or t2mi_pid == "0" or t2mi_id > "255":
 									t2mi_id = ""
 									t2mi_pid = ""
 								else:

@@ -10,7 +10,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title2" />
     <ePixmap position="100,865" size="180,180" scale="1" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="actifcam" position="540,260" size="650,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="actifcam2" position="1200,260" size="660,50" font="RegularL; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
@@ -58,7 +58,7 @@
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/panel+.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" position="770,140" size="990,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenuselectionblue990.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" position="770,140" size="990,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenusel990.png" alphatest="blend" zPosition="3">
         <convert type="TemplatedMultiContent">
         {"template": [MultiContentEntryText(pos = (180, 2), size = (620, 50), font=0, text = 0),
         MultiContentEntryText(pos = (180, 45), size = (620, 45), font=1, text = 1),
@@ -83,7 +83,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="Mlist" font="Regular; 45" position="800,90" size="960,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuselectionf990.png" alphatest="blend" zPosition="3" />
+    <widget name="Mlist" font="Regular; 45" position="800,90" size="960,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="3" />
     <widget name="label1" position="810,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
   
@@ -93,7 +93,7 @@
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="6" />
+    <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="6" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="key_red" render="Label" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1250,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -107,7 +107,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselectionbluefhd.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
 	      {"template": [
 	      MultiContentEntryText(pos = (100, 2), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
@@ -130,14 +130,14 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
   </screen>
   <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder" >
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -152,7 +152,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -167,7 +167,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -182,7 +182,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
+    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -199,7 +199,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3">
+    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -216,7 +216,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -231,7 +231,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listselectionblue930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
     <widget name="info" position="800,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan1" />
   </screen>
 
@@ -244,7 +244,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="20,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenuselectionblue990.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenusel990.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel position="1130,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
     <eLabel position="1134,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
     <widget name="status" font="Regular; 30" position="1140,110" size="705,650" foregroundColor="amarillo" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
@@ -272,7 +272,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeysUP1" />
   </screen>
 
@@ -295,7 +295,7 @@
   <widget name="label1" position="540,330" size="1305,45" zPosition="7" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="orange" />
   <widget name="device_icon" position="545,145" size="80,80" alphatest="on" zPosition="8" transparent="1" />
   <widget name="free_space_progressbar" position="1055,142" size="650,25" borderWidth="1" zPosition="9" backgroundColor="white" foregroundColor="cyan" />
-  <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <ePixmap position="1430,805" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
   <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 30" noWrap="1" backgroundColor="background20" halign="left" />
   <panel name="FullKeys2" />
@@ -308,7 +308,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
   <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
-  <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <panel name="RGBKeys2" />
 </screen>
 
@@ -317,7 +317,7 @@
   <panel name="ClockLabel1" />
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
   <panel name="RGYKeys2" />
  </screen>
@@ -327,7 +327,7 @@
   <panel name="ClockLabel1" />
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updateselectionfhd.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
 	{"template": [
 	MultiContentEntryText(pos = (560, 5), size = (700, 45), font=0, flags = RT_VALIGN_CENTER | RT_HALIGN_RIGHT, text = 0),
@@ -346,7 +346,7 @@
   <panel name="ClockLabel1" />
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <panel name="RGKeys2" />
  </screen>
 
@@ -398,7 +398,7 @@
   <panel name="ClockLabel1" />
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/pininput.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselectionbluefhd.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <panel name="FullKeys1" />
 </screen>
 
@@ -408,7 +408,7 @@
   <panel name="ClockLabel1" />
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/fileselectionblue.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
