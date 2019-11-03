@@ -288,7 +288,7 @@
  </screen>
  <screen name="RestartNetwork" position="0, 0" flags="wfNoBorders" title="Restart Network Adapter" backgroundColor="transparent" size="1920, 1080">
   <ePixmap pixmap="GlamourAuraFHD-ATV/icons/network.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
   <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
@@ -1649,7 +1649,7 @@
  </screen>
  <screen name="installedPlugins" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
   <widget name="InfoPixmap" pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
   <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />

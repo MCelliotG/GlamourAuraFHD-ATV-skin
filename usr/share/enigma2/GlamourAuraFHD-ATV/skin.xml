@@ -1322,28 +1322,28 @@
   </screen>
   <!-- 05. Main Background -->
   <screen name="MenuBackground" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/triangleblue.png" position="150,0" size="645,1080" transparent="1" alphatest="on" zPosition="-12" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/triangle.png" position="150,0" size="645,1080" transparent="1" alphatest="on" zPosition="-12" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="795,0" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="795,0" size="900,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1695,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="900,75" alphatest="off" transparent="1" />
   </screen>
   <screen name="MainBackground1" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="564,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="564,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="795,0" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="795,0" size="900,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1695,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="900,75" alphatest="off" transparent="1" />
   </screen>
   <screen name="MainBackground2" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="294,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="294,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="525,0" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="525,0" size="1305,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="525,1005" zPosition="-11" size="1305,75" alphatest="off" transparent="1" />
   </screen>
   <screen name="MainBackground3" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="564,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="564,60" size="232,900" transparent="1" alphatest="on" zPosition="-12" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="795,0" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
     <eLabel name="menubig" position="795,0" size="1000,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1795,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
@@ -1378,7 +1378,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="585,1005" zPosition="-11" size="1245,75" alphatest="off" transparent="1" />
   </screen>
   <screen name="MainBackgroundEPG" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="0,60" size="232,900" transparent="1" alphatest="off" zPosition="-12" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="0,60" size="232,900" transparent="1" alphatest="off" zPosition="-12" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="232,0" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
     <eLabel name="eventview" position="232,0" size="1613,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="232,1005" zPosition="-11" size="1613,75" alphatest="off" transparent="1" />
@@ -2448,7 +2448,7 @@
     <widget source="session.CurrentService" render="PositionGauge" position="465,910" size="1205,55" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_movie.png:1200,20" alphatest="blend" zPosition="6">
       <convert type="ServicePosition">Gauge</convert>
     </widget>
-    <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/aurapointer_infobar.png" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ServicePosition">Position,ShowHours</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="1695,910" size="180,52" font="Numbers; 45" halign="left" valign="center" backgroundColor="background20" transparent="1" noWrap="1">
@@ -2707,7 +2707,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="on" transparent="1" />
     <!-- ECM Info -->
     <panel name="ECMInfo" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Bitrate -->
     <!--panel name="BitrateInfobar" /-->
     <!--/* WEATHER WIDGETS -->
@@ -2744,7 +2744,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="on" transparent="1" />
     <!-- ECM Info -->
     <panel name="ECMInfo" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Bitrate -->
     <!--panel name="BitrateInfobar" /-->
     <!--/* WEATHER WIDGETS -->
@@ -2825,7 +2825,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="on" transparent="1" />
     <!-- ECM Info -->
     <panel name="ECMInfo" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/haloblue_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!--/* WEATHER WIDGET -->
     <panel name="WeatherToday" />
     <!-- WEATHER Current Temp on Infobar -->
@@ -4692,7 +4692,7 @@ if not self["videofps"].text:
   </screen>
   <!-- 04. Location Box -->
   <screen name="LocationBox" position="0,0" size="1920,1080" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="180,50" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,50" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="412,0" size="1418,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
@@ -4714,7 +4714,7 @@ if not self["videofps"].text:
     <widget name="ErrorPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/attention.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
     <widget name="QuestionPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/question.png" position="255,315" size="400,400" zPosition="3" transparent="1" alphatest="on" />
     <widget name="InfoPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
@@ -4779,7 +4779,7 @@ if not self["videofps"].text:
   <!-- 11. TextBox -->
   <screen name="TextBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
@@ -6082,7 +6082,7 @@ if not self["videofps"].text:
   <!-- 02. ServiceApp -->
   <screen name="ServiceAppDetectPlayers" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/view.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
