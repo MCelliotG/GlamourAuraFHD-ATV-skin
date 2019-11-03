@@ -249,6 +249,9 @@
     <panel name="MovieN2" />
     <!-- MOVIE DURATION AND PROGRESS -->
     <panel name="MovieD+P" />
+    <widget source="Service" render="EMCPositionGauge" position="465,910" size="1205,55" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_movie.png:1200,20" alphatest="blend" zPosition="7">
+      <convert type="EMCServicePosition">Gauge</convert>
+    </widget>
     <!-- MOVIE AND SERVICE INFOS -->
     <panel name="MovieServiceInfos" />
     <!-- COVER -->
