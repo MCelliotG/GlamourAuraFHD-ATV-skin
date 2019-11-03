@@ -1048,7 +1048,7 @@
     <widget name="buttongreen" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FilebrowserScreen" position="0,0" size="1920,1080" title="Filebrowser" flags="wfNoBorder" backgroundColor="transparent">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="412,0" size="1417,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
@@ -2035,7 +2035,7 @@
 
     <!-- File Commander -->
   <screen name="FileCommanderScreen" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
-  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhaloblue.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
   <eLabel name="menubig" position="410,0" size="1420,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
