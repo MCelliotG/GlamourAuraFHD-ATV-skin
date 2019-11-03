@@ -2448,7 +2448,7 @@
     <widget source="session.CurrentService" render="PositionGauge" position="465,910" size="1205,55" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_movie.png:1200,20" alphatest="blend" zPosition="6">
       <convert type="ServicePosition">Gauge</convert>
     </widget>
-    <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/aurapointer_infobar.png" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="session.CurrentService" render="Progress" position="465,935" size="1200,4" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ServicePosition">Position,ShowHours</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="1695,910" size="180,52" font="Numbers; 45" halign="left" valign="center" backgroundColor="background20" transparent="1" noWrap="1">
