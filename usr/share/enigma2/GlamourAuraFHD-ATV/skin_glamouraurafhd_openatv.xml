@@ -20,7 +20,7 @@
  <!-- Keys -->
  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="665,905" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="765,905" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
- <panel name="FullKeys3" />
+ <panel name="FullKeys2" />
  </screen>
  <screen name="mySmallChannelSelection" title="my Small Channel Selection" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
   <panel name="MainBackgroundClock" />
@@ -28,7 +28,7 @@
   <ePixmap position="135,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/channelselection.png" alphatest="blend" transparent="1" zPosition="5" />
   <widget source="Title" render="Label" position="655,40" size="990,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
   <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelsel.png" itemHeight="50" zPosition="3" />
-  <panel name="FullKeys3" />
+  <panel name="FullKeys2" />
  </screen>
  <screen name="EventViewSimple" position="0,0" size="1920,1080" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="EventView" />
@@ -43,7 +43,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/nim2.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
   <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="NetworkSamba" position="0,0" size="1920,1080" title="Samba Setup" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -73,7 +73,7 @@
   <widget name="labdisabled" font="Regular;30" backgroundColor="deepgrey" foregroundColor="white" position="1050,120" size="640,50" valign="center" halign="center" zPosition="7" />
   <widget name="labactive" font="Regular;30" backgroundColor="green" foregroundColor="white" position="1050,120" size="640,50" valign="center" halign="center" zPosition="8" />
   <widget name="status" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,200" size="500,50" valign="center" halign="right" transparent="1" zPosition="4" />
-  <widget name="labstop" font="Regular;30" backgroundColor="transpRed" foregroundColor="white" position="1050,200" size="640,50" valign="center" halign="center" zPosition="6" />
+  <widget name="labstop" font="Regular;30" backgroundColor="transpred" foregroundColor="white" position="1050,200" size="640,50" valign="center" halign="center" zPosition="6" />
   <widget name="labrun" font="Regular;30" backgroundColor="green" foregroundColor="white" position="1050,200" size="640,50" valign="center" halign="center" zPosition="8" />
   <widget name="time" font="Regular;30" backgroundColor="background20" position="540,280" size="500,50" valign="center" halign="right" transparent="1" zPosition="9" />
   <widget name="labtime" font="Regular;30" backgroundColor="background20" foregroundColor="amarillo" position="1050,280" size="640,50" valign="center" transparent="1" zPosition="5" />
@@ -284,7 +284,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="menulist" font="Regular; 45" position="540,90" size="1305,560" itemHeight="80" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" zPosition="5" />
   <widget source="introduction" render="Label" position="540,645" size="1305,200" font="RegularB; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" valign="center" />
-  <panel name="RedKey1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="RestartNetwork" position="0, 0" flags="wfNoBorders" title="Restart Network Adapter" backgroundColor="transparent" size="1920, 1080">
   <ePixmap pixmap="GlamourAuraFHD-ATV/icons/network.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
@@ -302,7 +302,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/bouquet.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 
 
@@ -354,7 +354,7 @@
   <widget name="statuspic" position="1590,45" size="225,75" pixmaps="GlamourAuraFHD-ATV/buttons/aura_green.png,GlamourAuraFHD-ATV/buttons/aura_grey.png" transparent="1" alphatest="blend" />
   <widget source="IFtext" render="Label" font="RegularB; 33" backgroundColor="background20" foregroundColor="white" halign="left" position="540,140" size="745,45" transparent="1" zPosition="4" />
   <widget name="AboutScrollLabel" itemHeight="50" font="Regular;30" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" halign="left" position="540,190" size="1305,650" transparent="1" zPosition="9" />
-  <panel name="RedKey1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="SoftwareUpdateChanges" position="0,0" size="1920,1080" title="Software Update Changes" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -362,7 +362,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="text" render="Label" position="543,90" size="1305,750" font="Regular; 32" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="SoftwareManagerSetup" position="0,0" size="1920,1080" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -371,7 +371,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" position="540,60" size="1305,600" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   <widget source="introduction" render="Label" position="540,660" size="1305,200" font="Regular; 30" backgroundColor="background20" foregroundColor="sky" zPosition="13" transparent="1" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="SoftwareManagerInfo" position="0,0" size="1920,1080" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -391,7 +391,7 @@
   <widget source="introduction" render="Label" position="540,700" size="1305,150" font="Regular; 30" foregroundColor="sky" halign="center" backgroundColor="background20" valign="center" transparent="1" zPosition="5" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1555,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
-  <panel name="RedKey2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="ImageBackup" position="0,0" size="1920,1080" title="Image Backup" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <widget source="backgroundable" render="FixedLabel" text="Continue in the background" position="1200,810" size="650,50" zPosition="2" valign="center" font="Regular;30" halign="center" noWrap="1" foregroundColor="cyan" backgroundColor="background20" transparent="1">
@@ -447,7 +447,7 @@
   "itemHeight": 90}
    </convert>
   </widget>
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 
  <screen name="DevicePanelConf" position="0,0" size="1920,1080" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -456,7 +456,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
 
  <!-- 05. HOTKEY SCREENS -->
@@ -477,7 +477,7 @@
   <widget name="list" font="Regular; 30" position="540,60" size="650,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
   <widget name="choosen" font="Regular; 30" position="1190,60" size="670,650" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
   <widget name="description" font="Regular; 30" backgroundColor="background20" position="540,720" size="1305,120" transparent="1" zPosition="11" foregroundColor="sky" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  
 
@@ -524,7 +524,7 @@
   <widget name="list" font="Regular; 30" position="542,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="blend" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
   <widget name="sublist" font="Regular; 30" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/auraselwhite700.png" alphatest="blend" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" enableWrapAround="1" transparent="1" zPosition="9" />
   <widget name="description" position="540,780" size="1320,80" backgroundColor="background20" transparent="1" font="Regular; 29" zPosition="5" foregroundColor="sky" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="QuickMenuDevices" position="0,0" size="1920,1080" title="Quick Menu Devices" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -564,7 +564,7 @@
   }
    </convert>
   </widget>
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="SoftwarePanel" position="0,0" size="1920,1080" title="Software Panel" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -604,7 +604,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
-  <panel name="RGYKeys1" />
+  <panel name="FullKeys1" />
  </screen>
 
 
@@ -835,7 +835,7 @@
  <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
  <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
  <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
- <panel name="FullKeys3" />
+ <panel name="FullKeys2" />
 </screen>
 
   <!-- 08d. EPG vertical PIG-->
@@ -920,7 +920,7 @@
  <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
  <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
  <widget source="session.VideoPicture" render="Pig" position="1155,145" size="720,405" backgroundColor="transparent" zPosition="21" />
- <panel name="FullKeys3" />
+ <panel name="FullKeys2" />
 </screen>
 
   <!-- 08e. Infobar Event View -->
@@ -929,7 +929,7 @@
   <ePixmap position="1800,295" size="52,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnow.png" position="200,90" zPosition="-2" size="1520,230" alphatest="blend" transparent="1" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnext.png" position="200,320" zPosition="-2" size="1520,230" alphatest="blend" transparent="1" />
-  <widget name="channel" position="220,70" size="1480,45" font="RegularB; 36" halign="center" backgroundColor="transWhite" transparent="0" valign="center" foregroundColor="black" zPosition="5" />
+  <widget name="channel" position="220,70" size="1480,45" font="RegularB; 36" halign="center" backgroundColor="transwhite" transparent="0" valign="center" foregroundColor="black" zPosition="5" />
   <widget name="datetime" position="385,115" size="405,40" font="RegularB; 29" halign="center" backgroundColor="cyan2" transparent="1" zPosition="4" />
   <widget name="duration" position="1125,115" size="405,40" font="RegularB; 29" halign="center" backgroundColor="cyan2" transparent="1" zPosition="5" />
   <widget name="FullDescription" position="120,150" size="1680,365" font="Regular; 30" backgroundColor="background40" transparent="0" zPosition="13" valign="top" halign="left" />
@@ -949,9 +949,9 @@
 
   <!-- 08f. SECOND INFOBAR ECM -->
   <screen name="SecondInfoBarECM" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-  <panel name="SecondInfoBar" />
+  <panel name="SubservicesQuickzap" />
  </screen>
- 
+
   <!-- 08g. EVENT VIEW EPG SELECT -->
  <screen name="EventViewEPGSelect" title="Eventview EPG Select" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
   <panel name="EventView" />
@@ -1052,7 +1052,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="CCcamInfoEcmInfoSelection" position="0,0" size="1920,1080" title="CCcamInfo EcmInfo Selection" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1109,7 +1109,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="CCcamInfoShareInfo" position="0,0" size="1920,1080" title="CCcamInfo Share Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1117,7 +1117,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,50" size="1305,810" font="Regular; 28" backgroundColor="background20" foregroundColor="white" itemHeight="90" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="CCcamInfoMenuConfig" position="0,0" size="1920,1080" title="CCcamInfo Menu Config" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1125,7 +1125,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,60" size="1305,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="RGYKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="EcmInfoConfigMenu" position="0,0" size="1920,1080" title="EcmInfo Config Menu" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1161,7 +1161,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" position="530,75" size="1305,350" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   <widget name="status" position="530,425" size="1305,350" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="oscInfo" position="0,0" size="1920,1080" title="Oscam Client Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1232,7 +1232,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cccam.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,75" size="1305,750" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 
 
@@ -1290,7 +1290,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crontimer.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
   <widget name="HelpWindow" position="540,740" size="1320,120" zPosition="11" transparent="1" alphatest="blend" />
-  <panel name="RedKey2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="ScriptExecuter" title="Script Executer" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
   <panel name="MainBackground2" />
@@ -1308,7 +1308,7 @@
  }
 </convert>
   </widget>
-  <panel name="RedKey2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="ScriptRunner" position="0,0" size="1920,1080" title="Job Manager" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -1317,7 +1317,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/console.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="lab1" position="540,90" size="1305,50" font="RegularB; 34" valign="center" transparent="1" zPosition="3" foregroundColor="cyan1" halign="center" noWrap="1" />
   <widget name="list" position="540,145" size="1305,700" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
 
 
@@ -1329,7 +1329,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="list" position="540,50" size="1305,650" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
   <widget name="LogsSize" position="540,705" size="1305,150" font="Regular; 30" foregroundColor="white" halign="center" backgroundColor="background20" valign="top" transparent="1" zPosition="4" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="LogManagerViewLog" position="0,0" size="1920,1080" title="Log Manager - View Log" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
   <panel name="MainBackground2" />
@@ -1368,7 +1368,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cleanup.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,92" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
   <widget source="status" render="Label" position="540,745" size="1305,100" halign="left" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="cyan" backgroundColor="background20" />
-  <panel name="RGKeys4" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="CleanupWizard" position="0,0" size="1920,1080" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -1398,7 +1398,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/animation.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
-  <panel name="RGYKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="AnimationSetupScreen" title="Animation Setup" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="1920,1080">
   <panel name="MainBackground2" />
@@ -1692,7 +1692,7 @@
   <ePixmap position="587,325" size="54,54" zPosition="11" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="blend" />
   <widget source="options" render="Label" position="540,700" size="1305,150" halign="center" valign="center" font="Regular; 34" backgroundColor="background20" foregroundColor="amarillo" transparent="1" zPosition="6" />
   <widget source="description" render="Label" position="540,60" size="1305,105" halign="center" valign="center" font="RegularB; 36" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
-  <panel name="RGYKeys1" />
+  <panel name="FullKeys1" />
 </screen>
 
  <screen name="MultiBootWizard" position="0,0" size="1920,1080" title="MultiBoot Wizard" flags="wfNoBorder" backgroundColor="transparent">
@@ -1709,7 +1709,7 @@
   <ePixmap position="1745,425" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="blend" />
   <widget source="config" render="Label" position="640,400" size="1100,100" itemHeight="50" valign="center" halign="center" font="RegularB; 42" enableWrapAround="1" transparent="1" scrollbarMode="showOnDemand" foregroundColor="cyan1" backgroundColor="background20" zPosition="3" />
   <eLabel name="line" position="540,520" size="1305,2" backgroundColor="cyan1" zPosition="4" />
-  <panel name="RGYKeys1" />
+  <panel name="FullKeys1" />
  </screen>
 
  <screen name="MultiBootStartupOPT" position="0,0" size="1920,1080" title="MultiBoot Screen" flags="wfNoBorder" backgroundColor="transparent">
@@ -1741,7 +1741,7 @@
   <widget name="ci1active" font="Regular;30" position="1000,560" zPosition="8" pixmap="GlamourAuraFHD-ATV/icons/lock_on.png" size="45,45" alphatest="blend" />
   <widget name="ci1" font="Regular;30" backgroundColor="background20" foregroundColor="white" position="540,565" size="450,50" valign="center" halign="right" transparent="1" zPosition="7" />
   <ePixmap position="1700,780" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
-  <panel name="RGYKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="CIHelperSetup" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
   <panel name="MainBackground2" />
@@ -1749,7 +1749,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" position="540,90" size="1305,750" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
-  <panel name="RGKeys1" />
+  <panel name="FullKeys1" />
  </screen>
  
  
@@ -1769,7 +1769,7 @@
   <widget name="labsize" position="1140,540" size="690,50" font="Regular; 32" valign="center" backgroundColor="dark" zPosition="4" />
   <widget name="inactive" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="red" zPosition="2" noWrap="1" />
   <widget name="active" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="green" zPosition="4" noWrap="1" />
-  <panel name="RGYKeys2" />
+  <panel name="FullKeys1" />
  </screen>
  <screen name="Swap" position="0, 0" flags="wfNoBorders" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
   <panel name="MainBackground2" />
@@ -1786,6 +1786,6 @@
   <widget name="labsize" position="1140,540" size="690,50" font="Regular; 32" valign="center" backgroundColor="dark" zPosition="4" />
   <widget name="inactive" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="red" zPosition="2" noWrap="1" />
   <widget name="active" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="green" zPosition="4" noWrap="1" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 </skin>

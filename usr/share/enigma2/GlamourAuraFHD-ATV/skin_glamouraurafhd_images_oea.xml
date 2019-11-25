@@ -121,7 +121,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,730" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1030,785" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget source="lab1" render="Label" font="Regular; 30" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
-    <panel name="FullKeys2" />
+    <panel name="FullKeys1" />
   </screen>
 
   <!-- 06. OPENDROID IPK Tools Panel -->
@@ -252,7 +252,7 @@
     <widget name="text" position="1185,855" size="655,90" zPosition="1" font="Regular;30" halign="center" valign="center" foregroundColor="green" transparent="1" backgroundColor="background20" />
     <eLabel name="spaceused" text="% Flash Used..." position="420,795" size="300,50" font="Regular; 30" halign="right" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget name="spaceused" position="735,800" size="950,30" foregroundColor="white" backgroundColor="cyan" zPosition="6" />	
-    <panel name="RGKeys2" />
+    <panel name="FullKeys1" />
 </screen>
 
   <!-- 14. Installation Process -->
@@ -298,7 +298,7 @@
   <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <ePixmap position="1430,805" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
   <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 30" noWrap="1" backgroundColor="background20" halign="left" />
-  <panel name="FullKeys2" />
+  <panel name="FullKeys1" />
 </screen>
 
   <screen name="OPDBootInstallation" position="0,0" size="1920,1080" title="OPDBoot - Installation" flags="wfNoBorder" backgroundColor="transparent">
@@ -309,7 +309,7 @@
   <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
   <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
   <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="RGBKeys2" />
+  <panel name="FullKeys1" />
 </screen>
 
   <screen name="OPDBootImageInstall" position="0,0" size="1920,1080" title="OPDBoot - Image Installation" flags="wfNoBorder" backgroundColor="transparent">
@@ -319,7 +319,7 @@
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
-  <panel name="RGYKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 
   <screen name="OPDChooseOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download OnLine Images" flags="wfNoBorder" backgroundColor="transparent">
@@ -347,7 +347,7 @@
   <panel name="Title1" />
   <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
   <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="RGKeys2" />
+  <panel name="FullKeys1" />
  </screen>
 
   <!-- 17. Commit Info -->
@@ -431,6 +431,6 @@
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/usb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="540,90" size="1305,750" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
-    <panel name="RGKeys1" />
+    <panel name="FullKeys1" />
   </screen>
 </skin>
