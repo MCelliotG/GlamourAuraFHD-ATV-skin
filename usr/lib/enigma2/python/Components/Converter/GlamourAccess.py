@@ -79,7 +79,8 @@ class GlamourAccess(Poll, Converter, object):
 	FORMAT = 55
 	ECMINFO = 56
 	SHORTINFO = 57
-	ISCRYPTED = 58
+	CASINFO = 58
+	ISCRYPTED = 59
 	timespan = 1000
 
 	def __init__(self, type):
@@ -199,6 +200,8 @@ class GlamourAccess(Poll, Converter, object):
 			self.type = self.ISCRYPTED
 		elif type == "ShortInfo":
 			self.type = self.SHORTINFO
+		elif type == "CasInfo":
+			self.type = self.CASINFO
 		elif type == "EcmInfo" or type == "Default" or type == "" or type == None or type == "%":
 			self.type = self.ECMINFO
 		else:
@@ -496,6 +499,9 @@ class GlamourAccess(Poll, Converter, object):
 
 				if self.type == self.CAIDINFO:
 					return self.CaidInfo()
+
+				if self.type == self.CASINFO:
+					return self.CasInfo()
 
 				if caids or ecm_info:
 					if len(caids) > 0:
@@ -1469,6 +1475,15 @@ class GlamourAccess(Poll, Converter, object):
 			else:
 				return "Free to air or no descriptor"
 
+	def CasInfo(self):
+		caids = self.Caids()
+		ecm_info = self.ecmfile()
+		if caids or ecm_info:
+			if len(caids) > 0:
+				caidtxt = self.CaidTxtList()
+				return "Service with %s encryption" % (caidtxt)
+		else:
+			return "FTA service"
 
 	def ecmpath(self):
 		ecmpath = None

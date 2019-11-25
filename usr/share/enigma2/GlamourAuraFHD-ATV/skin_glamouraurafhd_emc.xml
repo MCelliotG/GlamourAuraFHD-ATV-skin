@@ -79,7 +79,7 @@
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="FullKeys2" />
+    <panel name="FullKeys1" />
   </screen>
   
   <screen name="EMCPlaylistScreen" position="0,0" size="1920,1080" title="EMC Playlist" flags="wfNoBorder" backgroundColor="transparent">
@@ -120,7 +120,7 @@
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/emc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeys1" />
+    <panel name="FullKeys1" />
   </screen>
   
   <screen name="MovieInfoTMDb" position="0,0" size="1920,1080" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
@@ -183,7 +183,7 @@
     <panel name="Title1" />
     <ePixmap position="75,437" size="400,205" pixmap="GlamourAuraFHD-ATV/icons/imdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeys1" />
+    <panel name="FullKeys1" />
   </screen>
   
   <screen name="getCover" position="0,0" size="1920,1080" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
@@ -237,7 +237,7 @@
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeys1" />
+    <panel name="FullKeys1" />
   </screen>
   
   <screen name="EMCMediaCenter" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
@@ -281,7 +281,7 @@
     <!--panel name="EMCExtended" /-->
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1550,40" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,85" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
-    <panel name="FullKeys3" />
+    <panel name="FullKeys2" />
   </screen>
 
 <screen name="EMCMediaCenterOwn" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
