@@ -213,7 +213,7 @@ class GlamourAccess(Poll, Converter, object):
 		 "26": "Biss/EBU",
 		 "01": "Seca/Mediaguard",
 		 "06": "Irdeto",
-		 "17": "Betacrypt",
+		 "17": "Verimatrix",
 		 "05": "Viaccess",
 		 "18": "Nagravision",
 		 "09": "NDS/Videoguard",
@@ -240,7 +240,7 @@ class GlamourAccess(Poll, Converter, object):
 		self.poll_enabled = True
 		if not info:
 			return False
-		caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+		caids = self.CaidList().strip(",").split()
 
 		if self.type is self.FTA:
 			if not caids and not ecm_info:
@@ -258,119 +258,119 @@ class GlamourAccess(Poll, Converter, object):
 		if caids or ecm_info:
 			if self.type == self.BETACAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "1700" and ("%0.4X" % int(caid))[:4] <= "17FF":
+					if caid == "1702" or caid == "1722" or caid == "1762":
 						return True
 				return False
 			if self.type == self.IRDCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0600" and ("%0.4X" % int(caid))[:4] <= "06FF":
+					if caid >= "0600" and caid <= "06FF":
 						return True
 				return False
 			if self.type == self.SECACAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0100" and ("%0.4X" % int(caid))[:4] <= "01FF":
+					if caid >= "0100" and caid <= "01FF":
 						return True
 				return False
 			if self.type == self.VIACAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0500" and ("%0.4X" % int(caid))[:4] <= "05FF":
+					if caid >= "0500" and caid <= "05FF":
 						return True
 				return False
 			if self.type == self.NAGRACAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "1800" and ("%0.4X" % int(caid))[:4] <= "18FF":
+					if caid >= "1800" and caid <= "18FF":
 						return True
 				return False
 			if self.type == self.CRWCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0D00" and ("%0.4X" % int(caid))[:4] <= "0DFF":
+					if caid >= "0D00" and caid <= "0DFF":
 						return True
 				return False
 			if self.type == self.NDSCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0900" and ("%0.4X" % int(caid))[:4] <= "09FF":
+					if caid >= "0900" and caid <= "09FF":
 						return True
 				return False
 			if self.type == self.CONAXCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0B00" and ("%0.4X" % int(caid))[:4] <= "0BFF":
+					if caid >= "0B00" and caid <= "0BFF":
 						return True
 				return False
 			if self.type == self.DRCCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "4A00" and ("%0.4X" % int(caid))[:4] <= "4AE9" or ("%0.4X" % int(caid))[:4] >= "5000" and ("%0.4X" % int(caid))[:4] <= "50FF" or ("%0.4X" % int(caid))[:4] == "7BE0" or ("%0.4X" % int(caid))[:4] >= "0700" and ("%0.4X" % int(caid))[:4] <= "07FF" or ("%0.4X" % int(caid))[:4] >= "4700" and ("%0.4X" % int(caid))[:4] <= "47FF":
+					if caid >= "4A00" and caid <= "4AE9" or caid >= "5000" and caid <= "50FF" or caid == "7BE0" or caid >= "0700" and caid <= "07FF" or caid >= "4700" and caid <= "47FF":
 						return True
 				return False
 			if self.type == self.BISSCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "2600" and ("%0.4X" % int(caid))[:4] <= "26FF":
+					if caid >= "2600" and caid <= "26FF":
 						return True
 				return False
 			if self.type == self.BULCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "5501" and ("%0.4X" % int(caid))[:4] <= "55FF" or ("%0.4X" % int(caid))[:4] == "4AEE" or ("%0.4X" % int(caid))[:4] == "4AF8":
+					if caid >= "5501" and caid <= "55FF" or caid == "4AEE" or caid == "4AF8":
 						return True
 				return False
 			if self.type == self.VMXCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "5600" and ("%0.4X" % int(caid))[:4] <= "56FF":
+					if caid >= "5600" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761" or caid >= "1763" and caid <= "17FF":
 						return True
 				return False
 			if self.type == self.PWVCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "0E00" and ("%0.4X" % int(caid))[:4] <= "0EFF":
+					if caid >= "0E00" and caid <= "0EFF":
 						return True
 				return False
 			if self.type == self.TBGCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "1000" and ("%0.4X" % int(caid))[:4] <= "10FF":
+					if caid >= "1000" and caid <= "10FF":
 						return True
 				return False
 			if self.type == self.TGFCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "4B00" and ("%0.4X" % int(caid))[:4] <= "4B09" or ("%0.4X" % int(caid))[:4] == "4AF6":
+					if caid >= "4B00" and caid <= "4B09" or caid == "4AF6":
 						return True
 				return False
 			if self.type == self.PANCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] == "4AFC":
+					if caid == "4AFC":
 						return True
 				return False
 			if self.type == self.EXSCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "2700" and ("%0.4X" % int(caid))[:4] <= "27FF":
+					if caid >= "2700" and caid <= "27FF":
 						return True
 				return False
 			if self.type == self.RUSCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "A100" and ("%0.4X" % int(caid))[:4] <= "A1FF":
+					if caid >= "A100" and caid <= "A1FF":
 						return True
 				return False
 			if self.type == self.CODICAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "2200" and ("%0.4X" % int(caid))[:4] <= "22FF":
+					if caid >= "2200" and caid <= "22FF":
 						return True
 				return False
 			if self.type == self.CGDCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] == "4AEA" or ("%0.4X" % int(caid))[:4] >= "1EC0" and ("%0.4X" % int(caid))[:4] <= "1ECF":
+					if caid == "4AEA" or caid >= "1EC0" and caid <= "1ECF":
 						return True
 				return False
 			if self.type == self.AGTCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] >= "4800" and ("%0.4X" % int(caid))[:4] <= "48FF":
+					if caid >= "4800" and caid <= "48FF":
 						return True
 				return False
 			if self.type == self.SAMCAS:
 				for caid in caids:
-					if ("%0.4X" % int(caid))[:4] == "4B64":
+					if caid == "4B64":
 						return True
 				return False
 
 			if ecm_info:
 				caid = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
 				if self.type == self.BETAECM:
-					if caid >= "1700" and caid <= "17FF":
+					if caid == "1702" or caid == "1722" or caid == "1762":
 						return True
 					return False
 				if self.type == self.IRDECM:
@@ -414,7 +414,7 @@ class GlamourAccess(Poll, Converter, object):
 						return True
 					return False
 				if self.type == self.VMXECM:
-					if caid >= "5600" and caid <= "56FF":
+					if caid >= "5600" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761"  or caid >= "1763" and caid <= "17FF":
 						return True
 					return False
 				if self.type == self.PWVECM:
@@ -905,7 +905,7 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "Conax"
 				if caid.startswith("09"):
 					caid = "NDS/Videoguard"
-				if caid.startswith("17"):
+				if caid == "1702" or caid == "1722" or caid == "1762":
 					caid = "Betacrypt"
 				if caid.startswith("18"):
 					caid = "Nagravision"
@@ -919,8 +919,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = "Tandberg"
 				if caid.startswith("4AF6") or caid >= "4B00" and caid <= "4B02":
 					caid = "Tongfang"
-				if caid >= "5601" and caid <= "5604":
-					caid = "VeriMatrix"
+				if caid >= "5601" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761" or caid >= "1763" and caid <= "17FF":
+					caid = "Verimatrix"
 				if caid.startswith("4AEE"):
 					caid = "Bulcrypt"
 				if caid.startswith("07"):
@@ -1150,7 +1150,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B54"):
 					caid = "TeleLynx"
 				if caid.startswith("4B4A"):
-					caid = "TopWell"
+					caid = "Topwell"
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = "Unitend"
 				if caid >= "4B30" and caid <= "4B31":
@@ -1199,7 +1199,7 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (Conax) "
 				if caid.startswith("09"):
 					caid = caid + " (NDS/Videoguard) "
-				if caid.startswith("17"):
+				if caid == "1702" or caid == "1722" or caid == "1762":
 					caid = caid + " (Betacrypt) "
 				if caid.startswith("18"):
 					caid = caid + " (Nagravision) "
@@ -1213,8 +1213,8 @@ class GlamourAccess(Poll, Converter, object):
 					caid = caid + " (Tandberg) "
 				if caid.startswith("4AF6") or caid >= "4B00" and caid <= "4B02":
 					caid = caid + " (Tongfang) "
-				if caid >= "5601" and caid <= "5604":
-					caid = caid + " (VeriMatrix) "
+				if caid >= "5601" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761" or caid >= "1763" and caid <= "17FF":
+					caid = caid + " (Verimatrix) "
 				if caid.startswith("4AEE"):
 					caid = caid + " (Bulcrypt) "
 				if caid.startswith("07"):
@@ -1444,7 +1444,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B54"):
 					caid = caid + " (TeleLynx) "
 				if caid.startswith("4B4A"):
-					caid = caid + " (TopWell) "
+					caid = caid + " (Topwell) "
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = caid + " (Unitend) "
 				if caid >= "4B30" and caid <= "4B31":
