@@ -1150,7 +1150,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B54"):
 					caid = "TeleLynx"
 				if caid.startswith("4B4A"):
-					caid = "TopWell"
+					caid = "Topwell"
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = "Unitend"
 				if caid >= "4B30" and caid <= "4B31":
@@ -1444,7 +1444,7 @@ class GlamourAccess(Poll, Converter, object):
 				if caid.startswith("4B54"):
 					caid = caid + " (TeleLynx) "
 				if caid.startswith("4B4A"):
-					caid = caid + " (TopWell) "
+					caid = caid + " (Topwell) "
 				if caid.startswith("4AED") or caid.startswith("4B26"):
 					caid = caid + " (Unitend) "
 				if caid >= "4B30" and caid <= "4B31":

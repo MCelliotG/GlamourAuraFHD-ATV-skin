@@ -74,7 +74,7 @@
   <fonts>
     <font filename="/usr/share/fonts/lcd.ttf" name="LCDA" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/consola.ttf" name="Console" scale="100" />
-    <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurar.ttf" name="Regular" scale="100" replacement="1" />
+    <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurar.ttf" name="Regular" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aurab.ttf" name="RegularB" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/aural.ttf" name="RegularL" scale="100" />
     <font filename="/usr/share/enigma2/GlamourAuraFHD-ATV/fonts/auracaps.ttf" name="Caps" scale="100" />
@@ -413,7 +413,7 @@
   </screen>
   <!-- 02. Menu Labels -->
   <screen name="MainMenu1" flags="wfNoBorder">
-    <widget source="menu" render="Listbox" position="770,60" size="990,880" scrollbarMode="showNever" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="772,60" size="990,880" scrollbarMode="showNever" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [ MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
         "fonts": [gFont("Regular", 45)],
@@ -423,12 +423,12 @@
     </widget>
     <ePixmap position="1770,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="1770,850" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
-    <widget name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
-    <widget name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 25" halign="left" backgroundColor="background20" transparent="1" valign="top" noWrap="1" />
+    <ePixmap objectTypes="green,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap objectTypes="yellow,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap objectTypes="blue,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="green,Label,Button" name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
   </screen>
   <screen name="MenuCL" flags="wfNoBorder">
     <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/cutsel.png" alphatest="blend" transparent="1" zPosition="13">
@@ -3444,7 +3444,7 @@
     <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="370,137" size="295,8" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,225" size="715,525" font="RegularB; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,230" size="715,520" font="RegularB; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- NEXT EVENTS -->
@@ -3514,7 +3514,7 @@
     <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="150,155" size="515,8" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="Label" position="50,250" size="715,530" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="ServiceEvent" render="Label" position="50,255" size="715,520" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- Program Infobar  -->
@@ -4488,7 +4488,7 @@ if not self["videofps"].text:
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <widget source="Title" render="Label" position="645,75" size="1005,60" font="RegularB; 40" backgroundColor="background20" halign="center" transparent="1" foregroundColor="sky" zPosition="3" />
-    <widget source="Event" render="Label" position="60,100" size="565,100" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
+    <widget source="Event" render="Label" position="60,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,210" size="565,740" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
@@ -4502,10 +4502,10 @@ if not self["videofps"].text:
   <screen name="EPGSelectionMulti" position="center,center" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
-    <widget source="Event" render="Label" position="60,100" size="565,100" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
+    <widget source="Event" render="Label" position="58,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,220" size="565,740" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,210" size="565,740" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="blend" zPosition="5" />
@@ -4525,7 +4525,7 @@ if not self["videofps"].text:
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <widget source="Title" render="Label" position="650,45" size="890,90" font="Regular; 32" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget source="Event" render="Label" position="60,100" size="570,100" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
+    <widget source="Event" render="Label" position="60,80" size="570,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,740" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
@@ -4628,7 +4628,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel3" />
     <ePixmap position="40,420" size="180,180" scale="1" zPosition="10" pixmap="GlamourAuraFHD-ATV/icons/epgmulti.png" transparent="1" alphatest="on" />
     <widget source="Title" render="Label" position="240,45" size="1420,90" font="RegularB; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget source="Event" render="Label" position="240,545" size="900,40" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center">
+    <widget source="Event" render="Label" position="240,550" size="900,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" noWrap="1">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="Event" render="Label" position="240,585" size="150,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
@@ -4645,7 +4645,7 @@ if not self["videofps"].text:
     </widget>
     <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
     <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,320" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="239,620" size="900,330" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
