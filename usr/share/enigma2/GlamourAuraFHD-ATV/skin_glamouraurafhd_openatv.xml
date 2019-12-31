@@ -945,10 +945,10 @@
       <convert type="TemplatedMultiContent">
   {"template": [
    MultiContentEntryPixmapAlphaBlend(pos=(10,0), size=(140, 80), flags = BT_SCALE, png=6), #index 6 is the picon
-   MultiContentEntryText(pos = (150, 0), size = (35, 80), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0x00ffffff, color_sel = 0x00f47d19), #index 1 is the selected program icon
-   MultiContentEntryText(pos = (190, 0), size = (250, 80), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text = 2, color=0x00c8eaff, color_sel=0x00ffffc6), #index 2 is the channel name
-   MultiContentEntryText(pos = (450, 2), size = (850, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 3, color = 0x00ffffc6, color_sel = 0xdeff), #index 3 is the event name
-   MultiContentEntryText(pos = (450, 45), size = (850, 35), font = 3, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 5, color=0x90e6, color_sel = 0x00ffffff) #index 5 is the event duration
+   MultiContentEntryText(pos = (150, 0), size = (35, 80), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0xffffff, color_sel = 0xf47d19), #index 1 is the selected program icon
+   MultiContentEntryText(pos = (190, 0), size = (250, 80), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text = 2, color=0xc8eaff, color_sel=0xffffc6), #index 2 is the channel name
+   MultiContentEntryText(pos = (450, 2), size = (850, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 3, color = 0xffffc6, color_sel = 0xdeff), #index 3 is the event name
+   MultiContentEntryText(pos = (450, 45), size = (850, 35), font = 3, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 5, color=0x90e6, color_sel = 0xffffff) #index 5 is the event duration
    ],
  "fonts": [gFont("RegularB", 35), gFont("Regular", 32), gFont("Caps", 30), gFont("Regular", 28)],
  "itemHeight": 80
@@ -957,13 +957,13 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,770" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,920" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="menu" render="Listbox" position="540,770" size="1305,195" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,770" size="1305,190" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
   <convert type="TemplatedMultiContent">
   {"template": [
-   MultiContentEntryText(pos = (5, 0), size = (1300, 195), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
+   MultiContentEntryText(pos = (5, 0), size = (1300, 190), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
    ],
  "fonts": [gFont("Regular", 30)],
- "itemHeight": 195
+ "itemHeight": 190
   }
   </convert>
 </widget>
@@ -1152,13 +1152,13 @@
       <convert type="TemplatedMultiContent">
  {"template": [
   MultiContentEntryText(pos = (5, 0), size = (160, 90), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 0), # index 0 is caid
-  MultiContentEntryText(pos = (170, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 1, color = 0x00ffffff, color_sel = 0x00f47d19), # index 1 is csystem
+  MultiContentEntryText(pos = (170, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 1, color = 0xffffff, color_sel = 0xf47d19), # index 1 is csystem
   MultiContentEntryText(pos = (235, 0), size = (260, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 2), # index 2 is hop 1
   MultiContentEntryText(pos = (500, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 3), # index 3 is hop 2
   MultiContentEntryText(pos = (665, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 4), # index 4 is hop 3
   MultiContentEntryText(pos = (830, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 5), # index 5 is hop 4
   MultiContentEntryText(pos = (995, 0), size = (160, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 6), # index 6 is hop 5
-  MultiContentEntryText(pos = (1155, 0), size = (150, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 7, color = 0x00ffffc6, color_sel = 0xdeff) # index 7 is sum of cards for caid
+  MultiContentEntryText(pos = (1155, 0), size = (150, 90), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 7, color = 0xffffc6, color_sel = 0xdeff) # index 7 is sum of cards for caid
   ],
  "fonts": [gFont("RegularB", 30),gFont("Regular", 28)],
  "itemHeight": 90
@@ -1175,7 +1175,7 @@
       <convert type="TemplatedMultiContent">
  {"template": [
   MultiContentEntryText(pos = (5, 0), size = (90, 90), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is caid
-  MultiContentEntryText(pos = (95, 0), size = (220, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0x00ffffff, color_sel = 0x00f47d19), # index 1 is csystem
+  MultiContentEntryText(pos = (95, 0), size = (220, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0xffffff, color_sel = 0xf47d19), # index 1 is csystem
   MultiContentEntryText(pos = (315, 0), size = (50, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 2), # index 2 is hop 1
   MultiContentEntryText(pos = (365, 0), size = (50, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 3), # index 3 is hop 2
   MultiContentEntryText(pos = (415, 0), size = (50, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 4), # index 4 is hop 3
@@ -1183,7 +1183,7 @@
   MultiContentEntryText(pos = (515, 0), size = (50, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 6), # index 6 is hop 5
   MultiContentEntryText(pos = (565, 0), size = (100, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 7), # index 7 is sum of cards for caid
   MultiContentEntryText(pos = (665, 0), size = (150, 90), font=1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text = 8), # index 8 is reshare
-  MultiContentEntryText(pos = (815, 1), size = (490, 90), font=2, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 9, color = 0x00ffffc6, color_sel = 0xdeff) # index 9 is providers
+  MultiContentEntryText(pos = (815, 1), size = (490, 90), font=2, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 9, color = 0xffffc6, color_sel = 0xdeff) # index 9 is providers
   ],
  "fonts": [gFont("RegularB", 32),gFont("Regular", 30),gFont("Regular", 21)],
  "itemHeight": 90
@@ -1597,20 +1597,6 @@
     <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
-  <screen name="VideoClippingCoordinates" position="0,0" size="1920,1080" title="VideoEnhancementPreview" flags="wfNoBorder" backgroundColor="transparent">
-    <eLabel name="videoclippingbackground" position="770,400" size="1150,330" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom2.png" position="770,730" zPosition="-11" size="1150,75" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1620,400" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="770,270" zPosition="-2" size="1150,130" alphatest="on" transparent="0" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="355,355" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videoclipping.png" alphatest="blend" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="790,405" size="1055,250" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/streamsel.png" alphatest="blend" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="885,680" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1365,680" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="cancel" position="820,670" size="360,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="ok" position="1300,670" size="360,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  </screen>
   <screen name="installedPlugins" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <widget name="InfoPixmap" pixmap="GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
@@ -1621,7 +1607,7 @@
     <panel name="Title1" />
     <widget name="label" position="810,90" size="1050,800" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
-  <screen name="LED_GigaSetup" position="0,0" size="1920,1080" title="VideoEnhancement Setup" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="LED_GigaSetup" position="0,0" size="1920,1080" title="LED GigaSetup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />

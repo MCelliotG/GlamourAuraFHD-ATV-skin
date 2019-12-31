@@ -12,7 +12,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="75,605" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videoenhancement.png" alphatest="blend" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,670" size="1305,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,670" size="1305,150" itemHeight="50" scrollbarMode="showOnDemand" foregroundColorSelected="lightciel" backgroundColorSelected="background20" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
     <widget source="introduction" render="Label" position="1180,835" size="670,50" font="Regular; 33" halign="center" valign="top" transparent="1" foregroundColor="sky" zPosition="4" backgroundColor="background20" />
     <panel name="FullKeys1" />
   </screen>
@@ -25,7 +25,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,750" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,830" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,750" size="1320,130" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" foregroundColorSelected="lightciel" backgroundColorSelected="background20" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="75,720" size="400,200" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" halign="center" />
     <widget name="HelpWindow" position="540,750" size="1320,130" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="FullKeys1" />
@@ -1390,7 +1390,7 @@
       <convert type="TemplatedMultiContent">
   {"template": [
  	MultiContentEntryText(pos = (20, 0), size = (1200, 40), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0),
- 	MultiContentEntryText(pos = (40, 40), size = (380, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 1, color = 0x00ffffff, color_sel = 0x00f47d19),
+ 	MultiContentEntryText(pos = (40, 40), size = (380, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 1, color = 0xffffff, color_sel = 0xf47d19),
  	MultiContentEntryText(pos = (430, 40), size = (380, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2),
  	MultiContentEntryText(pos = (820, 40), size = (380, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 3),
  	MultiContentEntryText(pos = (50, 70), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 4),
@@ -1685,7 +1685,7 @@
   </screen>
 
     <!-- Video Clipping --> 
-  <screen name="VideoClippingCoordinates" position="0,0" size="1920,1080" title="VideoEnhancementPreview" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="VideoClippingCoordinates" position="0,0" size="1920,1080" title="VideoClipping Coordinates" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="videoclippingbackground" position="770,400" size="1150,330" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom2.png" position="770,730" zPosition="-11" size="1150,75" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1620,400" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
@@ -1963,23 +1963,23 @@
     <ePixmap position="593,208" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="blend" />
     <ePixmap position="725,208" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="blend" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" alphatest="blend" position="640,205" size="90,60" zPosition="3" transparent="1" />
-    <widget name="mem_0" position="665,500" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_1" position="605,350" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_2" position="665,350" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_3" position="725,350" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_4" position="605,400" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_5" position="665,400" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_6" position="725,400" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_7" position="605,450" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_8" position="665,450" size="40,30" alphatest="blend" zPosition="8" />
-    <widget name="mem_9" position="725,450" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_0" pixmaps="~/img/mem_0_empty.png,~/img/mem_0_stored.png,~/img/mem_0_selected.png" position="665,500" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_1" pixmaps="~/img/mem_1_empty.png,~/img/mem_1_stored.png,~/img/mem_1_selected.png" position="605,350" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_2" pixmaps="~/img/mem_2_empty.png,~/img/mem_2_stored.png,~/img/mem_2_selected.png" position="665,350" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_3" pixmaps="~/img/mem_3_empty.png,~/img/mem_3_stored.png,~/img/mem_3_selected.png" position="725,350" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_4" pixmaps="~/img/mem_4_empty.png,~/img/mem_4_stored.png,~/img/mem_4_selected.png" position="605,400" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_5" pixmaps="~/img/mem_5_empty.png,~/img/mem_5_stored.png,~/img/mem_5_selected.png" position="665,400" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_6" pixmaps="~/img/mem_6_empty.png,~/img/mem_6_stored.png,~/img/mem_6_selected.png" position="725,400" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_7" pixmaps="~/img/mem_7_empty.png,~/img/mem_7_stored.png,~/img/mem_7_selected.png" position="605,450" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_8" pixmaps="~/img/mem_8_empty.png,~/img/mem_8_stored.png,~/img/mem_8_selected.png" position="665,450" size="40,30" alphatest="blend" zPosition="8" />
+    <widget name="mem_9" pixmaps="~/img/mem_9_empty.png,~/img/mem_9_stored.png,~/img/mem_9_selected.png" position="725,450" size="40,30" alphatest="blend" zPosition="8" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="545,300" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
     <widget name="dab_channel" position="845,165" size="240,150" valign="center" halign="right" zPosition="7" foregroundColor="lightciel" font="LCDA; 150" transparent="1" backgroundColor="background20" noWrap="1" />
     <widget name="freq" position="1100,165" size="750,150" valign="center" halign="center" zPosition="8" foregroundColor="cyan" font="LCDA; 150" transparent="1" backgroundColor="background20" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="1000,330" size="810,45" zPosition="-3" alphatest="blend" transparent="1" />
     <ePixmap position="1010,340" size="84,30" zPosition="10" pixmap="GlamourAuraFHD-ATV/icons/infobar/rds_on.png" transparent="1" alphatest="blend" />
     <ePixmap position="1040,400" size="45,30" zPosition="10" pixmap="GlamourAuraFHD-ATV/icons/infobar/rt_on.png" transparent="1" alphatest="blend" />
-    <widget source="Title" render="Label" position="1100,330" size="750,70" font="Numbers; 60" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="4" foregroundColor="cyan2" noWrap="1" />
+    <widget source="Title" render="Label" position="1100,330" size="750,70" font="RegularB; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="4" foregroundColor="cyan2" noWrap="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1195,370" size="540,30" zPosition="-3" alphatest="blend" transparent="1" />
     <widget name="radiotext" position="1100,405" size="750,140" valign="top" halign="center" zPosition="6" foregroundColor="amarillo" font="Regular; 32" transparent="1" backgroundColor="background20" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1045,500" size="810,45" zPosition="-3" alphatest="blend" transparent="1" />

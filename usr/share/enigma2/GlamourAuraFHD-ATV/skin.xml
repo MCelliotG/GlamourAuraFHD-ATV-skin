@@ -22,12 +22,15 @@
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_emc.xml" />
   <colors>
     <color name="amarillo" value="#00ffffc6" />
+    <color name="amaryllis" value="#00bb2570" />
     <color name="background" value="#30000000" />
     <color name="background10" value="#10000000" />
     <color name="background20" value="#20000000" />
     <color name="background40" value="#40000000" />
     <color name="background90" value="#90000000" />
     <color name="backUI" value="#00003258" />
+    <color name="berry" value="#00b670ff" />
+    <color name="berry2" value="#005a5cff" />
     <color name="black" value="#00000000" />
     <color name="blue" value="#000064c7" />
     <color name="cabbage" value="#0070ad11" />
@@ -44,8 +47,15 @@
     <color name="green" value="#00389416" />
     <color name="grey" value="#00bbbbbb" />
     <color name="grey2" value="#00aaaaaa" />
+    <color name="lawn" value="#000cac5c" />
+    <color name="lightberry" value="#00c9b9fe" />
     <color name="lightciel" value="#00c8eaff" />
+    <color name="lightlime" value="#00c8ffc8" />
     <color name="lightmango" value="#00face8d" />
+    <color name="lightrose" value="#00f388ac" />
+    <color name="lime" value="#0018ce18" />
+    <color name="lime1" value="#00a2bd3a" />
+    <color name="lime2" value="#00bada40" />
     <color name="mango" value="#00ff6f20" />
     <color name="mango1" value="#00ffb400" />
     <color name="mango2" value="#00ffcc00" />
@@ -55,7 +65,11 @@
     <color name="pink" value="#00ffaaf4" />
     <color name="purple" value="#006c0aab" />
     <color name="red" value="#00ff0000" />
+    <color name="rose" value="#00ce0020" />
+    <color name="rose1" value="#00e94457" />
+    <color name="rose2" value="#00eb8b88" />
     <color name="sky" value="#0018b9ce" />
+    <color name="sunrise" value="#008373fe" />
     <color name="sunset" value="#00ff5a00" />
     <color name="transparent" value="#ffffffff" />
     <color name="transparent2" value="#ff000000" />
@@ -2067,22 +2081,22 @@
   <screen name="EventInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnow.png" position="400,300" zPosition="-2" size="1520,230" alphatest="on" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnext.png" position="400,530" zPosition="-2" size="1520,230" alphatest="on" transparent="1" />
-    <widget source="session.Event_Now" render="Label" position="425,295" size="720,35" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
+    <widget source="session.Event_Now" render="Label" position="425,295" size="720,30" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
       <convert type="EventName">Genre</convert>
     </widget>
-    <widget source="session.Event_Now" render="Label" position="425,740" size="720,35" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
+    <widget source="session.Event_Now" render="Label" position="425,745" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,330" size="720,410" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
+    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,325" size="720,420" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="1155,295" size="720,35" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
+    <widget source="session.Event_Next" render="Label" position="1155,295" size="720,30" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
       <convert type="EventName">Genre</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="1155,740" size="720,35" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
+    <widget source="session.Event_Next" render="Label" position="1155,745" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,330" size="720,410" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
+    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="720,420" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
   </screen>
@@ -2427,7 +2441,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="lightciel" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="lightciel" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="540,55" size="700,50" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" />
     <widget name="HelpWindow" position="540,830" size="1320,130" zPosition="11" transparent="1" />
   </screen>
@@ -3071,13 +3085,13 @@
         }
       </convert>
     </widget>
-    <widget source="menu" render="Listbox" position="830,685" size="860,170" scrollbarMode="showNever" selectionDisabled="1" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5">
+    <widget source="menu" render="Listbox" position="810,685" size="880,200" scrollbarMode="showNever" selectionDisabled="1" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
-            MultiContentEntryText(pos = (0, 0), size = (850, 145), flags = RT_HALIGN_CENTER|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
+            MultiContentEntryText(pos = (0, 0), size = (880, 200), flags = RT_HALIGN_CENTER|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
           ],
         "fonts": [gFont("Regular", 32)],
-        "itemHeight": 170
+        "itemHeight": 200
         }
       </convert>
     </widget>
