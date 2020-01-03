@@ -1,7 +1,9 @@
 #!/bin/sh
 rm -rf /usr/share/enigma2/GlamourAuraFHD-ATV
+if [ ! -f /usr/share/enigma2/GlamourAuraBerry-ATV/skin.xml ] || [ ! -f /usr/share/enigma2/GlamourAuraLime-ATV/skin.xml ] || [ ! -f /usr/share/enigma2/GlamourAuraMango-ATV/skin.xml ] || [ ! -f /usr/share/enigma2/GlamourAuraRose-ATV/skin.xml ]; then
 rm -rf /usr/lib/enigma2/python/Components/Converter/Glam*
 rm -rf /usr/lib/enigma2/python/Components/Renderer/Glam*
+fi
 echo "                                                                     "
 echo "Glamour Aura FHD ATV skin was successfully removed from your receiver"
 echo "                                                                     "

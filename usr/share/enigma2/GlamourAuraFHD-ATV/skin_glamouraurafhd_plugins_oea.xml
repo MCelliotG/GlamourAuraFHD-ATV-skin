@@ -12,7 +12,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="75,605" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videoenhancement.png" alphatest="blend" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,670" size="1305,150" itemHeight="50" scrollbarMode="showOnDemand" foregroundColorSelected="lightciel" backgroundColorSelected="background20" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,670" size="1305,150" itemHeight="50" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
     <widget source="introduction" render="Label" position="1180,835" size="670,50" font="Regular; 33" halign="center" valign="top" transparent="1" foregroundColor="sky" zPosition="4" backgroundColor="background20" />
     <panel name="FullKeys1" />
   </screen>
@@ -25,7 +25,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,750" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,830" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,750" size="1320,130" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" foregroundColorSelected="lightciel" backgroundColorSelected="background20" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" foregroundColorSelected="cyan1" backgroundColorSelected="background20" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="75,720" size="400,200" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" halign="center" />
     <widget name="HelpWindow" position="540,750" size="1320,130" zPosition="11" transparent="1" alphatest="blend" />
     <panel name="FullKeys1" />

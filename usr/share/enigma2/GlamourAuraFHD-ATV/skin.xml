@@ -30,7 +30,7 @@
     <color name="background90" value="#90000000" />
     <color name="backUI" value="#00003258" />
     <color name="berry" value="#00b670ff" />
-    <color name="berry2" value="#005a5cff" />
+    <color name="berry2" value="#004a4cff" />
     <color name="black" value="#00000000" />
     <color name="blue" value="#000064c7" />
     <color name="cabbage" value="#0070ad11" />
@@ -2441,7 +2441,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="lightciel" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="540,55" size="700,50" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" />
     <widget name="HelpWindow" position="540,830" size="1320,130" zPosition="11" transparent="1" />
   </screen>
