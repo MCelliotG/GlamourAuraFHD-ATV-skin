@@ -3,9 +3,10 @@ Version: G.08
 Section: skins
 Priority: optional
 Architecture: all
-License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-OE: OpenATV
-Maintainer: MCelliotG 
+Maintainer: MCelliotG
 Description: Glamour Aura FHD skin for new generation STBs with OpenATV based images
+Replaces: enigma2-plugin-skins-glamourauraberry-atv, enigma2-plugin-skins-glamourauralime-atv, enigma2-plugin-skins-glamourauramango-atv, enigma2-plugin-skins-glamouraurarose-atv
 Source: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
 Homepage: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
+OE: OpenATV
+License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
