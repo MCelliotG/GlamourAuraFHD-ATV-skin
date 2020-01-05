@@ -3,7 +3,7 @@ echo "                                   *******                                
 echo "                         ******               *****                         "
 echo "                    ****                            ****                    "
 echo "                 ***                                     ***                "
-echo "               **     GLAMOUR AURA FHD SKIN FOR OPENATV      **             "
+echo "               **     GLAMOUR AURA FHD SKIN FOR OPENATV     **              "
 echo "                            a skin by MCelliotG                             "
 echo "                                                                            "
 echo "                                                                            "
@@ -25,6 +25,6 @@ if [ -f /usr/share/enigma2/GlamourAuraFHD-ATV/skin.xml ]; then
     echo "    was found and removed successfully!            "
     echo "                                                   "
 fi
-echo "                                                           "
-echo "Glamour Aura FHD ATV skin is now being installed...        "
-echo "                                                           "
+echo "                                                       "
+echo "Glamour Aura FHD ATV skin is now being installed...    "
+echo "                                                       "
