@@ -772,7 +772,7 @@
   <widget source="Event" render="Progress" position="185,875" size="540,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
     <convert type="EventTime">Progress</convert>
   </widget>
-  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,135" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,135" font="Regular; 25" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
     <convert type="EventName">ExtendedDescription</convert>
   </widget>
   <widget source="Event" render="Label" position="425,890" size="180,40" font="Regular;28" backgroundColor="background20" foregroundColor="cyan1" transparent="1" halign="center" valign="center" zPosition="7">
@@ -956,14 +956,14 @@
   </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,770" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,920" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="menu" render="Listbox" position="540,770" size="1305,190" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,940" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget source="menu" render="Listbox" position="540,770" size="1305,210" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
   <convert type="TemplatedMultiContent">
   {"template": [
-   MultiContentEntryText(pos = (5, 0), size = (1300, 190), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
+   MultiContentEntryText(pos = (5, 0), size = (1300, 210), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
    ],
  "fonts": [gFont("Regular", 30)],
- "itemHeight": 190
+ "itemHeight": 210
   }
   </convert>
 </widget>
