@@ -22,7 +22,7 @@
   <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_emc.xml" />
   <colors>
     <color name="amarillo" value="#00ffffc6" />
-    <color name="amaryllis" value="#00bb2570" />
+    <color name="amaryllis" value="#00e1107c" />
     <color name="background" value="#30000000" />
     <color name="background10" value="#10000000" />
     <color name="background20" value="#20000000" />
@@ -1510,19 +1510,19 @@
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!-- Current and next event -->
-    <widget source="session.Event_Now" render="Label" position="360,838" size="105,50" font="Regular; 40" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" zPosition="11" noWrap="1" valign="center">
+    <widget source="session.Event_Now" render="Label" position="360,837" size="105,50" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" zPosition="11" noWrap="1" valign="center">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <eLabel text="-" position="465,838" size="15,50" font="Regular; 40" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" zPosition="11" valign="center" />
-    <widget source="session.Event_Now" render="Label" position="480,838" size="105,50" font="Regular; 40" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
+    <eLabel text="-" position="465,837" size="15,50" font="Regular; 38" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" zPosition="11" valign="center" />
+    <widget source="session.Event_Now" render="Label" position="480,837" size="105,50" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRoll" position="595,838" size="840,50" font="Regular; 40" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="session.Event_Now" render="Label" position="1450,838" size="180,50" font="Regular; 33" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="6" valign="center">
+    <widget source="session.Event_Now" render="GlamRoll" position="595,837" size="840,50" font="Regular; 38" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
+  <convert type="EventName">Name</convert>
+</widget>
+    <widget source="session.Event_Now" render="Label" position="1450,837" size="180,50" font="Regular; 33" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="6" valign="center">
       <convert type="EventTime">Remaining</convert>
       <convert type="RemainingToText">InMinutes</convert>
     </widget>
@@ -1530,19 +1530,19 @@
     <widget source="session.Event_Now" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="360,887" size="1270,7" zPosition="7" transparent="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRoll" position="595,898" size="840,40" font="Regular; 32" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="session.Event_Next" render="Label" position="360,897" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
+    <widget source="session.Event_Next" render="GlamRoll" position="595,894" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
+  <convert type="EventName">Name</convert>
+</widget>
+    <widget source="session.Event_Next" render="Label" position="360,894" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <eLabel text="-" position="465,897" size="15,40" font="Regular; 32" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
-    <widget source="session.Event_Next" render="Label" position="480,897" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
+    <eLabel text="-" position="465,894" size="15,40" font="Regular; 30" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
+    <widget source="session.Event_Next" render="Label" position="480,894" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="1450,898" size="180,40" font="Regular; 32" halign="left" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="top">
+    <widget source="session.Event_Next" render="Label" position="1450,894" size="180,40" font="Regular; 30" halign="left" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">Duration</convert>
       <convert type="ClockToText">InMinutes</convert>
     </widget>
@@ -3442,9 +3442,9 @@
     <widget source="ServiceEvent" render="Label" position="265,15" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=2,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0" position="50,170" size="715,50" font="RegularB; 34" backgroundColor="grey2" transparent="1" valign="center" halign="center" foregroundColor="black" zPosition="7">
-      <convert type="EventName">Name</convert>
-    </widget>
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=2,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0" position="50,170" size="720,50" font="RegularB; 32" backgroundColor="grey2" transparent="1" valign="center" halign="center" foregroundColor="black" zPosition="7">
+  <convert type="EventName">Name</convert>
+</widget>
     <widget source="ServiceEvent" render="Label" position="265,115" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">
@@ -3458,7 +3458,7 @@
     <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="370,137" size="295,8" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,230" size="715,520" font="RegularB; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,240" size="720,495" font="RegularB; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- NEXT EVENTS -->

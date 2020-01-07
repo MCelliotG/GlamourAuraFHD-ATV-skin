@@ -35,7 +35,7 @@
     <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="765,900" size="1100,45" foregroundColor="cyan1" font="Regular; 30" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="EMCMovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,445" size="585,440" font="Regular; 30" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,440" size="585,450" font="Regular; 30" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EMCEventName">FullDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">
