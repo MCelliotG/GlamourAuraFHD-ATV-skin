@@ -716,7 +716,7 @@
     <widget name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
   </screen>
   <!-- 08c. EPG vertical -->
-  <screen name="EPGvertical" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+<screen name="EPGvertical" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
   <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
   <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
@@ -754,7 +754,7 @@
   <ePixmap position="1510,145" size="65,60" zPosition="2" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" transparent="1" alphatest="blend" />
   <ePixmap position="1800,165" size="65,60" zPosition="2" pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" transparent="1" alphatest="blend" />
   <!-- Event Descriptions -->
-  <ePixmap position="1055,910" size="810,45" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" transparent="1" alphatest="blend" />
+  <ePixmap position="1055,895" size="810,45" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" transparent="1" alphatest="blend" />
   <ePixmap position="230,820" size="540,45" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowt540.png" transparent="1" alphatest="blend" />
   <ePixmap position="835,820" size="65,60" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" transparent="1" alphatest="blend" />
   <widget source="Event" render="Label" position="80,825" size="750,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" valign="center" noWrap="1">
@@ -772,7 +772,7 @@
   <widget source="Event" render="Progress" position="185,875" size="540,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
     <convert type="EventTime">Progress</convert>
   </widget>
-  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,135" font="Regular; 25" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,120" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
     <convert type="EventName">ExtendedDescription</convert>
   </widget>
   <widget source="Event" render="Label" position="425,890" size="180,40" font="Regular;28" backgroundColor="background20" foregroundColor="cyan1" transparent="1" halign="center" valign="center" zPosition="7">
@@ -849,7 +849,7 @@
   <ePixmap position="800,145" size="65,60" zPosition="2" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" transparent="1" alphatest="blend" />
   <ePixmap position="1085,165" size="65,60" zPosition="2" pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" transparent="1" alphatest="blend" />
   <!-- Event Descriptions -->
-  <ePixmap position="1335,920" size="540,30" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" transparent="1" alphatest="blend" />
+  <ePixmap position="1335,910" size="540,30" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" transparent="1" alphatest="blend" />
   <ePixmap position="1245,550" size="540,40" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowt540.png" transparent="1" alphatest="blend" />
   <ePixmap position="1155,650" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" transparent="1" alphatest="blend" />
   <widget source="Event" render="GlamRoll" position="1155,555" size="720,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" valign="center" noWrap="1">
@@ -867,7 +867,7 @@
   <widget source="Event" render="Progress" position="1310,605" size="410,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
     <convert type="EventTime">Progress</convert>
   </widget>
-  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1155,650" size="720,300" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+  <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,650" size="715,290" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
     <convert type="EventName">ExtendedDescription</convert>
   </widget>
   <widget source="Event" render="Label" position="1430,615" size="180,35" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan" transparent="1" halign="center" valign="center" zPosition="7">
@@ -956,14 +956,14 @@
   </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,770" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,940" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="menu" render="Listbox" position="540,770" size="1305,210" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,930" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget source="menu" render="Listbox" position="540,770" size="1305,200" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
   <convert type="TemplatedMultiContent">
   {"template": [
-   MultiContentEntryText(pos = (5, 0), size = (1300, 210), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
+   MultiContentEntryText(pos = (5, 0), size = (1300, 200), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
    ],
  "fonts": [gFont("Regular", 30)],
- "itemHeight": 210
+ "itemHeight": 200
   }
   </convert>
 </widget>
