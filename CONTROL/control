@@ -1,11 +1,10 @@
 Package: enigma2-plugin-skins-glamouraurafhd-atv
-Version: G.08
+Version: G.09
 Section: skins
 Priority: optional
 Architecture: all
 Maintainer: MCelliotG
 Description: Glamour Aura FHD skin for new generation STBs with OpenATV based images
-Replaces: enigma2-plugin-skins-glamour-aura-fhd-atv, enigma2-plugin-skins-glamourauraberry-atv, enigma2-plugin-skins-glamourauralime-atv, enigma2-plugin-skins-glamourauramango-atv, enigma2-plugin-skins-glamouraurarose-atv
 Source: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
 Homepage: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
 OE: OpenATV
