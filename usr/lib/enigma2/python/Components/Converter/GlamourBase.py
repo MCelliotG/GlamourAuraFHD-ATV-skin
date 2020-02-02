@@ -566,7 +566,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbw <= -4.3) and (orbw >= -4.4):
 			sat = "Amos 3,7/Thor 3"
 		elif (orbw <= -4.7) and (orbw >= -5.4):
-			sat = "Eutelsat 5 West A"
+			sat = "Eutelsat 5WA,5WB"
 		elif (orbw <= -6.7) and (orbw >= -7.2):
 			sat = "Nilesat 201/Eutelsat 7WA"
 		elif (orbw <= -7.3) and (orbw >= -7.4):
