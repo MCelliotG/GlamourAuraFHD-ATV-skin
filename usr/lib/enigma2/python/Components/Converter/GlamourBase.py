@@ -515,12 +515,10 @@ class GlamourBase(Poll, Converter, object):
 			sat = "Intelsat 28"
 		elif (orbe >= 31.2) and (orbe <= 31.8):
 			sat = "Astra 5B"
-		elif (orbe >= 30.9) and (orbe <= 31.1):
-			sat = "Eutelsat 31A/Hylas 2"
-		elif (orbe >= 30.7) and (orbe <= 30.8):
-			sat = "Eutelsat 31A"
+		elif (orbe >= 30.7) and (orbe <= 31.1):
+			sat = "Hylas 2,3"
 		elif (orbe >= 30.2) and (orbe <= 30.6):
-			sat = "Arabsat 5A"
+			sat = "Arabsat 5A,6A"
 		elif (orbe >= 28.0) and (orbe <= 28.8):
 			sat = "Astra 2E,2F,2G"
 		elif (orbe >= 25.2) and (orbe <= 26.3):
@@ -548,7 +546,7 @@ class GlamourBase(Poll, Converter, object):
 		elif (orbe >= 8.7) and (orbe <= 9.3):
 			sat = "Eutelsat 9B,Ka-Sat"
 		elif (orbe >= 6.7) and (orbe <= 7.3):
-			sat = "Eutelsat 7A,7B,7C"
+			sat = "Eutelsat 7B,7C"
 		elif (orbe >= 4.5) and (orbe <= 5.4):
 			sat = "Astra 4A/SES 5"
 		elif (orbe >= 3.0) and (orbe <= 3.6):
