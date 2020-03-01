@@ -1,5 +1,5 @@
 <skin>
-  <!-- Glamour Aura FHD by MCelliot_g for OpenATV/OE-Alliance based images -->
+  <!-- Glamour Aura FHD by MCelliotG for OpenATV/OE-Alliance based images -->
   <!-- LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007. -->
   <!-- This skin was created for new generation Enigma2 receivers. MINIMAL requirement is an STB running Enigma2 with a dual CPU @ 1000 MHz. -->
   <!-- This skin is not guaranteed to work in older E2 receivers with slower CPUs. Use at your own risk. -->
@@ -3369,7 +3369,7 @@
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/about.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="AboutScrollLabel" position="540,90" size="1305,720" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
-    <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="2,2" transparent="1" valign="top" halign="center" zPosition="1" />
+    <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="2,2" transparent="1" valign="top" halign="center" zPosition="1" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. Service Info -->
@@ -3404,7 +3404,7 @@
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/info.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="TranslatorName" render="Label" position="540,90" size="1305,165" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="6" />
     <widget source="TranslationInfo" render="Label" position="540,270" size="1305,585" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" zPosition="8" />
-    <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
+    <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
   </screen>
   <!-- 08. Streaming Clients Info -->
   <screen name="StreamingClientsInfo" position="0,0" size="1920,1080" title="Streaming Clients Info" flags="wfNoBorder" backgroundColor="transparent">
