@@ -1,4 +1,4 @@
-#Glamour Aura FHD-ATV skin by MCelliot_g for OpenATV/OE-Alliance based images#
+#Glamour Aura FHD-ATV skin by MCelliotG for OpenATV/OE-Alliance based images#
 
 LICENSE: This skin is licensed under GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007.
 
@@ -6,7 +6,7 @@ This skin was created for new generation Enigma2 receivers. MINIMAL requirement 
 
 This skin is not guaranteed to work in older E2 receivers with slower CPUs. Use at your own risk.
 
-This skin is FREE software. You can use it for free on your E2 receivers running OpenATV 6.0 and newer images.
+This skin is FREE software. You can use it for free on your E2 receivers running OpenATV 6.3 and newer images.
 
 You are NOT allowed to modify the first line of the skin and its graphics.
 

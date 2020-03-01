@@ -127,7 +127,7 @@
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <panel name="Title1" />
-    <ePixmap position="660,840" size="100,100" pixmap="GlamourAuraFHD-ATV/icons/tmdb-small.png" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap position="660,840" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="cyan1" zPosition="7" transparent="1" backgroundColor="background20" />
     <widget name="starsbg" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_empty.png" position="140,660" zPosition="5" size="375,40" alphatest="blend" transparent="1" />
     <widget name="stars" position="140,660" size="375,40" pixmap="GlamourAuraFHD-ATV/icons/menuicons/starsbar_filled.png" alphatest="blend" transparent="1" zPosition="6" />
@@ -220,7 +220,7 @@
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
     <panel name="Title1" />
-    <ePixmap position="660,840" size="100,100" pixmap="GlamourAuraFHD-ATV/icons/tmdb-small.png" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap position="660,840" size="100,100" pixmap="GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="sky" zPosition="7" transparent="1" backgroundColor="background20" />
     <widget name="movielist" font="Regular; 32" position="660,145" size="1150,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="resulttext" position="50,150" size="590,780" font="Regular;28" zPosition="6" transparent="1" valign="center" backgroundColor="sky" />

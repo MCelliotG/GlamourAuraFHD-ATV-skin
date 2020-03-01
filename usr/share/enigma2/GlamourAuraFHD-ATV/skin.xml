@@ -30,13 +30,15 @@
     <color name="background90" value="#90000000" />
     <color name="backUI" value="#00003258" />
     <color name="berry" value="#00b670ff" />
-    <color name="berry2" value="#004a4cff" />
+    <color name="berry2" value="#00706dff" />
     <color name="black" value="#00000000" />
     <color name="blue" value="#000064c7" />
     <color name="cabbage" value="#0070ad11" />
     <color name="clearcyan" value="#300090e6" />
+    <color name="clearlime" value="#3018ce18" />
     <color name="clearorange" value="#30f47d19" />
     <color name="clearpurple" value="#306c0aab" />
+    <color name="clearrose" value="#30ce0020" />
     <color name="clearsky" value="#3018b9ce" />
     <color name="cyan" value="#000090e6" />
     <color name="cyan1" value="#0000deff" />
@@ -81,8 +83,6 @@
     <color name="transred" value="#00800000" />
     <color name="transwhite" value="#25ffffff" />
     <color name="turquoise" value="#00149baf" />
-    <color name="un1000deff" value="#1000deff" />
-    <color name="un1826" value="#00001826" />
     <color name="veraman" value="#45005050" />
     <color name="white" value="#00ffffff" />
     <color name="yellow" value="#00f2e000" />
@@ -460,20 +460,6 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/skin_default/icons/mp_buttons.png" position="1440,960" size="192,40" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
-  <screen name="MenuPM" flags="wfNoBorder">
-    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="blend" zPosition="5">
-      <convert type="TemplatedMultiContent">
-        {"template": [
-            MultiContentEntryPixmapAlphaBlend(pos = (30, 22), size = (72, 72), flags = BT_SCALE, png = 2), # index 2 is the status pixmap
-            MultiContentEntryText(pos = (115, 5), size = (1155, 60), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-            MultiContentEntryText(pos = (115, 65), size = (1155, 55), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
-          ],
-        "fonts": [gFont("RegularB", 36),gFont("Regular", 27)],
-        "itemHeight": 120
-        }
-      </convert>
-    </widget>
-  </screen>
   <!-- 02-0. Menu General -->
   <screen name="MainMenuTiles" flags="wfNoBorder">
     <!--widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/cisetup.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -841,7 +827,7 @@
       <convert type="MenuEntryCompare">language_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/view.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/serviceapp.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">serviceapp_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -5665,11 +5651,11 @@ if not self["videofps"].text:
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
-            MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (100, 0), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
             MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-            MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
+            MultiContentEntryPixmapAlphaBlend(pos = (0, 90), size = (0, 0), png = 5), # index 4 is the div pixmap
           ],
-        "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 27)],
         "itemHeight": 90
         }
       </convert>
@@ -5691,51 +5677,56 @@ if not self["videofps"].text:
   </screen>
   <!-- 08. Plugin Manager -->
   <screen name="PluginManager" position="0,0" size="1920,1080" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
-      <convert type="TemplatedMultiContent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <convert type="TemplatedMultiContent">
       {"templates":
-        {"default": (80,[
-            MultiContentEntryPixmapAlphaBlend(pos = (30, 4), size = (72, 72), flags = BT_SCALE, png = 5), # index 5 is the status pixmap
-            MultiContentEntryText(pos = (120, 2), size = (1180, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-            MultiContentEntryText(pos = (120, 50), size = (1155, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+        {"default": (90,[
+            MultiContentEntryPixmapAlphaBlend(pos = (30, 9), size = (72, 72), png = 5), # index 5 is the status pixmap
+            MultiContentEntryText(pos = (120, 0), size = (1180, 45), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (120, 45), size = (1155, 45), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
           ]),
-        "category": (80,[
-            MultiContentEntryText(pos = (20, 2), size = (1280, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-            MultiContentEntryText(pos = (20, 50), size = (1280, 40), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the description
+        "category": (90,[
+            MultiContentEntryText(pos = (20, 0), size = (1280, 45), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (20, 45), size = (1280, 45), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the description
           ])
         },
-        "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
-        "itemHeight": 80
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 27)],
+        "itemHeight": 90
       }
       </convert>
-    </widget>
-    <widget source="status" render="Label" position="540,810" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
-    <panel name="FullKeys1" />
-  </screen>
+  </widget>
+  <widget source="status" render="Label" position="540,810" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
+  <panel name="FullKeys1" />
+</screen>
   <!-- 09. Plugin Manager Info -->
   <screen name="PluginManagerInfo" position="0,0" size="1920,1080" title="Plugin manager activity" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="MenuPM" />
-    <widget source="status" render="Label" position="540,760" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
-    <panel name="FullKeys1" />
-  </screen>
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget source="list" render="Listbox" position="540,80" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
+  <convert type="TemplatedMultiContent">
+        {"template": [
+            MultiContentEntryPixmapAlphaBlend(pos = (10, 4), size = (72, 72), png = 2), # index 2 is the status pixmap
+            MultiContentEntryText(pos = (90, 0), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+            MultiContentEntryText(pos = (90, 45), size = (1200, 35), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
+          ],
+        "fonts": [gFont("RegularB", 34),gFont("Regular", 25)],
+        "itemHeight": 80
+        }
+      </convert>
+  </widget>
+  <widget source="status" render="Label" position="540,800" size="1305,50" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
+  <panel name="FullKeys1" />
+ </screen>
   <!-- 10. Plugin Manager Help -->
   <screen name="PluginManagerHelp" position="0,0" size="1920,1080" title="Plugin manager help" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="MenuPM" />
-    <widget source="status" render="Label" position="540,735" size="1305,60" halign="center" font="Regular; 33" transparent="1" zPosition="5" valign="center" foregroundColor="sky" backgroundColor="background20" />
-    <panel name="FullKeys1" />
-  </screen>
+  <panel name="PluginManagerInfo" />
+</screen>
   <!-- 11. Restore Menu Image -->
   <screen name="RestoreMenuImage" position="0,0" size="1920,1080" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
@@ -6133,7 +6124,7 @@ if not self["videofps"].text:
   </screen>
   <!-- 02. ServiceApp -->
   <screen name="ServiceAppDetectPlayers" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/view.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/icons/serviceapp.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />

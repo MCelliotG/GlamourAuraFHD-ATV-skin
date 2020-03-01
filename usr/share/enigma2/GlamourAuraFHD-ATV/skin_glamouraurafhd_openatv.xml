@@ -944,11 +944,11 @@
     <widget source="menu" render="Listbox" position="540,50" size="1305,720" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-   MultiContentEntryPixmapAlphaBlend(pos=(10,0), size=(140, 80), flags = BT_SCALE, png=6), #index 6 is the picon
    MultiContentEntryText(pos = (150, 0), size = (35, 80), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0xffffff, color_sel = 0xf47d19), #index 1 is the selected program icon
    MultiContentEntryText(pos = (190, 0), size = (250, 80), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER | RT_WRAP, text = 2, color=0xc8eaff, color_sel=0xffffc6), #index 2 is the channel name
    MultiContentEntryText(pos = (450, 2), size = (850, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 3, color = 0xffffc6, color_sel = 0xdeff), #index 3 is the event name
-   MultiContentEntryText(pos = (450, 45), size = (850, 35), font = 3, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 5, color=0x90e6, color_sel = 0xffffff) #index 5 is the event duration
+   MultiContentEntryText(pos = (450, 45), size = (850, 35), font = 3, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 5, color=0x90e6, color_sel = 0xffffff), #index 5 is the event duration
+   MultiContentEntryPixmapAlphaBlend(pos=(10,0), size=(140, 80), flags = BT_SCALE, png=6) #index 6 is the picon
    ],
  "fonts": [gFont("RegularB", 35), gFont("Regular", 32), gFont("Caps", 30), gFont("Regular", 28)],
  "itemHeight": 80
