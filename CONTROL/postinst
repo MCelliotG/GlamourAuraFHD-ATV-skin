@@ -5,7 +5,7 @@ if [ -f /tmp/GlamourAuraFHD-ATV/skin.xml ]; then
 fi
 echo "                                                                   "
 echo "Now, checking if additional Aura Color skins are already installed " 
-if [ -f /tmp/GlamourAuraBerry-ATV/skin.xml ] | [ -f /tmp/GlamourAuraLime-ATV/skin.xml ] | [ -f /tmp/GlamourAuraMango-ATV/skin.xml ] | [ -f /tmp/GlamourAuraRose-ATV/skin.xml ]; then
+if [ -f /tmp/GlamourAuraBerry-ATV/skin.xml ] || [ -f /tmp/GlamourAuraLime-ATV/skin.xml ] || [ -f /tmp/GlamourAuraMango-ATV/skin.xml ] || [ -f /tmp/GlamourAuraRose-ATV/skin.xml ]; then
   echo "Glamour Aura Color skins, found, now updating links to main skin... " 
   echo "                                                                    "
 fi
