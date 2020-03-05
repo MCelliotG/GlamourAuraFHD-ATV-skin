@@ -5670,10 +5670,10 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="statuspic" position="600,90" size="75,75" alphatest="blend" transparent="1" zPosition="5" scale="1" />
-    <widget source="author" render="Label" position="707,88" size="1140,75" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="6" halign="left" valign="center" foregroundColor="sky" />
-    <eLabel position="600,172" size="1245,3" backgroundColor="cyan" zPosition="3" transparent="0" foregroundColor="cyan1" />
+    <widget source="author" render="Label" position="705,90" size="1140,75" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="6" halign="left" valign="center" foregroundColor="sky" />
+    <eLabel position="600,170" size="1245,3" backgroundColor="cyan" zPosition="3" transparent="0" foregroundColor="cyan1" />
     <widget name="screenshot" position="600,315" size="480,345" zPosition="10" alphatest="blend" transparent="1" />
-    <widget name="detailtext" position="1109,187" size="735,630" font="Regular; 34" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="8" halign="center" valign="center" />
+    <widget name="detailtext" position="1110,185" size="735,630" font="Regular; 34" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="8" halign="center" valign="center" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 08. Plugin Manager -->
