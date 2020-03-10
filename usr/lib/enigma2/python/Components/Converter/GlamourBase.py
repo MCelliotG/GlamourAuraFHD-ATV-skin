@@ -209,12 +209,15 @@ class GlamourBase(Poll, Converter, object):
 		return "%s" % (vcodec)
 
 	def hdr(self, info):
-		try:
-			gamma = ("SDR", "HDR", "HDR10", "HLG", "")[info.getInfo(iServiceInformation.sGamma)]
-		except:
-			gamma = None
-		if gamma:
-			return "%s" % (gamma)
+		gamma = info.getInfo(iServiceInformation.sGamma)
+		if gamma == 0:
+			return "SDR"
+		elif gamma == 1:
+			return "HDR"
+		elif gamma == 2:
+			return "HDR10"
+		elif gamma == 3:
+			return "HLG"
 		else:
 			return ""
 
@@ -1064,7 +1067,7 @@ class GlamourBase(Poll, Converter, object):
 					return True
 				return False
 			elif (self.type == self.ISSDR):
-				if "SDR" in gamma:
+				if gamma == "SDR":
 					return True
 				return False
 			elif (self.type == self.ISHDR):
@@ -1076,7 +1079,7 @@ class GlamourBase(Poll, Converter, object):
 					return True
 				return False
 			elif (self.type == self.ISHLG):
-				if "HLG" in gamma:
+				if gamma == "HLG":
 					return True
 				return False
 
