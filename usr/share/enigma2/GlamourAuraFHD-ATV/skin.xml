@@ -432,7 +432,7 @@
   <screen name="MainMenu1" flags="wfNoBorder">
     <widget source="menu" render="Listbox" position="772,60" size="990,880" scrollbarMode="showNever" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [ MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+        {"template": [ MultiContentEntryText(pos = (60, 0), size = (900, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
         "fonts": [gFont("Regular", 45)],
         "itemHeight": 80
         }
@@ -2037,7 +2037,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/hdr10.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsHDR10</convert>
+      <convert type="ServiceInfo">IsHDR10</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/sdr.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
@@ -2045,7 +2045,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/hlg.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsHLG</convert>
+      <convert type="ServiceInfo">IsHLG</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Resolution info -->
@@ -2591,7 +2591,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/hdr10.png" position="1225,1015" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsHDR10</convert>
+      <convert type="ServiceInfo">IsHDR10</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/sdr.png" position="1225,1015" size="60,30" zPosition="6" alphatest="blend" transparent="1">
@@ -2599,7 +2599,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/curve/hlg.png" position="1225,1015" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">IsHLG</convert>
+      <convert type="ServiceInfo">IsHLG</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- resolution icons -->
@@ -3067,8 +3067,8 @@
     <widget source="menu" render="Listbox" position="770,45" size="990,640" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [ 
-            MultiContentEntryText(pos = (60, 0), size = (900, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
-                                        ],
+            MultiContentEntryText(pos = (60, 0), size = (900, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
+          ],
         "fonts": [gFont("Regular", 45)],
         "itemHeight": 80
         }
