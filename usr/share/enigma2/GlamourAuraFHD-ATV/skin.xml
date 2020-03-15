@@ -553,6 +553,10 @@
       <convert type="MenuEntryCompare">moviebrowser</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/emc.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">emc</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/kodi.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">run_kodi</convert>
       <convert type="ConditionalShowHide" />
@@ -2062,7 +2066,7 @@
     <widget source="session.CurrentService" render="Label" position="1045,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
       <convert type="ServiceName">Provider</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="440,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
+    <widget source="session.CurrentService" render="GlamRoll" position="440,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" noWrap="1" >
       <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
