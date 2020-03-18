@@ -41,46 +41,48 @@ class GlamourAccess(Poll, Converter, object):
 	PANCAS = 17
 	EXSCAS = 18
 	CGDCAS = 19
-	BETAECM = 20
-	IRDECM = 21
-	SECAECM = 22
-	VIAECM = 23
-	NAGRAECM = 24
-	CRWECM = 25
-	NDSECM = 26
-	CONAXECM = 27
-	DRCECM = 28
-	BISSECM = 29
-	BULECM = 30
-	VMXECM = 31
-	PWVECM = 32
-	TBGECM = 33
-	TGFECM = 34
-	PANECM = 35
-	EXSECM = 36
-	CGDECM = 37
-	RUSCAS = 38
-	CODICAS = 39
-	AGTCAS = 40
-	SAMCAS = 41
-	CAIDINFO = 42
-	PROV = 43
-	NET = 44
-	EMU = 45
-	CRD = 46
-	CRDTXT = 47
-	FTA = 48
-	CACHE = 49
-	CRYPT = 50
-	CRYPTINFO = 51
-	CAMNAME = 52
-	ADDRESS = 53
-	ECMTIME = 54
-	FORMAT = 55
-	ECMINFO = 56
-	SHORTINFO = 57
-	CASINFO = 58
-	ISCRYPTED = 59
+	VCRCAS = 20
+	BETAECM = 21
+	IRDECM = 22
+	SECAECM = 23
+	VIAECM = 24
+	NAGRAECM = 25
+	CRWECM = 26
+	NDSECM = 27
+	CONAXECM = 28
+	DRCECM = 29
+	BISSECM = 30
+	BULECM = 31
+	VMXECM = 32
+	PWVECM = 33
+	TBGECM = 34
+	TGFECM = 35
+	PANECM = 36
+	EXSECM = 37
+	CGDECM = 38
+	VCRECM = 39
+	RUSCAS = 40
+	CODICAS = 41
+	AGTCAS = 42
+	SAMCAS = 43
+	CAIDINFO = 44
+	PROV = 45
+	NET = 46
+	EMU = 47
+	CRD = 48
+	CRDTXT = 49
+	FTA = 50
+	CACHE = 51
+	CRYPT = 52
+	CRYPTINFO = 53
+	CAMNAME = 54
+	ADDRESS = 55
+	ECMTIME = 56
+	FORMAT = 57
+	ECMINFO = 58
+	SHORTINFO = 59
+	CASINFO = 60
+	ISCRYPTED = 61
 	timespan = 1000
 
 	def __init__(self, type):
@@ -162,10 +164,14 @@ class GlamourAccess(Poll, Converter, object):
 			self.type = self.EXSECM
 		elif type == "CgdEcm":
 			self.type = self.CGDECM
+		elif type == "VcrEcm":
+			self.type = self.VCRECM
 		elif type == "CodiCaS":
 			self.type = self.CODICAS
 		elif type == "CgdCaS":
 			self.type = self.CGDCAS
+		elif type == "VcrCaS":
+			self.type = self.VCRCAS
 		elif type == "AgtCaS":
 			self.type = self.AGTCAS
 		elif type == "SamCaS":
@@ -356,6 +362,11 @@ class GlamourAccess(Poll, Converter, object):
 					if caid == "4AEA" or caid >= "1EC0" and caid <= "1ECF":
 						return True
 				return False
+			if self.type == self.VCRCAS:
+				for caid in caids:
+					if caid == "5448" or caid == "7AC8":
+						return True
+				return False
 			if self.type == self.AGTCAS:
 				for caid in caids:
 					if caid >= "4800" and caid <= "48FF":
@@ -441,6 +452,10 @@ class GlamourAccess(Poll, Converter, object):
 					if caid == "4AEA" or caid >= "1EC0" and caid <= "1ECF":
 						return True
 					return False
+				if self.type == self.VCRECM:
+					if caid == "5448" or caid == "7AC8":
+						return True
+					return False
 
 				reader = str(ecm_info.get("reader", ""))
 				protocol = str(ecm_info.get("protocol", ""))
@@ -449,20 +464,24 @@ class GlamourAccess(Poll, Converter, object):
 				source = str(ecm_info.get("source", ""))
 
 				if self.type == self.CRD:
-					if source == "sci":
-						return True
-					if source is not "cache" and source is not "net" and source.find("emu") == -1:
-						return True
+					if int(config.usage.show_cryptoinfo.value) > 0:
+						if source == "sci":
+							return True
+						if source is not "cache" and source is not "net" and source.find("emu") == -1:
+							return True
 					return False
 				if self.type == self.CACHE:
-					if source == "cache" or reader == "Cache" or "cache" in frm:
-						return True
+					if int(config.usage.show_cryptoinfo.value) > 0:
+						if source == "cache" or reader == "Cache" or "cache" in frm:
+							return True
 					return False
 				if self.type == self.EMU:
-					return using == "emu" or source == "emu" or source == "card" or reader == "emu" or source.find("card") > -1 or source.find("emu") > -1 or source.find("biss") > -1 or source.find("tb") > -1 or reader.find("constant_cw") > -1 or protocol.find("constcw") > -1 or protocol.find("static") > -1
+					if int(config.usage.show_cryptoinfo.value) > 0:
+						return using == "emu" or source == "emu" or source == "card" or reader == "emu" or source.find("card") > -1 or source.find("emu") > -1 or source.find("biss") > -1 or source.find("tb") > -1 or reader.find("constant_cw") > -1 or protocol.find("constcw") > -1 or protocol.find("static") > -1
 				if self.type == self.NET:
-					if source == "net" and not "unsupported" in protocol and not "cache" in frm and not "static" in protocol and not "fta" in protocol:
-						return True
+					if int(config.usage.show_cryptoinfo.value) > 0:
+						if source == "net" and not "unsupported" in protocol and not "cache" in frm and not "static" in protocol and not "fta" in protocol:
+							return True
 					return False
 		return False
 
@@ -473,6 +492,8 @@ class GlamourAccess(Poll, Converter, object):
 	def getText(self):
 		ecminfo = ""
 		server = ""
+		caidlist = ""
+		caidtxt = "hidden or custom"
 		ecm_info = self.ecmfile()
 		ecmpath = self.ecmpath()
 		self.poll_interval = self.timespan
@@ -499,9 +520,6 @@ class GlamourAccess(Poll, Converter, object):
 
 				if self.type == self.CAIDINFO:
 					return self.CaidInfo()
-
-				if self.type == self.CASINFO:
-					return self.CasInfo()
 
 				if caids or ecm_info:
 					if len(caids) > 0:
@@ -537,6 +555,8 @@ class GlamourAccess(Poll, Converter, object):
 						if self.type == self.ECMTIME:
 							return ecm_time
 
+						csi = "Service with %s encryption" % (caidtxt)
+						casi = "Service with %s encryption (%s)" % (caidtxt, caidlist)
 						protocol = ecm_info.get("protocol", "")
 						port = ecm_info.get("port", "")
 						source = ecm_info.get("source", "")
@@ -545,7 +565,7 @@ class GlamourAccess(Poll, Converter, object):
 						if hops:
 							if hops > "0":
 								hops = " Hops: %s" % hops
-								hop = "(%s)" % hop
+								hop = "%s" % hop
 							else:
 								hops = hop = ""
 						system = ecm_info.get("system", "")
@@ -617,45 +637,70 @@ class GlamourAccess(Poll, Converter, object):
 						if self.type == self.ECMINFO:
 							if "fta" in protocol:
 								ecminfo = "FTA service"
-							elif source == "emu":
-								ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
-							elif reader is not "" and source == "net" and port is not "":
-								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
-							elif reader is not "" and source == "net" and not "fta" in protocol:
-								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
-							elif reader is not "" and source is not "net":
-								ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
-							elif server == "" and port == "" and protocol is not "":
-								ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s) %s Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
-							elif server == "" and port == "" and protocol == "":
-								ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time.replace("msec", "ms"))
+							if int(config.usage.show_cryptoinfo.value) > 0:
+								if source == "emu":
+									ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
+								elif reader is not "" and source == "net" and port is not "":
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
+								elif reader is not "" and source == "net" and not "fta" in protocol:
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
+								elif reader is not "" and source is not "net":
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+								elif server == "" and port == "" and protocol is not "":
+									ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s) %s Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
+								elif server == "" and port == "" and protocol == "":
+									ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time.replace("msec", "ms"))
+								else:
+									try:
+										ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s) %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+									except:
+										pass
 							else:
-								try:
-									ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s) %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
-								except:
-									pass
+								ecminfo = casi
 
 						if self.type == self.SHORTINFO:
 							if "fta" in protocol:
 								ecminfo = "FTA service"
-							elif source == "emu":
-								ecminfo = "%s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
-							elif server == "" and port == "":
-								ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
+							if int(config.usage.show_cryptoinfo.value) > 0:
+								if source == "emu":
+									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
+								elif server == "" and port == "":
+									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
+								else:
+									try:
+										if reader is not "":
+											ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, frm, hop, ecm_time.replace("msec", "ms"))
+										else:
+											ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, server, hop, ecm_time.replace("msec", "ms"))
+									except:
+										pass
 							else:
-								try:
-									if reader is not "":
-										ecminfo = "%s:%s - %s %s - %s" % (caid, prov, frm, hop, ecm_time.replace("msec", "ms"))
-									else:
-										ecminfo = "%s:%s - %s %s - %s" % (caid, prov, server, hop, ecm_time.replace("msec", "ms"))
-								except:
-									pass
+								ecminfo = csi
+
+						if self.type == self.CASINFO:
+							if "fta" in protocol:
+								ecminfo = "FTA service"
+							if int(config.usage.show_cryptoinfo.value) > 0:
+								if source == "emu":
+									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, self.CaidsDecoded.get(caid[:2]))
+								elif server == "" and port == "":
+									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, ecm_time.replace("msec", "ms"))
+								else:
+									try:
+										if reader is not "":
+											ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, reader, hop, ecm_time.replace("msec", "ms"))
+										else:
+											ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, server, hop, ecm_time.replace("msec", "ms"))
+									except:
+										pass
+							else:
+								ecminfo = csi
 
 					elif self.type == self.ECMINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
 						ecminfo = "Service with %s encryption (%s)" % (caidtxt, caidlist)
-					elif self.type == self.SHORTINFO:
+					elif self.type == self.SHORTINFO or self.type == self.CASINFO:
 						ecminfo = "Service with %s encryption" % (caidtxt)
-				elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
+				elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.CASINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
 					ecminfo = "FTA service"
 		return str(ecminfo)
 
@@ -1474,16 +1519,6 @@ class GlamourAccess(Poll, Converter, object):
 				return "Χωρίς κωδικοποίηση ή αναγνωριστικό"
 			else:
 				return "Free to air or no descriptor"
-
-	def CasInfo(self):
-		caids = self.Caids()
-		ecm_info = self.ecmfile()
-		if caids or ecm_info:
-			if len(caids) > 0:
-				caidtxt = self.CaidTxtList()
-				return "Service with %s encryption" % (caidtxt)
-		else:
-			return "FTA service"
 
 	def ecmpath(self):
 		ecmpath = None
