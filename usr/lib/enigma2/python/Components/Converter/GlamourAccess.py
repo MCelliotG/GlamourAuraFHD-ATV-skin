@@ -19,8 +19,171 @@ try:
 except:
 	pass
 
+cainfo = (
+	("0100", "01FF", "Seca"),
+	("0200", "02FF", "CCETT"),
+	("0300", "03FF", "Kabel Deutschland"),
+	("0400", "04FF", "Eurodec"),
+	("0500", "05FF", "Viaccess"),
+	("0600", "06FF", "Irdeto"),
+	("0700", "07FF", "DigiChiper"),
+	("0800", "08FF", "Matra"),
+	("0900", "09FF", "NDS/Videoguard"),
+	("0A00", "0AFF", "Nokia"),
+	("0B00", "0BFF", "Conax"),
+	("0C00", "0CFF", "NTL"),
+	("0D00", "0DFF", "Cryptoworks"),
+	("0E00", "0EFF", "PowerVu"),
+	("0F00", "0FFF", "Sony"),
+	("1000", "10FF", "Tandberg"),
+	("1100", "11FF", "Thomson"),
+	("1200", "12FF", "TV/Com"),
+	("1300", "14FF", "HRT"),
+	("1500", "15FF", "IBM"),
+	("1600", "16FF", "Nera"),
+	("1702", "1702", "Betacrypt"),
+	("1722", "1722", "Betacrypt"),
+	("1762", "1762", "Betacrypt"),
+	("1700", "1701", "Verimatrix"),
+	("1703", "1721", "Verimatrix"),
+	("1723", "1761", "Verimatrix"),
+	("1763", "17FF", "Verimatrix"),
+	("1800", "18FF", "Nagravision"),
+	("1900", "19FF", "Titan"),
+	("1E00", "1E07", "Alticast"),
+	("1EA0", "1EA0", "Monacrypt"),
+	("1EB0", "1EB0", "TeleCast"),
+	("1EC0", "1EC2", "Cryptoguard"),
+	("1ED0", "1ED1", "Monacrypt"),
+	("2000", "20FF", "Telefonica Servicios Audiovisuales"),
+	("2100", "21FF", "Stendor"),
+	("2200", "22FF", "Codicrypt"),
+	("2300", "23FF", "Barco"),
+	("2400", "24FF", "StarGuide"),
+	("2500", "25FF", "Mentor"),
+	("2600", "2601", "Biss"),
+	("2602", "26FF", "Biss2"),
+	("2700", "270F", "ExSet/PolyChipher"),
+	("2710", "2711", "Extended Secure Technologies"),
+	("2712", "2712", "Derincrypt"),
+	("2713", "2714", "Wuhan"),
+	("2715", "2715", "Network Broadcast"),
+	("2716", "2716", "Bromteck"),
+	("2717", "2718", "LogiWays"),
+	("2719", "2719", "S-Curious"),
+	("27A0", "27A4", "ByDesign India"),
+	("2800", "2809", "LCS LLC"),
+	("2810", "2810", "DeltaSat"),
+	("4347", "4347", "Crypton"),
+	("4348", "4348", "Secure TV"),
+	("4700", "47FF", "General Instrument/Motorola"),
+	("4825", "4825", "ChinaEPG"),
+	("4855", "4856", "Intertrust"),
+	("4800", "48FF", "AccessGate/Telemann"),
+	("4900", "49FF", "Cryptoworks China"),
+	("4A10", "4A1F", "EasyCas"),
+	("4A20", "4A2F", "AlphaCrypt"),
+	("4A30", "4A3F", "DVN Holdings"),
+	("4A40", "4A4F", "ADT"),
+	("4A50", "4A5F", "Shenzhen Kingsky"),
+	("4A60", "4A6F", "@Sky"),
+	("4A70", "4A7F", "DreamCrypt"),
+	("4A80", "4A8F", "THALESCrypt"),
+	("4A90", "4A9F", "Runcom"),
+	("4AA0", "4AAF", "SIDSA"),
+	("4AB0", "4ABF", "Beijing Compunicate"),
+	("4AC0", "4ACF", "Latens"),
+	("4AD0", "4AD1", "XCrypt"),
+	("4AD2", "4AD3", "Beijing Digital"),
+	("4AD4", "4AD5", "Widevine"),
+	("4AD6", "4AD7", "SK Telecom"),
+	("4AD8", "4AD9", "Enigma"),
+	("4ADA", "4ADA", "Wyplay"),
+	("4ADB", "4ADB", "Jinan Taixin"),
+	("4ADC", "4ADC", "LogiWays"),
+	("4ADD", "4ADD", "ATSC SRM"),
+	("4ADE", "4ADE", "CerberCrypt"),
+	("4ADF", "4ADF", "Caston"),
+	("4AE0", "4AE1", "Cifra"),
+	("4AE2", "4AE3", "Microsoft"),
+	("4AE4", "4AE4", "Coretrust"),
+	("4AE5", "4AE5", "IK SATPROF"),
+	("4AE6", "4AE6", "SypherMedia"),
+	("4AE7", "4AE7", "Guangzhou Ewider"),
+	("4AE8", "4AE8", "FG Digital"),
+	("4AE9", "4AE9", "Dreamer-i"),
+	("4AEA", "4AEA", "Cryptoguard"),
+	("4AEB", "4AEB", "Abel"),
+	("4AEC", "4AEC", "FTS DVL SRL"),
+	("4AED", "4AED", "Unitend"),
+	("4AEE", "4AEE", "Bulcrypt"),
+	("4AEF", "4AEF", "NetUP"),
+	("4AF0", "4AF0", "ABV"),
+	("4AF1", "4AF2", "China DTV"),
+	("4AF3", "4AF3", "Baustem"),
+	("4AF4", "4AF4", "Marlin"),
+	("4AF5", "4AF5", "SecureMedia"),
+	("4AF6", "4AF6", "Tongfang"),
+	("4AF7", "4AF7", "MSA"),
+	("4AF8", "4AF8", "Griffin"),
+	("4AF9", "4AFA", "Beijing Topreal"),
+	("4AFB", "4AFB", "NST"),
+	("4AFC", "4AFC", "PanAccess"),
+	("4AFD", "4AFD", "Comteza"),
+	("4B00", "4B02", "Tongfang"),
+	("4B03", "4B03", "DuoCrypt"),
+	("4B04", "4B04", "Great Wall"),
+	("4B05", "4B06", "Digicap"),
+	("4B07", "4B07", "Wuhan"),
+	("4B08", "4B08", "Philips"),
+	("4B09", "4B09", "Ambernetas"),
+	("4B0A", "4B0B", "Beijing Sumavision"),
+	("4B0C", "4B0F", "Sichuan"),
+	("4B10", "4B10", "Exterity"),
+	("4B11", "4B12", "Merlin/Advanced Digital"),
+	("4B13", "4B14", "Microsoft"),
+	("4B19", "4B19", "RidSys"),
+	("4B20", "4B22", "DeltaSat"),
+	("4B23", "4B23", "SkyNLand"),
+	("4B24", "4B24", "Prowill"),
+	("4B25", "4B25", "SureSoft"),
+	("4B26", "4B26", "Unitend"),
+	("4B30", "4B31", "VTC"),
+	("4B3A", "4B3A", "ipanel"),
+	("4B3B", "4B3B", "Jinggangshan"),
+	("4B40", "4B41", "ExCaf"),
+	("4B42", "4B43", "CI Plus"),
+	("4B4A", "4B4A", "Topwell"),
+	("4B4B", "4B4D", "ABV"),
+	("4B50", "4B53", "Safeview India"),
+	("4B54", "4B54", "Telelynx"),
+	("4B60", "4B60", "KiwiSat"),
+	("4B61", "4B61", "O2 Cz."),
+	("4B62", "4B62", "GMA"),
+	("4B63", "4B63", "redCrypter"),
+	("4B64", "4B64", "Samsung/TV Key"),
+	("5347", "5347", "GkWare"),
+	("5448", "5448", "Gospell VisionCrypt"),
+	("5601", "5604", "Verimatrix"),
+	("5605", "5606", "Sichuan"),
+	("5607", "5608", "Viewscenes"),
+	("5609", "5609", "Power On"),
+	("56A0", "56A0", "Laxmi"),
+	("56A1", "56A1", "C-Dot"),
+	("56B0", "56B0", "Laxmi"),
+	("7AC8", "7AC8", "Gospell VisionCrypt"),
+	("7BE0", "7BE1", "DreCrypt OOO"),
+	("AA00", "AA01", "Best CAS"),
+	("A100", "A1FF", "RusCrypt"),
+	("0001", "0001", "IPDC SPP"),
+	("0002", "0002", "18Crypt"),
+	("0004", "0006", "OMA"),
+	("0007", "0007", "Open IPTV"),
+	("0008", "0008", "Open Mobile Alliance"),
+	("0000", "0000", "no or unknown")
+)
 
-class GlamourAccess(Poll, Converter, object):
+class GlamourAccess(Poll, Converter):
 	CAID = 0
 	PID = 1
 	BETACAS = 2
@@ -73,16 +236,15 @@ class GlamourAccess(Poll, Converter, object):
 	CRDTXT = 49
 	FTA = 50
 	CACHE = 51
-	CRYPT = 52
-	CRYPTINFO = 53
-	CAMNAME = 54
-	ADDRESS = 55
-	ECMTIME = 56
-	FORMAT = 57
-	ECMINFO = 58
-	SHORTINFO = 59
-	CASINFO = 60
-	ISCRYPTED = 61
+	CRYPTINFO = 52
+	CAMNAME = 53
+	ADDRESS = 54
+	ECMTIME = 55
+	FORMAT = 56
+	ECMINFO = 57
+	SHORTINFO = 58
+	CASINFO = 59
+	ISCRYPTED = 60
 	timespan = 1000
 
 	def __init__(self, type):
@@ -192,8 +354,6 @@ class GlamourAccess(Poll, Converter, object):
 			self.type = self.FTA
 		elif type == "Cache":
 			self.type = self.CACHE
-		elif type == "Crypt":
-			self.type = self.CRYPT
 		elif type == "CryptInfo":
 			self.type = self.CRYPTINFO
 		elif type == "CamName":
@@ -214,26 +374,6 @@ class GlamourAccess(Poll, Converter, object):
 			self.type = self.FORMAT
 			self.sfmt = type[:]
 
-		self.CaidsDecoded = {"00": "Unknown",
-		 "10": "Tandberg",
-		 "26": "Biss/EBU",
-		 "01": "Seca/Mediaguard",
-		 "06": "Irdeto",
-		 "17": "Verimatrix",
-		 "05": "Viaccess",
-		 "18": "Nagravision",
-		 "09": "NDS/Videoguard",
-		 "0B": "Conax",
-		 "0D": "CryptoWorks",
-		 "4A": "DreamCrypt & variants",
-		 "27": "ExSet/PolyCipher",
-		 "0E": "PowerVu",
-		 "22": "CodiCrypt",
-		 "07": "DigiCipher",
-		 "56": "Verimatrix",
-		 "7B": "DreCrypt",
-		 "48": "AccessGate",
-		 "A1": "RusCrypt"}
 
 
 	@cached
@@ -492,8 +632,9 @@ class GlamourAccess(Poll, Converter, object):
 	def getText(self):
 		ecminfo = ""
 		server = ""
-		caidlist = ""
+		caidlist = self.CaidList()
 		caidtxt = "hidden or custom"
+		caidname = self.CaidName()
 		ecm_info = self.ecmfile()
 		ecmpath = self.ecmpath()
 		self.poll_interval = self.timespan
@@ -506,9 +647,9 @@ class GlamourAccess(Poll, Converter, object):
 				if fileExists(ecmpath):
 					try:
 						caid = "%0.4X" % int(ecm_info.get("caid", ""), 16)
-						return "%s" % self.CaidsDecoded.get(caid[:2])
+						return "%s" % caidlist
 					except:
-						return "Cannot decode"
+						return "Unknown CA Info"
 				else:
 					return "Cannot decode"
 
@@ -523,23 +664,24 @@ class GlamourAccess(Poll, Converter, object):
 
 				if caids or ecm_info:
 					if len(caids) > 0:
-						caidlist = self.CaidList()
 						caidtxt = self.CaidTxtList()
 						for cas in caids:
 							cas = self.int2hex(cas).upper().zfill(4)
 
 					if ecm_info:
 						caid = "%0.4X" % int(ecm_info.get("caid", ""), 16)
+
 						if self.type == self.CAID:
 							return caid
-						if self.type == self.CRYPT:
-							return "%s" % self.CaidsDecoded.get(caid[:2])
+
 						try:
 							pid = "%0.4X" % int(ecm_info.get("pid", ""), 16)
 						except:
 							pid = ""
+
 						if self.type == self.PID:
 							return pid
+
 						try:
 							prov = "%0.6X" % int(ecm_info.get("prov", ""), 16)
 						except:
@@ -547,6 +689,7 @@ class GlamourAccess(Poll, Converter, object):
 
 						if self.type == self.PROV:
 							return prov
+
 						if ecm_info.get("ecm time", "").find("msec") > -1:
 							ecm_time = ecm_info.get("ecm time", "")
 						else:
@@ -663,7 +806,7 @@ class GlamourAccess(Poll, Converter, object):
 								ecminfo = "FTA service"
 							if int(config.usage.show_cryptoinfo.value) > 0:
 								if source == "emu":
-									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, self.CaidsDecoded.get(caid[:2]))
+									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, caidname)
 								elif server == "" and port == "":
 									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
 								else:
@@ -681,9 +824,7 @@ class GlamourAccess(Poll, Converter, object):
 							if "fta" in protocol:
 								ecminfo = "FTA service"
 							if int(config.usage.show_cryptoinfo.value) > 0:
-								if source == "emu":
-									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, self.CaidsDecoded.get(caid[:2]))
-								elif server == "" and port == "":
+								if source == "emu" or server == "" and port == "":
 									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, ecm_time.replace("msec", "ms"))
 								else:
 									try:
@@ -934,288 +1075,41 @@ class GlamourAccess(Poll, Converter, object):
 		return caidlist
 
 
-	def CaidTxtList(self):
-		catxt = ""
-		caidtxt = ""
+	def CaidName(self):
+		ecm_info = self.ecmfile()
+		caidname = ""
+		if ecm_info:
+			caidr = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
+			for ce in cainfo:
+				try:
+					if ce[0] <= caidr <= ce[1]:
+						caidname = ce[2]
+				except:
+					pass
+		return caidname
+
+
+	def CaidNames(self):
+		caidnames = ""
 		caids = self.CaidList().strip(",").split()
 		if caids:
 			for caid in caids:
-				if caid.startswith("01"):
-					caid = "Seca"
-				if caid.startswith("05"):
-					caid = "Viaccess"
-				if caid.startswith("06"):
-					caid = "Irdeto"
-				if caid.startswith("0B"):
-					caid = "Conax"
-				if caid.startswith("09"):
-					caid = "NDS/Videoguard"
-				if caid == "1702" or caid == "1722" or caid == "1762":
-					caid = "Betacrypt"
-				if caid.startswith("18"):
-					caid = "Nagravision"
-				if caid.startswith("0D"):
-					caid = "CryptoWorks"
-				if caid.startswith("0E"):
-					caid = "PowerVu"
-				if caid.startswith("26"):
-					caid = "Biss/EBU"
-				if caid.startswith("10"):
-					caid = "Tandberg"
-				if caid.startswith("4AF6") or caid >= "4B00" and caid <= "4B02":
-					caid = "Tongfang"
-				if caid >= "5601" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761" or caid >= "1763" and caid <= "17FF":
-					caid = "Verimatrix"
-				if caid.startswith("4AEE"):
-					caid = "Bulcrypt"
-				if caid.startswith("07"):
-					caid = "DigiChiper"
-				if caid.startswith("4AFC"):
-					caid = "PanAccess"
-				if caid.startswith("4AEA") or caid >= "1EC0" and caid <= "1EC2":
-					caid = "Cryptoguard"
-				if caid.startswith("55") or caid.startswith("4AF8"):
-					caid = "Griffin"
-				if caid.startswith("49"):
-					caid = "CryptoWorks China"
-				if caid >= "4AE0" and caid <= "4AE1":
-					caid = "DreCrypt"
-				if caid.startswith("A1"):
-					caid = "RusCrypt"
-				if caid.startswith("4AF4"):
-					caid = "Marlin"
-				if caid.startswith("4B63"):
-					caid = "redCrypter"
-				if caid.startswith("4B64"):
-					caid = "Samsung/TV Key"
-				if caid.startswith("4AF0") or caid >= "4B4B" and caid <= "4B4D":
-					caid = "ABV"
-				if caid >= "2700" and caid <= "270F":
-					caid = "ExSet/PolyChipher"
-				if caid.startswith("2810") or caid >= "4B20" and caid <= "4B22":
-					caid = "DeltaSat"
-				if caid >= "7BE0" and caid <= "7BE1" or caid.startswith("50"):
-					caid = "DreCrypt/OOO"
-				if caid.startswith("02"):
-					caid = "CCETT"
-				if caid.startswith("03"):
-					caid = "Kabel Deutschland"
-				if caid.startswith("04"):
-					caid = "EuroDec"
-				if caid.startswith("08"):
-					caid = "Matra"
-				if caid.startswith("11"):
-					caid = "Thomson"
-				if caid.startswith("12"):
-					caid = "TV/Com"
-				if caid.startswith("13") or caid.startswith("14"):
-					caid = "HRT"
-				if caid.startswith("15"):
-					caid = "IBM"
-				if caid.startswith("16"):
-					caid = "Nera"
-				if caid.startswith("19"):
-					caid = "Titan"
-				if caid.startswith("20"):
-					caid = "Telefonica-Servicios-Audiovisuales"
-				if caid.startswith("21"):
-					caid = "Stendor"
-				if caid.startswith("22"):
-					caid = "Codicrypt"
-				if caid.startswith("23"):
-					caid = "Barco AS"
-				if caid.startswith("24"):
-					caid = "Starguide"
-				if caid.startswith("25"):
-					caid = "Mentor"
-				if caid.startswith("47"):
-					caid = "General Instruments/Motorola"
-				if caid.startswith("48"):
-					caid = "AccessGate"
-				if caid.startswith("4AC"):
-					caid = "Latens"
-				if caid.startswith("0A"):
-					caid = "Nokia"
-				if caid.startswith("0C"):
-					caid = "NTL"
-				if caid.startswith("0F"):
-					caid = "Sony"
-				if caid.startswith("4A1"):
-					caid = "Easycas"
-				if caid.startswith("4A4"):
-					caid = "ADT"
-				if caid.startswith("4A5"):
-					caid = "Shenzhen Kingsky"
-				if caid.startswith("4A6"):
-					caid = "@Sky"
-				if caid >= "4B11" and caid <= "4B12":
-					caid = "Merlin/Advanced Digital"
-				if caid.startswith("4A2"):
-					caid = "AlphaCrypt"
-				if caid >= "1E00" and caid <= "1E07":
-					caid = "Alticast"
-				if caid.startswith("4B09"):
-					caid = "Ambernetas"
-				if caid.startswith("4ADD"):
-					caid = "ATSC SRM"
-				if caid.startswith("0002"):
-					caid = "18Crypt"
-				if caid.startswith("4AEB"):
-					caid = "Abel"
-				if caid.startswith("4AF3"):
-					caid = "Baustem"
-				if caid.startswith("4AB") or caid >= "4AD2" and caid <= "4AD3" or caid >= "4B0A" and caid <= "4B0B" or caid >= "4AF9" and caid <= "4AFA":
-					caid = "Beijing Compunicate/Digicrypt"
-				if caid >= "AA00" and caid <= "AA01":
-					caid = "Best CAS"
-				if caid.startswith("4A8"):
-					caid = "THALESCrypt"
-				if caid.startswith("2716"):
-					caid = "Bromteck"
-				if caid >= "27A0" and caid <= "27A4":
-					caid = "ByDesign India"
-				if caid.startswith("4ADF"):
-					caid = "Caston"
-				if caid.startswith("56A1"):
-					caid = "C-DOT"
-				if caid.startswith("4ADE"):
-					caid = "CerberCrypt"
-				if caid >= "4AF1" and caid <= "4AF2":
-					caid = "China DTV"
-				if caid.startswith("4825"):
-					caid = "ChinaEPG"
-				if caid >= "4B42" and caid <= "4B43":
-					caid = "CI Plus"
-				if caid.startswith("4AFD"):
-					caid = "Comteza"
-				if caid.startswith("4AE4"):
-					caid = "Coretrust"
-				if caid.startswith("4347"):
-					caid = "Crypton"
-				if caid >= "4B05" and caid <= "4B06":
-					caid = "Digicap"
-				if caid.startswith("4A7"):
-					caid = "Dreamcrypt"
-				if caid.startswith("4AE9"):
-					caid = "Dreamer-i"
-				if caid.startswith("4B03"):
-					caid = "DuoCrypt"
-				if caid.startswith("4A3"):
-					caid = "DVN Holdings"
-				if caid >= "4AD8" and caid <= "4AD9":
-					caid = "Enigma Systems"
-				if caid >= "4B40" and caid <= "4B41":
-					caid = "Excaf"
-				if caid >= "2710" and caid <= "2711":
-					caid = "Extended Secure Technologies"
-				if caid.startswith("4B10"):
-					caid = "Exterity Limited"
-				if caid.startswith("4AE8"):
-					caid = "FG Digital"
-				if caid.startswith("4AEC"):
-					caid = "FTS DVL SRL"
-				if caid.startswith("4B08"):
-					caid = "Philips"
-				if caid.startswith("5347"):
-					caid = "GkWare e.K."
-				if caid.startswith("4B62"):
-					caid = "GMA New Media"
-				if caid.startswith("5448") or caid.startswith("7AC8"):
-					caid = "Gospell VisionCrypt"
-				if caid.startswith("4B04"):
-					caid = "Great Wall"
-				if caid.startswith("4AE5"):
-					caid = "IK Satprof"
-				if caid.startswith("4AE7"):
-					caid = "Guangzhou Ewider"
-				if caid >= "4855" and caid <= "4856":
-					caid = "Intertrust"
-				if caid.startswith("4B3A"):
-					caid = "i-Panel"
-				if caid.startswith("0001"):
-					caid = "IPDC SPP"
-				if caid.startswith("4ADB"):
-					caid = "Jinan Taixin"
-				if caid.startswith("4B60"):
-					caid = "Kiwisat"
-				if caid.startswith("56A0"):
-					caid = "Laxmi"
-				if caid.startswith("4ADC") or caid >= "2717" and caid <= "2718":
-					caid = "LogiWays"
-				if caid >= "2800" and caid <= "2809":
-					caid = "LCS"
-				if caid >= "4AE2" and caid <= "4AE3" or caid >= "4B13" and caid <= "4B14":
-					caid = "Microsoft"
-				if caid >= "1ED0" and caid <= "1ED1":
-					caid = "Monacrypt"
-				if caid.startswith("4AF7"):
-					caid = "MSA"
-				if caid.startswith("4AEF"):
-					caid = "NetUP"
-				if caid.startswith("2715"):
-					caid = "Network Broadcast"
-				if caid.startswith("4AFB"):
-					caid = "NST"
-				if caid.startswith("4B61"):
-					caid = "O2 Czech"
-				if caid.startswith("0004") or caid.startswith("0005") or caid.startswith("0006"):
-					caid = "OMA BCAST"
-				if caid.startswith("0008"):
-					caid = "Open Mobile Alliance"
-				if caid.startswith("5609"):
-					caid = "Power On"
-				if caid.startswith("4B24"):
-					caid = "Prowill"
-				if caid.startswith("4B19"):
-					caid = "RidSys"
-				if caid.startswith("4A9"):
-					caid = "Runcom"
-				if caid >= "4B50" and caid <= "4B53":
-					caid = "Safeview India"
-				if caid.startswith("2719") or caid.startswith("EAD0"):
-					caid = "InCrypt"
-				if caid.startswith("4348"):
-					caid = "Secure TV"
-				if caid.startswith("4AF5"):
-					caid = "SecureMedia"
-				if caid.startswith("4AA"):
-					caid = "KeyFly"
-				if caid.startswith("2712"):
-					caid = "Signal elektronic"
-				if caid >= "4AD6" and caid <= "4AD7":
-					caid = "SK Telecom"
-				if caid.startswith("4B23"):
-					caid = "SkyNLand"
-				if caid.startswith("4B25"):
-					caid = "SureSoft"
-				if caid.startswith("1EB0"):
-					caid = "TeleCast"
-				if caid.startswith("4AE6"):
-					caid = "SypherMedia"
-				if caid.startswith("4B54"):
-					caid = "TeleLynx"
-				if caid.startswith("4B4A"):
-					caid = "Topwell"
-				if caid.startswith("4AED") or caid.startswith("4B26"):
-					caid = "Unitend"
-				if caid >= "4B30" and caid <= "4B31":
-					caid = "ViCAS"
-				if caid >= "5607" and caid <= "5608":
-					caid = "Viewscenes"
-				if caid >= "4AD4" and caid <= "4AD5":
-					caid = "OmniCrypt"
-				if caid.startswith("4B07") or caid >= "2713" and caid <= "2714":
-					caid = "Wuhan"
-				if caid.startswith("4ADA"):
-					caid = "Wyplay SAS"
-				if caid >= "4AD0" and caid <= "4AD1":
-					caid = "XCrypt"
-				if caid >= "4B0C" and caid <= "4B0F" or caid >= "5605" and caid <= "5606":
-					caid = "Sichuan"
-				if caid.startswith("0000"):
-					caid = "no or unknown" 
-				catxt += caid + ","
-				caidtxt = catxt.rstrip(",").split(",")
+				for ce in cainfo:
+					if ce[0] <= caid <= ce[1] or caid.startswith(ce[0]):
+						caid = ce[2]
+				if len(caids) > 1:
+					caidnames += ", " + caid
+				else:
+					caidnames = caid
+		return caidnames.lstrip(", ")
+
+
+	def CaidTxtList(self):
+		caidtxt = ""
+		caidnames = self.CaidNames()
+		if caidnames:
+			for caidname in caidnames:
+				caidtxt = caidnames.strip(", ").split(", ")
 				calist = []
 				for ca in caidtxt:
 					if ca not in calist:
@@ -1229,286 +1123,11 @@ class GlamourAccess(Poll, Converter, object):
 
 
 	def CaidInfo(self):
-		caids = self.Caids()
+		caids = self.CaidList()
+		caidnames = self.CaidNames()
 		caidlist = ""
-		if caids:
-			for caid in caids:
-				caid = self.int2hex(caid).upper().zfill(4)
-				if caid.startswith("01"):
-					caid = caid + " (Seca) "
-				if caid.startswith("05"):
-					caid = caid + " (Viaccess) "
-				if caid.startswith("06"):
-					caid = caid + " (Irdeto) "
-				if caid.startswith("0B"):
-					caid = caid + " (Conax) "
-				if caid.startswith("09"):
-					caid = caid + " (NDS/Videoguard) "
-				if caid == "1702" or caid == "1722" or caid == "1762":
-					caid = caid + " (Betacrypt) "
-				if caid.startswith("18"):
-					caid = caid + " (Nagravision) "
-				if caid.startswith("0D"):
-					caid = caid + " (CryptoWorks) "
-				if caid.startswith("0E"):
-					caid = caid + " (PowerVu) "
-				if caid.startswith("26"):
-					caid = caid + " (Biss/EBU) "
-				if caid.startswith("10"):
-					caid = caid + " (Tandberg) "
-				if caid.startswith("4AF6") or caid >= "4B00" and caid <= "4B02":
-					caid = caid + " (Tongfang) "
-				if caid >= "5601" and caid <= "5604" or caid >= "1700" and caid <= "1701" or caid >= "1703" and caid <= "1721" or caid >= "1723" and caid <= "1761" or caid >= "1763" and caid <= "17FF":
-					caid = caid + " (Verimatrix) "
-				if caid.startswith("4AEE"):
-					caid = caid + " (Bulcrypt) "
-				if caid.startswith("07"):
-					caid = caid + " (DigiChiper) "
-				if caid.startswith("4AFC"):
-					caid = caid + " (PanAccess) "
-				if caid.startswith("4AEA") or caid >= "1EC0" and caid <= "1EC2":
-					caid = caid + " (Cryptoguard) "
-				if caid.startswith("55") or caid.startswith("4AF8"):
-					caid = caid + " (Griffin) "
-				if caid.startswith("49"):
-					caid = caid + " (CryptoWorks China) "
-				if caid >= "4AE0" and caid <= "4AE1":
-					caid = caid + " (DreCrypt) "
-				if caid.startswith("A1"):
-					caid = caid + " (RusCrypt) "
-				if caid.startswith("4AF4"):
-					caid = caid + " (Marlin) "
-				if caid.startswith("4B63"):
-					caid = caid + " (redCrypter) "
-				if caid.startswith("4B64"):
-					caid = caid + " (Samsung/TV Key) "
-				if caid.startswith("4AF0") or caid >= "4B4B" and caid <= "4B4D":
-					caid = caid + " (ABV) "
-				if caid >= "2700" and caid <= "270F":
-					caid = caid + " (ExSet/PolyChipher) "
-				if caid.startswith("2810") or caid >= "4B20" and caid <= "4B22":
-					caid = caid + " (DeltaSat) "
-				if caid >= "7BE0" and caid <= "7BE1" or caid.startswith("50"):
-					caid = caid + " (DreCrypt/OOO) "
-				if caid.startswith("02"):
-					caid = caid + " (CCETT) "
-				if caid.startswith("03"):
-					caid = caid + " (Kabel Deutschland) "
-				if caid.startswith("04"):
-					caid = caid + " (EuroDec) "
-				if caid.startswith("08"):
-					caid = caid + " (Matra) "
-				if caid.startswith("11"):
-					caid = caid + " (Thomson) "
-				if caid.startswith("12"):
-					caid = caid + " (TV/Com) "
-				if caid.startswith("13") or caid.startswith("14"):
-					caid = caid + " (HRT) "
-				if caid.startswith("15"):
-					caid = caid + " (IBM) "
-				if caid.startswith("16"):
-					caid = caid + " (Nera) "
-				if caid.startswith("19"):
-					caid = caid + " (Titan) "
-				if caid.startswith("20"):
-					caid = caid + " (Telefonica-Servicios-Audiovisuales) "
-				if caid.startswith("21"):
-					caid = caid + " (Stendor) "
-				if caid.startswith("22"):
-					caid = caid + " (Codicrypt) "
-				if caid.startswith("23"):
-					caid = caid + " (Barco AS) "
-				if caid.startswith("24"):
-					caid = caid + " (Starguide) "
-				if caid.startswith("25"):
-					caid = caid + " (Mentor) "
-				if caid.startswith("47"):
-					caid = caid + " (General Instruments/Motorola) "
-				if caid.startswith("48"):
-					caid = caid + " (AccessGate) "
-				if caid.startswith("4AC"):
-					caid = caid + " (Latens) "
-				if caid.startswith("0A"):
-					caid = caid + " (Nokia) "
-				if caid.startswith("0C"):
-					caid = caid + " (NTL) "
-				if caid.startswith("0F"):
-					caid = caid + " (Sony) "
-				if caid.startswith("4A1"):
-					caid = caid + " (Easycas) "
-				if caid.startswith("4A4"):
-					caid = caid + " (ADT) "
-				if caid.startswith("4A5"):
-					caid = caid + " (Shenzhen Kingsky) "
-				if caid.startswith("4A6"):
-					caid = caid + " (@Sky) "
-				if caid >= "4B11" and caid <= "4B12":
-					caid = caid + " (Merlin/Advanced Digital) "
-				if caid.startswith("4A2"):
-					caid = caid + " (AlphaCrypt) "
-				if caid >= "1E00" and caid <= "1E07":
-					caid = caid + " (Alticast) "
-				if caid.startswith("4B09"):
-					caid = caid + " (Ambernetas) "
-				if caid.startswith("4ADD"):
-					caid = caid + " (ATSC SRM) "
-				if caid.startswith("0002"):
-					caid = caid + " (18Crypt) "
-				if caid.startswith("4AEB"):
-					caid = caid + " (Abel) "
-				if caid.startswith("4AF3"):
-					caid = caid + " (Baustem) "
-				if caid.startswith("4AB") or caid >= "4AD2" and caid <= "4AD3" or caid >= "4B0A" and caid <= "4B0B" or caid >= "4AF9" and caid <= "4AFA":
-					caid = caid + " (Beijing Compunicate/Digicrypt) "
-				if caid >= "AA00" and caid <= "AA01":
-					caid = caid + " (Best CAS) "
-				if caid.startswith("4A8"):
-					caid = caid + " (THALESCrypt) "
-				if caid.startswith("2716"):
-					caid = caid + " (Bromteck) "
-				if caid >= "27A0" and caid <= "27A4":
-					caid = caid + " (ByDesign India) "
-				if caid.startswith("4ADF"):
-					caid = caid + " (Caston) "
-				if caid.startswith("56A1"):
-					caid = caid + " (C-DOT) "
-				if caid.startswith("4ADE"):
-					caid = caid + " (CerberCrypt) "
-				if caid >= "4AF1" and caid <= "4AF2":
-					caid = caid + " (China DTV) "
-				if caid.startswith("4825"):
-					caid = caid + " (ChinaEPG) "
-				if caid >= "4B42" and caid <= "4B43":
-					caid = caid + " (CI Plus) "
-				if caid.startswith("4AFD"):
-					caid = caid + " (Comteza) "
-				if caid.startswith("4AE4"):
-					caid = caid + " (Coretrust) "
-				if caid.startswith("4347"):
-					caid = caid + " (Crypton) "
-				if caid >= "4B05" and caid <= "4B06":
-					caid = caid + " (Digicap) "
-				if caid.startswith("4A7"):
-					caid = caid + " (Dreamcrypt) "
-				if caid.startswith("4AE9"):
-					caid = caid + " (Dreamer-i) "
-				if caid.startswith("4B03"):
-					caid = caid + " (DuoCrypt) "
-				if caid.startswith("4A3"):
-					caid = caid + " (DVN Holdings) "
-				if caid >= "4AD8" and caid <= "4AD9":
-					caid = caid + " (Enigma Systems) "
-				if caid >= "4B40" and caid <= "4B41":
-					caid = caid + " (Excaf) "
-				if caid >= "2710" and caid <= "2711":
-					caid = caid + " (Extended Secure Technologies) "
-				if caid.startswith("4B10"):
-					caid = caid + " (Exterity Limited) "
-				if caid.startswith("4AE8"):
-					caid = caid + " (FG Digital) "
-				if caid.startswith("4AEC"):
-					caid = caid + " (FTS DVL SRL) "
-				if caid.startswith("4B08"):
-					caid = caid + " (Philips) "
-				if caid.startswith("5347"):
-					caid = caid + " (GkWare e.K.) "
-				if caid.startswith("4B62"):
-					caid = caid + " (GMA New Media) "
-				if caid.startswith("5448") or caid.startswith("7AC8"):
-					caid = caid + " (Gospell VisionCrypt) "
-				if caid.startswith("4B04"):
-					caid = caid + " (Great Wall) "
-				if caid.startswith("4AE5"):
-					caid = caid + " (IK Satprof) "
-				if caid.startswith("4AE7"):
-					caid = caid + " (Guangzhou Ewider) "
-				if caid >= "4855" and caid <= "4856":
-					caid = caid + " (Intertrust) "
-				if caid.startswith("4B3A"):
-					caid = caid + " (i-Panel) "
-				if caid.startswith("0001"):
-					caid = caid + " (IPDC SPP) "
-				if caid.startswith("4ADB"):
-					caid = caid + " (Jinan Taixin) "
-				if caid.startswith("4B60"):
-					caid = caid + " (Kiwisat) "
-				if caid.startswith("56A0"):
-					caid = caid + " (Laxmi) "
-				if caid.startswith("4ADC") or caid >= "2717" and caid <= "2718":
-					caid = caid + " (LogiWays) "
-				if caid >= "2800" and caid <= "2809":
-					caid = caid + " (LCS) "
-				if caid >= "4AE2" and caid <= "4AE3" or caid >= "4B13" and caid <= "4B14":
-					caid = caid + " (Microsoft) "
-				if caid >= "1ED0" and caid <= "1ED1":
-					caid = caid + " (Monacrypt) "
-				if caid.startswith("4AF7"):
-					caid = caid + " (MSA) "
-				if caid.startswith("4AEF"):
-					caid = caid + " (NetUP) "
-				if caid.startswith("2715"):
-					caid = caid + " (Network Broadcast) "
-				if caid.startswith("4AFB"):
-					caid = caid + " (NST) "
-				if caid.startswith("4B61"):
-					caid = caid + " (O2 Czech) "
-				if caid.startswith("0004") or caid.startswith("0005") or caid.startswith("0006"):
-					caid = caid + " (OMA BCAST) "
-				if caid.startswith("0008"):
-					caid = caid + " (Open Mobile Alliance) "
-				if caid.startswith("5609"):
-					caid = caid + " (Power On) "
-				if caid.startswith("4B24"):
-					caid = caid + " (Prowill) "
-				if caid.startswith("4B19"):
-					caid = caid + " (RidSys) "
-				if caid.startswith("4A9"):
-					caid = caid + " (Runcom) "
-				if caid >= "4B50" and caid <= "4B53":
-					caid = caid + " (Safeview India) "
-				if caid.startswith("2719") or caid.startswith("EAD0"):
-					caid = caid + " (InCrypt) "
-				if caid.startswith("4348"):
-					caid = caid + " (Secure TV) "
-				if caid.startswith("4AF5"):
-					caid = caid + " (SecureMedia) "
-				if caid.startswith("4AA"):
-					caid = caid + " (KeyFly) "
-				if caid.startswith("2712"):
-					caid = caid + " (Signal elektronic) "
-				if caid >= "4AD6" and caid <= "4AD7":
-					caid = caid + " (SK Telecom) "
-				if caid.startswith("4B23"):
-					caid = caid + " (SkyNLand) "
-				if caid.startswith("4B25"):
-					caid = caid + " (SureSoft) "
-				if caid.startswith("1EB0"):
-					caid = caid + " (TeleCast) "
-				if caid.startswith("4AE6"):
-					caid = caid + " (SypherMedia) "
-				if caid.startswith("4B54"):
-					caid = caid + " (TeleLynx) "
-				if caid.startswith("4B4A"):
-					caid = caid + " (Topwell) "
-				if caid.startswith("4AED") or caid.startswith("4B26"):
-					caid = caid + " (Unitend) "
-				if caid >= "4B30" and caid <= "4B31":
-					caid = caid + " (ViCAS) "
-				if caid >= "5607" and caid <= "5608":
-					caid = caid + " (Viewscenes) "
-				if caid >= "4AD4" and caid <= "4AD5":
-					caid = caid + " (OmniCrypt) "
-				if caid.startswith("4B07") or caid >= "2713" and caid <= "2714":
-					caid = caid + " (Wuhan) "
-				if caid.startswith("4ADA"):
-					caid = caid + " (Wyplay SAS) "
-				if caid >= "4AD0" and caid <= "4AD1":
-					caid = caid + " (XCrypt) "
-				if caid >= "4B0C" and caid <= "4B0F" or caid >= "5605" and caid <= "5606":
-					caid = caid + " (Sichuan) "
-				if caid.startswith("0000"):
-					caid = ""
-				caidlist += " " + caid
+		if caids and caidnames:
+			caidlist = "%s (%s)" %(caids, caidnames)
 			if config.osd.language.value == "el_GR":
 				caidlist = "Συστήματα κωδικοποίησης: " + caidlist
 			else:
