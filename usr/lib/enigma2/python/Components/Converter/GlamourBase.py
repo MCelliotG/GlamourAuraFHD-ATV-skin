@@ -13,6 +13,7 @@ from string import upper
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
 from Tools.Directories import fileExists
+from os import path
 
 
 def sp(text):
@@ -187,21 +188,63 @@ class GlamourBase(Poll, Converter, object):
 
 
 ######### COMMON VARIABLES #################
+	def videowidth(self, info):
+		width = 0
+		if path.exists("/proc/stb/vmpeg/0/xres"):
+			with open("/proc/stb/vmpeg/0/xres", "r") as w:
+				try:
+					width = int(w.read(),16)
+				except:
+					pass
+		if (width > 0) and not (width == 4294967295):
+			return width
+		else:
+			return ""
+
+	def videoheight(self, info):
+		height = 0
+		if path.exists("/proc/stb/vmpeg/0/yres"):
+			with open("/proc/stb/vmpeg/0/yres", "r") as h:
+				try:
+					height = int(h.read(),16)
+				except:
+					pass
+		if (height > 0) and not (height == 4294967295):
+			return height
+		else:
+			return ""
+
+	def proginfo(self, info):
+		progrs = ""
+		if path.exists("/proc/stb/vmpeg/0/progressive"):
+			with open("/proc/stb/vmpeg/0/progressive", "r") as prog:
+				try:
+					progrs = "p" if int(prog.read(),16) else "i"
+				except:
+					pass
+		return progrs
+
 	def videosize(self, info):
-		xresol = info.getInfo(iServiceInformation.sVideoWidth)
-		yresol = info.getInfo(iServiceInformation.sVideoHeight)
-		progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
-		if (xresol > 0):
+		xresol = str(self.videowidth(info))
+		yresol = str(self.videoheight(info))
+		progrs = self.proginfo(info)
+		if (xresol > "0"):
 			videosize = "%sx%s%s" % (xresol, yresol, progrs)
 			return videosize
 		else:
 			return ""
 
 	def framerate(self, info):
-		fps = info.getInfo(iServiceInformation.sFrameRate)
-		if (fps < 0) or (fps == -1):
-			return ""
-		fps = "%6.3f" % (fps/1000.)
+		fps = 0
+		if path.exists("/proc/stb/vmpeg/0/framerate"):
+			with open("/proc/stb/vmpeg/0/framerate", "r") as fp:
+				try:
+					fps = int(fp.read())
+				except:
+					pass
+			if (fps < 0) or (fps == -1):
+				return ""
+			fps = "%6.3f" % (fps/1000.)
 		return "%s fps" % (fps.replace(".000",""))
 
 	def videocodec(self, info):
@@ -952,50 +995,50 @@ class GlamourBase(Poll, Converter, object):
 		if not info:
 			return False
 		else:
-			xresol = info.getInfo(iServiceInformation.sVideoWidth)
-			yresol = info.getInfo(iServiceInformation.sVideoHeight)
-			progrs = ("i", "p", "", " ")[info.getInfo(iServiceInformation.sProgressive)]
+			xresol = self.videowidth(info)
+			yresol = self.videoheight(info)
+			progrs = self.proginfo(info)
 			vcodec = self.videocodec(info)
 			streamurl = self.streamurl()
 			gamma = self.hdr(info)
 			if (self.type == self.IS1080):
-				if (xresol >= 1880) and (xresol <= 2000) or (yresol >= 900) and (yresol <= 1090):
+				if (1880 <= xresol <= 2000 ) or (900 <= yresol <= 1090):
 					return True
 				return False
 			elif (self.type == self.IS720):
-				if (yresol >= 601) and (yresol <= 740):
+				if (601 <= yresol <= 740):
 					return True
 				return False
 			elif (self.type == self.IS576):
-				if (yresol >= 501) and (yresol <= 600):
+				if (501 <= yresol <= 600):
 					return True
 				return False
 			elif (self.type == self.IS1440):
-				if (xresol >= 2550) and (xresol <= 2570) or (yresol >= 1430) and (yresol <= 1450):
+				if (2550 <= xresol <= 2570) or (1430 <= yresol <= 1450):
 					return True
 				return False
 			elif (self.type == self.IS2160):
-				if (xresol >= 3820) and (xresol <= 4100) or (yresol >= 2150) and (yresol <= 2170):
+				if (3820 <= xresol <= 4100) or (2150 <= yresol <= 2170):
 					return True
 				return False
 			elif (self.type == self.IS480):
-				if (yresol >= 380) and (yresol <= 500):
+				if (380 <= yresol <= 500):
 					return True
 				return False
 			elif (self.type == self.IS360):
-				if (yresol >= 300) and (yresol <= 379):
+				if (300 <= yresol <= 379):
 					return True
 				return False
 			elif (self.type == self.IS288):
-				if (yresol >= 261) and (yresol <= 299):
+				if (261 <= yresol <= 299):
 					return True
 				return False
 			elif (self.type == self.IS240):
-				if (yresol >= 181) and (yresol <= 260):
+				if (181 <= yresol <= 260):
 					return True
 				return False
 			elif (self.type == self.IS144):
-				if (yresol >= 120) and (yresol <= 180):
+				if (120 <= yresol <= 180):
 					return True
 				return False
 			elif (self.type == self.ISPROGRESSIVE):
