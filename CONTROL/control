@@ -1,11 +1,12 @@
 Package: enigma2-plugin-skins-glamouraurafhd-atv
-Version: G.12
+Version: G.14
 Section: skins
 Priority: optional
 Architecture: all
 License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 OE: OpenATV and OE-A based images
-Maintainer: MCelliotG 
+Maintainer: MCelliotG
+Recommends: enigma2-plugin-extensions-bitrate, enigma2-plugin-extensions-weather_msn
 Description: Glamour Aura FHD ATV skin for new generation STBs with OpenATV/OE-A based images
 Source: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
 Homepage: https://github.com/MCelliotG/GlamourAuraFHD-ATV-skin
