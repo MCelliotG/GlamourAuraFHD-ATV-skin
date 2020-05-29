@@ -164,6 +164,8 @@ cainfo = (
 	("4B64", "4B64", "Samsung/TV Key"),
 	("5347", "5347", "GkWare"),
 	("5448", "5448", "Gospell VisionCrypt"),
+	("5501", "5580", "Griffin"),
+	("5581", "55FF", "Bulcrypt"),
 	("5601", "5604", "Verimatrix"),
 	("5605", "5606", "Sichuan"),
 	("5607", "5608", "Viewscenes"),
@@ -454,7 +456,7 @@ class GlamourAccess(Poll, Converter):
 				return False
 			if self.type == self.BULCAS:
 				for caid in caids:
-					if caid == "4AEE" or caid == "4AF8" or caid >= "5501" and caid <= "55FF":
+					if caid == "4AEE" or caid == "4AF8" or caid >= "5581" and caid <= "55FF":
 						return True
 				return False
 			if self.type == self.VMXCAS:
@@ -561,7 +563,7 @@ class GlamourAccess(Poll, Converter):
 						return True
 					return False
 				if self.type == self.BULECM:
-					if caid == "4AEE" or caid == "4AF8" or caid >= "5501" and caid <= "55FF":
+					if caid == "4AEE" or caid == "4AF8" or caid >= "5581" and caid <= "55FF":
 						return True
 					return False
 				if self.type == self.VMXECM:

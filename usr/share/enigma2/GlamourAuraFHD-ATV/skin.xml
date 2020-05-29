@@ -1572,10 +1572,10 @@
   <screen name="TunerInfobar" flags="wfNoBorder">
     <!-- Frequency, Orbital & Streamtypes -->
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="395,40" zPosition="-12" size="1260,85" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="GlamRoll" position="410,50" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="GlamRoll" position="410,48" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">FreqInfo</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="410,85" size="870,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular;26" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="410,83" size="870,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">Orbital</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1100,95" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
@@ -2207,7 +2207,7 @@
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,540" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,545" size="330,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
-      <convert type="GlamourExtra">CPU:$0 ($1$2$3 $4)</convert>
+      <convert type="GlamCPU">CPU:$0 ($1$2$3 $4)</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,580" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,585" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
@@ -2734,7 +2734,7 @@
     <panel name="TunerInfobar" />
     <panel name="TunersInfo" />
     <!-- Service info and icons -->
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_glass.png" position="350,942" zPosition="-3" size="1570,40" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="on" transparent="1" />
     <panel name="IconsInfobar" />
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="on" transparent="1" />
@@ -2763,7 +2763,7 @@
     <panel name="TunerInfobar" />
     <panel name="TunersInfo" />
     <!-- Service info and icons -->
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_glass.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
     <panel name="IconsInfobar" />
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <panel name="MainInfobar" />
@@ -2804,7 +2804,7 @@
     <panel name="TunerInfobar" />
     <panel name="TunersInfo" />
     <!-- Service info and icons -->
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_glass.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/audio/audio_off.png" position="1538,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" position="1538,947" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
@@ -2890,7 +2890,7 @@
     <panel name="TunerInfobar" />
     <panel name="TunersInfo" />
     <!-- Service info and icons -->
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_glass.png" position="350,942" zPosition="-3" size="1570,40" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="on" transparent="1" />
     <panel name="IconsInfobar" />
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="on" transparent="1" />

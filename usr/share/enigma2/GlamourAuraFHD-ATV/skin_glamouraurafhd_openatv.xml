@@ -389,16 +389,17 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="ImageBackup" position="0,0" size="1920,1080" title="Image Backup" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-    <widget source="backgroundable" render="FixedLabel" text="Continue in the background" position="1200,810" size="650,50" zPosition="2" valign="center" font="Regular;30" halign="center" noWrap="1" foregroundColor="cyan" backgroundColor="background20" transparent="1">
-      <convert type="ConditionalShowHide" />
-    </widget>
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/backup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="info-hdd" position="540,50" zPosition="3" size="1305,250" font="RegularB; 32" halign="center" valign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" />
-    <widget name="info-multi" position="540,560" zPosition="6" size="1305,250" font="Regular; 32" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" />
-    <widget name="info-usb" position="540,305" size="1305,250" font="Regular; 30" backgroundColor="background20" foregroundColor="white" halign="center" transparent="1" zPosition="4" />
+    <ePixmap position="535,275" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="640,275" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="590,220" size="54,54" zPosition="11" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="blend" />
+    <ePixmap position="587,325" size="54,54" zPosition="11" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="blend" />
+    <widget name="config" position="700,180" size="1095,500" itemHeight="50" font="RegularB; 38" enableWrapAround="1" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/channelsel.png" alphatest="blend" zPosition="7" />
+    <widget source="options" render="Label" position="540,700" size="1305,150" halign="center" valign="center" font="Regular; 34" backgroundColor="background20" foregroundColor="amarillo" transparent="1" zPosition="6" />
+    <widget source="description" render="Label" position="540,60" size="1305,105" halign="center" valign="center" font="RegularB; 36" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="SoftwareUpdateChoices" position="0,0" size="1920,1080" title="Software Update Choices" flags="wfNoBorder" backgroundColor="transparent">
