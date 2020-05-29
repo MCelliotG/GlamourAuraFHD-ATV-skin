@@ -11,15 +11,12 @@ from os import system, path, popen
 from Tools.Directories import fileExists
 
 class GlamourExtra(Poll, Converter):
-	CPU_CALC = 0
-	CPU_ALL = 1
-	CPU_TOTAL = 2
-	TEMPERATURE = 3
-	HDDTEMP = 4
-	CPULOAD = 5
-	CPUSPEED = 6
-	FANINFO = 7
-	UPTIME = 8
+	TEMPERATURE = 0
+	HDDTEMP = 1
+	CPULOAD = 2
+	CPUSPEED = 3
+	FANINFO = 4
+	UPTIME = 5
 
 
 	def __init__(self, type):
@@ -28,27 +25,6 @@ class GlamourExtra(Poll, Converter):
 		self.container = eConsoleAppContainer()
 		type = type.split(",")
 		self.short_list = True
-		self.cpu_count = 0
-		self.prev_info = self.getCpuInfo(self.CPU_CALC)
-
-		if not type or type == "Total":
-			self.type = self.CPU_TOTAL
-			self.sfmt = "CPU: $0"
-		else:
-			self.type = self.CPU_ALL
-			self.sfmt = txt = str(type[0])
-			pos = 0
-			while True:
-				pos = self.sfmt.find("$", pos)
-				if pos == -1:
-					break
-				if pos < len(self.sfmt) - 1 and self.sfmt[pos + 1].isdigit():
-					x = int(self.sfmt[pos + 1])
-					if x > self.cpu_count:
-						self.sfmt = self.sfmt.replace("$" + self.sfmt[pos + 1], "")
-				pos += 1
-		self.curr_info = self.getCpuInfo(self.type)
-
 		self.list = []
 		self.shortFormat = "Short" in type
 		if "CPULoad" in type:
@@ -68,7 +44,7 @@ class GlamourExtra(Poll, Converter):
 			self.container.execute("hddtemp -n -q /dev/sda")
 		elif "FanInfo" in type:
 			self.type = self.FANINFO
-		if self.type in (self.CPU_TOTAL, self.CPU_ALL, self.HDDTEMP):
+		if "HDDTemp" in type:
 			self.poll_interval = 500
 		else:
 			self.poll_interval = 7000
@@ -92,17 +68,6 @@ class GlamourExtra(Poll, Converter):
 
 	@cached
 	def getText(self):
-		res = self.sfmt
-		self.prev_info, self.curr_info = self.curr_info, self.getCpuInfo(self.type)
-		text = ""
-		for i in range(len(self.curr_info)):
-			try:
-				p = 100 * (self.curr_info[i][2] - self.prev_info[i][2]) / (self.curr_info[i][1] - self.prev_info[i][1])
-			except ZeroDivisionError:
-				p = 0
-			res = res.replace("$" + str(i), "% 3d%%" % p)
-			text = res.replace("$?", "%d" % self.cpu_count)
-
 		if (self.type == self.CPULOAD):
 			cpuload = ""
 			if fileExists("/proc/loadavg"):
@@ -224,55 +189,6 @@ class GlamourExtra(Poll, Converter):
 		return text
 
 	text = property(getText)
-
-
-	def getCpuInfo(self, cpu = -1):
-
-		def validCpu(c):
-			if cpu == self.CPU_CALC and c.isdigit():
-				return True
-			if cpu == self.CPU_ALL:
-				return True
-			if c == " " and cpu == self.CPU_TOTAL:
-				return True
-			if c == str(cpu):
-				return True
-			return False
-
-		res = []
-		calc_cpus = cpu == self.CPU_CALC and self.cpu_count == 0
-		try:
-			with open("/proc/stat", "r") as fd:
-				for l in fd:
-					if l[0] is not "c":
-						continue
-					if l.find("cpu") == 0 and validCpu(l[3]):
-						if calc_cpus:
-							self.cpu_count += 1
-							continue
-						total = busy = 0
-						tmp = l.split()
-						for i in range(1, len(tmp)):
-							tmp[i] = int(tmp[i])
-							total += tmp[i]
-						busy = total - tmp[4] - tmp[5]
-						if self.short_list:
-							res.append([tmp[0], total, busy])
-						else:
-							tmp.insert(1, total)
-							tmp.insert(2, busy)
-							res.append(tmp)
-		except:
-			pass
-		return res
-
-
-	def doSuspend(self, suspended):
-		if suspended:
-			self.poll_enabled = False
-		else:
-			self.downstream_elements.changed((self.CHANGED_POLL,))
-			self.poll_enabled = True
 
 	def changed(self, what):
 		if what[0] == self.CHANGED_POLL:
