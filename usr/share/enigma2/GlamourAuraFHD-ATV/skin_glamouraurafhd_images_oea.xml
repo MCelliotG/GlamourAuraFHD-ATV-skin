@@ -1,7 +1,7 @@
 ﻿<skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliot_g  -->
+  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
   <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Open-Alliance Images by MCelliot_g -->
+  <!--  GlamourAuraFHD-ATV Open-Alliance Images by MCelliotG -->
 
   <!--  ######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
@@ -15,7 +15,7 @@
     <widget name="actifcam2" position="1200,260" size="660,50" font="RegularL; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
     <panel name="CPUTempInfobar" />
-    <eLabel text="Glamour Aura FHD Skin by MCelliot_g" position="1360,360" size="400,155" font="Regular; 42" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="1" foregroundColor="cyan2" />
+    <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="1360,360" size="400,155" font="Regular; 42" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="1" foregroundColor="cyan2" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/flashspace.png" position="1235,570" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="1280,575" size="585,35" font="Regular; 26" zPosition="6" backgroundColor="background20" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="amarillo">
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
@@ -52,16 +52,16 @@
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="off" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/flashspace.png" position="50,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="95,733" size="560,35" font="Numbers; 30" zPosition="6" backgroundColor="darkgrey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="dark">
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/panel+.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" position="770,140" size="990,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel990.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" zPosition="3">
         <convert type="TemplatedMultiContent">
-        {"template": [MultiContentEntryText(pos = (180, 2), size = (620, 50), font=0, text = 0),
-        MultiContentEntryText(pos = (180, 45), size = (620, 45), font=1, text = 1),
+        {"template": [MultiContentEntryText(pos = (180, 2), size = (530, 50), font=0, text = 0),
+        MultiContentEntryText(pos = (180, 45), size = (530, 45), font=1, text = 1),
         MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (150, 60), flags = BT_SCALE, png = 2),],
         "fonts": [gFont("Regular", 33),gFont("Regular", 22)],
         "itemHeight": 50}
@@ -83,8 +83,8 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="Mlist" font="Regular; 45" position="800,90" size="960,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself990.png" alphatest="blend" zPosition="3" />
-    <widget name="label1" position="810,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
+    <widget name="Mlist" font="Regular; 45" position="800,90" size="900,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself900.png" alphatest="blend" zPosition="3" />
+    <widget name="label1" position="810,890" size="890,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
   
   <!-- 04. opdBoot Logo Selector -->
@@ -244,7 +244,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="20,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel990.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel position="1130,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
     <eLabel position="1134,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
     <widget name="status" font="Regular; 30" position="1140,110" size="705,650" foregroundColor="amarillo" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />

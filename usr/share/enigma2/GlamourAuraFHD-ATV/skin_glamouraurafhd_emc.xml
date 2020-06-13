@@ -1,7 +1,7 @@
 <skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliot_g  -->
+  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
   <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Enhanced Movie Center by MCelliot_g -->
+  <!--  GlamourAuraFHD-ATV Enhanced Movie Center by MCelliotG -->
 
     <!-- EMC Templates -->
   <screen name="EMCList" flags="wfNoBorder">
@@ -9,7 +9,7 @@
     <widget name="list" position="665,135" size="1200,750" itemHeight="50" CoolCSPos="860" CoolBarHPos="14" CoolBarPos="770" CoolBarSizeSa="120,21" CoolDateColor="1" CoolDateFont="Regular;28" CoolDateHPos="7" CoolDatePos="920" CoolDateWidth="240" CoolDirInfoWidth="300" CoolFolderSize="800" CoolFont="Regular;30" CoolHighlightColor="1" CoolIconPos="5" CoolIconSize="50,45" CoolMovieHPos="6" CoolMoviePiconPos="150" CoolMoviePiconSize="600" CoolMoviePos="65" CoolMovieSize="700" CoolPiconHPos="5" CoolPiconHeight="45" CoolPiconPos="50" CoolProgressPos="840" CoolSelNumTxtWidth="50" CoolSelectFont="Regular;30" CoolTitleColor="1" DefaultColor="white" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="blend" zPosition="5" />
   </screen>
   <screen name="EMCLayout" flags="wfNoBorder">
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="off" transparent="1" />
     <widget source="Title" render="Label" position="665,35" size="875,100" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
   </screen>
   <screen name="EMCCover" flags="wfNoBorder">
@@ -125,7 +125,7 @@
   
   <screen name="MovieInfoTMDb" position="0,0" size="1920,1080" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
     <panel name="Title1" />
     <ePixmap position="660,840" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="cyan1" zPosition="7" transparent="1" backgroundColor="background20" />
@@ -154,7 +154,7 @@
   
   <screen name="EMCImdbScan" position="0,0" size="1920,1080" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
     <panel name="Title1" />
     <ePixmap position="1325,660" size="90,45" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
     <widget name="Setup" position="1440,660" size="400,50" font="RegularB; 33" valign="center" zPosition="6" transparent="1" />
@@ -188,7 +188,7 @@
   
   <screen name="getCover" position="0,0" size="1920,1080" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
     <panel name="Title1" />
     <widget name="info" position="50,745" size="580,200" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
     <widget name="poster" position="150,145" size="400,600" alphatest="on" transparent="0" zPosition="5" />
@@ -218,7 +218,7 @@
   
   <screen name="DownloadMovieInfo" position="0,0" size="1920,1080" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="on" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
     <panel name="Title1" />
     <ePixmap position="660,840" size="100,100" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="sky" zPosition="7" transparent="1" backgroundColor="background20" />
