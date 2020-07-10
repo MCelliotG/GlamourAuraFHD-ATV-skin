@@ -16,10 +16,10 @@
   <output id="0">
     <resolution xres="1920" yres="1080" bpp="32" />
   </output>
-  <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_openatv.xml" />
-  <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_plugins_oea.xml" />
-  <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_images_oea.xml" />
-  <include filename="/usr/share/enigma2/GlamourAuraFHD-ATV/skin_glamouraurafhd_emc.xml" />
+  <include filename="skin_glamouraurafhd_openatv.xml" />
+  <include filename="skin_glamouraurafhd_plugins_oea.xml" />
+  <include filename="skin_glamouraurafhd_images_oea.xml" />
+  <include filename="skin_glamouraurafhd_emc.xml" />
   <colors>
     <color name="amarillo" value="#00ffffc6" />
     <color name="amaryllis" value="#00e1107c" />
@@ -385,6 +385,36 @@
     <widget objectTypes="blue,Label,Button" name="blue" position="1580,595" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1580,595" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
+  <screen name="FullKeysM" flags="wfNoBorder">
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="800,875" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="800,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="1030,875" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="1030,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1260,875" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1260,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1490,875" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1490,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+  </screen>
   <screen name="FullKeysH" flags="wfNoBorder">
     <widget name="h_red" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="805,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget name="h_green" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="1070,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -451,9 +481,9 @@
   </screen>
   <!-- 02. Menu Labels -->
   <screen name="MainMenu1" flags="wfNoBorder">
-    <widget source="menu" render="Listbox" position="770,60" size="900,880" scrollbarMode="showNever" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself900.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="770,60" size="920,880" scrollbarMode="showNever" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [ MultiContentEntryText(pos = (60, 0), size = (830, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+        {"template": [ MultiContentEntryText(pos = (60, 0), size = (850, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
         "fonts": [gFont("Regular", 45)],
         "itemHeight": 80
         }
@@ -469,7 +499,7 @@
     <widget objectTypes="blue,Label,Button" name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
   </screen>
   <screen name="MenuCL" flags="wfNoBorder">
-    <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/cutsel.png" alphatest="blend" transparent="1" zPosition="13">
+    <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/cutsel.png" alphatest="off" transparent="1" zPosition="13">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos=(0,0), size=(450, 50), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
@@ -510,7 +540,7 @@
       <convert type="MenuEntryCompare">timer_menu</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/Scart.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/scart.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">scart_switch</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -823,6 +853,10 @@
     </widget>
     <widget source="menu" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/specialfeat.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">specialfeatures_menu</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/pipsetup.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">pip_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/skins.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -1335,7 +1369,7 @@
   <!-- 04. Wizards -->
   <screen name="Wizard1" flags="wfNoBorder">
     <widget name="text" position="800,60" size="1050,400" font="Regular; 34" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
-    <widget source="list" render="Listbox" position="800,460" size="1050,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" zPosition="13">
+    <widget source="list" render="Listbox" position="800,460" size="1050,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="13">
       <convert type="TemplatedMultiContent">
   {"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
    "fonts": [gFont("Regular", 33)],
@@ -1343,7 +1377,7 @@
       }
   </convert>
     </widget>
-    <widget name="config" font="Regular; 30" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" transparent="1" />
+    <widget name="config" font="Regular; 30" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" />
     <widget name="VKeyIcon" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_text_big.png" position="540,810" size="120,60" alphatest="blend" transparent="1" zPosition="10" />
     <widget name="HelpWindow" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_help_big.png" position="540,870" size="120,60" alphatest="blend" transparent="1" zPosition="10" />
   </screen>
@@ -1549,8 +1583,8 @@
       <convert type="RemainingToText">InMinutes</convert>
     </widget>
     <widget source="session.Event_Now" render="Progress" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="350,890" size="1298,6" zPosition="7" transparent="1">
-  <convert type="EventTime">Progress</convert>
-</widget>
+      <convert type="EventTime">Progress</convert>
+    </widget>
     <widget source="session.Event_Next" render="GlamRoll" position="595,895" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
@@ -1936,159 +1970,159 @@
   </screen>
   <!-- Lower Icons Infobar & Resolution -->
   <screen name="IconsInfobar" flags="wfNoBorder">
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/rec_off.png" position="1198,947" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
-  <widget source="session.RecordState" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/rec_on.png" position="1198,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ConditionalShowHide">Blink</convert>
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/stream_off.png" position="1253,947" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/stream_on.png" position="1253,947" size="60,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">IsStreaming</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/uhd_off.png" position="1318,947" size="76,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/uhd_on.png" position="1318,947" size="76,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">VideoWidth</convert>
-    <convert type="ValueRange">2800,4400</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" position="1345,947" size="50,30" zPosition="2" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">VideoWidth</convert>
-    <convert type="ValueRange">900,1930</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/audio/audio_off.png" position="1110,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" position="1110,947" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
-    <convert type="GlamourAudioInfo">AudioIcon</convert>
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/dolby_off.png" position="1400,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/dolby_on.png" position="1400,947" size="84,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">IsMultichannel</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/multiaudio_off.png" position="1487,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/multiaudio_on.png" position="1487,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">AudioTracksAvailable</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/wide_off.png" position="1540,947" size="54,30" zPosition="1" alphatest="blend" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/wide_on.png" position="1540,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">IsWidescreen</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hbbtv_off.png" position="1600,947" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" position="1600,947" size="60,30" zPosition="2" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hbbtv_on.png" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">HasHBBTV</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/txt_off.png" position="1665,947" size="54,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/txt_on.png" position="1665,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">HasTelext</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/sub_off.png" position="1725,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/sub_on.png" position="1725,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">SubtitlesAvailable</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/subsrv_off.png" position="1782,947" size="54,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/subsrv_on.png" position="1782,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">SubservicesAvailable</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/crypt_off.png" position="1842,947" size="36,30" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/crypt_on.png" position="1842,947" size="36,30" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">IsCrypted</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/caids/fta.png" position="440,949" size="65,25" zPosition="2" alphatest="blend" transparent="1">
-    <convert type="GlamourAccess">Fta</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <!-- codec info -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/codec_off.png" position="1020,947" size="84,30" zPosition="4" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/hevc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasHEVC</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/avc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasAVC</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg2.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasMPEG2</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vc1.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasVC1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/h.263.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasH263</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp8.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasVP8</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp9.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasVP9</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp6.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasVP6</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/divx.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasDIVX</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/xvid.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasXVID</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/spark.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasSPARK</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg1.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasMPEG1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg4vc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasMPEG4VC</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/avs.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">HasAVS</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <!-- color curve -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/curve_off.png" position="952,947" size="60,30" zPosition="4" alphatest="blend" transparent="1" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hdr.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">IsHDR</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hdr10.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">IsHDR10</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/sdr.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="GlamourBase">IsSDR</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hlg.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
-    <convert type="ServiceInfo">IsHLG</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <!-- Resolution info -->
-  <widget source="session.CurrentService" render="Label" position="665,942" size="140,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
-    <convert type="GlamourBase">VideoSize</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="810,942" size="135,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
-    <convert type="GlamourBase">Fps</convert>
-  </widget>
-</screen>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/rec_off.png" position="1198,947" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
+    <widget source="session.RecordState" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/rec_on.png" position="1198,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ConditionalShowHide">Blink</convert>
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/stream_off.png" position="1253,947" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/stream_on.png" position="1253,947" size="60,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsStreaming</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/uhd_off.png" position="1318,947" size="76,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/uhd_on.png" position="1318,947" size="76,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">VideoWidth</convert>
+      <convert type="ValueRange">2800,4400</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" position="1345,947" size="50,30" zPosition="2" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">VideoWidth</convert>
+      <convert type="ValueRange">900,1930</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/audio/audio_off.png" position="1110,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" position="1110,947" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+      <convert type="GlamourAudioInfo">AudioIcon</convert>
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/dolby_off.png" position="1400,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/dolby_on.png" position="1400,947" size="84,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">IsMultichannel</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/multiaudio_off.png" position="1487,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/multiaudio_on.png" position="1487,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">AudioTracksAvailable</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/wide_off.png" position="1540,947" size="54,30" zPosition="1" alphatest="blend" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/wide_on.png" position="1540,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">IsWidescreen</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hbbtv_off.png" position="1600,947" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" position="1600,947" size="60,30" zPosition="2" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/hbbtv_on.png" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">HasHBBTV</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/txt_off.png" position="1665,947" size="54,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/txt_on.png" position="1665,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">HasTelext</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/sub_off.png" position="1725,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/sub_on.png" position="1725,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">SubtitlesAvailable</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/subsrv_off.png" position="1782,947" size="54,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/subsrv_on.png" position="1782,947" size="54,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">SubservicesAvailable</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/crypt_off.png" position="1842,947" size="36,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infobar/crypt_on.png" position="1842,947" size="36,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">IsCrypted</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/caids/fta.png" position="440,949" size="65,25" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Fta</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <!-- codec info -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/codec_off.png" position="1020,947" size="84,30" zPosition="4" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/hevc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasHEVC</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/avc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasAVC</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg2.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasMPEG2</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vc1.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasVC1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/h.263.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasH263</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp8.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasVP8</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp9.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasVP9</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/vp6.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasVP6</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/divx.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasDIVX</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/xvid.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasXVID</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/spark.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasSPARK</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg1.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasMPEG1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/mpeg4vc.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasMPEG4VC</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/codecs/avs.png" position="1020,947" size="84,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">HasAVS</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <!-- color curve -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/curve_off.png" position="952,947" size="60,30" zPosition="4" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hdr.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsHDR</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hdr10.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">IsHDR10</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/sdr.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsSDR</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/curve/hlg.png" position="952,947" size="60,30" zPosition="6" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">IsHLG</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <!-- Resolution info -->
+    <widget source="session.CurrentService" render="Label" position="665,942" size="140,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
+      <convert type="GlamourBase">VideoSize</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="810,942" size="135,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
+      <convert type="GlamourBase">Fps</convert>
+    </widget>
+  </screen>
   <!-- Provider name and Reference -->
   <screen name="P+RInfobar" flags="wfNoBorder">
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider2IB.png" position="425,130" zPosition="-12" size="1240,50" alphatest="off" transparent="1" />
@@ -2193,7 +2227,7 @@
   </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,400" zPosition="-6" size="400,290" alphatest="off" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,395" zPosition="-6" size="400,290" alphatest="off" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,420" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,425" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
       <convert type="GlamourExtra">Temperature</convert>
@@ -2463,7 +2497,7 @@
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="540,55" size="700,50" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" />
     <widget name="HelpWindow" position="540,830" size="1320,130" zPosition="11" transparent="1" />
   </screen>
@@ -2689,7 +2723,7 @@
   <!-- 10.6 MOVIESELECTION LAYOUT  -->
   <screen name="MovieSLayout" flags="wfNoBorder">
     <widget source="Title" render="Label" position="665,35" size="875,95" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget name="list" position="665,135" pathIconSize="50" dataIconSize="50" progressIconSize="50" progressBarSize="80" size="1200,720" fontName="RegularL" pbarShift="10" pbarHeight="20" pbarLargeWidth="70" pbarColour="background20" pbarColourSeen="cyan" pbarColourRec="red" partIconeShift="2" spaceIconeText="10" iconsWidth="30" trashShift="2" dirShift="2" spaceRight="5" dateWidth="250" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="blend" zPosition="5" />
+    <widget name="list" position="665,135" pathIconSize="50" dataIconSize="50" progressIconSize="50" progressBarSize="80" size="1200,720" fontName="RegularL" pbarShift="10" pbarHeight="20" pbarLargeWidth="70" pbarColour="background20" pbarColourSeen="cyan" pbarColourRec="red" partIconeShift="2" spaceIconeText="10" iconsWidth="30" trashShift="2" dirShift="2" spaceRight="5" dateWidth="250" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="off" zPosition="5" />
     <widget name="freeDiskSpace" position="1155,905" size="710,50" font="Regular; 30" valign="center" backgroundColor="background20" transparent="1" halign="right" foregroundColor="sky" zPosition="5" />
     <widget name="waitingtext" position="665,135" size="1200,720" font="Regular; 37" halign="center" valign="center" zPosition="12" transparent="0" backgroundColor="background20" foregroundColor="sky" />
     <widget name="chosenletter" position="1545,35" size="105,95" font="RegularB; 45" halign="center" valign="top" transparent="1" zPosition="7" backgroundColor="background20" foregroundColor="sky" />
@@ -2729,70 +2763,70 @@
   <!-- ###INFOBARS -->
   <!-- 01. Main Infobar -->
   <screen name="InfoBar" position="0,0" size="1920,1080" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-  <!-- Clock -->
-  <panel name="ClockLabel2" />
-  <!--Tuner Infobar -->
-  <panel name="TunerInfobar" />
-  <panel name="TunersInfo" />
-  <!-- Service info and icons -->
-  <panel name="IconsInfobar" />
-  <!-- MIDDLE INFOBAR MAIN INFO -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-  <panel name="MainInfobar" />
-  <!-- Provider -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="1045,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-    <convert type="ServiceName">Provider</convert>
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-  <!-- Crypt Info -->
-  <panel name="CryptInfo" />
-  <panel name="CasInfo" />
-  <!-- Bitrate -->
-  <!--panel name="BitrateInfobar" /-->
-  <!--/* WEATHER WIDGETS -->
-  <panel name="WeatherToday" />
-  <!-- WEATHER Current Temp on Infobar -->
-  <panel name="WeatherInfobar" />
-</screen>
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Tuner Infobar -->
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
+    <!-- Service info and icons -->
+    <panel name="IconsInfobar" />
+    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
+    <panel name="MainInfobar" />
+    <!-- Provider -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1045,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+      <convert type="ServiceName">Provider</convert>
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Crypt Info -->
+    <panel name="CryptInfo" />
+    <panel name="CasInfo" />
+    <!-- Bitrate -->
+    <!--panel name="BitrateInfobar" /-->
+    <!--/* WEATHER WIDGETS -->
+    <panel name="WeatherToday" />
+    <!-- WEATHER Current Temp on Infobar -->
+    <panel name="WeatherInfobar" />
+  </screen>
   <!-- 02. Second Infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-  <!-- Clock -->
-  <panel name="ClockLabel2" />
-  <!--Tuner Infobar -->
-  <panel name="TunerInfobar" />
-  <panel name="TunersInfo" />
-  <!-- Service info and icons -->
-  <panel name="IconsInfobar" />
-  <!-- MIDDLE INFOBAR MAIN INFO -->
-  <panel name="MainInfobar" />
-  <!-- Provider name and Reference -->
-  <panel name="P+RInfobar" />
-  <!-- Current and next event -->
-  <panel name="EventInfobar" />
-  <!-- Pid and Reference info -->
-  <panel name="PIDSInfobar" />
-  <!-- CPU Info and Temp Info Panel -->
-  <panel name="CPUTempInfobar" />
-  <!-- Memory Info -->
-  <panel name="MemoryInfobar" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-  <!-- Crypt Info -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-  <panel name="CryptInfo" />
-  <panel name="SourceInfo" />
-  <panel name="CamName" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
-  <!-- ECM Info -->
-  <panel name="ECMInfo" />
-  <!-- Bitrate -->
-  <!--panel name="BitrateInfobar" /-->
-  <!--/* WEATHER WIDGETS -->
-  <panel name="Weather1" />
-  <panel name="Weather2" />
-  <!-- WEATHER Current Temp on Infobar -->
-  <panel name="WeatherInfobar" />
-</screen>
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Tuner Infobar -->
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
+    <!-- Service info and icons -->
+    <panel name="IconsInfobar" />
+    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <panel name="MainInfobar" />
+    <!-- Provider name and Reference -->
+    <panel name="P+RInfobar" />
+    <!-- Current and next event -->
+    <panel name="EventInfobar" />
+    <!-- Pid and Reference info -->
+    <panel name="PIDSInfobar" />
+    <!-- CPU Info and Temp Info Panel -->
+    <panel name="CPUTempInfobar" />
+    <!-- Memory Info -->
+    <panel name="MemoryInfobar" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Crypt Info -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+    <panel name="CryptInfo" />
+    <panel name="SourceInfo" />
+    <panel name="CamName" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+    <!-- ECM Info -->
+    <panel name="ECMInfo" />
+    <!-- Bitrate -->
+    <!--panel name="BitrateInfobar" /-->
+    <!--/* WEATHER WIDGETS -->
+    <panel name="Weather1" />
+    <panel name="Weather2" />
+    <!-- WEATHER Current Temp on Infobar -->
+    <panel name="WeatherInfobar" />
+  </screen>
   <!-- 03. Radio Infobar -->
   <!-- Radio Infobar -->
   <screen name="RadioInfoBar" position="0,0" size="1920,1080" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
@@ -2883,37 +2917,37 @@
   </screen>
   <!-- 04. Subservices Quickzap -->
   <screen name="SubservicesQuickzap" position="0,0" size="1920,1080" title="Subservices" backgroundColor="transparent" flags="wfNoBorder">
-  <!-- Clock -->
-  <panel name="ClockLabel2" />
-  <!--Tuner Infobar -->
-  <panel name="TunerInfobar" />
-  <panel name="TunersInfo" />
-  <!-- Service info and icons -->
-  <panel name="IconsInfobar" />
-  <!-- MIDDLE INFOBAR MAIN INFO -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-  <panel name="MainInfobar" />
-  <!-- Provider -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
-  <widget source="session.CurrentService" render="Label" position="1045,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-    <convert type="ServiceName">Provider</convert>
-  </widget>
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-  <!-- Crypt Info -->
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-  <panel name="CryptInfo" />
-  <panel name="SourceInfo" />
-  <panel name="CamName" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
-  <!-- ECM Info -->
-  <panel name="ECMInfo" />
-  <!-- Bitrate -->
-  <!--panel name="BitrateInfobar" /-->
-  <!--/* WEATHER WIDGETS -->
-  <panel name="WeatherToday" />
-  <!-- WEATHER Current Temp on Infobar -->
-  <panel name="WeatherInfobar" />
-</screen>
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Tuner Infobar -->
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
+    <!-- Service info and icons -->
+    <panel name="IconsInfobar" />
+    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
+    <panel name="MainInfobar" />
+    <!-- Provider -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1045,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+      <convert type="ServiceName">Provider</convert>
+    </widget>
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Crypt Info -->
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+    <panel name="CryptInfo" />
+    <panel name="SourceInfo" />
+    <panel name="CamName" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+    <!-- ECM Info -->
+    <panel name="ECMInfo" />
+    <!-- Bitrate -->
+    <!--panel name="BitrateInfobar" /-->
+    <!--/* WEATHER WIDGETS -->
+    <panel name="WeatherToday" />
+    <!-- WEATHER Current Temp on Infobar -->
+    <panel name="WeatherInfobar" />
+  </screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
   <screen name="Menu" position="center,center" size="1920,1080" title="Menu" backgroundColor="transparent" flags="wfNoBorder">
@@ -3094,10 +3128,10 @@
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget source="menu" render="Listbox" position="770,45" size="900,640" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself900.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="770,45" size="920,640" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [ 
-            MultiContentEntryText(pos = (60, 0), size = (830, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
+            MultiContentEntryText(pos = (60, 0), size = (850, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the menu item,
           ],
         "fonts": [gFont("Regular", 45)],
         "itemHeight": 80
@@ -3242,7 +3276,7 @@
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget name="config" font="Regular; 30" position="810,90" size="885,800" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="3" />
+    <widget name="config" font="Regular; 30" position="810,90" size="885,800" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/subsetup.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 10. Subtitle Display -->
@@ -3351,7 +3385,7 @@
       <convert type="ProgressToText" />
     </widget>
     <widget source="job_status" render="Label" position="540,520" size="1305,80" font="Regular; 36" backgroundColor="background20" foregroundColor="orange" transparent="1" zPosition="5" />
-    <widget name="config" position="540,600" size="1305,250" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="config" position="540,600" size="1305,250" font="Regular; 32" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelable" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="595,870" size="225,75" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
@@ -3453,7 +3487,7 @@
     <panel name="MainBackgroundCS" />
     <panel name="ClockLabel3" />
     <widget source="Title" render="Label" position="785,35" size="855,100" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="785,135" size="1095,850" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
     <widget source="ServiceEvent" render="Picon" position="40,35" size="220,132" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
@@ -4174,7 +4208,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/audiosetup.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="900,60" size="925,375" scrollbarMode="showOnDemand" itemHeight="75" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel2.png" alphatest="blend" transparent="1" zPosition="3" />
+    <widget name="config" font="Regular; 30" position="900,60" size="925,375" scrollbarMode="showOnDemand" itemHeight="75" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel2.png" alphatest="off" transparent="1" zPosition="3" />
     <widget source="key_red" render="Pixmap" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="795,60" size="225,75" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
@@ -4190,7 +4224,7 @@
     <widget name="key_left" position="825,440" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
     <widget name="key_right" position="1750,440" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
     <widget name="switchdescription" position="880,443" size="870,50" font="Regular; 30" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="center" />
-    <widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="770,500" size="1055,450" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/streamsel.png" alphatest="blend" zPosition="3" transparent="1">
+    <widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="770,500" size="1055,450" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/streamsel.png" alphatest="off" zPosition="3" transparent="1">
       <convert type="TemplatedMultiContent">
         {"templates":
           {"default": (50, [
@@ -4219,10 +4253,10 @@
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget source="languages" render="Listbox" position="770,90" size="900,810" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="on" zPosition="4">
+    <widget source="languages" render="Listbox" position="770,90" size="900,720" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="on" zPosition="4">
       <convert type="TemplatedMultiContent">
         {"template": [
-        MultiContentEntryText(pos = (150,0), size = (710, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the language name,
+        MultiContentEntryText(pos = (150,0), size = (710, 90), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the language name,
         MultiContentEntryPixmap(pos = (40, 20), size = (60, 40), png = 2), # index 2 is the pixmap
         ],
         "fonts": [gFont("Regular", 45)],
@@ -4231,6 +4265,7 @@
       </convert>
     </widget>
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/languages.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="FullKeysM" />
   </screen>
   <!-- 06. EventView -->
   <screen name="EventView" position="0,0" size="1935,1080" title="Eventview" backgroundColor="transparent" flags="wfNoBorder">
@@ -4325,7 +4360,7 @@
     <panel name="MainBackground3" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" zPosition="7" />
+    <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/channelselection.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 08. Bouquet Selection -->
@@ -4333,7 +4368,7 @@
     <panel name="MainBackground3" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget name="menu" font="Regular; 30" position="810,90" size="1050,700" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" zPosition="3" />
+    <widget name="menu" font="Regular; 30" position="810,90" size="1050,700" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="3" />
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/bouquet.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="810,790" size="810,45" zPosition="-3" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1360,905" size="500,45" zPosition="-3" alphatest="blend" transparent="1" />
@@ -4399,7 +4434,7 @@
     <panel name="MainBackground3" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
-    <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" zPosition="7" />
+    <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tv.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 10. Skin Selector -->
@@ -4408,7 +4443,7 @@
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="SkinList" font="RegularB; 32" position="810,80" size="930,650" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="6" />
+    <widget name="SkinList" font="RegularB; 32" position="810,80" size="930,650" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
     <widget source="introduction" render="Label" position="810,730" size="930,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="cyan1" />
     <panel name="RedKey3" />
     <panel name="Title1" />
@@ -4421,7 +4456,7 @@
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/menufadebottom2.png" position="0,500" zPosition="-11" size="1150,75" alphatest="off" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/subsetup.png" position="80,50" size="180,180" scale="1" transparent="1" alphatest="blend" zPosition="5" />
     <panel name="ClockLabel2" />
-    <widget name="config" font="Regular; 27" position="300,50" size="870,480" scrollbarMode="showOnDemand" itemHeight="40" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel840.png" alphatest="blend" transparent="1" zPosition="3" />
+    <widget name="config" font="Regular; 27" position="300,50" size="870,480" scrollbarMode="showOnDemand" itemHeight="40" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel840.png" alphatest="off" transparent="1" zPosition="3" />
     <widget name="videofps" position="45,320" size="250,150" font="Regular; 26" zPosition="5" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="center" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_exit_big.png" alphatest="blend" position="170,240" size="120,60" zPosition="3" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_ok_big.png" alphatest="blend" position="60,240" size="90,60" zPosition="3" transparent="1" />
@@ -4449,7 +4484,7 @@ if not self["videofps"].text:
     <widget source="Title" render="Label" position="660,75" size="1005,60" font="RegularB; 40" backgroundColor="background20" halign="center" transparent="1" foregroundColor="sky" zPosition="3" />
     <widget name="rc" position="215,120" size="230,750" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" transparent="1" />
     <widget name="long_key" position="105,885" size="450,50" font="Regular; 36" halign="center" foregroundColor="amarillo" backgroundColor="cyan1" transparent="1" zPosition="12" />
-    <widget name="list" position="660,170" size="1200,800" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="blend" zPosition="6" />
+    <widget name="list" position="660,170" size="1200,800" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="6" />
     <widget name="arrowdown" position="-100,-100" size="55,105" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/arrowdown.png" zPosition="11" alphatest="blend" />
     <widget name="arrowdown2" position="-100,-100" size="55,105" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/arrowdown.png" zPosition="11" alphatest="blend" />
     <widget name="arrowup" position="-100,-100" size="55,105" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/arrowup.png" zPosition="11" alphatest="blend" />
@@ -4461,7 +4496,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1320,250" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1320,250" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="info" position="540,335" size="1300,500" font="Regular; 30" transparent="1" foregroundColor="cyan1" backgroundColor="background20" halign="left" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
@@ -4470,7 +4505,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="actifcam" position="540,265" size="1320,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="actifcam2" position="540,320" size="1320,50" font="RegularL; 30" transparent="1" foregroundColor="cyan2" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="ecminfo" position="540,380" size="1000,560" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
@@ -4498,8 +4533,8 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hotkey.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="650,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
-    <widget name="choosen" font="Regular; 30" position="1190,60" size="670,750" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="list" font="Regular; 30" position="540,60" size="650,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
+    <widget name="choosen" font="Regular; 30" position="1190,60" size="670,750" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="HotkeySetupSelect" position="0,0" size="1920,1080" title="Hotkey Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -4507,8 +4542,8 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hotkey.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="650,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
-    <widget name="choosen" font="Regular; 30" position="1190,60" size="670,750" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="list" font="Regular; 30" position="540,60" size="650,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
+    <widget name="choosen" font="Regular; 30" position="1190,60" size="670,750" itemHeight="50" scrollbarMode="showOnDemand" foregroundColor="cyan1" foregroundColorSelected="amarillo" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 07. Video Finetune -->
@@ -4539,7 +4574,7 @@ if not self["videofps"].text:
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="650,140" size="1220,800" font="Regular;28" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="blend" transparent="1" zPosition="4" />
+    <widget name="list" position="650,140" size="1220,800" font="Regular;28" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="off" transparent="1" zPosition="4" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
     <panel name="FullKeys2" />
   </screen>
@@ -4553,7 +4588,7 @@ if not self["videofps"].text:
     <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="blend" zPosition="5" />
+    <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="5" />
     <eLabel name="new eLabel" position="665,210" size="1200,3" zPosition="5" backgroundColor="cyan" foregroundColor="cyan1" />
     <widget name="now_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/epg/epg_now.png" alphatest="blend" transparent="1" />
     <widget name="next_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/epg/epg_next.png" alphatest="blend" transparent="1" />
@@ -4628,7 +4663,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/epgsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 06. Graphical EPG -->
   <screen name="GraphicalEPG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
@@ -4717,7 +4752,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/epgsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="help" render="Label" position="540,712" size="1305,120" zPosition="10" font="Regular; 33" halign="left" valign="top" foregroundColor="cyan1" transparent="1" backgroundColor="background20" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,630" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,630" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 09. Cutlist Editor -->
@@ -4749,7 +4784,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/choice.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="805,60" size="1050,240" font="RegularB; 34" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" enableWrapAround="1" />
-    <widget name="list" position="805,300" size="1050,550" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="list" position="805,300" size="1050,550" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" zPosition="6" />
     <ePixmap position="720,110" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="720,880" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
     <panel name="FullKeysH" />
@@ -4787,9 +4822,9 @@ if not self["videofps"].text:
     <eLabel position="1134,75" size="2,780" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
     <widget name="text" position="420,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
     <widget name="target" position="420,135" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
-    <widget name="filelist" font="Regular;32" position="420,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="blend" transparent="1" zPosition="5" />
+    <widget name="filelist" font="Regular;32" position="420,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
     <widget name="textbook" position="1150,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
-    <widget name="booklist" font="Regular;32" position="1150,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="blend" transparent="1" zPosition="5" />
+    <widget name="booklist" font="Regular;32" position="1150,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
     <ePixmap position="420,885" size="120,60" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
     <panel name="FullKeys1" />
   </screen>
@@ -4805,7 +4840,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <widget name="text" position="810,60" size="1050,480" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
-    <widget name="list" font="Regular; 30" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="blend" zPosition="6" />
+    <widget name="list" font="Regular; 30" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
   </screen>
   <!-- 06. MessageBox Simple -->
   <screen name="MessageBoxSimple" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
@@ -4818,7 +4853,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="message" position="540,75" font="RegularB; 34" size="1305,150" valign="center" halign="center" foregroundColor="sky" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,235" size="1305,660" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,235" size="1305,660" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
@@ -4849,7 +4884,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timezone.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="RGKeysCO" />
   </screen>
   <screen name="TimeDateInput" position="0,0" size="1920,1080" title="Time Input" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
@@ -4857,7 +4892,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/powertimer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="RGKeysCO" />
   </screen>
   <!-- 11. TextBox -->
@@ -4919,9 +4954,9 @@ if not self["videofps"].text:
     <widget name="genre" position="865,465" size="975,45" font="Regular; 30" valign="top" backgroundColor="turquoise" transparent="1" zPosition="5" />
     <widget name="genretext" position="700,465" size="165,45" font="Regular; 30" halign="left" backgroundColor="turquoise" transparent="1" zPosition="4" valign="center" />
     <eLabel position="75,560" size="870,50" text="Filelist" font="Caps; 45" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" halign="center" />
-    <widget name="filelist" position="75,620" size="870,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" zPosition="6" />
+    <widget name="filelist" position="75,620" size="870,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" zPosition="6" />
     <eLabel position="975,560" size="870,50" text="Playlist" font="Caps; 45" backgroundColor="background20" transparent="1" foregroundColor="sky" halign="center" zPosition="5" />
-    <widget name="playlist" position="975,620" size="870,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" zPosition="6" />
+    <widget name="playlist" position="975,620" size="870,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" zPosition="6" />
     <widget name="repeat" pixmaps="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/repeat_off.png,/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/repeat_on.png" position="1600,945" size="90,60" transparent="1" alphatest="blend" zPosition="5" />
     <ePixmap position="1725,945" size="120,60" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
   </screen>
@@ -4931,7 +4966,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/media.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,730" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,730" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 04. Movie Browser Configuration -->
@@ -4940,7 +4975,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/movie.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeysUP1" />
   </screen>
   <!-- 05. MovieSelection -->
@@ -4965,7 +5000,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/movie.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 07. Movie Context -->
@@ -4974,7 +5009,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/movie.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="menu" font="Regular;30" position="810,125" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="5" />
+    <widget name="menu" font="Regular;30" position="810,125" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="5" />
   </screen>
   <!-- 08. Directory Browser -->
   <screen name="DirectoryBrowser" position="0,0" size="1920,1080" title="Directorybrowser" flags="wfNoBorder" backgroundColor="transparent">
@@ -4982,7 +5017,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="filelist" position="540,75" size="1305,730" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="filelist" position="540,75" size="1305,730" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 09. Movie File Manager -->
@@ -4990,7 +5025,7 @@ if not self["videofps"].text:
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="off" transparent="1" />
     <widget source="Title" render="Label" position="655,35" size="875,95" font="RegularB; 40" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget name="config" position="655,130" font="RegularB;40" size="1200,750" itemHeight="50" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="blend" zPosition="5" />
+    <widget name="config" position="655,130" font="RegularB;40" size="1200,750" itemHeight="50" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="5" />
     <widget name="description" position="50,785" size="580,100" font="Regular; 30" valign="top" backgroundColor="transwhite" transparent="0" halign="center" foregroundColor="black" zPosition="5" />
     <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="655,880" size="1200,45" foregroundColor="cyan1" font="Regular; 30" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="MovieInfo">ShortDescription</convert>
@@ -5025,7 +5060,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="blend" zPosition="4">
+    <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
@@ -5044,7 +5079,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,50" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,50" size="1320,675" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="description" size="1320,160" font="Regular; 29" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" valign="center" position="540,725" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,725" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,840" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -5056,7 +5091,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/sateqc.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 04. Positioner setup -->
   <screen name="PositionerSetup" position="0,0" size="1920,1080" title="Positioner setup..." flags="wfNoBorder" backgroundColor="transparent">
@@ -5064,7 +5099,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/signal.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="1275,450" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/posisel.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 30" position="540,60" size="1275,450" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/posisel.png" alphatest="off" zPosition="3" />
     <widget name="snr_db" position="680,525" size="360,50" halign="center" valign="center" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="3" foregroundColor="lightciel" />
     <eLabel text="SNR:" position="540,585" size="120,40" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="3" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/pointers/positioner_back.png" position="680,585" size="360,40" transparent="1" alphatest="blend" zPosition="2" />
@@ -5128,7 +5163,7 @@ if not self["videofps"].text:
       <convert type="FrontendInfo">LOCK</convert>
       <convert type="ConditionalShowHide">Invert</convert>
     </widget>
-    <widget name="config" font="Regular; 30" position="600,140" size="1260,750" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/satfindersel.png" alphatest="blend" zPosition="4" />
+    <widget name="config" font="Regular; 30" position="600,140" size="1260,750" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/satfindersel.png" alphatest="off" zPosition="4" />
     <widget name="introduction" position="600,900" size="1200,50" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" noWrap="1" zPosition="5" foregroundColor="sky" />
   </screen>
   <!-- 06. Tuner screen -->
@@ -5137,7 +5172,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/dish-big.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 07. Scan setup -->
   <screen name="ScanSetup" position="0,0" size="1920,1080" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
@@ -5145,7 +5180,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="introduction" position="540,810" size="1320,50" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -5156,7 +5191,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/auto_scan.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="header" font="Regular; 36" position="540,60" size="1320,55" backgroundColor="background20" transparent="1" zPosition="2" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,120" size="1320,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,120" size="1320,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footer" font="Regular; 33" position="540,815" size="1320,50" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -5192,7 +5227,7 @@ if not self["videofps"].text:
     <widget name="pass" position="1340,155" size="520,45" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/pointers/scanpointer_back.png" position="660,280" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
     <widget name="scan_progress" position="660,283" size="1155,25" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/pointers/scanpointer_main.png" transparent="1" alphatest="blend" zPosition="5" />
-    <widget name="servicelist" font="Regular; 30" position="540,345" size="1320,600" itemHeight="50" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" zPosition="5" />
+    <widget name="servicelist" font="Regular; 30" position="540,345" size="1320,600" itemHeight="50" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" zPosition="5" />
     <panel name="RGKeysUP1" />
   </screen>
   <!-- 10. Fast scan -->
@@ -5201,7 +5236,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/fast_scan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="introduction" position="540,800" size="1305,120" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
   </screen>
   <!-- 11. Fast scan simple -->
@@ -5221,7 +5256,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="nimlist" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="nimlist" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 13. Sat Nim selection  -->
   <screen name="SatNimSelection" position="0,0" size="1920,1080" title="Select Tuner" flags="wfNoBorder" backgroundColor="transparent">
@@ -5229,7 +5264,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/tuner.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="nimlist" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="nimlist" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
   </screen>
   <!-- 12. Autodiseqc  -->
   <screen name="AutoDiseqc" position="0,0" size="1920,1080" title="Auto Diseqc" backgroundColor="transparent" flags="wfNoBorder">
@@ -5239,7 +5274,7 @@ if not self["videofps"].text:
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/sateqc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="statusbar" render="Label" position="540,60" zPosition="10" size="1305,90" halign="center" valign="center" font="Regular; 33" transparent="1" shadowColor="black" shadowOffset="-1,-1" foregroundColor="sky" />
     <widget source="tunerstatusbar" render="Label" position="540,150" zPosition="10" size="1305,60" halign="center" valign="center" font="Regular; 33" transparent="1" shadowColor="black" shadowOffset="-1,-1" foregroundColor="cyan1" />
-    <widget name="config" font="Regular; 30" position="540,210" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,210" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 13. Select Sats Entry Screen  -->
@@ -5248,7 +5283,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/satellite.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,90" size="1320,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="540,90" size="1320,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget source="hint" render="Label" position="540,750" size="1305,100" font="Regular; 30" foregroundColor="sky" halign="left" backgroundColor="background20" valign="top" transparent="1" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
@@ -5258,7 +5293,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/cable_scan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="introduction" position="540,800" size="1305,120" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
   </screen>
   <screen name="CableScanStatus" position="0,0" size="1920,1080" title="Cable Scan" flags="wfNoBorder" backgroundColor="transparent">
@@ -5277,7 +5312,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/satellite.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,60" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="540,60" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- ### NETWORK SCREENS -->
@@ -5289,7 +5324,7 @@ if not self["videofps"].text:
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/networkadapter.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="Adapter" render="Label" position="540,60" size="800,50" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" />
     <eLabel position="540,110" size="800,3" backgroundColor="grey" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,115" size="810,400" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel810.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,115" size="810,400" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/boxsel810.png" alphatest="off" zPosition="5" />
     <widget source="introduction2" render="Label" position="540,815" size="1320,45" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <widget source="introduction" render="Label" position="1215,515" size="645,48" font="RegularB; 36" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="cyan2" />
     <eLabel position="1215,565" size="645,3" backgroundColor="grey" zPosition="5" foregroundColor="sky" />
@@ -5402,7 +5437,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryPixmapAlphaBlend(pos = (10, 8), size = (72, 72), png = 1), # index 1 is the expandable/expanded/verticalline icon
@@ -5438,7 +5473,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="config" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="4">
+    <widget source="config" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos = (100, 10), size = (1200, 55), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
@@ -5470,7 +5505,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="config" render="Listbox" position="540,90" size="1305,630" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="config" render="Listbox" position="540,90" size="1305,630" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" transparent="1" zPosition="4">
       <convert type="TemplatedMultiContent">
                         {"template": [
                                     MultiContentEntryText(pos = (100, 5), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 2 is the Menu Title
@@ -5495,7 +5530,7 @@ if not self["videofps"].text:
     <widget source="legend2" render="Label" position="840,90" size="750,90" font="Regular; 33" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="5" />
     <widget source="legend3" render="Label" position="1620,90" size="225,90" font="Regular; 33" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="5" />
     <eLabel position="540,187" size="1305,3" backgroundColor="grey" zPosition="3" transparent="0" />
-    <widget source="config" render="Listbox" position="540,195" size="1305,540" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="config" render="Listbox" position="540,195" size="1305,540" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" transparent="1" zPosition="4">
       <convert type="TemplatedMultiContent">
                         {"template": [
                                     MultiContentEntryPixmapAlphaBlend(pos = (40, 5), size = (80, 80), png = 0), # index 0 is the isMounted pixmap
@@ -5554,7 +5589,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/wlan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,720" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="4">
+    <widget source="list" render="Listbox" position="540,90" size="1305,720" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos = (10, 5), size = (700, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
@@ -5623,7 +5658,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/ipbox.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" enableWrapAround="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" enableWrapAround="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <!-- ### PLUGINS & UPDATE SCREENS -->
@@ -5638,7 +5673,7 @@ if not self["videofps"].text:
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/plugins.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" zPosition="3" />
     <panel name="RGKeysUP3" />
   </screen>
   <!-- 02. Plugins Download -->
@@ -5652,7 +5687,7 @@ if not self["videofps"].text:
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" position="795,120" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="0" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" zPosition="10" />
+    <widget name="list" position="795,120" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="0" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" zPosition="10" />
     <widget name="text" position="795,420" size="900,135" font="Regular; 34" halign="center" valign="center" transparent="1" backgroundColor="background20" zPosition="5" foregroundColor="cyan1" />
   </screen>
   <!-- 03. Backup selection -->
@@ -5661,7 +5696,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/backup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 04. Backup screen -->
@@ -5670,7 +5705,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/backup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 05. IPKG -->
@@ -5690,7 +5725,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
@@ -5724,7 +5759,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
       {"templates":
         {"default": (90,[
@@ -5751,7 +5786,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,80" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,80" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryPixmapAlphaBlend(pos = (10, 4), size = (72, 72), flags = BT_SCALE, png = 2), # index 2 is the status pixmap
@@ -5776,7 +5811,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="filelist" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="filelist" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 12. IPKG Installer  -->
@@ -5785,7 +5820,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 13. IPKG Menu  -->
@@ -5794,7 +5829,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="filelist" font="Regular; 30" position="540,70" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="filelist" font="Regular; 30" position="540,70" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 14. Restore Menu  -->
@@ -5803,7 +5838,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="filelist" font="Regular;30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="filelist" font="Regular;30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 15. Update Plugin  -->
@@ -5835,7 +5870,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="status" render="Label" position="540,60" zPosition="1" size="1305,90" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
-    <widget name="file_list" font="Regular; 30" position="540,160" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="file_list" font="Regular; 30" position="540,160" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 18. Restore Plugins  -->
@@ -5844,7 +5879,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
+    <widget source="menu" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryText(pos = (65, 5), size = (1230, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
@@ -5872,7 +5907,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/softwaremanager.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <widget source="introduction" render="Label" position="540,720" size="1305,130" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,720" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,805" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -5884,7 +5919,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- ### HARDDISK MENUS -->
@@ -5894,7 +5929,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="hddlist" font="Regular; 30" position="541,93" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="hddlist" font="Regular; 30" position="541,93" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
   </screen>
   <!-- 02. HDD setup -->
   <screen name="HarddiskSetup" position="0,0" size="1920,1080" title="HDD Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -5913,7 +5948,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
@@ -5942,7 +5977,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="label_disk" position="540,50" font="RegularB; 34" size="1305,60" valign="center" halign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,120" size="1305,700" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,120" size="1305,700" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (72, 72), flags = BT_SCALE, png = 0),
@@ -5962,7 +5997,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,50" size="1305,770" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryPixmapAlphaTest(pos = (5, 5), size = (72, 72), png = 0),
@@ -5994,7 +6029,7 @@ if not self["videofps"].text:
     <widget font="Regular; 33" halign="left" name="readDisk" position="540,435" size="1305,50" valign="center" foregroundColor="cyan1" backgroundColor="background20" transparent="1" zPosition="6" />
     <widget font="Regular; 33" halign="left" name="readCache" position="540,495" size="1305,50" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="6" />
     <widget font="Regular; 33" halign="left" name="temp" position="540,555" size="1305,50" valign="center" foregroundColor="cyan1" backgroundColor="background20" transparent="1" zPosition="6" />
-    <widget name="config" font="Regular; 30" position="540,615" size="1305,210" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,615" size="1305,210" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- ### PARENTAL SCREENS -->
@@ -6004,7 +6039,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="servicelist" position="540,90" size="1305,800" itemHeight="50" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="servicelist" position="540,90" size="1305,800" itemHeight="50" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
   </screen>
   <!-- 02. Parental Control -->
   <screen name="ParentalControlSetup" position="0,0" size="1920,1080" title="Parental control setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -6012,7 +6047,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. Parental Control Change Pin-->
@@ -6021,7 +6056,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/parental.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,90" size="1305,800" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,800" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
   </screen>
   <!-- ### TIMER & TIMESHIFT SCREENS -->
   <!-- 01. Timer Edit -->
@@ -6030,7 +6065,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="5" />
+    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
     <widget name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
@@ -6040,7 +6075,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <widget name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
     <panel name="RGKeysCO" />
     <panel name="FullKeys1" />
@@ -6051,7 +6086,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" position="540,75" size="1305,472" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="5" />
+    <widget name="list" position="540,75" size="1305,472" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
     <widget name="timer1" position="540,555" size="652,270" scrollbarMode="showNever" transparent="1" zPosition="5" />
     <widget name="timer2" position="1192,555" size="652,270" scrollbarMode="showNever" transparent="1" zPosition="5" />
     <panel name="FullKeys1" />
@@ -6062,7 +6097,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="blend" zPosition="5" />
+    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" font="Regular; 30" rowSplit="50" setEventNameFont="Regular; 30" setServiceNameFont="Regular;28" setFont="Regular;28" satPosLeft="250" iconWidth="50" iconHeight="50" iconMargin="10" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
     <widget name="HelpWindow" position="540,830" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
@@ -6072,7 +6107,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="loglist" font="Regular; 30" position="540,75" size="1305,550" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="loglist" font="Regular; 30" position="540,75" size="1305,550" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <widget name="logentry" position="540,635" size="1305,195" font="Regular; 30" transparent="1" foregroundColor="cyan1" backgroundColor="background20" valign="center" halign="left" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
@@ -6081,14 +6116,14 @@ if not self["videofps"].text:
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,150" zPosition="-10" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb540.png" position="10,120" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
     <widget name="text" position="0,0" size="0,0" font="Regular;33" foregroundColor="white" backgroundColor="background20" />
-    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel1.png" alphatest="blend" zPosition="5" />
+    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel1.png" alphatest="off" zPosition="5" />
   </screen>
   <!-- 07. Remove Timer Question -->
   <screen name="RemoveTimerQuestion" position="560,50" size="550,150" zPosition="10" backgroundColor="background20" flags="wfNoBorder">
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,150" zPosition="-10" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb540.png" position="10,120" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
     <widget name="text" position="0,0" size="0,0" font="Regular;33" foregroundColor="white" backgroundColor="background20" />
-    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel1.png" alphatest="blend" zPosition="5" />
+    <widget name="list" position="0,5" size="550,150" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/audiosel1.png" alphatest="off" zPosition="5" />
     <applet type="onLayoutFinish">
       self.autoResize()
     </applet>
@@ -6099,7 +6134,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/sleep.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" transparent="1" zPosition="9" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,775" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,775" size="1305,80" font="Regular; 33" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="5" />
@@ -6112,7 +6147,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
         {"template": [
         MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), flags = BT_SCALE, png = 2), # index 3 is the interface pixmap
@@ -6142,7 +6177,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/webif.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. OpenWebif config -->
@@ -6151,7 +6186,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/webif.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,160" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="config" font="Regular; 30" position="540,160" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <widget name="lab1" position="540,60" halign="center" size="1305,90" zPosition="4" font="RegularB; 36" valign="top" transparent="1" foregroundColor="sky" backgroundColor="background20" />
     <panel name="FullKeys1" />
   </screen>
@@ -6162,7 +6197,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/bitrate.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. ServiceApp -->
@@ -6185,7 +6220,7 @@ if not self["videofps"].text:
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,75" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1035,130" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/cisetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="entries" font="Regular; 30" position="540,180" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="entries" font="Regular; 30" position="540,180" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <widget name="text" position="540,75" size="1305,100" font="RegularB; 38" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" halign="center" valign="center" />
   </screen>
   <!-- 02. MMI Dialog -->
@@ -6196,7 +6231,7 @@ if not self["videofps"].text:
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/cisetup.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="title" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" />
     <widget name="subtitle" position="540,160" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="amarillo" />
-    <widget name="entries" font="Regular; 30" position="540,250" size="1305,600" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="5" />
+    <widget name="entries" font="Regular; 30" position="540,250" size="1305,600" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <widget name="bottom" position="540,850" size="1305,80" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" foregroundColor="lightciel" zPosition="5" />
   </screen>
   <!-- 03. CI Select Menu -->
@@ -6205,7 +6240,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="CiList" font="Regular; 30" position="540,105" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="CiList" font="Regular; 30" position="540,105" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeysUP1" />
   </screen>
   <!-- 04. CI Config Menu -->
@@ -6217,7 +6252,7 @@ if not self["videofps"].text:
     <widget source="CAidList_desc" render="Label" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="3" foregroundColor="cyan1" />
     <widget source="CAidList" render="Label" position="540,150" size="1305,300" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget source="ServiceList_desc" render="Label" position="540,450" size="1305,50" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan" />
-    <widget name="ServiceList" position="540,500" size="1305,350" itemHeight="50" scrollbarMode="showOnDemand" font="Regular;32" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="3" />
+    <widget name="ServiceList" position="540,500" size="1305,350" itemHeight="50" scrollbarMode="showOnDemand" font="Regular;32" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
     <widget source="ServiceList_info" render="Label" position="540,500" size="1305,350" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="4" />
     <panel name="FullKeys1" />
   </screen>
@@ -6228,7 +6263,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="ServiceList_desc" render="Label" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" />
-    <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="3" />
+    <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
     <widget source="ServiceList_info" render="Label" position="540,150" size="1305,700" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="lightciel" />
     <panel name="FullKeys1" />
   </screen>
@@ -6238,7 +6273,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/cisetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 32" position="540,70" size="1305,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="6" />
+    <widget name="list" font="Regular; 32" position="540,70" size="1305,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
     <widget source="introduction" render="Label" position="540,770" size="1305,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -6248,7 +6283,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
     <widget source="introduction" render="Label" position="540,770" size="1305,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -6258,7 +6293,7 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" zPosition="3" />
+    <widget name="list" position="540,70" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
     <widget source="introduction" render="Label" position="540,770" size="1305,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
@@ -6348,7 +6383,7 @@ if not self["videofps"].text:
     <panel name="Title1" />
     <widget name="wizard" position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/video_finetune.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="750,60" size="1095,450" font="Regular; 34" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
-    <widget source="list" render="Listbox" position="950,520" size="870,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" zPosition="13">
+    <widget source="list" render="Listbox" position="950,520" size="870,400" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" zPosition="13">
       <convert type="TemplatedMultiContent">
       {"template": [ MultiContentEntryText(pos = (20, 0), size = (760, 50), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
        "fonts": [gFont("Regular", 33)],
@@ -6356,7 +6391,7 @@ if not self["videofps"].text:
                   }
   </convert>
     </widget>
-    <widget name="config" font="Regular; 33" position="950,520" size="870,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" transparent="1" />
+    <widget name="config" font="Regular; 33" position="950,520" size="870,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" transparent="1" />
     <panel name="LanguageKey" />
     <panel name="RemoteWizard" />
     <widget name="portpic" position="740,630" size="192,192" zPosition="18" transparent="1" alphatest="blend" />

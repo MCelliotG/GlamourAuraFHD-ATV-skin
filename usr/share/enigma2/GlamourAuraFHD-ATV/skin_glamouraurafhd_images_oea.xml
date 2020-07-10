@@ -1,16 +1,15 @@
-﻿<skin>
+<skin>
   <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
   <!--  SKIN FILE -->
   <!--  GlamourAuraFHD-ATV Open-Alliance Images by MCelliotG -->
-
   <!--  ######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
-<screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent" alphatest="on">
+  <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent" alphatest="on">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title2" />
     <ePixmap position="100,865" size="180,180" scale="1" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="actifcam" position="540,260" size="650,50" font="RegularL; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="actifcam2" position="1200,260" size="660,50" font="RegularL; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
     <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
@@ -46,7 +45,6 @@
     </widget>
     <panel name="FullKeys1" />
   </screen>
-
   <!-- 02. GreenPanel -->
   <screen name="GreenPanel" position="0,0" size="1920,1080" title="Green Panel" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground1" />
@@ -58,8 +56,8 @@
       <convert type="GlamourSpace">FlashInfo,Simple</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/panel+.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" zPosition="3">
-        <convert type="TemplatedMultiContent">
+    <widget source="list" render="Listbox" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" zPosition="3">
+      <convert type="TemplatedMultiContent">
         {"template": [MultiContentEntryText(pos = (180, 2), size = (530, 50), font=0, text = 0),
         MultiContentEntryText(pos = (180, 45), size = (530, 45), font=1, text = 1),
         MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (150, 60), flags = BT_SCALE, png = 2),],
@@ -76,38 +74,35 @@
     <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_blue" position="1270,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 03. OPD Panel -->
-    <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder">
+  <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="Mlist" font="Regular; 45" position="800,90" size="900,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself900.png" alphatest="blend" zPosition="3" />
+    <widget name="Mlist" font="Regular; 45" position="800,90" size="900,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="80" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/menuself900.png" alphatest="off" zPosition="3" />
     <widget name="label1" position="810,890" size="890,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
-  
   <!-- 04. opdBoot Logo Selector -->
   <screen name="opdBootLogoSelector" position="0,0" size="1920,1080" title="opdBoot Logo Selector" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="6" />
+    <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="key_red" render="Label" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="1250,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="key_green" render="Label" position="1205,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <panel name="Title1" />
   </screen>
-
   <!-- 05. Devices Manager -->
-    <screen name="DeviceManager" position="0,0" size="1920,1080" title="Devices Manager" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="DeviceManager" position="0,0" size="1920,1080" title="Devices Manager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="blend" zPosition="5">
+    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
 	      {"template": [
 	      MultiContentEntryText(pos = (100, 2), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
@@ -123,21 +118,20 @@
     <widget source="lab1" render="Label" font="Regular; 30" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
-
   <!-- 06. OPENDROID IPK Tools Panel -->
-  <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3" />
   </screen>
-  <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="PanelIPKInstaller" position="0,0" size="1920,1080" title="Manual Install Ipk Packages" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -145,14 +139,13 @@
     <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 07. Manual Install Tgz Packages -->
-  <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -160,14 +153,13 @@
     <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 08. Feed Install -->
-  <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
+    <widget source="list" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -175,14 +167,13 @@
     <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 09. Advanced Install -->
-  <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
+    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -192,14 +183,13 @@
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 10. Panel Ipk remove -->
-  <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/infopanel.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3">
+    <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -209,14 +199,13 @@
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 11. OPENDROID Addons Manager -->
-  <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -224,17 +213,15 @@
     <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-
   <!-- 12. OPENDROID Download Manager -->
-  <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder" >
+  <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="MainBackground1" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="list" font="Regular; 36" position="800,140" size="930,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="blend" zPosition="3" />
+    <widget name="list" font="Regular; 36" position="800,140" size="930,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3" />
     <widget name="info" position="800,890" size="950,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan1" />
   </screen>
-
   <!-- 13. OPENDROID Addons Remover -->
   <screen name="AddonsRemove" position="0,0" size="1920,1080" title="OPENDROID Addons Remover" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
@@ -244,90 +231,84 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="20,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="blend" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel position="1130,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
     <eLabel position="1134,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
     <widget name="status" font="Regular; 30" position="1140,110" size="705,650" foregroundColor="amarillo" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel name="pltitle" position="1140,60" size="705,50" font="RegularB; 33" text="List of plugins to uninstall" zPosition="7" halign="center" transparent="1" foregroundColor="cyan2" />
     <widget name="text" position="1185,855" size="655,90" zPosition="1" font="Regular;30" halign="center" valign="center" foregroundColor="green" transparent="1" backgroundColor="background20" />
     <eLabel name="spaceused" text="% Flash Used..." position="420,795" size="300,50" font="Regular; 30" halign="right" backgroundColor="background20" transparent="1" zPosition="5" />
-    <widget name="spaceused" position="735,800" size="950,30" foregroundColor="white" backgroundColor="cyan" zPosition="6" />	
+    <widget name="spaceused" position="735,800" size="950,30" foregroundColor="white" backgroundColor="cyan" zPosition="6" />
     <panel name="FullKeys1" />
-</screen>
-
+  </screen>
   <!-- 14. Installation Process -->
   <screen name="Installer_Addons" position="0,0" size="1920,1080" flags="wfNoBorder" title="Installation Process" backgroundColor="transparent">
-  <panel name="MainBackground1" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <widget name="infotext" position="810,60" size="930,800" font="RegularB; 32" backgroundColor="background20" zPosition="4" foregroundColor="sky" enableWrapAround="1" halign="left" transparent="1" valign="center" />
-  <widget name="info" position="810,865" size="830,75" font="Regular; 32" backgroundColor="background20" zPosition="4" foregroundColor="white" halign="left" valign="top" transparent="1" />
-  <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="MainBackground1" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <widget name="infotext" position="810,60" size="930,800" font="RegularB; 32" backgroundColor="background20" zPosition="4" foregroundColor="sky" enableWrapAround="1" halign="left" transparent="1" valign="center" />
+    <widget name="info" position="810,865" size="830,75" font="Regular; 32" backgroundColor="background20" zPosition="4" foregroundColor="white" halign="left" valign="top" transparent="1" />
+    <ePixmap position="255,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_ok_big.png" alphatest="blend" position="1650,860" size="90,60" zPosition="3" transparent="1" />
-</screen>
-
+  </screen>
   <!-- 15. Add Part -->
   <screen name="AddPart" title="Add Partition" position="center,center" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="blend" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="RGKeysUP1" />
   </screen>
-
   <!-- 16. OPDBOOT SCREENS -->
   <screen name="OPDBootImageChoose" position="0,0" size="1920,1080" title="OPDBoot Image Choose" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="label2" position="640,90" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-  <widget name="label3" position="640,135" size="400,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
-  <widget name="label4" position="640,180" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-  <widget name="label5" position="640,225" size="650,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
-  <widget name="label6" position="1390,90" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-  <widget name="label7" position="1720,135" size="120,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan" transparent="1" />
-  <widget name="label8" position="1390,180" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-  <widget name="label9" position="1290,225" size="550,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="amarillo" transparent="1" />
-  <widget name="label10" position="640,270" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-  <widget name="label11" position="1390,270" size="450,45" zPosition="9" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-  <widget name="label1" position="540,330" size="1305,45" zPosition="7" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="orange" />
-  <widget name="device_icon" position="545,145" size="80,80" alphatest="on" zPosition="8" transparent="1" />
-  <widget name="free_space_progressbar" position="1055,142" size="650,25" borderWidth="1" zPosition="9" backgroundColor="white" foregroundColor="cyan" />
-  <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <ePixmap position="1430,805" size="90,45" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
-  <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 30" noWrap="1" backgroundColor="background20" halign="left" />
-  <panel name="FullKeys1" />
-</screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="label2" position="640,90" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
+    <widget name="label3" position="640,135" size="400,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
+    <widget name="label4" position="640,180" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
+    <widget name="label5" position="640,225" size="650,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
+    <widget name="label6" position="1390,90" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label7" position="1720,135" size="120,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan" transparent="1" />
+    <widget name="label8" position="1390,180" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label9" position="1290,225" size="550,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="amarillo" transparent="1" />
+    <widget name="label10" position="640,270" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
+    <widget name="label11" position="1390,270" size="450,45" zPosition="9" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label1" position="540,330" size="1305,45" zPosition="7" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="orange" />
+    <widget name="device_icon" position="545,145" size="80,80" alphatest="on" zPosition="8" transparent="1" />
+    <widget name="free_space_progressbar" position="1055,142" size="650,25" borderWidth="1" zPosition="9" backgroundColor="white" foregroundColor="cyan" />
+    <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap position="1430,805" size="90,45" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
+    <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 30" noWrap="1" backgroundColor="background20" halign="left" />
+    <panel name="FullKeys1" />
+  </screen>
   <screen name="OPDBootInstallation" position="0,0" size="1920,1080" title="OPDBoot - Installation" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
-  <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
-  <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="FullKeys1" />
-</screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
+    <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
+    <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
   <screen name="OPDBootImageInstall" position="0,0" size="1920,1080" title="OPDBoot - Image Installation" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
-  <panel name="FullKeys1" />
- </screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
+    <panel name="FullKeys1" />
+  </screen>
   <screen name="OPDChooseOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download OnLine Images" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="blend" zPosition="5">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
 	{"template": [
 	MultiContentEntryText(pos = (560, 5), size = (700, 45), font=0, flags = RT_VALIGN_CENTER | RT_HALIGN_RIGHT, text = 0),
@@ -338,94 +319,87 @@
 	"itemHeight": 80
 	}
     </convert>
-   </widget>
-</screen>
-
+    </widget>
+  </screen>
   <screen name="DownloadOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download Image" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="FullKeys1" />
- </screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 17. Commit Info -->
-<screen name="CommitInfo" position="0,0" size="1920,1080" title="Commit Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
-  <ePixmap position="1845,90" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
-  <ePixmap position="1845,735" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
-  <ePixmap position="540,35" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
-  <ePixmap position="775,35" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
-  <panel name="FullKeys1" />
-</screen>
-
+  <screen name="CommitInfo" position="0,0" size="1920,1080" title="Commit Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
+    <ePixmap position="1845,90" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
+    <ePixmap position="1845,735" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
+    <ePixmap position="540,35" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
+    <ePixmap position="775,35" size="54,54" zPosition="10" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 18. Memory Info -->
-<screen name="MemoryInfo" position="0,0" size="1920,1080" title="Memory Info" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/memory.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="lmemtext" font="Regular; 26" position="540,60" size="405,785" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
-  <widget name="lmemvalue" font="Regular; 26" position="540,60" size="405,785" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
-  <widget name="rmemtext" font="Regular; 26" position="1110,60" size="405,635" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
-  <widget name="rmemvalue" font="Regular; 26" position="1110,60" size="405,635" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
-  <widget name="pfree" position="945,140" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
-  <widget name="pused" position="945,740" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
-  <widget name="slide" position="1057,60" size="30,785" render="Progress" zPosition="1" borderWidth="1" orientation="orBottomToTop" foregroundColor="cyan1" backgroundColor="background20" borderColor="white" />
-  <widget name="info" position="1110,712" size="720,225" font="Regular; 30" zPosition="3" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
-  <panel name="FullKeysV2" />
-</screen>
-
+  <screen name="MemoryInfo" position="0,0" size="1920,1080" title="Memory Info" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/memory.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="lmemtext" font="Regular; 26" position="540,60" size="405,785" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
+    <widget name="lmemvalue" font="Regular; 26" position="540,60" size="405,785" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
+    <widget name="rmemtext" font="Regular; 26" position="1110,60" size="405,635" zPosition="1" halign="left" backgroundColor="background20" transparent="1" />
+    <widget name="rmemvalue" font="Regular; 26" position="1110,60" size="405,635" zPosition="2" halign="right" backgroundColor="background20" transparent="1" />
+    <widget name="pfree" position="945,140" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
+    <widget name="pused" position="945,740" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
+    <widget name="slide" position="1057,60" size="30,785" render="Progress" zPosition="1" borderWidth="1" orientation="orBottomToTop" foregroundColor="cyan1" backgroundColor="background20" borderColor="white" />
+    <widget name="info" position="1110,712" size="720,225" font="Regular; 30" zPosition="3" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
+    <panel name="FullKeysV2" />
+  </screen>
   <!-- 19. ModelPic -->
   <screen name="ModelPic" position="0,0" size="1920,1080" title="ModelPic" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="model" position="540,270" size="1305,300" font="Regular; 45" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
-  <widget name="boxpic" position="840,600" size="700,200" transparent="1" alphatest="blend" zPosition="6" />
-  <panel name="FullKeys1" />
-</screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="model" position="540,270" size="1305,300" font="Regular; 45" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
+    <widget name="boxpic" position="840,600" size="700,200" transparent="1" alphatest="blend" zPosition="6" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 20. PasswdScreen -->
   <screen name="PasswdScreen" position="0,0" size="1920,1080" title="Change Root Password" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/pininput.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <panel name="FullKeys1" />
-</screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/pininput.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 21. OscamSmartcard -->
   <screen name="OscamSmartcard" position="0,0" size="1920,1080" title="OscamSmartcard" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="blend" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-  <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-  <eLabel text="Cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  <eLabel text="Start" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  <eLabel text="Info" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  <eLabel text="clean up" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  <widget name="oscamsmartcardhelperimage" position="1440,260" size="330,300" zPosition="3" backgroundColor="black" transparent="1" />
-  <widget name="HELPTEXT" position="1195,705" size="650,150" zPosition="9" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
-  <widget name="HEADER" position="540,135" size="870,270" zPosition="8" font="RegularB; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
-  <widget name="INFOTXT" position="540,705" size="650,150" zPosition="8" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="amarillo" />
-  <eLabel text="OscamSmartcard 2.4 by arn354 and Undertaker Mod team OPD" position="825,90" size="1000,45" zPosition="6" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="sky" />
-</screen>
-
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/oscam.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <eLabel text="Cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="Start" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="Info" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="clean up" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="oscamsmartcardhelperimage" position="1440,260" size="330,300" zPosition="3" backgroundColor="black" transparent="1" />
+    <widget name="HELPTEXT" position="1195,705" size="650,150" zPosition="9" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
+    <widget name="HEADER" position="540,135" size="870,270" zPosition="8" font="RegularB; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
+    <widget name="INFOTXT" position="540,705" size="650,150" zPosition="8" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="amarillo" />
+    <eLabel text="OscamSmartcard 2.4 by arn354 and Undertaker Mod team OPD" position="825,90" size="1000,45" zPosition="6" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="sky" />
+  </screen>
   <!-- 22. Usb Format -->
-<screen name="UsbFormat" position="0,0" size="1920,1080" title="UsbFormat" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="UsbFormat" position="0,0" size="1920,1080" title="UsbFormat" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
