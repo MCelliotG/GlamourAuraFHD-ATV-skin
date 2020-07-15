@@ -29,29 +29,29 @@ class GlamPids(VariableText, Renderer):
 				service = self.source.service
 				info = eServiceCenter.getInstance().info(service)
 				if (info and service):
-					refstr = str(self.source.service.toString())
+					refstr = self.source.service.toString()
 					curref = refstr.replace("%3a", ":")
 					sid = tsid = onid = ""
 					try:
 						if curref.startswith("1:7:"):
 							sid = tsid = onid = ""
-						if not "%3a/" in refstr and not curref.startswith("1:7:"):
+						if "%3a/" not in refstr and not curref.startswith("1:7:"):
 							ids = refstr.split(":")
 							hsid = str(int(ids[3], 16)).zfill(4)
-							dsid = str(ids[3]).zfill(4)
-							if (dsid < 0):
+							dsid = str((ids[3])).zfill(4)
+							if dsid < "0":
 								sid = ""
 							else:
 								sid = "SID:%s (%s) " % (dsid, hsid)
 							htsid = str(int(ids[4], 16)).zfill(4)
-							dtsid = str(ids[4]).zfill(4)
-							if (dtsid < 0):
+							dtsid = str((ids[4])).zfill(4)
+							if dtsid < "0":
 								tsid = ""
 							else:
 								tsid = "TSID:%s (%s) " % (dtsid, htsid)
 							honid = str(int(ids[5], 16)).zfill(4)
-							donid = str(ids[5]).zfill(4)
-							if (donid < 0):
+							donid = str((ids[5]).zfill(4))
+							if donid < "0":
 								onid = ""
 							else:
 								onid = "ONID:%s (%s) " % (donid, honid)

@@ -5,12 +5,12 @@
 
 from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService
-from Tools.Directories import fileExists
 from Components.Element import cached
 from string import upper
 from Components.config import config, ConfigText, ConfigSubsection
 from Poll import Poll
 import os
+from os import path
 info = {}
 old_ecm_mtime = None
 try:
@@ -646,7 +646,7 @@ class GlamourAccess(Poll, Converter):
 			info = service and service.info()
 
 			if self.type == self.CRYPTINFO:
-				if fileExists(ecmpath):
+				if os.path.exists(ecmpath):
 					try:
 						caid = "%0.4X" % int(ecm_info.get("caid", ""), 16)
 						return "%s" % caidname
@@ -858,7 +858,7 @@ class GlamourAccess(Poll, Converter):
 		camdname = []
 		sername = []
 #OpenPLI/SatDreamGr
-		if fileExists("/etc/init.d/softcam") and not fileExists("/etc/image-version") or fileExists("/etc/init.d/cardserver") and not fileExists("/etc/image-version"):
+		if os.path.exists("/etc/init.d/softcam") and not os.path.exists("/etc/image-version") or os.path.exists("/etc/init.d/cardserver") and not os.path.exists("/etc/image-version"):
 			try:
 				for line in open("/etc/init.d/softcam"):
 					if line.startswith("CAMNAME="):
@@ -889,7 +889,7 @@ class GlamourAccess(Poll, Converter):
 				camdlist = ""
 			return "%s %s" % (serlist, camdlist)
 #OE-A
-		if fileExists("/etc/image-version") and not fileExists("/etc/.emustart"):
+		if os.path.exists("/etc/image-version") and not os.path.exists("/etc/.emustart"):
 			for line in open("/etc/image-version"):
 				if "=openATV" in line:
 					try:
@@ -906,11 +906,11 @@ class GlamourAccess(Poll, Converter):
 					except:
 						pass
 					try:
-						if fileExists("/tmp/.oscam/oscam.version"):
+						if os.path.exists("/tmp/.oscam/oscam.version"):
 							for line in open("/tmp/.oscam/oscam.version"):
 								if line.startswith("Version:"):
 									cam1 = "%s" % line.split(':')[1].replace(" ","")
-						elif fileExists("/tmp/.ncam/ncam.version"):
+						elif os.path.exists("/tmp/.ncam/ncam.version"):
 							for line in open("/tmp/.ncam/ncam.version"):
 								if line.startswith("Version:"):
 									cam1 = "%s" % line.split(':')[1].replace(" ","")
@@ -954,37 +954,37 @@ class GlamourAccess(Poll, Converter):
 						pass
 			return "%s%s" % (cam1, cam2)
 #BLACKHOLE
-		if fileExists("/etc/CurrentDelCamName"):
+		if os.path.exists("/etc/CurrentDelCamName"):
 			try:
 				camdlist = open("/etc/CurrentDelCamName", "r")
 			except:
 				return None
-		if fileExists("/etc/CurrentBhCamName"):
+		if os.path.exists("/etc/CurrentBhCamName"):
 			try:
 				camdlist = open("/etc/CurrentBhCamName", "r")
 			except:
 				return None
 # DE-OpenBlackHole
-		if fileExists("/etc/BhFpConf"):
+		if os.path.exists("/etc/BhFpConf"):
 			try:
 				camdlist = open("/etc/BhCamConf", "r")
 			except:
 				return None
 #HDMU
-		if fileExists("/etc/.emustart") and fileExists("/etc/image-version"):
+		if os.path.exists("/etc/.emustart") and os.path.exists("/etc/image-version"):
 			try:
 				for line in open("/etc/.emustart"):
 					return line.split()[0].split("/")[-1]
 			except:
 				return None
 # Domica
-		if fileExists("/etc/active_emu.list"):
+		if os.path.exists("/etc/active_emu.list"):
 			try:
 				camdlist = open("/etc/active_emu.list", "r")
 			except:
 				return None
 # Egami 
-		if fileExists("/tmp/egami.inf", "r"):
+		if os.path.exists("/tmp/egami.inf", "r"):
 			try:
 				lines = open("/tmp/egami.inf", "r").readlines()
 				for line in lines:
@@ -994,25 +994,25 @@ class GlamourAccess(Poll, Converter):
 			except:
 				return None
 # OoZooN
-		if fileExists("/tmp/cam.info"):
+		if os.path.exists("/tmp/cam.info"):
 			try:
 				camdlist = open("/tmp/cam.info", "r")
 			except:
 				return None
 # Dream Elite
-		if fileExists("/usr/bin/emuactive"):
+		if os.path.exists("/usr/bin/emuactive"):
 			try:
 				camdlist = open("/usr/bin/emuactive", "r")
 			except:
 				return None
 # Merlin2
-		if fileExists("/etc/clist.list"):
+		if os.path.exists("/etc/clist.list"):
 			try:
 				camdlist = open("/etc/clist.list", "r")
 			except:
 				return None
 # TS-Panel
-		if fileExists("/etc/startcam.sh"):
+		if os.path.exists("/etc/startcam.sh"):
 			try:
 				for line in open("/etc/startcam.sh"):
 					if line.find("script") > -1:
@@ -1020,7 +1020,7 @@ class GlamourAccess(Poll, Converter):
 			except:
 				camdlist = None
 #  GlassSysUtil
-		if fileExists("/tmp/ucm_cam.info"):
+		if os.path.exists("/tmp/ucm_cam.info"):
 			try:
 				return open("/tmp/ucm_cam.info").read()
 			except:
@@ -1144,21 +1144,21 @@ class GlamourAccess(Poll, Converter):
 
 	def ecmpath(self):
 		ecmpath = None
-		if fileExists("/tmp/ecm7.info"):
+		if os.path.exists("/tmp/ecm7.info"):
 			ecmpath = "/tmp/ecm7.info"
-		elif fileExists("/tmp/ecm6.info") and not fileExists("tmp/ecm7.info"):
+		elif os.path.exists("/tmp/ecm6.info") and not os.path.exists("tmp/ecm7.info"):
 			ecmpath = "/tmp/ecm6.info"
-		elif fileExists("/tmp/ecm5.info") and not fileExists("tmp/ecm6.info"):
+		elif os.path.exists("/tmp/ecm5.info") and not os.path.exists("tmp/ecm6.info"):
 			ecmpath = "/tmp/ecm5.info"
-		elif fileExists("/tmp/ecm4.info") and not fileExists("tmp/ecm5.info"):
+		elif os.path.exists("/tmp/ecm4.info") and not os.path.exists("tmp/ecm5.info"):
 			ecmpath = "/tmp/ecm4.info"
-		elif fileExists("/tmp/ecm3.info") and not fileExists("tmp/ecm4.info"):
+		elif os.path.exists("/tmp/ecm3.info") and not os.path.exists("tmp/ecm4.info"):
 			ecmpath = "/tmp/ecm3.info"
-		elif fileExists("/tmp/ecm2.info") and not fileExists("tmp/ecm3.info"):
+		elif os.path.exists("/tmp/ecm2.info") and not os.path.exists("tmp/ecm3.info"):
 			ecmpath = "/tmp/ecm2.info"
-		elif fileExists("/tmp/ecm1.info") and not fileExists("tmp/ecm2.info"):
+		elif os.path.exists("/tmp/ecm1.info") and not os.path.exists("tmp/ecm2.info"):
 			ecmpath = "/tmp/ecm1.info"
-		elif fileExists("/tmp/ecm0.info") and not fileExists("/tmp/ecm1.info"):
+		elif os.path.exists("/tmp/ecm0.info") and not os.path.exists("/tmp/ecm1.info"):
 			ecmpath = "/tmp/ecm0.info"
 		else:
 			try:
@@ -1182,7 +1182,7 @@ class GlamourAccess(Poll, Converter):
 				if ecm_mtime == old_ecm_mtime:
 					return info
 				old_ecm_mtime = ecm_mtime
-				ecmf = open(ecmpath, "rb")
+				ecmf = open(ecmpath, "r")
 				ecm = ecmf.readlines()
 			except:
 				old_ecm_mtime = None
