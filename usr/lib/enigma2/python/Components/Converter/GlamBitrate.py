@@ -1,8 +1,8 @@
 ﻿from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, eTimer
 from Components.Element import cached
-from Tools.Directories import fileExists
-if fileExists('/usr/lib/enigma2/python/Plugins/Extensions/BitrateViewer/bitratecalc.so'):
+import os.path
+if os.path.exists('/usr/lib/enigma2/python/Plugins/Extensions/BitrateViewer/bitratecalc.so'):
 	from Plugins.Extensions.BitrateViewer.bitratecalc import eBitrateCalculator
 	binaryfound = True
 else:

@@ -6,8 +6,8 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Poll import Poll
-from Tools.Directories import fileExists
-from os import popen, statvfs
+import os
+from os import popen, statvfs, path
 SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB"]
 
 class GlamourSpace(Poll, Converter):
@@ -69,7 +69,7 @@ class GlamourSpace(Poll, Converter):
 			ramavail = ""
 			ramtotal = ""
 			try:
-				if fileExists("/proc/meminfo"):
+				if os.path.exists("/proc/meminfo"):
 					with open("/proc/meminfo") as ram:
 						raminfo = ram.readlines()
 						for lines in raminfo:
@@ -94,7 +94,7 @@ class GlamourSpace(Poll, Converter):
 			swapcached = ""
 			swaptotal = ""
 			try:
-				if fileExists("/proc/meminfo"):
+				if os.path.exists("/proc/meminfo"):
 					with open("/proc/meminfo") as swp:
 						swpinfo = swp.readlines()
 						for lines in swpinfo:

@@ -4,7 +4,7 @@
 
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Tools.Directories import fileExists
+import os.path
 
 class GlamourTuners(Converter, object):
 	TUNER_A = 0
@@ -99,7 +99,7 @@ class GlamourTuners(Converter, object):
 ######### COMMON VARIABLES #################
 	def getTuners(self):
 		niminfo = [ ]
-		if fileExists("/proc/bus/nim_sockets"):
+		if os.path.exists("/proc/bus/nim_sockets"):
 			try:
 				with open("/proc/bus/nim_sockets", "r") as niminfo:
 					niminfo = niminfo.readlines()
