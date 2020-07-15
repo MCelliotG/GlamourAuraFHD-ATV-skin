@@ -1,6 +1,7 @@
 ﻿from Renderer import Renderer
 from enigma import ePixmap
-from Tools.Directories import fileExists, SCOPE_CURRENT_SKIN, resolveFilename
+from Tools.Directories import SCOPE_CURRENT_SKIN, resolveFilename
+import os.path
 
 class GlamAudioIcon(Renderer):
 	searchPaths = (resolveFilename(SCOPE_CURRENT_SKIN), "/usr/share/enigma2/skin_default/")
@@ -53,10 +54,10 @@ class GlamAudioIcon(Renderer):
 	def findAudioIcon(self, audioName):
 		if self.path.startswith("/"):
 			pngname = self.path + audioName + ".png"
-			if fileExists(pngname):
+			if os.path.exists(pngname):
 				return pngname
 		for path in self.searchPaths:
 			pngname = path + self.path + audioName + ".png"
-			if fileExists(pngname):
+			if os.path.exists(pngname):
 				return pngname
 		return ""

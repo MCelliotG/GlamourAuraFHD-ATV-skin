@@ -1,9 +1,10 @@
 ﻿from Renderer import Renderer
 from enigma import ePixmap
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
-from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
+from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 from ServiceReference import ServiceReference
 import re, unicodedata
+import os.path
 
 class GlamPicon(Renderer):
 	searchPaths = ("/media/usb/%s/", "/media/usb2/%s/", "/%s/", "/%sx/", "/usr/share/enigma2/%s/", "/usr/%s/", "/media/hdd/%s/", "/media/usb/XPicons/%s/", "/usr/share/enigma2/XPicons/%s/", "/media/hdd/XPicons/%s/", "/media/ba/%s/", "/media/cf/%s/")
@@ -62,7 +63,7 @@ class GlamPicon(Renderer):
 						pngname = self.findPicon("picon_default")
 						if pngname == "":
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
-							if fileExists(tmp):
+							if os.path.exists(tmp):
 								pngname = tmp
 							else:
 								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
@@ -78,7 +79,7 @@ class GlamPicon(Renderer):
 	def findPicon(self, serviceName):
 		for path in self.searchPaths:
 			pngname = path % self.path + serviceName + ".png"
-			if fileExists(pngname):
+			if os.path.exists(pngname):
 				return pngname
 
 		return ""

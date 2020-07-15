@@ -2,10 +2,11 @@
 # 26.09.2012 added search mountpoints
 from Renderer import Renderer 
 from enigma import ePixmap, eTimer 
-from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename 
+from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename 
 from Tools.LoadPixmap import LoadPixmap 
 from Components.Pixmap import Pixmap 
 from Components.config import * 
+import os.path
 
 class GlamPiconUni(Renderer):
 	__module__ = __name__
@@ -44,7 +45,7 @@ class GlamPiconUni(Renderer):
 					pngname = self.findPicon("na")
 					if (pngname == ""):
 						tmp = resolveFilename(SCOPE_CURRENT_SKIN, "na.png")
-						if fileExists(tmp):
+						if os.path.exists(tmp):
 							pngname = tmp
 						else:
 							pngname = resolveFilename(SCOPE_SKIN_IMAGE, "piconYWeather/na.png")
@@ -56,14 +57,14 @@ class GlamPiconUni(Renderer):
 
 	def findPicon(self, serviceName):
 		searchPaths = []
-		if fileExists("/proc/mounts"):
+		if os.path.exists("/proc/mounts"):
 			for line in open("/proc/mounts"):
 				if line.find("/dev/sd") > -1:
 					searchPaths.append(line.split()[1].replace("\\040", " ") + "/%s/")
 		searchPaths.append("/usr/share/enigma2/%s/")
 		for path in searchPaths:
 			pngname = (((path % self.path) + serviceName) + ".png")
-			if fileExists(pngname):
+			if os.path.exists(pngname):
 				return pngname
 		return ""
 
