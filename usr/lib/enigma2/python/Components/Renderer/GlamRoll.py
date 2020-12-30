@@ -1,6 +1,9 @@
-﻿# coded by shamann
-# modded by Malakudi, added utf8 support
-from Renderer import Renderer
+﻿#  GlamRoll renderer
+#  Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#  If you use this Renderer for other skins and rename it, please keep the first and second line adding your credits below
+
+import six
+from Components.Renderer.Renderer import Renderer
 from enigma import eLabel, eTimer
 from Components.VariableText import VariableText
 
@@ -40,7 +43,7 @@ class GlamRoll(VariableText, Renderer):
 		if self.instance:
 			text_width = self.instance.calculateSize().width()
 			if (self.instance and (text_width > self.sizeX)):
-				self.x = len(self.text.decode("utf8","ignore"))
+				self.x = len(self.text)
 				self.idx = 0
 				self.backtext = self.text
 				self.status = "start" 
@@ -48,12 +51,13 @@ class GlamRoll(VariableText, Renderer):
 				self.moveTimerText.timeout.get().append(self.moveTimerTextRun)
 				self.moveTimerText.start(2000)
 
-
 	def moveTimerTextRun(self):
 		self.moveTimerText.stop()
 		if self.x > 0:
-			txttmp = self.backtext.decode("utf8","ignore")[self.idx:]
-			self.text = txttmp.encode("utf8","ignore").replace("\n","").replace("\r"," ")
+			if six.PY3:
+				self.text = self.backtext[self.idx:].replace("\n", "").replace("\r", " ")
+			else:
+				self.text = self.backtext.decode("utf8", "ignore")[self.idx:].encode("utf8").replace("\n", "").replace("\r", " ")
 			self.idx = self.idx+1
 			self.x = self.x-1
 		if self.x == 0: 
@@ -65,5 +69,5 @@ class GlamRoll(VariableText, Renderer):
 					self.text = self.text[:-1]
 					text_width = self.instance.calculateSize().width()
 				self.text = self.text[:-4] + " ..."
-		if self.status is not "end":
+		if self.status != "end":
 			self.moveTimerText.start(150)

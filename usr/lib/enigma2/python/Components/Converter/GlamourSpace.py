@@ -1,11 +1,11 @@
-﻿#  GlamourSpace converter
-#  Based on DiskSpaceInfo converter
-#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#  If you use this Converter for other skins and rename it, please keep the first and second line adding your credits below
+﻿#	GlamourSpace converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
+from __future__ import absolute_import, division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Poll import Poll
+from Components.Converter.Poll import Poll
 import os
 from os import popen, statvfs, path
 SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB"]
@@ -75,13 +75,13 @@ class GlamourSpace(Poll, Converter):
 						for lines in raminfo:
 							lisp = lines.split()
 							if (lisp[0].startswith("MemFree:")):
-								ramfree = str(float(lisp[1]) / 1024)
+								ramfree = str(float(lisp[1]) // 1024)
 								ramfree = "%.6s MB Free, " % ramfree
 							if (lisp[0].startswith("MemAvailable:")):
-								ramavail = str(float(lisp[1]) / 1024)
+								ramavail = str(float(lisp[1]) // 1024)
 								ramavail = "%.6s MB Avail. " % ramavail
 							if (lisp[0].startswith("MemTotal:")):
-								ramtotal = str(int(lisp[1]) / 1024)
+								ramtotal = str(int(lisp[1]) // 1024)
 								ramtotal = "%s MB Total " % ramtotal 
 			except:
 				pass
@@ -100,13 +100,13 @@ class GlamourSpace(Poll, Converter):
 						for lines in swpinfo:
 							lisp = lines.split()
 							if (lisp[0].startswith("SwapFree:")):
-								swapfree = str(int(lisp[1]) / 1024)
+								swapfree = str(int(lisp[1]) // 1024)
 								swapfree = "%s MB Free, " % swapfree
 							if (lisp[0].startswith("SwapCached:")):
-								swapcached = str(int(lisp[1]) / 1024)
+								swapcached = str(int(lisp[1]) // 1024)
 								swapcached = "%s MB Cached, " % swapcached
 							if (lisp[0].startswith("SwapTotal:")):
-								swaptotal = str(int(lisp[1]) / 1024)
+								swaptotal = str(int(lisp[1]) // 1024)
 								swaptotal = "%s MB Total " % swaptotal
 			except:
 				pass
@@ -190,7 +190,7 @@ class GlamourSpace(Poll, Converter):
 					if check > 1:
 						if result[0] > 0:
 							result[1] = result[0] - result[2]
-							result[3] = result[1] * 100 / result[0]
+							result[3] = result[1] * 100 // result[0]
 						break
 		except:
 			pass
@@ -220,11 +220,11 @@ class GlamourSpace(Poll, Converter):
 			except:
 				st = None
 
-			if st is not None and 0 not in (st.f_bsize, st.f_blocks):
+			if st != None and 0 not in (st.f_bsize, st.f_blocks):
 				result[0] = st.f_bsize * st.f_blocks
 				result[2] = st.f_bsize * st.f_bavail
 				result[1] = result[0] - result[2]
-				result[3] = result[1] * 100 / result[0]
+				result[3] = result[1] * 100 // result[0]
 		return result
 
 	def getSizeStr(self, value, u = 0):
@@ -233,7 +233,7 @@ class GlamourSpace(Poll, Converter):
 			fmt = "%(size)u.%(frac)d %(unit)s"
 			while value >= 1024 and u < len(SIZE_UNITS):
 				value, mod = divmod(value, 1024)
-				fractal = mod * 10 / 1024
+				fractal = mod * 10 // 1024
 				u += 1
 
 		else:

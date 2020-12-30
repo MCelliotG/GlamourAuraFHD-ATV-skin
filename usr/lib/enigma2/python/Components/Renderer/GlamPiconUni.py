@@ -1,6 +1,10 @@
 ﻿#(c) 2boom mod 2012 
 # 26.09.2012 added search mountpoints
-from Renderer import Renderer 
+#  GlamPiconUni renderer
+#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
+#  If you use this Renderer for other skins and rename it, please keep all the above lines adding your credits below
+
+from Components.Renderer.Renderer import Renderer 
 from enigma import ePixmap, eTimer 
 from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename 
 from Tools.LoadPixmap import LoadPixmap 
@@ -31,13 +35,13 @@ class GlamPiconUni(Renderer):
 	def changed(self, what):
 		if self.instance:
 			pngname = ""
-			if (what[0] is not self.CHANGED_CLEAR):
+			if (what[0] != self.CHANGED_CLEAR):
 				sname = self.source.text
 				sname = sname.upper()
 				pngname = self.nameCache.get(sname, "")
 				if (pngname == ""):
 					pngname = self.findPicon(sname)
-					if (pngname is not ""):
+					if (pngname != ""):
 						self.nameCache[sname] = pngname
 			if (pngname == ""):
 				pngname = self.nameCache.get("default", "")
@@ -50,7 +54,7 @@ class GlamPiconUni(Renderer):
 						else:
 							pngname = resolveFilename(SCOPE_SKIN_IMAGE, "piconYWeather/na.png")
 					self.nameCache["default"] = pngname
-			if (self.pngname is not pngname):
+			if (self.pngname != pngname):
 				self.pngname = pngname
 				self.rTimer()
 				self.instance.setPixmapFromFile(self.pngname)
@@ -77,7 +81,7 @@ class GlamPiconUni(Renderer):
 		self.timer.start(1, True)
 
 	def timerEvent(self):
-		if (self.slide is not 0):
+		if (self.slide != 0):
 			self.timer.stop()
 			self.instance.setPixmap(self.pics[(self.slide - 1)])
 			self.slide = (self.slide - 1)

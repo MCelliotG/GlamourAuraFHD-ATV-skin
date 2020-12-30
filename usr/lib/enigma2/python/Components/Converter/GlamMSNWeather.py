@@ -21,7 +21,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
+from __future__ import absolute_import, division
 import os
+from os import environ, path
 import math
 import gettext
 import datetime, time
@@ -32,7 +34,6 @@ from Components.Console import Console as iConsole
 from Components.Language import language
 from time import localtime, strftime
 from datetime import date
-from os import environ, path
 from Components.Converter.Poll import Poll
 import six
 

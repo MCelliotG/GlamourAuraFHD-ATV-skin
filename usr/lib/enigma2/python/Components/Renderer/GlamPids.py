@@ -2,10 +2,11 @@
 #  Modded and recoded by MCelliotG for use in Glamour skins or standalone
 #  If you use this Renderer for other skins and rename it, please keep the first and second line adding your credits below
 
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import eLabel
 from Components.VariableText import VariableText
 from enigma import eServiceCenter, iServiceInformation
+
 class GlamPids(VariableText, Renderer):
 	__module__ = __name__
 

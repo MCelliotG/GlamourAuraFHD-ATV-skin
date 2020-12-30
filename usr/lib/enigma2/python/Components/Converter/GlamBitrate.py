@@ -1,4 +1,10 @@
-﻿from Components.Converter.Converter import Converter
+﻿#	GlamBitrate converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+
+from __future__ import absolute_import
+import six
+from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, eTimer
 from Components.Element import cached
 import os.path
@@ -105,9 +111,9 @@ class GlamBitrate(Converter, object):
 		return
 
 	def changed(self, what):
-		if what[0] is self.CHANGED_SPECIFIC:
-			if what[1] is iPlayableService.evStart:
+		if what[0] == self.CHANGED_SPECIFIC:
+			if what[1] == iPlayableService.evStart:
 				self.initTimer.start(200, True)
-			elif what[1] is iPlayableService.evEnd:
+			elif what[1] == iPlayableService.evEnd:
 				self.clearData()
 				Converter.changed(self, what)

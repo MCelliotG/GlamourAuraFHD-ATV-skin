@@ -1,10 +1,11 @@
-﻿#  GlamourTuners converter
-#  Coded by MCelliotG for use in Glamour skins or standalone
-#  If you use this Converter for other skins and rename it, please keep the first and second line
+﻿#	GlamourTuners converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 import os.path
+
 
 class GlamourTuners(Converter, object):
 	TUNER_A = 0

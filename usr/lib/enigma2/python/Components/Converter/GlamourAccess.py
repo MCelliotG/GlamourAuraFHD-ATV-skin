@@ -1,14 +1,14 @@
-﻿#  GlamourAccess converter
-#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#  Based on CaidInfo2 converter coded by bigroma & 2boom
-#  If you use this Converter for other skins and rename it, please keep the first and second line
+﻿#	GlamourAccess converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	Based on CaidInfo2 converter coded by bigroma & 2boom
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
+from __future__ import absolute_import
 from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService
 from Components.Element import cached
-from string import upper
 from Components.config import config, ConfigText, ConfigSubsection
-from Poll import Poll
+from Components.Converter.Poll import Poll
 import os
 from os import path
 info = {}
@@ -390,7 +390,7 @@ class GlamourAccess(Poll, Converter):
 			return False
 		caids = self.CaidList().strip(", ").split()
 
-		if self.type is self.FTA:
+		if self.type == self.FTA:
 			if not caids and not ecm_info:
 				return True
 			elif ecm_info:
@@ -398,7 +398,7 @@ class GlamourAccess(Poll, Converter):
 					return True
 			return False
 
-		if self.type is self.ISCRYPTED:
+		if self.type == self.ISCRYPTED:
 			if caids:
 				return True
 			return False
@@ -609,7 +609,7 @@ class GlamourAccess(Poll, Converter):
 					if int(config.usage.show_cryptoinfo.value) > 0:
 						if source == "sci":
 							return True
-						if source is not "cache" and source is not "net" and source.find("emu") == -1:
+						if source != "cache" and source != "net" and source.find("emu") == -1:
 							return True
 					return False
 				if self.type == self.CACHE:
@@ -693,9 +693,9 @@ class GlamourAccess(Poll, Converter):
 							return prov
 
 						if ecm_info.get("ecm time", "").find("msec") > -1:
-							ecm_time = ecm_info.get("ecm time", "")
+							ecm_time = (ecm_info.get("ecm time", "")).replace("msec", "ms")
 						else:
-							ecm_time = ecm_info.get("ecm time", "").replace(".", "").lstrip("0") + " msec"
+							ecm_time = "%s ms" % ecm_info.get("ecm time", "").replace(".", "").lstrip("0")
 
 						if self.type == self.ECMTIME:
 							return ecm_time
@@ -728,7 +728,7 @@ class GlamourAccess(Poll, Converter):
 							info_card = "False"
 							if source == "sci":
 								info_card = "True"
-							if source is not "cache" and source is not "net" and source.find("emu") == -1:
+							if source != "cache" and source != "net" and source.find("emu") == -1:
 								info_card = "True"
 							return info_card
 
@@ -739,8 +739,8 @@ class GlamourAccess(Poll, Converter):
 							ecminfo = ""
 							params = self.sfmt.split(" ")
 							for param in params:
-								if param is not "":
-									if param[0] is not "%":
+								if param != "":
+									if param[0] != "%":
 										ecminfo += param
 									elif param == "%S":
 										ecminfo += server
@@ -775,29 +775,29 @@ class GlamourAccess(Poll, Converter):
 									elif param[1:].isdigit():
 										ecminfo = ecminfo.ljust(len(ecminfo) + int(param[1:]))
 									if len(ecminfo) > 0:
-										if ecminfo[-1] is not "\t" and ecminfo[-1] is not "\n":
+										if ecminfo[-1] != "\t" and ecminfo[-1] != "\n":
 											ecminfo += " "
 							return ecminfo[:-1]
 
 						if self.type == self.ECMINFO:
 							if "fta" in protocol:
 								ecminfo = "FTA service"
-							if int(config.usage.show_cryptoinfo.value) > 0:
+							elif int(config.usage.show_cryptoinfo.value) > 0:
 								if source == "emu":
-									ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time.replace("msec", "ms"))
-								elif reader is not "" and source == "net" and port is not "":
-									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time.replace("msec", "ms"), provider)
-								elif reader is not "" and source == "net" and not "fta" in protocol:
-									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time.replace("msec", "ms"), provider)
-								elif reader is not "" and source is not "net":
-									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
-								elif server == "" and port == "" and protocol is not "":
-									ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s) %s Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time.replace("msec", "ms"))
+									ecminfo = "CA: %s:%s  PID:%s  Source: %s@%s  Ecm Time: %s" % (caid, prov, pid, source, frm, ecm_time)
+								elif reader != "" and source == "net" and port != "":
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (%s)  Source: %s:%s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, port, hops, ecm_time, provider)
+								elif reader != "" and source == "net" and not "fta" in protocol:
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Ptrc:%s (%s)  Source: %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, server, hops, ecm_time, provider)
+								elif reader != "" and source != "net":
+									ecminfo = "CA: %s:%s  PID:%s  Reader: %s@%s  Prtc:%s (local) - %s %s  Ecm Time: %s  %s" % (caid, prov, pid, reader, frm, protocol, source, hops, ecm_time, provider)
+								elif server == "" and port == "" and protocol != "":
+									ecminfo = "CA: %s:%s  PID:%s  Prtc: %s (%s) %s Ecm Time: %s" % (caid, prov, pid, protocol, source, hops, ecm_time)
 								elif server == "" and port == "" and protocol == "":
-									ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time.replace("msec", "ms"))
+									ecminfo = "CA: %s:%s  PID:%s  Source: %s  Ecm Time: %s" % (caid, prov, pid, source, ecm_time)
 								else:
 									try:
-										ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s) %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time.replace("msec", "ms"), provider)
+										ecminfo = "CA: %s:%s  PID:%s  Addr:%s:%s  Prtc: %s (%s) %s  Ecm Time: %s  %s" % (caid, prov, pid, server, port, protocol, source, hops, ecm_time, provider)
 									except:
 										pass
 							else:
@@ -806,17 +806,23 @@ class GlamourAccess(Poll, Converter):
 						if self.type == self.SHORTINFO:
 							if "fta" in protocol:
 								ecminfo = "FTA service"
-							if int(config.usage.show_cryptoinfo.value) > 0:
+							elif int(config.usage.show_cryptoinfo.value) > 0:
 								if source == "emu":
 									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, caidname)
 								elif server == "" and port == "":
-									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time.replace("msec", "ms"))
+									ecminfo = "%s:%s - %s - %s" % (caid, prov, source, ecm_time)
 								else:
 									try:
-										if reader is not "":
-											ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, frm, hop, ecm_time.replace("msec", "ms"))
+										if reader != "":
+											if hop != "":
+												ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, frm, hop, ecm_time)
+											else:
+												ecminfo = "%s:%s - %s - %s" % (caid, prov, frm, ecm_time)
 										else:
-											ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, server, hop, ecm_time.replace("msec", "ms"))
+											if hop != "":
+												ecminfo = "%s:%s - %s (%s) - %s" % (caid, prov, server, hop, ecm_time)
+											else:
+												ecminfo = "%s:%s - %s - %s" % (caid, prov, server, ecm_time)
 									except:
 										pass
 							else:
@@ -825,15 +831,21 @@ class GlamourAccess(Poll, Converter):
 						if self.type == self.CASINFO:
 							if "fta" in protocol:
 								ecminfo = "FTA service"
-							if int(config.usage.show_cryptoinfo.value) > 0:
+							elif int(config.usage.show_cryptoinfo.value) > 0:
 								if source == "emu" or server == "" and port == "":
-									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, ecm_time.replace("msec", "ms"))
+									ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, source, ecm_time)
 								else:
 									try:
-										if reader is not "":
-											ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, reader, hop, ecm_time.replace("msec", "ms"))
+										if reader != "":
+											if hop != "":
+												ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, reader, hop, ecm_time)
+											else:
+												ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, reader, ecm_time)
 										else:
-											ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, server, hop, ecm_time.replace("msec", "ms"))
+											if hop != "":
+												ecminfo = "%s [%s:%s - %s@%s - %s]" % (csi, caid, prov, server, hop, ecm_time)
+											else:
+												ecminfo = "%s [%s:%s - %s - %s]" % (csi, caid, prov, server, ecm_time)
 									except:
 										pass
 							else:
@@ -842,10 +854,10 @@ class GlamourAccess(Poll, Converter):
 					elif self.type == self.ECMINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
 						ecminfo = "Service with %s encryption (%s)" % (caidtxt, caidlist)
 					elif self.type == self.SHORTINFO or self.type == self.CASINFO:
-						ecminfo = "Service with %s encryption" % (caidtxt)
+						ecminfo = "Service with %s encryption" % caidtxt
 				elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.CASINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
 					ecminfo = "FTA service"
-		return str(ecminfo)
+		return ecminfo
 
 	text = property(getText)
 
@@ -909,15 +921,15 @@ class GlamourAccess(Poll, Converter):
 						if os.path.exists("/tmp/.oscam/oscam.version"):
 							for line in open("/tmp/.oscam/oscam.version"):
 								if line.startswith("Version:"):
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 						elif os.path.exists("/tmp/.ncam/ncam.version"):
 							for line in open("/tmp/.ncam/ncam.version"):
 								if line.startswith("Version:"):
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 						else:
 							for line in open("/etc/init.d/softcam"):
 								if "Short-Description" in line:
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 								if line.startswith("CAMNAME="):
 									cam1 = "%s" % line.split('"')[1]
 								elif line.find("echo") > -1:
@@ -1026,7 +1038,7 @@ class GlamourAccess(Poll, Converter):
 			except:
 				return None
 # Others
-		if serlist is not None:
+		if serlist != None:
 			try:
 				cardserver = ""
 				for current in serlist.readlines():
@@ -1036,7 +1048,7 @@ class GlamourAccess(Poll, Converter):
 				pass
 		else:
 			cardserver = "N/A"
-		if camdlist is not None:
+		if camdlist != None:
 			try:
 				emu = ""
 				for current in camdlist.readlines():
@@ -1158,8 +1170,10 @@ class GlamourAccess(Poll, Converter):
 			ecmpath = "/tmp/ecm2.info"
 		elif os.path.exists("/tmp/ecm1.info") and not os.path.exists("tmp/ecm2.info"):
 			ecmpath = "/tmp/ecm1.info"
-		elif os.path.exists("/tmp/ecm0.info") and not os.path.exists("/tmp/ecm1.info"):
-			ecmpath = "/tmp/ecm0.info"
+		elif os.path.exists("/tmp/ecm0.info") and os.path.exists("/tmp/ecm.info"):
+			ecmpath = "/tmp/ecm.info"
+		elif os.path.exists("/tmp/ecm0.info") and not os.path.exists("/tmp/ecm.info"):
+			ecmpath = None
 		else:
 			try:
 				ecmpath = "/tmp/ecm.info"
@@ -1191,7 +1205,7 @@ class GlamourAccess(Poll, Converter):
 			if ecm:
 				for line in ecm:
 					x = line.lower().find("msec")
-					if x is not -1:
+					if x != -1:
 						info["ecm time"] = line[0:x + 4]
 					else:
 						item = line.split(":", 1)
@@ -1206,11 +1220,11 @@ class GlamourAccess(Poll, Converter):
 								it_tmp = item[1].strip().split(" ")
 								info["ecm time"] = "%s msec" % it_tmp[0]
 								y = it_tmp[-1].find("[")
-								if y is not -1:
+								if y != -1:
 									info["server"] = it_tmp[-1][:y]
 									info["protocol"] = it_tmp[-1][y + 1:-1]
 								y = it_tmp[-1].find("(")
-								if y is not -1:
+								if y != -1:
 									info["server"] = it_tmp[-1].split("(")[-1].split(":")[0]
 									info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1].rstrip(")")
 								elif y == -1:
@@ -1233,12 +1247,22 @@ class GlamourAccess(Poll, Converter):
 								if item[1].strip()[:3] == "net":
 									it_tmp = item[1].strip().split(" ")
 									info["protocol"] = it_tmp[1][1:]
-									info["server"] = it_tmp[-1].split(":", 1)[0]
-									info["port"] = it_tmp[-1].split(":", 1)[1][:-1]
+									if ":" in it_tmp[-1]:
+										info["server"] = it_tmp[-1].split(":", 1)[0]
+										info["port"] = it_tmp[-1].split(":", 1)[1][:-1]
+									elif ":" not in it_tmp[-1]:
+										try:
+											info["server"] = it_tmp[3].split(":", 1)[0]
+											info["port"] = it_tmp[3].split(":", 1)[1][:-1]
+										except:
+											pass
+									else:
+										info["server"] == ""
+										info["port"] == ""
 									item[1] = "net"
 							elif item[0] == "prov":
 								y = item[1].find(",")
-								if y is not -1:
+								if y != -1:
 									item[1] = item[1][:y]
 							elif item[0] == "reader":
 								if item[1].strip() == "emu":
@@ -1263,7 +1287,7 @@ class GlamourAccess(Poll, Converter):
 									item[0] = "protocol"
 							elif item[0] == "address":
 								tt = item[1].find(":")
-								if tt is not -1:
+								if tt != -1:
 									info["server"] = item[1][:tt].strip()
 									item[0] = "port"
 									item[1] = item[1][tt + 1:]
@@ -1271,18 +1295,18 @@ class GlamourAccess(Poll, Converter):
 						else:
 							if "caid" not in info:
 								x = line.lower().find("caid")
-								if x is not -1:
+								if x != -1:
 									y = line.find(",")
-									if y is not -1:
+									if y != -1:
 										info["caid"] = line[x + 5:y]
 							if "pid" not in info:
 								x = line.lower().find("pid")
-								if x is not -1:
+								if x != -1:
 									y = line.find(" =")
 									z = line.find(" *")
-									if y is not -1:
+									if y != -1:
 										info["pid"] = line[x + 4:y]
-									elif z is not -1:
+									elif z != -1:
 										info["pid"] = line[x + 4:z]
 				ecmf.close()
 		return info
