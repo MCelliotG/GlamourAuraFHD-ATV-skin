@@ -1,15 +1,15 @@
-﻿#  GlamourBase converter
-#  codecs map by PliExtraInfo
-#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#  If you use this Converter for other skins and rename it, please keep the first and second line
+﻿#	GlamourBase converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	codecs map based on PliExtraInfo
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
+from __future__ import absolute_import, division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Poll import Poll 
+from Components.Converter.Poll import Poll 
 import NavigationInstance
 from ServiceReference import ServiceReference, resolveAlternate 
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
-from string import upper 
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
 import os.path
@@ -149,8 +149,9 @@ satnames = (
 	(35.7, 36.3, "Eutelsat 36B,36C"),
 	(32.9, 33.3, "Eutelsat 33C,33E"),
 	(32.6, 32.8, "Intelsat 28"),
-	(31.2, 31.8, "Astra 5B"),
-	(30.7, 31.1, "Hylas 2,3"),
+	(31.4, 31.8, "Astra 5B"),
+	(31.1, 31.3, "Hylas 2,3"),
+	(30.7, 31.0, "Eutelsat 7A"),
 	(30.2, 30.6, "Arabsat 5A,6A"),
 	(28.0, 28.8, "Astra 2E,2F,2G"),
 	(25.2, 26.3, "Badr 4,5,6,7/Es'hail 1,2"),
@@ -158,7 +159,7 @@ satnames = (
 	(21.4, 21.8, "Eutelsat 21B"),
 	(20.8, 21.2, "AfriStar 1"),
 	(19.8, 20.5, "Arabsat 5C"),
-	(18.8, 19.5, "Astra 1KR,1L,1M,1N"),
+	(18.8, 19.5, "Astra 1KR,1,1M,1N"),
 	(16.6, 17.3, "Amos 17"),
 	(15.6, 16.3, "Eutelsat 16A"),
 	(12.7, 13.5, "HotBird 13B,13C,13E"),
@@ -458,7 +459,7 @@ class GlamourBase(Poll, Converter, object):
 			if (fps < 0) or (fps == -1):
 				return ""
 			fps = "%6.3f" % (fps/1000.)
-		return "%s fps" % (fps.replace(".000",""))
+		return "%s fps" % (fps.replace(".000", ""))
 
 	def videocodec(self, info):
 		vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
@@ -480,19 +481,19 @@ class GlamourBase(Poll, Converter, object):
 	def frequency(self, tp):
 		freq = (tp.get("frequency") + 500)
 		if freq:
-			frequency = str(int(freq) / 1000)
+			frequency = str(int(freq) // 1000)
 			return frequency
 		else:
 			return ""
 
 	def terrafreq(self, tp):
-		return str(int(tp.get("frequency") + 1) / 1000000)
+		return str(int(tp.get("frequency") + 1) // 1000000)
 
 	def channel(self, tpinfo):
 		return str(tpinfo.get("channel")) or ""
 
 	def symbolrate(self, tp):
-		return str(int(tp.get("symbol_rate", 0) / 1000))
+		return str(int(tp.get("symbol_rate", 0) // 1000))
 
 	def polarization(self, tpinfo):
 		return str(tpinfo.get("polarization_abbreviation")) or ""
@@ -549,7 +550,7 @@ class GlamourBase(Poll, Converter, object):
 		isid = str(tpinfo.get("is_id", 0)) 
 		plscode = str(tpinfo.get("pls_code", 0))
 		plsmode = str(tpinfo.get("pls_mode", None))
-		if plsmode == "None" or plsmode == "Unknown" or (plsmode is not "None" and plscode == "0"):
+		if plsmode == "None" or plsmode == "Unknown" or (plsmode != "None" and plscode == "0"):
 			plsmode = ""
 		if isid == "None" or isid == "-1" or isid == "0":
 			isid = ""
@@ -565,8 +566,8 @@ class GlamourBase(Poll, Converter, object):
 	def satname(self, tp):
 		sat = "Satellite:"
 		orb = int(tp.get("orbital_position"))
-		orbe = float(orb)/10.0
-		orbw = float(orb - 3600)/10.0
+		orbe = float(orb) / 10.0
+		orbw = float(orb - 3600) / 10.0
 		for sn in satnames:
 			try:
 				if sn[0] <= orbe <= sn[1] or sn[1] <= orbw <= sn[0]:
@@ -578,9 +579,9 @@ class GlamourBase(Poll, Converter, object):
 	def orbital(self, tp):
 		orbp = tp.get("orbital_position")
 		if orbp > 1800:
-			orbp = str((float(3600 - orbp))/10.0) + "°W"
+			orbp = str((float(3600 - orbp)) / 10.0) + "°W"
 		else:
-			orbp = str((float(orbp))/10.0) + "°E"
+			orbp = str((float(orbp)) / 10.0) + "°E"
 		return orbp
 
 	def reference(self):
@@ -611,7 +612,7 @@ class GlamourBase(Poll, Converter, object):
 			refstr = playref.toString()
 			if "%3a/" in refstr or ":/" in refstr:
 				strurl = refstr.split(":")
-				streamurl = strurl[10].replace("%3a",":")
+				streamurl = strurl[10].replace("%3a", ":")
 				if len(streamurl) > 80:
 					streamurl = "%s..." % streamurl[:79]
 				return streamurl
@@ -656,6 +657,7 @@ class GlamourBase(Poll, Converter, object):
 			onid = "ONID:" + str(onid).zfill(4)
 		pidinfo = sp(vpid) + sp(apid) + sp(sid) + sp(pcrpid) + sp(pmtpid) + sp(tsid) + onid
 		return pidinfo
+
 
 	def pidhexstring(self, info):
 		vpid = info.getInfo(iServiceInformation.sVideoPID)
@@ -713,7 +715,7 @@ class GlamourBase(Poll, Converter, object):
 				tpinfo = ConvertToHumanReadable(tp)
 
 
-		if (self.type == self.FREQINFO):
+		if self.type == self.FREQINFO:
 			refstr = str(self.reference())
 			if "%3a/" in refstr or ":/" in refstr:
 				return self.streamurl()
@@ -735,7 +737,7 @@ class GlamourBase(Poll, Converter, object):
 					return "%s (Mhz) %s" % (self.terrafreq(tp), self.modulation(tpinfo))
 				return ""
 
-		elif (self.type == self.ORBITAL):
+		elif self.type == self.ORBITAL:
 			refstr = str(self.reference())
 			if "%3a/" in refstr or ":/" in refstr:
 				return self.streamtype()
@@ -746,34 +748,34 @@ class GlamourBase(Poll, Converter, object):
 					return self.system(tpinfo)
 				return ""
 
-		elif (self.type == self.VIDEOCODEC):
+		elif self.type == self.VIDEOCODEC:
 			return self.videocodec(info)
 
-		elif (self.type == self.FPS):
+		elif self.type == self.FPS:
 			return self.framerate(info)
 
-		elif (self.type == self.VIDEOSIZE):
+		elif self.type == self.VIDEOSIZE:
 			return self.videosize(info)
 
-		elif (self.type == self.RESCODEC):
+		elif self.type == self.RESCODEC:
 			vidsize = self.videosize(info)
 			fps = self.framerate(info)
 			vidcodec = self.videocodec(info)
 			return "%s   %s   %s" % (vidsize, fps, vidcodec)
 
-		elif (self.type == self.PIDINFO):
+		elif self.type == self.PIDINFO:
 			return self.pidstring(info)
 
-		elif (self.type == self.PIDHEXINFO):
+		elif self.type == self.PIDHEXINFO:
 			return self.pidhexstring(info)
 
-		elif (self.type == self.STREAMURL):
+		elif self.type == self.STREAMURL:
 			return str(self.streamurl())
 
-		elif (self.type == self.PIDHEXINFO):
+		elif self.type == self.PIDHEXINFO:
 			return str(self.streamtype())
 
-		elif (self.type == self.HDRINFO):
+		elif self.type == self.HDRINFO:
 			return self.hdr(info)
 
 	text = property(getText)
@@ -792,127 +794,127 @@ class GlamourBase(Poll, Converter, object):
 			vcodec = self.videocodec(info)
 			streamurl = self.streamurl()
 			gamma = self.hdr(info)
-			if (self.type == self.IS1080):
+			if self.type == self.IS1080:
 				if (1880 <= xresol <= 2000 ) or (900 <= yresol <= 1090):
 					return True
 				return False
 			elif (self.type == self.IS720):
-				if (601 <= yresol <= 740):
+				if (601 <= yresol <= 740) or (900 <= xresol <= 1300):
 					return True
 				return False
 			elif (self.type == self.IS576):
-				if (501 <= yresol <= 600):
+				if (501 <= yresol <= 600) and (xresol <= 1030):
 					return True
 				return False
-			elif (self.type == self.IS1440):
+			elif self.type == self.IS1440:
 				if (2550 <= xresol <= 2570) or (1430 <= yresol <= 1450):
 					return True
 				return False
-			elif (self.type == self.IS2160):
+			elif self.type == self.IS2160:
 				if (3820 <= xresol <= 4100) or (2150 <= yresol <= 2170):
 					return True
 				return False
-			elif (self.type == self.IS480):
+			elif self.type == self.IS480:
 				if (380 <= yresol <= 500):
 					return True
 				return False
-			elif (self.type == self.IS360):
+			elif self.type == self.IS360:
 				if (300 <= yresol <= 379):
 					return True
 				return False
-			elif (self.type == self.IS288):
+			elif self.type == self.IS288:
 				if (261 <= yresol <= 299):
 					return True
 				return False
-			elif (self.type == self.IS240):
+			elif self.type == self.IS240:
 				if (181 <= yresol <= 260):
 					return True
 				return False
-			elif (self.type == self.IS144):
+			elif self.type == self.IS144:
 				if (120 <= yresol <= 180):
 					return True
 				return False
-			elif (self.type == self.ISPROGRESSIVE):
+			elif self.type == self.ISPROGRESSIVE:
 				if progrs == "p":
 					return True
 				return False
-			elif (self.type == self.ISINTERLACED):
+			elif self.type == self.ISINTERLACED:
 				if progrs == "i":
 					return True
 				return False
-			elif (self.type == self.ISSTREAMING):
+			elif self.type == self.ISSTREAMING:
 				if streamurl:
 					return True
 				return False
-			elif (self.type == self.HASMPEG2):
+			elif self.type == self.HASMPEG2:
 				if vcodec == "MPEG2":
 					return True
 				return False
-			elif (self.type == self.HASAVC):
+			elif self.type == self.HASAVC:
 				if vcodec == "AVC" or vcodec == "MPEG4":
 					return True
 				return False
-			elif (self.type == self.HASH263):
+			elif self.type == self.HASH263:
 				if vcodec == "H263":
 					return True
 				return False
-			elif (self.type == self.HASVC1):
+			elif self.type == self.HASVC1:
 				if "VC1" in vcodec:
 					return True
 				return False
-			elif (self.type == self.HASMPEG4VC):
+			elif self.type == self.HASMPEG4VC:
 				if vcodec == "MPEG4-VC":
 					return True
 				return False
-			elif (self.type == self.HASHEVC):
+			elif self.type == self.HASHEVC:
 				if vcodec == "HEVC" or vcodec == "H265":
 					return True
 				return False
-			elif (self.type == self.HASMPEG1):
+			elif self.type == self.HASMPEG1:
 				if vcodec == "MPEG1":
 					return True
 				return False
-			elif (self.type == self.HASVP8):
+			elif self.type == self.HASVP8:
 				if vcodec == "VB8" or vcodec == "VP8":
 					return True
 				return False
-			elif (self.type == self.HASVP9):
+			elif self.type == self.HASVP9:
 				if vcodec == "VB9" or vcodec == "VP9":
 					return True
 				return False
-			elif (self.type == self.HASVP6):
+			elif self.type == self.HASVP6:
 				if vcodec == "VB6" or vcodec == "VP6":
 					return True
 				return False
-			elif (self.type == self.HASDIVX):
+			elif self.type == self.HASDIVX:
 				if "DIVX" in vcodec:
 					return True
 				return False
-			elif (self.type == self.HASXVID):
+			elif self.type == self.HASXVID:
 				if "XVID" in vcodec:
 					return True
 				return False
-			elif (self.type == self.HASSPARK):
+			elif self.type == self.HASSPARK:
 				if vcodec == "SPARK":
 					return True
 				return False
-			elif (self.type == self.HASAVS):
+			elif self.type == self.HASAVS:
 				if "AVS" in vcodec:
 					return True
 				return False
-			elif (self.type == self.ISSDR):
+			elif self.type == self.ISSDR:
 				if gamma == "SDR":
 					return True
 				return False
-			elif (self.type == self.ISHDR):
+			elif self.type == self.ISHDR:
 				if gamma == "HDR":
 					return True
 				return False
-			elif (self.type == self.ISHDR10):
+			elif self.type == self.ISHDR10:
 				if gamma == "HDR10":
 					return True
 				return False
-			elif (self.type == self.ISHLG):
+			elif self.type == self.ISHLG:
 				if gamma == "HLG":
 					return True
 				return False

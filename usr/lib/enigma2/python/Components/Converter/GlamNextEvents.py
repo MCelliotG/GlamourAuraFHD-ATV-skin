@@ -1,15 +1,15 @@
-﻿# GlamNextEvents converter
-# modded and recoded by MCelliotG for Glamour skins or standalone
-# based on NextEvents by m0rphU & LN
-# if you like to use/modify this converter for other skins or change its name, keep the first three lines
-#
+﻿#	GlamNextEvents converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	Based on NextEvents by m0rphU & LN
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+
+from __future__ import division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.VariableText import VariableText
 from enigma import eLabel, eEPGCache, eServiceReference
 from time import localtime, strftime, mktime, time
 from datetime import datetime
-
 
 class GlamNextEvents(Converter, object):
 	Event1 = 0
@@ -39,7 +39,7 @@ class GlamNextEvents(Converter, object):
 		self.epgcache = eEPGCache.getInstance()
 
 		args = type.split(',')
-		if len(args) is not 2:
+		if len(args) != 2:
 			raise ElementError("type must contain exactly 2 arguments")
 	
 		type = args.pop(0)
@@ -120,7 +120,7 @@ class GlamNextEvents(Converter, object):
 		begin = strftime("%H:%M", localtime(event.getBeginTime()))
 		end = strftime("%H:%M", localtime(event.getBeginTime() + event.getDuration()))
 		title = event.getEventName()#[:self.titleWidth]
-		duration = "%d min" % (event.getDuration() / 60)
+		duration = "%d min" % (event.getDuration() // 60)
 		if self.showDuration == self.withDuration:
 			f = "{begin} - {end:7}{title:<} ({duration})"
 			return f.format(begin = begin, end = end, title = title, duration = duration)

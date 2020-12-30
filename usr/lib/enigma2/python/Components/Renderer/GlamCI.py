@@ -1,4 +1,9 @@
-﻿from Renderer import Renderer
+﻿#  GlamCI renderer
+#  Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#  If you use this Renderer for other skins and rename it, please keep the first and second line adding your credits below
+
+from __future__ import absolute_import
+from Components.Renderer.Renderer import Renderer
 from enigma import eDVBCI_UI, eDVBCIInterfaces, eLabel, iPlayableService
 from Components.VariableText import VariableText
 
@@ -32,7 +37,7 @@ class GlamCI(Renderer, VariableText):
 			string = ""
 			if self.NUM_CI and self.NUM_CI > 0:
 				if self.eDVBCIUIInstance:
-					for slot in range(self.NUM_CI):
+					for slot in list(range(self.NUM_CI)):
 						add_num = True
 						if string:
 							string += " "

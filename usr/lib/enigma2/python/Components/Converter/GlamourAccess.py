@@ -1,8 +1,9 @@
-﻿#  GlamourAccess converter
-#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#  Based on CaidInfo2 converter coded by bigroma & 2boom
-#  If you use this Converter for other skins and rename it, please keep the first and second line
+﻿#	GlamourAccess converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	Based on CaidInfo2 converter coded by bigroma & 2boom
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
+from __future__ import absolute_import
 from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService
 from Components.Element import cached
@@ -389,7 +390,7 @@ class GlamourAccess(Poll, Converter):
 			return False
 		caids = self.CaidList().strip(", ").split()
 
-		if self.type is self.FTA:
+		if self.type == self.FTA:
 			if not caids and not ecm_info:
 				return True
 			elif ecm_info:
@@ -397,7 +398,7 @@ class GlamourAccess(Poll, Converter):
 					return True
 			return False
 
-		if self.type is self.ISCRYPTED:
+		if self.type == self.ISCRYPTED:
 			if caids:
 				return True
 			return False
@@ -920,15 +921,15 @@ class GlamourAccess(Poll, Converter):
 						if os.path.exists("/tmp/.oscam/oscam.version"):
 							for line in open("/tmp/.oscam/oscam.version"):
 								if line.startswith("Version:"):
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 						elif os.path.exists("/tmp/.ncam/ncam.version"):
 							for line in open("/tmp/.ncam/ncam.version"):
 								if line.startswith("Version:"):
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 						else:
 							for line in open("/etc/init.d/softcam"):
 								if "Short-Description" in line:
-									cam1 = "%s" % line.split(':')[1].replace(" ","")
+									cam1 = "%s" % line.split(':')[1].replace(" ", "")
 								if line.startswith("CAMNAME="):
 									cam1 = "%s" % line.split('"')[1]
 								elif line.find("echo") > -1:

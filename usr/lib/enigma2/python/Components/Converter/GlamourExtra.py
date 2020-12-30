@@ -1,12 +1,13 @@
-﻿#  GlamourExtra Converter
-#  Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#  HDDtemp new detection added by betacentauri, many thanks!!!
-#  If you use this Converter for other skins and rename it, please keep the first and second line adding your credits below
+﻿#	GlamourExtra converter
+#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
+#	HDDtemp new detection added by betacentauri, many thanks!!!
+#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
-from Components.Converter.Converter import Converter
-from Components.Element import cached
-from Poll import Poll
-from enigma import eConsoleAppContainer
+from __future__ import absolute_import, division
+from Components.Converter.Converter import Converter 
+from Components.Element import cached 
+from Components.Converter.Poll import Poll
+from enigma import eConsoleAppContainer 
 import os
 from os import system, path, popen
 
@@ -68,7 +69,7 @@ class GlamourExtra(Poll, Converter):
 
 	@cached
 	def getText(self):
-		if (self.type == self.CPULOAD):
+		if self.type == self.CPULOAD:
 			cpuload = ""
 			if os.path.exists("/proc/loadavg"):
 				try:
@@ -112,10 +113,10 @@ class GlamourExtra(Poll, Converter):
 				return systemp
 			return "%s CPU: %s" % (systemp, cputemp)
 
-		elif (self.type == self.HDDTEMP):
+		elif self.type == self.HDDTEMP:
 			return self.hddtemp
 
-		elif (self.type == self.CPUSPEED):
+		elif self.type == self.CPUSPEED:
 			try:
 				cpuspeed = 0
 				for line in open("/proc/cpuinfo").readlines():
@@ -125,17 +126,17 @@ class GlamourExtra(Poll, Converter):
 				if not cpuspeed:
 					try:
 						import binascii
-						cpuspeed = int(int(binascii.hexlify(open("/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency", "rb").read()), 16) / 100000000) * 100
+						cpuspeed = int(int(binascii.hexlify(open("/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency", "rb").read()), 16) // 100000000) * 100
 					except:
 						try:
-							cpuspeed = int(open("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").read()) / 1000
+							cpuspeed = int(open("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").read()) // 1000
 						except:
 							cpuspeed = "-"
 				return "CPU Speed: %s MHz" % cpuspeed
 			except:
 				return ""
 
-		if (self.type == self.FANINFO):
+		if self.type == self.FANINFO:
 			fs = ""
 			fv = ""
 			fp = ""
@@ -158,21 +159,21 @@ class GlamourExtra(Poll, Converter):
 			else:
 				return "Speed: %s V: %s PWM: %s" % (fs, fv, fp)
 
-		elif (self.type == self.UPTIME):
+		elif self.type == self.UPTIME:
 			try:
 				with open("/proc/uptime", "r") as up:
 					uptime_info = up.read().split()
 			except:
 				return "Uptime: N/A"
 				uptime_info = None
-			if uptime_info is not None:
+			if uptime_info != None:
 				total_seconds = float(uptime_info[0])
 				MINUTE = 60
 				HOUR = MINUTE * 60
 				DAY = HOUR * 24
-				days = str(int(total_seconds / DAY))
-				hours = str(int(total_seconds % DAY / HOUR))
-				minutes = str(int(total_seconds % HOUR / MINUTE))
+				days = str(int(total_seconds // DAY))
+				hours = str(int(total_seconds % DAY // HOUR))
+				minutes = str(int(total_seconds % HOUR // MINUTE))
 				seconds = str(int(total_seconds % MINUTE))
 				uptime = ""
 				if self.shortFormat:
