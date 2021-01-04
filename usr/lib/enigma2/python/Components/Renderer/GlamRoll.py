@@ -68,6 +68,9 @@ class GlamRoll(VariableText, Renderer):
 				while text_width > self.sizeX:
 					self.text = self.text[:-1]
 					text_width = self.instance.calculateSize().width()
-				self.text = self.text[:-4] + " ..."
+				if six.PY3:
+					self.text = "%s..." % self.text[:-3]
+				else:
+					self.text = "%s..." % self.text[:-3].decode("utf8", "ignore").encode("utf8")
 		if self.status != "end":
 			self.moveTimerText.start(150)
