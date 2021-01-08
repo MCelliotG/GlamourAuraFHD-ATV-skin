@@ -5585,12 +5585,12 @@ if not self["videofps"].text:
   </screen>
   <!-- 15. Wlan scan -->
   <screen name="WlanScan" position="0,0" size="1920,1080" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/wlan.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,720" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="4">
-      <convert type="TemplatedMultiContent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/wlan.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget source="list" render="Listbox" position="540,120" size="1305,720" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="4">
+    <convert type="TemplatedMultiContent">
         {"template": [
             MultiContentEntryText(pos = (10, 5), size = (700, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
             MultiContentEntryText(pos = (10, 55), size = (340, 35), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
@@ -5602,9 +5602,10 @@ if not self["videofps"].text:
         "itemHeight": 90
         }
       </convert>
-    </widget>
-    <panel name="FullKeys1" />
-  </screen>
+  </widget>
+  <widget source="info" render="Label" position="540,75" zPosition="6" size="1305,45" font="Regular; 32" halign="left" valign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan" />
+  <panel name="FullKeys1" />
+</screen>
   <!-- 16. Wlan scanapp -->
   <screen name="WlanScanAp" position="0,0" size="1920,1080" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
