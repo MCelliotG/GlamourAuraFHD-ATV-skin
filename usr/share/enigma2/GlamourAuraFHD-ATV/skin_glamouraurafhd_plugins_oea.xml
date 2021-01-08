@@ -2238,4 +2238,62 @@
     <widget name="menu" font="Regular; 30" position="540,90" size="1260,800" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/satfindersel.png" alphatest="off" zPosition="4" />
     <widget name="introduction" position="540,890" size="1260,50" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" noWrap="1" zPosition="5" foregroundColor="sky" />
   </screen>
+  <!-- Chocholousek Picons -->
+  <screen name="mainConfigScreen" position="0,0" size="1920,1080" title="Chocholousek picons" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/piconupdater.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="version_txt" position="540,75" size="1305,60" font="RegularB; 42" foregroundColor="cyan" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" />
+    <widget name="author_txt" position="540,135" size="1305,45" font="Regular; 30" foregroundColor="amarillo" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" />
+    <widget name="previewImage" position="920,535" size="520,320" zPosition="5" alphatest="blend" transparent="1" backgroundColor="background20" scale="1" />
+    <widget name="config" font="Regular; 30" position="540,180" size="1305,350" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <widget source="txt_red" render="Label" position="535,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_green" render="Label" position="860,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_yellow" render="Label" position="1185,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_blue" render="Label" position="1510,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  </screen>
+  <screen name="satellitesConfigScreen" position="0,0" size="1920,1080" title="Satellite positions" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/piconupdater.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="txt_title" position="540,75" size="650,50" font="Regular; 35" foregroundColor="amarillo" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" />
+    <widget name="txt_counter" position="825,140" size="90,60" font="Numbers; 60" backgroundColor="clearcyan" transparent="0" halign="center" valign="center" zPosition="8" borderWidth="1" borderColor="white" />
+    <eLabel name="frame_counter" position="825,140" size="0,0" zPosition="7" backgroundColor="background20" />
+    <widget name="config" font="Regular; 30" position="1195,75" size="650,850" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/wlansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <widget source="txt_red" render="Label" position="535,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_green" render="Label" position="860,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  </screen>
+  <screen name="directoryBrowserScreen" position="0,0" size="1920,1080" title="Directory browser" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/piconupdater.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="txt_title" position="540,75" size="1305,50" font="RegularB; 35" foregroundColor="cyan" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" />
+    <widget name="txt_dir" position="540,125" size="1305,45" font="RegularB; 30" backgroundColor="clearcyan" transparent="0" halign="center" valign="center" zPosition="6" />
+    <widget name="frame_dir" position="540,0" size="0,0" font="Regular; 30" backgroundColor="cyan2" transparent="1" zPosition="0" />
+    <widget name="config" font="Regular; 30" position="540,170" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
+    <widget source="txt_red" render="Label" position="535,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_green" render="Label" position="860,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_yellow" render="Label" position="1185,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget source="txt_blue" render="Label" position="1510,855" size="320,90" zPosition="4" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+  </screen>
+  <screen name="piconsUpdateJobScreen" position="0,0" size="1920,1080" title="picons update in progress..." flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/piconupdater.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="logWindow" font="Regular; 30" position="540,60" size="1305,900" foregroundColor="white" backgroundColor="clearcyan" itemHeight="50" transparent="0" zPosition="9" />
+  </screen>
 </skin>
