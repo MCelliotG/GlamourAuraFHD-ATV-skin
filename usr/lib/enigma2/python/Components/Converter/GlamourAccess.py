@@ -162,7 +162,7 @@ cainfo = (
 	("4B62", "4B62", "GMA"),
 	("4B63", "4B63", "redCrypter"),
 	("4B64", "4B64", "Samsung/TV Key"),
-	("5347", "5347", "GkWare"),
+	("5347", "5347", "GkWare/StreamGuru"),
 	("5448", "5448", "Gospell VisionCrypt"),
 	("5501", "5580", "Griffin"),
 	("5581", "55FF", "Bulcrypt"),
