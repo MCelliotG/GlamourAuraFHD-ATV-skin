@@ -32,6 +32,14 @@
     <panel name="EventView" />
   </screen>
   <!-- 02. NETWORK SCREENS -->
+  <screen name="NetworkCommon" flags="wfNoBorder">
+    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
+    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
+    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
+    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
+    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
+    <panel name="FullKeys1" />
+  </screen>
   <screen name="NetworkMacSetup" position="0,0" size="1920,1080" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
@@ -46,12 +54,7 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/samba.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkSambaLog" position="0,0" size="1920,1080" title="Network Samba Log" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
@@ -124,60 +127,35 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netnfs.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkTelnet" position="0,0" size="1920,1080" title="Network Telnet" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/telnet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkFtp" position="0,0" size="1920,1080" title="Network Ftp" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netftp.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkOpenvpn" position="0,0" size="1920,1080" title="Network Openvpn" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netvpn.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkSABnzbd" position="0,0" size="1920,1080" title="SABnzbd Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/sabnzbd.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkPassword" position="0,0" size="1920,1080" title="Network Password" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="MainBackground2" />
@@ -197,12 +175,14 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/netafp.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="lab1" position="570,350" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="4" halign="right" />
-    <widget name="labactive" position="1180,350" size="600,50" font="Regular; 30" backgroundColor="background20" transparent="1" halign="center" zPosition="6" />
-    <widget name="lab2" position="570,420" size="600,50" font="RegularB; 30" backgroundColor="background20" transparent="1" zPosition="5" halign="right" />
-    <widget name="labstop" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="red" zPosition="4" foregroundColor="white" />
-    <widget name="labrun" position="1180,420" size="600,50" font="Regular; 30" valign="center" halign="center" backgroundColor="green" zPosition="7" />
-    <panel name="FullKeys1" />
+    <panel name="NetworkCommon" />
+  </screen>
+  <screen name="NetworkSATPI" position="0,0" size="1920,1080" title="SatPI Setup" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="MainBackground2" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="50,315" size="400,400" pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/icons/satpi.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="NetworkCommon" />
   </screen>
   <screen name="NetworkMiniDLNA" position="0,0" size="1920,1080" title="AFP Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackground2" />

@@ -668,9 +668,9 @@
       <convert type="ConditionalShowHide">Invert</convert>
     </widget>
     <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,725" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="description" position="540,725" size="1305,150" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
-    <widget name="introduction" position="540,725" size="1305,150" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
+    <ePixmap pixmap="/usr/share/enigma2/GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1041,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget name="description" position="540,725" size="1305,135" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
+    <widget name="introduction" position="1140,25" size="705,50" font="Regular; 30" halign="center" valign="top" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="sky" />
     <panel name="FullKeys1" />
   </screen>
   <!-- DMM Blindscan -->
