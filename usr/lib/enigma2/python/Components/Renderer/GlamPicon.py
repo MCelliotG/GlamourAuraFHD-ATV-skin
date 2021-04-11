@@ -37,11 +37,11 @@ class GlamPicon(Renderer):
 			pngname = ""
 			if what[0] != self.CHANGED_CLEAR:
 				self.instance.show()
-				sname = self.source.text
+				sname = self.source.text.upper()
 				pos = sname.rfind(":")
 				if pos != -1:
 					sname = sname[:pos].rstrip(":").replace(":", "_")
-					sname = sname.split("_http")[0]
+					sname = sname.split("_HTTP")[0]
 				pngname = self.nameCache.get(sname, "")
 				if pngname == "":
 					pngname = self.findPicon(sname)
@@ -63,16 +63,18 @@ class GlamPicon(Renderer):
 					if pngname != "":
 						self.nameCache[sname] = pngname
 				if pngname == "":
-					pngname = self.nameCache.get("default", "")
-					if pngname == "":
-						pngname = self.findPicon("picon_default")
-						if pngname == "":
-							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
-							if os.path.exists(tmp):
-								pngname = tmp
-							else:
-								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
-						self.nameCache["default"] = pngname
+					self.pngname = ""
+					self.instance.hide()
+					#pngname = self.nameCache.get("default", "")
+					#if pngname == "":
+						#pngname = self.findPicon("picon_default")
+						#if pngname == "":
+							#tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
+							#if os.path.exists(tmp):
+								#pngname = tmp
+							#else:
+								#pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
+						#self.nameCache["default"] = pngname
 				if self.pngname != pngname:
 					self.instance.setScale(1)
 					self.instance.setPixmapFromFile(pngname)
