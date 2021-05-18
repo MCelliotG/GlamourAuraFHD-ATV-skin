@@ -10,6 +10,7 @@ from ServiceReference import ServiceReference
 import re, unicodedata
 import os.path
 import six
+import sys
 
 class GlamPicon(Renderer):
 	searchPaths = ("/media/usb/%s/", "/media/usb2/%s/", "/%s/", "/%sx/", "/usr/share/enigma2/%s/", "/usr/%s/", "/media/hdd/%s/", "/media/usb/XPicons/%s/", "/usr/share/enigma2/XPicons/%s/", "/media/hdd/XPicons/%s/", "/media/ba/%s/", "/media/cf/%s/")
@@ -54,8 +55,11 @@ class GlamPicon(Renderer):
 						pngname = self.findPicon("_".join(fields))
 					if not pngname:
 						name = ServiceReference(self.source.text).getServiceName()
-						name = unicodedata.normalize("NFKD", six.text_type(name, "utf_8", errors="ignore")).encode("ASCII", "ignore")
-						name = re.sub("[^a-z0-9]", "", name.replace("&", "and").replace("+", "plus").replace("*", "star").lower())
+						if sys.version_info[0] >= 3:
+							name = six.ensure_str(unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore'))
+						else:
+							name = unicodedata.normalize('NFKD', unicode(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
+						name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
 						if len(name) > 0:
 							pngname = self.findPicon(name)
 							if not pngname and len(name) > 2 and name.endswith("hd"):
