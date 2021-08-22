@@ -174,7 +174,7 @@ cainfo = (
 	("56A1", "56A1", "C-Dot"),
 	("56B0", "56B0", "Laxmi"),
 	("7AC8", "7AC8", "Gospell VisionCrypt"),
-	("7BE0", "7BE1", "DreCrypt OOO"),
+	("7BE0", "7BE1", "DreCrypt"),
 	("AA00", "AA01", "Best CAS"),
 	("A100", "A1FF", "RusCrypt"),
 	("0001", "0001", "IPDC SPP"),
@@ -446,7 +446,7 @@ class GlamourAccess(Poll, Converter):
 				return False
 			if self.type == self.DRCCAS:
 				for caid in caids:
-					if caid >= "4A00" and caid <= "4AE9" or caid >= "5000" and caid <= "50FF" or caid == "7BE0" or caid >= "0700" and caid <= "07FF" or caid >= "4700" and caid <= "47FF":
+					if caid >= "4A00" and caid <= "4AE9" or caid >= "5000" and caid <= "50FF" or caid >= "7BE0" and caid <= "7BE1" or caid >= "0700" and caid <= "07FF" or caid >= "4700" and caid <= "47FF":
 						return True
 				return False
 			if self.type == self.BISSCAS:
@@ -555,7 +555,7 @@ class GlamourAccess(Poll, Converter):
 						return True
 					return False
 				if self.type == self.DRCECM:
-					if caid >= "4A00" and caid <= "4AE9" or caid >= "5000" and caid <= "50FF" or caid == "7BE0" or caid >= "0700" and caid <= "07FF" or caid >= "4700" and caid <= "47FF":
+					if caid >= "4A00" and caid <= "4AE9" or caid >= "5000" and caid <= "50FF" or caid >= "7BE0" and caid <= "7BE1" or caid >= "0700" and caid <= "07FF" or caid >= "4700" and caid <= "47FF":
 						return True
 					return False
 				if self.type == self.BISSECM:
