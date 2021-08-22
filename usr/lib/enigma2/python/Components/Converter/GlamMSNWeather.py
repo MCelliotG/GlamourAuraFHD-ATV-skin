@@ -1036,7 +1036,7 @@ class GlamMSNWeather(Poll, Converter, object):
 				P4Sx = ''
 		except:
 			P4Rh = P4Rx = P4Rm = P4Sh = P4Sx = P4Sm = P4Ch = P4Cx = P4Cm ='-'
-# Орбита юпитера
+# Orbit of Jupiter
 		try:
 			LP5 = 238.049257 + 3036.301986 * T + 0.0003347 * T * T - 0.00000165 * T * T * T # longitude cf. L
 			wP5 = 273.277558 + 0.5994317 * T + 0.00070405 * T * T + 0.00000508 * T * T * T # argument of perihelion w
@@ -1412,7 +1412,7 @@ class GlamMSNWeather(Poll, Converter, object):
 				P8Sx = ''
 		except:
 			P8Rh = P8Rx = P8Rm = P8Sh = P8Sx = P8Sm = P8Ch = P8Cx = P8Cm ='-'
-# Орбита луны
+# Orbit of the moon
 		try:
 			LM = 218.3164477 + 481267.88123421 * T - 0.0015786 * T * T + T * T * T / 538841 - T * T * T * T / 65194000 # lunar longitude cf.
 			FM = 93.272095 + 483202.0175233 * T - 0.0036539 * T * T - T * T * T / 3526000 + T * T * T * T / 863310000 # ср argument of latitude of the moon
@@ -1638,7 +1638,7 @@ class GlamMSNWeather(Poll, Converter, object):
 			P4A = round(AZ, 1)
 		except:
 			P4A ='-'
-# Орбита юпитера
+# Orbit of Jupiter
 		try:
 			LP5 = 238.049257 + 3036.301986 * T + 0.0003347 * T * T - 0.00000165 * T * T * T # longitude cf. L
 			wP5 = 273.277558 + 0.5994317 * T + 0.00070405 * T * T + 0.00000508 * T * T * T # argument of perihelion w
