@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+﻿# -*- coding: UTF-8 -*-
 #
 # Converter - MSNWeatherAstro
 # Developer - Sirius
@@ -391,7 +391,7 @@ class GlamMSNWeather(Poll, Converter, object):
 			self.write_none()
 
 	def write_none(self):
-		with open("/tmp/weathermsn2.xml", "w") as noneweather:
+		with open("/tmp/weathermsn2.xml", "w", encoding='utf-8') as noneweather:
 			noneweather.write("None")
 		noneweather.close()
 
@@ -523,9 +523,9 @@ class GlamMSNWeather(Poll, Converter, object):
 		if not fileExists("/tmp/weathermsn2.xml"):
 			self.write_none()
 			return info
-		if fileExists("/tmp/weathermsn2.xml") and open("/tmp/weathermsn2.xml").read() == 'None':
+		if fileExists("/tmp/weathermsn2.xml") and open("/tmp/weathermsn2.xml", encoding='utf-8').read() == 'None':
 			return info
-		for line in open("/tmp/weathermsn2.xml"):
+		for line in  open("/tmp/weathermsn2.xml", encoding='utf-8'):
 			try:
 				if "<weather" in line:
 					msnweather['Location'] = line.split('weatherlocationname')[1].split('"')[1].split(',')[0]
