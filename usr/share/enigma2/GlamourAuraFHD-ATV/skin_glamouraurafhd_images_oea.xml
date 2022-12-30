@@ -156,12 +156,7 @@
     <widget source="menu" render="Listbox" font="Regular; 36" position="800,140" size="930,800" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="3">
       <convert type="StringList" />
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <panel name="FullKeysUP" />
   </screen>
   <!-- 10. Panel Ipk remove -->
   <screen name="RemoveIPK" position="0,0" size="1920,1080" title="Panel Ipk remove" backgroundColor="transparent" flags="wfNoBorder">

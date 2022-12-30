@@ -1824,7 +1824,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1720,930" size="200,150" zPosition="-10" alphatest="blend" transparent="1" scale="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="280,850" zPosition="-2" size="1570,80" alphatest="off" />
     <panel name="ClockLabel1" />
-    <ePixmap position="50,885" size="180,180" pixmap="GlamourAuraFHD-ATV/icons/manual_scan.png" alphatest="on" scale="1" transparent="1" zPosition="5" />
+    <ePixmap position="50,885" size="180,180" pixmap="GlamourAuraFHD-ATV/icons/misplslcn.png" alphatest="on" scale="1" transparent="1" zPosition="5" />
     <widget name="background" position="0,0" size="0,0" zPosition="-1" />
     <widget name="action" position="260,930" size="1170,45" font="RegularB; 35" backgroundColor="background20" transparent="1" zPosition="5" halign="center" foregroundColor="sky" valign="center" />
     <widget name="status" position="260,975" size="1170,45" font="Regular; 32" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="center" foregroundColor="amarillo" />
@@ -1851,6 +1851,12 @@
     <widget source="progress_text" render="Label" position="1640,980" size="125,45" font="Numbers; 38" halign="center" backgroundColor="background20" zPosition="6" transparent="1" foregroundColor="amarillo">
       <convert type="ProgressToText">InPercent</convert>
     </widget>
+  </screen>
+  <screen name="MisPlsLcnScanScreen" position="0,0" size="1920,1080" title="MisPlsLcnScan" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/misplslcn.png" alphatest="on" transparent="1" zPosition="4" />
+    <panel name="SetupCommon" />
+    <panel name="RGKeysUP1" />
   </screen>
   <!-- IceTV -->
   <screen name="IceTVServerSetup" position="0,0" size="1920,1080" title="IceTV - Service selection" flags="wfNoBorder" backgroundColor="transparent">

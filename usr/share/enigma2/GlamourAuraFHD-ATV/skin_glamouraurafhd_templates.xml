@@ -172,7 +172,7 @@
     <!-- Display-->
     <menu key="display" image="icons/displaysetup.png" />
     <menu key="display_selection" image="icons/displaysetup.png" />
-    <menu key="display_setup" image="icons/display.png" />
+    <menu key="display_setup" image="icons/lcd.png" />
     <menu key="lcd_skin_setup" image="icons/lcdskin.png" />
     <menu key="lcd4linux" image="icons/lcd4linux.png" />
     <menu key="VFD_INI" image="icons/led.png" />
@@ -283,12 +283,15 @@
     <menu key="XStreamity" image="icons/xstreamity.png" />
   </menus>
   <setups>
+    <setup key="default" image="icons/setup.png" />
     <setup key="Audio" image="icons/audiosetup.png" />
     <setup key="AutoLanguage" image="icons/autolang.png" />
+    <!--setup key="BirthdayReminderSettings" image="icons/bday.png" /-->
     <setup key="ChannelSelection" image="icons/channelselection.png" />
-    <setup key="default" image="icons/setup.png" />
+    <setup key="CISettings" image="icons/cisettings.png" />
     <setup key="Display" image="icons/lcd.png" />
     <setup key="dvdplayer" image="icons/dvd.png" />
+    <!--setup key="EditBirthdaySetting" image="icons/bday.png" /-->
     <setup key="EPG" image="icons/epgsettings.png" />
     <setup key="EPGEnhanced" image="icons/epgenhanced.png" />
     <setup key="EPGGraphical" image="icons/epggraphical.png" />
@@ -296,22 +299,31 @@
     <setup key="EPGInfobarGraphical" image="icons/epginfobargraphical.png" />
     <setup key="EPGMulti" image="icons/epgmulti.png" />
     <setup key="EPGVertical" image="icons/epgvertical.png" />
+    <setup key="FactoryReset" image="icons/factory.png" />
     <setup key="HardDisk" image="icons/hdd-big.png" />
     <setup key="HDMICEC" image="icons/hdmicec.png" />
     <setup key="Keyboard" image="icons/keyboard.png" />
     <setup key="Logs" image="icons/crashlog.png" />
+    <setup key="MisPlsLcnScanScreen" image="icons/misplslcn.png" />
+    <setup key="openwebif" image="icons/webif.png" />
     <setup key="OscamInfo" image="icons/oscam.png" />
     <setup key="OSD3D" image="icons/auto_3d.png" />
+    <setup key="Playback" image="icons/play_big.png" />
+    <setup key="PowerTimer" image="icons/powertimer.png" />
     <setup key="Recording" image="icons/recording.png" />
+    <setup key="RecordTimer" image="icons/timer.png" />
     <setup key="RemoteButton" image="icons/remotesetup.png" />
-    <setup key="SleepTimer" image="icons/timer.png" />
+    <setup key="RFModulator" image="icons/rfmod.png" />
+    <setup key="SleepTimer" image="icons/sleep.png" />
     <setup key="SpecialFeatures" image="icons/specialfeatures.png" />
     <setup key="Subtitle" image="icons/subsetup.png" />
     <setup key="Time" image="icons/timezone.png" />
     <setup key="Timeshift" image="icons/timeshift.png" />
-    <setup key="Usage" image="icons/expert.png" />
+    <setup key="Tuner" image="icons/tuner.png" />
+    <setup key="Usage" image="icons/customize.png" />
     <setup key="UserInterface" image="icons/ui.png" />
-    <setup key="VolumeAdjust" image="icons/autovolume.png" />
+    <setup key="VolumeAdjust" image="icons/volumeadjust.png" />
+    <setup key="vps" image="icons/vps.png" />
   </setups>
   <!-- PANELS -->
   <!-- 01. Key Panels -->
@@ -564,6 +576,36 @@
     <widget name="key_yellow" position="1335,850" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="key_blue" position="1600,850" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
+  <screen name="FullKeysUP" flags="wfNoBorder">
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+  </screen>
   <screen name="MenuKeysUP" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
       <convert type="ConditionalShowHide" />
@@ -613,36 +655,6 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="910,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="key_red" render="Label" position="535,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget source="key_green" render="Label" position="860,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  </screen>
-  <screen name="RGKeysUP3" flags="wfNoBorder">
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" zPosition="5" transparent="1">
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" zPosition="5" transparent="1">
-      <convert type="ConditionalShowHide" />
-    </widget>
-    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="RedKey3" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/aura_red.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
@@ -994,7 +1006,7 @@
       <convert type="MenuEntryCompare">autobouquetsmakermaker</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/multiquick.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/misplslcn.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">MisPlsLcnScanScreen</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1255,7 +1267,7 @@
   <!-- 02-11. MenuDisplay -->
   <screen name="MenuDisplay" flags="wfNoBorder">
     <widget name="menuimage" position="515,425" size="180,180" alphatest="on" conditional="menuimage" scaleFlags="scaleCenter" transparent="1" zPosition="5" />
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/display.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/lcd.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">display_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1509,6 +1521,10 @@
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/backup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">maintenance_mode</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/multiboot.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">multiboot</convert>
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
@@ -2738,6 +2754,7 @@
     <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="540,55" size="700,50" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="white" />
     <widget name="HelpWindow" position="540,830" size="1320,130" zPosition="11" transparent="1" />
+    <widget name="setupimage" position="50,315" size="400,400" conditional="setupimage" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 10. MOVIE TEMPLATES -->
   <!-- 10.1 BACKGROUND -->
