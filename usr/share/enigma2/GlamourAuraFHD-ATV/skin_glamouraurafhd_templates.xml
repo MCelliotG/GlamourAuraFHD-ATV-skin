@@ -3049,8 +3049,8 @@
     <widget alphatest="blend" name="indicatorL13" pixmap="skin_default/yellow_circle23x23.png" position="165,160" offset="11,11" size="23,23" zPosition="11" />
     <widget alphatest="blend" name="indicatorL14" pixmap="skin_default/yellow_circle23x23.png" position="165,160" offset="11,11" size="23,23" zPosition="11" />
     <widget alphatest="blend" name="indicatorL15" pixmap="skin_default/yellow_circle23x23.png" position="165,160" offset="11,11" size="23,23" zPosition="11" />
-    <widget name="buttonlist" position="50,765" size="470,100" font="RegularB; 35" foregroundColor="amarillo" backgroundColor="black" valign="top" halign="center" transparent="1" zPosition="12" />
-    <widget name="label" position="535,810" zPosition="10" size="500,60" transparent="1" font="Regular;27" halign="center" />
+    <widget name="buttonlist" position="50,755" size="475,100" font="RegularB; 35" foregroundColor="amarillo" backgroundColor="black" valign="top" halign="center" transparent="1" zPosition="12" />
+    <widget name="label" position="50,855" zPosition="10" size="475,60" transparent="1" font="Regular;27" halign="center" />
   </screen>
   <screen name="HelpKeys" flags="wfNoBorder">
     <widget name="rc" position="215,200" size="180,550" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" transparent="1" />

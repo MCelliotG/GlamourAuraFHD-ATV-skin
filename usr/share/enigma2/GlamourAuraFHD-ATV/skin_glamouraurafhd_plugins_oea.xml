@@ -1066,7 +1066,7 @@
   <!-- Youtube TV -->
   <screen name="YoutubeTVWindow" position="0, 0" flags="wfNoBorders" title="Start YouTube TV" backgroundColor="transparent" size="1920, 1080">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/youtube.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/youtubetv.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="infomation" position="545,185" size="1305,120" zPosition="3" font="Regular; 34" halign="center" valign="center" foregroundColor="cyan1" transparent="1" backgroundColor="background20" />
     <widget name="startdesc" position="545,380" size="950,220" zPosition="4" font="Regular; 30" halign="center" valign="center" foregroundColor="white" transparent="1" backgroundColor="background20" />
     <widget name="helpdesc" position="545,630" size="950,200" zPosition="5" font="Regular; 30" halign="center" valign="center" foregroundColor="white" transparent="1" backgroundColor="background20" />
@@ -1077,7 +1077,7 @@
   </screen>
   <screen name="YoutubeTVSettings" position="0, 0" flags="wfNoBorders" title="YouTube TV Settings" backgroundColor="transparent" size="1920, 1080">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/youtube.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/youtubetv.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>

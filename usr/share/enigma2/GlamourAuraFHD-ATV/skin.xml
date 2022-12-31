@@ -1948,18 +1948,16 @@ if not self["videofps"].text:
   </screen>
   <!-- 02. Help Screen -->
   <screen name="HelpMenu" position="0,0" size="1920,1080" title="Help" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground2" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <panel name="HelpKeys" />
-    <widget name="list" position="535,70" size="1305,800" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="4" />
-    <!-- New Help -->
-    <panel name="RCKeys" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,810" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="description" position="535,810" size="1305,150" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget source="list" render="Listbox" position="535,70" size="1305,730" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="16">
-      <convert type="TemplatedMultiContent">
+  <panel name="MainBackground2" />
+  <panel name="ClockLabel1" />
+  <panel name="Title1" />
+  <panel name="HelpKeys" />
+  <widget name="list" position="535,70" size="1305,800" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="4" />
+  <!-- New Help -->
+  <panel name="RCKeys" />
+  <widget name="description" position="1240,470" size="610,450" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="7" foregroundColor="sky" halign="center" />
+  <widget source="list" render="Listbox" position="535,70" size="1305,850" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="6">
+    <convert type="TemplatedMultiContent">
     {"templates": {
     "default": (60,[MultiContentEntryText(pos=(5, 0), size=(1300, 60), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),]),
     "default+headings": (60,[MultiContentEntryText(pos=(5, 0), size=(1300, 60), font=0, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),
@@ -1972,8 +1970,8 @@ if not self["videofps"].text:
     "fonts": [gFont("RegularB", 35), gFont("Regular", 32), gFont("Regular", 30), gFont("Regular", 27)],
     "itemHeight": 50}
   </convert>
-    </widget>
-  </screen>
+  </widget>
+</screen>
   <!-- 03. Softcam Setup -->
   <screen flags="wfNoBorder" name="SoftcamSetup" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
@@ -3163,7 +3161,7 @@ if not self["videofps"].text:
   <!-- 11. Restore Menu Image -->
   <screen name="RestoreMenuImage" position="0,0" size="1920,1080" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/restore.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softrestore.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="filelist" font="Regular; 30" position="540,90" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
@@ -3547,13 +3545,13 @@ if not self["videofps"].text:
   </screen>
   <!-- 05. easy Config menu -->
   <screen name="easyCIconfigMenu" position="0,0" size="1920,1080" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="ScreenElements2" />
-  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cisettings.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget source="ServiceList_desc" render="Label" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" />
-  <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
-  <widget source="ServiceList_info" render="Label" position="540,150" size="1305,700" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="lightciel" />
-  <panel name="FullKeys1" />
-</screen>
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/cisettings.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="ServiceList_desc" render="Label" position="540,70" size="1305,80" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" />
+    <widget name="ServiceList" position="540,150" size="1305,700" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="3" />
+    <widget source="ServiceList_info" render="Label" position="540,150" size="1305,700" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="lightciel" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 06. CAid Select -->
   <screen name="CAidSelect" position="0,0" size="1920,1080" title="select CAId's" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
