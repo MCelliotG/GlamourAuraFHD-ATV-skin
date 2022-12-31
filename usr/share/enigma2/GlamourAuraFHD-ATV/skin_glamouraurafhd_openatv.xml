@@ -397,7 +397,7 @@
   </screen>
   <screen name="Volume_Config" position="0,0" size="1920,1080" title="Volume Config" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tv.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autovolume.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,60" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
     <widget source="infotext" render="Label" font="Regular; 29" backgroundColor="background20" position="540,720" size="1305,140" transparent="1" zPosition="6" foregroundColor="sky" />
     <panel name="FullKeys1" />
@@ -417,7 +417,7 @@
   </screen>
   <screen name="QuickMenuDevices" position="0,0" size="1920,1080" title="Quick Menu Devices" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/drives_info.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="devicelist" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
@@ -483,7 +483,7 @@
   </screen>
   <screen name="XtraPluginsSelection" title="Xtra Plugin" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/extension_manager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
@@ -888,7 +888,7 @@
   </screen>
   <screen name="DeviceBrowser" position="0,0" size="1920,1080" title="Device Browser" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/flashimage.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/drives_info.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="imageList" position="530,75" size="1305,700" font="Regular; 30" backgroundColor="background20" foregroundColor="white" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/wlansel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="message" render="Label" position="530,783" size="1305,50" font="Regular;30" backgroundColor="background" foregroundColor="sky" halign="center" transparent="1" zPosition="5" />
     <panel name="FullKeys1" />
@@ -1629,10 +1629,10 @@
   <screen name="RunSoftwareUpdate" position="0,0" size="1920,1080" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
-    <ePixmap position="535,90" size="1305,29" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" scale="1" alphatest="blend" transparent="1" zPosition="5" />
-    <widget name="activity" position="535,92" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="6" />
-    <widget name="update" position="535,125" size="1305,720" font="Regular;32" backgroundColor="background20" transparent="1" scrollbarMode="showOnDemand" zPosition="8" valign="top" />
-    <panel name="FullKeys1" />
+    <ePixmap position="535,140" size="1305,29" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" scale="1" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="activity" position="535,142" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="update" position="535,175" size="1305,770" font="Regular; 34" foregroundColor="amarillo" backgroundColor="background20" valign="top" halign="left" transparent="1" scrollbarMode="showOnDemand" zPosition="8" />
+    <panel name="FullKeysUP" />
   </screen>
   <!-- 3. New FileCommander -->
   <screen name="FileCommander" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
