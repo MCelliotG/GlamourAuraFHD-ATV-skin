@@ -487,6 +487,16 @@
     <widget name="checkList" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
+  <screen name="Opkg" position="center,center" size="1920,1080" title="Software update" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/install_local.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="activityslider" position="600,255" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" alphatest="blend" transparent="1" zPosition="4" />
+    <widget source="package" render="Label" position="600,115" size="1170,135" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="5" halign="left" foregroundColor="sky" valign="center" />
+    <widget source="status" render="Label" position="600,295" size="1170,150" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="top" />
+    <widget name="slider" position="600,465" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_main.png" alphatest="blend" transparent="1" zPosition="7" />
+    <widget name="log" position="600,495" size="1170,350" font="Regular; 32" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="amarillo" valign="top" halign="left" transparent="1" conditional="log" zPosition="5" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 08. EPG SCREENS -->
   <!-- 08a. QuickEPG -->
   <screen name="QuickEPG" title="InfoBar QuickEPG" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
@@ -1195,163 +1205,136 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/audiosetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="VideoSetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/videosettings.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_osd3d" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/auto_3d.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="SetupInfo" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/information.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgsettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgsettings.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgmulti" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgmulti.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epgenhanced" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epgenhanced.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epginfobar" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epginfobar.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epginfobargraphical" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epginfobargraphical.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_epggraphical" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/epggraphical.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_subtitlesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/subsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_dvdplayer" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/dvd.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_logs" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_time" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timezone.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_keyboard" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/keyboard.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_userinterface" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ui.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_recording" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/recordsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_timeshift" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timeshift.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_specialfeatures" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_display" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/lcd.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_channelselection" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/channelselection.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_usage" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/customize.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_remotesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/remotesetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_autolanguagesetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/autolang.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="setup_harddisk" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="TimeshiftSettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/timeshift.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="RecordingSettings" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/recordsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <screen name="PowerTimerEditList" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -1629,7 +1612,7 @@
   <screen name="RunSoftwareUpdate" position="0,0" size="1920,1080" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
-    <ePixmap position="535,140" size="1305,29" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" scale="1" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="535,140" size="1305,29" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" scale="1" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="activity" position="535,142" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="6" />
     <widget name="update" position="535,175" size="1305,770" font="Regular; 34" foregroundColor="amarillo" backgroundColor="background20" valign="top" halign="left" transparent="1" scrollbarMode="showOnDemand" zPosition="8" />
     <panel name="FullKeysUP" />
@@ -1722,6 +1705,39 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,675" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1035,810" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget source="description" render="Label" position="540,675" size="1305,180" halign="left" valign="top" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" zPosition="8" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 6. New Location Box -->
+  <screen name="LocationBoxOld" position="0,0" size="1920,1080" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,50" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="menubig" position="412,0" size="1418,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap position="15,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+    <eLabel position="1135,75" size="2,780" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
+    <eLabel position="1134,75" size="2,780" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
+    <widget name="text" position="420,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
+    <widget name="target" position="420,135" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
+    <widget name="filelist" font="Regular;32" position="420,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
+    <widget name="textbook" position="1150,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
+    <widget name="booklist" font="Regular;32" position="1150,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <screen name="LocationBoxNew" position="0,0" size="1920,1080" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="text" position="540,70" size="1305,50" font="RegularB; 34" backgroundColor="background20" foregroundColor="lightciel" halign="left" valign="center" transparent="1" zPosition="5" />
+    <widget name="targetfreespace" position="1595,120" size="250,50" font="RegularB; 32" halign="right" backgroundColor="background20" foregroundColor="amarillo" valign="center" transparent="1" zPosition="5" />
+    <widget name="target" position="540,120" size="705,50" font="RegularB; 32" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="amarillo" halign="left" />
+    <widget name="fileheading" position="541,170" size="1305,55" font="Caps; 40" backgroundColor="background20" foregroundColor="cyan2" valign="center" halign="left" transparent="1" zPosition="5" />
+    <eLabel position="540,225" size="1305,2" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
+    <widget name="filelist" font="Regular;32" position="540,230" size="1305,350" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="5" />
+    <widget name="bookmarkheading" position="540,590" size="1305,55" font="Caps; 40" backgroundColor="background20" foregroundColor="cyan" transparent="1" zPosition="7" />
+    <eLabel position="540,645" size="1305,2" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
+    <widget name="bookmarklist" font="Regular;32" position="540,645" size="1305,200" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="7" />
+    <widget name="quickselect" position="540,230" size="1305,650" backgroundColor="background20" foregroundColor="amarillo" font="Regular;100" halign="center" transparent="1" valign="center" zPosition="8" />
     <panel name="FullKeysMIH" />
   </screen>
 </skin>

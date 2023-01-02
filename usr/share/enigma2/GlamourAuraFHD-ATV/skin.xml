@@ -1942,22 +1942,19 @@ if not self["videofps"].text:
   <!-- 01. Setup -->
   <screen name="Setup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
+    <ePixmap position="450,485" size="70,70" pixmap="GlamourAuraFHD-ATV/icons/setup.png" alphatest="on" transparent="1" zPosition="6" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/setup.png" conditional="status" alphatest="on" transparent="1" zPosition="4" />
   </screen>
   <!-- 02. Help Screen -->
   <screen name="HelpMenu" position="0,0" size="1920,1080" title="Help" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="MainBackground2" />
-  <panel name="ClockLabel1" />
-  <panel name="Title1" />
-  <panel name="HelpKeys" />
-  <widget name="list" position="535,70" size="1305,800" font="Regular; 30" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="4" />
-  <!-- New Help -->
-  <panel name="RCKeys" />
-  <widget name="description" position="1240,470" size="610,450" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="7" foregroundColor="sky" halign="center" />
-  <widget source="list" render="Listbox" position="535,70" size="1305,850" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="6">
-    <convert type="TemplatedMultiContent">
+    <panel name="ScreenElements2" />
+    <panel name="HelpKeys" />
+    <widget name="list" position="535,70" size="1305,800" font="Regular; 32" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="4" />
+    <!-- New Help -->
+    <panel name="RCKeys" />
+    <widget name="description" position="1240,470" size="610,450" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="7" foregroundColor="sky" halign="center" />
+    <widget source="list" render="Listbox" position="535,70" size="1305,850" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="6">
+      <convert type="TemplatedMultiContent">
     {"templates": {
     "default": (60,[MultiContentEntryText(pos=(5, 0), size=(1300, 60), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),]),
     "default+headings": (60,[MultiContentEntryText(pos=(5, 0), size=(1300, 60), font=0, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),
@@ -1970,16 +1967,21 @@ if not self["videofps"].text:
     "fonts": [gFont("RegularB", 35), gFont("Regular", 32), gFont("Regular", 30), gFont("Regular", 27)],
     "itemHeight": 50}
   </convert>
-  </widget>
-</screen>
+    </widget>
+  </screen>
   <!-- 03. Softcam Setup -->
   <screen flags="wfNoBorder" name="SoftcamSetup" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
-    <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,75" size="1320,250" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="info" position="540,335" size="1300,500" font="Regular; 30" transparent="1" foregroundColor="cyan1" backgroundColor="background20" halign="left" zPosition="5" />
-    <panel name="FullKeys1" />
-  </screen>
+  <panel name="ScreenElements2" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,735" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,820" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+  <widget name="description" position="540,735" size="1320,130" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
+  <widget name="config" font="Regular; 30" position="540,70" size="1320,135" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+  <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+  <widget name="HelpWindow" position="540,735" size="1320,130" zPosition="11" transparent="1" />
+  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="info" position="540,205" size="1320,530" font="Regular; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" valign="top" zPosition="15" />
+  <panel name="FullKeysMIH" />
+</screen>
   <screen flags="wfNoBorder" name="SoftcamPanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
@@ -2271,22 +2273,8 @@ if not self["videofps"].text:
   </screen>
   <!-- 04. Location Box -->
   <screen name="LocationBox" position="0,0" size="1920,1080" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,50" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="menubig" position="412,0" size="1418,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap position="15,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
-    <eLabel position="1135,75" size="2,780" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
-    <eLabel position="1134,75" size="2,780" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
-    <widget name="text" position="420,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
-    <widget name="target" position="420,135" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="cyan1" halign="center" />
-    <widget name="filelist" font="Regular;32" position="420,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
-    <widget name="textbook" position="1150,75" size="705,55" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="4" foregroundColor="sky" halign="center" />
-    <widget name="booklist" font="Regular;32" position="1150,200" size="705,650" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" zPosition="5" />
-    <ePixmap position="420,885" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
-    <panel name="FullKeys1" />
+    <panel name="LocationBoxOld" conditional="textbook" />
+    <panel name="LocationBoxNew" conditional="fileheading" />
   </screen>
   <!-- 05. MessageBox -->
   <screen name="MessageBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
@@ -2424,7 +2412,7 @@ if not self["videofps"].text:
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/movie.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeysUP1" />
+    <panel name="SetupKeys" />
   </screen>
   <!-- 05. MovieSelection -->
   <screen name="MovieSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
@@ -3504,7 +3492,6 @@ if not self["videofps"].text:
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/serviceapp.png" alphatest="on" transparent="1" zPosition="4" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <!-- ### CI SCREENS -->
   <!-- 01. CI Selection -->
@@ -3530,7 +3517,7 @@ if not self["videofps"].text:
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/ciassign.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="CiList" font="Regular; 30" position="540,105" size="1320,800" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeysUP1" />
+    <panel name="SetupKeys" />
   </screen>
   <!-- 04. CI Config Menu -->
   <screen name="CIconfigMenu" position="0,0" size="1920,1080" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
