@@ -218,7 +218,7 @@
     <ePixmap position="255,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/packet.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" alphatest="blend" position="1650,860" size="90,60" zPosition="3" transparent="1" />
   </screen>
-  <!-- 15. Add Part -->
+  <!-- 15. Add Partition -->
   <screen name="AddPart" title="Add Partition" position="center,center" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />

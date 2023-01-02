@@ -1856,7 +1856,6 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/misplslcn.png" alphatest="on" transparent="1" zPosition="4" />
     <panel name="SetupCommon" />
-    <panel name="RGKeysUP1" />
   </screen>
   <!-- IceTV -->
   <screen name="IceTVServerSetup" position="0,0" size="1920,1080" title="IceTV - Service selection" flags="wfNoBorder" backgroundColor="transparent">
