@@ -1971,17 +1971,17 @@ if not self["videofps"].text:
   </screen>
   <!-- 03. Softcam Setup -->
   <screen flags="wfNoBorder" name="SoftcamSetup" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
-  <panel name="ScreenElements2" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,735" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,820" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-  <widget name="description" position="540,735" size="1320,130" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-  <widget name="config" font="Regular; 30" position="540,70" size="1320,135" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
-  <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
-  <widget name="HelpWindow" position="540,735" size="1320,130" zPosition="11" transparent="1" />
-  <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="info" position="540,205" size="1320,530" font="Regular; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" valign="top" zPosition="15" />
-  <panel name="FullKeysMIH" />
-</screen>
+    <panel name="ScreenElements2" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,735" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,820" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
+    <widget name="description" position="540,735" size="1320,130" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
+    <widget name="config" font="Regular; 30" position="540,70" size="1320,135" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <widget name="HelpWindow" position="540,735" size="1320,130" zPosition="11" transparent="1" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="info" position="560,210" size="1300,530" font="Regular; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" valign="top" zPosition="15" />
+    <panel name="FullKeysMIH" />
+  </screen>
   <screen flags="wfNoBorder" name="SoftcamPanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/camd.png" alphatest="on" transparent="1" zPosition="5" />
