@@ -22,7 +22,6 @@
   <include filename="skin_glamouraurafhd_images_oea.xml" />
   <include filename="skin_glamouraurafhd_emc.xml" />
   <colors>
-    <color name="#fff000" value="#00fff000" />
     <color name="amarillo" value="#00ffffc6" />
     <color name="amaryllis" value="#00e1107c" />
     <color name="background" value="#30000000" />
@@ -2281,12 +2280,7 @@ if not self["videofps"].text:
     <widget name="ErrorPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/attention.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
     <widget name="QuestionPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/question.png" position="255,315" size="400,400" zPosition="3" transparent="1" alphatest="on" />
     <widget name="InfoPixmap" pixmap="GlamourAuraFHD-ATV/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements5" />
     <widget name="text" position="810,60" size="1050,480" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
     <widget name="list" font="Regular; 30" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
   </screen>
@@ -2338,12 +2332,7 @@ if not self["videofps"].text:
   <!-- 11. TextBox -->
   <screen name="TextBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufaderight.png" position="1845,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menufadebottom.png" position="795,1005" zPosition="-11" size="1050,75" alphatest="off" transparent="1" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements5" />
     <widget name="text" position="810,60" size="1050,840" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
   <!-- ### MOVIE SCREENS -->
@@ -2668,9 +2657,7 @@ if not self["videofps"].text:
   </screen>
   <!-- 13. Sat Nim selection  -->
   <screen name="SatNimSelection" position="0,0" size="1920,1080" title="Select Tuner" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/tuner_screen.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="nimlist" font="Regular; 30" position="540,120" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/scansel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="RotorNimSelection" />
   </screen>
   <!-- 12. Autodiseqc  -->
   <screen name="AutoDiseqc" position="0,0" size="1920,1080" title="Auto Diseqc" backgroundColor="transparent" flags="wfNoBorder">
