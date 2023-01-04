@@ -2023,4 +2023,96 @@
     <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/piconupdater.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="logWindow" font="Regular; 30" position="540,60" size="1305,900" foregroundColor="white" backgroundColor="clearcyan" itemHeight="50" transparent="0" zPosition="9" />
   </screen>
+  <!-- DiseqC Tester -->
+  <screen name="DiseqcTesterTestTypeSelection" position="0,0" size="1920,1080" title="Diseqc Tester Test Type Selection" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/diseqc.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" font="Regular; 30" position="540,90" size="1305,750" itemHeight="50" foregroundColor="white" backgroundColor="background20" backgroundColorSelected="cyan1" enableWrapAround="1" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
+  <screen name="DiseqcTesterNimSelection" position="0,0" size="1920,1080" title="Diseqc Tester Nim Selection" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GlamourAuraFHD-ATV/icons/diseqc.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="4">
+      <convert type="TemplatedMultiContent">
+        {"template": [
+            MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
+            MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
+          ],
+         "fonts": [gFont("RegularB", 36), gFont("Regular", 23)],
+         "itemHeight": 180
+        }
+      </convert>
+    </widget>
+    <ePixmap position="1725,950" size="120,60" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" alphatest="blend" transparent="1" zPosition="5" />
+  </screen>
+  <screen name="DiseqcTester" position="0,0" size="1920,1080" title="DiSEqC Tester" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="MainBackgroundSF" />
+    <panel name="ClockLabel3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/satfinderaura.png" position="0,60" size="585,900" transparent="1" alphatest="off" zPosition="-11" />
+    <panel name="Title1" />
+    <ePixmap position="585,645" size="300,300" pixmap="GlamourAuraFHD-ATV/icons/diseqc.png" alphatest="blend" scale="1" transparent="1" zPosition="1" />
+    <widget source="Frontend" render="Label" position="90,170" size="180,60" zPosition="5" font="Numbers; 50" backgroundColor="turquoise" halign="center" transparent="1">
+      <convert type="FrontendInfo">SNRdB</convert>
+    </widget>
+    <eLabel name="snr" text="SNR:" position="110,740" size="120,45" font="Regular; 32" halign="center" backgroundColor="sky" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/satfinder_back.png" position="135,240" size="75,460" transparent="1" alphatest="blend" zPosition="2" />
+    <widget source="Frontend" render="Progress" orientation="orBottomToTop" position="137,240" size="70,460" pixmap="GlamourAuraFHD-ATV/pointers/satfinder_snr.png" alphatest="blend" transparent="1" zPosition="3">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <widget source="Frontend" render="Label" position="110,785" size="120,45" font="Numbers; 40" backgroundColor="sky" transparent="1" halign="center" zPosition="6" foregroundColor="amarillo">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <eLabel name="agc" text="AGC:" position="270,740" size="120,45" font="Regular; 32" halign="center" backgroundColor="sky" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/satfinder_back.png" position="290,240" size="75,460" transparent="1" alphatest="blend" zPosition="2" />
+    <widget source="Frontend" render="Progress" orientation="orBottomToTop" position="292,240" size="70,460" pixmap="GlamourAuraFHD-ATV/pointers/satfinder_agc.png" alphatest="blend" transparent="1" zPosition="3">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <widget source="Frontend" render="Label" position="270,785" size="120,45" font="Numbers; 40" backgroundColor="sky" transparent="1" halign="center" zPosition="6" foregroundColor="amarillo">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <eLabel name="ber" text="BER:" position="425,740" size="120,45" font="Regular; 32" halign="center" backgroundColor="sky" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/satfinder_back.png" position="450,240" size="75,460" transparent="1" alphatest="blend" zPosition="2" />
+    <widget source="Frontend" render="Progress" orientation="orBottomToTop" position="452,240" size="70,460" pixmap="GlamourAuraFHD-ATV/pointers/satfinder_ber.png" alphatest="blend" transparent="1" zPosition="3">
+      <convert type="FrontendInfo">BER</convert>
+    </widget>
+    <widget source="Frontend" render="Label" position="410,785" size="150,45" font="Numbers; 40" backgroundColor="sky" transparent="1" halign="center" zPosition="6" foregroundColor="amarillo">
+      <convert type="FrontendInfo">BER</convert>
+    </widget>
+    <eLabel name="lock" text="Lock:" position="110,845" size="120,45" font="Regular; 32" halign="center" backgroundColor="sky" transparent="1" zPosition="5" />
+    <widget source="Frontend" render="Pixmap" position="465,840" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_on.png" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="FrontendInfo">LOCK</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="Frontend" render="Pixmap" position="465,840" size="45,45" pixmap="GlamourAuraFHD-ATV/icons/lock_off.png" alphatest="blend" transparent="1" zPosition="3">
+      <convert type="FrontendInfo">LOCK</convert>
+      <convert type="ConditionalShowHide">Invert</convert>
+    </widget>
+    <widget source="progress_list" render="Listbox" position="600,160" size="1260,250" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/satfindersel.png" alphatest="off" zPosition="4">
+      <convert type="TemplatedMultiContent">
+             {"template": [
+                           MultiContentEntryText(pos = (10, 0), size = (740, 50), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the index name,
+                           MultiContentEntryText(pos = (750, 0), size = (450, 50), flags = RT_HALIGN_RIGHT, text = 2) # index 2 is the status,
+                          ],
+              "fonts": [gFont("Regular", 32)],
+              "itemHeight": 50
+             }
+    </convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" position="648,502" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
+    <widget name="overall_progress" position="650,505" size="1155,25" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_main.png" transparent="1" alphatest="blend" zPosition="5" />
+    <widget name="Overall_progress" position="650,450" size="1155,50" font="RegularB; 32" halign="center" transparent="1" zPosition="5" foregroundColor="cyan1" backgroundColor="background20" />
+    <widget name="Progress" position="650,550" size="1155,50" font="RegularB; 32" halign="center" transparent="1" zPosition="6" foregroundColor="amarillo" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_back.png" position="648,602" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
+    <widget name="sub_progress" position="650,605" size="1155,25" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_white.png" transparent="1" alphatest="blend" zPosition="5" />
+    <widget name="Failed" position="900,650" size="350,50" font="Regular; 30" halign="right" transparent="1" backgroundColor="background20" valign="center" zPosition="7" />
+    <widget source="failed_counter" render="Label" position="1260,650" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
+    <widget name="Succeeded" position="900,705" size="350,50" font="Regular; 30" halign="right" transparent="1" zPosition="7" backgroundColor="background20" valign="center" />
+    <widget source="succeeded_counter" render="Label" position="1260,705" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" />
+    <widget name="With_errors" position="900,760" size="350,50" font="Regular; 30" halign="right" transparent="1" zPosition="7" backgroundColor="background20" valign="center" />
+    <widget source="witherrors_counter" render="Label" position="1260,760" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
+    <widget name="Not_tested" position="900,815" size="350,50" font="Regular; 30" halign="right" transparent="1" zPosition="7" backgroundColor="background20" valign="center" />
+    <widget source="untestable_counter" render="Label" position="1260,815" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
+    <widget source="CmdText" render="Label" position="1425,650" size="400,215" font="Regular; 32" zPosition="8" transparent="1" foregroundColor="amarillo" backgroundColor="background20" valign="center" halign="left" />
+  </screen>
 </skin>
