@@ -1,0 +1,28 @@
+﻿<skin>
+  <!-- EVENTVIEW WITH POSTERS -->
+  <screen name="EventView" position="0,0" size="1935,1080" title="Eventview" backgroundColor="transparent" flags="wfNoBorder">
+  <panel name="MainBackgroundClock" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventviewaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="off" transparent="1" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1555,95" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" position="1465,95" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
+  <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
+    <convert type="GlamRefString">CurrentRef</convert>
+  </widget>
+  <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
+    <convert type="ServiceName">Reference</convert>
+  </widget>
+  <widget name="channel" position="665,85" size="795,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />
+  <widget name="epg_description" position="665,160" size="1210,500" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
+  <widget name="FullDescription" position="665,160" size="0,0" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="1" />
+  <panel name="EventsInfos" />
+  <widget source="session.CurrentService" render="Label" position="40,765" size="600,75" font="Numbers; 32" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="grey2" halign="center" valign="center" text="PidHexInfo">
+    <convert type="GlamourBase">PidHexInfo</convert>
+  </widget>
+  <panel name="EventDurations" />
+  <panel name="EventIcons" />
+  <panel name="EventNext" />
+  <panel name="EventViewPosters" />
+  <panel name="FullKeys2" />
+</screen>
+</skin>

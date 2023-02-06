@@ -1,0 +1,25 @@
+﻿<skin>
+  <!-- SECOND INFOBAR WITH POSTERS -->
+  <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ClockLabel2" />
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
+    <panel name="IconsInfobar" />
+    <panel name="MainInfobar" />
+    <panel name="P+RInfobar" />
+    <panel name="EventInfobarPosters" />
+    <panel name="PIDSInfobar" />
+    <panel name="CPUTempInfobar" />
+    <panel name="MemoryInfobar" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+    <panel name="CryptInfo" />
+    <panel name="SourceInfo" />
+    <panel name="CamName" />
+    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+    <panel name="ECMInfo" />
+    <!--panel name="BitrateInfobar" /-->
+    <panel name="WeatherF1" />
+    <panel name="WeatherInfobar" />
+  </screen>
+</skin>

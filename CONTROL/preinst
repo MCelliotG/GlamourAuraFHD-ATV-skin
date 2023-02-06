@@ -17,6 +17,7 @@ echo "                                             "
 echo "Checking if a previous version of Glamour Aura FHD ATV skin is installed..."
 if [ -f /usr/share/enigma2/GlamourAuraFHD-ATV/skin.xml ]; then
     cp -R /usr/share/enigma2/GlamourAuraFHD-ATV/ /tmp
+    cp -R /usr/share/enigma2/GACommon/ /tmp
     rm -rf /usr/share/enigma2/GlamourAuraFHD-ATV
     rm -rf /usr/lib/enigma2/python/Components/Converter/Glam*
     rm -rf /usr/lib/enigma2/python/Components/Renderer/Glam*
