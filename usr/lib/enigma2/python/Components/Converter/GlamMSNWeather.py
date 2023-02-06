@@ -26,7 +26,6 @@ import os
 import math
 import gettext
 import datetime, time
-from Tools.Directories import fileExists, pathExists
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.config import config, configfile
@@ -391,8 +390,8 @@ class GlamMSNWeather(Poll, Converter, object):
 			self.write_none()
 
 	def write_none(self):
-		with open("/tmp/weathermsn2.xml", "w", encoding='utf-8') as noneweather:
-			noneweather.write("None")
+		with open("/tmp/weathermsn2.xml", "wb") as noneweather:
+			noneweather.write("None").encode("utf8", "ignore")
 		noneweather.close()
 
 	def get_xmlfile(self):
@@ -515,17 +514,21 @@ class GlamMSNWeather(Poll, Converter, object):
 			'Precip4': '',\
 			}
 #
-		if fileExists("/tmp/weathermsn2.xml"):
+		if six.PY2:
+			wdata = open("/tmp/weathermsn2.xml")
+		else:
+			wdata = open("/tmp/weathermsn2.xml", encoding="utf-8")
+		if os.path.exists("/tmp/weathermsn2.xml"):
 			if int((time.time() - os.stat("/tmp/weathermsn2.xml").st_mtime)/60) >= time_update:
 				self.get_xmlfile()
 		else:
 			self.get_xmlfile()
-		if not fileExists("/tmp/weathermsn2.xml"):
+		if not os.path.exists("/tmp/weathermsn2.xml"):
 			self.write_none()
 			return info
-		if fileExists("/tmp/weathermsn2.xml") and open("/tmp/weathermsn2.xml", encoding='utf-8').read() == 'None':
+		if os.path.exists("/tmp/weathermsn2.xml") and wdata == 'None':
 			return info
-		for line in  open("/tmp/weathermsn2.xml", encoding='utf-8'):
+		for line in wdata:
 			try:
 				if "<weather" in line:
 					msnweather['Location'] = line.split('weatherlocationname')[1].split('"')[1].split(',')[0]
