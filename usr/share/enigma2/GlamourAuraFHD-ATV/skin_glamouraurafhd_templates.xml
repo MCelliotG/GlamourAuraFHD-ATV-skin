@@ -1969,6 +1969,16 @@
     </widget>
     <panel name="WeatherBackground" />
   </screen>
+  <!-- 07-5 Weather Infobar -->
+  <screen name="WeatherInfobar" flags="wfNoBorder">
+    <widget source="global.CurrentTime" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
+      <convert type="GlamMSNWeather">Temp</convert>
+    </widget>
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="GlamMSNWeather">Picon</convert>
+    </widget>
+  </screen>
+  <!-- 07-6 OAWeather Infobar -->
   <screen name="WeatherInfobar2" flags="wfNoBorder">
     <widget source="session.OAWeather" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
       <convert type="OAWeather">temperature_current</convert>
@@ -2643,15 +2653,6 @@
     <widget source="amax" render="Label" text="max" position="125,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
     <widget name="amax" position="170,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
   </screen>
-  <!-- Weather Infobar -->
-  <screen name="WeatherInfobar" flags="wfNoBorder">
-    <widget source="global.CurrentTime" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
-      <convert type="GlamMSNWeather">Temp</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
-      <convert type="GlamMSNWeather">Picon</convert>
-    </widget>
-  </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,395" zPosition="-6" size="400,290" alphatest="off" transparent="1" />
@@ -3313,8 +3314,8 @@
   <!-- 13. EXTRA SCREENS -->
   <!-- 13-1 Posters in Main Infobar -->
   <screen name="PostersMainInfobar" flags="wfNoBorder">
-    <widget source="session.Event_Now" render="GlamPoster" position="100,500" size="200,300" zPosition="10" />
-    <widget source="session.Event_Next" render="GlamPoster" position="1670,535" size="200,300" zPosition="1" />
+    <widget source="session.Event_Now" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="100,500" size="200,300" zPosition="10" />
+    <widget source="session.Event_Next" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1670,535" size="200,300" zPosition="10" />
   </screen>
   <!-- 13-2 Posters in 2nd Infobar -->
   <screen name="EventInfobarPosters" flags="wfNoBorder">
@@ -3338,12 +3339,12 @@
     <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="455,425" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamPoster" position="880,335" size="265,400" zPosition="10" transparent="1" />
-    <widget source="session.Event_Next" render="GlamPoster" position="1610,335" size="265,400" zPosition="10" transparent="1" />
+    <widget source="session.Event_Now" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="880,335" size="265,400" zPosition="10" transparent="1" />
+    <widget source="session.Event_Next" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1610,335" size="265,400" zPosition="10" transparent="1" />
   </screen>
   <!-- 13-3 Posters in EventView -->
   <screen name="EventViewPosters" flags="wfNoBorder">
-    <widget source="Event" render="GlamPoster" position="1150,660" size="185,280" transparent="0" zPosition="10" />
-    <widget source="Event" render="GlamBackdrop" position="1350,660" size="500,280" transparent="0" zPosition="10" />
+    <widget source="Event" render="GlamPosterX" delayPic="0" position="1150,660" size="185,280" transparent="0" zPosition="10" />
+    <widget source="Event" render="GlamBackdropX" delayPic="0" position="1350,660" size="500,280" transparent="0" zPosition="10" />
   </screen>
 </skin>
