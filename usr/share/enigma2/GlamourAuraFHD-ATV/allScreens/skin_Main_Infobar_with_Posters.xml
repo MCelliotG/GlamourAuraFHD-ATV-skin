@@ -18,8 +18,8 @@
   <panel name="CryptInfo" />
   <panel name="CasInfo" />
   <!--panel name="BitrateInfobar" /-->
-  <panel name="WeatherToday" />
-  <panel name="WeatherInfobar" />
+  <panel name="WeatherToday2" />
+  <panel name="WeatherInfobar2" />
   <panel name="PostersMainInfobar" />
   </screen>
 </skin>

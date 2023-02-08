@@ -266,41 +266,41 @@
   </screen>
   <!-- 02. Second Infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-  <!-- Clock -->
-  <panel name="ClockLabel2" />
-  <!--Tuner Infobar -->
-  <panel name="TunerInfobar" />
-  <panel name="TunersInfo" />
-  <!-- Service info and icons -->
-  <panel name="IconsInfobar" />
-  <!-- MIDDLE INFOBAR MAIN INFO -->
-  <panel name="MainInfobar" />
-  <!-- Provider name and Reference -->
-  <panel name="P+RInfobar" />
-  <!-- Current and next event -->
-  <panel name="EventInfobar" />
-  <!-- Pid and Reference info -->
-  <panel name="PIDSInfobar" />
-  <!-- CPU Info and Temp Info Panel -->
-  <panel name="CPUTempInfobar" />
-  <!-- Memory Info -->
-  <panel name="MemoryInfobar" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-  <!-- Crypt Info -->
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-  <panel name="CryptInfo" />
-  <panel name="SourceInfo" />
-  <panel name="CamName" />
-  <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
-  <!-- ECM Info -->
-  <panel name="ECMInfo" />
-  <!-- Bitrate -->
-  <!--panel name="BitrateInfobar" /-->
-  <!--/* WEATHER WIDGETS -->
-  <panel name="WeatherF2" />
-  <!-- WEATHER Current Temp on Infobar -->
-  <panel name="WeatherInfobar2" />
-</screen>
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Tuner Infobar -->
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
+    <!-- Service info and icons -->
+    <panel name="IconsInfobar" />
+    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <panel name="MainInfobar" />
+    <!-- Provider name and Reference -->
+    <panel name="P+RInfobar" />
+    <!-- Current and next event -->
+    <panel name="EventInfobar" />
+    <!-- Pid and Reference info -->
+    <panel name="PIDSInfobar" />
+    <!-- CPU Info and Temp Info Panel -->
+    <panel name="CPUTempInfobar" />
+    <!-- Memory Info -->
+    <panel name="MemoryInfobar" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Crypt Info -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+    <panel name="CryptInfo" />
+    <panel name="SourceInfo" />
+    <panel name="CamName" />
+    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+    <!-- ECM Info -->
+    <panel name="ECMInfo" />
+    <!-- Bitrate -->
+    <!--panel name="BitrateInfobar" /-->
+    <!--/* WEATHER WIDGETS -->
+    <panel name="WeatherF2" />
+    <!-- WEATHER Current Temp on Infobar -->
+    <panel name="WeatherInfobar2" />
+  </screen>
   <!-- 03. Radio Infobar -->
   <!-- Radio Infobar -->
   <screen name="RadioInfoBar" position="0,0" size="1920,1080" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
