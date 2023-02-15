@@ -1,0 +1,25 @@
+﻿<skin>
+  <!-- CHANNEL SELECTION WITH POSTERS -->
+<screen name="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
+  <!-- CS Background -->
+    <panel name="CSBackground" />
+  <!-- CS List -->
+    <widget name="list" position="785,135" size="1095,550" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
+  <!-- CS Event Infos -->
+    <panel name="CSEventInfos" />
+  <!-- CS Extended Description -->
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,225" size="720,520" font="RegularB; 29" foregroundColor="white" backgroundColor="background20" transparent="1" valign="top" zPosition="6">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="53,228" size="720,520" font="RegularB; 29" foregroundColor="black" backgroundColor="black" transparent="1" valign="top" zPosition="5">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+  <!-- CS Next Events -->
+    <panel name="CSNextEvents" />
+  <!-- CS Channel Infos -->
+    <panel name="CSChannelInfos" />
+  <!-- CS Posters -->
+    <panel name="CSPosters" />
+    <panel name="FullKeysCC" />
+ </screen>
+</skin>

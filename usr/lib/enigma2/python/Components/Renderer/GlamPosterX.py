@@ -88,7 +88,11 @@ if not os.path.isdir(path_folder):
 	os.makedirs(path_folder)
 
 REGEX = re.compile(
+		r'\s\*\d{4}\Z|' # remove ( *1234)
 		r'([\(\[]).*?([\)\]])|'
+		r'(\.\s{1,}\").+|' # remove (. "xxx)
+		r'(\?\s{1,}\").+|' # remove (? "xxx)
+		r'(\.{2,}\Z)' # remove (..)
 		r'(: odc.\d+)|'
 		r'(\d+: odc.\d+)|'
 		r'(\d+ odc.\d+)|(:)|'
@@ -98,7 +102,6 @@ REGEX = re.compile(
 		r'\|\s[0-9]+\+|'
 		r'[0-9]+\+|'
 		r'\s\d{4}\Z|'
-		r'([\(\[\|].*?[\)\]\|])|'
 		r'(\"|\"\.|\"\,|\.)\s.+|'
 		r'\"|:|'
 		r'Премьера\.\s|'
@@ -110,21 +113,20 @@ REGEX = re.compile(
 		r'\s(ч|ч\.|с\.|с)\s\d{1,3}.+|'
 		r'\d{1,3}(-я|-й|\sс-н).+|', re.DOTALL)
 
-# def convtext(text):
-	# text = REGEX.sub('', text).rstrip().replace('\xc2\x86', '').replace('\xc2\x87', '')
 def convtext(text):
+	d = {ord('\N{COMBINING ACUTE ACCENT}'):None}
 	text = text.replace('\xc2\x86', '')
 	text = text.replace('\xc2\x87', '')
 	text = REGEX.sub('', text)
-	text = re.sub(r"[-,!/\.\":]",' ',text)# replace (- or , or ! or / or . or " or :) by space
+	text = re.sub(r"[-,!/\":]",' ',text)# replace (- or , or ! or / or " or :) by space
 	text = re.sub(r'\s{1,}', ' ', text)# replace multiple space by one space
 	text = text.strip()
 	try:
 		text = unicode(text, 'utf-8')
 	except NameError:
 		pass
-	text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode("utf-8")
-	text = text.upper()
+	text = unicodedata.normalize('NFD', text).translate(d).encode('utf-8', 'ignore').decode("utf-8")
+	text = text.lower()
 	return str(text)
 	
 
@@ -137,7 +139,7 @@ class PosterDB(GlamPosterXDT):
 	def __init__(self):
 		GlamPosterXDT.__init__(self)
 		self.logdbg = None
-			
+
 	def run(self):
 		self.logDB("[QUEUE] : Initialized")
 		while True:
@@ -146,14 +148,24 @@ class PosterDB(GlamPosterXDT):
 			dwn_poster = path_folder + canal[5] + ".jpg"
 			if os.path.exists(dwn_poster):
 				os.utime(dwn_poster, (time.time(), time.time()))
+			if lng == "fr_FR":
+				if not os.path.exists(dwn_poster):
+					val, log = self.search_molotov_google(dwn_poster,canal[5],canal[4],canal[3],canal[0])
+					self.logDB(log)
+				if not os.path.exists(dwn_poster):
+					val, log = self.search_programmetv_google(dwn_poster,canal[5],canal[4],canal[3],canal[0])
+					self.logDB(log)
 			if not os.path.exists(dwn_poster):
-				val, log = self.search_tmdb(dwn_poster,canal[2],canal[4],canal[3])
-				self.logDB(log) 
-			if not os.path.exists(dwn_poster) and lng == "it_IT":
-				val, log = self.search_molotov_google(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+				val, log = self.search_imdb(dwn_poster,canal[5],canal[4],canal[3])
 				self.logDB(log)
 			if not os.path.exists(dwn_poster):
-				val, log = self.search_google(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+				val, log = self.search_tmdb(dwn_poster,canal[5],canal[4],canal[3])
+				self.logDB(log)
+			if not os.path.exists(dwn_poster):
+				val, log = self.search_tvdb(dwn_poster,canal[5],canal[4],canal[3])
+				self.logDB(log)
+			if not os.path.exists(dwn_poster):
+				val, log = self.search_google(dwn_poster,canal[5],canal[4],canal[3],canal[0])
 				self.logDB(log)
 			pdb.task_done()
 
@@ -170,7 +182,7 @@ class PosterAutoDB(GlamPosterXDT):
 	def __init__(self):
 		GlamPosterXDT.__init__(self)
 		self.logdbg = None
-			
+
 	def run(self):
 		self.logAutoDB("[AutoDB] *** Initialized")
 		while True:
@@ -185,32 +197,48 @@ class PosterAutoDB(GlamPosterXDT):
 					for evt in events:
 						canal = [None,None,None,None,None,None]
 						canal[0] = ServiceReference(service).getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', '')
-						canal[1] = evt[1]
-						canal[2] = evt[4]
-						canal[3] = evt[5]
-						canal[4] = evt[6]
-						canal[5] = convtext(canal[2])
-						#self.logAutoDB("[AutoDB] : {} : {}-{} ({})".format(canal[0],canal[1],canal[2],canal[5]))
-						dwn_poster = path_folder + canal[5] + ".jpg"
-						if os.path.exists(dwn_poster):
-							os.utime(dwn_poster, (time.time(), time.time()))
-						if not os.path.exists(dwn_poster):
-							val, log = self.search_tmdb(dwn_poster,canal[2],canal[4],canal[3],canal[0])
-							if val and log.find("SUCCESS"):
-								newfd = newfd + 1
-						if not os.path.exists(dwn_poster):
-							val, log = self.search_molotov_google(dwn_poster,canal[2],canal[4],canal[3],canal[0])
-							if val and log.find("SUCCESS"):
-								newfd = newfd + 1
-						if not os.path.exists(dwn_poster):
-							val, log = self.search_google(dwn_poster,canal[2],canal[4],canal[3],canal[0])
-							if val and log.find("SUCCESS"):
-								newfd = newfd + 1
+						if evt[1]==None or evt[4]==None or evt[5]==None or evt[6]==None:
+							self.logAutoDB("[AutoDB] *** missing epg for {}".format(canal[0]))
+						else:
+							canal[1] = evt[1]
+							canal[2] = evt[4]
+							canal[3] = evt[5]
+							canal[4] = evt[6]
+							canal[5] = convtext(canal[2])
+							#self.logAutoDB("[AutoDB] : {} : {}-{} ({})".format(canal[0],canal[1],canal[2],canal[5]))
+							dwn_poster = path_folder + canal[5] + ".jpg"
+							if os.path.exists(dwn_poster):
+								os.utime(dwn_poster, (time.time(), time.time()))
+							if lng == "fr_FR":
+								if not os.path.exists(dwn_poster):
+									val, log = self.search_molotov_google(dwn_poster,canal[5],canal[4],canal[3],canal[0])
+									if val and log.find("SUCCESS"):
+										newfd = newfd + 1
+								if not os.path.exists(dwn_poster):
+									val, log = self.search_programmetv_google(dwn_poster,canal[5],canal[4],canal[3],canal[0])
+									if val and log.find("SUCCESS"):
+										newfd = newfd + 1
+							if not os.path.exists(dwn_poster):
+								val, log = self.search_imdb(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+								if val and log.find("SUCCESS"):
+									newfd = newfd + 1
+							if not os.path.exists(dwn_poster):
+								val, log = self.search_tmdb(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+								if val and log.find("SUCCESS"):
+									newfd = newfd + 1
+							if not os.path.exists(dwn_poster):
+								val, log = self.search_tvdb(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+								if val and log.find("SUCCESS"):
+									newfd = newfd + 1
+							if not os.path.exists(dwn_poster):
+								val, log = self.search_google(dwn_poster,canal[2],canal[4],canal[3],canal[0])
+								if val and log.find("SUCCESS"):
+									newfd = newfd + 1
 						newcn = canal[0]
 					self.logAutoDB("[AutoDB] {} new file(s) added ({})".format(newfd,newcn))
 				except Exception as e:
-					self.logAutoDB("[AutoDB] *** service error ({})".format(e))
-			# AUTO REMOVE OLD FILES 
+					self.logAutoDB("[AutoDB] *** service error : {} ({})".format(service,e))
+			# AUTO REMOVE OLD FILES
 			now_tm = time.time()
 			emptyfd = 0
 			oldfd = 0
@@ -222,7 +250,7 @@ class PosterAutoDB(GlamPosterXDT):
 				if diff_tm > 259200: # Detect old files > 3 days old
 					os.remove(path_folder+f)
 					oldfd = oldfd + 1
-			self.logAutoDB("[AutoDB] {} old file(s) removed".format(oldfd)) 
+			self.logAutoDB("[AutoDB] {} old file(s) removed".format(oldfd))
 			self.logAutoDB("[AutoDB] {} empty file(s) removed".format(emptyfd))
 			self.logAutoDB("[AutoDB] *** Stopping ***")
 

@@ -27,7 +27,7 @@ except:
 tmdb_api = "3c3efcf47c3577558812bb9d64019d65"
 tvdb_api = "a99d487bb3426e5f3a60dea6d3d3c7ef"
 
-isz="185,278"
+isz="200,300"
 
 class GlamPosterXDT(threading.Thread):
 	def __init__(self):
@@ -210,7 +210,7 @@ class GlamPosterXDT(threading.Thread):
 				if not PY3:
 					ffm = ffm.encode('utf-8')
 				pltt = re.findall('"https://fusion.molotov.tv/(.*?)/jpg" alt="(.*?)"', ffm)
-				if len(pltt)>0:	
+				if len(pltt)>0:
 					pltc = self.UNAC(pltt[0][1])
 					plst = "https://fusion.molotov.tv/"+pltt[0][0]+"/jpg"
 					imsg="Found title ({}%) & channel ({}%) : '{}' + '{}' [{}/{}]".format(molotov_table[0],molotov_table[1],molotov_table[2],pltc,molotov_table[4],len_plst)
@@ -318,7 +318,7 @@ class GlamPosterXDT(threading.Thread):
 
 			if poster:
 				return True, "[SUCCESS : google] {} [{}-{}] => {} => {}".format(title,chkType,year,url_google,url_poster)
-			else:				
+			else:
 				if os.path.exists(dwn_poster):
 					os.remove(dwn_poster)
 				return False, "[SKIP : google] {} [{}-{}] => {} => {} (Not found)".format(title,chkType,year,url_google,url_poster)
@@ -538,7 +538,7 @@ class GlamPosterXDT(threading.Thread):
 		string = re.sub(u"[Ññ]", 'n', string)
 		string = re.sub(u"[Çç]", 'c', string)
 		string = re.sub(u"[Ÿýÿ]", 'y', string)
-		string = re.sub(r"[^a-zA-Z0-9 ']","", string)
+		string = re.sub(r"[^a-zA-Zα-ωΑ-ΩίϊΐόάέύϋΰήώΊΪΌΆΈΎΫΉΏ0-9 ']","", string)
 		string = string.lower()
 		string = re.sub(u"u003d", "", string)
 		string = re.sub(r'\s{1,}', ' ', string)
