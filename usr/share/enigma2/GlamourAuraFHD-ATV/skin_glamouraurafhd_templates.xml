@@ -2931,25 +2931,96 @@
     <widget name="setupimage" position="50,315" size="400,400" conditional="setupimage" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupKeys" />
   </screen>
-  <!-- 10. MOVIE TEMPLATES -->
-  <!-- 10-1 BACKGROUND -->
+  <!-- 10. CHANNEL SELECTION TEMPLATES -->
+  <!-- 10-1 Background -->
+  <screen name="CSBackground" flags="wfNoBorder">
+    <panel name="MainBackgroundCS" />
+    <panel name="ClockLabel3" />
+    <widget source="Title" render="Label" position="785,35" size="855,100" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
+  </screen>
+  <!-- 10-2 Event Infos -->
+  <screen name="CSEventInfos" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
+    <widget source="ServiceEvent" render="Picon" position="40,35" size="220,132" transparent="1" alphatest="blend" zPosition="4">
+      <convert type="ServiceName">Reference</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="265,15" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=2,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0" position="50,168" size="720,50" font="RegularB; 32" backgroundColor="grey2" transparent="1" valign="center" halign="center" foregroundColor="black" zPosition="7">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="265,115" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">
+      </convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="675,115" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" valign="center" zPosition="6" halign="center" noWrap="1">
+      <convert type="EventTime">EndTime</convert>
+      <convert type="ClockToText">Format:%H:%M</convert>
+    </widget>
+    <eLabel position="370,140" size="295,2" backgroundColor="darkgrey" foregroundColor="darkgrey" zPosition="2" />
+    <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="370,137" size="295,8" transparent="1" zPosition="1">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+  </screen>
+  <!-- 10-3 Next Events -->
+  <screen name="CSNextEvents" flags="wfNoBorder">
+    <widget source="ServiceEvent" render="Label" position="50,755" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+      <convert type="GlamNextEvents">Event1,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,795" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+      <convert type="GlamNextEvents">Event2,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,835" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+      <convert type="GlamNextEvents">Event3,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,875" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+      <convert type="GlamNextEvents">Event4,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,915" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event5,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,755" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+      <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,795" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+      <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,835" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+      <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,875" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+      <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="green" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
+    </widget>
+  </screen>
+  <!-- 10-4 Channel Infos -->
+  <screen name="CSChannelInfos" flags="wfNoBorder">
+    <widget position="50,960" size="720,35" source="ServiceEvent" render="GlamTP" font="RegularB; 26" halign="left" valign="center" noWrap="1" backgroundColor="grey2" zPosition="3" transparent="1" foregroundColor="black" />
+    <widget position="50,1000" size="720,35" source="ServiceEvent" render="GlamPids" font="Numbers; 31" halign="left" valign="center" noWrap="1" backgroundColor="darkgrey" zPosition="3" transparent="1" foregroundColor="amarillo" />
+  </screen>
+  <!-- 11. MOVIE TEMPLATES -->
+  <!-- 11-1 BACKGROUND -->
   <screen name="MovieBG" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_movie.png" position="0,870" zPosition="-2" size="1920,210" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_moviename.png" position="0,690" zPosition="-2" size="1920,180" alphatest="off" />
   </screen>
-  <!-- 10-2 NAME1 -->
+  <!-- 11-2 NAME1 -->
   <screen name="MovieN1" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="60,705" size="1830,170" font="Regular; 55" halign="center" valign="bottom" foregroundColor="white" backgroundColor="sky" transparent="1" zPosition="9">
       <convert type="ServiceName">Name</convert>
     </widget>
   </screen>
-  <!-- 10-3 NAME2 -->
+  <!-- 11-3 NAME2 -->
   <screen name="MovieN2" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="260,705" size="1630,170" font="Regular; 55" halign="center" valign="bottom" foregroundColor="white" backgroundColor="sky" transparent="1" zPosition="9">
       <convert type="ServiceName">Name</convert>
     </widget>
   </screen>
-  <!-- 10-4 DURATION AND PROGRESS -->
+  <!-- 11-4 DURATION AND PROGRESS -->
   <screen name="MovieD+P" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="255,910" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" shadowColor="black" shadowOffset="-1,-1" transparent="1" noWrap="1" zPosition="1">
       <convert type="ServicePosition">Position,ShowHours</convert>
@@ -2971,7 +3042,7 @@
       <convert type="GlamourBase">StreamUrl</convert>
     </widget>
   </screen>
-  <!-- 10-5 MOVIE AND SERVICE INFOS -->
+  <!-- 11-5 MOVIE AND SERVICE INFOS -->
   <screen name="MovieServiceInfos" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/icons/infobar/rec_off.png" position="915,1016" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
     <widget source="session.RecordState" render="Pixmap" pixmap="GACommon/icons/infobar/rec_on.png" position="915,1016" size="50,30" zPosition="2" alphatest="blend" transparent="1">
@@ -3150,7 +3221,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
-  <!-- 10-6 MOVIESELECTION LAYOUT  -->
+  <!-- 11-6 MOVIESELECTION LAYOUT  -->
   <screen name="MovieSLayout" flags="wfNoBorder">
     <widget source="Title" render="Label" position="665,35" size="875,95" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
     <widget name="list" position="665,135" pathIconSize="50" dataIconSize="50" progressIconSize="50" progressBarSize="80" size="1200,720" fontName="RegularL" pbarShift="10" pbarHeight="20" pbarLargeWidth="70" pbarColour="background20" pbarColourSeen="cyan" pbarColourRec="red" partIconeShift="2" spaceIconeText="10" iconsWidth="30" trashShift="2" dirShift="2" spaceRight="5" dateWidth="250" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="off" zPosition="5" />
@@ -3158,7 +3229,7 @@
     <widget name="waitingtext" position="665,135" size="1200,720" font="Regular; 37" halign="center" valign="center" zPosition="12" transparent="0" backgroundColor="background20" foregroundColor="sky" />
     <widget name="chosenletter" position="1545,35" size="105,95" font="RegularB; 45" halign="center" valign="top" transparent="1" zPosition="7" backgroundColor="background20" foregroundColor="sky" />
   </screen>
-  <!-- 10-7 MOVIESELECTION INFOS -->
+  <!-- 11-7 MOVIESELECTION INFOS -->
   <screen name="MovieSInfo" flags="wfNoBorder">
     <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="665,855" size="1200,45" foregroundColor="cyan1" font="Regular; 30" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="MovieInfo">ShortDescription</convert>
@@ -3184,12 +3255,12 @@
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
   </screen>
-  <!-- 10-8 MOVIESELECTION ICONS -->
+  <!-- 11-8 MOVIESELECTION ICONS -->
   <screen name="MovieSIcons" flags="wfNoBorder">
     <widget name="movie_sort" pixmaps="GACommon/icons/movie/az.png,GACommon/icons/movie/newtop.png,GACommon/icons/movie/shuffle.png,GACommon/icons/movie/za.png,GACommon/icons/movie/oldtop.png,GACommon/icons/movie/faz.png,GACommon/icons/movie/fza.png" position="860,905" zPosition="7" size="90,45" transparent="1" alphatest="blend" backgroundColor="background20" />
     <widget name="movie_off" pixmaps="GACommon/icons/movie/ask.png,GACommon/icons/movie/movielist.png,GACommon/icons/movie/quit.png,GACommon/icons/movie/pause.png,GACommon/icons/movie/playlist.png,GACommon/icons/movie/playlistquit.png,GACommon/icons/movie/loop.png" position="960,905" zPosition="7" size="90,45" transparent="1" alphatest="blend" backgroundColor="background20" />
   </screen>
-  <!-- 11. HELP KEYS -->
+  <!-- 12. HELP KEYS -->
   <screen name="RCKeys" flags="wfNoBorder">
     <widget name="rc" position="215,200" size="180,550" pixmaps="skin_default/rc.png,skin_default/rcold.png" alphatest="blend" transparent="1" zPosition="10" />
     <widget alphatest="blend" name="indicatorU0" pixmap="skin_default/yellow_circle23x23.png" position="165,160" offset="11,11" size="23,23" zPosition="11" />
@@ -3235,7 +3306,7 @@
     <widget name="arrowup2" position="-100,-100" size="55,105" pixmap="GlamourAuraFHD-ATV/icons/arrowup.png" zPosition="11" alphatest="blend" />
     <widget name="long_key" position="50,815" size="470,50" font="Regular; 36" halign="center" foregroundColor="amarillo" backgroundColor="cyan1" transparent="1" zPosition="12" />
   </screen>
-  <!-- 12. EVENT SCREENS -->
+  <!-- 13. EVENT SCREENS -->
   <screen name="EventIcons" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Pixmap" position="108,850" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoHeight</convert>
@@ -3311,13 +3382,13 @@
       <convert type="EventName">SmallRating</convert>
     </widget>
   </screen>
-  <!-- 13. EXTRA SCREENS -->
-  <!-- 13-1 Posters in Main Infobar -->
+  <!-- 14. EXTRA SCREENS -->
+  <!-- 14-1 Posters in Main Infobar -->
   <screen name="PostersMainInfobar" flags="wfNoBorder">
     <widget source="session.Event_Now" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="100,500" size="200,300" zPosition="10" />
     <widget source="session.Event_Next" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1670,535" size="200,300" zPosition="10" />
   </screen>
-  <!-- 13-2 Posters in 2nd Infobar -->
+  <!-- 14-2 Posters in 2nd Infobar -->
   <screen name="EventInfobarPosters" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnow.png" position="400,300" zPosition="-2" size="1520,230" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_extdescnext.png" position="400,530" zPosition="-2" size="1520,230" alphatest="off" transparent="1" />
@@ -3342,9 +3413,38 @@
     <widget source="session.Event_Now" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="880,335" size="265,400" zPosition="10" transparent="1" />
     <widget source="session.Event_Next" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1610,335" size="265,400" zPosition="10" transparent="1" />
   </screen>
-  <!-- 13-3 Posters in EventView -->
+  <!-- 14-3 Posters in EventView -->
   <screen name="EventViewPosters" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1150,660" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1270,880" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1350,660" size="300,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1550,670" size="300,270" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="Event" render="GlamPosterX" delayPic="0" position="1150,660" size="185,280" transparent="0" zPosition="10" />
     <widget source="Event" render="GlamBackdropX" delayPic="0" position="1350,660" size="500,280" transparent="0" zPosition="10" />
+  </screen>
+  <!-- 14-4 Posters in ChannelSelection -->
+  <screen name="CSPosters" flags="wfNoBorder">
+    <!-- Current Backdrop -->
+    <widget source="ServiceEvent" render="GlamBackdropX" delayPic="0" position="20,225" size="760,520" transparent="0" zPosition="3" />
+    <!-- Next1 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="800,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="922,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="800,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next2 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1020,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1142,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="2" usedImage="poster" delayPic="0" position="1020,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next3 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1240,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1362,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="3" usedImage="poster" delayPic="0" position="1240,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next4 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1460,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1582,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="4" usedImage="poster" delayPic="0" position="1460,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next5 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1680,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1802,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="5" usedImage="poster" delayPic="0" position="1680,685" size="187,280" zPosition="10" transparent="1" />
   </screen>
 </skin>

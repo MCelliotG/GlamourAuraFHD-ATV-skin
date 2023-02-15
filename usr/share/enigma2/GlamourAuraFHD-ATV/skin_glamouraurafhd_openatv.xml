@@ -1665,7 +1665,7 @@
     <widget name="multiright" position="1140,125" size="705,650" zPosition="8" />
     <widget name="sortright" position="1140,775" size="705,80" font="Regular; 27" foregroundColor="lightciel" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
     <widget name="quickselect" position="420,125" size="705,650" font="Regular;100" foregroundColor="amarillo" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
-    <widget name="status" position="420,795" size="1425,45" font="RegularB; 32" foregroundColor="white" backgroundColor="cyan" halign="center" valign="center" zPosition="9" />
+    <widget name="status" position="420,775" size="1425,80" font="RegularB; 32" foregroundColor="white" backgroundColor="cyan" halign="center" valign="center" zPosition="9" />
     <panel name="FullKeysMIH" />
   </screen>
   <!-- 4. New Locale Selection -->

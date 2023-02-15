@@ -42,7 +42,7 @@ class GlamBackdropXDT(threading.Thread):
 			"information", "météo", "καιρός", "journal", "sport", "αθλητικά", "culture", "infos", "feuilleton", "téléréalité",
 			"société", "clips", "concert", "santé", "éducation", "variété" ]
 
-	def search_tmdb(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_tmdb(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
 			year = None
 			url_tmdb = ""
@@ -74,17 +74,17 @@ class GlamBackdropXDT(threading.Thread):
 
 			backdrop = requests.get(url_tmdb).json()
 			if backdrop and backdrop['results'] and backdrop['results'][0] and backdrop['results'][0]['backdrop_path']:
-				url_poster = "https://image.tmdb.org/t/p/w{}{}".format(str(isz.split(",")[0]), backdrop['results'][0]['backdrop_path'])
-				self.savePoster(dwn_poster, url_poster)
-				return True, "[SUCCESS : tmdb] {} [{}-{}] => {} => {}".format(title,chkType,year,url_tmdb,url_poster)
+				url_backdrop = "https://image.tmdb.org/t/p/w{}{}".format(str(isz.split(",")[0]), backdrop['results'][0]['backdrop_path'])
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				return True, "[SUCCESS : tmdb] {} [{}-{}] => {} => {}".format(title,chkType,year,url_tmdb,url_backdrop)
 			else:
 				return False, "[SKIP : tmdb] {} [{}-{}] => {} (Not found)".format(title,chkType,year,url_tmdb)
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
 			return False, "[ERROR : tmdb] {} [{}-{}] => {} ({})".format(title,chkType,year,url_tmdb,str(e))
 
-	def search_programmetv_google(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_programmetv_google(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
 			url_ptv = ""
 			headers = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
@@ -113,36 +113,36 @@ class GlamBackdropXDT(threading.Thread):
 			if not PY3:
 				ff = ff.encode('utf-8')
 
-			posterlst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
-			if posterlst and posterlst[0]:
-				url_poster = "https://{}".format(posterlst[0])
-				url_poster = re.sub(r"\\u003d", "=", url_poster)
-				url_poster_size = re.findall('/(\d+)x(\d+)/',url_poster)
-				if url_poster_size and url_poster_size[0]:
-					h_ori = float(url_poster_size[0][1])
+			backdroplst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
+			if backdroplst and backdroplst[0]:
+				url_backdrop = "https://{}".format(backdroplst[0])
+				url_backdrop = re.sub(r"\\u003d", "=", url_backdrop)
+				url_backdrop_size = re.findall('/(\d+)x(\d+)/',url_backdrop)
+				if url_backdrop_size and url_backdrop_size[0]:
+					h_ori = float(url_backdrop_size[0][1])
 					h_tar = float(re.findall('(\d+)',isz)[1])
 					ratio = h_ori/h_tar
-					w_ori = float(url_poster_size[0][0])
+					w_ori = float(url_backdrop_size[0][0])
 					w_tar = w_ori/ratio
 					w_tar = int(w_tar)
 					h_tar = int(h_tar)
-					url_poster = re.sub('/\d+x\d+/',"/"+str(w_tar)+"x"+str(h_tar)+"/",url_poster)
-				url_poster = re.sub('crop-from/top/','',url_poster)
-				self.savePoster(dwn_poster, url_poster)
-				if self.verifyPoster(dwn_poster) and url_poster_size:
-					return True, "[SUCCESS : programmetv-google] {} [{}] => {} => {} (initial size: {})".format(title,chkType,url_ptv,url_poster,url_poster_size)
+					url_backdrop = re.sub('/\d+x\d+/',"/"+str(w_tar)+"x"+str(h_tar)+"/",url_backdrop)
+				url_backdrop = re.sub('crop-from/top/','',url_backdrop)
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				if self.verifyBackdrop(dwn_backdrop) and url_backdrop_size:
+					return True, "[SUCCESS : programmetv-google] {} [{}] => {} => {} (initial size: {})".format(title,chkType,url_ptv,url_backdrop,url_backdrop_size)
 				else:
-					if os.path.exists(dwn_poster):
-						os.remove(dwn_poster)
-					return False, "[SKIP : programmetv-google] {} [{}] => {} => {} (initial size: {}) (jpeg error)".format(title,chkType,url_ptv,url_poster,url_poster_size)
+					if os.path.exists(dwn_backdrop):
+						os.remove(dwn_backdrop)
+					return False, "[SKIP : programmetv-google] {} [{}] => {} => {} (initial size: {}) (jpeg error)".format(title,chkType,url_ptv,url_backdrop,url_backdrop_size)
 			else:
 				return False, "[SKIP : programmetv-google] {} [{}] => {} (Not found)".format(title,chkType,url_ptv)
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
 			return False, "[ERROR : programmetv-google] {} [{}] => {} ({})".format(title,chkType,url_ptv,str(e))
 
-	def search_molotov_google(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_molotov_google(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
 			url_mgoo = ''
 			headers = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
@@ -253,29 +253,29 @@ class GlamBackdropXDT(threading.Thread):
 				imsg = "Not found '{}' [{}]".format(pltc,len_plst)
 
 			if backdrop:
-				url_poster = re.sub('/\d+x\d+/',"/"+re.sub(',','x',isz)+"/",backdrop)
-				self.savePoster(dwn_poster, url_poster)
-				if self.verifyPoster(dwn_poster):
-					return True, "[SUCCESS : molotov-google] {} ({}) [{}] => {} => {} => {}".format(title,channel,chkType,imsg,url_mgoo,url_poster)
+				url_backdrop = re.sub('/\d+x\d+/',"/"+re.sub(',','x',isz)+"/",backdrop)
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				if self.verifyBackdrop(dwn_backdrop):
+					return True, "[SUCCESS : molotov-google] {} ({}) [{}] => {} => {} => {}".format(title,channel,chkType,imsg,url_mgoo,url_backdrop)
 				else:
-					if os.path.exists(dwn_poster):
-						os.remove(dwn_poster)
-					return False, "[SKIP : molotov-google] {} ({}) [{}] => {} => {} => {} (jpeg error)".format(title,channel,chkType,imsg,url_mgoo,url_poster)
+					if os.path.exists(dwn_backdrop):
+						os.remove(dwn_backdrop)
+					return False, "[SKIP : molotov-google] {} ({}) [{}] => {} => {} => {} (jpeg error)".format(title,channel,chkType,imsg,url_mgoo,url_backdrop)
 			else:
 				return False, "[SKIP : molotov-google] {} ({}) [{}] => {} => {}".format(title,channel,chkType,imsg,url_mgoo)
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
 			return False, "[ERROR : molotov-google] {} [{}] => {} ({})".format(title,chkType,url_mgoo,str(e))
 
-	def search_google(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_google(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
 			headers = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
 
 			chkType, fd = self.checkType(shortdesc,fulldesc)
 
 			backdrop = None
-			url_poster = ""
+			url_backdrop = ""
 			year = None
 			srch = None
 			
@@ -301,35 +301,35 @@ class GlamBackdropXDT(threading.Thread):
 			url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
 			ff = requests.get(url_google, stream=True, headers=headers).text
 
-			posterlst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
-			if len(posterlst)==0:
+			backdroplst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
+			if len(backdroplst)==0:
 				url_google = quote(title)
 				url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
 				ff = requests.get(url_google, stream=True, headers=headers).text
-				posterlst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
+				backdroplst = re.findall('\],\["https://(.*?)",\d+,\d+]', ff)
 				
-			for pl in posterlst:
-				url_poster = "https://{}".format(pl)
-				url_poster = re.sub(r"\\u003d", "=", url_poster)
-				self.savePoster(dwn_poster, url_poster)
-				if self.verifyPoster(dwn_poster):
+			for pl in backdroplst:
+				url_backdrop = "https://{}".format(pl)
+				url_backdrop = re.sub(r"\\u003d", "=", url_backdrop)
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				if self.verifyBackdrop(dwn_backdrop):
 					backdrop = pl
 					break
 
 			if backdrop:
-				return True, "[SUCCESS : google] {} [{}-{}] => {} => {}".format(title,chkType,year,url_google,url_poster)
+				return True, "[SUCCESS : google] {} [{}-{}] => {} => {}".format(title,chkType,year,url_google,url_backdrop)
 			else:
-				if os.path.exists(dwn_poster):
-					os.remove(dwn_poster)
-				return False, "[SKIP : google] {} [{}-{}] => {} => {} (Not found)".format(title,chkType,year,url_google,url_poster)
+				if os.path.exists(dwn_backdrop):
+					os.remove(dwn_backdrop)
+				return False, "[SKIP : google] {} [{}-{}] => {} => {} (Not found)".format(title,chkType,year,url_google,url_backdrop)
 
 
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
-			return False, "[ERROR : google] {} [{}-{}] => {} => {} ({})".format(title,chkType,year,url_google,url_poster,str(e))
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
+			return False, "[ERROR : google] {} [{}-{}] => {} => {} ({})".format(title,chkType,year,url_google,url_backdrop,str(e))
 
-	def search_tvdb(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_tvdb(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
 			series_nb = -1
 
@@ -375,20 +375,20 @@ class GlamBackdropXDT(threading.Thread):
 					backdrop = re.findall('<backdrop>(.*?)</backdrop>', url_read)
 				
 			if backdrop and backdrop[0]:
-				url_poster = "https://artworks.thetvdb.com/banners/{}".format(backdrop[0])
-				self.savePoster(dwn_poster, url_poster)
-				return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title,chkType,year,url_tvdbg,url_tvdb,url_poster)
+				url_backdrop = "https://artworks.thetvdb.com/banners/{}".format(backdrop[0])
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				return True, "[SUCCESS : tvdb] {} [{}-{}] => {} => {} => {}".format(title,chkType,year,url_tvdbg,url_tvdb,url_backdrop)
 			else:
 				return False, "[SKIP : tvdb] {} [{}-{}] => {} (Not found)".format(title,chkType,year,url_tvdbg)
 				
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
 			return False, "[ERROR : tvdb] {} => {} ({})".format(title,url_tvdbg,str(e))
 			
-	def search_imdb(self,dwn_poster,title,shortdesc,fulldesc,channel=None):
+	def search_imdb(self,dwn_backdrop,title,shortdesc,fulldesc,channel=None):
 		try:
-			url_poster = None
+			url_backdrop = None
 
 			chkType, fd = self.checkType(shortdesc,fulldesc)
 
@@ -443,60 +443,60 @@ class GlamBackdropXDT(threading.Thread):
 				else:
 					imdb[4]=""
 				imdb[4] = self.UNAC(imdb[4])
-				imdb_poster=re.search("(.*?)._V1_.*?.jpg",imdb[0])
-				if imdb_poster:
+				imdb_backdrop=re.search("(.*?)._V1_.*?.jpg",imdb[0])
+				if imdb_backdrop:
 					if imdb[3]=="":
 						if year and year!="":
 							if year==imdb[2]:
-								url_poster = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_poster.group(1))
+								url_backdrop = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_backdrop.group(1))
 								imsg = "Found title : '{}', aka : '{}', year : '{}'".format(imdb[1],imdb[4],imdb[2])
 								if self.PMATCH(ptitle,imdb[1]) or self.PMATCH(ptitle,imdb[4]) or (paka!="" and self.PMATCH(paka,imdb[1])) or (paka!="" and self.PMATCH(paka,imdb[4])):
 									pfound = True
 									break
-							elif not url_poster and (int(year)-1==int(imdb[2]) or int(year)+1==int(imdb[2])):
-								url_poster = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_poster.group(1))
+							elif not url_backdrop and (int(year)-1==int(imdb[2]) or int(year)+1==int(imdb[2])):
+								url_backdrop = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_backdrop.group(1))
 								imsg = "Found title : '{}', aka : '{}', year : '+/-{}'".format(imdb[1],imdb[4],imdb[2])
 								if ptitle==imdb[1] or ptitle==imdb[4] or (paka!="" and paka==imdb[1]) or (paka!="" and paka==imdb[4]):
 									pfound = True
 									break
 						else:
-							url_poster = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_poster.group(1))
+							url_backdrop = "{}._V1_UY278,1,185,278_AL_.jpg".format(imdb_backdrop.group(1))
 							imsg = "Found title : '{}', aka : '{}', year : ''".format(imdb[1],imdb[4])
 							if ptitle==imdb[1] or ptitle==imdb[4] or (paka!="" and paka==imdb[1]) or (paka!="" and paka==imdb[4]):
 								pfound = True
 								break
 				idx_imdb += 1
 
-			if url_poster and pfound:
-				self.savePoster(dwn_poster, url_poster)
-				return True, "[SUCCESS : imdb] {} [{}-{}] => {} [{}/{}] => {} => {}".format(title,chkType,year,imsg,idx_imdb,len_imdb,url_mimdb,url_poster)
+			if url_backdrop and pfound:
+				self.saveBackdrop(dwn_backdrop, url_backdrop)
+				return True, "[SUCCESS : imdb] {} [{}-{}] => {} [{}/{}] => {} => {}".format(title,chkType,year,imsg,idx_imdb,len_imdb,url_mimdb,url_backdrop)
 			else:
 				return False, "[SKIP : imdb] {} [{}-{}] => {} (No Entry found [{}])".format(title,chkType,year,url_mimdb,len_imdb)
 		except Exception as e:
-			if os.path.exists(dwn_poster):
-				os.remove(dwn_poster)
+			if os.path.exists(dwn_backdrop):
+				os.remove(dwn_backdrop)
 			return False, "[ERROR : imdb] {} [{}-{}] => {} ({})".format(title,chkType,year,url_mimdb,str(e))
 
-	def savePoster(self, dwn_poster, url_poster):
-		with open(dwn_poster,'wb') as f:
-			f.write(requests.get(url_poster, stream=True, allow_redirects=True, verify=False).content)
+	def saveBackdrop(self, dwn_backdrop, url_backdrop):
+		with open(dwn_backdrop,'wb') as f:
+			f.write(requests.get(url_backdrop, stream=True, allow_redirects=True, verify=False).content)
 			f.close()
 
-	def verifyPoster(self, dwn_poster):
+	def verifyBackdrop(self, dwn_backdrop):
 		try:
-			img = Image.open(dwn_poster)
+			img = Image.open(dwn_backdrop)
 			img.verify()
 			if img.format=="JPEG":
 				pass
 			else:
 				try:
-					os.remove(dwn_poster)
+					os.remove(dwn_backdrop)
 				except:
 					pass
 				return None
 		except Exception as e:
 			try:
-				os.remove(dwn_poster)
+				os.remove(dwn_backdrop)
 			except:
 				pass
 			return None
@@ -538,7 +538,7 @@ class GlamBackdropXDT(threading.Thread):
 		string = re.sub(u"[Ññ]", 'n', string)
 		string = re.sub(u"[Çç]", 'c', string)
 		string = re.sub(u"[Ÿýÿ]", 'y', string)
-		string = re.sub(r"[^a-zA-Z0-9 ']","", string)
+		string = re.sub(r"[^a-zA-Zα-ωΑ-ΩίϊΐόάέύϋΰήώΊΪΌΆΈΎΫΉΏ0-9 ']","", string)
 		string = string.lower()
 		string = re.sub(u"u003d", "", string)
 		string = re.sub(r'\s{1,}', ' ', string)
