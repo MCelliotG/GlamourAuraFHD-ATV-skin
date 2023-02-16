@@ -2993,7 +2993,7 @@
     <widget source="ServiceEvent" render="GlamRoll" position="130,875" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
       <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRoll" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="green" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+    <widget source="ServiceEvent" render="GlamRoll" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
     </widget>
   </screen>
