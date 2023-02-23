@@ -92,7 +92,8 @@ REGEX = re.compile(
 		r'([\(\[]).*?([\)\]])|'
 		r'(\.\s{1,}\").+|' # remove (. "xxx)
 		r'(\?\s{1,}\").+|' # remove (? "xxx)
-		r'(\.{2,}\Z)' # remove (..)
+		r'(\.{2,}\Z)|' # remove (..)
+		r'\b(?=[MDCLXVIΙ])M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})([IΙ]X|[IΙ]V|V?[IΙ]{0,3})\b\.?|' # remove roman numbers
 		r'(: odc.\d+)|'
 		r'(\d+: odc.\d+)|'
 		r'(\d+ odc.\d+)|(:)|'
@@ -125,7 +126,7 @@ def convtext(text):
 		text = unicode(text, 'utf-8')
 	except NameError:
 		pass
-	text = unicodedata.normalize('NFD', text).translate(d).encode('utf-8', 'ignore').decode("utf-8")
+	text = unicodedata.normalize('NFD', text).translate(d).encode('utf-8', 'ignore').decode('utf-8')
 	text = text.lower()
 	return str(text)
 	

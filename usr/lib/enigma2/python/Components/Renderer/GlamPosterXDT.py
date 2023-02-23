@@ -27,7 +27,7 @@ except:
 tmdb_api = "3c3efcf47c3577558812bb9d64019d65"
 tvdb_api = "a99d487bb3426e5f3a60dea6d3d3c7ef"
 
-isz="200,300"
+isz="300,450"
 
 class GlamPosterXDT(threading.Thread):
 	def __init__(self):
