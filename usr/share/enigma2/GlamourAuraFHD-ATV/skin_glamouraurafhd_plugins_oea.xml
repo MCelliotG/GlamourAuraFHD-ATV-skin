@@ -151,7 +151,7 @@
   <screen name="Pic_Exif" position="0,0" size="1920,1080" title="Picture Info" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pictures.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraHD/selections/listsel.png" alphatest="off" selectionDisabled="1" backgroundColor="background20" transparent="1">
+    <widget source="menu" render="Listbox" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel.png" alphatest="off" selectionDisabled="1" backgroundColor="background20" transparent="1">
       <convert type="TemplatedMultiContent">
         {"template": [
           MultiContentEntryText(pos = (10, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 0),
@@ -562,8 +562,8 @@
   <screen name="VlcMediaListScreen" position="0,0" size="1920,1080" title="VLC Media List" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/vlc.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="filelist_button_sel" pixmap="GlamourAuraHDepg/epg/epg_now.png" position="540,60" zPosition="3" size="450,50" alphatest="blend" />
-    <widget name="playlist_button_sel" pixmap="GlamourAuraHDepg/epg/epg_next.png" position="540,60" zPosition="4" size="451,50" alphatest="blend" />
+    <widget name="filelist_button_sel" pixmap="GlamourAuraFHD-ATV/epg/epg_now.png" position="540,60" zPosition="3" size="450,50" alphatest="blend" />
+    <widget name="playlist_button_sel" pixmap="GlamourAuraFHD-ATV/epg/epg_next.png" position="540,60" zPosition="4" size="451,50" alphatest="blend" />
     <widget name="filelist_text" position="545,60" zPosition="5" size="215,50" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" foregroundColor="white" />
     <widget name="playlist_text" position="770,60" zPosition="6" size="215,50" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" foregroundColor="white" />
     <widget name="filelist" position="540,120" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="8" />
