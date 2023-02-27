@@ -7,7 +7,10 @@
 # downloading in the background while zaping...
 # by beber...03.2022,
 # 03.2022 several enhancements : several renders with one queue thread, google search (incl. molotov for france) + autosearch & autoclean thread ...
+# 02.2023 greek language and utf-8 compatibility enhancements by MCelliotG
 
+from __future__ import absolute_import
+from __future__ import print_function
 from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eTimer, loadJPG, eEPGCache
 from ServiceReference import ServiceReference
@@ -22,7 +25,7 @@ import sys
 import re
 import time
 import socket
-import unicodedata
+
 from Components.config import config
 PY3 = (sys.version_info[0] == 3)
 try:
@@ -109,18 +112,12 @@ REGEX = re.compile(
 		r'\d{1,3}(-я|-й|\sс-н).+|', re.DOTALL)
 
 def convtext(text):
-	d = {ord('\N{COMBINING ACUTE ACCENT}'):None}
 	text = text.replace('\xc2\x86', '')
 	text = text.replace('\xc2\x87', '')
 	text = REGEX.sub('', text)
 	text = re.sub(r"[-,!/\":]",' ',text)# replace (- or , or ! or / or " or :) by space
 	text = re.sub(r'\s{1,}', ' ', text)# replace multiple space by one space
 	text = text.strip()
-	try:
-		text = unicode(text, 'utf-8')
-	except NameError:
-		pass
-	text = unicodedata.normalize('NFD', text).translate(d).encode('utf-8', 'ignore').decode('utf-8')
 	text = text.lower()
 	return str(text)
 
