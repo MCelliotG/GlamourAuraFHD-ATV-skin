@@ -317,6 +317,7 @@
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
     <setup key="SpecialFeatures" image="GACommon/images/specialfeatures.png" />
     <setup key="Subtitle" image="GACommon/images/subsetup.png" />
+    <setup key="TMDB" image="GACommon/images/tmdb.png" />
     <setup key="Time" image="GACommon/images/timezone.png" />
     <setup key="Timeshift" image="GACommon/images/timeshift.png" />
     <setup key="Tuner" image="GACommon/images/tuner.png" />
@@ -1758,6 +1759,10 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
   </screen>
+  <screen name="EventViewScreen" flags="wfNoBorder">
+    <panel name="MainBackgroundClock" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
+  </screen>
   <!-- 06. TITLES -->
   <screen name="Title1" flags="wfNoBorder" alphatest="on" zPosition="6">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />
@@ -3002,6 +3007,23 @@
     <widget position="50,960" size="720,35" source="ServiceEvent" render="GlamTP" font="RegularB; 26" halign="left" valign="center" noWrap="1" backgroundColor="grey2" zPosition="3" transparent="1" foregroundColor="black" />
     <widget position="50,1000" size="720,35" source="ServiceEvent" render="GlamPids" font="Numbers; 31" halign="left" valign="center" noWrap="1" backgroundColor="darkgrey" zPosition="3" transparent="1" foregroundColor="amarillo" />
   </screen>
+  <!-- 10-5 Channel Selection Lists -->
+  <screen name="CSList" flags="wfNoBorder">
+   <!-- 10-5-1 CS List -->
+    <widget name="list" position="785,135" size="1095,850" itemHeight="85" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
+  </screen>
+  <screen name="CSListRadio" flags="wfNoBorder">
+   <!-- 10-5-2 CS List Radio-->
+    <widget name="list" position="785,135" size="1095,640" itemHeight="80" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
+</screen>
+  <screen name="CSListSimple" flags="wfNoBorder">
+   <!-- 10-5-3 CS List Simple-->
+    <widget name="list" position="655,135" size="1200,800" itemHeight="80" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="3" />
+</screen>
+  <screen name="CSListPosters" flags="wfNoBorder">
+   <!-- 10-5-4 CS List Posters-->
+    <widget name="list" position="785,135" size="1095,550" itemHeight="55" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
+</screen>
   <!-- 11. MOVIE TEMPLATES -->
   <!-- 11-1 BACKGROUND -->
   <screen name="MovieBG" flags="wfNoBorder">

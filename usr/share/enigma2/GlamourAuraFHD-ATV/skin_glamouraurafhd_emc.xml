@@ -107,8 +107,7 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="MovieInfoTMDb" position="0,0" size="1920,1080" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
+    <panel name="EventViewScreen" />
     <panel name="Title1" />
     <ePixmap position="660,840" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="cyan1" zPosition="7" transparent="1" backgroundColor="background20" />
@@ -135,8 +134,7 @@
     <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
   </screen>
   <screen name="EMCImdbScan" position="0,0" size="1920,1080" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
+    <panel name="EventViewScreen" />
     <panel name="Title1" />
     <ePixmap position="1325,660" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
     <widget name="Setup" position="1440,660" size="400,50" font="RegularB; 33" valign="center" zPosition="6" transparent="1" />
@@ -165,8 +163,7 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="getCover" position="0,0" size="1920,1080" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
+    <panel name="EventViewScreen" />
     <panel name="Title1" />
     <widget name="info" position="50,745" size="580,200" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
     <widget name="poster" position="150,145" size="400,600" alphatest="on" transparent="0" zPosition="5" />
@@ -188,8 +185,7 @@
     <widget name="previewtext" position="540,180" size="1305,750" font="Regular; 32" zPosition="6" transparent="1" backgroundColor="background20" />
   </screen>
   <screen name="DownloadMovieInfo" position="0,0" size="1920,1080" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundClock" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,40" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
+    <panel name="EventViewScreen" />
     <panel name="Title1" />
     <ePixmap position="660,840" size="100,100" pixmap="GACommon/images/tmdb.png" alphatest="blend" transparent="1" zPosition="5" scale="1" />
     <widget name="movie_name" position="660,35" size="1000,100" font="RegularB;34" halign="center" valign="center" foregroundColor="sky" zPosition="7" transparent="1" backgroundColor="background20" />

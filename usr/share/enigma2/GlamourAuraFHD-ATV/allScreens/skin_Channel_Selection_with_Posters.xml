@@ -4,7 +4,7 @@
   <!-- CS Background -->
     <panel name="CSBackground" />
   <!-- CS List -->
-    <widget name="list" position="785,135" size="1095,550" itemHeight="50" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;34" serviceInfoFont="RegularL;31" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" nonplayableMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
+    <panel name="CSListPosters" />
   <!-- CS Event Infos -->
     <panel name="CSEventInfos" />
   <!-- CS Extended Description -->
