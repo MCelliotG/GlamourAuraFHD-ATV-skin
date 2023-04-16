@@ -20,6 +20,7 @@ except:
 	pass
 
 cainfo = (
+	("0002", "0002", "18Crypt"),
 	("0100", "01FF", "Seca"),
 	("0200", "02FF", "CCETT"),
 	("0300", "03FF", "Kabel Deutschland"),
@@ -76,6 +77,7 @@ cainfo = (
 	("2810", "2810", "DeltaSat"),
 	("4347", "4347", "Crypton"),
 	("4348", "4348", "Secure TV"),
+	("44A0", "44A0", "Russkiy Mir"),
 	("4700", "47FF", "General Instrument/Motorola"),
 	("4825", "4825", "ChinaEPG"),
 	("4855", "4856", "Intertrust"),
@@ -158,12 +160,12 @@ cainfo = (
 	("4B50", "4B53", "Safeview India"),
 	("4B54", "4B54", "Telelynx"),
 	("4B60", "4B60", "KiwiSat"),
-	("4B61", "4B61", "O2 Cz."),
+	("4B61", "4B61", "O2 Czech"),
 	("4B62", "4B62", "GMA"),
 	("4B63", "4B63", "redCrypter"),
 	("4B64", "4B64", "Samsung/TV Key"),
 	("5347", "5347", "GkWare/StreamGuru"),
-	("5448", "5448", "Gospell VisionCrypt"),
+	("5448", "5449", "Gospell VisionCrypt"),
 	("5501", "5580", "Griffin"),
 	("5581", "55FF", "Bulcrypt"),
 	("5601", "5604", "Verimatrix"),
@@ -173,6 +175,8 @@ cainfo = (
 	("56A0", "56A0", "Laxmi"),
 	("56A1", "56A1", "C-Dot"),
 	("56B0", "56B0", "Laxmi"),
+	("56D0", "56D1", "redCrypter"),
+	("6448", "6449", "Gospell VisionCrypt"),
 	("7AC8", "7AC8", "Gospell VisionCrypt"),
 	("7BE0", "7BE1", "DreCrypt"),
 	("AA00", "AA01", "Best CAS"),
@@ -491,7 +495,7 @@ class GlamourAccess(Poll, Converter):
 				return False
 			if self.type == self.RUSCAS:
 				for caid in caids:
-					if caid >= "A100" and caid <= "A1FF":
+					if caid >= "A100" and caid <= "A1FF" or caid == "44A0":
 						return True
 				return False
 			if self.type == self.CODICAS:
