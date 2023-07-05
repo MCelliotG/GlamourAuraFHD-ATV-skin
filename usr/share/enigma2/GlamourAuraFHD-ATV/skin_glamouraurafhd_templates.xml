@@ -386,6 +386,41 @@
     <widget objectTypes="blue,Label,Button" name="blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1300,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
+  <screen name="FullKeysCH" flags="wfNoBorder">
+    <widget source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="550,870" size="225,75" conditional="key_red" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_red" render="Label" position="535,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_red" transparent="1" zPosition="5">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_green" render="Pixmap" pixmap="GACommon/buttons/aura_green.png" position="805,870" size="225,75" conditional="key_green" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_green" render="Label" position="790,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_green" transparent="1" zPosition="5">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_yellow" render="Pixmap" pixmap="GACommon/buttons/aura_yellow.png" position="1060,870" size="225,75" conditional="key_yellow" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_yellow" render="Label" position="1045,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_yellow" transparent="1" zPosition="5">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_blue" render="Pixmap" pixmap="GACommon/buttons/aura_blue.png" position="1315,870" size="225,75" conditional="key_blue" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_blue" render="Label" position="1300,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_blue" transparent="1" zPosition="5">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1560,900" size="90,45" conditional="key_menu" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_info" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1655,900" size="90,45" conditional="key_info" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_help" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1750,900" size="90,45" conditional="key_help" alphatest="blend" transparent="1" zPosition="4">
+      <convert type="ConditionalShowHide" />
+    </widget>
+  </screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <!-- Button Graphics -->
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -3009,21 +3044,21 @@
   </screen>
   <!-- 10-5 Channel Selection Lists -->
   <screen name="CSList" flags="wfNoBorder">
-   <!-- 10-5-1 CS List -->
+    <!-- 10-5-1 CS List -->
     <widget name="list" position="785,135" size="1095,850" itemHeight="85" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
   </screen>
   <screen name="CSListRadio" flags="wfNoBorder">
-   <!-- 10-5-2 CS List Radio-->
+    <!-- 10-5-2 CS List Radio-->
     <widget name="list" position="785,135" size="1095,640" itemHeight="80" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
-</screen>
+  </screen>
   <screen name="CSListSimple" flags="wfNoBorder">
-   <!-- 10-5-3 CS List Simple-->
+    <!-- 10-5-3 CS List Simple-->
     <widget name="list" position="655,135" size="1200,800" itemHeight="80" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="3" />
-</screen>
+  </screen>
   <screen name="CSListPosters" flags="wfNoBorder">
-   <!-- 10-5-4 CS List Posters-->
+    <!-- 10-5-4 CS List Posters-->
     <widget name="list" position="785,135" size="1095,550" itemHeight="55" scrollbarMode="showOnDemand" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" colorEventProgressbar="sky" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="white" colorEventProgressbarSelected="cyan2" colorFallbackItem="white" colorServiceDescription="sky" colorServiceDescriptionFallback="white" colorServiceDescriptionSelected="lightciel" colorServiceDescriptionSelectedFallback="cyan" colorServiceRecordedcolorServicePseudoRecorded="transpyellow" colorServiceRecording="transpred" colorServiceSelectedFallback="white" colorServiceStreamed="orange" colorServiceWithAdvertisment="green" fieldMargins="20" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" itemsDistances="15" listMarginLeft="5" listMarginRight="30" nonplayableMargins="20" progressbarBorderWidth="2" progressbarHeight="18" progressBarWidth="75" progressInfoFont="Numbers;33" serviceInfoFont="RegularL;31" serviceItemHeight="50" serviceNameFont="RegularB;34" serviceNumberFont="Numbers;31" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselbig.png" alphatest="off" zPosition="3" />
-</screen>
+  </screen>
   <!-- 11. MOVIE TEMPLATES -->
   <!-- 11-1 BACKGROUND -->
   <screen name="MovieBG" flags="wfNoBorder">

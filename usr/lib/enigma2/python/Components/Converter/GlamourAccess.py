@@ -1000,7 +1000,7 @@ class GlamourAccess(Poll, Converter):
 			except:
 				return None
 # Egami 
-		if os.path.exists("/tmp/egami.inf", "r"):
+		if os.path.exists("/tmp/egami.inf"):
 			try:
 				lines = open("/tmp/egami.inf", "r").readlines()
 				for line in lines:
