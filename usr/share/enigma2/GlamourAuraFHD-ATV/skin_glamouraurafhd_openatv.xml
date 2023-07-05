@@ -840,7 +840,7 @@
   <screen name="HistoryZapSelector" position="0,0" size="1920,1080" title="History Zap Selector" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/numzap.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,50" size="1305,720" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,115" size="1305,800" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
    MultiContentEntryText(pos = (150, 0), size = (35, 80), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0xffffff, color_sel = 0xf47d19), #index 1 is the selected program icon
@@ -854,18 +854,7 @@
   }
   </convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,770" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,930" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="menu" render="Listbox" position="540,770" size="1305,200" backgroundColor="background20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" selectionDisabled="1" zPosition="5">
-      <convert type="TemplatedMultiContent">
-  {"template": [
-   MultiContentEntryText(pos = (5, 0), size = (1300, 200), font = 0, flags = RT_HALIGN_LEFT| RT_VALIGN_TOP | RT_WRAP, text = 4, color = 0xdeff), #index 4 is the event description
-   ],
- "fonts": [gFont("Regular", 30)],
- "itemHeight": 200
-  }
-  </convert>
-    </widget>
+    <panel name="RGKeysUP1" />
   </screen>
   <screen name="ZapHistoryBrowser" title="ZapHistoryBrowser" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
     <panel name="ScreenElements2" />
