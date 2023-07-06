@@ -1603,6 +1603,102 @@
     <widget name="update" position="535,175" size="1305,770" font="Regular; 34" foregroundColor="amarillo" backgroundColor="background20" valign="top" halign="left" transparent="1" scrollbarMode="showOnDemand" zPosition="8" />
     <panel name="FullKeysUP" />
   </screen>
+  <!-- 2-03. Plugin Browser List -->
+    <screen name="PluginBrowserList" position="0,0" size="1920,1080" title="Plugin Browser List" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="PluginsCommon" />
+    <widget source="pluginList" render="Listbox" position="815,145" size="990,825" conditional="pluginList" listOrientation="vertical" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/menusel990.png" alphatest="off" transparent="1" zPosition="3">
+      <convert type="TemplatedMultiContent">
+	{
+	"template":
+	[
+	MultiContentEntryPixmapAlphaBlend(pos=(0, 7), size=(150, 60), png=3, flags=BT_SCALE),
+	MultiContentEntryText(pos=(160, 0), size=(830, 42), font=0, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=1),
+	MultiContentEntryText(pos=(160, 42), size=(830, 30), font=1, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER, text=2)
+	],
+	"fonts": [parseFont("RegularB;32"), parseFont("Regular;25")],
+	"itemHeight": 75
+	}
+    </convert>
+    </widget>
+  </screen>
+  <!-- 2-04. Plugin Browser Grid -->
+  <screen name="PluginBrowserGrid" position="0,0" size="1920,1080" title="Plugin Browser Grid" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="PluginsCommon" />
+    <widget source="pluginGrid" render="Listbox" position="815,145" size="1000,800" conditional="pluginGrid" listOrientation="grid" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/buttons/icon1.png" scale="1" alphatest="off" transparent="1" zPosition="3">
+      <convert type="TemplatedMultiContent">
+	{
+	"template":
+	[
+	MultiContentEntryText(pos=(0, 0), size=(250, 160), font=0),
+	MultiContentEntryText(pos=(5, 5), size=(245, 155), font=0, backcolor=0x20294a6b),
+	MultiContentEntryPixmapAlphaBlend(pos=(50, 10), size=(150, 60), png=3, flags=BT_SCALE),
+	MultiContentEntryText(pos=(5, 70), size=(240, 90), font=0, flags=RT_VALIGN_CENTER | RT_HALIGN_CENTER | RT_WRAP, text=1, color=0xffffff, color_sel=0xdeff)
+	],
+	"fonts": [parseFont("RegularB;27")],
+	"itemWidth": 250,
+	"itemHeight": 160
+	}
+    </convert>
+    </widget>
+  </screen>
+  <!-- 2-05. Plugins Common Template -->
+  <screen name="PluginsCommon" flags="wfNoBorder">
+    <panel name="ScreenElements5" />
+    <ePixmap pixmap="GACommon/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="50,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="95,733" size="560,35" font="Numbers; 30" zPosition="6" backgroundColor="darkgrey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="dark">
+      <convert type="GlamourSpace">FlashInfo,Simple</convert>
+    </widget>
+    <ePixmap pixmap="GACommon/images/plugins.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
+    <widget name="quickselect" position="815,145" size="990,825" font="Regular;100" foregroundColor="cyan" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="4" />
+    <widget name="description" position="50,790" size="700,150" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <panel name="FullKeysUP" />
+    <!-- Button MIH -->
+    <widget objectTypes="key_menu,StaticText,Label" source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1725,50" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_menu,menu,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1725,50" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_help,StaticText,Label" source="key_help" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1725,95" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_help,help,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1725,95" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+  </screen>
+  <screen name="PluginAction" position="0,0" size="1920,1080" title="Plugins" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="PluginsCommon" />
+    <widget source="plugins" render="Listbox" position="815,145" size="990,800" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/menusel990.png" alphatest="off" transparent="1" zPosition="3">
+      <convert type="TemplatedMultiContent">
+	{
+	"template":
+	[
+	MultiContentEntryPixmapAlphaBlend(pos=(5, 10), size=(60, 50), png=6, flags=BT_SCALE),
+	MultiContentEntryText(pos=(70, 0), size=(915, 80), font=0, flags=RT_VALIGN_CENTER, text=2),
+	MultiContentEntryText(pos=(70, 0), size=(590, 45), font=1, flags=RT_VALIGN_CENTER, text=3, color=0xffffff, color_sel=0x90e6),
+	MultiContentEntryText(pos=(660, 0), size=(235, 45), font=1, flags=RT_VALIGN_CENTER, text=5, color=0xffffff, color_sel=0xffffc6),
+	MultiContentEntryText(pos=(70, 45), size=(825, 35), font=2, flags=RT_VALIGN_CENTER, text=4, color=0xffffff, color_sel=0xc8eaff),
+	MultiContentEntryPixmapAlphaBlend(pos=(908, 5), size=(72, 72), png=7, flags=BT_SCALE)
+	],
+	"fonts": [parseFont("RegularB;32"), parseFont("RegularB;29"), parseFont("Regular;23")],
+	"itemHeight": 80
+	}
+	</convert>
+    </widget>
+  </screen>
+  <!-- 2-06. Processing Screen -->
+  <screen name="Processing" position="center,center" size="1300,250" title="Processing..." flags="wfNoBorder" backgroundColor="background20">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,230" transparent="1" alphatest="blend" scale="1" zPosition="1" />
+    <ePixmap pixmap="GACommon/images/softrestore.png" position="15,15" size="200,200" transparent="1" alphatest="blend" scale="1" zPosition="6" />
+    <widget source="Title" render="Label" position="220,15" size="1070,80" font="RegularB; 45" foregroundColor="white" backgroundColor="background20" valign="center" halign="center" transparent="1" zPosition="8" />
+    <ePixmap pixmap="GACommon/pointers/scanpointer_back.png" position="220,100" size="1070,30" transparent="1" alphatest="blend" scale="1" zPosition="4" />
+    <widget name="progress" position="220,102" size="1070,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_main.png" alphatest="blend" scale="1" transparent="1" zPosition="7" />
+    <widget name="description" position="220,135" size="1070,80" font="Regular; 32" foregroundColor="cyan1" backgroundColor="background20" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+  </screen>
+  <!-- 2-07. Plugin Action Log -->
+  <screen name="PluginActionLog" position="0,0" size="1920,1080" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/plugins.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="log" position="540,60" size="1290,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" valign="top" transparent="1" zPosition="9" />
+  <panel name="FullKeysMIH" />
+  </screen>
   <!-- 3. New FileCommander -->
   <screen name="FileCommander" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />

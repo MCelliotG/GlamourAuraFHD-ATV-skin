@@ -2876,7 +2876,7 @@ if not self["videofps"].text:
   </screen>
   <!-- ### PLUGINS & UPDATE SCREENS -->
   <!-- 01. Plugin Browser -->
-  <screen name="PluginBrowser" position="center,center" size="1920,1080" title="Plugins" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="PluginBrowser" position="0,0" size="1920,1080" title="Plugins" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements1" />
     <ePixmap pixmap="GACommon/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="50,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />

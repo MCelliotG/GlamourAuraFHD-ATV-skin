@@ -602,6 +602,15 @@
     <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget objectTypes="blue,Label,Button" name="blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <!-- Button MIH -->
+    <widget objectTypes="key_menu,StaticText" source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1720,855" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_menu,menu,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1720,855" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_help,StaticText" source="key_help" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1720,900" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_help,help,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1720,900" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
   </screen>
   <screen name="FullKeysH" flags="wfNoBorder">
     <widget name="h_red" pixmap="GACommon/buttons/aura_red.png" position="805,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
