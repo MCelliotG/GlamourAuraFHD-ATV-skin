@@ -174,7 +174,7 @@ satnames = (
 	(18.8, 19.5, "Astra 1KR,1L,1M,1N"),
 	(16.6, 17.3, "Amos 17"),
 	(15.6, 16.3, "Eutelsat 16A"),
-	(12.7, 13.5, "HotBird 13B,13E,13G"),
+	(12.7, 13.5, "HotBird 13F,13G"),
 	(11.5, 11.9, "Sicral 1B"),
 	(9.7, 10.3, "Eutelsat 10A"),
 	(8.7, 9.3, "Eutelsat 9B,Ka-Sat"),

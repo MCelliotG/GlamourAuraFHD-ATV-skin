@@ -1135,9 +1135,9 @@
   <!-- 15. WIZARD SCREENS -->
   <screen name="MessageBoxWizard" title="Message Wizard..." position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
-    <widget name="ErrorPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/attention.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="QuestionPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/question.png" alphatest="on" transparent="1" zPosition="6" />
-    <widget name="InfoPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/information.png" alphatest="on" transparent="1" zPosition="7" />
+    <widget name="ErrorPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/input_warning.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="QuestionPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/input_question.png" alphatest="on" transparent="1" zPosition="6" />
+    <widget name="InfoPixmap" position="50,315" size="400,400" pixmap="GACommon/icons/message/input_info.png" alphatest="on" transparent="1" zPosition="7" />
     <panel name="Wizard1" />
     <panel name="LanguageKey" />
     <panel name="RemoteWizard" />
