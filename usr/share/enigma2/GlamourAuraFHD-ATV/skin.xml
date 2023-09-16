@@ -2144,9 +2144,7 @@ if not self["videofps"].text:
   </screen>
   <!-- 05. MessageBox -->
   <screen name="MessageBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
-    <widget name="ErrorPixmap" pixmap="GACommon/icons/message/attention.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
-    <widget name="QuestionPixmap" pixmap="GACommon/icons/message/question.png" position="255,315" size="400,400" zPosition="3" transparent="1" alphatest="on" />
-    <widget name="InfoPixmap" pixmap="GACommon/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
+  	<widget name="icon" pixmaps="GACommon/icons/message/input_question.png,GACommon/icons/message/input_info.png,GACommon/icons/message/input_warning.png,GACommon/icons/message/input_error.png,GACommon/icons/message/input_message.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
     <panel name="ScreenElements5" />
     <widget name="text" position="810,60" size="1050,480" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
     <widget name="list" font="Regular; 30" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
@@ -2198,7 +2196,7 @@ if not self["videofps"].text:
   </screen>
   <!-- 11. TextBox -->
   <screen name="TextBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
-    <ePixmap pixmap="GACommon/icons/message/information.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
+    <ePixmap pixmap="GACommon/icons/message/input_info.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
     <panel name="ScreenElements5" />
     <widget name="text" position="810,60" size="1050,840" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
