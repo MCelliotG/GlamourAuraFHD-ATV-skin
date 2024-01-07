@@ -26,6 +26,7 @@ try:
 		iAt.atFLAC: ("FLAC", _("FLAC"), 12),
 		iAt.atOGG: ("OGG", _("OGG"), 13),
 		iAt.atOPUS: ("OPUS", _("OPUS"), 14),
+		iAt.atAC4: ("AC4", _("AC4"), 15),
 		iAt.atUnknown: ("unknown", _("<unknown>"), -1)
 	}
 except:
@@ -58,6 +59,7 @@ class GlamourAudioInfo(Poll, Converter, object):
 			"12_mpeg": ("mpeg",),
 			"13_ogg": ("vorbis", "ogg"),
 			"14_opus": ("opus",),
+			"15_dolbyac4": ("dolbyac4","ac4","ac-4"),
 			}
 		self.codec_info = { "dolbydigitalplus" : ("51", "20", "71"),
 			"dolbydigital" : ("51", "20", "10", "71"),

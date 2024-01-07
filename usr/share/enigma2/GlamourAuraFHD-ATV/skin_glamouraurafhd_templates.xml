@@ -225,6 +225,8 @@
     <menu key="swap_manager" image="GACommon/images/swap.png" />
     <menu key="usbdisk_init" image="GACommon/images/usb.png" />
     <!-- Common interface -->
+    <menu key="autocam_settings" image="GACommon/images/autocam_settings.png" />
+    <menu key="cardserver_settings" image="GACommon/images/cardserver_settings.png" />   
     <menu key="cccam_info" image="GACommon/images/cccam.png" />
     <menu key="ci_assign" image="GACommon/images/ciassign.png" />
     <menu key="ci_selection" image="GACommon/images/ciassign.png" />
@@ -234,6 +236,7 @@
     <menu key="parental_setup" image="GACommon/images/parental.png" />
     <menu key="softcam_settings" image="GACommon/images/camd.png" />
     <menu key="softcam_setup" image="GACommon/images/camsetup.png" />
+    <menu key="streamrelay_settings" image="GACommon/images/streaming.png" />
     <!-- Shutdown -->
     <menu key="deep_standby" image="GACommon/images/deep_standby.png" />
     <menu key="Hardreset" image="GACommon/images/power.png" />
@@ -285,13 +288,19 @@
   <setups>
     <setup key="default" image="GACommon/images/setup.png" />
     <setup key="Audio" image="GACommon/images/audiosetup.png" />
+    <setup key="AutoCam" image="GACommon/images/autocam_settings.png" />
     <setup key="AutoLanguage" image="GACommon/images/autolang.png" />
-    <!--setup key="BirthdayReminderSettings" image="GACommon/images/bday.png" /-->
+    <setup key="BirthdayReminderSettings" image="GACommon/images/bday.png" />
+    <setup key="Cardserver" image="GACommon/images/cardserver_settings.png" />
+    <setup key="CCcamLineEdit" image="GACommon/images/cccam.png" />
+    <setup key="CCcamProfile" image="GACommon/images/cccam.png" />
     <setup key="ChannelSelection" image="GACommon/images/channelselection.png" />
+    <setup key="CiSelection" image="GACommon/images/cisetup.png" />
     <setup key="CISettings" image="GACommon/images/cisettings.png" />
     <setup key="Display" image="GACommon/images/lcd.png" />
+    <setup key="DNS" image="GACommon/images/dns.png" />
     <setup key="dvdplayer" image="GACommon/images/dvd.png" />
-    <!--setup key="EditBirthdaySetting" image="GACommon/images/bday.png" /-->
+    <setup key="EditBirthdaySetting" image="GACommon/images/bday.png" />
     <setup key="EPG" image="GACommon/images/epgsettings.png" />
     <setup key="EPGEnhanced" image="GACommon/images/epgenhanced.png" />
     <setup key="EPGGraphical" image="GACommon/images/epggraphical.png" />
@@ -300,22 +309,37 @@
     <setup key="EPGMulti" image="GACommon/images/epgmulti.png" />
     <setup key="EPGVertical" image="GACommon/images/epgvertical.png" />
     <setup key="FactoryReset" image="GACommon/images/factory.png" />
+    <setup key="FlashExpander" image="GACommon/images/flashexpander.png" />
+    <setup key="GPTSlotManager" image="GACommon/images/slotmanager.png" />
     <setup key="HardDisk" image="GACommon/images/hdd-big.png" />
     <setup key="HDMICEC" image="GACommon/images/hdmicec.png" />
+    <setup key="HDMIRecord" image="GACommon/images/hdmicec.png" />
+    <setup key="InputDeviceSetup" image="GACommon/images/hdmicec.png" />
     <setup key="Keyboard" image="GACommon/images/keyboard.png" />
+    <setup key="KexecSlotManager" image="GACommon/images/slotmanager.png" />
+    <setup key="LEDs" image="GACommon/images/led.png" />
+    <setup key="Locale" image="GACommon/images/hdmicec.png" />
     <setup key="Logs" image="GACommon/images/crashlog.png" />
     <setup key="MisPlsLcnScanScreen" image="GACommon/images/misplslcn.png" />
+    <setup key="MovieSelection" image="GACommon/images/movie.png" />
+    <setup key="Network" image="GACommon/images/network.png" />
     <setup key="openwebif" image="GACommon/images/webif.png" />
     <setup key="OscamInfo" image="GACommon/images/oscam.png" />
     <setup key="OSD3D" image="GACommon/images/auto_3d.png" />
+    <setup key="Password" image="GACommon/images/panel+.png" />
     <setup key="Playback" image="GACommon/images/play_big.png" />
+    <setup key="PluginBrowser" image="GACommon/images/plugins.png" />
     <setup key="PowerTimer" image="GACommon/images/powertimer.png" />
     <setup key="Recording" image="GACommon/images/recording.png" />
     <setup key="RecordTimer" image="GACommon/images/timer.png" />
     <setup key="RemoteButton" image="GACommon/images/remotesetup.png" />
     <setup key="RFModulator" image="GACommon/images/rfmod.png" />
+    <setup key="Satellite" image="GACommon/images/satellite.png" />
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
+    <setup key="Softcam" image="GACommon/images/camsetup.png" />
+    <setup key="SoftwareManager" image="GACommon/images/softwaremanager.png" />
     <setup key="SpecialFeatures" image="GACommon/images/specialfeatures.png" />
+    <setup key="StreamRelay" image="GACommon/images/streaming.png" />
     <setup key="Subtitle" image="GACommon/images/subsetup.png" />
     <setup key="TMDB" image="GACommon/images/tmdb.png" />
     <setup key="Time" image="GACommon/images/timezone.png" />
@@ -324,6 +348,7 @@
     <setup key="Usage" image="GACommon/images/customize.png" />
     <setup key="UserInterface" image="GACommon/images/ui.png" />
     <setup key="WeatherSettings" image="GACommon/images/weather.png" />
+    <setup key="video_setup" image="GACommon/images/videosettings.png" />
     <setup key="VolumeAdjust" image="GACommon/images/volumeadjust.png" />
     <setup key="vps" image="GACommon/images/vps.png" />
   </setups>
@@ -2609,13 +2634,13 @@
   <!-- Provider name and Reference -->
   <screen name="P+RInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/infobar/infobar_provider2IB.png" position="425,130" zPosition="-12" size="1240,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1145,135" size="500,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+    <widget source="session.CurrentService" render="Label" position="1145,135" size="500,40" font="Regular; 26" halign="center" valign="center" foregroundColor="black" backgroundColor="grey" transparent="1" noWrap="1" zPosition="7">
       <convert type="ServiceName">Provider</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPicon" position="1045,125" size="100,60" alphatest="blend" scale="1" transparent="1" zPosition="7">
       <convert type="ServiceName">Provider</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="440,135" size="600,40" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" noWrap="1">
+    <widget source="session.CurrentService" render="GlamRoll" position="440,135" size="600,40" font="Regular; 26" halign="center" valign="center" foregroundColor="black" backgroundColor="deepgrey" transparent="1" noWrap="1" zPosition="7">
       <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
@@ -2964,7 +2989,7 @@
   </screen>
   <!--  CAS info -->
   <screen name="CasInfo" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" halign="center" zPosition="7" backgroundColor="amarillo" transparent="1" text="CAS Info" valign="center" noWrap="1" foregroundColor="amarillo">
+    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" foregroundColor="amarillo" backgroundColor="transparent" transparent="1" text="CAS Info" valign="center" halign="center" noWrap="1" shadowColor="grey" shadowOffset="1,0" zPosition="7">
       <convert type="GlamourAccess">CasInfo</convert>
     </widget>
   </screen>
