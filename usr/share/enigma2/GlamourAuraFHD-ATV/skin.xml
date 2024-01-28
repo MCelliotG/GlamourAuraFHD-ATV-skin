@@ -2705,7 +2705,7 @@ if not self["videofps"].text:
   <!-- 08. User Manager -->
   <screen name="UserManager" position="0,0" size="1920,1080" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts_manager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="config" render="Listbox" position="540,90" size="1305,630" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
         {"template": [
@@ -2723,7 +2723,7 @@ if not self["videofps"].text:
   <!-- 09. Mount Editor -->
   <screen name="AutoMountEdit" position="0,0" size="1920,1080" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts_manager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,90" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
     <widget name="introduction" position="540,745" size="1305,60" font="RegularB;33" halign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" />
     <panel name="FullKeys1" />
@@ -2733,7 +2733,7 @@ if not self["videofps"].text:
   <!-- 10. Mount Manager -->
   <screen name="AutoMountManager" position="0,0" size="1920,1080" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts_manager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="config" render="Listbox" position="540,90" size="1305,630" scrollbarMode="showOnDemand" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" transparent="1" zPosition="4">
       <convert type="TemplatedMultiContent">
                         {"template": [

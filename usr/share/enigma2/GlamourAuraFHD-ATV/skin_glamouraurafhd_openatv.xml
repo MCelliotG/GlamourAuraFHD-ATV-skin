@@ -130,6 +130,11 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/sabnzbd.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="NetworkCommon" />
   </screen>
+  <screen name="NetworkServicesSetup" position="0,0" size="1920,1080" title="Network Services" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netservices.png" alphatest="on" transparent="1" zPosition="5" />
+    <panel name="NetworkCommon" />
+  </screen>
   <screen name="NetworkPassword" position="0,0" size="1920,1080" title="Network Password" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pininput.png" alphatest="on" transparent="1" zPosition="5" />
