@@ -149,8 +149,8 @@
     <!-- Playback, Rec, Timeshift -->
     <menu key="hdmirecord_setup" image="GACommon/images/hdmi.png" />
     <menu key="playback_setup" image="GACommon/images/play_big.png" />
-    <menu key="rec" image="GACommon/images/recordsetup.png" />
-    <menu key="recording_setup" image="GACommon/images/recording.png" />
+    <menu key="rec" image="GACommon/images/recording.png" />
+    <menu key="recording_setup" image="GACommon/images/recordsetup.png" />
     <menu key="timshift_setup" image="GACommon/images/timeshift.png" />
     <menu key="vod_setup" image="GACommon/images/vod.png" />
     <!-- Extended -->
@@ -205,6 +205,9 @@
     <menu key="netafp_setup" image="GACommon/images/netafp.png" />
     <menu key="netftp_setup" image="GACommon/images/netftp.png" />
     <menu key="netmounts_setup" image="GACommon/images/netmounts.png" />
+    <menu key="networkservices_setup" image="GACommon/images/netservices.png" />
+    <menu key="netmounts_manager" image="GACommon/images/netmounts_manager.png" />
+    <menu key="netmounts_browser" image="GACommon/images/netmounts.png" />
     <menu key="netnfs_setup" image="GACommon/images/netnfs.png" />
     <menu key="netrts_setup" image="GACommon/images/rtsp.png" />
     <menu key="netsabnzbd_setup" image="GACommon/images/sabnzbd.png" />
@@ -217,6 +220,7 @@
     <menu key="openwebif" image="GACommon/images/webif.png" />
     <menu key="password_setup" image="GACommon/images/pininput.png" />
     <!-- Storage -->
+    <menu key="flash_expander" image="GACommon/images/flashexpander.png" />
     <menu key="harddisk_check" image="GACommon/images/hddcheck.png" />
     <menu key="harddisk_convert" image="GACommon/images/hddconvert.png" />
     <menu key="harddisk_init" image="GACommon/images/hddinit.png" />
@@ -229,7 +233,7 @@
     <menu key="cardserver_settings" image="GACommon/images/cardserver_settings.png" />   
     <menu key="cccam_info" image="GACommon/images/cccam.png" />
     <menu key="ci_assign" image="GACommon/images/ciassign.png" />
-    <menu key="ci_selection" image="GACommon/images/ciassign.png" />
+    <menu key="ci_selection" image="GACommon/images/cisettings.png" />
     <menu key="ci_settings" image="GACommon/images/cisettings.png" />
     <menu key="ci_setup" image="GACommon/images/cisetup.png" />
     <menu key="oscam_info" image="GACommon/images/oscam.png" />
@@ -306,6 +310,7 @@
     <setup key="EPGGraphical" image="GACommon/images/epggraphical.png" />
     <setup key="EPGInfobar" image="GACommon/images/epginfobar.png" />
     <setup key="EPGInfobarGraphical" image="GACommon/images/epginfobargraphical.png" />
+    <setup key="EPGJumpTime" image="GACommon/images/timer.png" />
     <setup key="EPGMulti" image="GACommon/images/epgmulti.png" />
     <setup key="EPGVertical" image="GACommon/images/epgvertical.png" />
     <setup key="FactoryReset" image="GACommon/images/factory.png" />
@@ -323,6 +328,10 @@
     <setup key="MisPlsLcnScanScreen" image="GACommon/images/misplslcn.png" />
     <setup key="MovieSelection" image="GACommon/images/movie.png" />
     <setup key="Network" image="GACommon/images/network.png" />
+    <setup key="NetworkInadynSetup" image="GACommon/images/inadyn.png" />
+    <setup key="NetworkMiniDLNASetup" image="GACommon/images/minidlna.png" />
+    <setup key="NetworkServicesSetup" image="GACommon/images/netservices.png" />
+    <setup key="NetworkuShareSetup" image="GACommon/images/ushare.png" />
     <setup key="openwebif" image="GACommon/images/webif.png" />
     <setup key="OscamInfo" image="GACommon/images/oscam.png" />
     <setup key="OSD3D" image="GACommon/images/auto_3d.png" />
@@ -344,7 +353,7 @@
     <setup key="TMDB" image="GACommon/images/tmdb.png" />
     <setup key="Time" image="GACommon/images/timezone.png" />
     <setup key="Timeshift" image="GACommon/images/timeshift.png" />
-    <setup key="Tuner" image="GACommon/images/tuner.png" />
+    <setup key="Tuner" image="GACommon/images/tuner_settings.png" />
     <setup key="Usage" image="GACommon/images/customize.png" />
     <setup key="UserInterface" image="GACommon/images/ui.png" />
     <setup key="WeatherSettings" image="GACommon/images/weather.png" />
@@ -3003,7 +3012,9 @@
     <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
     <widget name="HelpWindow" position="540,870" size="1320,90" zPosition="11" transparent="1" />
     <widget name="setupimage" position="50,315" size="400,400" conditional="setupimage" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="Image" position="50,315" size="400,400" conditional="Image" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupKeys" />
+    
   </screen>
   <!-- 10. CHANNEL SELECTION TEMPLATES -->
   <!-- 10-1 Background -->
