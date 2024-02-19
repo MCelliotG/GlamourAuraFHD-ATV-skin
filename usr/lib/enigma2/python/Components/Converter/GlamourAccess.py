@@ -92,7 +92,7 @@ cainfo = (
 	("4A80", "4A8F", "THALESCrypt"),
 	("4A90", "4A9F", "Runcom"),
 	("4AA0", "4AAF", "SIDSA"),
-	("4AB0", "4ABF", "Beijing Compunicate"),
+	("4AB0", "4ABF", "Sky Pilot"),
 	("4AC0", "4ACF", "Latens"),
 	("4AD0", "4AD1", "XCrypt"),
 	("4AD2", "4AD3", "Beijing Digital"),
