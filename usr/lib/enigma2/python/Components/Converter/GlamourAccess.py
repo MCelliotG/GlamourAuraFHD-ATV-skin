@@ -180,6 +180,7 @@ cainfo = (
 	("7BE0", "7BE1", "DreCrypt"),
 	("AA00", "AA01", "Best CAS"),
 	("A100", "A1FF", "RusCrypt"),
+	("FFFE", "FFFE", "TrophyAccess"),
 	("0001", "0001", "IPDC SPP"),
 	("0002", "0002", "18Crypt"),
 	("0004", "0006", "OMA"),
