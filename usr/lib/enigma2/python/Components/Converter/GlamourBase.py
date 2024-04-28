@@ -6,8 +6,7 @@
 from __future__ import absolute_import, division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Components.Converter.Poll import Poll 
-import NavigationInstance
+from Components.Converter.Poll import Poll
 from ServiceReference import ServiceReference, resolveAlternate 
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
 from Tools.Transponder import ConvertToHumanReadable
@@ -327,6 +326,9 @@ class GlamourBase(Poll, Converter, object):
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.list = []
+		self.tp = None
+		self.tpinfo = None
+		self.tpDataUpdate = None
 		if "FreqInfo" in type:
 			self.type = self.FREQINFO
 		elif "Orbital" in type:
@@ -598,40 +600,36 @@ class GlamourBase(Poll, Converter, object):
 			orbp = str((float(orbp)) / 10.0) + "°E"
 		return orbp
 
-	def reference(self):
-		playref = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
-		if playref:
-			refstr = playref.toString() or ""
-			return refstr
+	def reference(self, info):
+		ref = info.getInfoString(iServiceInformation.sServiceref)
+		if "%3a/" in ref or ":/" in ref.lower():
+			return ref.replace("%3a", ":").replace("%3A", ":")
 
-	def streamtype(self):
-		playref = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
-		if playref:
-			refstr = playref.toString()
-			strtype = refstr.replace("%3a", ":")
-			if "0.0.0.0:" in strtype and (strtype.startswith("1:0:")) or "127.0.0.1:" in strtype and (strtype.startswith("1:0:")) or "localhost:" in strtype and (strtype.startswith("1:0:")):
+	def streamtype(self, info):
+		streamref = info.getInfoString(iServiceInformation.sServiceref)
+		ref = self.reference(info)
+		if ref:
+			if "0.0.0.0:" in ref and (ref.startswith("1:0:")) or "127.0.0.1:" in ref and (ref.startswith("1:0:")) or "localhost:" in ref and (ref.startswith("1:0:")):
 				return "Internal TS Relay"
-			if not (strtype.startswith("1:0:")):
+			if not (ref.startswith("1:0:")):
 				return "IPTV/Non-TS Stream"
-			if "%3a/" in refstr and (strtype.startswith("1:0:")):
+			if "%3a/" in streamref and (ref.startswith("1:0:")):
 				return "IPTV/TS Stream"
-			if (strtype.startswith("1:134:")):
+			if (ref.startswith("1:134:")):
 				return "Alternative"
 			else:
 				return ""
 
-	def streamurl(self):
-		playref = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
-		if playref:
-			refstr = playref.toString()
-			if "%3a/" in refstr or ":/" in refstr:
-				strurl = refstr.split(":")
-				streamurl = strurl[10].replace("%3a", ":")
+	def streamurl(self, info):
+		streamref = info.getInfoString(iServiceInformation.sServiceref)
+		if streamref:
+			if "%3a/" in streamref or ":/" in streamref.lower():
+				streamurl = streamref.split(":")[10].replace("%3a", ":").replace("%3A", ":")
 				if len(streamurl) > 80:
 					streamurl = "%s..." % streamurl[:79]
 				return streamurl
-			else:
-				return ""
+		else:
+			return ""
 
 	def pidstring(self, info):
 		vpid = info.getInfo(iServiceInformation.sVideoPID)
@@ -716,80 +714,87 @@ class GlamourBase(Poll, Converter, object):
 	@cached
 	def getText(self):
 		service = self.source.service
+		if service is None:
+			return ""
 		info = service and service.info()
 		if not info:
 			return ""
-		feinfo = service.frontendInfo()
-		if feinfo:
-			tp = feinfo.getAll(config.usage.infobar_frontend_source.value == "settings")
-			if tp:
-				tpinfo = ConvertToHumanReadable(tp)
-			if not tp:
-				tp = info.getInfoObject(iServiceInformation.sTransponderData)
-				tpinfo = ConvertToHumanReadable(tp)
-
+		if self.tpDataUpdate:
+			feinfo = service.frontendInfo()
+			if feinfo:
+				self.tp = feinfo.getAll(config.usage.infobar_frontend_source.value == "settings")
+				if self.tp:
+					self.tpinfo = ConvertToHumanReadable(self.tp)
+		tp = self.tp
+		if not tp:
+			tp = info.getInfoObject(iServiceInformation.sTransponderData)
+			if tp is None:
+				return ""
+			tpinfo = ConvertToHumanReadable(tp)
+		else:
+			tpinfo = self.tpinfo
 
 		if self.type == self.FREQINFO:
-			refstr = str(self.reference())
-			if "%3a/" in refstr or ":/" in refstr:
-				return self.streamurl()
+			ref = self.reference(info)
+			if ref:
+				return self.streamurl(info)
 			else:
-				if "DVB-S" in self.tunertype(tp):
+				if "DVB-S" in tp.get("tuner_type"):
 					satf = "%s %s %s %s %s %s" % (self.frequency(tp), self.polarization(tpinfo), self.system(tpinfo), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
 					if "is_id" in tpinfo or "pls_code" in tpinfo or "pls_mode" in tpinfo or "t2mi_plp_id" in tp:
 						return sp(satf) + self.multistream(tpinfo) + self.t2mi_info(tpinfo)
 					else:
 						return satf
-				elif "DVB-C" in self.tunertype(tp):
+				elif "DVB-C" in tp.get("tuner_type"):
 					return "%s Mhz %s SR: %s FEC: %s" % (self.frequency(tp), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
-				elif self.tunertype(tp) == "DVB-T":
+				elif tp.get("tuner_type") == "DVB-T":
 					terf = "%s (%s Mhz)  %s  %s" % (self.channel(tpinfo), self.terrafreq(tp), self.constellation(tpinfo), self.terrafec(tpinfo))
 					return terf
-				elif self.tunertype(tp) == "DVB-T2":
+				elif tp.get("tuner_type") == "DVB-T2":
 					return sp(terf) + self.plpid(tpinfo)
-				elif "ATSC" in self.tunertype(tp):
+				elif "ATSC" in tp.get("tuner_type"):
 					return "%s (Mhz) %s" % (self.terrafreq(tp), self.modulation(tpinfo))
 				return ""
 
-		elif self.type == self.ORBITAL:
-			refstr = str(self.reference())
-			if "%3a/" in refstr or ":/" in refstr:
-				return self.streamtype()
+		if self.type == self.ORBITAL:
+			ref = self.reference(info)
+			if ref:
+				return self.streamtype(info)
 			else:
-				if "DVB-S" in self.tunertype(tp):
+				if "DVB-S" in tp.get("tuner_type"):
 					return "%s (%s)" % (self.satname(tp), self.orbital(tp))
-				elif "DVB-C" in self.tunertype(tp) or "DVB-T" in self.tunertype(tp) or "ATSC" in self.tunertype(tp):
+				elif "DVB-C" in tp.get("tuner_type") or "DVB-T" in tp.get("tuner_type") or "ATSC" in tp.get("tuner_type"):
 					return self.system(tpinfo)
 				return ""
 
-		elif self.type == self.VIDEOCODEC:
+		if self.type == self.VIDEOCODEC:
 			return self.videocodec(info)
 
-		elif self.type == self.FPS:
+		if self.type == self.FPS:
 			return self.framerate(info)
 
-		elif self.type == self.VIDEOSIZE:
+		if self.type == self.VIDEOSIZE:
 			return self.videosize(info)
 
-		elif self.type == self.RESCODEC:
+		if self.type == self.RESCODEC:
 			vidsize = self.videosize(info)
 			fps = self.framerate(info)
 			vidcodec = self.videocodec(info)
 			return "%s   %s   %s" % (vidsize, fps, vidcodec)
 
-		elif self.type == self.PIDINFO:
+		if self.type == self.PIDINFO:
 			return self.pidstring(info)
 
-		elif self.type == self.PIDHEXINFO:
+		if self.type == self.PIDHEXINFO:
 			return self.pidhexstring(info)
 
-		elif self.type == self.STREAMURL:
-			return str(self.streamurl())
+		if self.type == self.STREAMURL:
+			return self.streamurl(info)
 
-		elif self.type == self.PIDHEXINFO:
-			return str(self.streamtype())
+		if self.type == self.STREAMTYPE:
+			return self.streamtype(info)
 
-		elif self.type == self.HDRINFO:
+		if self.type == self.HDRINFO:
 			return self.hdr(info)
 
 	text = property(getText)
@@ -806,7 +811,7 @@ class GlamourBase(Poll, Converter, object):
 			yresol = info.getInfo(iServiceInformation.sVideoHeight)
 			progrs = self.proginfo(info)
 			vcodec = self.videocodec(info)
-			streamurl = self.streamurl()
+			streamurl = self.streamurl(info)
 			gamma = self.hdr(info)
 			if self.type == self.IS1080:
 				if (1880 <= xresol <= 2000 ) or (900 <= yresol <= 1090):
@@ -940,5 +945,14 @@ class GlamourBase(Poll, Converter, object):
 	boolean = property(getBoolean)
 
 	def changed(self, what):
-		if what[0] == self.CHANGED_SPECIFIC and what[1] == iPlayableService.evUpdatedInfo or what[0] == self.CHANGED_POLL:
+		if what[0] == self.CHANGED_SPECIFIC:
+			self.tpDataUpdate = False
+			if what[1] == iPlayableService.evNewProgramInfo:
+				self.tpDataUpdate = True
+			if what[1] == iPlayableService.evEnd:
+				self.tp = None
+				self.tpinfo = None
+			Converter.changed(self, what)
+		elif what[0] == self.CHANGED_POLL and self.tpDataUpdate is not None:
+			self.tpDataUpdate = False
 			Converter.changed(self, what)
