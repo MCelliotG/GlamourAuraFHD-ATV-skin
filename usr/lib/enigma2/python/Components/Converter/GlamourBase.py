@@ -277,7 +277,7 @@ class GlamourBase(Poll, Converter, object):
 	ORBITAL = 1
 	RESCODEC = 2
 	PIDINFO = 3
-	PIDHEXINFO = 4
+	HDRINFO = 4
 	VIDEOCODEC = 5
 	FPS = 6
 	VIDEOSIZE = 7
@@ -315,8 +315,6 @@ class GlamourBase(Poll, Converter, object):
 	ISHDR = 39
 	ISHDR10 = 40
 	ISHLG = 41
-	HDRINFO = 42
-
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -326,6 +324,10 @@ class GlamourBase(Poll, Converter, object):
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.list = []
+		type = type.split(",")
+		self.DecFormat = "Dec" in type
+		self.HexFormat = "Hex" in type
+		self.DecHexFormat = "DecHex" in type
 		self.tp = None
 		self.tpinfo = None
 		self.tpDataUpdate = None
@@ -343,8 +345,8 @@ class GlamourBase(Poll, Converter, object):
 			self.type = self.VIDEOSIZE
 		elif "PidInfo" in type:
 			self.type = self.PIDINFO
-		elif "PidHexInfo" in type:
-			self.type = self.PIDHEXINFO
+		elif "HDRInfo" in type:
+			self.type = self.HDRINFO
 		elif "Is1080" in type:
 			self.type = self.IS1080
 		elif "Is720" in type:
@@ -413,8 +415,6 @@ class GlamourBase(Poll, Converter, object):
 			self.type = self.ISHDR10
 		elif "IsHLG" in type:
 			self.type = self.ISHLG
-		elif "HDRInfo" in type:
-			self.type = self.HDRINFO
 
 
 ######### COMMON VARIABLES #################
@@ -601,12 +601,12 @@ class GlamourBase(Poll, Converter, object):
 		return orbp
 
 	def reference(self, info):
-		ref = info.getInfoString(iServiceInformation.sServiceref)
-		if "%3a/" in ref or ":/" in ref.lower():
-			return ref.replace("%3a", ":").replace("%3A", ":")
+		ref = info.getInfoString(iServiceInformation.sServiceref).lower()
+		if "%3a/" in ref or ":/" in ref:
+			return ref.replace("%3a", ":")
 
 	def streamtype(self, info):
-		streamref = info.getInfoString(iServiceInformation.sServiceref)
+		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
 		ref = self.reference(info)
 		if ref:
 			if "0.0.0.0:" in ref and (ref.startswith("1:0:")) or "127.0.0.1:" in ref and (ref.startswith("1:0:")) or "localhost:" in ref and (ref.startswith("1:0:")):
@@ -621,95 +621,15 @@ class GlamourBase(Poll, Converter, object):
 				return ""
 
 	def streamurl(self, info):
-		streamref = info.getInfoString(iServiceInformation.sServiceref)
+		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
 		if streamref:
-			if "%3a/" in streamref or ":/" in streamref.lower():
-				streamurl = streamref.split(":")[10].replace("%3a", ":").replace("%3A", ":")
+			if "%3a/" in streamref or ":/" in streamref:
+				streamurl = streamref.split(":")[10].replace("%3a", ":")
 				if len(streamurl) > 80:
 					streamurl = "%s..." % streamurl[:79]
 				return streamurl
 		else:
 			return ""
-
-	def pidstring(self, info):
-		vpid = info.getInfo(iServiceInformation.sVideoPID)
-		if (vpid < 0):
-			vpid = ""
-		else:
-			vpid = "VPID:" + str(vpid).zfill(4)
-		apid = info.getInfo(iServiceInformation.sAudioPID)
-		if (apid < 0):
-			apid = ""
-		else:
-			apid = "APID:" + str(apid).zfill(4)
-		sid = info.getInfo(iServiceInformation.sSID)
-		if (sid < 0):
-			sid = ""
-		else:
-			sid = "SID:" + str(sid).zfill(4)
-		pcrpid = info.getInfo(iServiceInformation.sPCRPID)
-		if (pcrpid < 0):
-			pcrpid = ""
-		else:
-			pcrpid = "PCR:" + str(pcrpid).zfill(4)
-		pmtpid = info.getInfo(iServiceInformation.sPMTPID)
-		if (pmtpid < 0):
-			pmtpid = ""
-		else:
-			pmtpid = "PMT:" + str(pmtpid).zfill(4)
-		tsid = info.getInfo(iServiceInformation.sTSID)
-		if (tsid < 0):
-			tsid = ""
-		else:
-			tsid = "TSID:" + str(tsid).zfill(4)
-		onid = info.getInfo(iServiceInformation.sONID)
-		if (onid < 0):
-			onid = ""
-		else:
-			onid = "ONID:" + str(onid).zfill(4)
-		pidinfo = "%s %s %s %s %s %s %s" % (vpid, apid, sid, pcrpid, pmtpid, tsid, onid)
-		return pidinfo
-
-
-	def pidhexstring(self, info):
-		vpid = info.getInfo(iServiceInformation.sVideoPID)
-		if (vpid < 0):
-			vpid = ""
-		else:
-			vpid = "VPID:" + str(hex(vpid)[2:]).upper().zfill(4)
-		apid = info.getInfo(iServiceInformation.sAudioPID)
-		if (apid < 0):
-			apid = ""
-		else:
-			apid = "APID:" + str(hex(apid)[2:]).upper().zfill(4)
-		sid = info.getInfo(iServiceInformation.sSID)
-		if (sid < 0):
-			sid = ""
-		else:
-			sid = "SID:" + str(hex(sid)[2:]).upper().zfill(4)
-		pcrpid = info.getInfo(iServiceInformation.sPCRPID)
-		if (pcrpid < 0):
-			pcrpid = ""
-		else:
-			pcrpid = "PCR:" + str(hex(pcrpid)[2:]).upper().zfill(4)
-		pmtpid = info.getInfo(iServiceInformation.sPMTPID)
-		if (pmtpid < 0):
-			pmtpid = ""
-		else:
-			pmtpid = "PMT:" + str(hex(pmtpid)[2:]).upper().zfill(4)
-		tsid = info.getInfo(iServiceInformation.sTSID)
-		if (tsid < 0):
-			tsid = ""
-		else:
-			tsid = "TSID:" + str(hex(tsid)[2:]).upper().zfill(4)
-		onid = info.getInfo(iServiceInformation.sONID)
-		if (onid < 0):
-			onid = ""
-		else:
-			onid = "ONID:" + str(hex(onid)[2:]).upper().zfill(4)
-		pidhexinfo = "%s %s %s %s %s %s %s" % (vpid, apid, sid, pcrpid, pmtpid, tsid, onid)
-		return pidhexinfo
-
 
 	@cached
 	def getText(self):
@@ -770,6 +690,9 @@ class GlamourBase(Poll, Converter, object):
 		if self.type == self.VIDEOCODEC:
 			return self.videocodec(info)
 
+		if self.type == self.HDRINFO:
+			return self.hdr(info)
+
 		if self.type == self.FPS:
 			return self.framerate(info)
 
@@ -782,20 +705,103 @@ class GlamourBase(Poll, Converter, object):
 			vidcodec = self.videocodec(info)
 			return "%s   %s   %s" % (vidsize, fps, vidcodec)
 
-		if self.type == self.PIDINFO:
-			return self.pidstring(info)
-
-		if self.type == self.PIDHEXINFO:
-			return self.pidhexstring(info)
-
 		if self.type == self.STREAMURL:
 			return self.streamurl(info)
 
 		if self.type == self.STREAMTYPE:
 			return self.streamtype(info)
 
-		if self.type == self.HDRINFO:
-			return self.hdr(info)
+		if self.type == self.PIDINFO:
+			vpid = info.getInfo(iServiceInformation.sVideoPID)
+			apid = info.getInfo(iServiceInformation.sAudioPID)
+			sid = info.getInfo(iServiceInformation.sSID)
+			pcr = info.getInfo(iServiceInformation.sPCRPID)
+			pmt = info.getInfo(iServiceInformation.sPMTPID)
+			tsid = info.getInfo(iServiceInformation.sTSID)
+			onid = info.getInfo(iServiceInformation.sONID)
+			if vpid < 0:
+				vpid = vpiddec = vpidhex = vpiddh = ""
+			else:
+				vpiddec = str(vpid).zfill(4)
+				vpidhex = str(hex(vpid)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					vpiddec = "VPID:%s" % vpiddec
+				if self.HexFormat:
+					vpidhex = "VPID:%s" % vpidhex
+				if self.DecHexFormat:
+					vpiddh = "V:%s(%s)" % (vpiddec, vpidhex)
+			if apid < 0:
+				apid = apiddec = apidhex = apiddh = ""
+			else:
+				apiddec = str(apid).zfill(4)
+				apidhex = str(hex(apid)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					apiddec = "APID:%s" % apiddec
+				if self.HexFormat:
+					apidhex = "APID:%s" % apidhex
+				if self.DecHexFormat:
+					apiddh = "A:%s(%s)" % (apiddec, apidhex)
+			if sid < 0:
+				sid = siddec = sidhex = siddh = ""
+			else:
+				siddec = str(sid).zfill(4)
+				sidhex = str(hex(sid)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					siddec = "SID:%s" % siddec
+				if self.HexFormat:
+					sidhex = "SID:%s" % sidhex
+				if self.DecHexFormat:
+					siddh = "SID:%s(%s)" % (siddec, sidhex)
+			if pcr < 0:
+				pcr = pcrdec = pcrhex = pcrdh = ""
+			else:
+				pcrdec = str(pcr).zfill(4)
+				pcrhex = str(hex(pcr)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					pcrdec = "PCR:%s" % pcrdec
+				if self.HexFormat:
+					pcrhex = "PCR:%s" % pcrhex
+				if self.DecHexFormat:
+					pcrdh = "PCR:%s(%s)" % (pcrdec, pcrhex)
+			if pmt < 0:
+				pmt = pmtdec = pmthex = pmtdh = ""
+			else:
+				pmtdec = str(pmt).zfill(4)
+				pmthex = str(hex(pmt)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					pmtdec = "PMT:%s" % pmtdec
+				if self.HexFormat:
+					pmthex = "PMT:%s" % pmthex
+				if self.DecHexFormat:
+					pmtdh = "PMT:%s(%s)" % (pmtdec, pmthex)
+			if tsid < 0:
+				tsid = tsiddec = tsidhex = tsiddh = ""
+			else:
+				tsiddec = str(tsid).zfill(4)
+				tsidhex = str(hex(tsid)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					tsiddec = "TSID:%s" % tsiddec
+				if self.HexFormat:
+					tsidhex = "TSID:%s" % tsidhex
+				if self.DecHexFormat:
+					tsiddh = "TSID:%s(%s)" % (tsiddec, tsidhex)
+			if onid < 0:
+				onid = oniddec = onidhex = oniddh = ""
+			else:
+				oniddec = str(onid).zfill(4)
+				onidhex = str(hex(onid)[2:]).upper().zfill(4)
+				if self.DecFormat:
+					oniddec = "ONID:%s" % oniddec
+				if self.HexFormat:
+					onidhex = "ONID:%s" % onidhex
+				if self.DecHexFormat:
+					oniddh = "ONID:%s(%s)" % (oniddec, onidhex)
+			if self.DecFormat:
+				return "%s %s %s %s %s %s %s" % (vpiddec, apiddec, siddec, pcrdec, pmtdec, tsiddec, oniddec)
+			if self.HexFormat:
+				return "%s %s %s %s %s %s %s" % (vpidhex, apidhex, sidhex, pcrhex, pmthex, tsidhex, onidhex)
+			if self.DecHexFormat:
+				return "%s %s %s %s %s %s %s" % (vpiddh, apiddh, siddh, pcrdh, pmtdh, tsiddh, oniddh)
 
 	text = property(getText)
 

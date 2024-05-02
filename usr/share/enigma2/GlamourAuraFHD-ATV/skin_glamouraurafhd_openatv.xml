@@ -24,7 +24,7 @@
     <panel name="EventViewScreen" />
     <ePixmap position="135,315" size="400,400" pixmap="GACommon/images/channelselection.png" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="Title" render="Label" position="655,40" size="990,95" font="Regular; 34" backgroundColor="background20" transparent="1" halign="left" valign="top" zPosition="4" foregroundColor="cyan1" />
-    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="RegularL;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelsel.png" itemHeight="50" zPosition="3" />
+    <widget name="list" position="655,135" size="1205,800" scrollbarMode="showOnDemand" colorServiceDescription="sky" colorServiceDescriptionSelected="lightciel" colorEventProgressbarBorder="white" colorEventProgressbar="sky" colorEventProgressbarBorderSelected="lightciel" colorEventProgressbarSelected="sky" foregroundColorServiceNotAvail="darkgrey" serviceItemHeight="50" serviceNumberFont="Numbers;31" serviceNameFont="RegularB;36" serviceInfoFont="Regular;33" progressBarWidth="75" progressbarHeight="18" itemsDistances="15" fieldMargins="20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/channelsel.png" itemHeight="50" zPosition="3" />
     <panel name="FullKeys2" />
   </screen>
   <screen name="EventViewSimple" position="0,0" size="1920,1080" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
@@ -305,7 +305,7 @@
  {"template": [
  MultiContentEntryText(pos = (5, 0), size = (743, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
  ],
- "fonts": [gFont("RegularL", 32)],
+ "fonts": [gFont("Regular", 32)],
  "itemHeight": 50
  }
 </convert>
@@ -830,7 +830,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_pidinfo.png" position="885,0" zPosition="-12" size="1035,52" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt500.png" position="1360,0" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="885,10" size="950,35" font="Regular; 26" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="background20" halign="right" valign="center" noWrap="1" text="PidInfo">
-      <convert type="GlamourBase">PidHexInfo</convert>
+      <convert type="GlamourBase">PidInfo,Hex</convert>
     </widget>
   </screen>
   <!-- 08f. SECOND INFOBAR ECM -->
@@ -1065,7 +1065,7 @@
  {"template": [
  MultiContentEntryText(pos = (5, 0), size = (1300, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
  ],
- "fonts": [gFont("RegularL", 32)],
+ "fonts": [gFont("Regular", 32)],
  "itemHeight": 50
  }
 </convert>
@@ -1086,7 +1086,7 @@
  {"template": [
  MultiContentEntryText(pos = (5, 0), size = (1300, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
  ],
- "fonts": [gFont("RegularL", 32)],
+ "fonts": [gFont("Regular", 32)],
  "itemHeight": 50
  }
 </convert>
@@ -1110,7 +1110,7 @@
  {"template": [
  MultiContentEntryText(pos = (5, 0), size = (1300, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
  ],
- "fonts": [gFont("RegularL", 32)],
+ "fonts": [gFont("Regular", 32)],
  "itemHeight": 50
  }
 </convert>
@@ -1609,7 +1609,7 @@
     <panel name="FullKeysUP" />
   </screen>
   <!-- 2-03. Plugin Browser List -->
-    <screen name="PluginBrowserList" position="0,0" size="1920,1080" title="Plugin Browser List" flags="wfNoBorder" backgroundColor="transparent">
+  <screen name="PluginBrowserList" position="0,0" size="1920,1080" title="Plugin Browser List" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="PluginsCommon" />
     <widget source="pluginList" render="Listbox" position="815,145" size="990,825" conditional="pluginList" listOrientation="vertical" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/menusel990.png" alphatest="off" transparent="1" zPosition="3">
       <convert type="TemplatedMultiContent">
@@ -1699,10 +1699,10 @@
   </screen>
   <!-- 2-07. Plugin Action Log -->
   <screen name="PluginActionLog" position="0,0" size="1920,1080" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
-  <panel name="ScreenElements2" />
-  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/plugins.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="log" position="540,60" size="1290,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" valign="top" transparent="1" zPosition="9" />
-  <panel name="FullKeysMIH" />
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/plugins.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="log" position="540,60" size="1290,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" valign="top" transparent="1" zPosition="9" />
+    <panel name="FullKeysMIH" />
   </screen>
   <!-- 3. New FileCommander -->
   <screen name="FileCommander" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
