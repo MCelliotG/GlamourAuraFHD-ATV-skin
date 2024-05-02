@@ -57,7 +57,7 @@ class GlamTP(VariableText, Renderer):
 				if (info and service):
 					tp = info.getInfoObject(service, iServiceInformation.sTransponderData)
 					tpinfo = ConvertToHumanReadable(tp)
-					refstr = self.source.service.toString()
+					refstr = self.source.service.toString().lower()
 					curref = refstr.replace("%3a", ":")
 					streamtype = streamurl = freq = ch = pol = sys = mod = const = fec = sr = orbpos = isid = plsmode = plscode = plpid = t2mi_id = t2mi_pid = ""
 					try:
