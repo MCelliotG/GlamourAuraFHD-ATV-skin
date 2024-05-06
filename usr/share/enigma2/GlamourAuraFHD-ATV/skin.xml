@@ -251,12 +251,8 @@
     <panel name="MainInfobar" />
     <!-- Provider -->
     <ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1145,135" size="500,40" font="Regular; 26" halign="center" valign="center" foregroundColor="black" backgroundColor="grey" transparent="1" noWrap="1" zPosition="7">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamPicon" position="1045,125" size="100,60" alphatest="blend" scale="1" transparent="1" zPosition="7">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
+    <panel name="Prov" />
+    <!-- BOTTOM INFOBAR MAIN INFO -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Crypt Info -->
     <panel name="CryptInfo" />
