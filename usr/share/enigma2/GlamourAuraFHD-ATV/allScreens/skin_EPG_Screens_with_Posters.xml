@@ -1,0 +1,31 @@
+﻿<skin>
+  <!-- 01. EPG Selection -->
+  <screen name="EPGSelection" position="0,0" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EPGSelectionCommon" />
+    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="1245,140" zPosition="3" size="75,800" alphatest="blend" transparent="1" />
+    <widget source="Event" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="1245,140" size="600,800" zPosition="2" transparent="1" />
+  </screen>
+  <!-- 02. Multi EPG selection -->
+  <screen name="EPGSelectionMulti" position="center,center" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EPGSelectionMultiCommon" />
+    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="1305,220" zPosition="3" size="75,720" alphatest="blend" transparent="1" />
+    <widget source="Event" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="1305,220" size="540,720" zPosition="2" transparent="1" />
+  </screen>
+  <!-- 03. Graphical Multi EPG -->
+  <screen name="GraphMultiEPG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="GraphMultiEPGCommon" />
+    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="1305,205" zPosition="3" size="75,720" alphatest="blend" transparent="1" />
+    <widget source="Event" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="1305,205" size="540,720" zPosition="2" transparent="1" />
+  </screen>
+  <!-- 04. Graphical EPG PIG -->
+  <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="GraphicalEPGPIGCommon" />
+    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="870,620" zPosition="6" size="75,330" alphatest="blend" transparent="1" />
+    <widget source="Event" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="890,620" size="250,330" zPosition="5" transparent="1" />
+  </screen>
+  <!-- 05. EPG Vertical PIG-->
+  <screen name="EPGverticalPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EPGverticalPIGCommon" />
+    <widget source="Event" render="GlamPosterX" nexts="0" usedImage="poster" delayPic="0" position="1650,650" size="220,290" zPosition="5" transparent="1" />
+  </screen>
+</skin>

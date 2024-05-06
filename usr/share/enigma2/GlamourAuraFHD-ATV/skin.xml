@@ -1884,94 +1884,19 @@ if not self["videofps"].text:
   <!-- ### EPG MENUS -->
   <!-- 01. EPG Selection -->
   <screen name="EPGSelection" position="0,0" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <widget source="Title" render="Label" position="645,75" size="1005,60" font="RegularB; 40" backgroundColor="background20" halign="center" transparent="1" foregroundColor="sky" zPosition="3" />
-    <widget source="Event" render="Label" position="60,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget name="list" position="650,140" size="1220,800" font="Regular;28" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" selectionPixmap="GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="off" transparent="1" zPosition="4" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
-    <panel name="FullKeys2" />
+    <panel name="EPGSelectionCommon" />
   </screen>
   <!-- 02. Multi EPG selection -->
   <screen name="EPGSelectionMulti" position="center,center" size="1920,1080" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <widget source="Event" render="Label" position="58,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="5" />
-    <eLabel name="new eLabel" position="665,210" size="1200,3" zPosition="5" backgroundColor="cyan" foregroundColor="cyan1" />
-    <widget name="now_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_now.png" alphatest="blend" transparent="1" />
-    <widget name="next_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_next.png" alphatest="blend" transparent="1" />
-    <widget name="more_button_sel" position="670,130" size="705,70" zPosition="3" pixmap="GlamourAuraFHD-ATV/epg/epg_more.png" alphatest="blend" transparent="1" />
-    <widget name="now_text" position="675,140" size="220,60" zPosition="6" text="NOW" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" valign="center" />
-    <widget name="next_text" position="915,140" size="220,60" zPosition="6" text="NEXT" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" valign="center" />
-    <widget name="more_text" position="1150,140" size="220,60" zPosition="6" text="MORE" font="Caps; 30" halign="center" backgroundColor="background20" foregroundColor="amarillo" transparent="1" noWrap="1" valign="center" />
-    <widget name="date" position="1380,145" size="480,60" font="Regular; 28" valign="center" halign="right" transparent="1" noWrap="1" backgroundColor="background20" zPosition="5" foregroundColor="yellow" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
-    <panel name="FullKeys2" />
+    <panel name="EPGSelectionMultiCommon" />
   </screen>
   <!-- 03. Graphical Multi EPG -->
   <screen name="GraphMultiEPG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <widget source="Title" render="Label" position="650,45" size="890,90" font="Regular; 32" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget source="Event" render="Label" position="60,80" size="570,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,750" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget source="Event" render="Label" position="60,205" size="85,45" font="Numbers; 36" halign="left" backgroundColor="sky" transparent="1" zPosition="7">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="545,205" size="85,45" font="Numbers; 36" backgroundColor="background20" transparent="1" zPosition="7" halign="right">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <widget source="Event" render="Progress" position="150,222" size="390,7" borderWidth="0" backgroundColor="white" transparent="1" zPosition="7">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <eLabel position="150,225" size="390,2" backgroundColor="grey" zPosition="6" />
-    <widget name="timeline_text" position="650,135" size="1220,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
-    <eLabel position="650,195" size="1220,3" backgroundColor="cyan1" zPosition="8" />
-    <widget name="list" position="650,205" size="1220,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="timeline0" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline1" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline2" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline3" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline4" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline5" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline_now" position="665,204" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <panel name="FullKeys2" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1552,45" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
+    <panel name="GraphMultiEPGCommon" />
   </screen>
   <!-- 04. Graphical MultiEPG List -->
   <screen name="GraphMultiEPGList" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundEPG" />
-    <panel name="ClockLabel3" />
-    <ePixmap position="40,420" size="180,180" scale="180,180" zPosition="10" pixmap="GACommon/images/epggraphical.png" transparent="1" alphatest="on" />
-    <widget source="Title" render="Label" position="240,45" size="1420,90" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget name="timeline_text" position="239,133" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
-    <eLabel position="240,195" size="1620,3" backgroundColor="cyan1" zPosition="8" />
-    <widget name="list" position="240,200" size="1620,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="timeline0" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline1" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline2" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline3" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline4" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline5" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
-    <widget name="timeline_now" position="255,199" zPosition="9" size="22,720" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
-    <panel name="FullKeys2" />
+    <panel name="GraphMultiEPGListCommon" />
   </screen>
   <!-- 05. Graphical Multi Epg Setup -->
   <screen name="GraphMultiEpgSetup" position="center,center" size="1920,1080" title="Electronic Program Guide Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -1981,83 +1906,11 @@ if not self["videofps"].text:
   </screen>
   <!-- 06. Graphical EPG -->
   <screen name="GraphicalEPG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundEPG" />
-    <panel name="ClockLabel3" />
-    <ePixmap position="40,420" size="180,180" scale="1" zPosition="10" pixmap="GACommon/images/epggraphical.png" transparent="1" alphatest="on" />
-    <widget source="Title" render="Label" position="240,45" size="1420,90" font="RegularB; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget source="Event" render="Label" position="240,870" size="1630,50" font="Regular; 33" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="Label" position="240,920" size="150,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="1715,920" size="150,35" font="Numbers; 34" backgroundColor="background20" transparent="1" halign="center" zPosition="5">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <eLabel position="400,938" size="1305,1" backgroundColor="grey" zPosition="1" />
-    <widget source="Event" render="Progress" position="400,935" size="1305,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_main.png" transparent="1" zPosition="1">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget name="list" position="240,200" size="1620,660" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="lab1" position="240,200" size="1620,660" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
-    <widget name="timeline_text" position="240,135" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
-    <eLabel position="240,190" size="1620,3" backgroundColor="cyan1" zPosition="8" />
-    <widget name="timeline_now" position="255,200" zPosition="9" size="18,660" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <widget name="timeline0" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline1" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline2" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline3" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline4" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline5" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
-    <panel name="FullKeys2" />
+    <panel name="GraphicalEPGCommon" />
   </screen>
   <!-- 07. Graphical EPG PIG -->
   <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackgroundEPG" />
-    <panel name="ClockLabel3" />
-    <ePixmap position="40,420" size="180,180" scale="1" zPosition="10" pixmap="GACommon/images/epgmulti.png" transparent="1" alphatest="on" />
-    <widget source="Title" render="Label" position="240,45" size="1420,90" font="RegularB; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget source="Event" render="Label" position="240,550" size="900,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" noWrap="1">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="Label" position="240,585" size="150,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="995,585" size="150,35" font="Numbers; 34" backgroundColor="background20" transparent="1" halign="center" zPosition="5">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <eLabel position="400,602" size="585,1" backgroundColor="grey" zPosition="5" />
-    <widget source="Event" render="Progress" position="400,600" size="585,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
-    <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="239,620" size="900,330" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
-    <widget name="lab1" position="240,180" size="1620,360" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
-    <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" foregroundColor="yellow" />
-    <eLabel position="240,180" size="1620,3" backgroundColor="cyan1" zPosition="22" />
-    <widget name="timeline_now" position="255,181" zPosition="9" size="18,360" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <widget name="timeline0" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline1" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline2" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline3" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline4" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <widget name="timeline5" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
-    <ePixmap position="240,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="365,960" size="120,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" transparent="1" alphatest="blend" />
-    <ePixmap position="495,960" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
-    <widget source="session.VideoPicture" render="Pig" position="1145,545" size="720,405" backgroundColor="transparent" zPosition="21" />
-    <panel name="FullKeys2" />
+    <panel name="GraphicalEPGPIGCommon" />
   </screen>
   <!-- 08. Movie EPG -->
   <screen name="MovieEpgSetup" position="0,0" size="1920,1080" title="MovieEpg Setup" flags="wfNoBorder" backgroundColor="transparent">
