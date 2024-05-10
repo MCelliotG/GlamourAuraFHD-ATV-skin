@@ -203,7 +203,7 @@
     <widget name="config" font="Regular; 32" position="540,90" size="1320,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
-  <screen name="EMCMediaCenter" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="EMCMediaCenter" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder">
     <!-- CLOCK -->
     <panel name="ClockLabel1" />
     <!-- BACKGROUND -->
@@ -226,7 +226,7 @@
     <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 30" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
     <widget name="anglePix" pixmap="GlamourAuraFHD-ATV/icons/angle.png" position="895,875" size="50,50" alphatest="blend" zPosition="6" transparent="1" />
   </screen>
-  <screen name="EMCSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="EMCSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
     <!--BACKGROUND-->
     <panel name="MainBackgroundClock" />
     <!--LAYOUT-->
@@ -245,7 +245,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1550,85" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
     <panel name="FullKeys2" />
   </screen>
-  <screen name="EMCMediaCenterOwn" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="EMCMediaCenterOwn" position="0,0" size="1920,1080" title="EMC MediaCenter" backgroundColor="transparent" flags="wfNoBorder">
     <!-- CLOCK -->
     <panel name="ClockLabel1" />
     <!-- BACKGROUND -->
@@ -265,7 +265,7 @@
     <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 30" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
     <widget name="anglePix" pixmap="GlamourAuraFHD-ATV/icons/angle.png" position="895,875" size="50,50" alphatest="blend" zPosition="6" transparent="1" />
   </screen>
-  <screen name="EMCSelectionOwn" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="EMCSelectionOwn" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
     <!--BACKGROUND-->
     <panel name="MainBackgroundClock" />
     <!--LAYOUT-->

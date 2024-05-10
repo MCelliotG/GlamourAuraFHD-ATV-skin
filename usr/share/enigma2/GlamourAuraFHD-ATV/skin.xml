@@ -239,42 +239,19 @@
   <!-- ###INFOBARS -->
   <!-- 01. Main Infobar -->
   <screen name="InfoBar" position="0,0" size="1920,1080" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Tuner Infobar -->
-    <panel name="TunerInfobar" />
-    <panel name="TunersInfo" />
-    <!-- Service info and icons -->
-    <panel name="IconsInfobar" />
-    <!-- MIDDLE INFOBAR MAIN INFO -->
+    <panel name="CommonInfobars" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-    <panel name="MainInfobar" />
     <!-- Provider -->
     <ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
     <panel name="Prov" />
-    <!-- BOTTOM INFOBAR MAIN INFO -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Crypt Info -->
-    <panel name="CryptInfo" />
     <panel name="CasInfo" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
-    <!--/* WEATHER WIDGETS -->
+    <!-- Weather Info -->
     <panel name="WeatherToday2" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar2" />
   </screen>
   <!-- 02. Second Infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Tuner Infobar -->
-    <panel name="TunerInfobar" />
-    <panel name="TunersInfo" />
-    <!-- Service info and icons -->
-    <panel name="IconsInfobar" />
-    <!-- MIDDLE INFOBAR MAIN INFO -->
-    <panel name="MainInfobar" />
+    <panel name="CommonInfobars" />
     <!-- Provider name and Reference -->
     <panel name="P+RInfobar" />
     <!-- Current and next event -->
@@ -285,21 +262,15 @@
     <panel name="CPUTempInfobar" />
     <!-- Memory Info -->
     <panel name="MemoryInfobar" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Crypt Info -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-    <panel name="CryptInfo" />
     <panel name="SourceInfo" />
     <panel name="CamName" />
-    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <!-- ECM Info -->
+    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
-    <!--/* WEATHER WIDGETS -->
+    <!-- Weather Info -->
     <panel name="WeatherF2" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar2" />
   </screen>
   <!-- 03. Radio Infobar -->
   <!-- Radio Infobar -->
@@ -765,7 +736,7 @@
   <!-- 10. Subtitle Display -->
   <screen name="SubtitleDisplay" position="0,0" size="1920,1080" zPosition="-1" backgroundColor="transparent" flags="wfNoBorder" />
   <!-- 11. Screensaver -->
-  <screen name="Screensaver" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="background40" alphatest="on">
+  <screen name="Screensaver" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="background40">
     <widget name="picture" position="0,0" size="750,225" pixmap="GlamourAuraFHD-ATV/menu/screensaver.png" alphatest="blend" transparent="1" />
   </screen>
   <!-- 12. Quit Loop Screen -->
@@ -890,7 +861,7 @@
   </screen>
   <!-- ###INFO SCREENS -->
   <!-- 01. About -->
-  <screen name="About" position="0,0" size="1920,1080" title="About" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="About" position="0,0" size="1920,1080" title="About" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/about.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="AboutScrollLabel" position="540,90" size="1305,720" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />
@@ -920,7 +891,7 @@
     <panel name="ServiceInfo" />
   </screen>
   <!-- 04. Translation Info -->
-  <screen name="TranslationInfo" position="0,0" size="1920,1080" title="TranslationInfo" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="TranslationInfo" position="0,0" size="1920,1080" title="TranslationInfo" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/info.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="TranslatorName" render="Label" position="540,90" size="1305,165" font="Regular; 36" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="6" />
@@ -1754,7 +1725,7 @@
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/tv.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 10. Skin Selector -->
-  <screen name="SkinSelector" position="0,0" size="1920,1080" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="SkinSelector" position="0,0" size="1920,1080" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MenuBackground" />
     <panel name="ClockLabel1" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1785,7 +1756,7 @@ if not self["videofps"].text:
   </screen>
   <!-- ### SCREENS -->
   <!-- 01. Setup -->
-  <screen name="Setup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="Setup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements3" />
     <ePixmap position="85,950" size="100,100" pixmap="GACommon/images/setup.png" alphatest="on" scale="1" transparent="1" zPosition="7" />
     <panel name="SetupCommon" />
@@ -1815,7 +1786,7 @@ if not self["videofps"].text:
     </widget>
   </screen>
   <!-- 03. Softcam Setup -->
-  <screen flags="wfNoBorder" name="SoftcamSetup" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
+  <screen flags="wfNoBorder" name="SoftcamSetup" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,735" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,820" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -1827,7 +1798,7 @@ if not self["videofps"].text:
     <widget name="info" position="560,210" size="1300,530" font="Regular; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" valign="top" zPosition="15" />
     <panel name="FullKeysMIH" />
   </screen>
-  <screen flags="wfNoBorder" name="SoftcamPanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent" alphatest="on">
+  <screen flags="wfNoBorder" name="SoftcamPanel" position="0,0" size="1920,1080" title="Softcam Setup" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/camd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
@@ -2011,13 +1982,13 @@ if not self["videofps"].text:
     <panel name="MessageBox" />
   </screen>
   <!-- 10. Time Input -->
-  <screen name="TimeInput" position="0,0" size="1920,1080" title="Time Input" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="TimeInput" position="0,0" size="1920,1080" title="Time Input" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timezone.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
     <panel name="RGKeysCO" />
   </screen>
-  <screen name="TimeDateInput" position="0,0" size="1920,1080" title="Time Input" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="TimeDateInput" position="0,0" size="1920,1080" title="Time Input" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/powertimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,390" size="1305,300" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
@@ -2031,7 +2002,7 @@ if not self["videofps"].text:
   </screen>
   <!-- ### MOVIE SCREENS -->
   <!-- 01. Movie Player -->
-  <screen name="MoviePlayer" position="0,0" size="1920,1080" title="InfoBar" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="MoviePlayer" position="0,0" size="1920,1080" title="InfoBar" backgroundColor="transparent" flags="wfNoBorder">
     <!-- CLOCK -->
     <panel name="ClockLabel1" flags="wfNoBorder" />
     <!-- BACKGROUND -->
@@ -2098,7 +2069,7 @@ if not self["videofps"].text:
     <panel name="SetupKeys" />
   </screen>
   <!-- 05. MovieSelection -->
-  <screen name="MovieSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="MovieSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
     <!-- Background -->
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="off" transparent="1" />
@@ -2134,7 +2105,7 @@ if not self["videofps"].text:
     <panel name="FullKeys1" />
   </screen>
   <!-- 09. Movie File Manager -->
-  <screen name="MovieSelectionFileManagerList" position="0,0" size="1920,1080" title="Movie File Manager" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="MovieSelectionFileManagerList" position="0,0" size="1920,1080" title="Movie File Manager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/movieselectionaura.png" position="0,0" size="645,1080" zPosition="-11" alphatest="off" transparent="1" />
     <widget source="Title" render="Label" position="655,35" size="875,95" font="RegularB; 40" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
