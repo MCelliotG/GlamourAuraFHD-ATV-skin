@@ -4,7 +4,7 @@
   <!--  GlamourAuraFHD-ATV Open-Alliance Images by MCelliotG -->
   <!--  ######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
-  <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent" alphatest="on">
+  <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent">
     <panel name="ScreenElements3" />
     <ePixmap position="100,865" size="180,180" scale="1" pixmap="GACommon/images/camd.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
@@ -78,7 +78,7 @@
     <widget name="label1" position="810,890" size="890,50" font="RegularB; 33" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
   </screen>
   <!-- 04. opdBoot Logo Selector -->
-  <screen name="opdBootLogoSelector" position="0,0" size="1920,1080" title="opdBoot Logo Selector" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+  <screen name="opdBootLogoSelector" position="0,0" size="1920,1080" title="opdBoot Logo Selector" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements4" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
@@ -285,7 +285,7 @@
     <panel name="FullKeys1" />
   </screen>
   <!-- 17. Commit Info -->
-  <screen name="CommitInfo" position="0,0" size="1920,1080" title="Commit Info" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="CommitInfo" position="0,0" size="1920,1080" title="Commit Info" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/specialfeat.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="AboutScrollLabel" position="540,90" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
@@ -310,7 +310,7 @@
     <panel name="FullKeysV2" />
   </screen>
   <!-- 19. ModelPic -->
-  <screen name="ModelPic" position="0,0" size="1920,1080" title="ModelPic" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="ModelPic" position="0,0" size="1920,1080" title="ModelPic" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="model" position="540,270" size="1305,300" font="Regular; 45" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
@@ -344,7 +344,7 @@
     <eLabel text="OscamSmartcard 2.4 by arn354 and Undertaker Mod team OPD" position="825,90" size="1000,45" zPosition="6" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="sky" />
   </screen>
   <!-- 22. Usb Format -->
-  <screen name="UsbFormat" position="0,0" size="1920,1080" title="UsbFormat" backgroundColor="transparent" flags="wfNoBorder" alphatest="on">
+  <screen name="UsbFormat" position="0,0" size="1920,1080" title="UsbFormat" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/usb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="lab1" position="540,90" size="1305,750" font="Regular; 36" halign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" split="1" dividechar=":" colposition="0" zPosition="6" />

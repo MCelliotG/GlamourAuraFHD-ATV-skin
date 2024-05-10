@@ -823,20 +823,20 @@ class GlamourBase(Poll, Converter, object):
 				if (1880 <= xresol <= 2000 ) or (900 <= yresol <= 1090):
 					return True
 				return False
-			elif (self.type == self.IS720):
+			elif self.type == self.IS720:
 				if (601 <= yresol <= 740) or (900 <= xresol <= 1300):
 					return True
 				return False
-			elif (self.type == self.IS576):
+			elif self.type == self.IS576:
 				if (501 <= yresol <= 600) and (xresol <= 1030):
 					return True
 				return False
 			elif self.type == self.IS1440:
-				if (2550 <= xresol <= 2570) or (1430 <= yresol <= 1450):
+				if (2550 <= xresol <= 2570) and (1430 <= yresol <= 1450):
 					return True
 				return False
 			elif self.type == self.IS2160:
-				if (3820 <= xresol <= 4100) or (2150 <= yresol <= 2170):
+				if (1720 <= xresol <= 5150) and (1570 <= yresol <= 2170):
 					return True
 				return False
 			elif self.type == self.IS480:

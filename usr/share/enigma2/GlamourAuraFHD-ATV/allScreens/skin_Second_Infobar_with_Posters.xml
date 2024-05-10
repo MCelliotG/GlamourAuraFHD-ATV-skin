@@ -1,25 +1,25 @@
 ﻿<skin>
   <!-- SECOND INFOBAR WITH POSTERS -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="ClockLabel2" />
-    <panel name="TunerInfobar" />
-    <panel name="TunersInfo" />
-    <panel name="IconsInfobar" />
-    <panel name="MainInfobar" />
+    <panel name="CommonInfobars" />
+    <!-- Provider name and Reference -->
     <panel name="P+RInfobar" />
+    <!-- Current and next event -->
     <panel name="EventInfobarPosters" />
+    <!-- Pid and Reference info -->
     <panel name="PIDSInfobar" />
+    <!-- CPU Info and Temp Info Panel -->
     <panel name="CPUTempInfobar" />
+    <!-- Memory Info -->
     <panel name="MemoryInfobar" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
+    <!-- Crypt Info -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-    <panel name="CryptInfo" />
     <panel name="SourceInfo" />
     <panel name="CamName" />
+    <!-- ECM Info -->
     <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
-    <!--panel name="BitrateInfobar" /-->
+    <!-- Weather Info -->
     <panel name="WeatherF2" />
-    <panel name="WeatherInfobar2" />
   </screen>
 </skin>
