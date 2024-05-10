@@ -2643,8 +2643,8 @@
   <!-- Provider name and Reference -->
   <screen name="Prov" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="1145,135" size="500,40" font="Regular; 26" halign="center" valign="center" foregroundColor="black" backgroundColor="grey2" transparent="1" noWrap="1" zPosition="7">
-  <convert type="ServiceName">Provider</convert>
-</widget>
+      <convert type="ServiceName">Provider</convert>
+    </widget>
     <widget source="session.CurrentService" render="GlamPicon" position="1045,125" size="100,60" alphatest="blend" scale="1" transparent="1" zPosition="7">
       <convert type="ServiceName">Provider</convert>
     </widget>
@@ -2653,8 +2653,8 @@
     <ePixmap pixmap="GACommon/infobar/infobar_provider2IB.png" position="425,130" zPosition="-12" size="1240,50" alphatest="off" transparent="1" />
     <panel name="Prov" />
     <widget source="session.CurrentService" render="GlamRoll" position="440,135" size="600,40" font="Regular; 26" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="7">
-  <convert type="ServiceName">Reference</convert>
-</widget>
+      <convert type="ServiceName">Reference</convert>
+    </widget>
   </screen>
   <!-- Current and next event -->
   <screen name="EventInfobar" flags="wfNoBorder">
@@ -3014,22 +3014,22 @@
   <!-- 08b. COMMON INFOBARS -->
   <screen name="CommonInfobars" flags="wfNoBorder">
     <!-- Clock -->
-      <panel name="ClockLabel2" />
+    <panel name="ClockLabel2" />
     <!--Tuner Infobar -->
-      <panel name="TunerInfobar" />
-      <panel name="TunersInfo" />
+    <panel name="TunerInfobar" />
+    <panel name="TunersInfo" />
     <!-- Service info and icons -->
-      <panel name="IconsInfobar" />
+    <panel name="IconsInfobar" />
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <panel name="MainInfobar" />
     <!-- BOTTOM INFOBAR MAIN INFO -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />	
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Crypt Info -->
     <panel name="CryptInfo" />
     <!-- Bitrate -->
     <!--panel name="BitrateInfobar" /-->
     <!-- WEATHER Current Temp on Infobar -->
-      <panel name="WeatherInfobar2" />
+    <panel name="WeatherInfobar2" />
   </screen>
   <!-- 09. SETUP TEMPLATES -->
   <!-- 09-1 Common Setup -->

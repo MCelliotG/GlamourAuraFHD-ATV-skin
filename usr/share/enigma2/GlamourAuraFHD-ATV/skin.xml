@@ -362,37 +362,23 @@
   </screen>
   <!-- 04. Subservices Quickzap -->
   <screen name="SubservicesQuickzap" position="0,0" size="1920,1080" title="Subservices" backgroundColor="transparent" flags="wfNoBorder">
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Tuner Infobar -->
-    <panel name="TunerInfobar" />
-    <panel name="TunersInfo" />
-    <!-- Service info and icons -->
-    <panel name="IconsInfobar" />
-    <!-- MIDDLE INFOBAR MAIN INFO -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-    <panel name="MainInfobar" />
-    <!-- Provider -->
-    <ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1045,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
-    <!-- Crypt Info -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-    <panel name="CryptInfo" />
-    <panel name="SourceInfo" />
-    <panel name="CamName" />
-    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
-    <!-- ECM Info -->
-    <panel name="ECMInfo" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
-    <!--/* WEATHER WIDGETS -->
-    <panel name="WeatherToday" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar2" />
-  </screen>
+  <panel name="CommonInfobars" />
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
+  <panel name="CommonInfobars" />
+  <!-- Provider name and Reference -->
+  <panel name="P+RInfobar" />
+  <!-- Pid and Reference info -->
+  <panel name="PIDSInfobar" />
+  <!-- Crypt Info -->
+  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+  <panel name="SourceInfo" />
+  <panel name="CamName" />
+  <!-- ECM Info -->
+  <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+  <panel name="ECMInfo" />
+  <!-- Weather Info -->
+  <panel name="WeatherToday2" />
+</screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
   <screen name="Menu" position="center,center" size="1920,1080" title="Menu" backgroundColor="transparent" flags="wfNoBorder">
