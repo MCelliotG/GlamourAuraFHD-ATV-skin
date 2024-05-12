@@ -281,11 +281,11 @@ class GlamourBase(Poll, Converter, object):
 	VIDEOCODEC = 5
 	FPS = 6
 	VIDEOSIZE = 7
-	IS1080 = 8
-	IS720 = 9
-	IS576 = 10
-	IS1440 = 11
-	IS2160 = 12
+	IS2160 = 8
+	IS1440 = 9
+	IS1080 = 10
+	IS720 = 11
+	IS576 = 12
 	IS480 = 13
 	IS360 = 14
 	IS288 = 15
@@ -347,16 +347,16 @@ class GlamourBase(Poll, Converter, object):
 			self.type = self.PIDINFO
 		elif "HDRInfo" in type:
 			self.type = self.HDRINFO
+		elif "Is2160" in type:
+			self.type = self.IS2160
+		elif "Is1440" in type:
+			self.type = self.IS1440
 		elif "Is1080" in type:
 			self.type = self.IS1080
 		elif "Is720" in type:
 			self.type = self.IS720
 		elif "Is576" in type:
 			self.type = self.IS576
-		elif "Is1440" in type:
-			self.type = self.IS1440
-		elif "Is2160" in type:
-			self.type = self.IS2160
 		elif "Is480" in type:
 			self.type = self.IS480
 		elif "Is360" in type:
@@ -819,131 +819,131 @@ class GlamourBase(Poll, Converter, object):
 			vcodec = self.videocodec(info)
 			streamurl = self.streamurl(info)
 			gamma = self.hdr(info)
+			if self.type == self.IS2160:
+				if (2160 <= xresol <= 5150) and (1570 <= yresol <= 2170):
+					return True
+				return False
+			if self.type == self.IS1440:
+				if (1430 <= yresol <= 1450):
+					return True
+				return False
 			if self.type == self.IS1080:
-				if (1880 <= xresol <= 2000 ) or (900 <= yresol <= 1090):
+				if (1320 <= xresol <= 3840 ) and (780 <= yresol <= 1090):
 					return True
 				return False
-			elif self.type == self.IS720:
-				if (601 <= yresol <= 740) or (900 <= xresol <= 1300):
+			if self.type == self.IS720:
+				if (601 <= yresol <= 740):
 					return True
 				return False
-			elif self.type == self.IS576:
-				if (501 <= yresol <= 600) and (xresol <= 1030):
+			if self.type == self.IS576:
+				if (501 <= yresol <= 600):
 					return True
 				return False
-			elif self.type == self.IS1440:
-				if (2550 <= xresol <= 2570) and (1430 <= yresol <= 1450):
-					return True
-				return False
-			elif self.type == self.IS2160:
-				if (1720 <= xresol <= 5150) and (1570 <= yresol <= 2170):
-					return True
-				return False
-			elif self.type == self.IS480:
+			if self.type == self.IS480:
 				if (380 <= yresol <= 500):
 					return True
 				return False
-			elif self.type == self.IS360:
+			if self.type == self.IS360:
 				if (300 <= yresol <= 379):
 					return True
 				return False
-			elif self.type == self.IS288:
+			if self.type == self.IS288:
 				if (261 <= yresol <= 299):
 					return True
 				return False
-			elif self.type == self.IS240:
+			if self.type == self.IS240:
 				if (181 <= yresol <= 260):
 					return True
 				return False
-			elif self.type == self.IS144:
+			if self.type == self.IS144:
 				if (120 <= yresol <= 180):
 					return True
 				return False
-			elif self.type == self.ISPROGRESSIVE:
+			if self.type == self.ISPROGRESSIVE:
 				if progrs == "p":
 					return True
 				return False
-			elif self.type == self.ISINTERLACED:
+			if self.type == self.ISINTERLACED:
 				if progrs == "i":
 					return True
 				return False
-			elif self.type == self.ISSTREAMING:
+			if self.type == self.ISSTREAMING:
 				if streamurl:
 					return True
 				return False
-			elif self.type == self.HASMPEG2:
+			if self.type == self.HASMPEG2:
 				if vcodec == "MPEG2":
 					return True
 				return False
-			elif self.type == self.HASAVC:
+			if self.type == self.HASAVC:
 				if vcodec == "AVC" or vcodec == "MPEG4":
 					return True
 				return False
-			elif self.type == self.HASH263:
+			if self.type == self.HASH263:
 				if vcodec == "H263":
 					return True
 				return False
-			elif self.type == self.HASVC1:
+			if self.type == self.HASVC1:
 				if "VC1" in vcodec:
 					return True
 				return False
-			elif self.type == self.HASMPEG4VC:
+			if self.type == self.HASMPEG4VC:
 				if vcodec == "MPEG4-VC":
 					return True
 				return False
-			elif self.type == self.HASHEVC:
+			if self.type == self.HASHEVC:
 				if vcodec == "HEVC" or vcodec == "H265":
 					return True
 				return False
-			elif self.type == self.HASMPEG1:
+			if self.type == self.HASMPEG1:
 				if vcodec == "MPEG1":
 					return True
 				return False
-			elif self.type == self.HASVP8:
+			if self.type == self.HASVP8:
 				if vcodec == "VB8" or vcodec == "VP8":
 					return True
 				return False
-			elif self.type == self.HASVP9:
+			if self.type == self.HASVP9:
 				if vcodec == "VB9" or vcodec == "VP9":
 					return True
 				return False
-			elif self.type == self.HASVP6:
+			if self.type == self.HASVP6:
 				if vcodec == "VB6" or vcodec == "VP6":
 					return True
 				return False
-			elif self.type == self.HASDIVX:
+			if self.type == self.HASDIVX:
 				if "DIVX" in vcodec:
 					return True
 				return False
-			elif self.type == self.HASXVID:
+			if self.type == self.HASXVID:
 				if "XVID" in vcodec:
 					return True
 				return False
-			elif self.type == self.HASSPARK:
+			if self.type == self.HASSPARK:
 				if vcodec == "SPARK":
 					return True
 				return False
-			elif self.type == self.HASAVS:
+			if self.type == self.HASAVS:
 				if "AVS" in vcodec:
 					return True
 				return False
-			elif self.type == self.HASVCC:
+			if self.type == self.HASVCC:
 				if "VCC" in vcodec:
 					return True
 				return False
-			elif self.type == self.ISSDR:
+			if self.type == self.ISSDR:
 				if gamma == "SDR":
 					return True
 				return False
-			elif self.type == self.ISHDR:
+			if self.type == self.ISHDR:
 				if gamma == "HDR":
 					return True
 				return False
-			elif self.type == self.ISHDR10:
+			if self.type == self.ISHDR10:
 				if gamma == "HDR10":
 					return True
 				return False
-			elif self.type == self.ISHLG:
+			if self.type == self.ISHLG:
 				if gamma == "HLG":
 					return True
 				return False
