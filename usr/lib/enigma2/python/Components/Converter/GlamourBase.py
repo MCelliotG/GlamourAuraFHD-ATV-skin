@@ -503,13 +503,19 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 
 	def terrafreq(self, tp):
-		return str(int(tp.get("frequency") + 1) // 1000000)
+		if tp is None:
+			return ""
+		else:
+			return str(int(tp.get("frequency") + 1) // 1000000)
 
 	def channel(self, tpinfo):
 		return str(tpinfo.get("channel")) or ""
 
 	def symbolrate(self, tp):
-		return str(int(tp.get("symbol_rate", 0) // 1000))
+		if tp is None:
+			return ""
+		else:
+			return str(int(tp.get("symbol_rate", 0) // 1000))
 
 	def polarization(self, tpinfo):
 		return str(tpinfo.get("polarization_abbreviation")) or ""
@@ -533,7 +539,10 @@ class GlamourBase(Poll, Converter, object):
 		return str(tpinfo.get("system")) or ""
 
 	def tunertype(self, tp):
-		return str(tp.get("tuner_type")) or ""
+		if tp is None:
+			return ""
+		else:
+			return str(tp.get("tuner_type")) or ""
 
 	def terrafec(self, tpinfo):
 		return "LP:%s HP:%s GI:%s" % (tpinfo.get("code_rate_lp"), tpinfo.get("code_rate_hp"), tpinfo.get("guard_interval"))
@@ -659,20 +668,20 @@ class GlamourBase(Poll, Converter, object):
 			if ref:
 				return self.streamurl(info)
 			else:
-				if "DVB-S" in tp.get("tuner_type"):
+				if "DVB-S" in self.tunertype(tp):
 					satf = "%s %s %s %s %s %s" % (self.frequency(tp), self.polarization(tpinfo), self.system(tpinfo), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
 					if "is_id" in tpinfo or "pls_code" in tpinfo or "pls_mode" in tpinfo or "t2mi_plp_id" in tp:
 						return sp(satf) + self.multistream(tpinfo) + self.t2mi_info(tpinfo)
 					else:
 						return satf
-				elif "DVB-C" in tp.get("tuner_type"):
+				elif "DVB-C" in self.tunertype(tp):
 					return "%s Mhz %s SR: %s FEC: %s" % (self.frequency(tp), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
-				elif tp.get("tuner_type") == "DVB-T":
+				elif self.tunertype(tp) == "DVB-T":
 					terf = "%s (%s Mhz)  %s  %s" % (self.channel(tpinfo), self.terrafreq(tp), self.constellation(tpinfo), self.terrafec(tpinfo))
 					return terf
-				elif tp.get("tuner_type") == "DVB-T2":
+				elif self.tunertype(tp) == "DVB-T2":
 					return sp(terf) + self.plpid(tpinfo)
-				elif "ATSC" in tp.get("tuner_type"):
+				elif "ATSC" in self.tunertype(tp):
 					return "%s (Mhz) %s" % (self.terrafreq(tp), self.modulation(tpinfo))
 				return ""
 
@@ -681,9 +690,9 @@ class GlamourBase(Poll, Converter, object):
 			if ref:
 				return self.streamtype(info)
 			else:
-				if "DVB-S" in tp.get("tuner_type"):
+				if "DVB-S" in self.tunertype(tp):
 					return "%s (%s)" % (self.satname(tp), self.orbital(tp))
-				elif "DVB-C" in tp.get("tuner_type") or "DVB-T" in tp.get("tuner_type") or "ATSC" in tp.get("tuner_type"):
+				elif "DVB-C" in self.tunertype(tp) or "DVB-T" in self.tunertype(tp) or "ATSC" in self.tunertype(tp):
 					return self.system(tpinfo)
 				return ""
 
