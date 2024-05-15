@@ -1804,9 +1804,7 @@
     <panel name="FullKeys1" />
   </screen>
   <screen name="FileCommanderContextMenu" position="0,0" size="1920,1080" title="FileCommander Context Menu" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
