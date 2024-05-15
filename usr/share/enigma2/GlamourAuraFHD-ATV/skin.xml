@@ -436,7 +436,7 @@
   </screen>
   <!-- 06. Menu System-->
   <screen name="menu_system" position="0,0" size="1920,1080" title="System" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="ScreenElements4" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/system.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="MainMenu1" />
     <panel name="MenuSystem" />
@@ -1562,9 +1562,7 @@
   </screen>
   <!-- 04. Audio Selection -->
   <screen name="AudioSelection" title="Audio Selection" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <ePixmap pixmap="GACommon/images/audiosetup.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="config" font="Regular; 30" position="900,60" size="925,375" scrollbarMode="showOnDemand" itemHeight="75" selectionPixmap="GlamourAuraFHD-ATV/selections/audiosel2.png" alphatest="off" transparent="1" zPosition="3" />
     <widget source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="795,60" size="225,75" transparent="1" zPosition="3" alphatest="blend">
@@ -1630,17 +1628,13 @@
   </screen>
   <!-- 07. EventView Context -->
   <screen name="EventViewContextMenu" position="center,center" size="1920,1080" title="Channellist menu" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/channelselection.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 08. Bouquet Selection -->
   <screen name="BouquetSelector" position="0,0" size="1920,1080" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <widget name="menu" font="Regular; 30" position="810,90" size="1050,700" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="3" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/bouquet.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="810,790" size="810,45" zPosition="-3" alphatest="blend" transparent="1" />
@@ -1704,9 +1698,7 @@
   </screen>
   <!-- 09. Channel Context Menu -->
   <screen name="ChannelContextMenu" position="center,center" size="1920,1080" title="Channellist menu" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/tv.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
@@ -1897,15 +1889,12 @@ if not self["videofps"].text:
   <!-- ### MESSAGEBOXES -->
   <!-- 01. ChoiceBox -->
   <screen name="ChoiceBox" position="0,0" size="1920,1080" flags="wfNoBorder" title="Input" backgroundColor="transparent">
-    <panel name="MainBackground3" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
+    <panel name="ScreenElements4" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/choice.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" position="805,60" size="1050,240" font="RegularB; 34" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" enableWrapAround="1" />
     <widget name="list" position="805,300" size="1050,550" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" zPosition="6" />
     <ePixmap position="720,110" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="720,880" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
-    <panel name="FullKeysH" />
   </screen>
   <!-- 02. InputBox -->
   <screen name="InputBox" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
@@ -1931,7 +1920,7 @@ if not self["videofps"].text:
   <!-- 05. MessageBox -->
   <screen name="MessageBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <widget name="icon" pixmaps="GACommon/icons/message/input_question.png,GACommon/icons/message/input_info.png,GACommon/icons/message/input_warning.png,GACommon/icons/message/input_error.png,GACommon/icons/message/input_message.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <panel name="ScreenElements5" />
+    <panel name="ScreenElements6" />
     <widget name="text" position="810,60" size="1050,480" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
     <widget name="list" font="Regular; 30" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
   </screen>
@@ -1983,7 +1972,7 @@ if not self["videofps"].text:
   <!-- 11. TextBox -->
   <screen name="TextBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/icons/message/input_info.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
-    <panel name="ScreenElements5" />
+    <panel name="ScreenElements6" />
     <widget name="text" position="810,60" size="1050,840" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
   </screen>
   <!-- ### MOVIE SCREENS -->
