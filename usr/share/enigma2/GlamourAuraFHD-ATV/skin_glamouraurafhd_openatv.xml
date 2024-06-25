@@ -495,8 +495,8 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/install_local.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="activityslider" position="600,255" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" alphatest="blend" transparent="1" zPosition="4" />
-    <widget source="package" render="Label" position="600,115" size="1170,135" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="5" halign="left" foregroundColor="sky" valign="center" />
-    <widget source="status" render="Label" position="600,295" size="1170,150" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="top" />
+    <widget name="package" position="600,115" size="1170,135" font="RegularB; 36" backgroundColor="background20" transparent="1" zPosition="5" halign="left" foregroundColor="sky" valign="center" />
+    <widget name="status" position="600,295" size="1170,150" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="6" halign="center" valign="top" />
     <widget name="slider" position="600,465" size="1170,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_main.png" alphatest="blend" transparent="1" zPosition="7" />
     <widget name="log" position="600,495" size="1170,350" font="Regular; 32" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="amarillo" valign="top" halign="left" transparent="1" conditional="log" zPosition="5" />
     <panel name="FullKeys1" />

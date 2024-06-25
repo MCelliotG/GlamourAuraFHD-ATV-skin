@@ -489,11 +489,12 @@
     <widget name="fulldescription" position="650,150" size="650,700" font="Regular; 30" transparent="1" zPosition="6" backgroundColor="background20" valign="top" halign="left" />
     <eLabel name="separator" position="1300,150" size="3,700" zPosition="4" foregroundColor="cyan1" backgroundColor="cyan" valign="center" halign="center" />
     <widget name="cover" position="150,230" size="400,600" alphatest="blend" zPosition="20" />
-    <ePixmap position="420,85" size="100,100" zPosition="5" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/star.png" transparent="1" alphatest="blend" />
+    <widget name="backdrop" position="650,150" size="1205,700" alphatest="on" zPosition="-12" />
+    <ePixmap position="420,85" size="100,100" zPosition="5" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/star.png" transparent="1" alphatest="blend" scale="1" />
     <widget name="rating" position="390,185" size="160,45" zPosition="5" font="Regular; 30" halign="center" foregroundColor="amarillo" backgroundColor="cyan2" transparent="1" />
     <widget name="votes_brackets" position="150,185" size="160,45" zPosition="5" font="Regular; 30" halign="center" transparent="1" backgroundColor="cyan2" />
     <widget name="fsk" position="75,830" size="0,0" zPosition="2" font="Regular; 30" halign="center" transparent="1" backgroundColor="cyan2" />
-    <widget name="fsklogo" position="180,85" size="100,100" zPosition="5" alphatest="blend" halign="center" valign="center" />
+    <widget name="fsklogo" position="180,85" size="100,100" zPosition="5" alphatest="blend" halign="center" valign="center" scale="1" />
     <widget name="year_txt" position="1305,150" size="160,85" zPosition="5" font="RegularB; 30" transparent="1" backgroundColor="background20" valign="top" halign="left" />
     <widget name="year" position="1470,150" size="400,85" zPosition="7" font="Regular; 30" transparent="1" valign="top" halign="left" foregroundColor="lightciel" backgroundColor="background20" />
     <widget name="country_txt" position="1305,235" size="160,85" zPosition="5" font="RegularB; 30" transparent="1" backgroundColor="background20" valign="top" halign="left" />
@@ -534,7 +535,20 @@
     <widget name="searchinfo" position="650,45" size="890,100" font="RegularB; 34" foregroundColor="yellow" transparent="1" zPosition="5" backgroundColor="background20" valign="top" halign="left" />
     <widget name="list" font="Regular; 30" position="650,150" size="1200,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="cover" position="150,230" size="400,600" alphatest="blend" zPosition="20" />
+    <widget name="backdrop" position="650,150" size="1205,700" alphatest="on" zPosition="-12" />
     <widget name="data" position="650,555" size="1200,300" font="Regular; 30" transparent="1" zPosition="6" backgroundColor="background20" valign="top" halign="left" />
+    <panel name="FullKeys3" />
+  </screen>
+  <screen name="tmdbScreenPerson" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EventViewScreen" />
+    <panel name="Title1" />
+    <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
+    <widget name="searchinfo" position="650,45" size="890,100" font="RegularB; 34" foregroundColor="yellow" transparent="1" zPosition="5" backgroundColor="background20" valign="top" halign="left" />
+    <widget name="fulldescription" position="650,150" size="1205,700" font="Regular; 30" transparent="1" zPosition="6" backgroundColor="background20" valign="top" halign="left" />
+    <widget name="cover" position="150,230" size="400,600" alphatest="blend" zPosition="20" />
+    <widget name="backdrop" position="650,150" size="1205,700" alphatest="on" zPosition="-12" />
     <panel name="FullKeys3" />
   </screen>
   <screen name="tmdbScreenSeason" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
