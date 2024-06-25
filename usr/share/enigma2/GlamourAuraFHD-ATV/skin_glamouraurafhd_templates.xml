@@ -1828,11 +1828,16 @@
     <panel name="Title2" />
   </screen>
   <screen name="ScreenElements4" flags="wfNoBorder">
-    <panel name="MenuBackground" />
+    <panel name="MainBackground3" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />
   </screen>
   <screen name="ScreenElements5" flags="wfNoBorder">
+    <panel name="MenuBackground" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+  </screen>
+  <screen name="ScreenElements6" flags="wfNoBorder">
     <panel name="MainBackgroundMS" />
     <panel name="ClockLabel1" />
     <panel name="Title1" />

@@ -1467,7 +1467,7 @@
   </screen>
   <!-- 2-05. Plugins Common Template -->
   <screen name="PluginsCommon" flags="wfNoBorder">
-    <panel name="ScreenElements5" />
+    <panel name="ScreenElements6" />
     <ePixmap pixmap="GACommon/infobar/infobar_provider2.png" position="0,725" zPosition="-10" size="675,50" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="50,730" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="95,733" size="560,35" font="Numbers; 30" zPosition="6" backgroundColor="darkgrey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="dark">

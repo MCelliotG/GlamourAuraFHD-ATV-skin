@@ -79,7 +79,7 @@
   </screen>
   <!-- 04. opdBoot Logo Selector -->
   <screen name="opdBootLogoSelector" position="0,0" size="1920,1080" title="opdBoot Logo Selector" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="ScreenElements4" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
     <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
