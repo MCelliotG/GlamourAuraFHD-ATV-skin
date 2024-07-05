@@ -344,6 +344,7 @@
     <setup key="RemoteButton" image="GACommon/images/remotesetup.png" />
     <setup key="RFModulator" image="GACommon/images/rfmod.png" />
     <setup key="Satellite" image="GACommon/images/satellite.png" />
+    <setup key="Skin" image="GACommon/images/skins.png" />
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
     <setup key="Softcam" image="GACommon/images/camsetup.png" />
     <setup key="SoftwareManager" image="GACommon/images/softwaremanager.png" />
