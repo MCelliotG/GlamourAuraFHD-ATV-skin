@@ -414,31 +414,31 @@
     <eLabel position="1162,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-  <!-- Old Lists -->
+    <!-- Old Lists -->
     <widget name="list" font="Regular; 30" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="sublist" font="Regular; 30" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" alphatest="off" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9" />
-  <!-- New Lists -->
-  <widget source="mainlist" render="Listbox" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" >
-   <templates>
-    <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="620" itemHeight="80">
-     <mode name="default">
-      <pixmap index="2" position="2,10" size="55,55" alpha="blend" scale="centerScaled"/>
-      <text index="0" position="65,2" size="555,45" font="0" verticalAlignment="center" />
-      <text index="1" position="70,42" size="545,35" font="1" verticalAlignment="center" />
-     </mode>
-    </template>
-   </templates>
-  </widget>
-  <widget source="sublist" render="Listbox" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" alphatest="off" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9" >
-   <templates>
-    <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="700" itemHeight="80">
-     <mode name="default">
-      <text index="0" position="5,2" size="680,45" font="0" verticalAlignment="center" />
-      <text index="1" position="10,42" size="670,35" font="1" verticalAlignment="center" />
-     </mode>
-    </template>
-   </templates>
-  </widget>
+    <!-- New Lists -->
+    <widget source="mainlist" render="Listbox" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
+      <templates>
+        <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="620" itemHeight="80">
+          <mode name="default">
+            <pixmap index="2" position="2,10" size="55,55" alpha="blend" scale="centerScaled" />
+            <text index="0" position="65,2" size="555,45" font="0" verticalAlignment="center" />
+            <text index="1" position="70,42" size="545,35" font="1" verticalAlignment="center" />
+          </mode>
+        </template>
+      </templates>
+    </widget>
+    <widget source="sublist" render="Listbox" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" alphatest="off" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9">
+      <templates>
+        <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="700" itemHeight="80">
+          <mode name="default">
+            <text index="0" position="5,2" size="680,45" font="0" verticalAlignment="center" />
+            <text index="1" position="10,42" size="670,35" font="1" verticalAlignment="center" />
+          </mode>
+        </template>
+      </templates>
+    </widget>
     <widget name="description" position="540,780" size="1320,80" backgroundColor="background20" transparent="1" font="Regular; 29" zPosition="5" foregroundColor="sky" />
     <panel name="FullKeysMIH" />
   </screen>

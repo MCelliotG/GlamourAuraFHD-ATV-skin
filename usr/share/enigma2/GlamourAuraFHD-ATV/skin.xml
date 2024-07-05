@@ -362,75 +362,63 @@
   </screen>
   <!-- 04. Subservices Quickzap -->
   <screen name="SubservicesQuickzap" position="0,0" size="1920,1080" title="Subservices" backgroundColor="transparent" flags="wfNoBorder">
-  <panel name="CommonInfobars" />
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-  <panel name="CommonInfobars" />
-  <!-- Provider name and Reference -->
-  <panel name="P+RInfobar" />
-  <!-- Pid and Reference info -->
-  <panel name="PIDSInfobar" />
-  <!-- Crypt Info -->
-  <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
-  <panel name="SourceInfo" />
-  <panel name="CamName" />
-  <!-- ECM Info -->
-  <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
-  <panel name="ECMInfo" />
-  <!-- Weather Info -->
-  <panel name="WeatherToday2" />
-</screen>
+    <panel name="CommonInfobars" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
+    <panel name="CommonInfobars" />
+    <!-- Provider name and Reference -->
+    <panel name="P+RInfobar" />
+    <!-- Pid and Reference info -->
+    <panel name="PIDSInfobar" />
+    <!-- Crypt Info -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
+    <panel name="SourceInfo" />
+    <panel name="CamName" />
+    <!-- ECM Info -->
+    <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
+    <panel name="ECMInfo" />
+    <!-- Weather Info -->
+    <panel name="WeatherToday2" />
+  </screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
   <screen name="Menu" position="center,center" size="1920,1080" title="Menu" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/menu.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MainMenuTiles" />
   </screen>
   <!-- 01. Main Menu -->
   <screen name="menu_mainmenu" position="0,0" size="1920,1080" title="Main menu" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/menu.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuMain" />
   </screen>
   <!-- 02. Menu Information -->
   <screen name="menu_information" position="0,0" size="1920,1080" title="Information" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/info.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuInfo" />
   </screen>
   <!-- 03. Menu Timer -->
   <screen name="menu_timermenu" position="0,0" size="1920,1080" title="Information" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timers.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuTimer" />
   </screen>
   <!-- 04. Menu Setup -->
   <screen name="menu_setup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/setup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuSetup" />
   </screen>
   <!-- 05. Menu Scan -->
   <screen name="menu_scan" position="0,0" size="1920,1080" title="Service searching" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/dish-big.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuScan" />
   </screen>
@@ -443,129 +431,101 @@
   </screen>
   <!-- 07. Menu Video -->
   <screen name="menu_video_menu" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/videosetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuVideo" />
   </screen>
   <!-- 08. Menu Audio -->
   <screen name="menu_audio_menu" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/audiosetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuAudio" />
   </screen>
   <!-- 09. Menu Recordings -->
   <screen name="menu_rec" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/recordsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuRec" />
   </screen>
   <!-- 10. Menu Extended -->
   <screen name="menu_extended" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/expert.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuExtended" />
   </screen>
   <!-- 11. Menu Display -->
   <screen name="menu_display" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/displaysetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuDisplay" />
   </screen>
   <!-- 12. Menu OSD -->
   <screen name="menu_osd_menu" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/osdmenu.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuOSD" />
   </screen>
   <!-- 13. Menu EPG -->
   <screen name="menu_epg" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/epgsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuEPG" />
   </screen>
   <!-- 14. Menu EPG Load Save -->
   <screen name="menu_epgloadsave_menu" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/epgloadsave.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuEPGLoadSave" />
   </screen>
   <!-- 15. Menu Network -->
   <screen name="menu_network" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/network.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuNetwork" />
   </screen>
   <!-- 16. Menu Harddisk -->
   <screen name="menu_harddisk" position="0,0" size="1920,1080" title="Standby /restart" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="150,425" size="180,180" scale="1" pixmap="GACommon/images/hdd-big.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuHDD" />
     <panel name="HDDInfoPanel" />
   </screen>
   <!-- 17. Menu Cam -->
   <screen name="menu_cam" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="210,500" size="120,120" scale="1" pixmap="GACommon/images/camsetup.png" alphatest="on" transparent="1" zPosition="5" />
     <ePixmap position="150,400" size="120,120" scale="1" pixmap="GACommon/images/parental.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuCam" />
   </screen>
   <!-- 18. Menu Shutdown -->
   <screen name="menu_shutdown" position="0,0" size="1920,1080" title="Standby /restart" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="150,425" size="180,180" scale="1" pixmap="GACommon/images/shutdown.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuShutdown" />
   </screen>
   <!-- 19. Menu Software -->
   <screen name="menu_software_manager" position="0,0" size="1920,1080" title="Software Manager" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/softwaremanager.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuSoftware" />
   </screen>
   <!-- 20. Menu Software Advanced-->
   <screen name="menu_advanced_software" position="0,0" size="1920,1080" title="Software Manager" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/advanced_software.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="Title1" />
     <panel name="MainMenu1" />
     <panel name="MenuSoftwareAdv" />
   </screen>
@@ -1703,15 +1663,27 @@
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/tv.png" alphatest="on" transparent="1" zPosition="5" />
   </screen>
   <!-- 10. Skin Selector -->
+  <!-- OLD Skin Selector -->
   <screen name="SkinSelector" position="0,0" size="1920,1080" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="MenuBackground" />
-    <panel name="ClockLabel1" />
+    <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
     <widget name="SkinList" font="RegularB; 32" position="810,80" size="930,650" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
     <widget source="introduction" render="Label" position="810,730" size="930,80" font="Regular; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="5" foregroundColor="cyan1" />
     <panel name="RedKey3" />
-    <panel name="Title1" />
+  </screen>
+  <!-- NEW Skin Selector -->
+  <screen name="SkinSelection" position="0,0" size="1920,1080" title="Skin Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
+    <widget name="config" font="RegularB; 32" position="810,110" size="930,600" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
+    <widget name="description" position="810,710" size="930,200" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
+    <widget name="footnote" position="50,730" size="730,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="850,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1180,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget source="key_red" render="Label" position="805,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget source="key_green" render="Label" position="1160,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 11. Subtitle Quickmenu -->
   <screen name="QuickSubtitlesConfigMenu" title="Subtitle Quickmenu" position="0,0" size="1920,575" flags="wfNoBorder" backgroundColor="transparent">
