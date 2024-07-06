@@ -1869,6 +1869,10 @@
     <panel name="MainBackgroundClock" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/eventview.png" position="0,60" size="645,960" zPosition="-11" alphatest="off" transparent="1" />
   </screen>
+  <screen name="EventViewScreenT" flags="wfNoBorder">
+    <panel name="EventViewScreen" />
+    <panel name="Title1" />
+  </screen>
   <!-- 06. TITLES -->
   <screen name="Title1" flags="wfNoBorder" alphatest="on" zPosition="6">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />

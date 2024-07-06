@@ -149,6 +149,7 @@
     <parameter name="FcFileListName" value="65,3,615,47" />
     <parameter name="FileListFont" value="Regular;30" />
     <parameter name="FileListIcon" value="5,2,50,50" />
+    <parameter name="FileListItemHeight" value="50" />
     <parameter name="FileListMultiIcon" value="5,2,50,50" />
     <parameter name="FileListMultiLock" value="2,0,50,50" />
     <parameter name="FileListMultiName" value="60,0,800,50" />
@@ -167,8 +168,12 @@
     <parameter name="PluginBrowserIcon" value="10,15,150,60" />
     <parameter name="PluginBrowserName" value="180,2,50" />
     <parameter name="SelectionListDescr" value="70,2,1000,50" />
+    <parameter name="SelectionListDescription" value="70,2,1000,50" />
     <parameter name="SelectionListLock" value="10,0,50,50" />
     <parameter name="SelectionListLockOff" value="10,0,50,50" />
+    <parameter name="SelectionListIcon" value="5,2,50,50" />
+    <parameter name="SelectionListFontSize" value="30" />
+    <parameter name="SelectionListItemHeight" value="50" />
     <parameter name="ServiceInfo" value="0,0,1050,50" />
     <parameter name="ServiceInfoLeft" value="0,0,525,50" />
     <parameter name="ServiceInfoRight" value="530,0,525,50" />
@@ -1683,7 +1688,7 @@
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="850,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1180,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget source="key_red" render="Label" position="805,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget source="key_green" render="Label" position="1160,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget source="key_green" render="Label" position="1135,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 11. Subtitle Quickmenu -->
   <screen name="QuickSubtitlesConfigMenu" title="Subtitle Quickmenu" position="0,0" size="1920,575" flags="wfNoBorder" backgroundColor="transparent">
@@ -1857,6 +1862,24 @@ if not self["videofps"].text:
     <eLabel name="sliderbg" position="105,978" size="1050,4" backgroundColor="cyan" foregroundColor="cyan" zPosition="3" />
     <widget name="Timeline" position="105,952" size="1050,52" backgroundColor="background20" transparent="1" pointer="GlamourAuraFHD-ATV/pointers/aurapointer_white.png:1050,7" alphatest="blend" zPosition="8" />
     <panel name="MenuCL" />
+  </screen>
+  <!-- 10. OSD Calibration -->
+  <screen name="OSDCalibration" position="0,0" size="1920,1080" title="OSD Calibration" flags="wfNoBorder" backgroundColor="background20">
+    <eRectangle position="0,0" size="e,e" borderColor="red" backgroundColor="background20" borderWidth="1" zPosition="0" />
+    <eRectangle position="25,25" size="e-50,e-50" backgroundColor="background20" borderColor="yellow" borderWidth="1" zPosition="1" />
+    <eRectangle position="50,50" size="e-100,e-100" backgroundColor="background20" borderColor="green" borderWidth="1" zPosition="2" />
+    <eRectangle position="75,75" size="e-150,e-150" backgroundColor="background20" borderColor="blue" borderWidth="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="75,75" size="300,270" zPosition="4" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1545,735" size="300,270" zPosition="4" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1545,75" size="300,270" zPosition="4" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" position="75,735" size="300,270" zPosition="4" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="center,75" size="810,45" zPosition="4" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="555,960" size="810,45" zPosition="4" alphatest="blend" transparent="1" />
+    <widget name="text" position="90,90" size="1720,220" font="Regular; 34" foregroundColor="yellow" transparent="1" valign="top" halign="center" zPosition="4" />
+    <widget name="config" font="Regular; 32" position="180,310" size="1530,400" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel1800.png" alphatest="off" zPosition="6" />
+    <widget name="footnote" position="0,0" size="0,0" />
+    <widget name="description" position="180,710" size="1530,145" font="Regular;32" foregroundColor="cyan1" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="4" />
+    <panel name="FullKeysMIH" />
   </screen>
   <!-- ### MESSAGEBOXES -->
   <!-- 01. ChoiceBox -->

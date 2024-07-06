@@ -464,8 +464,7 @@
   </screen>
   <!-- IMDB -->
   <screen name="IMDB" position="0,0" size="1920,1080" title="IMDb Details Plugin" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="1035,30" size="400,205" pixmap="GACommon/images/imdb.png" alphatest="blend" transparent="1" zPosition="5" name="imdblogo" />
     <widget name="detailslabel" position="65,375" size="570,540" font="Regular; 30" zPosition="12" transparent="1" backgroundColor="sky" valign="top" halign="left" />
     <widget name="castlabel" position="650,225" size="1225,525" font="Regular; 30" zPosition="8" transparent="1" backgroundColor="background20" valign="top" halign="left" />
@@ -480,8 +479,7 @@
   </screen>
   <!-- TMDB -->
   <screen name="tmdbScreenMovie" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
@@ -516,8 +514,7 @@
     <panel name="FullKeys3" />
   </screen>
   <screen name="tmdbScreen" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
@@ -527,8 +524,7 @@
     <panel name="FullKeys3" />
   </screen>
   <screen name="tmdbScreenPeople" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
@@ -540,8 +536,7 @@
     <panel name="FullKeys3" />
   </screen>
   <screen name="tmdbScreenPerson" position="0,0" size="1920,1080" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
@@ -556,8 +551,7 @@
   </screen>
   <!-- TMBD -->
   <screen name="TMBD" position="0,0" size="1920,1080" title="TMBD Details Plugin" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="EventViewScreen" />
-    <panel name="Title1" />
+    <panel name="EventViewScreenT" />
     <ePixmap position="150,385" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="3" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
@@ -1882,6 +1876,39 @@
   <screen name="UnpackInfoScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ArchiverInfoScreen" />
   </screen>
+  <!-- LCD4Linux -->
+  <screen name="LCDdisplayConfig" position="0,0" size="1920,1080" title="LCD4Linux Config" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EventViewScreen" />
+    <panel name="Title2" />
+    <ePixmap position="95,945" size="100,100" pixmap="GACommon/images/lcd4linux.png" alphatest="on" transparent="1" zPosition="13" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" alphatest="blend" position="1550,45" size="90,45" zPosition="3" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" alphatest="blend" position="1555,95" size="90,45" zPosition="3" transparent="1" />
+    <widget name="config" font="Regular; 30" position="650,150" size="1200,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" backgroundColor="background20" foregroundColorSelected="cyan1" backgroundColorSelected="black" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget source="introduction" render="Label" position="650,800" size="1200,50" zPosition="10" font="Regular; 30" halign="center" valign="center" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
+    <widget source="Version" render="Label" position="655,50" size="650,45" zPosition="12" font="Regular; 30" halign="left" valign="center" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget source="LibUSB" render="Label" position="1195,95" size="350,45" zPosition="12" font="Regular; 30" halign="left" valign="center" foregroundColor="red" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget source="About" render="Label" position="655,95" size="540,45" zPosition="12" font="Regular; 30" halign="left" valign="center" backgroundColor="background20" transparent="1" foregroundColor="yellow" noWrap="1" />
+    <widget name="LCD1" position="140,90" zPosition="12" size="400,240" transparent="1" alphatest="blend" scale="1" />
+    <widget name="LCD2" position="140,375" zPosition="12" size="400,240" transparent="1" alphatest="blend" scale="1" />
+    <widget name="LCD3" position="140,660" zPosition="12" size="400,240" transparent="1" alphatest="blend" scale="1" />
+    <widget source="LCD1text" render="Label" position="140,330" size="400,45" zPosition="6" font="Regular; 30" halign="center" valign="center" backgroundColor="sky" transparent="1" noWrap="1" />
+    <widget source="LCD2text" render="Label" position="140,615" size="400,45" zPosition="12" font="Regular; 30" halign="center" valign="center" backgroundColor="sky" transparent="1" noWrap="1" />
+    <widget source="LCD3text" render="Label" position="140,900" size="400,45" zPosition="12" font="Regular; 30" halign="center" valign="center" backgroundColor="sky" transparent="1" noWrap="1" />
+    <panel name="FullKeys3" />
+</screen>
+  <screen name="LCDdisplayMenu" position="0,0" size="1920,1080" title="LCD4linux - Config" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/lcd4linux.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="menu" font="Regular; 30" position="540,75" size="1305,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+</screen>
+  <screen name="LCDdisplayFile" position="0,0" size="1920,1080" title="Select File/Dir..." flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/lcd4linux.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="File" render="Label" position="540,50" size="1305,45" zPosition="12" font="RegularB; 30" halign="center" valign="center" backgroundColor="background20" transparent="1" noWrap="1" foregroundColor="cyan1" />
+    <widget name="LCDfile" font="Regular;30" position="540,100" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <eLabel text="Select" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+</screen>
   <!-- Simple Umount -->
   <screen name="SimpleUmount" position="0,0" size="1920,1080" title="SimpleUmount rel. %s" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
