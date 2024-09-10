@@ -93,6 +93,7 @@
     <menu key="cablescan" image="GACommon/images/cable_scan.png" />
     <menu key="default_lists" image="GACommon/images/manual_scan.png" />
     <menu key="diseqc_tester" image="GACommon/images/diseqc.png" />
+    <menu key="fallbacktuner_settings" image="GACommon/images/remotereceiver.png" />
     <menu key="fastscan" image="GACommon/images/fast_scan.png" />
     <menu key="ipbox_client_Start" image="GACommon/images/ipbox.png" />
     <menu key="manual_scan" image="GACommon/images/manual_scan.png" />
@@ -314,6 +315,7 @@
     <setup key="EPGMulti" image="GACommon/images/epgmulti.png" />
     <setup key="EPGVertical" image="GACommon/images/epgvertical.png" />
     <setup key="FactoryReset" image="GACommon/images/factory.png" />
+    <setup key="Fallbacktuner" image="GACommon/images/remotereceiver.png" />
     <setup key="FlashExpander" image="GACommon/images/flashexpander.png" />
     <setup key="GPTSlotManager" image="GACommon/images/slotmanager.png" />
     <setup key="HardDisk" image="GACommon/images/hdd-big.png" />
