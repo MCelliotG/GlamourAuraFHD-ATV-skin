@@ -1760,7 +1760,8 @@
     <eLabel text="MOVE" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <eLabel text="COPY" position="1580,245" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
-  <!-- File Commander -->
+  <!-- FILE COMMANDER -->
+  <!-- Main Screen -->
   <screen name="FileCommanderScreen" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="410,0" size="1420,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
@@ -1811,6 +1812,60 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="445,900" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
+  <!-- New FileCommander -->
+  <screen name="FileCommander" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="menubig" position="410,0" size="1420,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel1" />
+    <panel name="Title1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1140,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1780,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1200,90" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="420,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1060,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="490,90" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
+    <ePixmap position="20,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+    <eLabel position="1130,60" size="2,800" backgroundColor="cyan1" zPosition="2" foregroundColor="cyan1" />
+    <eLabel position="1135,60" size="2,800" backgroundColor="blue" zPosition="2" foregroundColor="blue" />
+    <widget source="headleft" render="Listbox" position="420,60" size="705,45" foregroundColor="amarillo" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
+      <convert type="TemplatedMultiContent">
+            {"template": [
+                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+                          ],
+             "fonts": [gFont("Regular", 28)],
+             "itemHeight": 45,
+             "selectionEnabled": False
+            }
+       </convert>
+    </widget>
+    <widget name="listleft" font="Regular; 30" position="420,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
+    <widget name="multileft" position="420,125" size="705,650" zPosition="8" />
+    <widget name="sortleft" position="420,775" size="705,80" font="Regular; 27" foregroundColor="amarillo" halign="center" zPosition="7" transparent="1" backgroundColor="background20" valign="center" />
+    <widget source="headright" render="Listbox" position="1140,60" size="705,45" foregroundColor="lightciel" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
+      <convert type="TemplatedMultiContent">
+            {"template": [
+                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+                          ],
+             "fonts": [gFont("Regular", 28)],
+             "itemHeight": 45,
+             "selectionEnabled": False
+            }
+       </convert>
+    </widget>
+    <widget name="listright" font="Regular; 30" position="1140,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
+    <widget name="multiright" position="1140,125" size="705,650" zPosition="8" />
+    <widget name="sortright" position="1140,775" size="705,80" font="Regular; 27" foregroundColor="lightciel" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
+    <widget name="quickselect" position="420,125" size="705,650" font="Regular;100" foregroundColor="amarillo" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
+    <widget name="status" position="420,775" size="1425,80" font="RegularB; 32" foregroundColor="white" backgroundColor="cyan" halign="center" valign="center" zPosition="9" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- Context Menu -->
   <screen name="FileCommanderContextMenu" position="0,0" size="1920,1080" title="FileCommander Context Menu" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements4" />
     <widget name="menu" font="Regular; 30" position="810,90" size="1050,850" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" zPosition="7" />
@@ -1836,6 +1891,7 @@
     </convert>
     </widget>
   </screen>
+  <!-- vEditor -->
   <screen name="vEditor" position="0,0" size="1920,1080" title="File Commander - Addon File-Viewer" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1851,6 +1907,7 @@
     <widget name="unpacking" position="540,805" size="1305,50" scrollbarMode="showOnDemand" foregroundColor="amarillo" zPosition="7" transparent="1" font="Regular; 30" backgroundColor="background20" valign="center" halign="left" />
     <panel name="FullKeys1" />
   </screen>
+  <!-- Compressed Files Screens -->
   <screen name="TarMenuScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ArchiverMenuScreen" />
   </screen>
@@ -1876,6 +1933,30 @@
   <screen name="UnpackInfoScreen" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ArchiverInfoScreen" />
   </screen>
+    <!-- Text Editor -->
+  <screen name="FileCommanderTextEditor" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="path" position="540,75" size="910,50" font="Regular; 32" zPosition="8" transparent="1" foregroundColor="yellow" backgroundColor="background20" valign="top" />
+  <widget name="location" font="Regular; 30" position="1450,75" size="385,50" transparent="1" zPosition="9" halign="right" foregroundColor="yellow" />
+  <widget name="data" position="540,125" size="1305,700" font="Console; 30" foregroundColor="white" backgroundColor="background20" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="7" />
+  <panel name="FullKeys1" />
+</screen>
+  <!-- Data -->
+  <screen name="FileCommanderData" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="data" position="540,75" size="1305,750" font="Regular; 30" foregroundColor="white" backgroundColor="background20" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="7" />
+  <panel name="FullKeysMIH" />
+</screen>
+  <!-- FileViewer -->
+  <screen name="FileCommanderFileViewer" position="0,0" size="1920,1080" title="" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
+  <widget name="path" position="540,75" size="1305,50" font="RegularB; 32" transparent="1" foregroundColor="yellow" backgroundColor="background20" valign="top" halign="center" zPosition="8" />
+  <widget name="data" position="540,125" size="1305,700" font="Regular; 30" foregroundColor="white" backgroundColor="background20" valign="top" scrollbarMode="showOnDemand" transparent="1" zPosition="7" />
+  <panel name="FullKeysMIH" />
+</screen>
   <!-- LCD4Linux -->
   <screen name="LCDdisplayConfig" position="0,0" size="1920,1080" title="LCD4Linux Config" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="EventViewScreen" />
@@ -1895,12 +1976,12 @@
     <widget source="LCD2text" render="Label" position="140,615" size="400,45" zPosition="12" font="Regular; 30" halign="center" valign="center" backgroundColor="sky" transparent="1" noWrap="1" />
     <widget source="LCD3text" render="Label" position="140,900" size="400,45" zPosition="12" font="Regular; 30" halign="center" valign="center" backgroundColor="sky" transparent="1" noWrap="1" />
     <panel name="FullKeys3" />
-</screen>
+  </screen>
   <screen name="LCDdisplayMenu" position="0,0" size="1920,1080" title="LCD4linux - Config" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/lcd4linux.png" alphatest="on" transparent="1" zPosition="5" />
-  <widget name="menu" font="Regular; 30" position="540,75" size="1305,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-</screen>
+    <widget name="menu" font="Regular; 30" position="540,75" size="1305,850" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+  </screen>
   <screen name="LCDdisplayFile" position="0,0" size="1920,1080" title="Select File/Dir..." flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/lcd4linux.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1908,7 +1989,7 @@
     <widget name="LCDfile" font="Regular;30" position="540,100" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <eLabel text="Select" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-</screen>
+  </screen>
   <!-- Simple Umount -->
   <screen name="SimpleUmount" position="0,0" size="1920,1080" title="SimpleUmount rel. %s" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />

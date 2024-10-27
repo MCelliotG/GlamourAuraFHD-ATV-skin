@@ -1283,7 +1283,7 @@
   <!-- 1. Info Screens -->
   <screen name="CommonInfo">
     <widget source="description" render="Label" position="50,715" size="475,230" conditional="description" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
-    <widget name="information" position="535,75" size="1305,780" colPosition="500" conditional="information" divideChar="|" font="Regular; 30" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
+    <widget name="information" position="535,70" size="1305,745" colPosition="500" conditional="information" divideChar="|" font="Regular; 30" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
     <panel name="FullKeysMIH" />
   </screen>
   <screen name="CommonInfo2">
@@ -1407,8 +1407,16 @@
   <!-- 1-19. General Info -->
   <screen name="Information" position="0,0" size="1920,1080" title="Information" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/infopanel.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/service_info.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="CommonInfo" />
+    <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="535,825" size="60,30" zPosition="1" alphatest="blend" />
+    <widget source="session.CurrentService" render="Pixmap" position="535,825" size="60,30" zPosition="2" pixmap="GACommon/icons/infobar/hbbtv_on.png" alphatest="blend">
+      <convert type="ServiceInfo">HasHBBTV</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" backgroundColor="background20" foregroundColor="cyan2" render="Label" font="RegularB;30" position="600,815" size="1245,45" halign="left" valign="center" noWrap="1" transparent="1" zPosition="9">
+      <convert type="ServiceInfo">HasHBBTV</convert>
+    </widget>
   </screen>
   <!-- 2. New Update Panel -->
   <!-- 2-01. Software Update -->
@@ -1546,60 +1554,7 @@
     <widget name="log" position="540,60" size="1290,800" font="Regular; 32" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" valign="top" transparent="1" zPosition="9" />
     <panel name="FullKeysMIH" />
   </screen>
-  <!-- 3. New FileCommander -->
-  <screen name="FileCommander" position="0,0" size="1920,1080" title="File Commander" flags="wfNoBorder" backgroundColor="transparent">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,52" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="menubig" position="410,0" size="1420,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GACommon/menu/menufaderight.png" position="1830,0" zPosition="-11" size="75,1080" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="412,1005" zPosition="-11" size="1417,75" alphatest="off" transparent="1" />
-    <panel name="ClockLabel1" />
-    <panel name="Title1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="1140,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1780,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1200,90" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="420,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1060,60" size="65,60" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="490,90" size="540,30" alphatest="blend" zPosition="-2" transparent="1" />
-    <ePixmap position="20,315" size="400,400" pixmap="GACommon/images/filecommander.png" alphatest="on" transparent="1" zPosition="5" />
-    <eLabel position="1130,60" size="2,800" backgroundColor="cyan1" zPosition="2" foregroundColor="cyan1" />
-    <eLabel position="1135,60" size="2,800" backgroundColor="blue" zPosition="2" foregroundColor="blue" />
-    <widget source="headleft" render="Listbox" position="420,60" size="705,45" foregroundColor="amarillo" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
-      <convert type="TemplatedMultiContent">
-            {"template": [
-                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-                          ],
-             "fonts": [gFont("Regular", 28)],
-             "itemHeight": 45,
-             "selectionEnabled": False
-            }
-       </convert>
-    </widget>
-    <widget name="listleft" font="Regular; 30" position="420,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
-    <widget name="multileft" position="420,125" size="705,650" zPosition="8" />
-    <widget name="sortleft" position="420,775" size="705,80" font="Regular; 27" foregroundColor="amarillo" halign="center" zPosition="7" transparent="1" backgroundColor="background20" valign="center" />
-    <widget source="headright" render="Listbox" position="1140,60" size="705,45" foregroundColor="lightciel" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
-      <convert type="TemplatedMultiContent">
-            {"template": [
-                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-                          ],
-             "fonts": [gFont("Regular", 28)],
-             "itemHeight": 45,
-             "selectionEnabled": False
-            }
-       </convert>
-    </widget>
-    <widget name="listright" font="Regular; 30" position="1140,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
-    <widget name="multiright" position="1140,125" size="705,650" zPosition="8" />
-    <widget name="sortright" position="1140,775" size="705,80" font="Regular; 27" foregroundColor="lightciel" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
-    <widget name="quickselect" position="420,125" size="705,650" font="Regular;100" foregroundColor="amarillo" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="9" />
-    <widget name="status" position="420,775" size="1425,80" font="RegularB; 32" foregroundColor="white" backgroundColor="cyan" halign="center" valign="center" zPosition="9" />
-    <panel name="FullKeysMIH" />
-  </screen>
-  <!-- 4. New Locale Selection -->
+  <!-- 3. New Locale Selection -->
   <screen name="LocaleSelection" position="0,0" size="1920,1080" title="Locale Selection" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,760" size="810,45" zPosition="3" alphatest="blend" transparent="1" />
@@ -1626,7 +1581,7 @@
     <widget source="description" render="Label" position="535,760" size="1305,100" font="Regular;32" valign="center" zPosition="5" transparent="1" foregroundColor="cyan1" backgroundColor="background20" halign="center" />
     <panel name="FullKeysMIH" />
   </screen>
-  <!-- 5. MultiBoot Manager -->
+  <!-- 4. MultiBoot Manager -->
   <screen name="MultiBootManager" position="0,0" size="1920,1080" title="MultiBoot Manager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1636,7 +1591,7 @@
     <widget source="description" render="Label" position="540,675" size="1305,180" halign="left" valign="top" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" zPosition="8" />
     <panel name="FullKeysMIH" />
   </screen>
-  <!-- 6. New Location Box -->
+  <!-- 5. New Location Box -->
   <screen name="LocationBoxOld" position="0,0" size="1920,1080" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="180,50" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="412,0" size="1418,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
