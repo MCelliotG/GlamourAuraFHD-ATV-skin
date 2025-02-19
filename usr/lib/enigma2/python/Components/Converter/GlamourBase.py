@@ -12,7 +12,7 @@ from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, e
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
 import os.path
-
+import re
 
 def sp(text):
 	if text:
@@ -118,6 +118,7 @@ satnames = (
 	(73.7, 74.4, "GSat 18"),
 	(71.7, 72.4, "Intelsat 22"),
 	(70.3, 70.8, "Eutelsat 70B"),
+	(69.8, 70.2, "Blagovest 3"),
 	(68.3, 68.8, "Intelsat 20/36"),
 	(65.8, 66.3, "Intelsat 17"),
 	(64.8, 65.3, "Amos 4"),
@@ -141,7 +142,8 @@ satnames = (
 	(52.3, 52.6, "Al Yah 1"),
 	(51.8, 52.2, "TurkmenÄlem/MonacoSat"),
 	(51.2, 51.7, "Belintersat 1"),
-	(49.7, 50.3, "Türksat 4B"),
+	(50.3, 50.7, "Thaicom 9A"),
+	(49.7, 50.2, "Türksat 4B"),
 	(48.7, 49.3, "Yamal 601"),
 	(47.8, 48.3, "GSat 19/31"),
 	(47.8, 48.3, "Eutelsat Quantum & GSat 12"),
@@ -150,7 +152,7 @@ satnames = (
 	(44.7, 45.3, "AzerSpace 2, Intelsat 38 & Cosmos 2520"),
 	(43.7, 44.3, "Thuraya 2"),
 	(42.4, 42.7, "Nigcomsat 1R"),
-	(41.7, 42.3, "Türksat 3A/4A/5B"),
+	(41.7, 42.3, "Türksat 3A/4A/5B/6A"),
 	(39.8, 40.3, "Express AM7"),
 	(38.7, 39.3, "HellasSat 3/4"),
 	(37.9, 38.5, "Paksat 1R"),
@@ -170,7 +172,7 @@ satnames = (
 	(21.4, 21.8, "Eutelsat 21B"),
 	(20.8, 21.2, "AfriStar 1"),
 	(19.8, 20.5, "Arabsat 5C"),
-	(18.8, 19.5, "Astra 1KR/1L/1M/1N"),
+	(18.8, 19.5, "Astra 1M/1N/1P"),
 	(16.6, 17.3, "Amos 17"),
 	(15.6, 16.3, "Eutelsat 16A"),
 	(12.7, 13.5, "HotBird 13F/13G"),
@@ -272,151 +274,38 @@ satnames = (
 	(-176.7, -177.4, "NSS 9")
 )
 
-
 class GlamourBase(Poll, Converter, object):
-	FREQINFO = 0
-	ORBITAL = 1
-	RESCODEC = 2
-	PIDINFO = 3
-	HDRINFO = 4
-	VIDEOCODEC = 5
-	FPS = 6
-	VIDEOSIZE = 7
-	IS2160 = 8
-	IS1440 = 9
-	IS1080 = 10
-	IS720 = 11
-	IS576 = 12
-	IS480 = 13
-	IS360 = 14
-	IS288 = 15
-	IS240 = 16
-	IS144 = 17
-	ISPROGRESSIVE = 18
-	ISINTERLACED = 19
-	STREAMURL = 20
-	STREAMTYPE = 21
-	ISSTREAMING = 22
-	HASMPEG2 = 23
-	HASAVC = 24
-	HASH263 = 25
-	HASVC1 = 26
-	HASMPEG4VC = 27
-	HASHEVC = 28
-	HASMPEG1 = 29
-	HASVP8 = 30
-	HASVP9 = 31
-	HASVP6 = 32
-	HASDIVX = 33
-	HASXVID = 34
-	HASSPARK = 35
-	HASAVS = 36
-	HASVCC = 37
-	ISSDR = 38
-	ISHDR = 39
-	ISHDR10 = 40
-	ISHLG = 41
+	TYPE_MAP = {
+		"FreqInfo": 0, "Orbital": 1, "ResCodec": 2, "PidInfo": 3,
+		"HDRInfo": 4, "VideoCodec": 5, "Fps": 6, "VideoSize": 7,
+		"Is2160": 8, "Is1440": 9, "Is1080": 10, "Is720": 11,
+		"Is576": 12, "Is480": 13, "Is360": 14, "Is288": 15,
+		"Is240": 16, "Is144": 17, "IsProgressive": 18, "IsInterlaced": 19,
+		"StreamUrl": 20, "StreamType": 21, "IsStreaming": 22,
+		"HasMPEG2": 23, "HasAVC": 24, "HasH263": 25, "HasVC1": 26,
+		"HasMPEG4VC": 27, "HasHEVC": 28, "HasMPEG1": 29, "HasVP8": 30,
+		"HasVP9": 31, "HasVP6": 32, "HasDIVX": 33, "HasXVID": 34,
+		"HasSPARK": 35, "HasAVS": 36, "HasVCC": 37, "IsSDR": 38,
+		"IsHDR": 39, "IsHDR10": 40, "IsHLG": 41
+	}
+
+	for key, value in TYPE_MAP.items():
+		locals()[key.upper()] = value
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
-		self.type = type
-		self.short_list = True
 		Poll.__init__(self)
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.list = []
-		type = type.split(",")
-		self.DecFormat = "Dec" in type
-		self.HexFormat = "Hex" in type
-		self.DecHexFormat = "DecHex" in type
 		self.tp = None
 		self.tpinfo = None
 		self.tpDataUpdate = None
-		if "FreqInfo" in type:
-			self.type = self.FREQINFO
-		elif "Orbital" in type:
-			self.type = self.ORBITAL
-		elif "ResCodec" in type:
-			self.type = self.RESCODEC 
-		elif "VideoCodec" in type:
-			self.type = self.VIDEOCODEC
-		elif "Fps" in type:
-			self.type = self.FPS
-		elif "VideoSize" in type:
-			self.type = self.VIDEOSIZE
-		elif "PidInfo" in type:
-			self.type = self.PIDINFO
-		elif "HDRInfo" in type:
-			self.type = self.HDRINFO
-		elif "Is2160" in type:
-			self.type = self.IS2160
-		elif "Is1440" in type:
-			self.type = self.IS1440
-		elif "Is1080" in type:
-			self.type = self.IS1080
-		elif "Is720" in type:
-			self.type = self.IS720
-		elif "Is576" in type:
-			self.type = self.IS576
-		elif "Is480" in type:
-			self.type = self.IS480
-		elif "Is360" in type:
-			self.type = self.IS360
-		elif "Is288" in type:
-			self.type = self.IS288
-		elif "Is240" in type:
-			self.type = self.IS240
-		elif "Is144" in type:
-			self.type = self.IS144
-		elif "IsProgressive" in type:
-			self.type = self.ISPROGRESSIVE
-		elif "IsInterlaced" in type:
-			self.type = self.ISINTERLACED
-		elif "StreamUrl" in type:
-			self.type = self.STREAMURL
-		elif "StreamType" in type:
-			self.type = self.STREAMTYPE
-		elif "IsStreaming" in type:
-			self.type = self.ISSTREAMING
-		elif "HasMPEG2" in type:
-			self.type = self.HASMPEG2
-		elif "HasAVC" in type:
-			self.type = self.HASAVC
-		elif "HasH263" in type:
-			self.type = self.HASH263
-		elif "HasVC1" in type:
-			self.type = self.HASVC1
-		elif "HasMPEG4VC" in type:
-			self.type = self.HASMPEG4VC
-		elif "HasHEVC" in type:
-			self.type = self.HASHEVC
-		elif "HasMPEG1" in type:
-			self.type = self.HASMPEG1
-		elif "HasVP8" in type:
-			self.type = self.HASVP8
-		elif "HasVP9" in type:
-			self.type = self.HASVP9
-		elif "HasVP6" in type:
-			self.type = self.HASVP6
-		elif "HasDIVX" in type:
-			self.type = self.HASDIVX
-		elif "HasXVID" in type:
-			self.type = self.HASXVID
-		elif "HasSPARK" in type:
-			self.type = self.HASSPARK
-		elif "HasAVS" in type:
-			self.type = self.HASAVS
-		elif "HasVCC" in type:
-			self.type = self.HASVCC
-		elif "IsSDR" in type:
-			self.type = self.ISSDR
-		elif "IsHDR" in type:
-			self.type = self.ISHDR
-		elif "IsHDR10" in type:
-			self.type = self.ISHDR10
-		elif "IsHLG" in type:
-			self.type = self.ISHLG
-
+		type_list = type.split(",")
+		self.DecFormat = "Dec" in type_list
+		self.HexFormat = "Hex" in type_list
+		self.DecHexFormat = "DecHex" in type_list
+		self.type = self.TYPE_MAP.get(type_list[0], 0)
 
 ######### COMMON VARIABLES #################
 	def videowidth(self, info):
@@ -427,10 +316,7 @@ class GlamourBase(Poll, Converter, object):
 					width = int(w.read(),16)
 				except:
 					pass
-		if (width > 0) and not (width == 4294967295):
-			return width
-		else:
-			return ""
+		return width if (width > 0 and width != 4294967295) else ""
 
 	def videoheight(self, info):
 		height = 0
@@ -440,10 +326,7 @@ class GlamourBase(Poll, Converter, object):
 					height = int(h.read(),16)
 				except:
 					pass
-		if (height > 0) and not (height == 4294967295):
-			return height
-		else:
-			return ""
+		return height if (height > 0 and height != 4294967295) else ""
 
 	def proginfo(self, info):
 		progrs = ""
@@ -456,14 +339,9 @@ class GlamourBase(Poll, Converter, object):
 		return progrs
 
 	def videosize(self, info):
-		xresol = str(self.videowidth(info))
-		yresol = str(self.videoheight(info))
-		progrs = self.proginfo(info)
-		if (xresol > "0"):
-			videosize = "%sx%s%s" % (xresol, yresol, progrs)
-			return videosize
-		else:
-			return ""
+		xres, yres, prog = self.videowidth(info), self.videoheight(info), self.proginfo(info)
+		videosize = f"{xres}x{yres}{prog}" if xres else ""
+		return videosize
 
 	def framerate(self, info):
 		fps = 0
@@ -473,142 +351,106 @@ class GlamourBase(Poll, Converter, object):
 					fps = int(fp.read())
 				except:
 					pass
-			if (fps < 0) or (fps == -1):
+			if fps <= 0 or fps == -1:
 				return ""
-			fps = "%6.3f" % (fps/1000.)
-		return "%s fps" % (fps.replace(".000", ""))
+			return f"{fps / 1000:.3f}".rstrip("0").rstrip(".") + " fps"
 
 	def videocodec(self, info):
 		vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
-		return "%s" % (vcodec)
+		return vcodec
 
 	def hdr(self, info):
-		gamma = info.getInfo(iServiceInformation.sGamma)
-		if gamma == 0:
-			return "SDR"
-		elif gamma == 1:
-			return "HDR"
-		elif gamma == 2:
-			return "HDR10"
-		elif gamma == 3:
-			return "HLG"
-		else:
-			return ""
+		gamma_map = {0: "SDR", 1: "HDR", 2: "HDR10", 3: "HLG"}
+		gamma = gamma_map.get(info.getInfo(iServiceInformation.sGamma), "")
+		return gamma
 
 	def frequency(self, tp):
-		freq = (tp.get("frequency") + 500)
-		if freq:
-			frequency = str(int(freq) // 1000)
-			return frequency
-		else:
-			return ""
+		freq = tp.get("frequency", 0) + 500
+		return str(freq // 1000) if freq else ""
 
 	def terrafreq(self, tp):
-		if tp is None:
-			return ""
-		else:
-			return str(int(tp.get("frequency") + 1) // 1000000)
+		return str((tp.get("frequency", 0) + 1) // 1000000) if tp else ""
 
 	def channel(self, tpinfo):
-		return str(tpinfo.get("channel")) or ""
+		return str(tpinfo.get("channel", ""))
 
 	def symbolrate(self, tp):
-		if tp is None:
-			return ""
-		else:
-			return str(int(tp.get("symbol_rate", 0) // 1000))
+		return str(tp.get("symbol_rate", 0) // 1000) if tp else ""
 
 	def polarization(self, tpinfo):
-		return str(tpinfo.get("polarization_abbreviation")) or ""
+		return str(tpinfo.get("polarization_abbreviation", ""))
 
 	def fecinfo(self, tpinfo):
-		return str(tpinfo.get("fec_inner")) or ""
+		return str(tpinfo.get("fec_inner", ""))
 
 	def tunernumber(self, tpinfo):
-		return str(tpinfo.get("tuner_number")) or ""
+		return str(tpinfo.get("tuner_number", ""))
 
 	def system(self, tpinfo):
-		return str(tpinfo.get("system")) or ""
+		return str(tpinfo.get("system", ""))
 
 	def modulation(self, tpinfo):
-		return str(tpinfo.get("modulation")) or ""
+		return str(tpinfo.get("modulation", ""))
 
 	def constellation(self, tpinfo):
-		return str(tpinfo.get("constellation"))
-
-	def tunersystem(self, tpinfo):
-		return str(tpinfo.get("system")) or ""
+		return str(tpinfo.get("constellation", ""))
 
 	def tunertype(self, tp):
-		if tp is None:
-			return ""
-		else:
-			return str(tp.get("tuner_type")) or ""
+		return str(tp.get("tuner_type", "")) if tp else ""
 
 	def terrafec(self, tpinfo):
-		return "LP:%s HP:%s GI:%s" % (tpinfo.get("code_rate_lp"), tpinfo.get("code_rate_hp"), tpinfo.get("guard_interval"))
+		return f"LP:{tpinfo.get('code_rate_lp', '')} HP:{tpinfo.get('code_rate_hp', '')} GI:{tpinfo.get('guard_interval', '')}"
 
 	def plpid(self, tpinfo):
-		plpid = str(tpinfo.get("plp_id", 0))
-		if plpid == "None" or plpid == "-1":
-			return ""
-		else:
-			return "PLP ID:%s" % plpid
+		plpid = tpinfo.get("plp_id", 0)
+		return f"PLP ID:{plpid}" if plpid not in (None, -1) else ""
 
 	def t2mi_info(self, tpinfo):
-		try:
-			t2mi_id = str(tpinfo.get("t2mi_plp_id",-1))
-			t2mi_pid = str(tpinfo.get("t2mi_pid"))
-			if t2mi_id == "None" or t2mi_id == "-1" or t2mi_pid == "0":
-				t2mi_id = ""
-				t2mi_pid = ""
-			else:
-				t2mi_id = "T2MI PLP %s" % t2mi_id
-				if t2mi_pid == "None":
-					t2mi_pid = ""
-				else:
-					t2mi_pid = "PID %s" % t2mi_pid
-			return sp(t2mi_id) + sp(t2mi_pid)
-		except:
+		t2mi_id = tpinfo.get("t2mi_plp_id")
+		t2mi_pid = tpinfo.get("t2mi_pid")
+		if t2mi_id in (None, -1) or t2mi_pid == 0:
 			return ""
+		t2mi_id = f"T2MI PLP {t2mi_id}" if t2mi_id is not None else ""
+		t2mi_pid = f"PID {t2mi_pid}" if t2mi_pid not in (None, "None") else ""
+		return sp(t2mi_id) + sp(t2mi_pid)
 
 	def multistream(self, tpinfo):
-		isid = str(tpinfo.get("is_id", 0)) 
+		isid = str(tpinfo.get("is_id", 0))
 		plscode = str(tpinfo.get("pls_code", 0))
-		plsmode = str(tpinfo.get("pls_mode", None))
-		if plsmode == "None" or plsmode == "Unknown" or (plsmode != "None" and plscode == "0"):
+		plsmode = str(tpinfo.get("pls_mode", "None"))
+		if plsmode in ("None", "Unknown"):
 			plsmode = ""
-		if isid == "None" or isid == "-1" or isid == "0":
-			isid = ""
-		else:
-			isid = "IS:%s" % (isid)
-		if plscode == "None" or plscode == "-1" or plscode == "0":
-			plscode = ""
-		if (plscode == "0" and plsmode == "Gold") or (plscode == "1" and plsmode == "Root"):
-			return isid
-		else:
-			return sp(isid) + sp(plsmode) + sp(plscode)
-
+		if plsmode in ("Gold", "Root", "Combo") and plscode == "0":
+			plsmode = ""
+		isid = "" if isid in ("None", "-1", "0") else f"IS:{isid}"
+		plscode = "" if plscode in ("None", "-1", "0") else plscode
+		if not any([isid, plscode, plsmode]):
+			return ""
+		return sp(isid) + sp(plsmode) + sp(plscode)
+ 
 	def satname(self, tp):
 		sat = "Satellite:"
 		orb = int(tp.get("orbital_position"))
-		orbe = float(orb) / 10.0
-		orbw = float(orb - 3600) / 10.0
-		for sn in satnames:
-			try:
-				if sn[0] <= orbe <= sn[1] or sn[1] <= orbw <= sn[0]:
-					sat = sn[2]
-			except:
-				pass
+		orbe = orb / 10.0
+		orbw = (orb - 3600) / 10.0
+		for min_pos, max_pos, name in satnames:
+			if min_pos <= orbe <= max_pos or max_pos <= orbw <= min_pos:
+				return name
+		try:
+			with open("/etc/tuxbox/satellites.xml", "r", encoding="utf-8") as f:
+				for line in f:
+					match = re.search(r'<sat name="(.*?)" position="(-?\d+)"', line)
+					if match and int(match.group(2)) == orb:
+						return match.group(1)
+		except Exception:
+			pass
 		return sat
 
 	def orbital(self, tp):
-		orbp = tp.get("orbital_position")
+		orbp = tp.get("orbital_position", 0)
 		if orbp > 1800:
-			orbp = str((float(3600 - orbp)) / 10.0) + "°W"
-		else:
-			orbp = str((float(orbp)) / 10.0) + "°E"
-		return orbp
+			return f"{(3600 - orbp) / 10:.1f}°W"
+		return f"{orbp / 10:.1f}°E"
 
 	def reference(self, info):
 		ref = info.getInfoString(iServiceInformation.sServiceref).lower()
@@ -616,30 +458,26 @@ class GlamourBase(Poll, Converter, object):
 			return ref.replace("%3a", ":")
 
 	def streamtype(self, info):
-		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
 		ref = self.reference(info)
-		if ref:
-			if "0.0.0.0:" in ref and (ref.startswith("1:0:")) or "127.0.0.1:" in ref and (ref.startswith("1:0:")) or "localhost:" in ref and (ref.startswith("1:0:")):
+		if not ref:
+			return ""
+		if ref.startswith("1:0:"):
+			if "0.0.0.0:" in ref or "127.0.0.1:" in ref or "localhost:" in ref:
 				return "Internal TS Relay"
-			if not (ref.startswith("1:0:")):
-				return "IPTV/Non-TS Stream"
-			if "%3a/" in streamref and (ref.startswith("1:0:")):
+			if "%3a/" in ref:
 				return "IPTV/TS Stream"
-			if (ref.startswith("1:134:")):
+			if ref.startswith("1:134:"):
 				return "Alternative"
-			else:
-				return ""
+		else:
+			return "IPTV/Non-TS Stream"
+		return ""
 
 	def streamurl(self, info):
 		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
-		if streamref:
-			if "%3a/" in streamref or ":/" in streamref:
-				streamurl = streamref.split(":")[10].replace("%3a", ":")
-				if len(streamurl) > 80:
-					streamurl = "%s..." % streamurl[:79]
-				return streamurl
-		else:
-			return ""
+		if "%3a/" in streamref or ":/" in streamref:
+			streamurl = streamref.split(":")[10].replace("%3a", ":")
+			return f"{streamurl[:79]}..." if len(streamurl) > 80 else streamurl
+		return ""
 
 	@cached
 	def getText(self):
@@ -668,34 +506,33 @@ class GlamourBase(Poll, Converter, object):
 			ref = self.reference(info)
 			if ref:
 				return self.streamurl(info)
-			else:
-				if "DVB-S" in self.tunertype(tp):
-					satf = "%s %s %s %s %s %s" % (self.frequency(tp), self.polarization(tpinfo), self.system(tpinfo), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
-					if "is_id" in tpinfo or "pls_code" in tpinfo or "pls_mode" in tpinfo or "t2mi_plp_id" in tp:
-						return sp(satf) + self.multistream(tpinfo) + self.t2mi_info(tpinfo)
-					else:
-						return satf
-				elif "DVB-C" in self.tunertype(tp):
-					return "%s Mhz %s SR: %s FEC: %s" % (self.frequency(tp), self.modulation(tpinfo), self.symbolrate(tp), self.fecinfo(tpinfo))
-				elif self.tunertype(tp) == "DVB-T":
-					terf = "%s (%s Mhz)  %s  %s" % (self.channel(tpinfo), self.terrafreq(tp), self.constellation(tpinfo), self.terrafec(tpinfo))
-					return terf
-				elif self.tunertype(tp) == "DVB-T2":
+			tunertype = self.tunertype(tp)
+			if "DVB-S" in tunertype:
+				satf = f"{self.frequency(tp)} {self.polarization(tpinfo)} {self.system(tpinfo)} {self.modulation(tpinfo)} {self.symbolrate(tp)} {self.fecinfo(tpinfo)}"
+				if any(k in tpinfo for k in ("is_id", "pls_code", "pls_mode", "t2mi_plp_id")):
+					return sp(satf) + self.multistream(tpinfo) + self.t2mi_info(tpinfo)
+				return satf
+			if "DVB-C" in tunertype:
+				return f"{self.frequency(tp)} MHz {self.modulation(tpinfo)} SR: {self.symbolrate(tp)} FEC: {self.fecinfo(tpinfo)}"
+			if "DVB-T" in tunertype:
+				terf = f"{self.channel(tpinfo)} ({self.terrafreq(tp)} MHz)  {self.constellation(tpinfo)}  {self.terrafec(tpinfo)}"
+				if "DVB-T2" in tunertype:
 					return sp(terf) + self.plpid(tpinfo)
-				elif "ATSC" in self.tunertype(tp):
-					return "%s (Mhz) %s" % (self.terrafreq(tp), self.modulation(tpinfo))
-				return ""
+				return terf
+			if "ATSC" in tunertype:
+				return f"{self.terrafreq(tp)} MHz {self.modulation(tpinfo)}"
+			return ""
 
 		if self.type == self.ORBITAL:
 			ref = self.reference(info)
 			if ref:
 				return self.streamtype(info)
-			else:
-				if "DVB-S" in self.tunertype(tp):
-					return "%s (%s)" % (self.satname(tp), self.orbital(tp))
-				elif "DVB-C" in self.tunertype(tp) or "DVB-T" in self.tunertype(tp) or "ATSC" in self.tunertype(tp):
-					return self.system(tpinfo)
-				return ""
+			tunertype = self.tunertype(tp)
+			if "DVB-S" in tunertype:
+				return f"{self.satname(tp)} ({self.orbital(tp)})"
+			if any(t in tunertype for t in ("DVB-C", "DVB-T", "ATSC")):
+				return self.system(tpinfo)
+			return ""
 
 		if self.type == self.VIDEOCODEC:
 			return self.videocodec(info)
@@ -713,7 +550,7 @@ class GlamourBase(Poll, Converter, object):
 			vidsize = self.videosize(info)
 			fps = self.framerate(info)
 			vidcodec = self.videocodec(info)
-			return "%s   %s   %s" % (vidsize, fps, vidcodec)
+			return f"{vidsize}   {fps}   {vidcodec}"
 
 		if self.type == self.STREAMURL:
 			return self.streamurl(info)
@@ -729,89 +566,31 @@ class GlamourBase(Poll, Converter, object):
 			pmt = info.getInfo(iServiceInformation.sPMTPID)
 			tsid = info.getInfo(iServiceInformation.sTSID)
 			onid = info.getInfo(iServiceInformation.sONID)
-			if vpid < 0:
-				vpid = vpiddec = vpidhex = vpiddh = ""
-			else:
-				vpiddec = str(vpid).zfill(4)
-				vpidhex = str(hex(vpid)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					vpiddec = "VPID:%s" % vpiddec
-				if self.HexFormat:
-					vpidhex = "VPID:%s" % vpidhex
-				if self.DecHexFormat:
-					vpiddh = "V:%s(%s)" % (vpiddec, vpidhex)
-			if apid < 0:
-				apid = apiddec = apidhex = apiddh = ""
-			else:
-				apiddec = str(apid).zfill(4)
-				apidhex = str(hex(apid)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					apiddec = "APID:%s" % apiddec
-				if self.HexFormat:
-					apidhex = "APID:%s" % apidhex
-				if self.DecHexFormat:
-					apiddh = "A:%s(%s)" % (apiddec, apidhex)
-			if sid < 0:
-				sid = siddec = sidhex = siddh = ""
-			else:
-				siddec = str(sid).zfill(4)
-				sidhex = str(hex(sid)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					siddec = "SID:%s" % siddec
-				if self.HexFormat:
-					sidhex = "SID:%s" % sidhex
-				if self.DecHexFormat:
-					siddh = "SID:%s(%s)" % (siddec, sidhex)
-			if pcr < 0:
-				pcr = pcrdec = pcrhex = pcrdh = ""
-			else:
-				pcrdec = str(pcr).zfill(4)
-				pcrhex = str(hex(pcr)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					pcrdec = "PCR:%s" % pcrdec
-				if self.HexFormat:
-					pcrhex = "PCR:%s" % pcrhex
-				if self.DecHexFormat:
-					pcrdh = "PCR:%s(%s)" % (pcrdec, pcrhex)
-			if pmt < 0:
-				pmt = pmtdec = pmthex = pmtdh = ""
-			else:
-				pmtdec = str(pmt).zfill(4)
-				pmthex = str(hex(pmt)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					pmtdec = "PMT:%s" % pmtdec
-				if self.HexFormat:
-					pmthex = "PMT:%s" % pmthex
-				if self.DecHexFormat:
-					pmtdh = "PMT:%s(%s)" % (pmtdec, pmthex)
-			if tsid < 0:
-				tsid = tsiddec = tsidhex = tsiddh = ""
-			else:
-				tsiddec = str(tsid).zfill(4)
-				tsidhex = str(hex(tsid)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					tsiddec = "TSID:%s" % tsiddec
-				if self.HexFormat:
-					tsidhex = "TSID:%s" % tsidhex
-				if self.DecHexFormat:
-					tsiddh = "TSID:%s(%s)" % (tsiddec, tsidhex)
-			if onid < 0:
-				onid = oniddec = onidhex = oniddh = ""
-			else:
-				oniddec = str(onid).zfill(4)
-				onidhex = str(hex(onid)[2:]).upper().zfill(4)
-				if self.DecFormat:
-					oniddec = "ONID:%s" % oniddec
-				if self.HexFormat:
-					onidhex = "ONID:%s" % onidhex
-				if self.DecHexFormat:
-					oniddh = "ONID:%s(%s)" % (oniddec, onidhex)
+
+			def format_pid(pid, prefix):
+				if pid < 0:
+					return "", "", ""
+				dec = f"{pid:04d}"
+				hexval = f"{pid:04X}"
+				decf = f"{prefix}:{dec}" if self.DecFormat else dec
+				hexf = f"{prefix}:{hexval}" if self.HexFormat else hexval
+				dhf = f"{prefix[0]}:{dec}({hexval})" if self.DecHexFormat else ""
+				return decf, hexf, dhf
+
+			vpiddec, vpidhex, vpiddh = format_pid(vpid, "VPID")
+			apiddec, apidhex, apiddh = format_pid(apid, "APID")
+			siddec, sidhex, siddh = format_pid(sid, "SID")
+			pcrdec, pcrhex, pcrdh = format_pid(pcr, "PCR")
+			pmtdec, pmthex, pmtdh = format_pid(pmt, "PMT")
+			tsiddec, tsidhex, tsiddh = format_pid(tsid, "TSID")
+			oniddec, onidhex, oniddh = format_pid(onid, "ONID")
+
 			if self.DecFormat:
-				return "%s %s %s %s %s %s %s" % (vpiddec, apiddec, siddec, pcrdec, pmtdec, tsiddec, oniddec)
+				return f"{vpiddec} {apiddec} {siddec} {pcrdec} {pmtdec} {tsiddec} {oniddec}"
 			if self.HexFormat:
-				return "%s %s %s %s %s %s %s" % (vpidhex, apidhex, sidhex, pcrhex, pmthex, tsidhex, onidhex)
+				return f"{vpidhex} {apidhex} {sidhex} {pcrhex} {pmthex} {tsidhex} {onidhex}"
 			if self.DecHexFormat:
-				return "%s %s %s %s %s %s %s" % (vpiddh, apiddh, siddh, pcrdh, pmtdh, tsiddh, oniddh)
+				return f"{vpiddh} {apiddh} {siddh} {pcrdh} {pmtdh} {tsiddh} {oniddh}"
 
 	text = property(getText)
 
@@ -822,141 +601,49 @@ class GlamourBase(Poll, Converter, object):
 		info = service and service.info()
 		if not info:
 			return False
-		else:
-			xresol = info.getInfo(iServiceInformation.sVideoWidth)
-			yresol = info.getInfo(iServiceInformation.sVideoHeight)
-			progrs = self.proginfo(info)
-			vcodec = self.videocodec(info)
-			streamurl = self.streamurl(info)
-			gamma = self.hdr(info)
-			if self.type == self.IS2160:
-				if (2160 <= xresol <= 5150) and (1570 <= yresol <= 2170):
-					return True
-				return False
-			if self.type == self.IS1440:
-				if (1430 <= yresol <= 1450):
-					return True
-				return False
-			if self.type == self.IS1080:
-				if (1320 <= xresol <= 3840 ) and (780 <= yresol <= 1090):
-					return True
-				return False
-			if self.type == self.IS720:
-				if (601 <= yresol <= 740):
-					return True
-				return False
-			if self.type == self.IS576:
-				if (501 <= yresol <= 600):
-					return True
-				return False
-			if self.type == self.IS480:
-				if (380 <= yresol <= 500):
-					return True
-				return False
-			if self.type == self.IS360:
-				if (300 <= yresol <= 379):
-					return True
-				return False
-			if self.type == self.IS288:
-				if (261 <= yresol <= 299):
-					return True
-				return False
-			if self.type == self.IS240:
-				if (181 <= yresol <= 260):
-					return True
-				return False
-			if self.type == self.IS144:
-				if (120 <= yresol <= 180):
-					return True
-				return False
-			if self.type == self.ISPROGRESSIVE:
-				if progrs == "p":
-					return True
-				return False
-			if self.type == self.ISINTERLACED:
-				if progrs == "i":
-					return True
-				return False
-			if self.type == self.ISSTREAMING:
-				if streamurl:
-					return True
-				return False
-			if self.type == self.HASMPEG2:
-				if vcodec == "MPEG2":
-					return True
-				return False
-			if self.type == self.HASAVC:
-				if vcodec == "AVC" or vcodec == "MPEG4":
-					return True
-				return False
-			if self.type == self.HASH263:
-				if vcodec == "H263":
-					return True
-				return False
-			if self.type == self.HASVC1:
-				if "VC1" in vcodec:
-					return True
-				return False
-			if self.type == self.HASMPEG4VC:
-				if vcodec == "MPEG4-VC":
-					return True
-				return False
-			if self.type == self.HASHEVC:
-				if vcodec == "HEVC" or vcodec == "H265":
-					return True
-				return False
-			if self.type == self.HASMPEG1:
-				if vcodec == "MPEG1":
-					return True
-				return False
-			if self.type == self.HASVP8:
-				if vcodec == "VB8" or vcodec == "VP8":
-					return True
-				return False
-			if self.type == self.HASVP9:
-				if vcodec == "VB9" or vcodec == "VP9":
-					return True
-				return False
-			if self.type == self.HASVP6:
-				if vcodec == "VB6" or vcodec == "VP6":
-					return True
-				return False
-			if self.type == self.HASDIVX:
-				if "DIVX" in vcodec:
-					return True
-				return False
-			if self.type == self.HASXVID:
-				if "XVID" in vcodec:
-					return True
-				return False
-			if self.type == self.HASSPARK:
-				if vcodec == "SPARK":
-					return True
-				return False
-			if self.type == self.HASAVS:
-				if "AVS" in vcodec:
-					return True
-				return False
-			if self.type == self.HASVCC:
-				if "VCC" in vcodec:
-					return True
-				return False
-			if self.type == self.ISSDR:
-				if gamma == "SDR":
-					return True
-				return False
-			if self.type == self.ISHDR:
-				if gamma == "HDR":
-					return True
-				return False
-			if self.type == self.ISHDR10:
-				if gamma == "HDR10":
-					return True
-				return False
-			if self.type == self.ISHLG:
-				if gamma == "HLG":
-					return True
-				return False
+		xresol = info.getInfo(iServiceInformation.sVideoWidth)
+		yresol = info.getInfo(iServiceInformation.sVideoHeight)
+		progrs = self.proginfo(info)
+		vcodec = self.videocodec(info)
+		streamurl = self.streamurl(info)
+		gamma = self.hdr(info)
+		resolutions = {
+			self.IS2160: (2160 <= xresol <= 5150) and (1570 <= yresol <= 2170),
+			self.IS1440: (1430 <= yresol <= 1450),
+			self.IS1080: (1320 <= xresol <= 3840) and (780 <= yresol <= 1090),
+			self.IS720: (601 <= yresol <= 740),
+			self.IS576: (501 <= yresol <= 600),
+			self.IS480: (380 <= yresol <= 500),
+			self.IS360: (300 <= yresol <= 379),
+			self.IS288: (261 <= yresol <= 299),
+			self.IS240: (181 <= yresol <= 260),
+			self.IS144: (120 <= yresol <= 180),
+		}
+		videoinfos = {
+			self.ISPROGRESSIVE: progrs == "p",
+			self.ISINTERLACED: progrs == "i",
+			self.ISSTREAMING: bool(streamurl),
+			self.HASMPEG2: vcodec == "MPEG2",
+			self.HASAVC: vcodec in ("AVC", "MPEG4"),
+			self.HASH263: vcodec == "H263",
+			self.HASVC1: "VC1" in vcodec,
+			self.HASMPEG4VC: vcodec == "MPEG4-VC",
+			self.HASHEVC: vcodec in ("HEVC", "H265"),
+			self.HASMPEG1: vcodec == "MPEG1",
+			self.HASVP8: vcodec in ("VB8", "VP8"),
+			self.HASVP9: vcodec in ("VB9", "VP9"),
+			self.HASVP6: vcodec in ("VB6", "VP6"),
+			self.HASDIVX: "DIVX" in vcodec,
+			self.HASXVID: "XVID" in vcodec,
+			self.HASSPARK: vcodec == "SPARK",
+			self.HASAVS: "AVS" in vcodec,
+			self.HASVCC: "VCC" in vcodec,
+			self.ISSDR: gamma == "SDR",
+			self.ISHDR: gamma == "HDR",
+			self.ISHDR10: gamma == "HDR10",
+			self.ISHLG: gamma == "HLG",
+		}
+		return resolutions.get(self.type, videoinfos.get(self.type, False))
 
 	boolean = property(getBoolean)
 

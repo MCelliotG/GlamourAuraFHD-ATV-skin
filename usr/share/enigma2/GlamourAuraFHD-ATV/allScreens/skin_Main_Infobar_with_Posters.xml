@@ -6,6 +6,8 @@
     <!-- Provider -->
     <ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
     <panel name="Prov" />
+    <!-- Bitrate -->
+    <panel name="BitrateSimple" />
     <!-- Crypt Info -->
     <panel name="CasInfo" />
     <!-- Weather Info -->

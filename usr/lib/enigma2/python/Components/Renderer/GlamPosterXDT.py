@@ -219,7 +219,7 @@ class GlamPosterXDT(threading.Thread):
 				len_plst = len(plst)
 				if len_plst>0:
 					for  pl in plst:
-						if pl[1].startswith("Regarder") :
+						if pl[1].startswith("Regarder"):
 							pltc = self.UNAC(pl[1])
 							partialtitle = self.PMATCH(ptitle,pltc)
 							get_channel = re.findall('regarder[ ]+(.*?)[ ]+en',pltc)

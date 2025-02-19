@@ -12,6 +12,8 @@
     <panel name="CPUTempInfobar" />
     <!-- Memory Info -->
     <panel name="MemoryInfobar" />
+    <!-- Bitrate -->
+    <panel name="BitrateAdv" />
     <!-- Crypt Info -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_crypt.png" position="0,990" zPosition="-1" size="1800,35" alphatest="blend" transparent="1" />
     <panel name="SourceInfo" />

@@ -31,17 +31,17 @@
       <convert type="EMCServiceTime">Duration</convert>
       <convert type="EMCClockToText">InMinutes</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="765,900" size="1100,45" foregroundColor="cyan1" font="Regular; 30" transparent="1" backgroundColor="background20" zPosition="7">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="765,900" size="1100,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="EMCMovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,435" size="585,455" font="Regular; 30" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,435" size="585,455" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EMCEventName">FullDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">
       <convert type="EMCServiceTime">Duration</convert>
       <convert type="EMCClockToText">AsLength</convert>
     </widget>
-    <widget source="Service" render="Label" position="160,910" size="325,40" font="Regular; 30" foregroundColor="amarillo" halign="center" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1" valign="center">
+    <widget source="Service" render="Label" position="160,910" size="325,40" font="Regular; 32" foregroundColor="amarillo" halign="center" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1" valign="center">
       <convert type="ServiceTime">StartTime</convert>
       <convert type="ClockToText">LongDate</convert>
     </widget>
@@ -85,10 +85,10 @@
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1225,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
     <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1540,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="cancel" render="Label" position="555,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="delete" render="Label" position="1185,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="deleteall" render="Label" position="1500,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="cancel" render="Label" position="555,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="delete" render="Label" position="1185,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="deleteall" render="Label" position="1500,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
   </screen>
   <screen name="EMCPlaylistSetup" position="0,0" size="1920,1080" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -130,7 +130,7 @@
     <widget name="setup" position="1410,890" size="400,50" font="RegularB; 33" valign="bottom" backgroundColor="background20" zPosition="6" transparent="1" />
     <ePixmap position="770,880" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
   </screen>
   <screen name="EMCImdbScan" position="0,0" size="1920,1080" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="EventViewScreenT" />
@@ -142,17 +142,17 @@
     <widget name="no_poster" position="650,760" size="360,50" font="Regular;30" zPosition="7" transparent="1" foregroundColor="amarillo" backgroundColor="background20" />
     <widget name="download" position="650,810" size="360,50" font="Regular;30" zPosition="7" transparent="1" foregroundColor="cyan2" backgroundColor="background20" />
     <widget name="done_msg" position="1010,760" size="850,100" font="Regular;30" halign="center" foregroundColor="yellow" valign="bottom" zPosition="5" transparent="1" backgroundColor="background20" />
-    <widget name="info" position="50,745" size="580,200" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="center" halign="center" foregroundColor="white" />
+    <widget name="info" position="50,745" size="580,200" font="Regular; 32" zPosition="16" transparent="1" backgroundColor="background20" valign="center" halign="center" foregroundColor="white" />
     <widget name="poster" position="150,145" size="400,600" alphatest="blend" transparent="0" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/nocover.png" position="150,145" size="400,600" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="menulist" font="Regular; 30" position="650,155" size="1205,500" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="menulist" font="Regular; 32" position="650,155" size="1205,500" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="m_info" position="650,50" size="1010,100" font="Regular;35" halign="center" foregroundColor="sky" zPosition="4" transparent="1" backgroundColor="background20" />
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="725,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1140,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1550,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="ButtonRedText" position="660,860" size="360,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="ButtonGreenText" position="1075,860" size="360,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="Manage Cover" position="1485,860" size="360,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="ButtonRedText" position="660,860" size="360,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="ButtonGreenText" position="1075,860" size="360,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="Manage Cover" position="1485,860" size="360,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="imdbSetup" position="0,0" size="1920,1080" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -162,10 +162,10 @@
   </screen>
   <screen name="getCover" position="0,0" size="1920,1080" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="EventViewScreenT" />
-    <widget name="info" position="50,745" size="580,200" font="Regular; 30" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
+    <widget name="info" position="50,745" size="580,200" font="Regular; 32" zPosition="16" transparent="1" backgroundColor="background20" valign="top" halign="left" foregroundColor="white" />
     <widget name="poster" position="150,145" size="400,600" alphatest="on" transparent="0" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/nocover.png" position="150,145" size="400,600" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="menulist" font="Regular; 30" position="650,155" size="1205,750" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="menulist" font="Regular; 32" position="650,155" size="1205,750" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="m_info" position="650,50" size="1010,100" font="Regular;35" halign="center" foregroundColor="sky" zPosition="4" transparent="1" backgroundColor="background20" />
   </screen>
   <screen name="MovieMenu" position="0,0" size="1920,1080" title="Menu EMC" flags="wfNoBorder" backgroundColor="transparent">
@@ -191,7 +191,7 @@
     <widget name="setup" position="1410,890" size="400,50" font="RegularB; 33" valign="bottom" zPosition="6" transparent="1" backgroundColor="background20" />
     <ePixmap position="770,880" size="90,60" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" transparent="1" alphatest="blend" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 30" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
+    <widget name="save" render="Label" position="870,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
   </screen>
   <screen name="MovieInfoSetup" position="0,0" size="1920,1080" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -219,7 +219,7 @@
     <!-- SUBTITLES, AUDIO, ANGLES -->
     <widget name="audioLabel" position="1560,875" size="300,45" font="Regular; 26" foregroundColor="cyan" backgroundColor="background20" transparent="1" zPosition="6" noWrap="1" halign="right" valign="center" />
     <widget name="subtitleLabel" position="1200,875" size="350,45" font="Regular; 26" foregroundColor="cyan1" backgroundColor="background20" transparent="1" zPosition="6" halign="left" noWrap="1" valign="center" />
-    <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 30" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
+    <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 32" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
     <widget name="anglePix" pixmap="GlamourAuraFHD-ATV/icons/angle.png" position="895,875" size="50,50" alphatest="blend" zPosition="6" transparent="1" />
   </screen>
   <screen name="EMCSelection" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
@@ -258,7 +258,7 @@
     <!-- SUBTITLES, AUDIO, ANGLES -->
     <widget name="audioLabel" position="1560,875" size="300,45" font="Regular; 26" foregroundColor="cyan" backgroundColor="background20" transparent="1" zPosition="6" noWrap="1" halign="right" valign="center" />
     <widget name="subtitleLabel" position="1200,875" size="350,45" font="Regular; 26" foregroundColor="cyan1" backgroundColor="background20" transparent="1" zPosition="6" halign="left" noWrap="1" valign="center" />
-    <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 30" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
+    <widget name="angleLabel" position="320,875" size="570,50" font="Regular; 32" foregroundColor="lightciel" backgroundColor="background20" transparent="1" zPosition="6" valign="center" halign="left" />
     <widget name="anglePix" pixmap="GlamourAuraFHD-ATV/icons/angle.png" position="895,875" size="50,50" alphatest="blend" zPosition="6" transparent="1" />
   </screen>
   <screen name="EMCSelectionOwn" position="0,0" size="1920,1080" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
