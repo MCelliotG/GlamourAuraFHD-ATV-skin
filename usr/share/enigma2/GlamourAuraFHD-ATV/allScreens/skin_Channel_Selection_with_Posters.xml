@@ -1,8 +1,9 @@
 ﻿<skin>
   <!-- CHANNEL SELECTION WITH POSTERS -->
 <screen name="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
-  <!-- CS Background -->
+    <!-- CS Background -->
     <panel name="CSBackground" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
   <!-- CS List -->
     <panel name="CSListPosters" />
   <!-- CS Event Infos -->
@@ -22,4 +23,42 @@
     <panel name="CSPosters" />
     <panel name="FullKeysCC" />
  </screen>
+  <screen name="ChannelSelection_PIG" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
+    <!-- CS Background -->
+    <panel name="CSBackground" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
+    <!-- CS List -->
+    <panel name="CSListPosters" />
+    <!-- CS Event Infos -->
+    <panel name="CSEventInfos" />
+    <!-- CS Extended Description -->
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,225" size="720,520" font="RegularB; 29" foregroundColor="white" backgroundColor="background20" transparent="1" valign="top" zPosition="6">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="53,228" size="720,520" font="RegularB; 29" foregroundColor="black" backgroundColor="black" transparent="1" valign="top" zPosition="5">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <!-- CS Next Events -->
+    <panel name="CSNextEvents" />
+    <!-- CS Channel Infos -->
+    <panel name="CSChannelInfos" />
+    <!-- MiniTV -->
+    <widget source="session.VideoPicture" render="Pig" position="785,685" size="500,280" backgroundColor="transparent" zPosition="21" />
+    <!-- CS Posters -->
+    <!-- Current Backdrop -->
+    <widget source="ServiceEvent" render="GlamBackdropX" delayPic="0" position="20,225" size="760,520" transparent="0" zPosition="3" />
+    <!-- Next1 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1290,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1412,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1290,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next2 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1490,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1612,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="2" usedImage="poster" delayPic="0" position="1490,685" size="187,280" zPosition="10" transparent="1" />
+    <!-- Next3 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1690,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1812,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
+    <widget source="ServiceEvent" render="GlamPosterX" nexts="3" usedImage="poster" delayPic="0" position="1690,685" size="187,280" zPosition="10" transparent="1" />
+    <panel name="FullKeysCC" />
+  </screen>
 </skin>
