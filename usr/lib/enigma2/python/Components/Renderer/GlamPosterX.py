@@ -25,7 +25,7 @@ import sys
 import re
 import time
 import socket
-
+from Components.config import config
 PY3 = (sys.version_info[0] == 3)
 try:
 	if PY3:
