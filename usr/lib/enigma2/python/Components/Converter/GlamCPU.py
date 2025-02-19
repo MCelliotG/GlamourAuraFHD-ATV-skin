@@ -1,8 +1,7 @@
-#	GlamCPU converter
-#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
-#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+# GlamCPU converter (Python 3)
+# Modded and recoded by MCelliotG for use in Glamour skins or standalone
+# If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
-from __future__ import division
 from Components.Converter.Converter import Converter
 from Components.Converter.Poll import Poll
 from Components.Element import cached
@@ -14,28 +13,14 @@ class GlamCPU(Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		self.percentlist = []
-		self.pfmt = "%3d%%"
-		if not type or type == "Total":
-			self.type = self.CPU_TOTAL
-			self.sfmt = "$0"
-		elif len(type) == 1 and type[0].isdigit():
-			self.type = int(type)
-			self.sfmt = "$" + type
-			self.pfmt = "%d"
-		else:
-			self.type = self.CPU_ALL
-			self.sfmt = str(type)
-			cpus = cpuUsageMonitor.getCpusCount()
-			if cpus > -1:
-				pos = 0
-				while True:
-					pos = self.sfmt.find("$", pos)
-					if pos == -1:
-						break
-					if pos < len(self.sfmt) - 1 and self.sfmt[pos + 1].isdigit() and int(self.sfmt[pos + 1]) > cpus:
-						self.sfmt = self.sfmt.replace("$" + self.sfmt[pos + 1], "")
-					pos += 1
-
+		self.format_type = "Default"
+		self.sfmt = type.strip()
+		
+		if "," in type:
+			parts = type.split(",")
+			self.sfmt = parts[0].strip()
+			self.format_type = parts[1].strip()
+		
 	def doSuspend(self, suspended):
 		if suspended:
 			cpuUsageMonitor.disconnectCallback(self.gotPercentage)
@@ -48,35 +33,43 @@ class GlamCPU(Converter, object):
 
 	@cached
 	def getText(self):
-		res = self.sfmt[:]
 		if not self.percentlist:
-			self.percentlist = [0] * 3
-		for i in range(len(self.percentlist)):
-			res = res.replace("$" + str(i), self.pfmt % self.percentlist[i])
-
-		res = res.replace("$?", "%d" % (len(self.percentlist) - 1))
-		return res
+			return ""
+		
+		cpu_count = len(self.percentlist)
+		res = self.sfmt[:]
+		
+		for i in range(16):
+			if f"${i}" in res:
+				res = res.replace(f"${i}", f"{self.percentlist[i]}%" if i < cpu_count else "")
+		
+		res = res.replace("$?", str(cpu_count - 1))
+		
+		if self.sfmt in ["All", "Default"]:
+			if self.format_type == "Separator":
+				return f"CPU: {self.percentlist[0]}% (" + " | ".join(f"{p}%" for p in self.percentlist[1:]) + ")"
+			elif self.format_type == "Newline":
+				return f"Total: {self.percentlist[0]}%\n" + "\n".join(f"C{i}: {p}%" for i, p in enumerate(self.percentlist[1:], 1))
+			elif self.format_type == "Full":
+				return f"Total: {self.percentlist[0]}% " + " ".join(f"Core{i}: {p}%" for i, p in enumerate(self.percentlist[1:], 1))
+			else:
+				core_loads = " ".join(f"{p}%" for p in self.percentlist[1:])
+				return f"CPU: {self.percentlist[0]}% ({core_loads})" if core_loads else f"CPU: {self.percentlist[0]}%"
+		
+		return res.strip()
 
 	@cached
 	def getValue(self):
-		if self.type in range(len(self.percentlist)):
-			i = self.type
-		else:
-			i = 0
 		try:
-			value = self.percentlist[i]
-		except IndexError:
-			value = 0
-
-		return value
+			return self.percentlist[0] if self.sfmt in ["All", "Default"] else self.percentlist[int(self.sfmt)]
+		except (IndexError, ValueError):
+			return 0
 
 	text = property(getText)
 	value = property(getValue)
 	range = 100
 
-
 class CpuUsageMonitor(Poll, object):
-
 	def __init__(self):
 		Poll.__init__(self)
 		self.__callbacks = []
@@ -91,20 +84,17 @@ class CpuUsageMonitor(Poll, object):
 		try:
 			fd = open("/proc/stat", "r")
 			for l in fd:
-				if l.find("cpu") == 0:
+				if l.startswith("cpu"):
 					total = busy = 0
 					tmp = l.split()
 					for i in range(1, len(tmp)):
 						tmp[i] = int(tmp[i])
 						total += tmp[i]
-
 					busy = total - tmp[4] - tmp[5]
 					res.append([tmp[0], total, busy])
-
 			fd.close()
 		except:
 			pass
-
 		return res
 
 	def poll(self):
@@ -116,9 +106,7 @@ class CpuUsageMonitor(Poll, object):
 					p = 100 * (self.__curr_info[i][2] - prev_info[i][2]) // (self.__curr_info[i][1] - prev_info[i][1])
 				except ZeroDivisionError:
 					p = 0
-
 				info.append(p)
-
 			for f in self.__callbacks:
 				f(info)
 
@@ -134,6 +122,5 @@ class CpuUsageMonitor(Poll, object):
 			self.__callbacks.remove(func)
 		if not len(self.__callbacks) and self.poll_enabled:
 			self.poll_enabled = False
-
 
 cpuUsageMonitor = CpuUsageMonitor()
