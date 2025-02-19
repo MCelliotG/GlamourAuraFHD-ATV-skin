@@ -385,18 +385,18 @@
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <!-- Button Labels -->
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="810,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1050,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1050,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1050,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1290,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1530,975" size="225,60" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
@@ -432,42 +432,42 @@
     </widget>
     <ePixmap objectTypes="key_help,help,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1750,900" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
     <!-- Button Labels -->
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="535,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="790,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="790,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="790,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1045,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1045,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1045,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1300,855" size="255,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="535,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="790,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="790,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="790,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1045,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1045,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1045,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1300,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeysCH" flags="wfNoBorder">
     <widget source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="550,870" size="225,75" conditional="key_red" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_red" render="Label" position="535,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_red" transparent="1" zPosition="5">
+    <widget source="key_red" render="Label" position="535,855" size="255,90" font="Regular; 32" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_red" transparent="1" zPosition="5">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="key_green" render="Pixmap" pixmap="GACommon/buttons/aura_green.png" position="805,870" size="225,75" conditional="key_green" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Label" position="790,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_green" transparent="1" zPosition="5">
+    <widget source="key_green" render="Label" position="790,855" size="255,90" font="Regular; 32" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_green" transparent="1" zPosition="5">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="key_yellow" render="Pixmap" pixmap="GACommon/buttons/aura_yellow.png" position="1060,870" size="225,75" conditional="key_yellow" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Label" position="1045,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_yellow" transparent="1" zPosition="5">
+    <widget source="key_yellow" render="Label" position="1045,855" size="255,90" font="Regular; 32" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_yellow" transparent="1" zPosition="5">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="key_blue" render="Pixmap" pixmap="GACommon/buttons/aura_blue.png" position="1315,870" size="225,75" conditional="key_blue" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Label" position="1300,855" size="255,90" font="Regular; 30" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_blue" transparent="1" zPosition="5">
+    <widget source="key_blue" render="Label" position="1300,855" size="255,90" font="Regular; 32" foregroundColor="white" backgroundColor="background20" halign="center" valign="bottom" conditional="key_blue" transparent="1" zPosition="5">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1560,900" size="90,45" conditional="key_menu" alphatest="blend" transparent="1" zPosition="4">
@@ -499,18 +499,18 @@
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <!-- Button Labels -->
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1185,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1185,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1185,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1510,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1510,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1510,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeys2" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="705,960" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -529,18 +529,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1605,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="665,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="665,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="665,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="965,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="965,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="965,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1265,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1265,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1265,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1565,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1565,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1565,940" size="300,95" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="665,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="665,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="665,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="965,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="965,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="965,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1265,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1265,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1265,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1565,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1565,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1565,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeys3" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="690,870" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -559,18 +559,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1605,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="650,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="650,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="650,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="955,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="955,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="955,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1260,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1260,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1260,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1565,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1565,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1565,855" size="305,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="650,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="650,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="650,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="955,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="955,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="955,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1260,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1260,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1260,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1565,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1565,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1565,855" size="305,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeysV1" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="1620,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -589,18 +589,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1620,695" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1580,245" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1580,245" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1580,245" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1580,465" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1580,465" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1580,465" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1580,685" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1580,685" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1580,685" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1580,245" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1580,245" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1580,245" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1580,465" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1580,465" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1580,465" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1580,685" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1580,685" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1580,685" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeysV2" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="1620,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -619,18 +619,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1620,605" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1580,55" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1580,235" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1580,235" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1580,235" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1580,415" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1580,415" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1580,415" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1580,595" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1580,595" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1580,595" size="305,85" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1580,55" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1580,235" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1580,235" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1580,235" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1580,415" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1580,415" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1580,415" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1580,595" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1580,595" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1580,595" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeysM" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="800,875" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -649,18 +649,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1490,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="800,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1030,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1260,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,830" size="225,120" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="800,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="800,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="800,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1030,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1030,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1030,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1260,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1260,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1490,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,830" size="225,120" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <!-- Button MIH -->
     <widget objectTypes="key_menu,StaticText" source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1720,855" size="90,45" alphatest="blend" zPosition="5" transparent="1">
       <convert type="ConditionalShowHide" />
@@ -676,10 +676,10 @@
     <widget name="h_green" pixmap="GACommon/buttons/aura_green.png" position="1070,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget name="h_yellow" pixmap="GACommon/buttons/aura_yellow.png" position="1335,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <widget name="h_blue" pixmap="GACommon/buttons/aura_blue.png" position="1600,875" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="key_red" position="805,850" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1070,848" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="1335,850" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_blue" position="1600,850" size="225,100" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="805,850" size="225,100" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1070,848" size="225,100" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_yellow" position="1335,850" size="225,100" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_blue" position="1600,850" size="225,100" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeysUP" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" zPosition="5" transparent="1">
@@ -698,18 +698,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1270,65" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="810,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1270,0" size="450,75" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="810,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1270,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1270,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1270,65" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="810,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="810,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1270,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1270,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="MenuKeysUP" flags="wfNoBorder">
     <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
@@ -732,14 +732,14 @@
     <ePixmap objectTypes="green,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap objectTypes="yellow,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap objectTypes="blue,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="red,Label,Button" name="red" position="530,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="green,Label,Button" name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="530,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="850,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1170,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,20" size="270,40" zPosition="6" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="red,Label,Button" name="red" position="530,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="green,Label,Button" name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1490,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="530,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="850,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1170,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1490,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
   </screen>
   <screen name="SetupKeys" flags="wfNoBorder">
     <!-- Button Graphics -->
@@ -760,42 +760,42 @@
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1555,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <!-- Button Labels -->
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="535,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="860,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="860,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="860,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1185,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1185,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1185,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1510,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1510,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1510,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="535,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="535,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="535,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="860,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="860,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="860,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1185,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1185,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1185,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1510,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1510,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1510,15" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+  </screen>
+  <screen name="RGKeysUP" flags="wfNoBorder">
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="1240,30" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GACommon/buttons/aura_red.png" position="1240,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap objectTypes="red,Label,Button" pixmap="GACommon/buttons/aura_red.png" position="1240,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap objectTypes="green,Label,Button" pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="red,Label,Button" name="red" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="green,Label,Button" name="green" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
   </screen>
   <screen name="RGKeysCO" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget name="canceltext" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="oktext" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="ok" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  </screen>
-  <screen name="RGKeysUP1" flags="wfNoBorder">
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="1240,30" size="225,75" alphatest="blend" zPosition="4" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" transparent="1" zPosition="4" />
-    <widget source="key_red" render="Label" position="1200,45" size="300,60" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget source="key_green" render="Label" position="1500,45" size="320,60" zPosition="5" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  </screen>
-  <screen name="RGKeysUP2" flags="wfNoBorder">
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="580,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget source="key_red" render="Label" position="535,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget source="key_green" render="Label" position="860,15" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-  </screen>
-  <screen name="RedKey3" flags="wfNoBorder">
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget source="key_red" render="Label" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="canceltext" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="oktext" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="ok" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 02. Menu Labels -->
   <screen name="MenuEntriesNew" flags="wfNoBorder">
@@ -1745,7 +1745,7 @@
       }
   </convert>
     </widget>
-    <widget name="config" font="Regular; 30" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" />
+    <widget name="config" font="Regular; 32" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" />
     <widget name="VKeyIcon" pixmap="GlamourAuraFHD-ATV/buttons/key_text_big.png" position="540,810" size="120,60" alphatest="blend" transparent="1" zPosition="10" />
     <widget name="HelpWindow" pixmap="GlamourAuraFHD-ATV/buttons/key_help_big.png" position="540,870" size="120,60" alphatest="blend" transparent="1" zPosition="10" />
   </screen>
@@ -2136,19 +2136,19 @@
     <widget source="session.Event_Now" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="350,890" size="1298,6" zPosition="7" transparent="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRoll" position="595,895" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
+    <widget source="session.Event_Next" render="GlamRoll" position="595,895" size="840,40" font="Regular; 32" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="360,895" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
+    <widget source="session.Event_Next" render="Label" position="360,895" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <eLabel text="-" position="465,895" size="15,40" font="Regular; 30" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
-    <widget source="session.Event_Next" render="Label" position="480,895" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
+    <eLabel text="-" position="465,895" size="15,40" font="Regular; 32" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
+    <widget source="session.Event_Next" render="Label" position="480,895" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="1450,895" size="180,40" font="Regular; 30" halign="left" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="center">
+    <widget source="session.Event_Next" render="Label" position="1450,895" size="180,40" font="Regular; 32" halign="left" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">Duration</convert>
       <convert type="ClockToText">InMinutes</convert>
     </widget>
@@ -2744,66 +2744,47 @@
     </widget>
   </screen>
   <!-- Bitrate Infobar -->
-  <screen name="BitrateInfobar" flags="wfNoBorder">
-    <eLabel text="Video:" font="Regular; 26" position="1647,845" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
-    <widget source="session.CurrentService" render="Label" position="1747,845" size="140,35" font="Regular; 26" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center">
-      <convert type="GlamBitrate">%V Kb/s</convert>
+  <screen name="BitrateSimple" flags="wfNoBorder">
+    <widget source="session.CurrentService" render="Label" position="1655,845" size="260,35" font="Regular; 27" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
+      <convert type="GlamBitrate">Video:  %VCUR kbit/s</convert>
     </widget>
-    <eLabel text="Audio:" font="Regular; 26" position="1647,895" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
-    <widget source="session.CurrentService" render="Label" position="1747,895" size="140,35" font="Regular; 26" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center">
-      <convert type="GlamBitrate">%A Kb/s</convert>
+    <widget source="session.CurrentService" render="Label" position="1655,895" size="260,35" font="Regular; 27" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
+      <convert type="GlamBitrate">Audio:  %ACUR kbit/s</convert>
     </widget>
   </screen>
-  <screen name="BitrateViewerExtra" zPosition="22" backgroundColor="transparent" position="200,40" size="273,100" flags="wfNoBorder">
-    <!-- Compact Info -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/bitrate_back.png" position="0,0" zPosition="2" size="273,100" alphatest="off" transparent="1" />
-    <widget render="Label" source="video_caption" font="Regular; 26" position="0,10" size="100,35" transparent="1" zPosition="5" foregroundColor="black" backgroundColor="grey" halign="center" noWrap="1" valign="center" />
-    <widget render="Label" source="audio_caption" font="Regular; 26" position="0,60" size="100,35" transparent="1" zPosition="5" foregroundColor="white" backgroundColor="black" halign="center" noWrap="1" valign="center" />
-    <widget render="Label" source="video" font="Regular; 26" position="100,10" size="170,35" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" valign="center" />
-    <widget render="Label" source="audio" font="Regular; 26" position="100,60" size="170,35" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" valign="center" />
-    <!-- Full Info -->
-    <widget source="vcur" render="Label" text="V:" position="5,0" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="center" />
-    <widget name="vcur" position="50,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget source="vavg" render="Label" text="avg" position="125,0" size="45,30" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget name="vavg" position="170,0" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget source="vmin" render="Label" text="min" position="5,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget name="vmin" position="50,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" noWrap="1" />
-    <widget source="vmax" render="Label" text="max" position="125,25" size="45,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget name="vmax" position="170,25" size="85,25" font="Regular;24" zPosition="8" foregroundColor="black" backgroundColor="grey" transparent="1" valign="center" halign="left" />
-    <widget source="acur" render="Label" text="A:" position="5,50" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="center" />
-    <widget name="acur" position="50,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget source="aavg" render="Label" text="avg" position="125,50" size="45,30" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget name="aavg" position="170,50" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget source="amin" render="Label" text="min" position="5,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget name="amin" position="50,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget source="amax" render="Label" text="max" position="125,75" size="45,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
-    <widget name="amax" position="170,75" size="85,25" font="Regular;24" zPosition="8" foregroundColor="white" backgroundColor="black" transparent="1" valign="center" halign="left" />
+  <screen name="BitrateAdv" flags="wfNoBorder">
+    <widget source="session.CurrentService" render="Label" position="1650,845" size="280,35" font="Regular; 24" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
+      <convert type="GlamBitrate">V:%VCUR ▼%VMIN ▲%VMAX μ:%VAVG</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1655,895" size="280,35" font="Regular; 24" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
+      <convert type="GlamBitrate">A:%ACUR ▼%AMIN ▲%AMAX μ:%AAVG</convert>
+    </widget>
   </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,395" zPosition="-6" size="400,290" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,420" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,425" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="90,420" size="310,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
       <convert type="GlamourExtra">Temperature</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,465" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1" foregroundColor="white">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,580" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,580" size="310,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1" foregroundColor="white">
       <convert type="GlamourExtra">FanInfo,Short</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,505" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,460" size="310,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
       <convert type="GlamourExtra">CPULoad</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,540" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,545" size="330,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
-      <convert type="GlamCPU">CPU:$0 ($1$2$3 $4)</convert>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,500" size="330,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
+      <convert type="GlamCPU">All,Default</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,580" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,585" size="310,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,540" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,540" size="310,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
       <convert type="GlamourExtra">CPUSpeed</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/uptime.png" position="45,620" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,625" size="330,35" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="Uptime" halign="left" noWrap="1" foregroundColor="white">
+    <widget source="session.CurrentService" render="Label" position="90,620" size="330,40" font="Regular; 25" zPosition="6" backgroundColor="background20" transparent="1" text="Uptime" halign="left" noWrap="1" foregroundColor="white">
       <convert type="GlamourExtra">Uptime,Short</convert>
     </widget>
   </screen>
@@ -3015,6 +2996,10 @@
   </screen>
   <!--  Source info -->
   <screen name="SourceInfo" flags="wfNoBorder">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/fta.png" position="1498,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
+      <convert type="GlamourAccess">Fta</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/emu.png" position="1498,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
       <convert type="GlamourAccess">Emu</convert>
       <convert type="ConditionalShowHide" />
@@ -3060,8 +3045,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!-- Crypt Info -->
     <panel name="CryptInfo" />
-    <!-- Bitrate -->
-    <!--panel name="BitrateInfobar" /-->
+    <panel name="SourceInfo" />
     <!-- WEATHER Current Temp on Infobar -->
     <panel name="WeatherInfobar2" />
   </screen>
@@ -3070,8 +3054,8 @@
   <screen name="SetupCommon" flags="wfNoBorder">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 30" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 32" zPosition="5" foregroundColor="sky" />
+    <widget name="config" font="Regular; 32" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
     <widget name="HelpWindow" position="540,870" size="1320,90" zPosition="11" transparent="1" />
     <widget name="setupimage" position="50,315" size="400,400" conditional="setupimage" alphatest="on" transparent="1" zPosition="5" />
@@ -3087,7 +3071,6 @@
   </screen>
   <!-- 10-2 Event Infos -->
   <screen name="CSEventInfos" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaura.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
     <widget source="ServiceEvent" render="Picon" position="40,35" size="220,132" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
@@ -3142,6 +3125,50 @@
     </widget>
     <widget source="ServiceEvent" render="GlamRoll" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
+    </widget>
+  </screen>
+  <screen name="CSNextEventsPIG" flags="wfNoBorder">
+    <widget source="ServiceEvent" render="Label" position="50,665" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+      <convert type="GlamNextEvents">Event1,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,705" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+      <convert type="GlamNextEvents">Event2,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,745" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+      <convert type="GlamNextEvents">Event3,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,785" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+      <convert type="GlamNextEvents">Event4,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,825" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event5,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,865" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event6,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="50,905" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event7,beginTime</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,665" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+      <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,705" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+      <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,745" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+      <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,785" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+      <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,825" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,865" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event6,titleWithDuration</convert>
+    </widget>
+    <widget source="ServiceEvent" render="GlamRoll" position="130,905" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+      <convert type="GlamNextEvents">Event7,titleWithDuration</convert>
     </widget>
   </screen>
   <!-- 10-4 Channel Infos -->
@@ -3389,23 +3416,23 @@
   <screen name="MovieSLayout" flags="wfNoBorder">
     <widget source="Title" render="Label" position="665,35" size="875,95" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
     <widget name="list" position="665,135" pathIconSize="50" dataIconSize="50" progressIconSize="50" progressBarSize="80" size="1200,720" fontName="Regular" pbarShift="10" pbarHeight="20" pbarLargeWidth="70" pbarColour="background20" pbarColourSeen="cyan" pbarColourRec="red" partIconeShift="2" spaceIconeText="10" iconsWidth="30" trashShift="2" dirShift="2" spaceRight="5" dateWidth="250" backgroundColor="background20" foregroundColor="white" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/moviesel.png" alphatest="off" zPosition="5" />
-    <widget name="freeDiskSpace" position="1155,905" size="710,50" font="Regular; 30" valign="center" backgroundColor="background20" transparent="1" halign="right" foregroundColor="sky" zPosition="5" />
+    <widget name="freeDiskSpace" position="1155,905" size="710,50" font="Regular; 32" valign="center" backgroundColor="background20" transparent="1" halign="right" foregroundColor="sky" zPosition="5" />
     <widget name="waitingtext" position="665,135" size="1200,720" font="Regular; 37" halign="center" valign="center" zPosition="12" transparent="0" backgroundColor="background20" foregroundColor="sky" />
     <widget name="chosenletter" position="1545,35" size="105,95" font="RegularB; 45" halign="center" valign="top" transparent="1" zPosition="7" backgroundColor="background20" foregroundColor="sky" />
   </screen>
   <!-- 11-7 MOVIESELECTION INFOS -->
   <screen name="MovieSInfo" flags="wfNoBorder">
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="665,855" size="1200,45" foregroundColor="cyan1" font="Regular; 30" transparent="1" backgroundColor="background20" zPosition="7">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="665,855" size="1200,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="MovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,700" font="Regular; 30" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,700" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" foregroundColor="cyan1" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">
       <convert type="ServiceTime">Duration</convert>
       <convert type="ClockToText">AsLength</convert>
     </widget>
-    <widget source="Service" render="Label" position="155,910" size="325,40" font="Regular; 30" foregroundColor="amarillo" halign="center" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1" valign="center">
+    <widget source="Service" render="Label" position="155,910" size="325,40" font="Regular; 32" foregroundColor="amarillo" halign="center" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1" valign="center">
       <convert type="ServiceTime">StartTime</convert>
       <convert type="ClockToText">LongDate</convert>
     </widget>
@@ -3554,7 +3581,7 @@
     <widget source="Event" render="Label" position="60,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="650,140" size="1220,800" font="Regular;28" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti2.png" alphatest="blend" transparent="1" zPosition="4" itemHeight="40" />
@@ -3567,7 +3594,7 @@
     <widget source="Event" render="Label" position="58,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="5" />
@@ -3589,7 +3616,7 @@
     <widget source="Event" render="Label" position="60,80" size="570,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,750" font="Regular; 30" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,750" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="60,205" size="85,45" font="Numbers; 36" halign="left" backgroundColor="sky" transparent="1" zPosition="7">
@@ -3604,7 +3631,7 @@
       <convert type="EventTime">Progress</convert>
     </widget>
     <eLabel position="150,225" size="390,2" backgroundColor="grey" zPosition="6" />
-    <widget name="timeline_text" position="650,135" size="1220,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
+    <widget name="timeline_text" position="650,135" size="1220,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" />
     <eLabel position="650,195" size="1220,3" backgroundColor="cyan1" zPosition="8" />
     <widget name="list" position="650,205" size="1220,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="timeline0" position="665,205" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
@@ -3623,7 +3650,7 @@
     <panel name="ClockLabel3" />
     <ePixmap position="40,420" size="180,180" scale="180,180" zPosition="10" pixmap="GACommon/images/epggraphical.png" transparent="1" alphatest="on" />
     <widget source="Title" render="Label" position="240,45" size="1420,90" font="Regular; 34" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
-    <widget name="timeline_text" position="239,133" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
+    <widget name="timeline_text" position="239,133" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" />
     <eLabel position="240,195" size="1620,3" backgroundColor="cyan1" zPosition="8" />
     <widget name="list" position="240,200" size="1620,720" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="timeline0" position="255,200" zPosition="8" size="3,720" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
@@ -3661,7 +3688,7 @@
     </widget>
     <widget name="list" position="240,200" size="1620,660" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="240,200" size="1620,660" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
-    <widget name="timeline_text" position="240,135" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" />
+    <widget name="timeline_text" position="240,135" size="1620,55" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" />
     <eLabel position="240,190" size="1620,3" backgroundColor="cyan1" zPosition="8" />
     <widget name="timeline_now" position="255,200" zPosition="9" size="18,660" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
     <widget name="timeline0" position="255,201" size="1,660" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
@@ -3698,12 +3725,12 @@
     </widget>
     <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
     <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,330" font="Regular; 30" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,330" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="240,180" size="1620,360" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
-    <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 30" itemHeight="50" foregroundColor="yellow" />
+    <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" foregroundColor="yellow" />
     <eLabel position="240,180" size="1620,3" backgroundColor="cyan1" zPosition="22" />
     <widget name="timeline_now" position="255,181" zPosition="9" size="18,360" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
     <widget name="timeline0" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
@@ -3775,7 +3802,7 @@
     <widget source="Event" render="Progress" position="185,875" size="540,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,120" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,120" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="425,890" size="180,40" font="Regular;28" backgroundColor="background20" foregroundColor="cyan1" transparent="1" halign="center" valign="center" zPosition="7">
@@ -3870,7 +3897,7 @@
     <widget source="Event" render="Progress" position="1310,605" size="410,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,650" size="715,290" font="Regular; 30" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,650" size="715,290" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="1430,615" size="180,35" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan" transparent="1" halign="center" valign="center" zPosition="7">

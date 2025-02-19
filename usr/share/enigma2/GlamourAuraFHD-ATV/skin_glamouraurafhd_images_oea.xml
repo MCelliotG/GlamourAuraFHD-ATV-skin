@@ -7,10 +7,10 @@
   <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent">
     <panel name="ScreenElements3" />
     <ePixmap position="100,865" size="180,180" scale="1" pixmap="GACommon/images/camd.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
-    <widget name="actifcam" position="540,260" size="650,50" font="Regular; 30" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
-    <widget name="actifcam2" position="1200,260" size="660,50" font="Regular; 30" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
-    <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 30" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
+    <widget name="config" font="Regular; 32" position="540,60" size="1320,200" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="actifcam" position="540,260" size="650,50" font="Regular; 32" transparent="1" foregroundColor="sky" backgroundColor="background20" halign="left" zPosition="5" />
+    <widget name="actifcam2" position="1200,260" size="660,50" font="Regular; 32" transparent="1" foregroundColor="amarillo" backgroundColor="background20" halign="left" zPosition="5" />
+    <widget name="ecminfo" position="540,310" size="690,550" font="Regular; 32" transparent="1" foregroundColor="cyan" backgroundColor="background20" halign="left" zPosition="5" />
     <panel name="CPUTempInfobar" />
     <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="1360,360" size="400,155" font="Regular; 42" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="1" foregroundColor="cyan2" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="1235,570" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
@@ -65,10 +65,10 @@
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1390,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_blue" position="1270,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_blue" position="1270,0" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 03. OPD Panel -->
   <screen name="OPD_panel" position="0,0" size="1920,1080" title="OPD panel" backgroundColor="transparent" flags="wfNoBorder">
@@ -82,11 +82,11 @@
     <panel name="ScreenElements5" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/skins.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="Preview" position="460,360" size="320,320" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
+    <widget name="config" font="Regular; 32" position="810,80" size="930,700" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="50" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" zPosition="6" />
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="880,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget source="key_red" render="Label" position="835,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget source="key_red" render="Label" position="835,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1250,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget source="key_green" render="Label" position="1205,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget source="key_green" render="Label" position="1205,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 05. Devices Manager -->
   <screen name="DeviceManager" position="0,0" size="1920,1080" title="Devices Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -105,7 +105,7 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,730" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1030,785" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="lab1" render="Label" font="Regular; 30" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
+    <widget source="lab1" render="Label" font="Regular; 32" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 06. OPENDROID IPK Tools Panel -->
@@ -122,8 +122,8 @@
     </widget>
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 07. Manual Install Tgz Packages -->
   <screen name="PanelTGzInstaller" position="0,0" size="1920,1080" title="Manual Install Tgz Packages" backgroundColor="transparent" flags="wfNoBorder">
@@ -134,8 +134,8 @@
     </widget>
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 08. Feed Install -->
   <screen name="InstallFeed" position="0,0" size="1920,1080" title="Install extensions from feed" backgroundColor="transparent" flags="wfNoBorder">
@@ -146,8 +146,8 @@
     </widget>
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 09. Advanced Install -->
   <screen name="AdvInstallIpk" position="0,0" size="1920,1080" title="Select install files" backgroundColor="transparent" flags="wfNoBorder">
@@ -168,9 +168,9 @@
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 11. OPENDROID Addons Manager -->
   <screen name="AddonsUtility" position="0,0" size="1920,1080" title="OPENDROID Addons Manager" backgroundColor="transparent" flags="wfNoBorder">
@@ -180,9 +180,9 @@
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="920,0" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
-    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_red" position="810,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_green" position="1270,65" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget name="key_yellow" position="810,0" size="450,75" zPosition="4" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <!-- 12. OPENDROID Download Manager -->
   <screen name="Connection_Server" position="0,0" size="1920,1080" title="OPENDROID Download Manager" backgroundColor="transparent" flags="wfNoBorder">
@@ -200,13 +200,13 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="20,315" size="400,400" pixmap="GACommon/images/packet.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="list" font="Regular; 30" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="list" font="Regular; 32" position="420,60" size="705,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" backgroundColor="background20" itemHeight="90" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel position="1130,60" size="2,720" backgroundColor="cyan1" zPosition="12" foregroundColor="cyan1" />
     <eLabel position="1134,60" size="2,720" backgroundColor="blue" zPosition="12" foregroundColor="blue" />
-    <widget name="status" font="Regular; 30" position="1140,110" size="705,650" foregroundColor="amarillo" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="status" font="Regular; 32" position="1140,110" size="705,650" foregroundColor="amarillo" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <eLabel name="pltitle" position="1140,60" size="705,50" font="RegularB; 33" text="List of plugins to uninstall" zPosition="7" halign="center" transparent="1" foregroundColor="cyan2" />
     <widget name="text" position="1185,855" size="655,90" zPosition="1" font="Regular;30" halign="center" valign="center" foregroundColor="green" transparent="1" backgroundColor="background20" />
-    <eLabel name="spaceused" text="% Flash Used..." position="420,795" size="300,50" font="Regular; 30" halign="right" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel name="spaceused" text="% Flash Used..." position="420,795" size="300,50" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget name="spaceused" position="735,800" size="950,30" foregroundColor="white" backgroundColor="cyan" zPosition="6" />
     <panel name="FullKeys1" />
   </screen>
@@ -222,43 +222,43 @@
   <screen name="AddPart" title="Add Partition" position="center,center" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/hddsetup.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
-    <panel name="RGKeysUP1" />
+    <widget name="config" font="Regular; 32" position="540,105" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="RGKeysUP" />
   </screen>
   <!-- 16. OPDBOOT SCREENS -->
   <screen name="OPDBootImageChoose" position="0,0" size="1920,1080" title="OPDBoot Image Choose" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="label2" position="640,90" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-    <widget name="label3" position="640,135" size="400,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
-    <widget name="label4" position="640,180" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-    <widget name="label5" position="640,225" size="650,45" zPosition="8" font="Regular; 30" backgroundColor="background20" transparent="1" />
-    <widget name="label6" position="1390,90" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-    <widget name="label7" position="1720,135" size="120,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan" transparent="1" />
-    <widget name="label8" position="1390,180" size="450,45" zPosition="7" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-    <widget name="label9" position="1290,225" size="550,45" zPosition="8" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="amarillo" transparent="1" />
-    <widget name="label10" position="640,270" size="750,45" zPosition="7" font="Regular; 30" backgroundColor="background20" transparent="1" />
-    <widget name="label11" position="1390,270" size="450,45" zPosition="9" halign="right" font="Regular; 30" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
-    <widget name="label1" position="540,330" size="1305,45" zPosition="7" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="orange" />
+    <widget name="label2" position="640,90" size="750,45" zPosition="7" font="Regular; 32" backgroundColor="background20" transparent="1" />
+    <widget name="label3" position="640,135" size="400,45" zPosition="8" font="Regular; 32" backgroundColor="background20" transparent="1" />
+    <widget name="label4" position="640,180" size="750,45" zPosition="7" font="Regular; 32" backgroundColor="background20" transparent="1" />
+    <widget name="label5" position="640,225" size="650,45" zPosition="8" font="Regular; 32" backgroundColor="background20" transparent="1" />
+    <widget name="label6" position="1390,90" size="450,45" zPosition="7" halign="right" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label7" position="1720,135" size="120,45" zPosition="8" halign="right" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan" transparent="1" />
+    <widget name="label8" position="1390,180" size="450,45" zPosition="7" halign="right" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label9" position="1290,225" size="550,45" zPosition="8" halign="right" font="Regular; 32" backgroundColor="background20" foregroundColor="amarillo" transparent="1" />
+    <widget name="label10" position="640,270" size="750,45" zPosition="7" font="Regular; 32" backgroundColor="background20" transparent="1" />
+    <widget name="label11" position="1390,270" size="450,45" zPosition="9" halign="right" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan2" transparent="1" />
+    <widget name="label1" position="540,330" size="1305,45" zPosition="7" halign="center" font="Regular; 32" backgroundColor="background20" transparent="1" foregroundColor="orange" />
     <widget name="device_icon" position="545,145" size="80,80" alphatest="on" zPosition="8" transparent="1" />
     <widget name="free_space_progressbar" position="1055,142" size="650,25" borderWidth="1" zPosition="9" backgroundColor="white" foregroundColor="cyan" />
-    <widget name="config" font="Regular; 30" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 32" position="540,380" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <ePixmap position="1430,805" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
-    <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 30" noWrap="1" backgroundColor="background20" halign="left" />
+    <widget name="key_menu" position="1530,810" size="360,45" zPosition="5" transparent="1" font="Regular; 32" noWrap="1" backgroundColor="background20" halign="left" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="OPDBootInstallation" position="0,0" size="1920,1080" title="OPDBoot - Installation" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="label1" position="540,90" size="1305,50" zPosition="8" halign="center" font="RegularB; 35" backgroundColor="background20" transparent="1" foregroundColor="cyan2" />
-    <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 30" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
-    <widget name="config" font="Regular; 30" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="label2" position="540,145" size="1305,300" zPosition="9" halign="center" font="Regular; 32" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
+    <widget name="config" font="Regular; 32" position="540,450" size="1305,400" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="OPDBootImageInstall" position="0,0" size="1920,1080" title="OPDBoot - Image Installation" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 32" position="540,80" size="1305,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="HelpWindow" position="540,730" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
@@ -281,7 +281,7 @@
   <screen name="DownloadOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download Image" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="imageList" font="Regular; 30" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="imageList" font="Regular; 32" position="540,80" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 17. Commit Info -->
@@ -306,7 +306,7 @@
     <widget name="pfree" position="945,140" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
     <widget name="pused" position="945,740" size="110,35" font="Regular; 24" zPosition="1" halign="center" backgroundColor="background20" transparent="1" />
     <widget name="slide" position="1057,60" size="30,785" render="Progress" zPosition="1" borderWidth="1" orientation="orBottomToTop" foregroundColor="cyan1" backgroundColor="background20" borderColor="white" />
-    <widget name="info" position="1110,712" size="720,225" font="Regular; 30" zPosition="3" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
+    <widget name="info" position="1110,712" size="720,225" font="Regular; 32" zPosition="3" halign="left" backgroundColor="background20" transparent="1" foregroundColor="sky" />
     <panel name="FullKeysV2" />
   </screen>
   <!-- 19. ModelPic -->
@@ -321,26 +321,26 @@
   <screen name="PasswdScreen" position="0,0" size="1920,1080" title="Change Root Password" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pininput.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="passwd" font="Regular; 30" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="passwd" font="Regular; 32" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 21. OscamSmartcard -->
   <screen name="OscamSmartcard" position="0,0" size="1920,1080" title="OscamSmartcard" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/oscam.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 30" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 32" position="540,405" size="870,300" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/filesel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="910,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1230,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1555,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <eLabel text="Cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <eLabel text="Start" position="860,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <eLabel text="Info" position="1185,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <eLabel text="clean up" position="1510,855" size="320,90" zPosition="6" font="Regular; 30" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="Cancel" position="535,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="Start" position="860,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="Info" position="1185,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <eLabel text="clean up" position="1510,855" size="320,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget name="oscamsmartcardhelperimage" position="1440,260" size="330,300" zPosition="3" backgroundColor="black" transparent="1" />
-    <widget name="HELPTEXT" position="1195,705" size="650,150" zPosition="9" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
+    <widget name="HELPTEXT" position="1195,705" size="650,150" zPosition="9" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
     <widget name="HEADER" position="540,135" size="870,270" zPosition="8" font="RegularB; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="lightciel" />
-    <widget name="INFOTXT" position="540,705" size="650,150" zPosition="8" font="Regular; 30" halign="left" backgroundColor="background20" transparent="1" foregroundColor="amarillo" />
+    <widget name="INFOTXT" position="540,705" size="650,150" zPosition="8" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="amarillo" />
     <eLabel text="OscamSmartcard 2.4 by arn354 and Undertaker Mod team OPD" position="825,90" size="1000,45" zPosition="6" font="Regular; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="sky" />
   </screen>
   <!-- 22. Usb Format -->
