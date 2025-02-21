@@ -4,6 +4,7 @@
 
 import os
 import re
+import binascii
 from Components.Converter.Converter import Converter 
 from Components.Element import cached 
 from Components.Converter.Poll import Poll
@@ -111,18 +112,21 @@ class GlamourExtra(Poll, Converter):
 		return "Temp: " + "  ".join(f"{k}: {v}" for k, v in temps.items())
 
 	def getCpuSpeed(self):
-		paths = [
-			"/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq",
-			"/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency"
-		]
-		for path in paths:
-			if os.path.exists(path):
-				try:
-					with open(path, "rb") as f:
-						return f"CPU Speed: {int(f.read().strip()) // 1000} MHz"
-				except:
-					pass
-		return "CPU Speed: N/A"
+		try:
+			with open("/proc/cpuinfo", "r") as f:
+				match = re.search(r"cpu MHz\s+:\s+([\d.]+)", f.read())
+				if match:
+					return f"CPU Speed: {int(float(match.group(1)))} MHz"
+			try:
+				with open("/sys/firmware/devicetree/base/cpus/cpu@0/clock-frequency", "rb") as f:
+					freq = int(binascii.hexlify(f.read()), 16) // 1000000
+					return f"CPU Speed: {freq} MHz"
+			except FileNotFoundError:
+				pass
+			with open("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq", "r") as f:
+				return f"CPU Speed: {int(f.read().strip()) // 1000} MHz"
+		except Exception:
+			return "CPU Speed: N/A"
 
 	def getFanInfo(self):
 		paths = {
