@@ -385,18 +385,18 @@
     </widget>
     <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1530,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <!-- Button Labels -->
-    <widget objectTypes="key_red,Label,Button" name="key_red" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="red,Label,Button" name="red" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="810,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,Label,Button" name="key_green" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="green,Label,Button" name="green" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1050,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="yellow,Label,Button" name="yellow" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1290,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="blue,Label,Button" name="blue" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1530,975" size="225,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="805,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="805,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="805,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="1045,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1045,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1045,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="1285,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="1285,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="1285,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1525,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1525,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1525,975" size="235,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_small.png" position="1770,975" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_small.png" position="1822,1005" size="60,30" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
@@ -479,6 +479,12 @@
     <widget source="key_help" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1750,900" size="90,45" conditional="key_help" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
     </widget>
+  </screen>
+  <screen name="FullKeysTR" flags="wfNoBorder">
+    <widget name="key_red" position="535,555" size="0,0" font="Regular; 0" transparent="1" zPosition="5"/>
+    <widget name="key_green" position="790,555" size="0,0" font="Regular; 0" transparent="1" zPosition="5"/>
+    <widget name="key_yellow" position="1045,555" size="0,0" font="Regular; 0" transparent="1" zPosition="5"/>
+    <widget name="key_blue" position="1300,5855" size="0,0" font="Regular; 0" transparent="1" zPosition="5"/>
   </screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <!-- Button Graphics -->
@@ -2117,38 +2123,38 @@
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!-- Current and next event -->
-    <widget source="session.Event_Now" render="Label" position="360,837" size="105,53" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" zPosition="11" noWrap="1" valign="center">
+    <widget source="session.Event_Now" render="Label" position="355,837" size="105,53" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" zPosition="11" noWrap="1" valign="center">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <eLabel text="-" position="465,837" size="15,53" font="Regular; 38" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" zPosition="11" valign="center" />
-    <widget source="session.Event_Now" render="Label" position="480,837" size="105,53" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
+    <eLabel text="-" position="460,837" size="15,53" font="Regular; 38" halign="center" backgroundColor="background20" foregroundColor="white" transparent="1" noWrap="1" zPosition="11" valign="center" />
+    <widget source="session.Event_Now" render="Label" position="475,837" size="105,53" font="Regular; 38" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRoll" position="595,837" size="840,53" font="Regular; 38" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
+    <widget source="session.Event_Now" render="GlamRoll" position="585,837" size="840,53" font="Regular; 38" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="session.Event_Now" render="Label" position="1450,837" size="180,53" font="Regular; 33" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
+    <widget source="session.Event_Now" render="Label" position="1430,837" size="180,53" font="Regular; 33" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">Remaining</convert>
       <convert type="RemainingToText">InMinutes</convert>
     </widget>
-    <widget source="session.Event_Now" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="350,890" size="1298,6" zPosition="7" transparent="1">
+    <widget source="session.Event_Now" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="350,890" size="1258,6" zPosition="7" transparent="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRoll" position="595,895" size="840,40" font="Regular; 32" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
+    <widget source="session.Event_Next" render="GlamRoll" position="585,895" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="360,895" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
+    <widget source="session.Event_Next" render="Label" position="355,895" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
       <convert type="EventTime">StartTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <eLabel text="-" position="465,895" size="15,40" font="Regular; 32" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
-    <widget source="session.Event_Next" render="Label" position="480,895" size="105,40" font="Regular; 32" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
+    <eLabel text="-" position="460,895" size="15,40" font="Regular; 30" halign="center" backgroundColor="grey" foregroundColor="background20" transparent="1" noWrap="1" zPosition="11" />
+    <widget source="session.Event_Next" render="Label" position="475,895" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Next" render="Label" position="1450,895" size="180,40" font="Regular; 32" halign="left" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="center">
+    <widget source="session.Event_Next" render="Label" position="1430,895" size="180,40" font="Regular; 30" halign="center" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="11" valign="center">
       <convert type="EventTime">Duration</convert>
       <convert type="ClockToText">InMinutes</convert>
     </widget>
@@ -2717,15 +2723,15 @@
   <screen name="MemoryInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/infobar/infobar_meminfo.png" position="0,255" zPosition="-2" size="1500,40" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/flashspace.png" position="45,255" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,257" size="290,35" font="Regular; 26" zPosition="6" backgroundColor="grey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="black">
+    <widget source="session.CurrentService" render="Label" position="90,257" size="300,35" font="Regular; 26" zPosition="6" backgroundColor="grey" transparent="1" text="FlashInfo" noWrap="1" halign="left" foregroundColor="black">
       <convert type="GlamourSpace">FlashInfo,Short</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ramspace.png" position="390,255" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="435,257" size="600,35" font="Regular; 26" zPosition="6" backgroundColor="grey" transparent="1" text="RAMinfo" noWrap="1" halign="left">
+    <widget source="session.CurrentService" render="Label" position="435,257" size="500,35" font="Regular; 26" zPosition="6" backgroundColor="grey" transparent="1" text="RAMinfo" noWrap="1" halign="left">
       <convert type="GlamourSpace">RAMInfo</convert>
     </widget>
-    <ePixmap pixmap="GACommon/infobar/swap.png" position="1040,255" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1085,257" size="400,35" font="Regular; 26" zPosition="6" backgroundColor="darkgrey" transparent="1" foregroundColor="amarillo" text="SwapInfo" noWrap="1" halign="left">
+    <ePixmap pixmap="GACommon/infobar/swap.png" position="940,255" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="985,257" size="500,35" font="Regular; 26" zPosition="6" backgroundColor="darkgrey" transparent="1" foregroundColor="amarillo" text="SwapInfo" noWrap="1" halign="left">
       <convert type="GlamourSpace">SwapInfo</convert>
     </widget>
   </screen>
@@ -2745,18 +2751,18 @@
   </screen>
   <!-- Bitrate Infobar -->
   <screen name="BitrateSimple" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Label" position="1655,845" size="260,35" font="Regular; 27" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
+    <widget source="session.CurrentService" render="Label" position="1615,840" size="285,40" font="Numbers; 33" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
       <convert type="GlamBitrate">Video:  %VCUR kbit/s</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="1655,895" size="260,35" font="Regular; 27" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
+    <widget source="session.CurrentService" render="Label" position="1615,890" size="285,40" font="Numbers; 33" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
       <convert type="GlamBitrate">Audio:  %ACUR kbit/s</convert>
     </widget>
   </screen>
   <screen name="BitrateAdv" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Label" position="1650,845" size="280,35" font="Regular; 24" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
+    <widget source="session.CurrentService" render="Label" position="1615,840" size="285,40" font="Numbers; 24" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
       <convert type="GlamBitrate">V:%VCUR ▼%VMIN ▲%VMAX μ:%VAVG</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="1655,895" size="280,35" font="Regular; 24" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
+    <widget source="session.CurrentService" render="Label" position="1615,890" size="285,40" font="Numbers; 24" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
       <convert type="GlamBitrate">A:%ACUR ▼%AMIN ▲%AMAX μ:%AAVG</convert>
     </widget>
   </screen>
@@ -2996,10 +3002,6 @@
   </screen>
   <!--  Source info -->
   <screen name="SourceInfo" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/fta.png" position="1498,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
-      <convert type="GlamourAccess">Fta</convert>
-      <convert type="ConditionalShowHide" />
-    </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/emu.png" position="1498,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
       <convert type="GlamourAccess">Emu</convert>
       <convert type="ConditionalShowHide" />
@@ -3499,49 +3501,49 @@
   </screen>
   <!-- 13. EVENT SCREENS -->
   <screen name="EventIcons" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Pixmap" position="108,850" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" position="107,865" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoHeight</convert>
       <convert type="ValueRange">720,1988</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/dolby_off.png" position="165,850" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/dolby_on.png" position="165,850" size="84,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/dolby_off.png" position="165,865" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/dolby_on.png" position="165,865" size="84,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">IsMultichannel</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/uhd_off.png" position="80,850" size="76,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/uhd_on.png" position="80,850" size="76,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/uhd_off.png" position="80,865" size="76,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/uhd_on.png" position="80,865" size="76,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoWidth</convert>
       <convert type="ValueRange">2800,4400</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/wide_off.png" position="260,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/wide_on.png" position="260,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/wide_off.png" position="260,865" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/wide_on.png" position="260,865" size="54,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">IsWidescreen</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="325,850" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" position="325,850" size="60,30" zPosition="4" pixmap="GACommon/icons/infobar/hbbtv_on.png" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="325,865" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" position="325,865" size="60,30" zPosition="4" pixmap="GACommon/icons/infobar/hbbtv_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">HasHBBTV</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/txt_off.png" position="395,850" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/txt_on.png" position="395,850" size="54,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/txt_off.png" position="395,865" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/txt_on.png" position="395,865" size="54,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">HasTelext</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/sub_off.png" position="455,850" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/sub_on.png" position="455,850" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/sub_off.png" position="455,865" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/sub_on.png" position="455,865" size="50,30" zPosition="2" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">SubtitlesAvailable</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/crypt_off.png" position="575,850" size="33,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/crypt_on.png" position="575,850" size="33,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/crypt_off.png" position="575,865" size="33,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/crypt_on.png" position="575,865" size="33,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">IsCrypted</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/stream_off.png" position="510,850" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stream_on.png" position="510,850" size="60,30" zPosition="4" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/infobar/stream_off.png" position="510,865" size="60,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stream_on.png" position="510,865" size="60,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="GlamourBase">IsStreaming</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -3557,7 +3559,7 @@
     <ePixmap position="555,640" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
   </screen>
   <screen name="EventNext" flags="wfNoBorder">
-    <widget source="session.Event_Next" render="Label" position="40,890" size="600,105" transparent="1" zPosition="8" foregroundColor="black" font="RegularB; 30" halign="center" valign="center" backgroundColor="grey2">
+    <widget source="session.Event_Next" render="Label" position="40,905" size="600,105" transparent="1" zPosition="8" foregroundColor="black" font="RegularB; 30" halign="center" valign="center" backgroundColor="grey2">
       <convert type="EventName">Name</convert>
     </widget>
   </screen>
@@ -3979,7 +3981,7 @@
     <widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
       <convert type="ServiceName">Reference</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="40,765" size="600,75" font="Numbers; 28" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="transpyellow" halign="center" valign="center" text="PidHexInfo">
+    <widget source="session.CurrentService" render="Label" position="40,760" size="600,95" font="Numbers; 28" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="transpyellow" halign="center" valign="center" text="PidHexInfo">
       <convert type="GlamourBase">PidInfo,DecHex</convert>
     </widget>
     <widget name="channel" position="665,85" size="795,75" font="RegularB; 40" halign="left" backgroundColor="background20" transparent="1" valign="center" foregroundColor="sky" zPosition="5" />

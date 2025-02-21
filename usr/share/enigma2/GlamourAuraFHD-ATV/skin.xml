@@ -184,7 +184,7 @@
   </parameters>
   <windowstyle type="skinned" id="0">
     <title offset="35,45" font="RegularB;42" />
-    <configList entryFont="Regular;32" valueFont="Regular;32" />
+    <configList entryFont="Regular;30" valueFont="Regular;30" />
     <color name="Background" color="background20" />
     <color name="LabelForeground" color="white" />
     <color name="ListboxBackground" color="background20" />
@@ -255,6 +255,7 @@
     <panel name="CasInfo" />
     <!-- Weather Info -->
     <panel name="WeatherToday2" />
+    <panel name="FullKeysTR" />
   </screen>
   <!-- 02. Second Infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
@@ -279,6 +280,7 @@
     <panel name="ECMInfo" />
     <!-- Weather Info -->
     <panel name="WeatherF2" />
+    <panel name="FullKeysTR" />
   </screen>
   <!-- 03. Radio Infobar -->
   <!-- Radio Infobar -->
@@ -885,7 +887,7 @@
     <panel name="CSBackground" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/chanselaurapig.png" position="0,0" size="780,1080" zPosition="-11" alphatest="off" transparent="1" />
     <!-- MiniTV -->
-    <widget source="session.VideoPicture" render="Pig" position="50,229" size="720,405" backgroundColor="transparent" zPosition="21" />
+    <widget source="session.VideoPicture" render="Pig" position="50,234" size="720,405" backgroundColor="transparent" zPosition="21" />
     <!-- CS List -->
     <panel name="CSListPosters" />
     <ePixmap position="1580,685" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
