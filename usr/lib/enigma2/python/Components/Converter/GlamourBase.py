@@ -574,7 +574,7 @@ class GlamourBase(Poll, Converter, object):
 				hexval = f"{pid:04X}"
 				decf = f"{prefix}:{dec}" if self.DecFormat else dec
 				hexf = f"{prefix}:{hexval}" if self.HexFormat else hexval
-				dhf = f"{prefix[0]}:{dec}({hexval})" if self.DecHexFormat else ""
+				dhf = f"{prefix}:{dec}({hexval})" if self.DecHexFormat else ""
 				return decf, hexf, dhf
 
 			vpiddec, vpidhex, vpiddh = format_pid(vpid, "VPID")
