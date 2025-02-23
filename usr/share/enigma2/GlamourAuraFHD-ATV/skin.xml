@@ -339,8 +339,8 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Bitrate and CPU info -->
-    <widget source="session.CurrentService" render="Label" position="1655,895" size="260,35" font="Regular; 27" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">Audio:  %A kbit/s</convert>
+    <widget source="session.CurrentService" render="Label" position="1615,890" size="260,35" font="Numbers; 33" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
+      <convert type="GlamBitrate">Audio:  %ACUR kbit/s</convert>
     </widget>
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
@@ -1645,7 +1645,7 @@
     </widget>
     <widget source="session.CurrentService" render="Pixmap" position="1062,855" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoHeight</convert>
-      <convert type="ValueRange">720,1988</convert>
+      <convert type="ValueRange">720,1280</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/dolby_off.png" position="1215,855" size="84,30" zPosition="3" alphatest="blend" transparent="1" />
@@ -1653,7 +1653,12 @@
       <convert type="ServiceInfo">IsMultichannel</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/uhd_off.png" position="1035,855" size="76,30" zPosition="3" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GACommon/icons/infobar/hd_off.png" position="1035,855" size="76,30" zPosition="3" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/qhd_on.png" position="1035,855" size="76,30" zPosition="4" alphatest="blend" transparent="1">
+      <convert type="ServiceInfo">VideoWidth</convert>
+      <convert type="ValueRange">2000,2600</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/uhd_on.png" position="1035,855" size="76,30" zPosition="4" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoWidth</convert>
       <convert type="ValueRange">2800,4400</convert>

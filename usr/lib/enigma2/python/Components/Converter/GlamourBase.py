@@ -1,14 +1,12 @@
-﻿#	GlamourBase converter
-#	Modded and recoded by MCelliotG for use in Glamour skins or standalone, added Python3 support
-#	codecs map based on PliExtraInfo
-#	If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+﻿#GlamourBase converter (Python 3)
+#Modded and recoded by MCelliotG for use in Glamour skins or standalone
+#If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
-from __future__ import absolute_import, division
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
 from ServiceReference import ServiceReference, resolveAlternate 
-from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
+from enigma import eAVControl, iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
 import os.path
@@ -308,52 +306,41 @@ class GlamourBase(Poll, Converter, object):
 		self.type = self.TYPE_MAP.get(type_list[0], 0)
 
 ######### COMMON VARIABLES #################
+	def _read_value(self, path, base=16):
+		try:
+			with open(path, "r") as f:
+				return int(f.read().strip(), base)
+		except (OSError, ValueError):
+			return None
+
 	def videowidth(self, info):
-		width = 0
-		if os.path.exists("/proc/stb/vmpeg/0/xres"):
-			with open("/proc/stb/vmpeg/0/xres", "r") as w:
-				try:
-					width = int(w.read(),16)
-				except:
-					pass
-		return width if (width > 0 and width != 4294967295) else ""
+		width = self._read_value("/proc/stb/vmpeg/0/xres")
+		if width is None or width in {-1, 4294967295}:
+			width = eAVControl.getInstance().getResolutionX(0)
+		return width if width not in {-1, 4294967295} else ""
 
 	def videoheight(self, info):
-		height = 0
-		if os.path.exists("/proc/stb/vmpeg/0/yres"):
-			with open("/proc/stb/vmpeg/0/yres", "r") as h:
-				try:
-					height = int(h.read(),16)
-				except:
-					pass
-		return height if (height > 0 and height != 4294967295) else ""
+		height = self._read_value("/proc/stb/vmpeg/0/yres")
+		if height is None or height in {-1, 4294967295}:
+			height = eAVControl.getInstance().getResolutionY(0)
+		return height if height not in {-1, 4294967295} else ""
 
 	def proginfo(self, info):
-		progrs = ""
-		if os.path.exists("/proc/stb/vmpeg/0/progressive"):
-			with open("/proc/stb/vmpeg/0/progressive", "r") as prog:
-				try:
-					progrs = "p" if int(prog.read(),16) else "i"
-				except:
-					pass
-		return progrs
+		progrs = self._read_value("/proc/stb/vmpeg/0/progressive")
+		if progrs is None or progrs == -1:
+			progrs = eAVControl.getInstance().getProgressive()
+		return "p" if progrs == 1 else "i" if progrs == 0 else ""
 
 	def videosize(self, info):
 		xres, yres, prog = self.videowidth(info), self.videoheight(info), self.proginfo(info)
-		videosize = f"{xres}x{yres}{prog}" if xres else ""
-		return videosize
+		return f"{xres}x{yres}{prog}" if xres and yres and prog else ""
 
 	def framerate(self, info):
-		fps = 0
-		if os.path.exists("/proc/stb/vmpeg/0/framerate"):
-			with open("/proc/stb/vmpeg/0/framerate", "r") as fp:
-				try:
-					fps = int(fp.read())
-				except:
-					pass
-			if fps <= 0 or fps == -1:
-				return ""
-			return f"{fps / 1000:.3f}".rstrip("0").rstrip(".") + " fps"
+		fps = self._read_value("/proc/stb/vmpeg/0/framerate", base=10)
+		if fps is None or fps <= 0 or fps == -1:
+			fps = eAVControl.getInstance().getFrameRate(0)
+		return f"{fps / 1000:.3f}".rstrip("0").rstrip(".") + " fps" if fps and fps != -1 else ""
+
 
 	def videocodec(self, info):
 		vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
@@ -601,8 +588,8 @@ class GlamourBase(Poll, Converter, object):
 		info = service and service.info()
 		if not info:
 			return False
-		xresol = info.getInfo(iServiceInformation.sVideoWidth)
-		yresol = info.getInfo(iServiceInformation.sVideoHeight)
+		xresol = info.getInfo(iServiceInformation.sVideoWidth) if info.getInfo(iServiceInformation.sVideoWidth) != -1 else eAVControl.getInstance().getResolutionX(0)
+		yresol = info.getInfo(iServiceInformation.sVideoHeight) if info.getInfo(iServiceInformation.sVideoHeight) != -1 else eAVControl.getInstance().getResolutionY(0)
 		progrs = self.proginfo(info)
 		vcodec = self.videocodec(info)
 		streamurl = self.streamurl(info)
