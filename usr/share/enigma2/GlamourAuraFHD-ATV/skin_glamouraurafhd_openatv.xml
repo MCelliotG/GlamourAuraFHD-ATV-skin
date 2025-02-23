@@ -1283,12 +1283,12 @@
   <!-- 1. Info Screens -->
   <screen name="CommonInfo">
     <widget source="description" render="Label" position="50,715" size="475,230" conditional="description" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
-    <widget name="information" position="535,70" size="1305,745" colPosition="500" conditional="information" divideChar="|" font="Regular; 32" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
+    <widget name="information" position="535,70" size="1305,745" colPosition="540" conditional="information" divideChar="|" font="Regular; 32" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
     <panel name="FullKeysMIH" />
   </screen>
   <screen name="CommonInfo2">
     <widget source="description" render="Label" position="535,645" size="1305,210" conditional="description" font="Regular; 32" foregroundColor="cyan1" backgroundColor="background20" transparent="1" valign="top" halign="center" zPosition="7" />
-    <widget name="information" position="535,90" size="1305,550" colPosition="500" conditional="information" divideChar="|" font="Regular; 32" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
+    <widget name="information" position="535,90" size="1305,550" colPosition="540" conditional="information" divideChar="|" font="Regular; 32" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
     <panel name="FullKeysMIH" />
   </screen>
   <!-- 1-01. Distribution Info -->
