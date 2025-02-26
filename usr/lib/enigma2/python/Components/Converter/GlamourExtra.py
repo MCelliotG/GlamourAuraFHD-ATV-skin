@@ -89,11 +89,10 @@ class GlamourExtra(Poll, Converter):
 			"System": "/proc/stb/sensors/temp0/value",
 			"Board": "/proc/stb/fp/temp_sensor",
 			"CPU": "/sys/devices/virtual/thermal/thermal_zone0/temp",
-			"AVS": "/proc/stb/fp/temp_sensor_avs",
-			"HISI CPU": "/proc/hisi/msp/pm_cpu"
+			"AVS": "/proc/stb/fp/temp_sensor_avs"
 		}
-		divisors = {"CPU": 1000, "HISI CPU": 1000}
-		
+		divisors = {"CPU": 1000}
+
 		for label, path in paths.items():
 			if os.path.exists(path):
 				try:
@@ -101,15 +100,24 @@ class GlamourExtra(Poll, Converter):
 						temp = f.read().strip()
 						if temp.isdigit():
 							temps[label] = f"{int(temp) // divisors.get(label, 1)}°C"
-						elif "=" in temp:  # Special case for HISI CPU
-							temps[label] = f"{temp.split('=')[1].split()[0]}°C"
 				except:
 					pass
-		
+		hisi_path = "/proc/hisi/msp/pm_cpu"
+		if os.path.exists(hisi_path):
+			try:
+				with open(hisi_path, "r") as f:
+					for line in f:
+						parts = [x.strip() for x in line.strip().split(":")]
+						if parts[0] == "Tsensor":
+							ctemp = parts[1].split("=")[-1].split()[0]
+							temps["HISI CPU"] = f"{ctemp}°C"
+			except:
+				pass
+
 		if not temps:
 			return "Temperature: N/A"
 		
-		return "Temp: " + "  ".join(f"{k}: {v}" for k, v in temps.items())
+		return "  ".join(f"{k}: {v}" for k, v in temps.items())
 
 	def getCpuSpeed(self):
 		try:
