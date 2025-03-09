@@ -185,7 +185,7 @@ satnames = (
 	(1.4, 2.4, "BulgariaSat 1"),
 	(-0.5, -1.2, "Thor 5/6/7 & Intelsat 10-02"),
 	(-2.7, -3.3, "ABS 3A"),
-	(-3.7, -4.4, "Amos 3/7"),
+	(-3.7, -4.4, "Amos 7"),
 	(-4.7, -5.4, "Eutelsat 5WB"),
 	(-6.7, -7.2, "Nilesat 201/301 & Eutelsat 7WA"),
 	(-7.3, -7.4, "Eutelsat 7 West A"),
@@ -274,19 +274,19 @@ satnames = (
 
 class GlamourBase(Poll, Converter, object):
 	TYPE_MAP = {
-		"FreqInfo": 0, "Orbital": 1, "ResCodec": 2, "PidInfo": 3,
-		"HDRInfo": 4, "VideoCodec": 5, "Fps": 6, "VideoSize": 7,
-		"Is2160": 8, "Is1440": 9, "Is1080": 10, "Is720": 11,
-		"Is576": 12, "Is480": 13, "Is360": 14, "Is288": 15,
-		"Is240": 16, "Is144": 17, "IsProgressive": 18, "IsInterlaced": 19,
-		"StreamUrl": 20, "StreamType": 21, "IsStreaming": 22,
-		"HasMPEG2": 23, "HasAVC": 24, "HasH263": 25, "HasVC1": 26,
-		"HasMPEG4VC": 27, "HasHEVC": 28, "HasMPEG1": 29, "HasVP8": 30,
-		"HasVP9": 31, "HasVP6": 32, "HasDIVX": 33, "HasXVID": 34,
-		"HasSPARK": 35, "HasAVS": 36, "HasVCC": 37, "IsSDR": 38,
-		"IsHDR": 39, "IsHDR10": 40, "IsHLG": 41
+		"FreqInfo": 0, "Orbital": 1, "ResCodec": 2,
+		"PidInfoDec": 3, "PidInfoHex": 4, "PidInfoDecHex": 5,
+		"HDRInfo": 6, "VideoCodec": 7, "Fps": 8, "VideoSize": 9,
+		"Is2160": 10, "Is1440": 11, "Is1080": 12, "Is720": 13,
+		"Is576": 14, "Is480": 15, "Is360": 16, "Is288": 17,
+		"Is240": 18, "Is144": 19, "IsProgressive": 20, "IsInterlaced": 21,
+		"StreamUrl": 22, "StreamType": 23, "IsStreaming": 24,
+		"HasMPEG2": 25, "HasAVC": 26, "HasH263": 27, "HasVC1": 28,
+		"HasMPEG4VC": 29, "HasHEVC": 30, "HasMPEG1": 31, "HasVP8": 32,
+		"HasVP9": 33, "HasVP6": 34, "HasDIVX": 35, "HasXVID": 36,
+		"HasSPARK": 37, "HasAVS": 38, "HasVCC": 39, "IsSDR": 40,
+		"IsHDR": 41, "IsHDR10": 42, "IsHLG": 43
 	}
-
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
 
@@ -299,11 +299,7 @@ class GlamourBase(Poll, Converter, object):
 		self.tp = None
 		self.tpinfo = None
 		self.tpDataUpdate = None
-		type_list = type.split(",")
-		self.DecFormat = "Dec" in type_list
-		self.HexFormat = "Hex" in type_list
-		self.DecHexFormat = "DecHex" in type_list
-		self.type = self.TYPE_MAP.get(type_list[0], 0)
+		self.type = self.TYPE_MAP.get(type, 0)
 
 ######### COMMON VARIABLES #################
 	def _read_value(self, path, base=16):
@@ -466,6 +462,18 @@ class GlamourBase(Poll, Converter, object):
 			return f"{streamurl[:79]}..." if len(streamurl) > 80 else streamurl
 		return ""
 
+	def format_pid(self, pid, prefix, mode):
+		if pid < 0 or mode is None:
+			return ""
+		decval = f"{pid:04d}"
+		hexval = f"{pid:04X}"
+		formats = {
+			"Dec": f"{prefix}:{decval}",
+			"Hex": f"{prefix}:{hexval}",
+			"DecHex": f"{prefix}:{decval}({hexval})"
+		}
+		return formats.get(mode, "")
+
 	@cached
 	def getText(self):
 		service = self.source.service
@@ -488,6 +496,14 @@ class GlamourBase(Poll, Converter, object):
 			tpinfo = ConvertToHumanReadable(tp)
 		else:
 			tpinfo = self.tpinfo
+
+		vpid = info.getInfo(iServiceInformation.sVideoPID)
+		apid = info.getInfo(iServiceInformation.sAudioPID)
+		sid = info.getInfo(iServiceInformation.sSID)
+		pcr = info.getInfo(iServiceInformation.sPCRPID)
+		pmt = info.getInfo(iServiceInformation.sPMTPID)
+		tsid = info.getInfo(iServiceInformation.sTSID)
+		onid = info.getInfo(iServiceInformation.sONID)
 
 		if self.type == self.FREQINFO:
 			ref = self.reference(info)
@@ -545,42 +561,27 @@ class GlamourBase(Poll, Converter, object):
 		if self.type == self.STREAMTYPE:
 			return self.streamtype(info)
 
-		if self.type == self.PIDINFO:
-			vpid = info.getInfo(iServiceInformation.sVideoPID)
-			apid = info.getInfo(iServiceInformation.sAudioPID)
-			sid = info.getInfo(iServiceInformation.sSID)
-			pcr = info.getInfo(iServiceInformation.sPCRPID)
-			pmt = info.getInfo(iServiceInformation.sPMTPID)
-			tsid = info.getInfo(iServiceInformation.sTSID)
-			onid = info.getInfo(iServiceInformation.sONID)
+		pidtypes_mapping = {
+			self.PIDINFODEC: "Dec",
+			self.PIDINFOHEX: "Hex",
+			self.PIDINFODECHEX: "DecHex"
+		}
 
-			def format_pid(pid, prefix):
-				if pid < 0:
-					return "", "", ""
-				dec = f"{pid:04d}"
-				hexval = f"{pid:04X}"
-				decf = f"{prefix}:{dec}" if self.DecFormat else dec
-				hexf = f"{prefix}:{hexval}" if self.HexFormat else hexval
-				dhf = f"{prefix}:{dec}({hexval})" if self.DecHexFormat else ""
-				return decf, hexf, dhf
+		if self.type in pidtypes_mapping:
+			pid_type = pidtypes_mapping[self.type]
+			return " ".join([
+				self.format_pid(vpid, "VPID", pid_type),
+				self.format_pid(apid, "APID", pid_type),
+				self.format_pid(sid, "SID", pid_type),
+				self.format_pid(pcr, "PCR", pid_type),
+				self.format_pid(pmt, "PMT", pid_type),
+				self.format_pid(tsid, "TSID", pid_type),
+				self.format_pid(onid, "ONID", pid_type)
+			])
 
-			vpiddec, vpidhex, vpiddh = format_pid(vpid, "VPID")
-			apiddec, apidhex, apiddh = format_pid(apid, "APID")
-			siddec, sidhex, siddh = format_pid(sid, "SID")
-			pcrdec, pcrhex, pcrdh = format_pid(pcr, "PCR")
-			pmtdec, pmthex, pmtdh = format_pid(pmt, "PMT")
-			tsiddec, tsidhex, tsiddh = format_pid(tsid, "TSID")
-			oniddec, onidhex, oniddh = format_pid(onid, "ONID")
-
-			if self.DecFormat:
-				return f"{vpiddec} {apiddec} {siddec} {pcrdec} {pmtdec} {tsiddec} {oniddec}"
-			if self.HexFormat:
-				return f"{vpidhex} {apidhex} {sidhex} {pcrhex} {pmthex} {tsidhex} {onidhex}"
-			if self.DecHexFormat:
-				return f"{vpiddh} {apiddh} {siddh} {pcrdh} {pmtdh} {tsiddh} {oniddh}"
+		return ""
 
 	text = property(getText)
-
 
 	@cached
 	def getBoolean(self):

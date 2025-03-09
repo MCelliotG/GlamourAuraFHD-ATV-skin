@@ -11,7 +11,7 @@ from os import statvfs
 SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB"]
 
 class GlamourSpace(Poll, Converter):
-	MEMTOTAL, MEMFREE, SWAPTOTAL, SWAPFREE, USBSPACE, HDDSPACE, FLASHINFO, DATASPACE, NETSPACE, RAMINFO, SWAPINFO = range(11)
+	MEMTOTAL, MEMFREE, SWAPTOTAL, SWAPFREE, USBSPACE, HDDSPACE, FLASHINFO, DATASPACE, NETSPACE, RAMINFO, SWAPINFO, BUFFERINFO = range(12)
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -34,11 +34,11 @@ class GlamourSpace(Poll, Converter):
 			"SwapInfo": self.SWAPINFO,
 			"NetSpace": self.NETSPACE,
 			"DataSpace": self.DATASPACE,
-			"FlashInfo": self.FLASHINFO
+			"FlashInfo": self.FLASHINFO,
+			"BufferInfo": self.BUFFERINFO
 		}
-		
 		self.type = type_mapping.get(type[0], None)
-		self.poll_interval = 5000 if self.type in (self.FLASHINFO, self.DATASPACE, self.HDDSPACE, self.USBSPACE, self.NETSPACE) else 1000
+		self.poll_interval = 5000 if self.type in (self.FLASHINFO, self.BUFFERINFO, self.DATASPACE, self.HDDSPACE, self.USBSPACE, self.NETSPACE) else 1000
 		self.poll_enabled = True
 
 	@cached
@@ -48,8 +48,8 @@ class GlamourSpace(Poll, Converter):
 			if not mount_point:
 				return "NetHDD: N/A"
 			return self.getDiskUsage(mount_point, "NetHDD")
-		
-		if self.type in (self.RAMINFO, self.SWAPINFO):
+
+		if self.type in (self.RAMINFO, self.SWAPINFO, self.BUFFERINFO):
 			return self.getMemoryInfo()
 
 		entry_mapping = {
@@ -62,7 +62,6 @@ class GlamourSpace(Poll, Converter):
 			self.FLASHINFO: ("Flash", "/"),
 			self.DATASPACE: ("Data", "/data")
 		}
-		
 		if self.type in entry_mapping:
 			label, path = entry_mapping[self.type]
 			return self.getDiskUsage(path, label)
@@ -84,11 +83,11 @@ class GlamourSpace(Poll, Converter):
 
 		try:
 			st = statvfs(path)
-			total = st.f_blocks * st.f_frsize
-			free = st.f_bavail * st.f_frsize
+			total = (st.f_blocks * st.f_frsize) // 1024
+			free = (st.f_bavail * st.f_frsize) // 1024
 			used = total - free
 			percent = (used * 100) // total if total > 0 else 0
-			
+
 			if self.shortFormat:
 				return f"{label}: {percent}%, {self.formatSize(free)} Free"
 			elif self.mainFormat:
@@ -105,17 +104,39 @@ class GlamourSpace(Poll, Converter):
 	def getMemoryInfo(self):
 		try:
 			with open("/proc/meminfo", "r") as f:
-				meminfo = {line.split(":")[0]: int(line.split()[1]) for line in f if len(line.split()) > 1}
-				ram = f"RAM: Total {meminfo.get('MemTotal', 0) // 1024} MB, Used {((meminfo.get('MemTotal', 0) - meminfo.get('MemFree', 0)) // 1024)} MB, Free {meminfo.get('MemFree', 0) // 1024} MB"
-				swap = f"Swap: Total {meminfo.get('SwapTotal', 0) // 1024} MB, Used {((meminfo.get('SwapTotal', 0) - meminfo.get('SwapFree', 0)) // 1024)} MB, Free {meminfo.get('SwapFree', 0) // 1024} MB"
-				return ram if self.type == self.RAMINFO else swap
-		except:
+				meminfo = {}
+				for line in f:
+					parts = line.split()
+					if len(parts) > 1:
+						meminfo[parts[0].rstrip(":")] = int(parts[1])
+
+			total_ram = meminfo.get('MemTotal', 0)
+			free_ram = meminfo.get('MemFree', 0)
+			used_ram = total_ram - free_ram
+			total_swap = meminfo.get('SwapTotal', 0)
+			free_swap = meminfo.get('SwapFree', 0)
+			used_swap = total_swap - free_swap
+			buffers = meminfo.get('Buffers', 0)
+			ram = f"RAM: Total {self.formatSize(total_ram)}, Used {self.formatSize(used_ram)}, Free {self.formatSize(free_ram)}"
+			swap = f"Swap: Total {self.formatSize(total_swap)}, Used {self.formatSize(used_swap)}, Free {self.formatSize(free_swap)}"
+			buffer_info = f"Buffer: {self.formatSize(buffers)}"
+
+			return {
+				self.RAMINFO: ram,
+				self.BUFFERINFO: buffer_info
+			}.get(self.type, swap)  # Default to swap if type is unknown
+
+		except (OSError, ValueError, KeyError):
 			return "Memory Info: N/A"
 
-	def formatSize(self, value, unit_index=0):
+	def formatSize(self, value, unit_index=1):
 		while value >= 1024 and unit_index < len(SIZE_UNITS) - 1:
 			value /= 1024.0
 			unit_index += 1
-		return f"{value:.2f} {SIZE_UNITS[unit_index]}"
+		if unit_index == 1:
+			formatted_value = f"{value:.3g}"
+		else:
+			formatted_value = f"{value:.2f}"
+		return f"{formatted_value} {SIZE_UNITS[unit_index]}"
 
 	text = property(getText)

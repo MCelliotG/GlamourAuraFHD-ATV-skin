@@ -555,7 +555,7 @@
     <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
       <convert type="ServiceName">Provider</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!--Main EPG Infobar -->
@@ -612,7 +612,7 @@
     <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
       <convert type="ServiceName">Provider</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
       <convert type="ServiceName">Reference</convert>
     </widget>
     <!--WEATHER WIDGETS -->
@@ -1423,9 +1423,9 @@
   <screen name="SoftwareUpdate" position="0,0" size="1920,1080" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="package_text" position="1200,215" size="490,50" zPosition="5" font="RegularB; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
+    <widget name="package_text" position="1220,215" size="470,50" zPosition="5" font="RegularB; 32" halign="right" backgroundColor="background20" transparent="1" foregroundColor="cyan1" />
     <widget name="package_count" position="1695,215" size="150,50" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan" />
-    <widget name="feedmessage" position="1200,40" size="650,170" font="Regular; 32" halign="center" backgroundColor="background20" valign="center" transparent="1" zPosition="22" foregroundColor="amarillo" />
+    <widget name="feedmessage" position="1220,40" size="630,170" font="Regular; 32" halign="center" backgroundColor="background20" valign="center" transparent="1" zPosition="22" foregroundColor="amarillo" />
     <widget name="activity" position="535,280" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="4" />
     <widget source="list" render="Listbox" position="535,305" size="1305,560" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
@@ -1444,9 +1444,9 @@
     <widget name="traffic_red" position="530,30" zPosition="12" size="155,250" pixmap="GACommon/icons/sources_red.png" alphatest="on" transparent="1" />
     <widget name="traffic_yellow" position="530,30" zPosition="12" size="155,250" pixmap="GACommon/icons/sources_yellow.png" alphatest="on" transparent="1" />
     <widget name="traffic_green" position="530,30" zPosition="12" size="155,250" pixmap="GACommon/icons/sources_green.png" alphatest="on" transparent="1" />
-    <widget name="feedstatus_red" position="680,40" size="520,80" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="red" backgroundColor="background20" transparent="1" />
-    <widget name="feedstatus_yellow" position="680,120" size="520,80" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="yellow" backgroundColor="background20" transparent="1" />
-    <widget name="feedstatus_green" position="680,200" size="520,80" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="green" backgroundColor="background20" transparent="1" />
+    <widget name="feedstatus_red" position="680,25" size="540,85" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="red" backgroundColor="background20" transparent="1" text="feedstatus_red" />
+    <widget name="feedstatus_yellow" position="680,110" size="540,85" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="yellow" backgroundColor="background20" transparent="1" />
+    <widget name="feedstatus_green" position="680,195" size="540,85" zPosition="4" font="Regular; 32" halign="left" valign="center" foregroundColor="green" backgroundColor="background20" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 2-02. Update Progress -->
@@ -1623,5 +1623,72 @@
     <widget name="bookmarklist" font="Regular;32" position="540,645" size="1305,200" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="7" />
     <widget name="quickselect" position="540,230" size="1305,650" backgroundColor="background20" foregroundColor="amarillo" font="Regular;100" halign="center" transparent="1" valign="center" zPosition="8" />
     <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 6. OscamInfo Main Screen -->
+  <screen name="OSCamInfo" position="center,center" size="1950,1080" backgroundColor="transparent" title="OSCam Information" flags="wfNoBorder" resolution="1920,1080">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel3" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="265,20" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <ePixmap pixmap="GACommon/infobar/swap.png" position="45,960" zPosition="7" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="buildinfos" render="Label" position="360,105" size="1200,40" font="Regular;30" halign="center" valign="center" backgroundColor="sky" transparent="1" zPosition="5" />
+    <widget source="extrainfos" render="Label" position="7,870" size="1905,30" font="Regular;26" halign="center" valign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="cyan1" />
+    <widget source="timerinfos" render="Label" position="140,905" size="1470,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <!-- Server / Reader / Clients -->
+    <eLabel text="#" position="15,145" size="25,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Reader/User" position="40,145" size="175,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="AU" position="215,145" size="90,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Address" position="305,145" size="170,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Port" position="475,145" size="90,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Protocol" position="565,145" size="225,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="srvid:caid@provid" position="790,145" size="270,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Last Channel" position="1060,145" size="235,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="LB Value/Reader" position="1295,145" size="235,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Online/Idle" position="1530,145" size="165,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <eLabel text="Status" position="1695,145" size="210,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
+    <widget source="outlist" render="Listbox" position="15,180" size="1890,525" backgroundColor="#10b3b3b3" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8">
+      <convert type="TemplatedMultiContent">
+        {"template": [  # index 0 is backgroundcolor
+            MultiContentEntryText(pos=(0,0), size=(23,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # type
+            MultiContentEntryText(pos=(25,0), size=(173,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),  # Reader/User
+            MultiContentEntryText(pos=(200,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),  # AU
+            MultiContentEntryText(pos=(290,0), size=(168,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),  # Adress
+            MultiContentEntryText(pos=(460,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),  # Port
+            MultiContentEntryText(pos=(550,0), size=(223,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),  # Protocol
+            MultiContentEntryText(pos=(775,0), size=(268,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),  # srvid:caid@provid
+            MultiContentEntryText(pos=(1045,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Last Channel
+            MultiContentEntryText(pos=(1280,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # LB Value/Reader
+            MultiContentEntryText(pos=(1515,0), size=(163,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Online+Idle
+            MultiContentEntryText(pos=(1680,0), size=(210,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11)  # Status
+            ], "fonts": [gFont("Regular",27)], "itemHeight":75
+        }
+    </convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="15,720" size="300,150" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget name="logtext" position="15,720" size="1890,150" font="Regular; 26" halign="left" valign="top" foregroundColor="cyan1" backgroundColor="background20" noWrap="0" scrollbarMode="showNever" transparent="1" zPosition="6" />
+    <widget source="camname" render="Label" position="15,905" size="125,35" font="Regular;27" valign="center" halign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
+    <widget source="virtuell" render="Label" position="780,940" size="350,40" font="Regular;27" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
+    <widget source="resident" render="Label" position="1215,940" size="340,40" font="Regular;27" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
+    <widget source="key_entitlements" render="Label" position="1265,990" size="300,45" font="Regular;30" halign="center" valign="center" foregroundColor="yellow" transparent="1" zPosition="8" backgroundColor="background20">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="95,940" size="570,40" font="Regular; 27" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="RamInfo" noWrap="1" halign="left">
+      <convert type="GlamourSpace">RAMInfo</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="95,980" size="500,35" font="Regular; 27" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="BufferInfo" noWrap="1" halign="left">
+      <convert type="GlamourSpace">BufferInfo</convert>
+    </widget>
+    <widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1615,905" size="60,45" alphatest="blend" zPosition="4" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1680,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <panel name="FullKeys2" />
   </screen>
 </skin>
