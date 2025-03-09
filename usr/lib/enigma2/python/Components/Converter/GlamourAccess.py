@@ -563,7 +563,7 @@ class GlamourAccess(Poll, Converter):
 				if line.startswith("config.misc.softcams="):
 					active_softcam = line.split('=')[1].strip()
 					break
-			if active_softcam.lower() == "none":
+			if not active_softcam or active_softcam.lower() == "none":
 				return "No active softcam"
 			active_softcam = active_softcam.capitalize()
 			if "oscam" in active_softcam.lower() or "ncam" in active_softcam.lower():
@@ -571,8 +571,10 @@ class GlamourAccess(Poll, Converter):
 				if os.path.exists(version_file):
 					version = self.read_version_from_file(version_file)
 					if "oscam" in active_softcam.lower() and "@" in version:
-						version = version.split('-')[1].split('@')[0]
-					return f"{active_softcam} v. {version}"
+						version = f"v.{version.split('-')[1].split('@')[0]}"
+					elif "oscam" in active_softcam.lower() and "svn" in version:
+						version = version.split('_')[1]
+					return f"{active_softcam} {version}"
 			return active_softcam
 
 		# Handle other cases (BLACKHOLE, HDMU, Domica, etc.)

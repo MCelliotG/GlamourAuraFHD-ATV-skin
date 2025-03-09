@@ -43,22 +43,24 @@
     <!-- CS Channel Infos -->
     <panel name="CSChannelInfos" />
     <!-- MiniTV -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="983,683" size="300,270" alphatest="blend" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" position="787,697" size="300,270" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="session.VideoPicture" render="Pig" position="785,685" size="500,280" backgroundColor="transparent" zPosition="21" />
     <!-- CS Posters -->
     <!-- Current Backdrop -->
-    <widget source="ServiceEvent" render="GlamBackdropX" delayPic="0" position="20,225" size="760,520" transparent="0" zPosition="3" />
+    <widget source="ServiceEvent" render="GlamPosters" usedImage="backdrop" position="20,225" size="760,520" transparent="0" zPosition="3" />
     <!-- Next1 -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1290,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1412,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
-    <widget source="ServiceEvent" render="GlamPosterX" nexts="1" usedImage="poster" delayPic="0" position="1290,685" size="187,280" zPosition="10" transparent="1" />
+    <widget source="ServiceEvent" render="GlamPosters" nexts="1" usedImage="poster" position="1290,685" size="187,280" zPosition="10" transparent="1" />
     <!-- Next2 -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1490,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1612,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
-    <widget source="ServiceEvent" render="GlamPosterX" nexts="2" usedImage="poster" delayPic="0" position="1490,685" size="187,280" zPosition="10" transparent="1" />
+    <widget source="ServiceEvent" render="GlamPosters" nexts="2" usedImage="poster" position="1490,685" size="187,280" zPosition="10" transparent="1" />
     <!-- Next3 -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1690,685" size="187,270" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowbr.png" position="1812,905" size="65,60" alphatest="blend" transparent="1" zPosition="5" />
-    <widget source="ServiceEvent" render="GlamPosterX" nexts="3" usedImage="poster" delayPic="0" position="1690,685" size="187,280" zPosition="10" transparent="1" />
+    <widget source="ServiceEvent" render="GlamPosters" nexts="3" usedImage="poster" position="1690,685" size="187,280" zPosition="10" transparent="1" />
     <panel name="FullKeysCC" />
   </screen>
 </skin>

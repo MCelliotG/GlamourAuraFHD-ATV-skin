@@ -22,8 +22,6 @@
   <include filename="skin_glamouraurafhd_images_oea.xml" />
   <include filename="skin_glamouraurafhd_emc.xml" />
   <colors>
-    <color name="#ffba00" value="#00ffba00" />
-    <color name="#fff000" value="#00fff000" />
     <color name="amarillo" value="#00ffffc6" />
     <color name="amaryllis" value="#00e1107c" />
     <color name="background" value="#30000000" />
@@ -562,7 +560,6 @@
       </convert>
     </widget>
     <ePixmap pixmap="GACommon/images/softwaremanager.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" position="1570,885" size="120,60" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap position="1770,90" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="1770,850" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
     <panel name="FullKeysM" />
@@ -919,7 +916,7 @@
     <widget source="ServiceEvent" render="Label" position="215,30" size="565,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRoll" position="50,190" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="black" zPosition="7">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="50,190" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="black" zPosition="7">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="45,135" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
@@ -1007,7 +1004,7 @@
     <widget source="session.CurrentService" render="Label" position="1375,937" size="520,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular; 26" halign="left" valign="center" noWrap="1" foregroundColor="cyan1" text="Orbital">
       <convert type="GlamourBase">Orbital</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRoll" position="905,937" size="465,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular; 26" halign="center" valign="center" noWrap="1" foregroundColor="cyan" text="Provider">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="905,937" size="465,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular; 26" halign="center" valign="center" noWrap="1" foregroundColor="cyan" text="Provider">
       <convert type="ServiceName">Provider</convert>
     </widget>
     <!-- Frequency Info  -->
@@ -1643,7 +1640,7 @@
     <widget source="session.CurrentService" render="Label" position="810,890" size="1050,60" font="RegularB; 28" transparent="1" zPosition="5" foregroundColor="cyan" backgroundColor="background20" halign="center" valign="center" text="PidHexInfo">
       <convert type="GlamourBase">PidInfo,Hex</convert>
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" position="1062,855" size="50,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" position="1035,855" size="76,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoHeight</convert>
       <convert type="ValueRange">720,1280</convert>
       <convert type="ConditionalShowHide" />
