@@ -18,11 +18,14 @@ import NavigationInstance
 import os
 import sys
 import re
+import unicodedata
 import time
 import socket
 import requests
 import threading
 from PIL import Image
+import math
+
 try:
 	from functools import lru_cache
 except ImportError:
@@ -51,6 +54,7 @@ except:
 
 tmdb_api = "3c3efcf47c3577558812bb9d64019d65"
 tvdb_api = "a99d487bb3426e5f3a60dea6d3d3c7ef"
+tvmaze_api = "-5Xwuu84at4GqV7byoNMO5DFqBtPpm8i"
 fanart_api = "a512bd0eb8f2edd0e553a3addd9ddee2"
 omdb_api = "54f9e831"
 
@@ -81,7 +85,7 @@ else:
 					service = ':'.join((line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9], line[10]))
 					apdb[i] = service
 
-# Καθορισμός του βασικού path
+# Define main path
 path_folder = "/tmp/"
 
 if os.path.isdir("/media/hdd"):
@@ -101,6 +105,19 @@ if not os.path.isdir(poster_folder):
 if not os.path.isdir(backdrop_folder):
 	os.makedirs(backdrop_folder)
 
+ROMAN_TO_INT = {
+	"I": "1", "II": "2", "III": "3", "IV": "4", "V": "5", "VI": "6", "VII": "7", "VIII": "8",
+	"IX": "9", "X": "10", "XI": "11", "XII": "12", "XIII": "13", "XIV": "14", "XV": "15",
+	"XVI": "16", "XVII": "17", "XVIII": "18", "XIX": "19", "XX": "20",
+	"XXI": "21", "XXII": "22", "XXIII": "23", "XXIV": "24", "XXV": "25",
+	"XXVI": "26", "XXVII": "27", "XXVIII": "28", "XXIX": "29", "XXX": "30",
+	"XL": "40", "L": "50", "LX": "60", "LXX": "70", "LXXX": "80", "XC": "90", "C": "100"
+}
+
+def replace_roman(match):
+	roman = match.group(0)
+	return ROMAN_TO_INT.get(roman, roman)
+
 REGEX = re.compile(
 	r'\s*\*\d{4}\Z|'  # removes ( *1234)
 	r'\[K\d+\]\s*|'  # removes [Κ12], [Κ16] etc.
@@ -108,109 +125,211 @@ REGEX = re.compile(
 	r'(\.\s{1,}\").+|'  # removes (. "xxx)
 	r'(\?\s{1,}\").+|'  # removes (? "xxx)
 	r'(\.{2,}\Z)|'  # removes ".." at the string ends
-	r'\b(?=[MDCLXVIΙ])M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})([IΙ]X|[IΙ]V|V?[IΙ]{0,3})\b\.?|'  # removes roman characters
-	r'(: odc.\d+)|'
+	r'(\s*-\s*)?\b(\d+ος\sΚύκλος|\d+η\sΚύκλος|Κύκλος\s\d+|Κύκλος\s[IVXLCDM]+|[IVXLCDM]+\'?\sΚύκλος|[Α-ΩA-Z]+\'?\sΚύκλος)\b'  # removes "- 4ος Κύκλος", "Κύκλος IV", "Δ' Κύκλος"
+	r'|(\s*-\s*)?\b(\d+[ης]?\sΣεζόν|Σεζόν\s\d+|Σεζόν\s(?:[IVXLCDM]+)|(?:[IVXLCDM]+)\sΣεζόν)\b'  # removes "- 1η Σεζόν", "Σεζόν 7"
+	r'|\b[SEKΤτΕεΚκ]\d+\s?[ΕεEe]?\d*\b'  # removes "K5 E7", "S4 E6", "E47" παντού
+	r'|(: odc.\d+)|'
 	r'(\d+: odc.\d+)|'
 	r'(\d+ odc.\d+)|(:)|'
-	r'( -[^-]+$)|'  # removes only hyphens that are not in the beginning of a title
-	r'(,)|'  # removes commas
+	r'(?<=\S)\s*-\s*(?=\S)|' # replaces - with space
+	r'(,)|' # removes commas
 	r'!|'
-	r'/.*|'  # removes anything after "/"
+	r'/.*|' # removes anything after "/"
 	r'\|\s[0-9]+\+|'
 	r'[0-9]+\+|'
-	r'(\"|\"\.|\"\,|\.)\s.+|'  # removes quotes with redundant text
-	r'\"|:|'  # removes quotes and colons
-	r'Πремьера\.\s|'  # removes russian words
-	r'(х|Χ|μ|М|т|Т|д|Д)/ф\s|'
-	r'(х|Χ|μ|М|τ|Т|д|Д)/с\s|'
-	r'\s(с|С)(езон|ерия|-н|-я)\s.+|'
-	r'\s\d{1,3}\s(ч|ч\.|с\.|с)\s.+|'
-	r'\.\s\d{1,3}\s(ч|ч\.|с\.|с)\s.+|'
-	r'\s(ч|ч\.|с\.|с)\s\d{1,3}.+|'
-	r'\d{1,3}(-я|-й|\sс-н).+|'
-	r'(\s([ΚκKkTtSse])\d+\s([ΕεEe])\d+\s?\Z)|'  # removes "K2 E5", "S3 E5", "T5 E6", etc. at the end
-	r'(\s([EeΕεΚκKkTtSse])\d+\s?\Z)|'  # removes "K2", "S3", etc. at the end
-	r'([ΚκKkTtSse])\d+\s([ΕεEe])\d+\s?\Z|'  # removes "E46", "T3 E6" etc. at the end
-	r'(\sΚύκλος\s\d+\s?\Z)|'  # removes "Κύκλος X" at the end
-	r'(\sΕπεισόδιο\s\d+\s?\Z)|'  # removes "Επεισόδιο Y" at the end
-	r'(\sΚύκλος\s\d+\sΕπεισόδιο\s\d+\s?\Z)|'  # removes "Κύκλος X Επεισόδιο Y" at the end
-	r'(\sΚ\.\s0?\d+\s?\Z)|'  # removes "Κ.06", "Κ. 6" at the end
-	r'(\sΕπ\.\s?0?\d+\s?\Z)|'  # removes "Επ.06", "Επ. 6" at the end
-	r'(\s[ΚκKk]\.\s?0?\d+\s?\Z)|'  # removes "Κ." or "κ." at the end
-	r'(\s[ΚκKk]\.\s?\d+)'  # remove "Κ." followed by digits
-	r'(\sΕπ\.\s?\d+)'  # remove "Επ." followed by digits (this will handle the case like "Επ.55")
-	r'\s*',  # remove trailing spaces if there are any
+	r'\"|:|' # removes quotes and colons
+	r'Πpremьера\.\s|' # removes russian words
+	r'\s*$', # remove trailing spaces if there are any
 	re.DOTALL
 )
 
 def convtext(text, fulldesc=""):
-	text = text.replace('\xc2\x86', '')
-	text = text.replace('\xc2\x87', '')
+	text = text.replace('\xc2\x86', '').replace('\xc2\x87', '')
+	text = REGEX.sub(' ', text)  # add space
+	text = re.sub(r'\s{2,}', ' ', text).strip() # clean double spaces
+	text = re.sub(r'\b(I{1,3}|IV|V|VI{0,3}|IX|X{1,3}|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXX|XL|L|LX|LXX|LXXX|XC|C)\b(?!$)', replace_roman, text)
+	text = re.sub(r'\b(I{1,3}|IV|V|VI{0,3}|IX|X{1,3}|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXX|XL|L|LX|LXX|LXXX|XC|C)\b$', '', text).strip() # replace roman at the end
+	text = re.sub(r'\b(Dr|Mr|Ms|Prof|J)\.\s+', r'\1 ', text, flags=re.IGNORECASE) #remove space from Mr Ms Dr etc
+	text = re.sub(r'(\b\w+)\.\s(\d{4})', r'\1 \2', text) # remove redundant .
+	text = re.sub(r'[«»]', '', text) #removes «»
+	return text.lower()
 
-	# Keep Dr, Mr, Ms, Prof without deleting what follows (ie dr house)
-	text = re.sub(r'\b(Dr|Mr|Ms|Prof)\.\s+', r'\1 ', text, flags=re.IGNORECASE)  
+def convert_to_greeklish(text):
+	if not text:
+		return text
 
-	# Find year of year ranges (π.χ. 2004 or 2004-2013) in fulldesc
-	year_match = re.search(r'\b(19\d{2}|20\d{2})(?:-\d{4})?\b', fulldesc)
+	greek_to_greeklish = {
+		'α': 'a', 'ά': 'a', 'β': 'v', 'γ': 'g', 'δ': 'd', 'ε': 'e', 'έ': 'e',
+		'ζ': 'z', 'η': 'i', 'ή': 'i', 'θ': 'th', 'ι': 'i', 'ί': 'i', 'ϊ': 'i',
+		'ΐ': 'i', 'κ': 'k', 'λ': 'l', 'μ': 'm', 'ν': 'n', 'ξ': 'x', 'ο': 'o',
+		'ό': 'o', 'π': 'p', 'ρ': 'r', 'σ': 's', 'ς': 's', 'τ': 't', 'υ': 'y',
+		'ύ': 'y', 'ϋ': 'y', 'ΰ': 'y', 'φ': 'f', 'χ': 'h', 'ψ': 'ps', 'ω': 'o',
+		'ώ': 'o', 'Α': 'A', 'Ά': 'A', 'Β': 'V', 'Γ': 'G', 'Δ': 'D', 'Ε': 'E',
+		'Έ': 'E', 'Ζ': 'Z', 'Η': 'I', 'Ή': 'I', 'Θ': 'Th', 'Ι': 'I', 'Ί': 'I',
+		'Ϊ': 'I', 'Κ': 'K', 'Λ': 'L', 'Μ': 'M', 'Ν': 'N', 'Ξ': 'X', 'Ο': 'O',
+		'Ό': 'O', 'Π': 'P', 'Ρ': 'R', 'Σ': 'S', 'Τ': 'T', 'Υ': 'Y', 'Ύ': 'Y',
+		'Ϋ': 'Y', 'Φ': 'F', 'Χ': 'H', 'Ψ': 'Ps', 'Ω': 'O', 'Ώ': 'O'
+	}
+	diphthongs = {
+		'ου': 'ou', 'ού': 'ou',
+		'αυ': 'au', 'αύ': 'au',
+		'ευ': 'eu', 'εύ': 'eu',
+		'οϋ': 'oy', 'οΰ': 'oy',
+		'εϋ': 'ey', 'εΰ': 'ey',
+		'αϋ': 'ay', 'αΰ': 'ay'
+	}
+	greeklish_text = []
+	i = 0
+	while i < len(text):
+		if i + 1 < len(text):
+			diphthong = text[i] + text[i + 1]
+			if diphthong in diphthongs:
+				greeklish_text.append(diphthongs[diphthong])
+				i += 2
+				continue
+		greeklish_text.append(greek_to_greeklish.get(text[i], text[i]))
+		i += 1
 
-	# if found it's added within parentheses
-	if year_match:
-		text += f" ({year_match.group(0)})"
-
-	# cleaning titles with REGEX
-	text = REGEX.sub('', text)
-	text = re.sub(r"[-,!/\":]", ' ', text)  # replace special characters with space
-	text = re.sub(r'\s{1,}', ' ', text)  # replace multiple spaces with a single one
-	text = text.strip()
-	text = text.lower()
-	return str(text)
+	return ''.join(greeklish_text)
 
 pdb = queue.LifoQueue()
+
+def image_postprocessing(img_path, image_type):
+	try:
+		if not os.path.exists(img_path):
+			log_to_file(f"CVI: [ERROR] Image does not exist: {img_path}")
+			return False
+
+		# Open image and log initial info
+		with Image.open(img_path) as img:
+			log_to_file(f"CVI: [PROCESSING] Image: {img_path}")
+			log_to_file(f"CVI: Original size: {img.size} | Format: {img.format} | Mode: {img.mode}")
+
+			# Verify JPEG format
+			if img.format != "JPEG":
+				log_to_file(f"CVI: [ERROR] Invalid format: {img.format} (Expected JPEG)")
+				return False
+
+			original_size = img.size
+			original_mode = img.mode
+
+			# Define target dimensions
+			if image_type == "poster":
+				target_w, target_h = 300, 450
+			else:
+				target_w, target_h = 1280, 720
+
+			target_ratio = target_w / target_h
+			current_ratio = img.width / img.height
+
+			log_to_file(f"CVI: Target ratio: {target_ratio:.2f} | Current ratio: {current_ratio:.2f}")
+
+			# Only process if ratio mismatch
+			if not math.isclose(current_ratio, target_ratio, rel_tol=0.01):
+				log_to_file("CVI: Aspect ratio differs - cropping...")
+				
+				if current_ratio > target_ratio:  # Too wide
+					new_width = int(img.height * target_ratio)
+					offset = (img.width - new_width) // 2
+					img = img.crop((offset, 0, offset + new_width, img.height))
+				else:  # Too tall
+					new_height = int(img.width / target_ratio)
+					offset = (img.height - new_height) // 2
+					img = img.crop((0, offset, img.width, offset + new_height))
+
+				log_to_file(f"CVI: After cropping: {img.size}")
+
+				# Resize to target dimensions
+				img = img.resize((target_w, target_h), Image.LANCZOS)
+				log_to_file(f"CVI: After resizing: {img.size}")
+
+				# Preserve original mode (especially for CMYK->RGB conversion)
+				if img.mode != original_mode:
+					img = img.convert(original_mode)
+
+				# Save with quality=95 and EXIF removal
+				img.save(img_path, "JPEG", quality=95, subsampling=0, exif=b'')
+				log_to_file(f"CVI: [SUCCESS] Image processed and saved: {img_path}")
+				return True
+			else:
+				log_to_file("CVI: Aspect ratio matches - no processing needed")
+				return True
+
+	except Exception as e:
+		log_to_file(f"CVI: [ERROR] Processing failed: {str(e)}")
+		if os.path.exists(img_path):
+			try:
+				os.remove(img_path)
+				log_to_file(f"CVI: Removed corrupted file: {img_path}")
+			except:
+				pass
+		return False
+
+# Global flags
+debug_enabled = True
+operational_logs_enabled = True
+
+def log_to_file(logmsg, log_type="operational"):
+	log_path = "/tmp/GlamPosters.log"
+	# Size check
+	if operational_logs_enabled and os.path.exists(log_path) and os.path.getsize(log_path) >= 2 * 1024 * 1024:  # 2MB
+		try:
+			with open(log_path, "w") as f:
+				f.write("")
+			logmsg = "[LOG] Log file cleared (reached 2MB).\n" + logmsg
+		except Exception as e:
+			print(f"[ERROR] Failed to clear log file: {e}")
+	if (log_type == "debug" and debug_enabled) or (log_type == "operational" and operational_logs_enabled):
+		try:
+			with open(log_path, "a+") as f:
+				f.write(f"{logmsg}\n")
+		except Exception as e:
+			print(f"[ERROR] Failed to write log: {e}")
 
 class PostersDB(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
-		self.logdbg = None
+		self.logdbg = debug_enabled
 		self.checkMovie = [
 		# 🎬 Movies
-		"cine", "cinema", "cinéma", "film", "filme", "kino", "movie", "película",
-		"σινεμά", "ταινία", "κινηματογράφος", "φιλμ", "кино", "фильм",
+		"cine", "cinema", "cinéma", "film", "filme", "kino", "movie", "película", "ξένη ταινία",
+		"σινεμά", "ταινία", "ταινίες", "κινηματογραφική ταινία", "κινηματογράφος", "φιλμ", "кино", "фильм",
 		# 🎭 Genres
 		"abenteuer", "acción", "action", "adventure", "aventura", "comedia", "comedy", "comédie", "drama", "drame",
 		"fantasía", "fantasie", "fantastique", "fantasy", "misterio", "mystère", "mystery", "suspenso", "terror", "thriller", "western",
-		"γουέστερν", "δράμα", "δράση", "θρίλερ", "κωμωδία", "μυστήριο", "περιπέτεια", "τρόμου",
+		"γουέστερν", "δράμα", "δράση", "θρίλερ", "κωμωδία", "κομεντί", "μυστήριο", "περιπέτεια", "τρόμου",
 		"боевик", "драма", "детектив", "комедия", "приключение", "триллер", "ужасы", "вестерн", "фэнтези"
 		]
 		self.checkTV = [
 		# 📺 Series
-		"feuilleton", "fernsehserie", "series", "sitcom", "soap opera", "série", "telenovela", "tv series", "tv show", "αισθηματική σειρά",
-		"δραματική σειρά", "κομεντί", "κωμική σειρά", "σειρά", "τηλεοπτική σειρά", "σόου", "сериал", "теленовелла", "телесериал",
+		"tv", "feuilleton", "fernsehserie", "series", "sitcom", "soap opera", "série", "telenovela", "tv series", "tv show", "αισθηματική σειρά", "καθημερινή", "καθημερινό",
+		"δραματική σειρά", "κωμική σειρά", "κωμωδία αυτοτελών επεισοδίων", "καθημερινή σειρά", "σειρά", "τηλεοπτική σειρά", "σόου", "сериал", "теленовелла", "телесериал",
 		# 📢 Episodes/Seasons
-		"ep.", "episode", "episodio", "épisode", "folge", "s.", "saison", "season", "staffel", "t.", "temporada",
-		"επεισόδιο", "επ.", "κ.", "κύκλος", "σεζόν", "м/с", "с-н", "сериал", "серия", "сезон", "т/с", "эпизод", "эпизод",
+		"ep.", "episode", "episodio", "épisode", "folge", "s.", "saison", "season", "staffel", "t.", "temporada", "αυτοτελή",
+		"επεισόδιο", "επ.", "κ.", "κύκλος", "σεζόν", "σαιζόν", "м/с", "с-н", "сериал", "серия", "сезон", "т/с", "эпизод", "эпизод",
 		# 🎨 Animation/Reality/Documentaries
 		"animation", "animación", "anime", "cartoon", "caricatura", "dessin animé", "documentaire", "documental", "documentary", "dokumentation", "reality", "realidad",
-		"reality-show", "téléréalité", "άνιμε", "κινουμένων σχεδίων", "καρτούν", "ντοκιμαντέρ", "ριάλιτι", "анимация", "аниме", "мультфильм", "документальный", "реалити",
+		"reality-show", "téléréalité", "άνιμε", "κινούμενα σχέδια", "κινουμένων σχεδίων", "καρτούν", "ντοκιμαντέρ", "ριάλιτι", "анимация", "аниме", "мультфильм", "документальный", "реалити",
 		# 📰 News/Information
-		"actualité", "aktuell", "current affairs", "información", "infotainment", "journal", "nachrichten",
-		"news", "noticias", "ειδήσεις", "ενημέρωση", "ινφοτέιντμεντ", "новости", "информация",
+		"actualité", "aktuell", "current affairs", "información", "infotainment", "journal", "nachrichten", "ζωντανή", "πρωινή", "τηλεπωλήσεις", "Θυρίδα τηλεπώλησης", "ενημερωτικό ένθετο",
+		"news", "noticias", "ειδήσεις", "δελτίο", "κεντρικό δελτίο", "δελτίο ειδήσεων", "μεσημβρινό δελτίο ειδήσεων", "ενημέρωση", "ενημερωτική εκπομπή", "ινφοτέιντμεντ", "новости", "информация",
 		# 🎤 Talk Shows/Magazines
-		"entrevista", "magazine", "magazin", "revista", "talk show", "talkshow",
+		"entrevista", "magazine", "magazin", "revista", "talk show", "talkshow", "πρωινό", "ψυχαγωγικό μαγκαζίνο",
 		"μαγκαζίνο", "συζήτηση", "συνέντευξη", "τοκ σόου", "журнал", "ток-шоу",
 		# 🎭 Entertainment
-		"concurso", "divertissement", "entertainment", "entretenimiento", "game show", "jeu télévisé", "quizsendung", "unterhaltung",
-		"variedad", "varieté", "varieties", "variété", "ποικιλία", "τηλεπαιχνίδι", "ψυχαγωγία", "варьете", "игровое шоу", "развлекательное шоу",
+		"concurso", "divertissement", "entertainment", "entretenimiento", "game show", "jeu télévisé", "quizsendung", "unterhaltung", "σάτιρα", "μαγειρική", "εκπομπή μαγειρικής",
+		"variedad", "varieté", "varieties", "variété", "ποικιλία", "τηλεπαιχνίδι", "ψυχαγωγία", "ψυχαγωγική εκπομπή", "варьете", "игровое шоу", "развлекательное шоу",
 		# 🎼 Music
 		"clips", "concert", "concierto", "klip", "konzert", "music", "musique", "música", "videoclips",
 		"βιντεοκλίπ", "κλιπ", "μουσική", "συναυλία", "клипы", "концерт", "музыка",
 		# 🏆 Sports
 		"athletics", "athlétisme", "atletismo", "baloncesto", "basket", "basketball", "basketbol", "deportes", "football", "fútbol", "fußball",
-		"leichtathletik", "sports","αθλητικά", "μπάσκετ", "ποδόσφαιρο", "στίβος", "баскетбол", "легкая атлетика", "спорт", "футбол",
+		"leichtathletik", "sports","αθλητικά", "ζωντανά", "ζωντανή", "ζωντανή μετάδοση", "απευθείας", "μπάσκετ", "ποδόσφαιρο", "στίβος", "баскетбол", "легкая атлетика", "спорт", "футбол",
 		# 🌦️ Weather
 		"clima", "météo", "weather", "wetter", "καιρός", "δελτίο καιρού", "погода",
 		# 📚 Education/Health/Society
 		"bildung", "culture", "cultura", "education", "educación", "gesellschaft", "gesundheit", "health", "kultur", "santé", "sociedad", "society",
-		"εκπαίδευση", "επικαιρότητα", "κοινωνία", "πολιτισμός", "υγεία", "образование", "здоровье", "общество", "культура"
+		"εκπαίδευση", "επικαιρότητα", "κοινωνία", "πολιτισμός", "υγεία", "образование", "здоровье", "общество", "культура", "παιδικό πρόγραμμα", "νεανικό πρόγραμμα"
 ]
 
 	def run(self):
@@ -218,7 +337,7 @@ class PostersDB(threading.Thread):
 		while True:
 			canal = pdb.get()
 			self.logDB("[QUEUE] : {} : {}-{} ({})".format(canal[0], canal[1], canal[2], canal[5]))
-
+	
 			# Define storage folder by the usedImage attribute in the skin code
 			usedImage = canal[6]  # receiving usedImage from the last queued object 
 			subfolder = "poster/" if usedImage == "poster" else "backdrop/"
@@ -233,21 +352,20 @@ class PostersDB(threading.Thread):
 
 			# Search and store image functions (without google searches)
 			search_functions = [
-				self.search_tmdb, self.search_tvdb, self.search_omdb,
-				self.search_fanart, self.search_imdb
+				self.search_tmdb, self.search_tvdb, self.search_fanart,
+				self.search_imdb, self.search_filmy, self.search_tvmaze, self.search_impawards
 			]
 
 			# Search and store image functions (google searches)
 			google_searches = [
-				self.search_molotov_google,
-				self.search_programmetv_google, self.search_google
+				self.search_molotov_google, self.search_google
 			]
 			found = False
 
 			for search_function in search_functions:
 				if not os.path.exists(dwn_image):
 					try:
-						val, log = search_function(dwn_image, cleaned_title, canal[4], canal[3], usedImage)
+						val, log = search_function(dwn_image, cleaned_title, canal[4], canal[3], usedImage, canal[0])
 						self.logDB(log)
 						if val:
 							print(f"GlamPosters: [SUCCESS] Found image using {search_function.__name__}")
@@ -261,7 +379,7 @@ class PostersDB(threading.Thread):
 				print("GlamPosters: [INFO] No image found, trying Google Searches with channel name.")
 				try:
 					for google_search in google_searches:
-						val, log = google_search(dwn_image, cleaned_title, canal[0], canal[4], canal[3], usedImage)
+						val, log = google_search(dwn_image, cleaned_title, canal[4], canal[3], usedImage, canal[0])
 						if val:
 							print(f"GlamPosters: [SUCCESS] Found image using {google_search.__name__}")
 							found = True
@@ -269,54 +387,106 @@ class PostersDB(threading.Thread):
 				except Exception as e:
 					print(f"GlamPosters: [ERROR] {google_search.__name__} failed: {str(e)}")
 					self.logDB(f"[ERROR] {google_search.__name__} failed: {str(e)}")
-
+	
 			pdb.task_done()
 
-	def logDB(self, logmsg):
-		if self.logdbg:
-			w = open(path_folder + "PostersDB.log", "a+")
-			w.write("%s\n"%logmsg)
-			w.close()
+	def logDB(self, logmsg, log_type="operational"):
+		if (log_type == "debug" and self.logdbg) or (log_type == "operational" and operational_logs_enabled):
+			log_to_file(logmsg, log_type)
 
 # TMDB Search
 	@lru_cache(maxsize=500)
 	def search_tmdb(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
-			year = ""
-			url_tmdb = ""
-			image_url = None
-
-			# define type (movie or series)
+			url_image = None
+			# Extact year from fulldesc
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			# Extract alternative titles (AKA) from fulldesc
+			aka_matches = re.findall(r'\[(.*?)\]|\((.*?)\)', fulldesc)
+			aka = None
+			for match in aka_matches:
+				# Επιλέγουμε τον πρώτο μη κενό τίτλο από τις αγκύλες ή παρενθέσεις
+				if match[0]:
+					aka = match[0]
+					break
+				elif match[1]:
+					aka = match[1]
+					break
+			# Check if AKA is in a different language
+			if aka and self.is_different_language(title, aka):
+				log_to_file(f"[DEBUG : tmdb] Found alternative title: {aka}")
+			else:
+				aka = None  # Ignore AKA if it is in the same language
+			# Define type (movie or series)
 			chkType, fd = self.checkType(shortdesc, fulldesc)
 			srch = "multi" if chkType == "" else "movie" if chkType.startswith("movie") else "tv"
 
-			# trying year extraction
-			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fd)
-			if year_matches:
-				year = year_matches[-1]  # using last year if many
-
-			# create URL TMDB
-			url_tmdb = f"https://api.themoviedb.org/3/search/{srch}?api_key={tmdb_api}&query={quote(title)}"
+			url_tmdb = f"https://api.themoviedb.org/3/search/{srch}?api_key={tmdb_api}&query={quote(title)}&include_adult=false"
 			if year:
 				url_tmdb += f"&year={year}"
+			# Sync with GUI language
 			if lng:
-				url_tmdb += f"&language={lng[:-3]}"
+				try:
+					language, region = lng.split('_')  # Χωρίζουμε το lng σε language και region
+					url_tmdb += f"&language={language}"
+					url_tmdb += f"&region={region}"
+				except ValueError:
+					language = lng
+					url_tmdb += f"&language={language}"
 
-			response = requests.get(url_tmdb, timeout=5).json()
-			if response and response.get('results'):
-				result = response['results'][0]  
+			response = requests.get(url_tmdb, timeout=10)
+			if response.status_code != 200:
+				return False, f"[ERROR : tmdb] {title} [{chkType}-{year}] => {url_tmdb} (HTTP {response.status_code})"
 
-				# select suitable image URL
-				if usedImage == "poster" and result.get('poster_path'):
-					image_url = f"https://image.tmdb.org/t/p/w{isz_poster.split(',')[0]}{result['poster_path']}"
-				elif usedImage == "backdrop" and result.get('backdrop_path'):
-					image_url = f"https://image.tmdb.org/t/p/w{isz_backdrop.split(',')[0]}{result['backdrop_path']}"
-
-			if image_url:
-				self.saveImage(dwn_image, image_url)
-				return True, f"[SUCCESS : tmdb] {title} [{chkType}-{year}] => {url_tmdb} => {image_url}"
+			data = response.json()
+			if data and data.get('results'):
+				# Choose best title by vote_average and aka
+				results = data['results']
+				best_result = None
+				best_score = 0
+	
+				for result in results:
+					score = result.get('vote_average', 0)
+					# Title based score
+					if title.lower() == result.get("title", result.get("name", "")).lower():
+						score += 10
+					elif aka and aka.lower() == result.get("title", result.get("name", "")).lower():
+						score += 5
+					# Year based score
+					if year and result.get("release_date", result.get("first_air_date", "")):
+						result_year = result["release_date"][:4] if result.get("release_date") else result["first_air_date"][:4]
+						if result_year == year:
+							score += 5
+					# Update best score
+					if score > best_score:
+						best_result = result
+						best_score = score
+				# Use first score if no other is found
+				if not best_result:
+					best_result = results[0]
+				# Choose suitable image type
+				if usedImage == "poster" and best_result.get('poster_path'):
+					url_image = f"https://image.tmdb.org/t/p/w{isz_poster.split(',')[0]}{best_result['poster_path']}"
+				elif usedImage == "backdrop" and best_result.get('backdrop_path'):
+					url_image = f"https://image.tmdb.org/t/p/w{isz_backdrop.split(',')[0]}{best_result['backdrop_path']}"
+				else:
+					# If poster is not found, search for images from episodes (for series)
+					if srch == "tv" and best_result.get("id"):
+						episodes_url = f"https://api.themoviedb.org/3/tv/{best_result['id']}/images?api_key={tmdb_api}"
+						episodes_response = requests.get(episodes_url, timeout=10)
+						if episodes_response.status_code == 200:
+							episodes_data = episodes_response.json()
+							if episodes_data.get("stills"):
+								url_image = f"https://image.tmdb.org/t/p/w{isz_poster.split(',')[0]}{episodes_data['stills'][0]['file_path']}"
+				# Store image
+				if url_image:
+					self.saveImage(dwn_image, url_image, usedImage)
+					return True, f"[SUCCESS : tmdb] {title} [{chkType}-{year}] => {url_tmdb} => {url_image}"
+				else:
+					return False, f"[SKIP : tmdb] {title} [{chkType}-{year}] => {url_tmdb} (No image found)"
 			else:
-				return False, f"[SKIP : tmdb] {title} [{chkType}-{year}] => {url_tmdb} (Not found)"
+				return False, f"[SKIP : tmdb] {title} [{chkType}-{year}] => {url_tmdb} (No results found)"
 
 		except Exception as e:
 			if os.path.exists(dwn_image):
@@ -327,117 +497,131 @@ class PostersDB(threading.Thread):
 	@lru_cache(maxsize=500)
 	def search_tvdb(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
-			series_nb = -1
-			chkType, fd = self.checkType(shortdesc, fulldesc)
-			ptitle = self.UNAC(title)
+			# Extract year from fulldesc
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
 
-			# trying year extraction from fulldesc
-			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fd)
-			year = year_matches[0] if year_matches else ""
-
+			# Extract alternative titles (AKA) from fulldesc
+			aka_matches = re.findall(r'\((.*?)\)', fulldesc)
+			aka = aka_matches[0] if aka_matches else None
+			
+			# Define the API endpoint with your API key
 			url_tvdb = f"https://thetvdb.com/api/GetSeries.php?seriesname={quote(title)}"
-			url_read = requests.get(url_tvdb, timeout=5).text
+			# Add language if available
+			if lng:
+				try:
+					language, region = lng.split('_')  # Χωρίζουμε το lng σε language και region
+					headers = {'Accept-Language': language}
+				except ValueError: 
+					language = lng
+					headers = {'Accept-Language': language}
+			else:
+				headers = {'Accept-Language': 'en'}  # Default to English if no language is set
 
+			response = requests.get(url_tvdb, headers=headers, timeout=5)
+			if response.status_code != 200:
+				return False, f"[ERROR : tvdb] {title} => {url_tvdb} (HTTP {response.status_code})"
+
+			url_read = response.text
+
+			# Extract data with variable regex
 			try:
 				series_id = re.findall(r'<seriesid>(.*?)</seriesid>', url_read)
 				series_name = re.findall(r'<SeriesName>(.*?)</SeriesName>', url_read)
-				series_year = re.findall(r'<FirstAired>(19\d{2}|20\d{2})-\d{2}-\d{2}</FirstAired>', url_read)
+				series_year = re.findall(r'<FirstAired>(\d{4})-\d{2}-\d{2}</FirstAired>', url_read)
+				series_aliases = re.findall(r'<Alias>(.*?)</Alias>', url_read)
 			except Exception as e:
 				return False, f"[ERROR : tvdb] Failed parsing response: {str(e)}"
 
-			# chose correct order by year
-			for i, iseries_year in enumerate(series_year):
-				if not year or year == iseries_year:
+			# Clean title with UNAC
+			series_nb = -1
+			ptitle = self.UNAC(title)
+			paka = self.UNAC(aka) if aka else ""
+
+			for i, (s_id, s_name, s_year, s_aliases) in enumerate(zip(series_id, series_name, series_year, series_aliases)):
+				clean_s_name = self.UNAC(s_name)
+				clean_s_aliases = [self.UNAC(alias) for alias in s_aliases.split('|')] if s_aliases else []
+				
+				# Score based on title match
+				title_score = self.PMATCH(ptitle, clean_s_name)
+				aka_score = max([self.PMATCH(paka, alias) for alias in clean_s_aliases]) if paka else 0
+				total_score = max(title_score, aka_score)
+				
+				# Score based on year match
+				if year and s_year == year:
+					total_score += 50
+				
+				# Update best result if current result has a higher score
+				if total_score > 50:  # Minimum score threshold
 					series_nb = i
 					break
 
-			if series_nb >= 0 and series_id:
-				series_name_clean = self.UNAC(series_name[series_nb]) if series_name else ""
-				if series_name_clean and self.PMATCH(ptitle, series_name_clean):
-					url_tvdb = f"https://thetvdb.com/api/{tvdb_api}/series/{series_id[series_nb]}"
-					url_tvdb += f"/{lng[:-3]}" if lng else "/en"
-
-					url_read = requests.get(url_tvdb, timeout=5).text
-
-					# select correct image type by the usedImage skin attribute
-					if usedImage == "poster":
-						image = re.findall(r'<poster>(.*?)</poster>', url_read)
-					elif usedImage == "backdrop":
-						image = re.findall(r'<fanart>(.*?)</fanart>', url_read) or []  # To TVDB χρησιμοποιεί "fanart" για backdrops
-
-					if image and image[0]:
-						url_image = f"https://artworks.thetvdb.com/banners/{image[0]}"
-						self.saveImage(dwn_image, url_image)
-						return True, f"[SUCCESS : tvdb] {title} [{chkType}-{year}] => {url_tvdb} => {url_image}"
-			
-			return False, f"[SKIP : tvdb] {title} [{chkType}-{year}] => {url_tvdb} (Not found)"
+			if series_nb >= 0:
+				selected_id = series_id[series_nb]
+				selected_name = series_name[series_nb]
+				selected_year = series_year[series_nb]
+				# URL creation (v4 API)
+				url_tvdb_images = f"https://thetvdb.com/api/{tvdb_api}/series/{selected_id}/images/query?keyType={usedImage}"
+				response_images = requests.get(url_tvdb_images, headers=headers, timeout=5)
+				
+				if response_images.status_code == 200:
+					data = response_images.json()
+					if data['data']:
+						# Choose first available image
+						url_image = data['data'][0]['fileName']
+						url_image = f"https://artworks.thetvdb.com{url_image}"
+						self.saveImage(dwn_image, url_image, usedImage)
+						return True, f"[SUCCESS : tvdb] {title} => Found '{selected_name}' ({selected_year}), URL: {url_image}"
+			return False, f"[SKIP : tvdb] {title} (No matching series found)"
 
 		except Exception as e:
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
-			return False, f"[ERROR : tvdb] {title} [{chkType}] => {url_tvdb} ({str(e)})"
-
-# OMDB Search
-	@lru_cache(maxsize=500)
-	def search_omdb(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
-		try:
-			# trying year extraction from fulldesc
-			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
-			year = year_matches[0] if year_matches else ""
-
-			# create URL quote
-			url_omdb = f"https://www.omdbapi.com/?t={quote(title)}&apikey={omdb_api}"
-			if year:
-				url_omdb += f"&y={year}"
-
-			response = requests.get(url_omdb, timeout=5).json()
-
-			# select correct image type by the usedImage skin attribute
-			image_url = None
-			if usedImage == "poster" and response.get("Poster") and response["Poster"] != "N/A":
-				image_url = response["Poster"]
-			elif usedImage == "backdrop":
-				return False, "[SKIP : omdb] No backdrops available on OMDb."
-
-			# store image
-			if image_url:
-				self.savePoster(dwn_image, image_url)
-				return True, f"[SUCCESS : omdb] {title} ({year}) => {image_url}"
-			else:
-				return False, f"[SKIP : omdb] {title} ({year}) (No valid poster found)"
-
-		except Exception as e:
-			return False, f"[ERROR : omdb] {title} ({year}) ({str(e)})"
+			return False, f"[ERROR : tvdb] {title} ({str(e)})"
 
 # Fanart Search
 	@lru_cache(maxsize=500)
 	def search_fanart(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
+			# Title conversion
+			title = convert_to_greeklish(title)
+			title = self.UNAC(title)
+			# Check if the content is a movie using checkMovie list
+			chkType, fd = self.checkType(shortdesc, fulldesc)
+			if not chkType.startswith("movie"):
+				return False, f"[SKIP : fanart] {title} (Not a movie, skipping Fanart.tv)"
 			# searching IMDb ID from OMDB
 			url_omdb = f"https://www.omdbapi.com/?t={quote(title)}&apikey={omdb_api}"
 			response = requests.get(url_omdb).json()
 			imdb_id = response.get("imdbID")
+			# If no IMDb ID from OMDB, try TMDb
+			if not imdb_id:
+				url_tmdb = f"https://api.themoviedb.org/3/search/movie?api_key={tmdb_api}&query={quote(title)}"
+				response_tmdb = requests.get(url_tmdb, timeout=10)
+				if response_tmdb.status_code == 200:
+					data_tmdb = response_tmdb.json()
+					if data_tmdb.get('results'):
+						best_result = max(data_tmdb['results'], key=lambda x: x.get('vote_average', 0))
+						imdb_id = best_result.get("imdb_id")
+			
 			if not imdb_id:
 				return False, f"[SKIP : fanart] {title} (No IMDb ID found)"
-
 			# searching Fanart.tv
 			url_fanart = f"https://webservice.fanart.tv/v3/movies/{imdb_id}?api_key={fanart_api}"
 			response = requests.get(url_fanart, timeout=5).json()
-
 			# select correct image type by the usedImage skin attribute
-			image_url = None
+			url_image = None
 			if usedImage == "poster" and "movieposter" in response and response["movieposter"]:
-				image_url = response["movieposter"][0]["url"]
+				url_image = response["movieposter"][0]["url"]
 			elif usedImage == "backdrop" and "moviebackground" in response and response["moviebackground"]:
-				image_url = response["moviebackground"][0]["url"]
-
+				url_image = response["moviebackground"][0]["url"]
 			# store image
-			if image_url:
-				self.savePoster(dwn_image, image_url)
-				return True, f"[SUCCESS : fanart] {title} => {image_url}"
+			if url_image:
+				self.saveImage(dwn_image, url_image, usedImage)
+				return True, f"[SUCCESS : fanart] {title} => {url_image}"
 			else:
 				return False, f"[SKIP : fanart] {title} (No image found)"
-
+		
 		except Exception as e:
 			return False, f"[ERROR : fanart] {title} ({str(e)})"
 
@@ -445,73 +629,78 @@ class PostersDB(threading.Thread):
 	@lru_cache(maxsize=500)
 	def search_imdb(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
-			url_image = None
+			# Convert to greeklish 
+			title = convert_to_greeklish(title)
+			# Extract year from fulldesc
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			# Extract alternative titles (AKA) from fulldesc
+			aka_matches = re.findall(r'\((.*?)\)', fulldesc)
+			aka = aka_matches[0] if aka_matches else None
+			# Define type (movie or series)
 			chkType, fd = self.checkType(shortdesc, fulldesc)
-			ptitle = self.UNAC(title)
-
-			# extracting alternative title (aka)
-			aka = re.findall(r'\((.*?)\)', fd)
-			aka = aka[1] if len(aka) > 1 and not aka[1].isdigit() else aka[0] if len(aka) > 0 and not aka[0].isdigit() else None
-			paka = self.UNAC(aka) if aka else ""
-
-			# extracting year
-			year_matches = re.findall(r'19\d{2}|20\d{2}', fd)
-			year = year_matches[0] if year_matches else ""
-
-			imsg = ""
+			# Create search URL
 			url_mimdb = f"https://m.imdb.com/find?q={quote(title)}"
 			if aka and aka != title:
 				url_mimdb += f"%20({quote(aka)})"
 
-			url_read = requests.get(url_mimdb, timeout=5).text
-
-			# Regex for entering data from IMDb
+			if lng:
+				try:
+					language, region = lng.split('_')  # Χωρίζουμε το lng σε language και region
+					url_mimdb += f"&language={language}"
+				except ValueError:
+					language = lng
+					url_mimdb += f"&language={language}"
+			
+			headers = {
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+			}
+			# Make the request
+			response = requests.get(url_mimdb, headers=headers, timeout=10)
+			if response.status_code != 200:
+				return False, f"[ERROR : imdb] {title} => {url_mimdb} (HTTP {response.status_code})"
+			# Extract data from IMDb
+			url_read = response.text
 			rc = re.compile(r'<img src="(.*?)".*?<span class="h3">\n(.*?)\n</span>.*?\((\d+)\)(\s\(.*?\))?(.*?)</a>', re.DOTALL)
 			url_imdb = rc.findall(url_read)
-
-			# if no results found retrying with aka
+			# If no results found, retry with aka
 			if not url_imdb and aka:
 				url_mimdb = f"https://m.imdb.com/find?q={quote(title)}"
-				print(f"GlamPosters: [DEBUG] Retrying IMDb search without aka: {url_mimdb}")
-				url_read = requests.get(url_mimdb, timeout=5).text
+				response = requests.get(url_mimdb, headers=headers, timeout=10)
+				url_read = response.text
 				url_imdb = rc.findall(url_read)
 
 			len_imdb = len(url_imdb)
 			idx_imdb = 0
 			pfound = False
-
-			# check results
+			url_image = None
+			# Check results
 			for imdb in url_imdb:
 				imdb = list(imdb)
 				imdb[1] = self.UNAC(imdb[1])  # Καθαρισμός τίτλου
 				imdb[4] = self.UNAC(re.findall(r'aka <i>"(.*?)"</i>', imdb[4])[0]) if re.findall(r'aka <i>"(.*?)"</i>', imdb[4]) else ""
-
 				# image URL extraction
 				imdb_image = re.search(r"(.*?)._V1_.*?.jpg", imdb[0])
 				if imdb_image:
 					# year matching
 					if year and year == imdb[2]:
-						image_url = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
-						imsg = f"Found title: '{imdb[1]}', aka: '{imdb[4]}', year: '{imdb[2]}'"
+						url_image = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
 						pfound = True
 					elif not url_image and (int(year) - 1 == int(imdb[2]) or int(year) + 1 == int(imdb[2])):
-						image_url = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
-						imsg = f"Found title: '{imdb[1]}', aka: '{imdb[4]}', year: '+/-{imdb[2]}'"
+						url_image = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
 						pfound = True
 					elif not year:
-						image_url = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
-						imsg = f"Found title: '{imdb[1]}', aka: '{imdb[4]}', year: ''"
+						url_image = f"{imdb_image.group(1)}._V1_UY278,1,185,278_AL_.jpg" if usedImage == "poster" else f"{imdb_image.group(1)}._V1_UX1920,1,1080,1920_AL_.jpg"
 						pfound = True
 
 					if pfound:
 						break
 
 				idx_imdb += 1
-
 			# store image if found
-			if image_url and pfound:
-				self.saveImage(dwn_image, image_url)
-				return True, f"[SUCCESS : imdb] {title} [{chkType}-{year}] => {imsg} [{idx_imdb}/{len_imdb}] => {url_mimdb} => {image_url}"
+			if url_image and pfound:
+				self.saveImage(dwn_image, url_image, usedImage)
+				return True, f"[SUCCESS : imdb] {title} [{chkType}-{year}] => Found '{imdb[1]}' ({imdb[2]}), URL: {url_image}"
 			else:
 				return False, f"[SKIP : imdb] {title} [{chkType}-{year}] => {url_mimdb} (No Entry found [{len_imdb}])"
 
@@ -520,283 +709,418 @@ class PostersDB(threading.Thread):
 				os.remove(dwn_image)
 			return False, f"[ERROR : imdb] {title} [{chkType}-{year}] => {url_mimdb} ({str(e)})"
 
+#Filmy Search
+	@lru_cache(maxsize=500)
+	def search_filmy(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
+		try:
+			# Check type
+			chkType, fd = self.checkType(shortdesc, fulldesc)
+			if chkType.startswith("tv"):
+				return False, f"[SKIP : filmy.gr] {title} (TV show detected, skipping filmy.gr)"
+			# Year extraction from fulldesc
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			# Create URL
+			search_query = quote(title)  # Κωδικοποίηση του τίτλου για το URL
+			url_filmy = f"https://www.filmy.gr/?s={search_query}&post_type=amy_movie&amy_type=movie"
+			# Add year if available
+			if year:
+				url_filmy += f"&year={year}"
+
+			headers = {
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+			}
+
+			response = requests.get(url_filmy, headers=headers, timeout=10)
+			if response.status_code != 200:
+				return False, f"[ERROR : filmy.gr] {title} => {url_filmy} (HTTP {response.status_code})"
+			# Extract titles and images from HTML response
+			result_pattern = re.compile(r'<img[^>]+src="([^">]+)"[^>]+alt="([^">]+)"')
+			matches = result_pattern.findall(response.text)
+
+			if not matches:
+				return False, f"[SKIP : filmy.gr] {title} (No results found)"
+			# Choose best image by year and score
+			best_image = None
+			best_score = 0
+
+			for image_url, image_title in matches:
+				# Calculate score with PMATCH
+				score = self.PMATCH(title, image_title)
+				# Add score for year if available
+				if year and year in image_title:
+					score += 50
+
+				if score > best_score:
+					best_score = score
+					best_image = image_url
+
+			if best_image:
+				self.saveImage(dwn_image, best_image, usedImage)
+				return True, f"[SUCCESS : filmy.gr] {title} => {best_image} (Score: {best_score})"
+			else:
+				return False, f"[SKIP : filmy.gr] {title} (No suitable image found)"
+		
+		except Exception as e:
+			return False, f"[ERROR : filmy.gr] {title} ({str(e)})"
+
+#IMPAwards Search
+	@lru_cache(maxsize=500)
+	def search_impawards(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
+		try:
+			title = convert_to_greeklish(title)
+			# Check type
+			chkType, fd = self.checkType(shortdesc, fulldesc)
+			if not chkType.startswith("movie"):
+				return False, f"[SKIP : impawards] {title} (Not a movie, skipping IMPAwards)"
+			# Extract year
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			# Clean the title for URL
+			def clean_title_for_url(title):
+				title = re.sub(r'[^a-zA-Z0-9]', '_', title)
+				title = re.sub(r'_+', '_', title)
+				title = title.strip('_').lower()
+				return title
+			# Generate possible URLs based on title and year
+			possible_urls = []
+			if year:
+				base_url = f"http://www.impawards.com/{year}/{clean_title_for_url(title)}"
+				possible_urls.append(f"{base_url}.html")  # Check version alternatives
+				possible_urls.append(f"{base_url}_ver1.html")
+				possible_urls.append(f"{base_url}_ver2.html")
+				possible_urls.append(f"{base_url}_ver3.html")
+			else:
+				# If no year, try the last 5 years
+				current_year = datetime.datetime.now().year
+				for y in range(current_year, current_year - 5, -1):
+					base_url = f"http://www.impawards.com/{y}/{clean_title_for_url(title)}"
+					possible_urls.append(f"{base_url}.html")  # Basic URL
+					possible_urls.append(f"{base_url}_ver1.html")
+					possible_urls.append(f"{base_url}_ver2.html")
+					possible_urls.append(f"{base_url}_ver3.html")
+			# Headers for the request
+			headers = {
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+			}
+			# Try each possible URL
+			poster_url = None
+			best_score = 0
+			for url in possible_urls:
+				response = requests.get(url, headers=headers, timeout=10)
+				if response.status_code == 200:
+					# Extract the poster URL using regex
+					html_content = response.text
+					poster_url_match = re.search(r'<img src="(.*?)".*?class="poster"', html_content, re.DOTALL)
+					if poster_url_match:
+						poster_url_candidate = poster_url_match.group(1)
+						if not poster_url_candidate.startswith('http'):
+							poster_url_candidate = f"http://www.impawards.com{poster_url_candidate}"
+						# PMATCH
+						score = self.PMATCH(title, poster_url_candidate)
+						if score > best_score:
+							best_score = score
+							poster_url = poster_url_candidate
+			# If no poster found, return
+			if not poster_url:
+				return False, f"[SKIP : impawards] {title} (No poster found)"
+			# Save the image
+			self.saveImage(dwn_image, poster_url, usedImage)
+			return True, f"[SUCCESS : impawards] {title} => {poster_url} (Score: {best_score})"
+	
+		except Exception as e:
+			if os.path.exists(dwn_image):
+				os.remove(dwn_image)
+			return False, f"[ERROR : impawards] {title} ({str(e)})"
+
+# TVMaze Search
+	@lru_cache(maxsize=500)
+	def search_tvmaze(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
+		try:
+			# Check type if it is TV
+			chkType, fd = self.checkType(shortdesc, fulldesc)
+			if chkType.startswith("movie"):
+				return False, f"[SKIP : tvmaze] {title} (Movie detected, skipping TVmaze)"
+			# Extract year
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			# Extract language and country
+			language = None
+			country = None
+			if lng:
+				try:
+					language, country = lng.split('_', 1)  # Split μόνο στην πρώτη '_'
+				except ValueError:
+					language = lng
+			# Create URL
+			url = f"https://api.tvmaze.com/search/shows?q={quote(title)}&exact=true"
+			
+			# Προσθήκη country και language στο URL (αν υπάρχουν)
+			if country:
+				url += f"&country={country}"
+			if language:
+				url += f"&language={language}"
+			
+			headers = {"Authorization": f"Bearer {tvmaze_api}"}
+			
+			# Αίτημα και επεξεργασία
+			response = requests.get(url, headers=headers, timeout=10)
+			if response.status_code != 200:
+				return False, f"[ERROR : tvmaze] {title} => {url} (HTTP {response.status_code})"
+			
+			data = response.json()
+			if data:
+				# Επιλογή καλύτερου αποτελέσματος με PMATCH
+				best_result = None
+				best_score = 0
+				
+				for result in data:
+					show = result["show"]
+					current_score = 0
+					
+					# Βαθμολογία με βάση τον τίτλο (PMATCH)
+					current_score += self.PMATCH(title, show.get("name", ""))
+					
+					# Προσθήκη βαθμολογίας για έτος (αν υπάρχει)
+					if year and show.get("premiered"):
+						show_year = show["premiered"][:4]
+						if show_year == year:
+							current_score += 50
+					
+					# Ενημέρωση καλύτερου αποτελέσματος
+					if current_score > best_score:
+						best_score = current_score
+						best_result = show
+				
+				# Επιλογή εικόνας
+				if best_result and best_result.get("image"):
+					url_image = best_result["image"]["original"]
+					self.saveImage(dwn_image, url_image, usedImage)
+					return True, f"[SUCCESS : tvmaze] {title} => {url_image} (Score: {best_score})"
+				
+				return False, f"[SKIP : tvmaze] {title} (No valid image found)"
+			
+			return False, f"[SKIP : tvmaze] {title} (No results)"
+		
+		except Exception as e:
+			return False, f"[ERROR : tvmaze] {title} ({str(e)})"
+
 # Molotov Search
 	@lru_cache(maxsize=500)
 	def search_molotov_google(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel):
 		try:
+			# Έλεγχος αν η γλώσσα είναι Γαλλία (fr_FR)
+			if lng != "fr_FR":
+				return False, f"[SKIP : molotov-google] {title} (Only available for France, lng={lng})"
+			
 			headers = {
 				"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
 			}
-			chkType, fd = self.checkType(shortdesc, fulldesc)
-
+			
+			# Μετατροπή τίτλου για αναζήτηση
 			ptitle = self.UNAC(title)
 			pchannel = self.UNAC(channel).replace(" ", "") if channel else ""
-
-			image = None
-			pltc = None
-			imsg = ""
+			
+			# Δημιουργία URL αναζήτησης
 			url_mgoo = f"site:molotov.tv+{quote(title)}"
 			if channel and title.find(channel.split()[0]) < 0:
 				url_mgoo += f"+{quote(channel)}"
 			url_mgoo = f"https://www.google.com/search?q={url_mgoo}&tbm=isch"
-
-			ff = requests.get(url_mgoo, stream=True, headers=headers, timeout=5).text
-			plst = re.findall(r'https://www.molotov.tv/(.*?)"(?:.*?)?"(.*?)"', ff)
-			len_plst = len(plst)
-
-			molotov_table = [0, 0, None, None, 0]
-			molotov_final = False
-			partialtitle = 0
-			partialchannel = 100
-
-			# process search results
+			
+			# Κάντε το αίτημα
+			response = requests.get(url_mgoo, stream=True, headers=headers, timeout=5).text
+			
+			# Εξαγωγή εικόνων
+			plst = re.findall(r'https://www.molotov.tv/(.*?)"(?:.*?)?"(.*?)"', response)
+			if not plst:
+				return False, f"[SKIP : molotov-google] {title} (No results found)"
+			
+			# Επιλογή της καλύτερης εικόνας
+			best_image = None
+			best_score = 0
 			for molotov_id, pl in enumerate(plst):
 				get_path = f"https://www.molotov.tv/{pl[0]}"
 				get_name = self.UNAC(pl[1])
-				get_title_match = re.findall(r'(.*?)[ ]+en[ ]+streaming', get_name)
-				get_title = get_title_match[0] if get_title_match else None
-
-				get_channel_match = re.findall(r'(?:streaming|replay)?[ ]+sur[ ]+(.*?)[ ]+molotov.tv', get_name)
-				if get_channel_match:
-					get_channel = self.UNAC(get_channel_match[0]).replace(" ", "")
-				else:
-					get_channel_match = re.findall(r'regarder[ ]+(.*?)[ ]+en', get_name)
-					get_channel = self.UNAC(get_channel_match[0]).replace(" ", "") if get_channel_match else None
-
-				# calculate similarity
-				partialtitle = 100 if get_title == ptitle else self.PMATCH(ptitle, get_title)
-				partialchannel = 100 if get_channel == pchannel else self.PMATCH(pchannel, get_channel)
-
-				# update of best result
-				if partialtitle > molotov_table[0]:
-					molotov_table = [partialtitle, partialchannel, get_name, get_path, molotov_id]
-
-				if partialtitle == 100 and partialchannel == 100:
-					molotov_final = True
-					break
-
-			# if relative content found, download image
-			if molotov_table[0]:
-				ffm = requests.get(molotov_table[3], stream=True, headers=headers, timeout=5).text
-				pltt = re.findall(r'"https://fusion.molotov.tv/(.*?)/jpg" alt="(.*?)"', ffm)
-
-				if pltt:
-					pltc = self.UNAC(pltt[0][1])
-					plst = f"https://fusion.molotov.tv/{pltt[0][0]}/jpg"
-					imsg = f"Found title ({molotov_table[0]}%) & channel ({molotov_table[1]}%) : '{molotov_table[2]}' + '{pltc}' [{molotov_table[4]}/{len_plst}]"
-
-			# alternative image search
+				
+				# Υπολογισμός βαθμολογίας
+				partialtitle = 100 if get_name == ptitle else self.PMATCH(ptitle, get_name)
+				partialchannel = 100 if pchannel == "" else self.PMATCH(pchannel, get_name)
+				
+				if partialtitle > best_score:
+					best_score = partialtitle
+					best_image = get_path
+			
+			if best_image:
+				# Αποθήκευση της εικόνας
+				self.saveImage(dwn_image, best_image, usedImage)
+				return True, f"[SUCCESS : molotov-google] {title} => {best_image}"
 			else:
-				plst = re.findall(r'\],\["https://(.*?)",\d+,\d+].*?"https://.*?","(.*?)"', ff)
-				len_plst = len(plst)
-				if plst:
-					for pl in plst:
-						if pl[1].startswith("Regarder"):
-							pltc = self.UNAC(pl[1])
-							partialtitle = self.PMATCH(ptitle, pltc)
-							get_channel_match = re.findall(r'regarder[ ]+(.*?)[ ]+en', pltc)
-							get_channel = self.UNAC(get_channel_match[0]).replace(" ", "") if get_channel_match else None
-							partialchannel = self.PMATCH(pchannel, get_channel)
-							if partialchannel > 0 and partialtitle == 0:
-								partialtitle = 1
-							plst = f"https://{pl[0]}"
-							molotov_table = [partialtitle, partialchannel, pltc, plst, -1]
-							imsg = f"Fallback title ({molotov_table[0]}%) & channel ({molotov_table[1]}%) : '{pltc}' [{-1}/{len_plst}]"
-							break
-
-			# suitable image selection
-			if molotov_table[0] == 100 and molotov_table[1] == 100:
-				image = plst
-			elif chkType.startswith("movie"):
-				imsg = f"Skip movie type '{pltc}' [{len_plst}]"
-			elif molotov_table[0] == 100:
-				image = plst
-			elif molotov_table[0] > 50 and molotov_table[1]:
-				image = plst
-			elif chkType == '':
-				imsg = f"Skip unknown type '{pltc}' [{len_plst}]"
-			elif molotov_table[0] and molotov_table[1]:
-				image = plst
-			elif molotov_table[0] > 25:
-				image = plst
-			else:
-				imsg = f"Not found '{pltc}' [{len_plst}]"
-
-			# store valid image, if found
-			if image:
-				url_image = re.sub(r'/\d+x\d+/', f"/{re.sub(',', 'x', isz)}/", image)
-				self.saveImage(dwn_image, url_image)
-				if self.verifyImage(dwn_image):
-					return True, f"[SUCCESS : molotov-google] {title} ({channel}) [{chkType}] => {imsg} => {url_mgoo} => {url_image}"
-				else:
-					if os.path.exists(dwn_image):
-						os.remove(dwn_image)
-					return False, f"[SKIP : molotov-google] {title} ({channel}) [{chkType}] => {imsg} => {url_mgoo} => {url_image} (jpeg error)"
-			else:
-				return False, f"[SKIP : molotov-google] {title} ({channel}) [{chkType}] => {imsg} => {url_mgoo}"
-
+				return False, f"[SKIP : molotov-google] {title} (No suitable image found)"
+		
 		except Exception as e:
-			if os.path.exists(dwn_image):
-				os.remove(dwn_image)
-			return False, f"[ERROR : molotov-google] {title} [{chkType}] => {url_mgoo} ({str(e)})"
+			return False, f"[ERROR : molotov-google] {title} ({str(e)})"
 
-#ProgrammeTV Search
+#Google Search
 	@lru_cache(maxsize=500)
-	def search_programmetv_google(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel):
+	def search_google(self, dwn_image, title, shortdesc, fulldesc, usedImage, canal_name):
 		try:
 			headers = {
 				"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
 			}
+			
+			# Έλεγχος τύπου (movie ή tv)
 			chkType, fd = self.checkType(shortdesc, fulldesc)
-
-			# ignore movies (prefer tv shows only)
-			if chkType.startswith("movie"):
-				return False, f"[SKIP : programmetv-google] {title} [{chkType}] => Skip movie title"
-
-			# search year within full description
-			year_match = re.findall(r'19\d{2}|20\d{2}', fd)
-			year = year_match[0] if year_match else ""
-
-			# create search quote
-			url_ptv = f"site:programme-tv.net+{quote(title)}"
-			if channel and title.find(channel.split()[0]) < 0:
-				url_ptv += f"+{quote(channel)}"
-			if year:
-				url_ptv += f"+{year}"
-
-			# add image type (poster or backdrop)
-			url_ptv += "+poster" if usedImage == "poster" else "+backdrop"
-
-			# final search URL in Google Images
-			url_ptv = f"https://www.google.com/search?q={url_ptv}&tbm=isch&tbs=ift:jpg%2Cisz:m"
-			ff = requests.get(url_ptv, stream=True, headers=headers, timeout=5).text
-
-			# extract image URL
-			imagelst = re.findall(r'\],\["https://(.*?)",\d+,\d+]', ff)
-			if imagelst:
-				url_image = f"https://{imagelst[0]}"
-				url_image = re.sub(r"\\u003d", "=", url_image)
-
-				# analyze image dimensions
-				url_image_size = re.findall(r'/(\d+)x(\d+)/', url_image)
-				if url_image_size:
-					h_ori = float(url_image_size[0][1])
-					h_tar = float(re.findall(r'(\d+)', isz)[1])
-					ratio = h_ori / h_tar
-					w_ori = float(url_image_size[0][0])
-					w_tar = int(w_ori / ratio)
-					h_tar = int(h_tar)
-					url_image = re.sub(r'/\d+x\d+/', f"/{w_tar}x{h_tar}/", url_image)
-
-				url_image = re.sub(r'crop-from/top/', '', url_image)
-
-				# store image
-				self.saveImage(dwn_image, url_image)
-
-				# verify image
-				if self.verifyImage(dwn_image):
-					return True, f"[SUCCESS : programmetv-google] {title} [{chkType}] => {url_ptv} => {url_image} (initial size: {url_image_size})"
-				else:
-					if os.path.exists(dwn_image):
-						os.remove(dwn_image)
-					return False, f"[SKIP : programmetv-google] {title} [{chkType}] => {url_ptv} => {url_image} (initial size: {url_image_size}) (jpeg error)"
-
-			return False, f"[SKIP : programmetv-google] {title} [{chkType}] => {url_ptv} (Not found)"
-
-		except Exception as e:
-			if os.path.exists(dwn_image):
-				os.remove(dwn_image)
-			return False, f"[ERROR : programmetv-google] {title} [{chkType}] => {url_ptv} ({str(e)})"
-
-#Google Search
-	@lru_cache(maxsize=500)
-	def search_google(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel):
-		try:
-			headers = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
-			chkType, fd = self.checkType(shortdesc, fulldesc)
-			image = None
-			url_image = ""
-			year = None
-			srch = None
-			canal_name = None
-
-			# retrieve service name (canal[0]) from EPG
-			service = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
-			if service:
-				canal_name = ServiceReference(service).getServiceName()
-				canal_name = self.UNAC(canal_name)  # remove special characters
-
-			# find year in description
-			year = re.findall(r'19\d{2}|20\d{2}', fd)
-			if len(year) > 0:
-				year = year[0]
+			
+			# Εξαγωγή έτους από την περιγραφή
+			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
+			year = year_matches[0] if year_matches else None
+			
+			# Εξαγωγή original τίτλου από την περιγραφή (αν υπάρχει)
+			original_title = None
+			original_title_matches = re.findall(r'\[(.*?)\]', fulldesc)
+			if original_title_matches:
+				candidate = original_title_matches[0]
+				# Έλεγχος αν ο original τίτλος είναι σε διαφορετική γλώσσα από τον ελληνικό τίτλο
+				if self.is_different_language(title, candidate):
+					original_title = candidate
+					log_to_file(f"[DEBUG : google] Original title found: {original_title}")
+	
+			# Καθαρισμός του τίτλου (αφαίρεση παρενθέσεων κ.λπ.)
+			title = re.sub(r'\([^)]*\)', '', title).strip()
+			
+			# Έλεγχος αν η canal_name είναι None ή κενή
+			if not canal_name:
+				canal_name = ""
+				log_to_file(f"[DEBUG : google] Canal name is None or empty")
 			else:
-				year = None
-
-			# define search by type
-			if chkType.startswith("movie"):
-				srch = chkType[6:]
-			elif chkType.startswith("tv"):
-				srch = chkType[3:]
-
-			# **first search attempt (without channel service name)**
-			url_google = quote(title)
-			if srch:
-				url_google += "+{}".format(srch)
+				canal_name = self.UNAC(canal_name)
+				log_to_file(f"[DEBUG : google] Cleaned canal name: {canal_name}")
+	
+			# Καταγραφή της τιμής usedImage
+			log_to_file(f"[DEBUG : google] Used image type: {usedImage}")
+	
+			# Έλεγχος αν η usedImage είναι σωστή
+			if usedImage not in ["poster", "backdrop"]:
+				log_to_file(f"[ERROR : google] Invalid usedImage value: {usedImage}")
+				return False, f"[ERROR : google] Invalid usedImage value: {usedImage}"
+	
+			# Αν το checkType είναι tv και υπάρχει original τίτλος, χρησιμοποιούμε αυτόν
+			if chkType.startswith("tv") and original_title:
+				search_query = quote(self.UNAC(original_title))  # Χρήση του original τίτλου
+				log_to_file(f"[INFO : google] Using original title for search: {original_title}")
+			else:
+				# Αν δεν υπάρχει original τίτλος ή δεν είναι tv, χρησιμοποιούμε τον ελληνικό τίτλο
+				search_query = quote(self.UNAC(title))  # Χρήση του τίτλου από το EPG
+				if canal_name and chkType.startswith("tv"):  # Προσθήκη του canal_name μόνο για τύπου "tv"
+					search_query += f" {quote(canal_name)}"
+				log_to_file(f"[INFO : google] Using EPG title for search: {title}")
+	
+			# Προσθήκη έτους στην αναζήτηση (αν υπάρχει)
 			if year:
-				url_google += "+{}".format(year)
+				search_query += f" {year}"
+				log_to_file(f"[INFO : google] Adding year to search: {year}")
+			
+			# Προσθήκη aspect ratio ανάλογα με τον τύπο εικόνας
 			if usedImage == "poster":
-				url_google += "+poster"
-			elif usedImage == "backdrop":
-				url_google += "+backdrop"
-
-			url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
-			ff = requests.get(url_google, stream=True, headers=headers, timeout=5).text
-
-			# retrieve image
-			imagelst = re.findall(r'\],\["https://(.*?)",\d+,\d+]', ff)
-			if len(imagelst) == 0 and canal_name:  # **Αν αποτύχει, δοκιμάζουμε με το κανάλι**
-				print(f"GlamPosters: [DEBUG] No image found. Retrying with channel name: {canal_name}")
-				url_google = quote(title) + "+" + quote(canal_name)
-				if usedImage == "poster":
-					url_google += "+poster"
-				elif usedImage == "backdrop":
-					url_google += "+backdrop"
-				url_google = "https://www.google.com/search?q={}&tbm=isch&tbs=ift:jpg%2Cisz:m".format(url_google)
-				ff = requests.get(url_google, stream=True, headers=headers, timeout=5).text
-				imagelst = re.findall(r'\],\["https://(.*?)",\d+,\d+]', ff)
-
-			# select first available image
-			for pl in imagelst:
-				url_image = "https://{}".format(pl)
-				url_image = re.sub(r"\\u003d", "=", url_image)
-
-				# **filter for avoiding channel logos instead of posters or backdrops**
-				if "logo" in url_image.lower() or "channel" in url_image.lower():
-					print(f"GlamPosters: [DEBUG] Skipping potential channel logo: {url_image}")
-					continue
-
-				self.saveImage(dwn_image, url_image)
-				if self.verifyImage(dwn_image):
-					image = pl
-					break
-
-			if image:
-				return True, "[SUCCESS : google] {} [{}-{}] => {} => {}".format(title, chkType, year, url_google, url_image)
+				aspect_ratio = "t|s"  # tall or square
+				log_to_file(f"[INFO : google] Searching for poster using aspect ratios: t or s")
 			else:
-				if os.path.exists(dwn_image):
-					os.remove(dwn_image)
-				return False, "[SKIP : google] {} [{}-{}] => {} => {} (Not found)".format(title, chkType, year, url_google, url_image)
+				aspect_ratio = "w|xw"  # wide or extra wide
+				log_to_file(f"[INFO : google] Searching for backdrop using aspect ratios: w or xw")
+			
+			# Δημιουργία URL αναζήτησης
+			google_url = f"https://www.google.com/search?as_st=y&as_q={search_query}&as_epq=&as_oq=&as_eq=&imgar={aspect_ratio}&imgcolor=&imgtype=&cr=&as_sitesearch=&as_filetype=jpg&tbs=&udm=2"
+			
+			log_to_file(f"[INFO : google] Searching: {google_url}")
+			response = requests.get(google_url, headers=headers, timeout=10).text
+			
+			# Εξαγωγή URL εικόνων
+			image_list = re.findall(r'\],\["https://(.*?)",\d+,\d+]', response)
+			
+			# Επιλογή πρώτης έγκυρης εικόνας
+			for img_url in image_list:
+				img_url = f"https://{img_url}"
+				
+				# Αποφυγή εξωφύλλων εφημερίδων και άσχετων αποτελεσμάτων
+				if "logo" in img_url.lower() or "channel" in img_url.lower() or "newspaper" in img_url.lower():
+					log_to_file(f"[DEBUG : google] Skipping potential logo or newspaper: {img_url}")
+					continue
+				
+				# Αποθήκευση της εικόνας
+				self.saveImage(dwn_image, img_url, usedImage)
+				if self.verifyImage(dwn_image):
+					log_to_file(f"[SUCCESS : google] Found image: {img_url}")
+					return True, f"[SUCCESS : google] {title} [{chkType}-{year}] => {google_url} => {img_url}"
+			
+			# Αν η αρχική αναζήτηση αποτύχει, δοκιμή με το όνομα του καναλιού (μόνο αν δεν έχει ήδη χρησιμοποιηθεί)
+			if canal_name and chkType.startswith("tv"):
+				search_query = quote(f"{self.UNAC(title)} {canal_name} {year if year else ''}".strip())
+				google_url = f"https://www.google.com/search?as_st=y&as_q={search_query}&as_epq=&as_oq=&as_eq=&imgar={aspect_ratio}&imgcolor=&imgtype=&cr=&as_sitesearch=&as_filetype=jpg&tbs=&udm=2"
+	
+				log_to_file(f"[INFO : google] Retrying with channel name: {google_url}")
+				response = requests.get(google_url, headers=headers, timeout=10).text
+				image_list = re.findall(r'\],\["https://(.*?)",\d+,\d+]', response)
+	
+				for img_url in image_list:
+					img_url = f"https://{img_url}"
+					if "logo" in img_url.lower() or "channel" in img_url.lower():
+						log_to_file(f"[DEBUG : google] Skipping potential logo: {img_url}")
+						continue
+	
+					self.saveImage(dwn_image, img_url, usedImage)
+					if self.verifyImage(dwn_image):
+						log_to_file(f"[SUCCESS : google] Found image: {img_url}")
+						return True, f"[SUCCESS : google] {title} [{chkType}-{year}] => {google_url} => {img_url}"
+	
+			# Αν δεν βρεθεί εικόνα, επιστροφή αποτυχίας
+			if os.path.exists(dwn_image):
+				os.remove(dwn_image)
+			return False, f"[SKIP : google] {title} [{chkType}-{year}] => No results found"
+		
 		except Exception as e:
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
-			return False, "[ERROR : google] {} [{}-{}] => {} => {} ({})".format(title, chkType, year, url_google, url_image, str(e))
+			error_msg = f"[ERROR : google] {title} [{chkType}-{year}] ({str(e)})"
+			log_to_file(error_msg)
+			return False, error_msg
 
+	def is_different_language(self, title, candidate):
+		if re.search(r'[a-zA-Z]', candidate):
+			return True
+		return False
 
-	def saveImage(self, dwn_image, url_image):
-		with open(dwn_image, 'wb') as f:
-			f.write(requests.get(url_image, stream=True, allow_redirects=True, verify=False).content)
-			f.close()
+	def create_valid_image(self, img_path, image_type):
+		return image_postprocessing(img_path, image_type)
+
+	def saveImage(self, dwn_image, url_image, image_type):
+		if os.path.exists(dwn_image) and os.path.getsize(dwn_image) > 0:
+			return True  # Η εικόνα υπάρχει και είναι έγκυρη
+		try:
+			# Κατεβάζουμε την εικόνα
+			response = requests.get(url_image, stream=True, allow_redirects=True, verify=False)
+			if response.status_code != 200:
+				log_to_file(f"[ERROR] Failed to download image: {url_image} (HTTP {response.status_code})")
+				return False
+			
+			with open(dwn_image, 'wb') as f:
+				f.write(response.content)
+				f.close()
+	
+			# Ελέγχουμε αν η εικόνα είναι έγκυρη πριν την επεξεργασία
+			if not self.verifyImage(dwn_image):
+				log_to_file(f"[ERROR] Invalid image file: {dwn_image}")
+				os.remove(dwn_image)
+				return False
+	
+			# Επεξεργασία της εικόνας
+			if not self.create_valid_image(dwn_image, image_type):
+				log_to_file(f"[ERROR] Failed to process image: {dwn_image}")
+				os.remove(dwn_image)  # Αφαιρούμε την εικόνα αν η επεξεργασία αποτύχει
+				return False
+			return True
+		except Exception as e:
+			log_to_file(f"[ERROR] Failed to save image: {dwn_image} ({e})")
+			return False
 
 	def verifyImage(self, dwn_image):
 		try:
@@ -839,23 +1163,36 @@ class PostersDB(threading.Thread):
 
 		return srch, fd
 
-
 	def UNAC(self, string):
-		# replace special characters
+		if string is None:
+			return ""  # Επιστροφή κενής συμβολοσειράς αν το string είναι None
+
+		# Αφαίρεση τόνων και διακριτικών
+		string = unicodedata.normalize('NFKD', string)
+		string = ''.join(c for c in string if not unicodedata.combining(c))
+		# replace special characters and HD from channel names
+		string = re.sub(r'\s+HD\b', '', string, flags=re.IGNORECASE)
 		string = re.sub(u"u0026", "&", string)
 		string = re.sub(r"[-,!/\.\":]", " ", string)
-
 		# replace diacritics with plain latin characters
 		translit_map = {
 			u"[ÀÁÂÃÄàáâãäåª]": 'a', u"[ÈÉÊËèéêë]": 'e', u"[ÍÌÎÏìíîï]": 'i',
 			u"[ÒÓÔÕÖòóôõöº]": 'o', u"[ÙÚÛÜùúûü]": 'u', u"[Ññ]": 'n',
-			u"[Çç]": 'c', u"[Ÿýÿ]": 'y'
+			u"[Çç]": 'c', u"[Ÿýÿ]": 'y',
+			# Προσθήκη χαρακτήρων από άλλες γλώσσες (π.χ. ρώσικα)
+			u"[Аа]": 'a', u"[Бб]": 'b', u"[Вв]": 'v', u"[Гг]": 'g', u"[Дд]": 'd',
+			u"[Ее]": 'e', u"[Ёё]": 'yo', u"[Жж]": 'zh', u"[Зз]": 'z', u"[Ии]": 'i',
+			u"[Йй]": 'y', u"[Кк]": 'k', u"[Лл]": 'l', u"[Мм]": 'm', u"[Нн]": 'n',
+			u"[Оо]": 'o', u"[Пп]": 'p', u"[Рр]": 'r', u"[Сс]": 's', u"[Тт]": 't',
+			u"[Уу]": 'u', u"[Фф]": 'f', u"[Хх]": 'kh', u"[Цц]": 'ts', u"[Чч]": 'ch',
+			u"[Шш]": 'sh', u"[Щщ]": 'shch', u"[Ъъ]": '', u"[Ыы]": 'y', u"[Ьь]": '',
+			u"[Ээ]": 'e', u"[Юю]": 'yu', u"[Яя]": 'ya',
 		}
 		for pattern, replacement in translit_map.items():
 			string = re.sub(pattern, replacement, string)
 
-		# keep only English and Greek characters and numbers
-		string = re.sub(r"[^a-zA-Zα-ωΑ-ΩίϊΐόάέύϋΰήώΊΪΌΆΈΎΫΉΏ0-9 ']", "", string)
+		# keep only English, Greek, Cyrillic, and numbers
+		string = re.sub(r"[^a-zA-Zα-ωΑ-Ωа-яА-Я0-9 ']", "", string)
 		string = string.lower()
 		string = re.sub(u"u003d", "", string)
 		string = re.sub(r'\s{1,}', ' ', string)  # replace multiple spaces
@@ -881,31 +1218,14 @@ threadDB.start()
 class PosterAutoDB(PostersDB):
 	def __init__(self):
 		super(PosterAutoDB, self).__init__()
-		self.logdbg = None  # just once
-		self.checkMovie = ["abenteuer", "acción", "action", "adventure", "aventura", "comedia", "comedy", "comédie", "drama", "drame", "cine", "cinema", "cinéma", "film", "filme", "kino", "movie",
-		"película", "fantasía", "fantasie", "fantastique", "fantasy", "misterio", "mystère", "mystery", "suspenso", "terror", "thriller", "western", "γουέστερν", "δράμα", "δράση",
-		"θρίλερ", "κωμωδία", "μυστήριο", "περιπέτεια", "τρόμου", "σινεμά", "ταινία", "κινηματογράφος", "φιλμ", "кино", "фильм",
-		"боевик", "драма", "детектив", "комедия", "приключение", "триллер", "ужасы", "вестерн", "фэнтези"]
-		self.checkTV = ["actualité", "aktuell", "current affairs", "información", "infotainment", "journal", "nachrichten", "animation", "animación", "anime", "cartoon", "caricatura",
-		"dessin animé", "documentaire", "documental", "documentary", "dokumentation", "reality", "realidad", "athletics", "athlétisme", "atletismo", "baloncesto", "basket", "basketball",
-		"basketbol", "deportes", "football", "fútbol", "fußball", "bildung", "culture", "cultura", "education", "educación", "gesellschaft", "gesundheit", "health", "kultur", "santé",
-		"sociedad", "society", "clima", "météo", "weather", "wetter", "καιρός", "δελτίο καιρού", "погода", "clips", "concert", "concierto", "klip", "konzert", "music", "musique",
-		"música", "videoclips", "concurso", "divertissement", "entertainment", "entretenimiento", "game show", "jeu télévisé", "quizsendung", "unterhaltung", "entrevista", "magazine",
-		"magazin", "revista", "talk show", "talkshow", "ep.", "episode", "episodio", "épisode", "folge", "s.", "saison", "season", "staffel", "t.", "temporada", "feuilleton",
-		"fernsehserie", "series", "sitcom", "soap opera", "série", "telenovela", "tv series", "tv show", "αισθηματική σειρά", "leichtathletik", "sports","αθλητικά", "μπάσκετ",
-		"ποδόσφαιρο", "στίβος", "баскетбол", "легкая атлетика", "спорт", "футбол", "news", "noticias", "ειδήσεις", "ενημέρωση", "ινφοτέιντμεντ", "новости", "информация", "reality-show", 
-		"téléréalité", "άνιμε", "κινουμένων σχεδίων", "καρτούν", "ντοκιμαντέρ", "ριάλιτι", "анимация", "аниме", "мультфильм", "документальный", "реалити", "variedad", "varieté",
-		"varieties", "variété", "ποικιλία", "τηλεπαιχνίδι", "ψυχαγωγία", "варьете", "игровое шоу", "развлекательное шоу", "βιντεοκλίπ", "κλιπ", "μουσική", "συναυλία", "клипы",
-		"концерт", "музыка", "δραματική σειρά", "κομεντί", "κωμική σειρά", "σειρά", "τηλεοπτική σειρά", "σόου", "сериал", "теленовелла", "телесериал", "εκπαίδευση", "επικαιρότητα",
-		"κοινωνία", "πολιτισμός", "υγεία", "образование", "здоровье", "общество", "культура", "επεισόδιο", "επ.", "κ.", "κύκλος", "σεζόν", "м/с", "с-н", "сериал", "серия", "сезон",
-		"т/с", "эпизод", "эпизод", "μαγκαζίνο", "συζήτηση", "συνέντευξη", "τοκ σόου", "журнал", "ток-шоу"]
+		self.logdbg = debug_enabled
 
 	def run(self):
 		self.logAutoDB("[AutoDB] *** Initialized")
 		while True:
 			time.sleep(7200)  # 7200 - Start every 2 hours
 			self.logAutoDB("[AutoDB] *** Running ***")
-			
+
 			# AUTO ADD NEW FILES - 1440 (24 hours ahead)
 			for service in apdb.values():
 				try:
@@ -934,26 +1254,35 @@ class PosterAutoDB(PostersDB):
 									os.utime(dwn_image, (time.time(), time.time()))
 									continue
 
-								# ** search engine priorities **
+								# Search and store image functions (without google searches)
 								search_functions = [
-									self.search_tmdb,
-									self.search_tvdb,
-									self.search_omdb,
-									self.search_fanart,
-									self.search_imdb,
-									self.search_molotov_google,
-									self.search_programmetv_google,
-									self.search_google
+									self.search_tmdb, self.search_tvdb, self.search_fanart,
+									self.search_imdb, self.search_filmy, self.search_tvmaze, self.search_impawards
 								]
 
-								# ** try all search engines in priority order **
+								# Search and store image functions (google searches)
+								google_searches = [
+									self.search_molotov_google, self.search_google
+								]
+								found = False
+
 								for search_function in search_functions:
 									if not os.path.exists(dwn_image):
-										val, log = search_function(dwn_image, canal[5], canal[4], canal[3], canal[0], usedImage)
+										val, log = search_function(dwn_image, canal[5], canal[4], canal[3], usedImage)
 										self.logAutoDB(log)
-										if val and "SUCCESS" in log:
+										if val:
+											found = True
 											newfd += 1
-											break  # stops search if suitable image is found
+											break
+
+								if not found:
+									for google_search in google_searches:
+										if not os.path.exists(dwn_image):
+											val, log = google_search(dwn_image, canal[5], canal[0], canal[4], canal[3], usedImage)
+											self.logAutoDB(log)
+											if val:
+												newfd += 1
+												break
 
 					newcn = canal[0]
 					self.logAutoDB("[AutoDB] {} new file(s) added ({})".format(newfd, newcn))
@@ -966,7 +1295,7 @@ class PosterAutoDB(PostersDB):
 			oldfd = 0
 			for f in os.listdir(path_folder):
 				diff_tm = now_tm - os.path.getmtime(path_folder + f)
-				if diff_tm > 120 and os.path.getsize(path_folder + f) == 0:  #scan empty files > 2 minutes
+				if diff_tm > 120 and os.path.getsize(path_folder + f) == 0:  # scan empty files > 2 minutes
 					os.remove(path_folder + f)
 					emptyfd += 1
 				if diff_tm > 259200:  # scan old files > 3 days
@@ -976,10 +1305,9 @@ class PosterAutoDB(PostersDB):
 			self.logAutoDB("[AutoDB] {} empty file(s) removed".format(emptyfd))
 			self.logAutoDB("[AutoDB] *** Stopping ***")
 
-	def logAutoDB(self, logmsg):
-		if self.logdbg:
-			with open(path_folder + "PosterAutoDB.log", "a+") as w:
-				w.write("%s\n" % logmsg)
+	def logAutoDB(self, logmsg, log_type="operational"):
+		if (log_type == "debug" and self.logdbg) or (log_type == "operational" and operational_logs_enabled):
+			log_to_file(logmsg, log_type)
 
 threadAutoDB = PosterAutoDB()
 threadAutoDB.start()
@@ -1021,11 +1349,11 @@ class GlamPosters(Renderer):
 	def changed(self, what):
 		if not self.instance:
 			return
-
+	
 		if what[0] == self.CHANGED_CLEAR:
 			self.instance.hide()
 			return  # poster is hidden ONLY when image must be cleared
-
+	
 		servicetype = None
 		try:
 			service = None
@@ -1042,35 +1370,41 @@ class GlamPosters(Renderer):
 				if self.nxts:
 					service = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
 				else:
-					self.canal[0] = None
+					self.canal = [None, None, None, None, None, None]  # Initialize canal list with 6 elements
 					self.canal[1] = self.source.event.getBeginTime()
 					self.canal[2] = self.source.event.getEventName()
 					self.canal[3] = self.source.event.getExtendedDescription()
 					self.canal[4] = self.source.event.getShortDescription()
 					self.canal[5] = convtext(self.canal[2], self.canal[3])  # convert to title + year
 				servicetype = "Event"
-
+	
 			if service:
 				events = epgcache.lookupEvent(['IBDCTESX', (service.toString(), 0, -1, -1)])
-				self.canal[0] = ServiceReference(service).getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', '')
-				self.canal[1] = events[self.nxts][1]
-				self.canal[2] = events[self.nxts][4]
-				self.canal[3] = events[self.nxts][5]
-				self.canal[4] = events[self.nxts][6]
-				self.canal[5] = convtext(self.canal[2], self.canal[3])  # convert to title + year
-				if not autobouquet_file:
-					if self.canal[0] not in apdb:
-						apdb[self.canal[0]] = service.toString()
+				if events and len(events) > self.nxts:  # Check if events list is not empty and has enough elements
+					self.canal = [None, None, None, None, None, None]  # Initialize canal list with 6 elements
+					self.canal[0] = ServiceReference(service).getServiceName().replace('\xc2\x86', '').replace('\xc2\x87', '').replace(' HD','')
+					self.canal[1] = events[self.nxts][1]
+					self.canal[2] = events[self.nxts][4]
+					self.canal[3] = events[self.nxts][5]
+					self.canal[4] = events[self.nxts][6]
+					self.canal[5] = convtext(self.canal[2], self.canal[3])  # convert to title + year
+					if not autobouquet_file:
+						if self.canal[0] not in apdb:
+							apdb[self.canal[0]] = service.toString()
+				else:
+					self.logPoster("Error: No events found for service")
+					self.instance.hide()
+					return
 		except Exception as e:
 			self.logPoster("Error (service) : " + str(e))
 			self.instance.hide()
 			return
-
+	
 		if not servicetype:
 			self.logPoster("Error service type undefined")
 			self.instance.hide()
 			return
-
+	
 		try:
 			curCanal = "{}-{}".format(self.canal[1], self.canal[2])
 			# **if the program is the same, do not hide poster**
@@ -1078,23 +1412,24 @@ class GlamPosters(Renderer):
 				return  
 			self.last_program = curCanal  # store last program
 			self.oldCanal = curCanal
-
+	
 			self.logPoster("Service : {} [{}] : {} : {}".format(servicetype, self.nxts, self.canal[0], self.oldCanal))
-
+	
 			# select correct image file by the usedImage skin attribute
 			subfolder = "backdrop/" if self.usedImage == "backdrop" else "poster/"
 			pstrNm = path_folder + subfolder + self.canal[5] + ".jpg"
-
+	
 			if os.path.exists(pstrNm):
 				self.timer.start(100, True)
 			else:
-				# **hide previous backdrop if no new has been found**
-				if self.usedImage == "backdrop":
-					self.instance.hide()
+				self.instance.hide()
 				canal_with_type = self.canal[:] + [self.usedImage]  # add usedImage in the list
-				pdb.put(canal_with_type)
-				start_new_thread(self.waitPoster, ())
-
+				
+				# Έλεγχος αν το canal_with_type υπάρχει ήδη στο queue
+				if canal_with_type not in list(pdb.queue):
+					pdb.put(canal_with_type)
+					start_new_thread(self.waitPoster, ())
+	
 		except Exception as e:
 			self.logPoster("Error (eFile) : " + str(e))
 			self.instance.hide()
@@ -1104,27 +1439,24 @@ class GlamPosters(Renderer):
 		if self.canal[5]:
 			subfolder = "backdrop/" if self.usedImage == "backdrop" else "poster/"
 			pstrNm = path_folder + subfolder + self.canal[5] + ".jpg"
-
+	
 			if os.path.exists(pstrNm):
-				# **Check if backdrop is horizontal**
-				if self.usedImage == "backdrop" and not self.is_valid_backdrop(pstrNm):
-					self.logPoster(f"[ERROR : showPoster] Invalid backdrop detected, skipping: {pstrNm}")
-					return  
-
-				# **Avoid flickering: Load only when image changes**
+				# Avoid flickering: Load only when image changes
 				if getattr(self, "current_poster", None) and self.current_poster == pstrNm:
 					return
-
+	
 				self.current_poster = pstrNm  # Store current image
-				self.logPoster(f"[LOAD : showPoster] {pstrNm}")
-
-				# **Set the image**
+				if self.usedImage == "poster":
+					self.logPoster(f"[LOAD : showPoster] {pstrNm}")
+				else:
+					self.logPoster(f"[LOAD : showBackdrop] {pstrNm}")
+	
+				# Set the image
 				self.instance.setPixmap(loadJPG(pstrNm))
 				self.instance.setScale(2)
 				self.instance.show()
 			else:
-				if self.usedImage == "backdrop":
-					self.instance.hide()
+				self.instance.hide()
 
 	def waitPoster(self):
 		self.instance.hide()
@@ -1134,37 +1466,17 @@ class GlamPosters(Renderer):
 			loop = 300
 			found = None
 			self.logPoster("[LOOP : waitPoster] {}".format(pstrNm))
-
+	
 			while loop >= 0:
 				if os.path.exists(pstrNm):
 					if os.path.getsize(pstrNm) > 0:
-						# **check if backdrop is horizontal**
-						if self.usedImage == "backdrop" and not self.is_valid_backdrop(pstrNm):
-							self.logPoster("[ERROR : waitPoster] Invalid backdrop detected, skipping: {}".format(pstrNm))
-							return  # hide not suitable backdrop
-
 						loop = 0
 						found = True
 				time.sleep(0.6)
 				loop -= 1
-
+	
 			if found:
 				self.timer.start(10, True)
 
-	def is_valid_backdrop(self, img_path):
-		try:
-			with Image.open(img_path) as img:
-				width, height = img.size
-				if width > height:  # image must be horizontal
-					return True
-				else:
-					self.logPoster("[INVALID : Backdrop] Wrong dimensions for backdrop: {} ({}x{})".format(img_path, width, height))
-					return False
-		except Exception as e:
-			self.logPoster("[ERROR : is_valid_backdrop] Failed to check image: {} ({})".format(img_path, e))
-			return False
-
 	def logPoster(self, logmsg):
-		if self.logdbg:
-			with open(path_folder + "GlamPosters.log", "a+") as w:
-				w.write("%s\n" % logmsg)
+		log_to_file(logmsg)

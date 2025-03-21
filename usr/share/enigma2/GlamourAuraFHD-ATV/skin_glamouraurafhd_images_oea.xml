@@ -1,8 +1,8 @@
 <skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
-  <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Open-Alliance Images by MCelliotG -->
-  <!--  ######## OPENDROID IMAGES ######## -->
+  <!--	Original Skin: GlamourAuraFHD-ATV by MCelliotG	-->
+  <!--	SKIN FILE -->
+  <!--	GlamourAuraFHD-ATV Open-Alliance Images by MCelliotG -->
+  <!--	######## OPENDROID IMAGES ######## -->
   <!-- 01. BluePanel -->
   <screen flags="wfNoBorder" name="BluePanel" position="0,0" size="1920,1080" title="Blue Panel" backgroundColor="transparent">
     <panel name="ScreenElements3" />
@@ -54,12 +54,12 @@
     <ePixmap pixmap="GACommon/images/panel+.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="list" render="Listbox" position="770,140" size="900,810" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" itemHeight="90" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/mainmenusel900.png" alphatest="off" zPosition="3">
       <convert type="TemplatedMultiContent">
-        {"template": [MultiContentEntryText(pos = (180, 2), size = (530, 50), font=0, text = 0),
-        MultiContentEntryText(pos = (180, 45), size = (530, 45), font=1, text = 1),
-        MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (150, 60), flags = BT_SCALE, png = 2),],
-        "fonts": [gFont("Regular", 33),gFont("Regular", 22)],
-        "itemHeight": 50}
-        </convert>
+		{"template": [MultiContentEntryText(pos = (180, 2), size = (530, 50), font=0, text = 0),
+		MultiContentEntryText(pos = (180, 45), size = (530, 45), font=1, text = 1),
+		MultiContentEntryPixmapAlphaBlend(pos = (10, 15), size = (150, 60), flags = BT_SCALE, png = 2),],
+		"fonts": [gFont("Regular", 33),gFont("Regular", 22)],
+		"itemHeight": 50}
+		</convert>
     </widget>
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="920,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
     <ePixmap pixmap="GACommon/buttons/aura_green.png" position="1390,65" size="225,75" alphatest="blend" transparent="1" zPosition="3" />
@@ -94,14 +94,14 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [
-        MultiContentEntryText(pos = (100, 2), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
-              MultiContentEntryText(pos = (120, 45), size = (1180, 75), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-        MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), png = 2), # index 2 is the interface pixmap
-        ],
-        "fonts": [gFont("RegularB", 32),gFont("Regular", 27)],
-        "itemHeight": 120}
-      </convert>
+		{"template": [
+		MultiContentEntryText(pos = (100, 2), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
+			  MultiContentEntryText(pos = (120, 45), size = (1180, 75), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+		MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), png = 2), # index 2 is the interface pixmap
+		],
+		"fonts": [gFont("RegularB", 32),gFont("Regular", 27)],
+		"itemHeight": 120}
+	  </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,730" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1030,785" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -267,15 +267,15 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,800" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [
-                      MultiContentEntryText(pos = (560, 5), size = (700, 45), font=0, flags = RT_VALIGN_CENTER | RT_HALIGN_RIGHT, text = 0),
-                      MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (540, 80), flags = BT_SCALE, png = 1),
-                      MultiContentEntryText(pos = (560, 45), size = (700, 35), font=1, flags = RT_VALIGN_TOP | RT_HALIGN_RIGHT, text = 3),
-                     ],
-         "fonts": [gFont("RegularB", 32),gFont("Regular", 25)],
-         "itemHeight": 80
-        }
-    </convert>
+		{"template": [
+					  MultiContentEntryText(pos = (560, 5), size = (700, 45), font=0, flags = RT_VALIGN_CENTER | RT_HALIGN_RIGHT, text = 0),
+					  MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (540, 80), flags = BT_SCALE, png = 1),
+					  MultiContentEntryText(pos = (560, 45), size = (700, 35), font=1, flags = RT_VALIGN_TOP | RT_HALIGN_RIGHT, text = 3),
+					 ],
+		 "fonts": [gFont("RegularB", 32),gFont("Regular", 25)],
+		 "itemHeight": 80
+		}
+	</convert>
     </widget>
   </screen>
   <screen name="DownloadOnLineImage" position="0,0" size="1920,1080" title="OPDBoot - Download Image" flags="wfNoBorder" backgroundColor="transparent">
