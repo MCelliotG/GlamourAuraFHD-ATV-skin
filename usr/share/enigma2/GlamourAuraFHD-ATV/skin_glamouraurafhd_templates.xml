@@ -1,7 +1,7 @@
 <skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
-  <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Templates & Menus -->
+  <!--	Original Skin: GlamourAuraFHD-ATV by MCelliotG	-->
+  <!--	SKIN FILE -->
+  <!--	GlamourAuraFHD-ATV Templates & Menus -->
   <!-- Menu Templates -->
   <menus>
     <!-- Main -->
@@ -335,8 +335,10 @@
     <setup key="NetworkServicesSetup" image="GACommon/images/netservices.png" />
     <setup key="NetworkuShareSetup" image="GACommon/images/ushare.png" />
     <setup key="openwebif" image="GACommon/images/webif.png" />
-    <setup key="OscamInfo" image="GACommon/images/oscam.png" />
+    <setup key="OSCamInfoSetup" image="GACommon/images/oscam.png" />
     <setup key="OSD3D" image="GACommon/images/auto_3d.png" />
+    <setup key="OSD3DCalibration" image="GACommon/images/auto_3d.png" />
+    <setup key="OSDCalibration" image="GACommon/images/osdmenu.png" />
     <setup key="Password" image="GACommon/images/panel+.png" />
     <setup key="Playback" image="GACommon/images/play_big.png" />
     <setup key="PluginBrowser" image="GACommon/images/plugins.png" />
@@ -346,6 +348,7 @@
     <setup key="RemoteButton" image="GACommon/images/remotesetup.png" />
     <setup key="RFModulator" image="GACommon/images/rfmod.png" />
     <setup key="Satellite" image="GACommon/images/satellite.png" />
+    <setup key="Scheduler" image="GACommon/images/timeshift.png" />
     <setup key="Skin" image="GACommon/images/skins.png" />
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
     <setup key="Softcam" image="GACommon/images/camsetup.png" />
@@ -485,6 +488,16 @@
     <widget name="key_green" position="790,555" size="0,0" font="Regular; 0" transparent="1" zPosition="5" />
     <widget name="key_yellow" position="1045,555" size="0,0" font="Regular; 0" transparent="1" zPosition="5" />
     <widget name="key_blue" position="1300,5855" size="0,0" font="Regular; 0" transparent="1" zPosition="5" />
+  </screen>
+  <screen name="FullKeysBT" flags="wfNoBorder">
+    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1060,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
+    <widget name="key_red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget name="key_green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget name="key_yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
   </screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <!-- Button Graphics -->
@@ -807,31 +820,31 @@
   <screen name="MenuEntriesNew" flags="wfNoBorder">
     <widget source="menu" render="Listbox" position="770,60" size="920,880" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-     {"templates":
-      {"default": (80,[MultiContentEntryText(pos = (50, 0), size = (870, 80), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)]),
-      "text": (80,[MultiContentEntryText(pos = (50, 0), size = (870, 80), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)]),
-      "number": (80,[MultiContentEntryText(pos = (35, 0), size = (50, 77), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 2),
-                     MultiContentEntryText(pos = (90, 0), size = (830, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),]),
-      "image": (80,[MultiContentEntryPixmapAlphaBlend(pos = (35, 15), size = (50, 80), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-                    MultiContentEntryText(pos = (95, 0), size = (825, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),]),
-      "both": (80,[MultiContentEntryPixmapAlphaBlend(pos = (35, 15), size = (50, 80), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-                   MultiContentEntryText(pos = (90, 0), size = (50, 77), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 2),
-                   MultiContentEntryText(pos = (145, 0), size = (775, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),])},
-     "fonts": [gFont("Regular", 45),gFont("Numbers", 50),gFont("Regular", 45)],
-     "itemHeight": 80,
-     "scrollbarMode": "showNever"
-     }
-     </convert>
+	 {"templates":
+	  {"default": (80,[MultiContentEntryText(pos = (50, 0), size = (870, 80), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)]),
+	  "text": (80,[MultiContentEntryText(pos = (50, 0), size = (870, 80), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)]),
+	  "number": (80,[MultiContentEntryText(pos = (35, 0), size = (50, 77), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 2),
+					 MultiContentEntryText(pos = (90, 0), size = (830, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),]),
+	  "image": (80,[MultiContentEntryPixmapAlphaBlend(pos = (35, 15), size = (50, 80), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+					MultiContentEntryText(pos = (95, 0), size = (825, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),]),
+	  "both": (80,[MultiContentEntryPixmapAlphaBlend(pos = (35, 15), size = (50, 80), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+				   MultiContentEntryText(pos = (90, 0), size = (50, 77), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 2),
+				   MultiContentEntryText(pos = (145, 0), size = (775, 80), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),])},
+	 "fonts": [gFont("Regular", 45),gFont("Numbers", 50),gFont("Regular", 45)],
+	 "itemHeight": 80,
+	 "scrollbarMode": "showNever"
+	 }
+	 </convert>
     </widget>
   </screen>
   <screen name="MenuEntriesOld" flags="wfNoBorder">
     <widget source="menu" render="Listbox" position="770,60" size="920,880" scrollbarMode="showNever" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [ MultiContentEntryText(pos = (60, 0), size = (850, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
-        "fonts": [gFont("Regular", 45)],
-        "itemHeight": 80
-        }
-      </convert>
+		{"template": [ MultiContentEntryText(pos = (60, 0), size = (850, 80), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+		"fonts": [gFont("Regular", 45)],
+		"itemHeight": 80
+		}
+	  </convert>
     </widget>
   </screen>
   <screen name="MainMenu1" flags="wfNoBorder">
@@ -845,14 +858,14 @@
   <screen name="MenuCL" flags="wfNoBorder">
     <widget source="cutlist" render="Listbox" position="1190,195" size="645,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/cutsel.png" alphatest="off" transparent="1" zPosition="13">
       <convert type="TemplatedMultiContent">
-        {"template": [
-            MultiContentEntryText(pos=(0,0), size=(450, 50), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
-            MultiContentEntryText(pos=(450,0), size=(180, 50), text = 2, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
-          ],
-         "fonts": [gFont("Regular", 33)],
-         "itemHeight": 50
-        }
-      </convert>
+		{"template": [
+			MultiContentEntryText(pos=(0,0), size=(450, 50), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
+			MultiContentEntryText(pos=(450,0), size=(180, 50), text = 2, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
+		  ],
+		 "fonts": [gFont("Regular", 33)],
+		 "itemHeight": 50
+		}
+	  </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/icons/mp_buttons.png" position="1440,960" size="192,40" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
@@ -1748,7 +1761,7 @@
   {"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
    "fonts": [gFont("Regular", 33)],
    "itemHeight": 50
-      }
+	  }
   </convert>
     </widget>
     <widget name="config" font="Regular; 32" position="800,460" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" />
@@ -1884,8 +1897,8 @@
   <!-- 06. TITLES -->
   <screen name="Title1" flags="wfNoBorder" alphatest="on" zPosition="6">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />
-    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="75,945" size="1830,100" font="Regular; 70" foregroundColor="white" backgroundColor="transparent" transparent="1" valign="center" zPosition="8" noWrap="1" />
-    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="77,947" size="1830,100" font="Regular; 70" foregroundColor="background20" backgroundColor="background20" transparent="1" valign="center" zPosition="7" noWrap="1" />
+    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="75,945" size="1830,100" font="Regular; 70" foregroundColor="white" backgroundColor="transparent" transparent="1" valign="center" zPosition="8" noWrap="1" />
+    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="77,947" size="1830,100" font="Regular; 70" foregroundColor="background20" backgroundColor="background20" transparent="1" valign="center" zPosition="7" noWrap="1" />
   </screen>
   <screen name="Title2" flags="wfNoBorder" alphatest="on" zPosition="6">
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />
@@ -2132,7 +2145,7 @@
       <convert type="EventTime">EndTime</convert>
       <convert type="ClockToText">Default</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="585,837" size="840,53" font="Regular; 38" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
+    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="585,837" size="840,53" font="Regular; 38" halign="left" transparent="1" backgroundColor="background20" foregroundColor="white" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="session.Event_Now" render="Label" position="1430,837" size="180,53" font="Regular; 33" halign="center" transparent="1" backgroundColor="background20" foregroundColor="white" noWrap="1" zPosition="11" valign="center">
@@ -2142,7 +2155,7 @@
     <widget source="session.Event_Now" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" alphatest="blend" position="350,890" size="1258,6" zPosition="7" transparent="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="585,895" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
+    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="585,895" size="840,40" font="Regular; 30" halign="left" transparent="1" foregroundColor="black" backgroundColor="grey2" valign="center" noWrap="1" zPosition="11">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="session.Event_Next" render="Label" position="355,895" size="105,40" font="Regular; 30" halign="center" transparent="1" backgroundColor="grey" foregroundColor="background20" zPosition="11" noWrap="1" valign="center">
@@ -2163,7 +2176,7 @@
   <screen name="TunerInfobar" flags="wfNoBorder">
     <!-- Frequency, Orbital & Streamtypes -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="395,40" zPosition="-12" size="1260,85" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="410,48" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="410,48" size="870,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular;26" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">FreqInfo</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="410,83" size="870,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular;26" halign="center" valign="center" noWrap="1">
@@ -2697,7 +2710,7 @@
   <screen name="P+RInfobar" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/infobar/infobar_provider2IB.png" position="425,130" zPosition="-12" size="1240,50" alphatest="off" transparent="1" />
     <panel name="Prov" />
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="440,135" size="600,40" font="Regular; 26" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="7">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="440,135" size="600,40" font="Regular; 26" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="darkgrey" transparent="1" noWrap="1" zPosition="7">
       <convert type="ServiceName">Reference</convert>
     </widget>
   </screen>
@@ -2711,7 +2724,7 @@
     <widget source="session.Event_Now" render="Label" position="425,750" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,325" size="720,425" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
+    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=2,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,325" size="720,425" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="session.Event_Next" render="Label" position="1155,295" size="720,30" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
@@ -2720,7 +2733,7 @@
     <widget source="session.Event_Next" render="Label" position="1155,750" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="720,425" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
+    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=2,steptime=60,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="720,425" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
   </screen>
@@ -2812,13 +2825,13 @@
       <convert type="GlamourSpace">NetSpace,Full</convert>
     </widget>
   </screen>
-  <!--  Cam Name -->
+  <!--	Cam Name -->
   <screen name="CamName" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="50,990" size="500,35" font="Numbers; 30" halign="left" zPosition="2" backgroundColor="deepgrey" transparent="1" text="CCCam2.3.0+Oscam svn11370" valign="center" noWrap="1" foregroundColor="sky">
       <convert type="GlamourAccess">CamName</convert>
     </widget>
   </screen>
-  <!--  Crypt info -->
+  <!--	Crypt info -->
   <screen name="CryptInfo" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/caids/ird_no.png" position="550,995" size="50,25" zPosition="3" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/ird_emm.png" position="550,995" size="50,25" zPosition="4" alphatest="blend" transparent="1">
@@ -2999,7 +3012,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
   </screen>
-  <!--  Source info -->
+  <!--	Source info -->
   <screen name="SourceInfo" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/emu.png" position="1498,995" size="65,25" zPosition="8" alphatest="blend" transparent="1">
       <convert type="GlamourAccess">Emu</convert>
@@ -3019,13 +3032,13 @@
     </widget>
     <widget source="session.CurrentService" render="GlamCI" allVisible="1" position="1570,990" size="250,35" transparent="1" font="RegularB; 27" backgroundColor="sky" foregroundColor="amarillo" zPosition="5" />
   </screen>
-  <!--  Ecm info -->
+  <!--	Ecm info -->
   <screen name="ECMInfo" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" halign="center" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="center" noWrap="1" foregroundColor="amarillo">
       <convert type="GlamourAccess">EcmInfo</convert>
     </widget>
   </screen>
-  <!--  CAS info -->
+  <!--	CAS info -->
   <screen name="CasInfo" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" foregroundColor="amarillo" backgroundColor="transparent" transparent="1" text="CAS Info" valign="center" halign="center" noWrap="1" shadowColor="grey" shadowOffset="1,0" zPosition="7">
       <convert type="GlamourAccess">CasInfo</convert>
@@ -3078,7 +3091,7 @@
     <widget source="ServiceEvent" render="Label" position="265,15" size="510,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="50,168" size="720,50" font="RegularB; 32" backgroundColor="grey2" transparent="1" valign="center" halign="center" foregroundColor="black" zPosition="7">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="50,168" size="720,50" font="RegularB; 32" backgroundColor="grey2" transparent="1" valign="center" halign="center" foregroundColor="black" zPosition="7">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="265,115" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
@@ -3112,19 +3125,19 @@
     <widget source="ServiceEvent" render="Label" position="50,915" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event5,beginTime</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,755" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,755" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
       <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,795" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,795" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
       <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,835" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,835" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
       <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,875" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,875" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
       <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
     </widget>
   </screen>
@@ -3150,25 +3163,25 @@
     <widget source="ServiceEvent" render="Label" position="50,905" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event7,beginTime</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,665" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,665" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
       <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,705" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,705" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
       <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,745" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,745" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
       <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,785" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,785" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
       <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,825" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,825" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1200,nowrap,oneshot=1,always=0,ellipsis=1" position="130,865" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1200,nowrap,oneshot=1,always=0,ellipsis=1" position="130,865" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event6,titleWithDuration</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=1300,nowrap,oneshot=1,always=0,ellipsis=1" position="130,905" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1300,nowrap,oneshot=1,always=0,ellipsis=1" position="130,905" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
       <convert type="GlamNextEvents">Event7,titleWithDuration</convert>
     </widget>
   </screen>
@@ -3431,10 +3444,10 @@
   </screen>
   <!-- 11-7 MOVIESELECTION INFOS -->
   <screen name="MovieSInfo" flags="wfNoBorder">
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="665,855" size="1200,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="665,855" size="1200,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="MovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=1,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,700" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,700" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" foregroundColor="cyan1" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">
@@ -3576,7 +3589,7 @@
     </widget>
   </screen>
   <screen name="EventsInfos" flags="wfNoBorder">
-    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="40,340" size="600,50" font="RegularB; 32" backgroundColor="background20" halign="center" noWrap="1" transparent="1" foregroundColor="sky" zPosition="3" />
+    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="40,340" size="600,50" font="RegularB; 32" backgroundColor="background20" halign="center" noWrap="1" transparent="1" foregroundColor="sky" zPosition="3" />
     <widget source="session.Event_Now" render="Label" position="40,390" size="600,90" transparent="1" zPosition="8" foregroundColor="lightciel" font="Regular; 28" halign="center" backgroundColor="background20" valign="center">
       <convert type="EventName">Genre</convert>
     </widget>
@@ -3595,7 +3608,7 @@
     <widget source="Event" render="Label" position="60,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="650,140" size="1220,800" font="Regular;28" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti2.png" alphatest="blend" transparent="1" zPosition="4" itemHeight="40" />
@@ -3608,7 +3621,7 @@
     <widget source="Event" render="Label" position="58,80" size="565,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="60,200" size="565,780" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="665,220" size="1200,720" font="Regular;28" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColorSelected="lightciel" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti90.png" alphatest="off" zPosition="5" />
@@ -3630,7 +3643,7 @@
     <widget source="Event" render="Label" position="60,80" size="570,120" font="Caps; 36" backgroundColor="transwhite" transparent="0" halign="center" zPosition="3" foregroundColor="black" valign="center">
       <convert type="EventName">Name</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,750" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="62,250" size="570,750" font="Regular; 32" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="60,205" size="85,45" font="Numbers; 36" halign="left" backgroundColor="sky" transparent="1" zPosition="7">
@@ -3739,7 +3752,7 @@
     </widget>
     <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
     <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,330" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,330" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
@@ -3816,7 +3829,7 @@
     <widget source="Event" render="Progress" position="185,875" size="540,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,120" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="840,820" size="1025,120" font="Regular; 32" backgroundColor="background20" foregroundColor="cyan1" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="425,890" size="180,40" font="Regular;28" backgroundColor="background20" foregroundColor="cyan1" transparent="1" halign="center" valign="center" zPosition="7">
@@ -3826,9 +3839,9 @@
     </widget>
     <!-- LIST PROPERTIES -->
     <widget name="lab1" position="90,225" size="1775,80" font="Regular;36" halign="center" valign="center" zPosition="20" backgroundColor="background20" foregroundColor="white" transparent="1" />
-    <widget name="bouquetlist" position="90,145" size="1775,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" />
+    <widget name="bouquetlist" position="90,145" size="1775,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" scrollbarMode="showNever" />
     <!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
-    <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" />
+    <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" scrollbarMode="showNever" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh1" backgroundColor="transpdark" foregroundColor="white" position="170,145" size="270,80" zPosition="3" transparent="1" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh2" backgroundColor="transpdark" foregroundColor="white" position="525,145" size="270,80" zPosition="3" transparent="1" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh3" backgroundColor="transpdark" foregroundColor="white" position="880,145" size="270,80" zPosition="3" transparent="1" />
@@ -3896,7 +3909,7 @@
     <ePixmap position="1335,890" size="540,30" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" transparent="1" alphatest="blend" />
     <ePixmap position="1245,550" size="540,40" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowt540.png" transparent="1" alphatest="blend" />
     <ePixmap position="1155,650" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="1155,555" size="720,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" valign="center" noWrap="1">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="1155,555" size="720,35" font="Caps; 28" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center" valign="center" noWrap="1">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="Event" render="Label" position="1155,590" size="150,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1" zPosition="5">
@@ -3911,7 +3924,7 @@
     <widget source="Event" render="Progress" position="1310,605" size="410,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,655" size="715,260" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,655" size="715,260" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="1430,615" size="180,35" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan" transparent="1" halign="center" valign="center" zPosition="7">
@@ -3921,9 +3934,9 @@
     </widget>
     <!-- LIST PROPERTIES -->
     <widget name="lab1" position="90,225" size="1065,80" font="Regular;36" halign="center" valign="center" zPosition="20" backgroundColor="background20" foregroundColor="white" transparent="1" />
-    <widget name="bouquetlist" position="90,145" size="1065,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" />
+    <widget name="bouquetlist" position="90,145" size="1065,80" zPosition="3" itemHeight="45" font="Caps;28" borderColor="lightciel" borderWidth="1" backgroundColor="background20" foregroundColor="white" backgroundColorSelected="blue" foregroundColorSelected="white" transparent="0" scrollbarMode="showNever" />
     <!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
-    <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" />
+    <widget enableWrapAround="1" itemHeight="50" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" scrollbarMode="showNever" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh1" backgroundColor="transpdark" foregroundColor="white" position="170,145" size="270,80" zPosition="3" transparent="1" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh2" backgroundColor="transpdark" foregroundColor="white" position="525,145" size="270,80" zPosition="3" transparent="1" />
     <widget font="RegularB; 27" halign="center" valign="center" name="currCh3" backgroundColor="transpdark" foregroundColor="white" position="880,145" size="270,80" zPosition="3" transparent="1" />
@@ -3948,6 +3961,48 @@
     <widget source="session.VideoPicture" render="Pig" position="1155,145" size="720,405" backgroundColor="transparent" zPosition="21" />
     <panel name="FullKeys2" />
   </screen>
+  <!-- 14-9 Quick EPG Commons -->
+  <screen name="QuickEPGCommons" flags="wfNoBorder">
+    <!--/* Background -->
+    <eLabel name="menubig" position="0,838" size="1920,167" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <!-- Clock -->
+    <panel name="ClockLabel2" />
+    <!--Upper Infobar -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="400,35" zPosition="-12" size="1230,95" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1125,80" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
+    <widget source="Event" render="Label" position="450,45" size="1175,50" font="Regular; 33" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <eLabel position="550,104" size="975,1" backgroundColor="grey" zPosition="1" />
+    <widget source="Event" render="Progress" position="550,100" size="975,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_main.png" transparent="1" zPosition="1">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <widget source="Event" render="Label" position="450,85" size="100,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Format:%H:%M </convert>
+    </widget>
+    <widget source="Event" render="Label" position="1525,85" size="100,35" font="Numbers; 34" backgroundColor="background20" transparent="1" halign="center" zPosition="5">
+      <convert type="EventTime">EndTime</convert>
+      <convert type="ClockToText">Format:%H:%M</convert>
+    </widget>
+    <!-- Provider name and Reference -->
+    <ePixmap pixmap="GACommon/infobar/infobar_provider2IB.png" position="400,133" zPosition="-12" size="1230,50" alphatest="off" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
+      <convert type="ServiceName">Provider</convert>
+    </widget>
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
+      <convert type="ServiceName">Reference</convert>
+    </widget>
+    <!-- EPG Infobar -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="345,708" zPosition="-1" size="1520,130" alphatest="off" transparent="1" />
+    <ePixmap position="170,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" transparent="1" alphatest="blend" />
+    <ePixmap position="65,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
+    <ePixmap position="270,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" transparent="1" alphatest="blend" />
+    <panel name="FullKeysBT" />
+    <!--WEATHER WIDGETS -->
+    <panel name="WeatherF2" />
+  </screen>
   <!-- 15. EXTRA SCREENS -->
   <!-- 15-1 Posters in Main Infobar -->
   <screen name="PostersMainInfobar" flags="wfNoBorder">
@@ -3964,7 +4019,7 @@
     <widget source="session.Event_Now" render="Label" position="425,750" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,325" size="455,425" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
+    <widget source="session.Event_Now" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="425,325" size="455,425" font="Regular; 28" transparent="0" valign="top" zPosition="4" backgroundColor="background40">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="session.Event_Next" render="Label" position="1155,295" size="720,30" transparent="1" zPosition="8" foregroundColor="white" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="bottom">
@@ -3973,7 +4028,7 @@
     <widget source="session.Event_Next" render="Label" position="1155,750" size="720,30" transparent="1" zPosition="8" foregroundColor="amarillo" font="RegularB; 24" halign="center" backgroundColor="transpwhite" valign="top">
       <convert type="EventName">Rating</convert>
     </widget>
-    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="455,425" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
+    <widget source="session.Event_Next" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="1155,325" size="455,425" font="Regular; 28" foregroundColor="black" backgroundColor="transwhite" transparent="0" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="session.Event_Now" render="GlamPosters" nexts="0" usedImage="poster" position="880,335" size="265,400" zPosition="10" transparent="1" />
@@ -3991,8 +4046,8 @@
       <convert type="GlamRefString">CurrentRef</convert>
     </widget>
     <!--widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
-      <convert type="ServiceName">Reference</convert>
-    </widget-->
+	  <convert type="ServiceName">Reference</convert>
+	</widget-->
     <widget source="session.CurrentService" render="Label" position="40,760" size="600,95" font="Numbers; 28" transparent="1" zPosition="5" foregroundColor="amarillo" backgroundColor="transpyellow" halign="center" valign="center">
       <convert type="GlamourBase">PidInfoDecHex</convert>
     </widget>

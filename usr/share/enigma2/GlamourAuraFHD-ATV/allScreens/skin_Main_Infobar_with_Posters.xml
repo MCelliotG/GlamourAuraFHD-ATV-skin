@@ -1,17 +1,17 @@
 ﻿<skin>
   <!-- MAIN INFOBAR WITH POSTERS -->
   <screen name="InfoBar" position="0,0" size="1920,1080" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="CommonInfobars" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
-    <!-- Provider -->
-    <ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
-    <panel name="Prov" />
-    <!-- Bitrate -->
-    <panel name="BitrateSimple" />
-    <!-- Crypt Info -->
-    <panel name="CasInfo" />
-    <!-- Weather Info -->
-    <panel name="WeatherToday2" />
-    <panel name="PostersMainInfobar" />
+	<panel name="CommonInfobars" />
+	<ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
+	<!-- Provider -->
+	<ePixmap pixmap="GACommon/infobar/infobar_provider.png" position="980,130" zPosition="-2" size="675,50" alphatest="off" transparent="1" />
+	<panel name="Prov" />
+	<!-- Bitrate -->
+	<panel name="BitrateSimple" />
+	<!-- Crypt Info -->
+	<panel name="CasInfo" />
+	<!-- Weather Info -->
+	<panel name="WeatherToday2" />
+	<panel name="PostersMainInfobar" />
   </screen>
 </skin>

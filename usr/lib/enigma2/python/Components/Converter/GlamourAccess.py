@@ -381,7 +381,12 @@ class GlamourAccess(Poll, Converter):
 						if self.type == self.PROV:
 							return prov
 
-						ecm_time = ecm_info.get("ecm time", "").replace("msec", "ms") if "msec" in ecm_info.get("ecm time", "") else f"{ecm_info.get('ecm time', '').replace('.', '').lstrip('0')} ms"
+						ecm_time = ""
+						if "ecm time" in ecm_info:
+							if "msec" in ecm_info["ecm time"]:
+								ecm_time = ecm_info["ecm time"].replace("msec", "ms")
+							else:
+								ecm_time = f"{ecm_info['ecm time'].replace('.', '').lstrip('0')} ms"
 						if self.type == self.ECMTIME:
 							return ecm_time
 
@@ -563,7 +568,16 @@ class GlamourAccess(Poll, Converter):
 				if line.startswith("config.misc.softcams="):
 					active_softcam = line.split('=')[1].strip()
 					break
+			# Alternative search method for softcam name
 			if not active_softcam or active_softcam.lower() == "none":
+				softcam_init_file = "/etc/init.d/softcam"
+				if os.path.exists(softcam_init_file):
+					with open(softcam_init_file, "r") as f:
+						for line in f:
+							if "Short-Description:" in line:
+								active_softcam = line.split(":")[1].strip()
+								break
+			if not active_softcam or active_softcam.lower() in {"nocam", "none"}:
 				return "No active softcam"
 			active_softcam = active_softcam.capitalize()
 			if "oscam" in active_softcam.lower() or "ncam" in active_softcam.lower():
@@ -700,92 +714,128 @@ class GlamourAccess(Poll, Converter):
 		ecmpath = self.ecmpath()
 		service = self.source.service
 		if not service:
-			return {}
+			return info
+
 		try:
-			stat_info = os.stat(ecmpath)
-			ecm_mtime = stat_info.st_mtime
-			if stat_info.st_size == 0 or ecm_mtime == old_ecm_mtime:
+			stat = os.stat(ecmpath)
+			ecm_mtime = stat.st_mtime
+			if not stat.st_size > 0:
+				info = {}
+				return info
+			if ecm_mtime == old_ecm_mtime:
 				return info
 			old_ecm_mtime = ecm_mtime
+
 			with open(ecmpath, "r") as ecmf:
 				ecm = ecmf.readlines()
-		except:
+
+			if not ecm:
+				return info
+
+			for line in ecm:
+				line_lower = line.lower()
+				x = line_lower.find("msec")
+				if x != -1:
+					info["ecm time"] = line[:x + 4]
+					continue
+
+				item = line.split(":", 1)
+				if len(item) <= 1:
+					if "caid" not in info:
+						x = line_lower.find("caid")
+						if x != -1:
+							y = line.find(",")
+							if y != -1:
+								info["caid"] = line[x + 5:y]
+					if "pid" not in info:
+						x = line_lower.find("pid")
+						if x != -1:
+							y = line.find(" =")
+							z = line.find(" *")
+							if y != -1:
+								info["pid"] = line[x + 4:y]
+							elif z != -1:
+								info["pid"] = line[x + 4:z]
+					continue
+
+				key, value = item[0].strip().lower(), item[1].strip()
+
+				match key:
+					case "provider":
+						key = "prov"
+						value = value[2:]
+					case "ecm pid":
+						key = "pid"
+					case "response time":
+						info["source"] = "net"
+						it_tmp = value.split(" ")
+						info["ecm time"] = f"{it_tmp[0]} msec"
+						if "[" in it_tmp[-1]:
+							info["server"] = it_tmp[-1].split("[")[0]
+							info["protocol"] = it_tmp[-1].split("[")[1][:-1]
+						elif "(" in it_tmp[-1]:
+							info["server"] = it_tmp[-1].split("(")[-1].split(":")[0]
+							info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1].rstrip(")")
+						else:
+							key = "source"
+							value = "sci"
+						if any(x in it_tmp[-1] for x in ["emu", "card", "biss", "tb"]):
+							key = "source"
+							value = "emu"
+					case "hops" | "from" | "system" | "provider":
+						value = value.rstrip("\n")
+					case "source":
+						if value.startswith("net"):
+							it_tmp = value.split(" ")
+							info["protocol"] = it_tmp[1][1:]
+							if ":" in it_tmp[-1]:
+								info["server"], info["port"] = it_tmp[-1].split(":", 1)
+								info["port"] = info["port"][:-1]
+							else:
+								try:
+									info["server"], info["port"] = it_tmp[3].split(":", 1)
+									info["port"] = info["port"][:-1]
+								except (IndexError, ValueError):
+									info["server"] = info["port"] = ""
+							value = "net"
+					case "prov":
+						if "," in value:
+							value = value.split(",")[0]
+					case "reader":
+						if value == "emu":
+							key = "source"
+					case "protocol":
+						match value:
+							case "emu" | "constcw":
+								key, value = "source", "emu"
+							case "internal":
+								key, value = "source", "sci"
+							case _:
+								info["source"] = "net"
+								key = "server"
+					case "provid":
+						key = "prov"
+					case "using":
+						match value:
+							case "emu" | "sci":
+								key = "source"
+							case _:
+								info["source"] = "net"
+								key = "protocol"
+					case "address":
+						if ":" in value:
+							info["server"], value = value.split(":", 1)
+							key = "port"
+					case _:
+						pass
+
+				info[key] = value
+
+		except Exception:
 			old_ecm_mtime = None
 			info = {}
-			return info
-		if not ecm:
-			return info
-		for line in ecm:
-			line_lower = line.lower()
-			if "msec" in line_lower:
-				info["ecm time"] = line[:line_lower.find("msec") + 4]
-				continue
-			item = line.split(":", 1)
-			if len(item) <= 1:
-				if "caid" not in info and "caid" in line_lower:
-					info["caid"] = line.split(",", 1)[0][5:] if "," in line else line[5:]
-				elif "pid" not in info and "pid" in line_lower:
-					info["pid"] = line.split(" =")[0][4:] if " =" in line else line.split(" *")[0][4:] if " *" in line else None
-				continue
-			key, value = item[0].strip(), item[1].strip()
-			if key == "Provider":
-				key, value = "prov", value[2:]
-			elif key == "ECM PID":
-				key = "pid"
-			elif key == "response time":
-				info["source"] = "net"
-				it_tmp = value.split()
-				info["ecm time"] = f"{it_tmp[0]} msec"
-				last_item = it_tmp[-1]
-				if "[" in last_item:
-					info["server"], info["protocol"] = last_item.split("[", 1)[0], last_item.split("[", 1)[1][:-1]
-				elif "(" in last_item:
-					server_port = last_item.split("(")[-1].split(":")
-					info["server"], info["port"] = server_port[0], server_port[1][:-1]
-				elif any(x in last_item for x in ["emu", "card", "biss", "tb"]):
-					key, value = "source", "emu"
-				else:
-					key, value = "source", "sci"
-			elif key in {"hops", "from", "system", "provider"}:
-				value = value.strip("\n")
-			elif key[:2] == "cw" or key in {"ChID", "Service"}:
-				continue
-			elif key == "source" and value.startswith("net"):
-				it_tmp = value.split()
-				info["protocol"] = it_tmp[1][1:]
-				try:
-					server_port = it_tmp[-1] if ":" in it_tmp[-1] else it_tmp[3]
-					info["server"], info["port"] = server_port.split(":", 1)
-				except:
-					info["server"], info["port"] = "", ""
-				value = "net"
-			elif key == "prov" and "," in value:
-				value = value.split(",", 1)[0]
-			elif key == "reader" and value == "emu":
-				key = "source"
-			elif key == "protocol":
-				if value in {"emu", "constcw"}:
-					key, value = "source", "emu"
-				elif value == "internal":
-					key, value = "source", "sci"
-				else:
-					info["source"] = "net"
-					key = "server"
-			elif key == "provid":
-				key = "prov"
-			elif key == "using":
-				if value in {"emu", "sci"}:
-					key = "source"
-				else:
-					info["source"] = "net"
-					key = "protocol"
-			elif key == "address":
-				if ":" in value:
-					info["server"], value = value.split(":", 1)
-					key = "port"
-			info[key.lower()] = value
-		return info
 
+		return info
 
 	def changed(self, what):
 		Converter.changed(self, (self.CHANGED_POLL,))

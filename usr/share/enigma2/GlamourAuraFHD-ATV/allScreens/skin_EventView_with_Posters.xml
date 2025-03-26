@@ -1,7 +1,7 @@
 ﻿<skin>
   <!-- EVENTVIEW WITH POSTERS -->
   <screen name="EventView" position="0,0" size="1935,1080" title="Eventview" backgroundColor="transparent" flags="wfNoBorder">
-    <panel name="EventsCommon" />
+	<panel name="EventsCommon" />
   <widget name="epg_description" position="665,160" size="1210,500" font="Regular; 33" backgroundColor="background20" transparent="1" zPosition="2" />
   <panel name="EventViewPosters" />
 </screen>
