@@ -1,7 +1,7 @@
 <skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
-  <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Enhanced Movie Center by MCelliotG -->
+  <!--	Original Skin: GlamourAuraFHD-ATV by MCelliotG	-->
+  <!--	SKIN FILE -->
+  <!--	GlamourAuraFHD-ATV Enhanced Movie Center by MCelliotG -->
   <!-- EMC Templates -->
   <screen name="EMCList" flags="wfNoBorder">
     <widget name="wait" position="665,135" size="1200,750" font="Regular; 37" halign="center" valign="center" zPosition="12" transparent="0" backgroundColor="background20" foregroundColor="sky" />
@@ -31,10 +31,10 @@
       <convert type="EMCServiceTime">Duration</convert>
       <convert type="EMCClockToText">InMinutes</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,steptime=5,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="765,900" size="1100,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="765,900" size="1100,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="EMCMovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,435" size="585,455" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,435" size="585,455" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EMCEventName">FullDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">

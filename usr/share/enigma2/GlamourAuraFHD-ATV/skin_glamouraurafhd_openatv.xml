@@ -338,11 +338,11 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/devicemanager.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="TunerHeader" render="Label" position="540,60" size="1305,50" font="RegularB; 36" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan" />
-    <widget source="nims" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,110" size="1305,370" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
+    <widget source="nims" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,110" size="1305,370" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="amarillo" scrollbarMode="showOnDemand" />
     <widget source="HDDHeader" render="Label" position="540,480" size="1305,50" font="RegularB; 36" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="cyan1" />
     <widget source="hdd" render="Label" position="540,530" size="1305,200" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" scrollbarMode="showOnDemand" />
     <widget source="MountsHeader" render="Label" position="540,740" size="1305,50" font="RegularB; 36" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="turquoise" />
-    <widget source="mounts" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,790" size="1305,160" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
+    <widget source="mounts" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=2000,wrap,oneshot=1,always=0" position="540,790" size="1305,160" font="Regular; 32" itemHeight="40" backgroundColor="background20" transparent="1" valign="top" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1700,875" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
   </screen>
   <screen name="HddMount" position="0,0" size="1920,1080" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -353,7 +353,7 @@
   {"template": [
   MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), png = 2), # index 2 is the interface pixmap
   MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0), # index 0 is the interfacename
-     MultiContentEntryText(pos = (110, 52), size = (1200, 38), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
+	 MultiContentEntryText(pos = (110, 52), size = (1200, 38), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
   ],
   "fonts": [gFont("RegularB", 32),gFont("Regular", 24)],
   "itemHeight": 90}
@@ -466,10 +466,10 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-    MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
-    MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-    MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
+	MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
+	MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+	MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+	MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
    ],
   "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
   "itemHeight": 90
@@ -486,10 +486,10 @@
     <widget source="list" render="Listbox" position="540,305" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-    MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-    MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
-    MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
-    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
+	MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+	MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
+	MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
+	MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
    ],
   "fonts": [gFont("RegularB",29),gFont("Regular",23)],
   "itemHeight": 80
@@ -527,98 +527,21 @@
   <!-- 08. EPG SCREENS -->
   <!-- 08a. QuickEPG -->
   <screen name="QuickEPG" title="InfoBar QuickEPG" backgroundColor="transparent" flags="wfNoBorder" position="center,center" size="1920,1080">
-    <!--/* Background -->
-    <eLabel name="menubig" position="0,838" size="1920,167" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Upper Infobar -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="400,35" zPosition="-12" size="1230,95" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1125,80" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
-    <widget source="Event" render="Label" position="450,45" size="1175,50" font="Regular; 33" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <eLabel position="550,104" size="975,1" backgroundColor="grey" zPosition="1" />
-    <widget source="Event" render="Progress" position="550,100" size="975,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_main.png" transparent="1" zPosition="1">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Event" render="Label" position="450,85" size="100,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="1525,85" size="100,35" font="Numbers; 34" backgroundColor="background20" transparent="1" halign="center" zPosition="5">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <!-- Provider name and Reference -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider2IB.png" position="400,133" zPosition="-12" size="1230,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
-      <convert type="ServiceName">Reference</convert>
-    </widget>
-    <!--Main EPG Infobar -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="345,708" zPosition="-1" size="1520,130" alphatest="off" transparent="1" />
+    <panel name="QuickEPGCommons" />
+    <!--EPG List & Description -->
     <widget source="Service" render="Label" position="345,725" size="1520,120" font="Regular; 55" halign="center" valign="bottom" foregroundColor="white" backgroundColor="sky" transparent="1" zPosition="9">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget name="list" position="65,840" size="900,140" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" EntryFontWrap="no" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <eLabel position="968,840" size="3,140" backgroundColor="cyan1" zPosition="8" />
-    <ePixmap position="170,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap position="65,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap position="270,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1060,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="key_red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget source="Event" font="Regular;30" render="GlamRun" options="movetype=running,startpoint=0,direction=top,steptime=10,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="975,840" size="900,140" foregroundColor="white" backgroundColor="background20" transparent="1" valign="top" zPosition="1">
+    <widget name="list" position="65,840" size="900,140" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" EntryFontWrap="no" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget source="Event" font="Regular;30" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=6000,wrap,oneshot=1,always=0" position="975,840" size="900,140" foregroundColor="white" backgroundColor="background20" transparent="1" valign="top" zPosition="1">
       <convert type="EventName">FullDescription</convert>
     </widget>
-    <!--WEATHER WIDGETS -->
-    <panel name="WeatherF1" />
   </screen>
   <!-- 08b. Graphical InfoBar EPG -->
   <screen name="GraphicalInfoBarEPG" position="0,0" size="1920,1080" title="Graphical InfoBar EPG" flags="wfNoBorder" backgroundColor="transparent">
-    <!--/* Background -->
-    <eLabel name="menubig" position="0,838" size="1920,167" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
-    <!-- Clock -->
-    <panel name="ClockLabel2" />
-    <!--Upper Infobar -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="400,35" zPosition="-12" size="1230,95" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1125,80" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
-    <widget source="Event" render="Label" position="450,45" size="1175,50" font="Regular; 33" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <eLabel position="550,104" size="975,1" backgroundColor="grey" zPosition="1" />
-    <widget source="Event" render="Progress" position="550,100" size="975,8" pixmap="GlamourAuraFHD-ATV/pointers/pointer_main.png" transparent="1" zPosition="1">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Event" render="Label" position="450,85" size="100,35" font="Numbers; 34" halign="center" backgroundColor="background20" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="1525,85" size="100,35" font="Numbers; 34" backgroundColor="background20" transparent="1" halign="center" zPosition="5">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <!-- Provider name and Reference -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_provider2IB.png" position="400,133" zPosition="-12" size="1230,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=3,steptime=25,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
-      <convert type="ServiceName">Reference</convert>
-    </widget>
-    <!--WEATHER WIDGETS -->
-    <panel name="WeatherF1" />
+    <panel name="QuickEPGCommons" />
     <!--Main EPG Infobar -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="345,708" zPosition="-1" size="1520,130" alphatest="off" transparent="1" />
     <widget source="Title" render="Label" position="345,725" size="1520,120" font="Regular; 55" halign="center" valign="bottom" foregroundColor="white" backgroundColor="sky" transparent="1" zPosition="9" />
     <widget name="bouquetlist" position="65,890" size="1800,100" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="darkgrey" ServiceBorderWidth="0" ServiceForegroundColorSelected="lightciel" EntryBackgroundColor="grey2" EntryBackgroundColorNow="grey" EntryBackgroundColorSelected="cyan1" EntryBorderColor="darkgrey" EntryForegroundColor="white" EntryForegroundColorNow="sky" EntryForegroundColorSelected="white" EventBorderWidth="0" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="list" position="65,890" size="1800,100" font="Regular; 25" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" EntryFontWrap="no" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
@@ -632,17 +555,6 @@
     <widget name="timeline4" position="65,890" zPosition="21" size="3,105" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
     <widget name="timeline5" position="65,890" zPosition="21" size="3,105" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" transparent="1" alphatest="blend" />
     <widget name="timeline_now" position="65,891" size="18,105" zPosition="22" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
-    <ePixmap position="170,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap position="65,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap position="270,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" transparent="1" alphatest="blend" />
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1060,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="key_red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
   </screen>
   <!-- 08c. EPG Vertical -->
   <screen name="EPGvertical" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
@@ -1012,7 +924,7 @@
    {"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
   "fonts": [gFont("Regular", 33)],
   "itemHeight": 50
-     }
+	 }
  </convert>
     </widget>
     <widget name="config" font="Regular; 32" position="800,430" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" />
@@ -1429,16 +1341,16 @@
     <widget name="activity" position="535,280" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="4" />
     <widget source="list" render="Listbox" position="535,305" size="1305,560" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-      {"template": [
-                    MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-                    MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
-                    MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
-                    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
-                    ],
-       "fonts": [gFont("RegularB",29),gFont("Regular",23)],
-       "itemHeight": 80
-      }
-     </convert>
+	  {"template": [
+					MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+					MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
+					MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
+					],
+	   "fonts": [gFont("RegularB",29),gFont("Regular",23)],
+	   "itemHeight": 80
+	  }
+	 </convert>
     </widget>
     <widget name="traffic_off" position="530,30" zPosition="11" size="155,250" pixmap="GACommon/icons/sources_off.png" alphatest="blend" transparent="1" />
     <widget name="traffic_red" position="530,30" zPosition="12" size="155,250" pixmap="GACommon/icons/sources_red.png" alphatest="on" transparent="1" />
@@ -1473,7 +1385,7 @@
  "fonts": [parseFont("RegularB;32"), parseFont("Regular;25")],
  "itemHeight": 75
  }
-    </convert>
+	</convert>
     </widget>
   </screen>
   <!-- 2-04. Plugin Browser Grid -->
@@ -1493,7 +1405,7 @@
  "itemWidth": 250,
  "itemHeight": 160
  }
-    </convert>
+	</convert>
     </widget>
   </screen>
   <!-- 2-05. Plugins Common Template -->
@@ -1563,20 +1475,20 @@
     <widget name="icons" position="0,0" size="60,20" pixmaps="switches/menu_download.png,switches/menu_off.png,switches/menu_on.png" alphatest="blend" transparent="1" />
     <widget source="locales" render="Listbox" position="535,60" size="1305,700" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6">
       <convert type="TemplatedMultiContent">
-       {
-        "template":
-                  [
-                  MultiContentEntryPixmapAlphaBlend(pos = (5, 2), size = (90, 45), flags = BT_SCALE, png = 0),  # Flag.
-                  MultiContentEntryText(pos = (115, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff),  # native name
-                  MultiContentEntryText(pos = (615, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2, color=0xffffc6, color_sel=0xdeff),  # language name
-                  # MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),  # locale name
-                  MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),  # package name
-                  MultiContentEntryPixmapAlphaBlend(pos = (1215, 15), size = (60, 20), flags = BT_SCALE, png = 5)  # status
-                 ],
-        "fonts": [gFont("Regular", 32)],
-        "itemHeight": 50
-      }
-     </convert>
+	   {
+		"template":
+				  [
+				  MultiContentEntryPixmapAlphaBlend(pos = (5, 2), size = (90, 45), flags = BT_SCALE, png = 0),	# Flag.
+				  MultiContentEntryText(pos = (115, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff),  # native name
+				  MultiContentEntryText(pos = (615, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2, color=0xffffc6, color_sel=0xdeff),	 # language name
+				  # MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),	 # locale name
+				  MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),  # package name
+				  MultiContentEntryPixmapAlphaBlend(pos = (1215, 15), size = (60, 20), flags = BT_SCALE, png = 5)  # status
+				 ],
+		"fonts": [gFont("Regular", 32)],
+		"itemHeight": 50
+	  }
+	 </convert>
     </widget>
     <widget source="description" render="Label" position="535,760" size="1305,100" font="Regular;32" valign="center" zPosition="5" transparent="1" foregroundColor="cyan1" backgroundColor="background20" halign="center" />
     <panel name="FullKeysMIH" />
@@ -1650,21 +1562,21 @@
     <eLabel text="Status" position="1695,145" size="210,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
     <widget source="outlist" render="Listbox" position="15,180" size="1890,525" backgroundColor="#10b3b3b3" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8">
       <convert type="TemplatedMultiContent">
-        {"template": [  # index 0 is backgroundcolor
-            MultiContentEntryText(pos=(0,0), size=(23,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # type
-            MultiContentEntryText(pos=(25,0), size=(173,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),  # Reader/User
-            MultiContentEntryText(pos=(200,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),  # AU
-            MultiContentEntryText(pos=(290,0), size=(168,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),  # Adress
-            MultiContentEntryText(pos=(460,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),  # Port
-            MultiContentEntryText(pos=(550,0), size=(223,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),  # Protocol
-            MultiContentEntryText(pos=(775,0), size=(268,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),  # srvid:caid@provid
-            MultiContentEntryText(pos=(1045,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Last Channel
-            MultiContentEntryText(pos=(1280,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # LB Value/Reader
-            MultiContentEntryText(pos=(1515,0), size=(163,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Online+Idle
-            MultiContentEntryText(pos=(1680,0), size=(210,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11)  # Status
-            ], "fonts": [gFont("Regular",27)], "itemHeight":75
-        }
-    </convert>
+		{"template": [	# index 0 is backgroundcolor
+			MultiContentEntryText(pos=(0,0), size=(23,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # type
+			MultiContentEntryText(pos=(25,0), size=(173,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),	# Reader/User
+			MultiContentEntryText(pos=(200,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),	# AU
+			MultiContentEntryText(pos=(290,0), size=(168,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),	 # Adress
+			MultiContentEntryText(pos=(460,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),	# Port
+			MultiContentEntryText(pos=(550,0), size=(223,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),	 # Protocol
+			MultiContentEntryText(pos=(775,0), size=(268,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),	 # srvid:caid@provid
+			MultiContentEntryText(pos=(1045,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Last Channel
+			MultiContentEntryText(pos=(1280,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # LB Value/Reader
+			MultiContentEntryText(pos=(1515,0), size=(163,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Online+Idle
+			MultiContentEntryText(pos=(1680,0), size=(210,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11)  # Status
+			], "fonts": [gFont("Regular",27)], "itemHeight":75
+		}
+	</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="15,720" size="300,150" zPosition="-9" alphatest="blend" transparent="1" />
     <widget name="logtext" position="15,720" size="1890,150" font="Regular; 26" halign="left" valign="top" foregroundColor="cyan1" backgroundColor="background20" noWrap="0" scrollbarMode="showNever" transparent="1" zPosition="6" />

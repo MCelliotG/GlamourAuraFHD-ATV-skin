@@ -1,7 +1,7 @@
 <skin>
-  <!--  Original Skin: GlamourAuraFHD-ATV by MCelliotG  -->
-  <!--  SKIN FILE -->
-  <!--  GlamourAuraFHD-ATV Plugins by MCelliotG -->
+  <!--	Original Skin: GlamourAuraFHD-ATV by MCelliotG	-->
+  <!--	SKIN FILE -->
+  <!--	GlamourAuraFHD-ATV Plugins by MCelliotG -->
   <!-- VideoEnhancement -->
   <screen name="VideoEnhancementPreview" position="0,0" size="1920,1080" title="VideoEnhancementPreview" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="videoenhancementpreview" position="520,660" size="1400,270" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
@@ -153,13 +153,13 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pictures.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,60" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel.png" alphatest="off" selectionDisabled="1" backgroundColor="background20" transparent="1">
       <convert type="TemplatedMultiContent">
-        {"template": [
-          MultiContentEntryText(pos = (10, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 0),
-          MultiContentEntryText(pos = (660, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 1)],
-          "fonts": [gFont("Regular", 33)],
-          "itemHeight": 50
-        }
-      </convert>
+		{"template": [
+		  MultiContentEntryText(pos = (10, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 0),
+		  MultiContentEntryText(pos = (660, 5), size = (640, 45), flags = RT_HALIGN_LEFT, text = 1)],
+		  "fonts": [gFont("Regular", 33)],
+		  "itemHeight": 50
+		}
+	  </convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -369,15 +369,15 @@
     <widget name="text" render="Label" position="540,60" size="1305,70" font="Regular; 40" foregroundColor="sky" backgroundColor="background20" transparent="1" valign="bottom" zPosition="4" halign="center" noWrap="1" />
     <widget source="list" render="Listbox" position="540,130" size="1305,720" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" bdColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-      {"template": [
-      MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=2), # Thumbnail
-      MultiContentEntryText(pos=(220,0), size=(1100,90), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text=3, color=0x90e6, color_sel=0xdeff), # Title
-      MultiContentEntryText(pos=(220, 85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=4), # Views
-      MultiContentEntryText(pos=(770,85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=5), # Duration
-                  ],
-      "fonts": [gFont("RegularB",32), gFont("Regular",26)],
-      "itemHeight": 120}
-      </convert>
+	  {"template": [
+	  MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=2), # Thumbnail
+	  MultiContentEntryText(pos=(220,0), size=(1100,90), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text=3, color=0x90e6, color_sel=0xdeff), # Title
+	  MultiContentEntryText(pos=(220, 85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=4), # Views
+	  MultiContentEntryText(pos=(770,85), size=(550,35), font=1, flags=RT_HALIGN_LEFT, text=5), # Duration
+				  ],
+	  "fonts": [gFont("RegularB",32), gFont("Regular",26)],
+	  "itemHeight": 120}
+	  </convert>
     </widget>
     <widget name="thumbnail" position="75,720" size="165,120" transparent="1" zPosition="9" />
     <widget name="info" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1580,845" size="120,60" alphatest="blend" transparent="1" zPosition="5" />
@@ -391,12 +391,12 @@
     <widget name="config" position="540,60" size="1305,70" font="Regular; 40" foregroundColor="sky" backgroundColor="background20" valign="center" halign="center" noWrap="1" itemHeight="70" scrollbarMode="showNever" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="4" />
     <widget source="list" render="Listbox" position="540,130" size="1305,500" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-      {"template": [
-      MultiContentEntryText(pos=(10,0), size=(1290,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # Result
-                  ],
-      "fonts": [gFont("RegularB",32)],
-      "itemHeight": 50}
-      </convert>
+	  {"template": [
+	  MultiContentEntryText(pos=(10,0), size=(1290,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # Result
+				  ],
+	  "fonts": [gFont("RegularB",32)],
+	  "itemHeight": 50}
+	  </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" position="1720,845" size="120,60" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="HelpWindow" position="540,740" size="1,1" zPosition="5" pixmap="skin_default/vkey_icon.png" transparent="1" alphatest="on" />
@@ -408,15 +408,15 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/youtube.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-      {"template": [
-      MultiContentEntryText(pos=(10,0), size=(580,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1, color=0x90e6, color_sel=0xdeff), # Title
-      MultiContentEntryText(pos=(585,0), size=(320,50), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, text=2), # State
-      MultiContentEntryProgress(pos=(910,10), size=(180,25), percent=-3, borderWidth=2), # Progress
-      MultiContentEntryText(pos=(1120,0), size=(180,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4) # Percentage
-                  ],
-      "fonts": [gFont("RegularB", 32)],
-      "itemHeight": 50}
-      </convert>
+	  {"template": [
+	  MultiContentEntryText(pos=(10,0), size=(580,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1, color=0x90e6, color_sel=0xdeff), # Title
+	  MultiContentEntryText(pos=(585,0), size=(320,50), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, text=2), # State
+	  MultiContentEntryProgress(pos=(910,10), size=(180,25), percent=-3, borderWidth=2), # Progress
+	  MultiContentEntryText(pos=(1120,0), size=(180,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4) # Percentage
+				  ],
+	  "fonts": [gFont("RegularB", 32)],
+	  "itemHeight": 50}
+	  </convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -579,12 +579,12 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/tmdb.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,840" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-      {"template": [
-      MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=3), # Thumbnail
-      MultiContentEntryText(pos=(200,0), size=(1100,120), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=1, color=0x90e6, color_sel=0xdeff)],
-      "fonts": [gFont("RegularB",34)],
-      "itemHeight": 120}
-      </convert>
+	  {"template": [
+	  MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(165,120), png=3), # Thumbnail
+	  MultiContentEntryText(pos=(200,0), size=(1100,120), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=1, color=0x90e6, color_sel=0xdeff)],
+	  "fonts": [gFont("RegularB",34)],
+	  "itemHeight": 120}
+	  </convert>
     </widget>
     <widget name="thumbnail" position="75,720" size="165,120" transparent="1" zPosition="9" />
   </screen>
@@ -702,11 +702,11 @@
     <eLabel position="540,150" size="1305,3" backgroundColor="cyan" zPosition="12" foregroundColor="lime2" />
     <widget source="list" render="Listbox" position="540,155" size="900,700" backgroundColor="background20" foregroundColor="white" selectionPixmap="GlamourAuraFHD-ATV/selections/contextsel.png" alphatest="off" zPosition="13" scrollbarMode="showAlways" transparent="1">
       <convert type="TemplatedMultiContent">
-        {"template": [ MultiContentEntryText(pos = (5, 2), size = (890, 50), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
-         "fonts": [gFont("Regular", 32)],
-         "itemHeight": 50
-        }
-      </convert>
+		{"template": [ MultiContentEntryText(pos = (5, 2), size = (890, 50), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0) ],
+		 "fonts": [gFont("Regular", 32)],
+		 "itemHeight": 50
+		}
+	  </convert>
     </widget>
     <widget name="post_action" position="1445,155" size="400,300" font="RegularB; 30" halign="left" valign="center" backgroundColor="background20" transparent="1" zPosition="10" foregroundColor="cyan1" />
     <widget source="constellation" render="Canvas" position="1500,500" size="256,256" correct_aspect="width" backgroundColor="background20" zPosition="7" />
@@ -1110,16 +1110,16 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/autotimer.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="timerlist" render="Listbox" position="540,75" size="1305,720" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" transparent="1" zPosition="2">
       <convert type="TemplatedMultiContent">
-                        {"template": [
-                                    MultiContentEntryText(pos=(10, 0), size=(1290,45), text = 3, font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
-                                    MultiContentEntryText(pos=(10,50), size=(660,40), text = 0, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
-                                    MultiContentEntryText(pos=(920,50), size=(380,40), text = 4, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
-                                    MultiContentEntryText(pos=(680,50), size=(240,40), text = 2, font = 1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER),
-                              ],
-                         "fonts": [gFont("RegularB", 34),gFont("Regular", 27)],
-                         "itemHeight": 90
-                        }
-                  </convert>
+						{"template": [
+									MultiContentEntryText(pos=(10, 0), size=(1290,45), text = 3, font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+									MultiContentEntryText(pos=(10,50), size=(660,40), text = 0, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+									MultiContentEntryText(pos=(920,50), size=(380,40), text = 4, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+									MultiContentEntryText(pos=(680,50), size=(240,40), text = 2, font = 1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER),
+							  ],
+						 "fonts": [gFont("RegularB", 34),gFont("Regular", 27)],
+						 "itemHeight": 90
+						}
+				  </convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1205,8 +1205,8 @@
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <ePixmap position="75,390" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="blend" transparent="1" zPosition="5" />
-    <widget source="config" render="Label" font="RegularB; 45" position="600,470" size="1180,190" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="5" foregroundColor="cyan2" halign="center" valign="center" />\  
-    <ePixmap position="540,540" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" /><ePixmap position="1790,540" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" /><ePixmap pixmap="GACommon/buttons/aura_red.png" position="640,670" size="225,75" alphatest="blend" zPosition="5" transparent="1" /><ePixmap pixmap="GACommon/buttons/aura_green.png" position="1515,670" size="225,75" alphatest="blend" zPosition="5" transparent="1" /><widget source="key_red" render="Label" position="600,660" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" /><widget source="key_green" render="Label" position="1475,660" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" /></screen>
+    <widget source="config" render="Label" font="RegularB; 45" position="600,470" size="1180,190" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="5" foregroundColor="cyan2" halign="center" valign="center" />\	 
+	<ePixmap position="540,540" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" /><ePixmap position="1790,540" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" /><ePixmap pixmap="GACommon/buttons/aura_red.png" position="640,670" size="225,75" alphatest="blend" zPosition="5" transparent="1" /><ePixmap pixmap="GACommon/buttons/aura_green.png" position="1515,670" size="225,75" alphatest="blend" zPosition="5" transparent="1" /><widget source="key_red" render="Label" position="600,660" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" /><widget source="key_green" render="Label" position="1475,660" size="305,85" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" /></screen>
   <!-- SAT>IP Plugin -->
   <screen name="SATIPClient" position="0,0" size="1920,1080" title="SAT-IP Client" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -1223,7 +1223,7 @@
   "fonts": [gFont("RegularB", 30),gFont("Regular", 22)],
   "itemHeight": 100
   }
-      </convert>
+	  </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,775" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1030,810" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
@@ -1271,15 +1271,15 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/brush.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="menu" render="Listbox" position="540,60" size="1305,500" backgroundColor="background20" foregroundColor="white" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1">
       <convert type="TemplatedMultiContent">
-    {"template":
-    [
-      MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (45, 45), png = 2),
-      MultiContentEntryText(pos = (60, 2), size = (1230, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-    ],
-    "fonts": [gFont("RegularB", 30),gFont("Regular", 22)],
-    "itemHeight": 50
-    }
-    </convert>
+	{"template":
+	[
+	  MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (45, 45), png = 2),
+	  MultiContentEntryText(pos = (60, 2), size = (1230, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+	],
+	"fonts": [gFont("RegularB", 30),gFont("Regular", 22)],
+	"itemHeight": 50
+	}
+	</convert>
     </widget>
     <widget name="Picture" position="1195,570" size="640,360" alphatest="on" zPosition="4" />
     <panel name="FullKeys1" />
@@ -1308,11 +1308,11 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-          MultiContentEntryPixmapAlphaBlend(pos = (10, 2), size = (64, 64), png = 0, flags = BT_SCALE),
-          MultiContentEntryText(pos = (100, 0), size = (1200, 80), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),        ],
-    "fonts": [gFont("Regular", 45)],
-    "itemHeight": 80}
-      </convert>
+		  MultiContentEntryPixmapAlphaBlend(pos = (10, 2), size = (64, 64), png = 0, flags = BT_SCALE),
+		  MultiContentEntryText(pos = (100, 0), size = (1200, 80), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),		  ],
+	"fonts": [gFont("Regular", 45)],
+	"itemHeight": 80}
+	  </convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1338,14 +1338,14 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorMarkedSelected="amarillo" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-          MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
-          MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-          MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
+		  MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
+		  MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+		  MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
   ],
   "fonts": [gFont("Regular", 32)],
   "itemHeight": 50
   }
-    </convert>
+	</convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1354,15 +1354,15 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/abm.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="list" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorMarkedSelected="amarillo" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
-        {"template": [
-          MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
-          MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-          MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
-                      ],
-          "fonts": [gFont("Regular", 32)],
-           "itemHeight": 50
-        }
-    </convert>
+		{"template": [
+		  MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
+		  MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+		  MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
+					  ],
+		  "fonts": [gFont("Regular", 32)],
+		   "itemHeight": 50
+		}
+	</convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1384,14 +1384,14 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorMarkedSelected="amarillo" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-          MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
-          MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-          MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
+		  MultiContentEntryPixmapAlphaBlend(pos = (10, 0), size = (45, 45), png = 0, flags = BT_SCALE),
+		  MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+		  MultiContentEntryText(pos = (780, 0), size = (400, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
   ],
   "fonts": [gFont("Regular", 32)],
   "itemHeight": 50
   }
-    </convert>
+	</convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1402,12 +1402,12 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,750" scrollbarMode="showOnDemand" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorMarkedSelected="amarillo" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-          MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+		  MultiContentEntryText(pos = (60, 0), size = (700, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
   ],
   "fonts": [gFont("Regular", 32)],
   "itemHeight": 50
   }
-    </convert>
+	</convert>
     </widget>
     <panel name="FullKeys1" />
   </screen>
@@ -1783,30 +1783,30 @@
     <widget name="list_left_head1" position="420,60" size="705,90" font="Regular; 32" foregroundColor="cyan1" zPosition="5" transparent="1" backgroundColor="background20" valign="center" />
     <widget source="list_left_head2" render="Listbox" position="420,150" size="700,45" foregroundColor="amarillo" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
       <convert type="TemplatedMultiContent">
-    {"template": [
-    MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-    MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-    MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-    ],
-    "fonts": [gFont("Regular", 28)],
-    "itemHeight": 45,
-    "selectionEnabled": False
-    }
-       </convert>
+	{"template": [
+	MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+	MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+	MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+	],
+	"fonts": [gFont("Regular", 28)],
+	"itemHeight": 45,
+	"selectionEnabled": False
+	}
+	   </convert>
     </widget>
     <widget name="list_right_head1" position="1140,60" size="705,90" font="Regular; 32" foregroundColor="cyan" zPosition="5" backgroundColor="background20" transparent="1" valign="center" />
     <widget source="list_right_head2" render="Listbox" position="1140,150" size="705,45" foregroundColor="lightciel" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
       <convert type="TemplatedMultiContent">
-    {"template": [
-    MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-    MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-    MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-    ],
-    "fonts": [gFont("Regular", 28)],
-    "itemHeight": 45,
-    "selectionEnabled": False
-    }
-       </convert>
+	{"template": [
+	MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+	MultiContentEntryText(pos = (160, 0), size = (100, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+	MultiContentEntryText(pos = (270, 0), size = (430, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+	],
+	"fonts": [gFont("Regular", 28)],
+	"itemHeight": 45,
+	"selectionEnabled": False
+	}
+	   </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="420,855" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="445,900" size="90,45" alphatest="blend" zPosition="4" transparent="1" />
@@ -1831,32 +1831,32 @@
     <eLabel position="1135,60" size="2,800" backgroundColor="blue" zPosition="2" foregroundColor="blue" />
     <widget source="headleft" render="Listbox" position="420,60" size="705,45" foregroundColor="amarillo" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
       <convert type="TemplatedMultiContent">
-            {"template": [
-                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-                          ],
-             "fonts": [gFont("Regular", 28)],
-             "itemHeight": 45,
-             "selectionEnabled": False
-            }
-       </convert>
+			{"template": [
+						  MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+						  MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+						  MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+						  ],
+			 "fonts": [gFont("Regular", 28)],
+			 "itemHeight": 45,
+			 "selectionEnabled": False
+			}
+	   </convert>
     </widget>
     <widget name="listleft" font="Regular; 32" position="420,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
     <widget name="multileft" position="420,125" size="705,650" zPosition="8" />
     <widget name="sortleft" position="420,775" size="705,80" font="Regular; 27" foregroundColor="amarillo" halign="center" zPosition="7" transparent="1" backgroundColor="background20" valign="center" />
     <widget source="headright" render="Listbox" position="1140,60" size="705,45" foregroundColor="lightciel" backgroundColor="background20" selectionDisabled="1" transparent="1" zPosition="6">
       <convert type="TemplatedMultiContent">
-            {"template": [
-                          MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
-                          MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
-                          MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
-                          ],
-             "fonts": [gFont("Regular", 28)],
-             "itemHeight": 45,
-             "selectionEnabled": False
-            }
-       </convert>
+			{"template": [
+						  MultiContentEntryText(pos = (5, 0), size = (150, 60), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is a symbolic mode
+						  MultiContentEntryText(pos = (160, 0), size = (130, 60), font = 0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 11), # index 11 is the scaled size
+						  MultiContentEntryText(pos = (300, 0), size = (400, 60), font = 0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 13), # index 13 is the modification time
+						  ],
+			 "fonts": [gFont("Regular", 28)],
+			 "itemHeight": 45,
+			 "selectionEnabled": False
+			}
+	   </convert>
     </widget>
     <widget name="listright" font="Regular; 32" position="1140,125" size="705,650" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="7" />
     <widget name="multiright" position="1140,125" size="705,650" zPosition="8" />
@@ -1880,15 +1880,15 @@
     <widget name="filename" position="540,90" size="1305,80" font="RegularB; 32" zPosition="8" transparent="1" foregroundColor="cyan2" backgroundColor="background20" valign="center" />
     <widget source="list" render="Listbox" position="540,185" size="1305,750" scrollbarMode="showOnDemand" selectionDisabled="1" transparent="1" zPosition="9">
       <convert type="TemplatedMultiContent">
-     {"template": [
-      MultiContentEntryText(pos = (5, 0), size = (450, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is a label
-      MultiContentEntryText(pos = (455, 0), size = (845, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the information
-      ],
-      "fonts": [gFont("Regular", 28)],
-      "itemHeight": 50,
-      "selectionEnabled": False
-     }
-    </convert>
+	 {"template": [
+	  MultiContentEntryText(pos = (5, 0), size = (450, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is a label
+	  MultiContentEntryText(pos = (455, 0), size = (845, 50), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the information
+	  ],
+	  "fonts": [gFont("Regular", 28)],
+	  "itemHeight": 50,
+	  "selectionEnabled": False
+	 }
+	</convert>
     </widget>
   </screen>
   <!-- vEditor -->
@@ -2220,14 +2220,14 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/diseqc.png" alphatest="on" transparent="1" zPosition="5" />
     <widget source="nimlist" render="Listbox" position="540,60" size="1305,900" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
-        {"template": [
-            MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
-            MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
-          ],
-         "fonts": [gFont("RegularB", 36), gFont("Regular", 23)],
-         "itemHeight": 180
-        }
-      </convert>
+		{"template": [
+			MultiContentEntryText(pos = (25, 2), size = (1270, 43), flags = RT_HALIGN_LEFT, text = 1, color=0x90e6, color_sel=0xdeff), # index 1 is the nim name,
+			MultiContentEntryText(pos = (25, 45), size = (1270, 135), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
+		  ],
+		 "fonts": [gFont("RegularB", 36), gFont("Regular", 23)],
+		 "itemHeight": 180
+		}
+	  </convert>
     </widget>
     <ePixmap position="1725,950" size="120,60" pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" alphatest="blend" transparent="1" zPosition="5" />
   </screen>
@@ -2275,14 +2275,14 @@
     </widget>
     <widget source="progress_list" render="Listbox" position="600,160" size="1260,250" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/satfindersel.png" alphatest="off" zPosition="4">
       <convert type="TemplatedMultiContent">
-             {"template": [
-                           MultiContentEntryText(pos = (10, 0), size = (740, 50), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the index name,
-                           MultiContentEntryText(pos = (750, 0), size = (450, 50), flags = RT_HALIGN_RIGHT, text = 2) # index 2 is the status,
-                          ],
-              "fonts": [gFont("Regular", 32)],
-              "itemHeight": 50
-             }
-    </convert>
+			 {"template": [
+						   MultiContentEntryText(pos = (10, 0), size = (740, 50), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the index name,
+						   MultiContentEntryText(pos = (750, 0), size = (450, 50), flags = RT_HALIGN_RIGHT, text = 2) # index 2 is the status,
+						  ],
+			  "fonts": [gFont("Regular", 32)],
+			  "itemHeight": 50
+			 }
+	</convert>
     </widget>
     <ePixmap pixmap="GACommon/pointers/scanpointer_back.png" position="648,502" size="1155,30" transparent="1" alphatest="blend" zPosition="4" />
     <widget name="overall_progress" position="650,505" size="1155,25" pixmap="GlamourAuraFHD-ATV/pointers/scanpointer_main.png" transparent="1" alphatest="blend" zPosition="5" />
