@@ -227,7 +227,7 @@ def image_postprocessing(img_path, image_type):
 			# Only process if ratio mismatch
 			if not math.isclose(current_ratio, target_ratio, rel_tol=0.01):
 				log_to_file("CVI: Aspect ratio differs - cropping...")
-				
+		
 				if current_ratio > target_ratio:  # Too wide
 					new_width = int(img.height * target_ratio)
 					offset = (img.width - new_width) // 2
@@ -337,7 +337,7 @@ class PostersDB(threading.Thread):
 		while True:
 			canal = pdb.get()
 			self.logDB("[QUEUE] : {} : {}-{} ({})".format(canal[0], canal[1], canal[2], canal[5]))
-	
+
 			# Define storage folder by the usedImage attribute in the skin code
 			usedImage = canal[6]  # receiving usedImage from the last queued object 
 			subfolder = "poster/" if usedImage == "poster" else "backdrop/"
@@ -387,7 +387,7 @@ class PostersDB(threading.Thread):
 				except Exception as e:
 					print(f"GlamPosters: [ERROR] {google_search.__name__} failed: {str(e)}")
 					self.logDB(f"[ERROR] {google_search.__name__} failed: {str(e)}")
-	
+
 			pdb.task_done()
 
 	def logDB(self, logmsg, log_type="operational"):
@@ -445,7 +445,7 @@ class PostersDB(threading.Thread):
 				results = data['results']
 				best_result = None
 				best_score = 0
-	
+
 				for result in results:
 					score = result.get('vote_average', 0)
 					# Title based score
@@ -504,7 +504,7 @@ class PostersDB(threading.Thread):
 			# Extract alternative titles (AKA) from fulldesc
 			aka_matches = re.findall(r'\((.*?)\)', fulldesc)
 			aka = aka_matches[0] if aka_matches else None
-			
+
 			# Define the API endpoint with your API key
 			url_tvdb = f"https://thetvdb.com/api/GetSeries.php?seriesname={quote(title)}"
 			# Add language if available
@@ -541,16 +541,16 @@ class PostersDB(threading.Thread):
 			for i, (s_id, s_name, s_year, s_aliases) in enumerate(zip(series_id, series_name, series_year, series_aliases)):
 				clean_s_name = self.UNAC(s_name)
 				clean_s_aliases = [self.UNAC(alias) for alias in s_aliases.split('|')] if s_aliases else []
-				
+
 				# Score based on title match
 				title_score = self.PMATCH(ptitle, clean_s_name)
 				aka_score = max([self.PMATCH(paka, alias) for alias in clean_s_aliases]) if paka else 0
 				total_score = max(title_score, aka_score)
-				
+		
 				# Score based on year match
 				if year and s_year == year:
 					total_score += 50
-				
+
 				# Update best result if current result has a higher score
 				if total_score > 50:  # Minimum score threshold
 					series_nb = i
@@ -563,7 +563,7 @@ class PostersDB(threading.Thread):
 				# URL creation (v4 API)
 				url_tvdb_images = f"https://thetvdb.com/api/{tvdb_api}/series/{selected_id}/images/query?keyType={usedImage}"
 				response_images = requests.get(url_tvdb_images, headers=headers, timeout=5)
-				
+
 				if response_images.status_code == 200:
 					data = response_images.json()
 					if data['data']:
@@ -584,8 +584,8 @@ class PostersDB(threading.Thread):
 	def search_fanart(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
 			# Title conversion
+			title = convtext(title)
 			title = convert_to_greeklish(title)
-			title = self.UNAC(title)
 			# Check if the content is a movie using checkMovie list
 			chkType, fd = self.checkType(shortdesc, fulldesc)
 			if not chkType.startswith("movie"):
@@ -603,7 +603,7 @@ class PostersDB(threading.Thread):
 					if data_tmdb.get('results'):
 						best_result = max(data_tmdb['results'], key=lambda x: x.get('vote_average', 0))
 						imdb_id = best_result.get("imdb_id")
-			
+	
 			if not imdb_id:
 				return False, f"[SKIP : fanart] {title} (No IMDb ID found)"
 			# searching Fanart.tv
@@ -621,7 +621,7 @@ class PostersDB(threading.Thread):
 				return True, f"[SUCCESS : fanart] {title} => {url_image}"
 			else:
 				return False, f"[SKIP : fanart] {title} (No image found)"
-		
+
 		except Exception as e:
 			return False, f"[ERROR : fanart] {title} ({str(e)})"
 
@@ -630,6 +630,7 @@ class PostersDB(threading.Thread):
 	def search_imdb(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
 		try:
 			# Convert to greeklish 
+			title = convtext(title)
 			title = convert_to_greeklish(title)
 			# Extract year from fulldesc
 			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
@@ -651,7 +652,7 @@ class PostersDB(threading.Thread):
 				except ValueError:
 					language = lng
 					url_mimdb += f"&language={language}"
-			
+	
 			headers = {
 				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 			}
@@ -760,7 +761,7 @@ class PostersDB(threading.Thread):
 				return True, f"[SUCCESS : filmy.gr] {title} => {best_image} (Score: {best_score})"
 			else:
 				return False, f"[SKIP : filmy.gr] {title} (No suitable image found)"
-		
+
 		except Exception as e:
 			return False, f"[ERROR : filmy.gr] {title} ({str(e)})"
 
@@ -827,7 +828,7 @@ class PostersDB(threading.Thread):
 			# Save the image
 			self.saveImage(dwn_image, poster_url, usedImage)
 			return True, f"[SUCCESS : impawards] {title} => {poster_url} (Score: {best_score})"
-	
+
 		except Exception as e:
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
@@ -854,54 +855,46 @@ class PostersDB(threading.Thread):
 					language = lng
 			# Create URL
 			url = f"https://api.tvmaze.com/search/shows?q={quote(title)}&exact=true"
-			
-			# Προσθήκη country και language στο URL (αν υπάρχουν)
+			# Add language and country if they exist
 			if country:
 				url += f"&country={country}"
 			if language:
 				url += f"&language={language}"
-			
 			headers = {"Authorization": f"Bearer {tvmaze_api}"}
-			
-			# Αίτημα και επεξεργασία
+			# Request procedure
 			response = requests.get(url, headers=headers, timeout=10)
 			if response.status_code != 200:
 				return False, f"[ERROR : tvmaze] {title} => {url} (HTTP {response.status_code})"
-			
+
 			data = response.json()
 			if data:
-				# Επιλογή καλύτερου αποτελέσματος με PMATCH
 				best_result = None
 				best_score = 0
-				
+		
 				for result in data:
 					show = result["show"]
 					current_score = 0
-					
-					# Βαθμολογία με βάση τον τίτλο (PMATCH)
+					# Title based choice (PMATCH)
 					current_score += self.PMATCH(title, show.get("name", ""))
-					
-					# Προσθήκη βαθμολογίας για έτος (αν υπάρχει)
+					# Year based score if exists
 					if year and show.get("premiered"):
 						show_year = show["premiered"][:4]
 						if show_year == year:
 							current_score += 50
-					
-					# Ενημέρωση καλύτερου αποτελέσματος
+					# Choose best score
 					if current_score > best_score:
 						best_score = current_score
 						best_result = show
-				
-				# Επιλογή εικόνας
+				# Choose imaage
 				if best_result and best_result.get("image"):
 					url_image = best_result["image"]["original"]
 					self.saveImage(dwn_image, url_image, usedImage)
 					return True, f"[SUCCESS : tvmaze] {title} => {url_image} (Score: {best_score})"
-				
-				return False, f"[SKIP : tvmaze] {title} (No valid image found)"
-			
-			return False, f"[SKIP : tvmaze] {title} (No results)"
 		
+				return False, f"[SKIP : tvmaze] {title} (No valid image found)"
+	
+			return False, f"[SKIP : tvmaze] {title} (No results)"
+
 		except Exception as e:
 			return False, f"[ERROR : tvmaze] {title} ({str(e)})"
 
@@ -909,54 +902,47 @@ class PostersDB(threading.Thread):
 	@lru_cache(maxsize=500)
 	def search_molotov_google(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel):
 		try:
-			# Έλεγχος αν η γλώσσα είναι Γαλλία (fr_FR)
+			# Check for French location (fr_FR)
 			if lng != "fr_FR":
 				return False, f"[SKIP : molotov-google] {title} (Only available for France, lng={lng})"
-			
+	
 			headers = {
 				"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
 			}
-			
-			# Μετατροπή τίτλου για αναζήτηση
+			# Convert title
 			ptitle = self.UNAC(title)
 			pchannel = self.UNAC(channel).replace(" ", "") if channel else ""
-			
-			# Δημιουργία URL αναζήτησης
+			# Create URL
 			url_mgoo = f"site:molotov.tv+{quote(title)}"
 			if channel and title.find(channel.split()[0]) < 0:
 				url_mgoo += f"+{quote(channel)}"
 			url_mgoo = f"https://www.google.com/search?q={url_mgoo}&tbm=isch"
-			
-			# Κάντε το αίτημα
+			# Request
 			response = requests.get(url_mgoo, stream=True, headers=headers, timeout=5).text
-			
-			# Εξαγωγή εικόνων
+			# Extract image
 			plst = re.findall(r'https://www.molotov.tv/(.*?)"(?:.*?)?"(.*?)"', response)
 			if not plst:
 				return False, f"[SKIP : molotov-google] {title} (No results found)"
-			
-			# Επιλογή της καλύτερης εικόνας
+			# Choose best image
 			best_image = None
 			best_score = 0
 			for molotov_id, pl in enumerate(plst):
 				get_path = f"https://www.molotov.tv/{pl[0]}"
 				get_name = self.UNAC(pl[1])
-				
-				# Υπολογισμός βαθμολογίας
+				# Score calculation
 				partialtitle = 100 if get_name == ptitle else self.PMATCH(ptitle, get_name)
 				partialchannel = 100 if pchannel == "" else self.PMATCH(pchannel, get_name)
-				
+
 				if partialtitle > best_score:
 					best_score = partialtitle
 					best_image = get_path
-			
+	
 			if best_image:
-				# Αποθήκευση της εικόνας
 				self.saveImage(dwn_image, best_image, usedImage)
 				return True, f"[SUCCESS : molotov-google] {title} => {best_image}"
 			else:
 				return False, f"[SKIP : molotov-google] {title} (No suitable image found)"
-		
+
 		except Exception as e:
 			return False, f"[ERROR : molotov-google] {title} ({str(e)})"
 
@@ -967,116 +953,99 @@ class PostersDB(threading.Thread):
 			headers = {
 				"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
 			}
-			
-			# Έλεγχος τύπου (movie ή tv)
+			# Type check
 			chkType, fd = self.checkType(shortdesc, fulldesc)
-			
-			# Εξαγωγή έτους από την περιγραφή
+			# Extract year from fulldesc
 			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
 			year = year_matches[0] if year_matches else None
-			
-			# Εξαγωγή original τίτλου από την περιγραφή (αν υπάρχει)
+			# Extract original title from fulldesc
 			original_title = None
 			original_title_matches = re.findall(r'\[(.*?)\]', fulldesc)
 			if original_title_matches:
 				candidate = original_title_matches[0]
-				# Έλεγχος αν ο original τίτλος είναι σε διαφορετική γλώσσα από τον ελληνικό τίτλο
+				# Check original title for different language
 				if self.is_different_language(title, candidate):
 					original_title = candidate
 					log_to_file(f"[DEBUG : google] Original title found: {original_title}")
-	
-			# Καθαρισμός του τίτλου (αφαίρεση παρενθέσεων κ.λπ.)
+			# Clean title
 			title = re.sub(r'\([^)]*\)', '', title).strip()
-			
-			# Έλεγχος αν η canal_name είναι None ή κενή
+			# Check for none channel
 			if not canal_name:
 				canal_name = ""
 				log_to_file(f"[DEBUG : google] Canal name is None or empty")
 			else:
 				canal_name = self.UNAC(canal_name)
 				log_to_file(f"[DEBUG : google] Cleaned canal name: {canal_name}")
-	
-			# Καταγραφή της τιμής usedImage
+			# Log usedImage
 			log_to_file(f"[DEBUG : google] Used image type: {usedImage}")
-	
-			# Έλεγχος αν η usedImage είναι σωστή
+			# Check correct usedImage
 			if usedImage not in ["poster", "backdrop"]:
 				log_to_file(f"[ERROR : google] Invalid usedImage value: {usedImage}")
 				return False, f"[ERROR : google] Invalid usedImage value: {usedImage}"
-	
-			# Αν το checkType είναι tv και υπάρχει original τίτλος, χρησιμοποιούμε αυτόν
+			# Use original title if checktype is TV
 			if chkType.startswith("tv") and original_title:
 				search_query = quote(self.UNAC(original_title))  # Χρήση του original τίτλου
 				log_to_file(f"[INFO : google] Using original title for search: {original_title}")
 			else:
-				# Αν δεν υπάρχει original τίτλος ή δεν είναι tv, χρησιμοποιούμε τον ελληνικό τίτλο
+				# Use EPG title if original title does not exist
 				search_query = quote(self.UNAC(title))  # Χρήση του τίτλου από το EPG
 				if canal_name and chkType.startswith("tv"):  # Προσθήκη του canal_name μόνο για τύπου "tv"
 					search_query += f" {quote(canal_name)}"
 				log_to_file(f"[INFO : google] Using EPG title for search: {title}")
-	
-			# Προσθήκη έτους στην αναζήτηση (αν υπάρχει)
+			# Add year
 			if year:
 				search_query += f" {year}"
 				log_to_file(f"[INFO : google] Adding year to search: {year}")
-			
-			# Προσθήκη aspect ratio ανάλογα με τον τύπο εικόνας
+			# Check for correct aspect ratio
 			if usedImage == "poster":
 				aspect_ratio = "t|s"  # tall or square
 				log_to_file(f"[INFO : google] Searching for poster using aspect ratios: t or s")
 			else:
 				aspect_ratio = "w|xw"  # wide or extra wide
 				log_to_file(f"[INFO : google] Searching for backdrop using aspect ratios: w or xw")
-			
-			# Δημιουργία URL αναζήτησης
+			# URL quote
 			google_url = f"https://www.google.com/search?as_st=y&as_q={search_query}&as_epq=&as_oq=&as_eq=&imgar={aspect_ratio}&imgcolor=&imgtype=&cr=&as_sitesearch=&as_filetype=jpg&tbs=&udm=2"
-			
+
 			log_to_file(f"[INFO : google] Searching: {google_url}")
 			response = requests.get(google_url, headers=headers, timeout=10).text
-			
-			# Εξαγωγή URL εικόνων
+			# Extract image URL
 			image_list = re.findall(r'\],\["https://(.*?)",\d+,\d+]', response)
-			
-			# Επιλογή πρώτης έγκυρης εικόνας
+			# Choose first valid image
 			for img_url in image_list:
 				img_url = f"https://{img_url}"
-				
-				# Αποφυγή εξωφύλλων εφημερίδων και άσχετων αποτελεσμάτων
+				# Avoid logo and newspapers
 				if "logo" in img_url.lower() or "channel" in img_url.lower() or "newspaper" in img_url.lower():
 					log_to_file(f"[DEBUG : google] Skipping potential logo or newspaper: {img_url}")
 					continue
-				
-				# Αποθήκευση της εικόνας
+				# Save image
 				self.saveImage(dwn_image, img_url, usedImage)
 				if self.verifyImage(dwn_image):
 					log_to_file(f"[SUCCESS : google] Found image: {img_url}")
 					return True, f"[SUCCESS : google] {title} [{chkType}-{year}] => {google_url} => {img_url}"
-			
-			# Αν η αρχική αναζήτηση αποτύχει, δοκιμή με το όνομα του καναλιού (μόνο αν δεν έχει ήδη χρησιμοποιηθεί)
+			# If no results try with channel name
 			if canal_name and chkType.startswith("tv"):
 				search_query = quote(f"{self.UNAC(title)} {canal_name} {year if year else ''}".strip())
 				google_url = f"https://www.google.com/search?as_st=y&as_q={search_query}&as_epq=&as_oq=&as_eq=&imgar={aspect_ratio}&imgcolor=&imgtype=&cr=&as_sitesearch=&as_filetype=jpg&tbs=&udm=2"
-	
+
 				log_to_file(f"[INFO : google] Retrying with channel name: {google_url}")
 				response = requests.get(google_url, headers=headers, timeout=10).text
 				image_list = re.findall(r'\],\["https://(.*?)",\d+,\d+]', response)
-	
+
 				for img_url in image_list:
 					img_url = f"https://{img_url}"
 					if "logo" in img_url.lower() or "channel" in img_url.lower():
 						log_to_file(f"[DEBUG : google] Skipping potential logo: {img_url}")
 						continue
-	
+
 					self.saveImage(dwn_image, img_url, usedImage)
 					if self.verifyImage(dwn_image):
 						log_to_file(f"[SUCCESS : google] Found image: {img_url}")
 						return True, f"[SUCCESS : google] {title} [{chkType}-{year}] => {google_url} => {img_url}"
-	
-			# Αν δεν βρεθεί εικόνα, επιστροφή αποτυχίας
+			# Return fail if not succeeded
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
 			return False, f"[SKIP : google] {title} [{chkType}-{year}] => No results found"
-		
+
 		except Exception as e:
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
@@ -1094,25 +1063,24 @@ class PostersDB(threading.Thread):
 
 	def saveImage(self, dwn_image, url_image, image_type):
 		if os.path.exists(dwn_image) and os.path.getsize(dwn_image) > 0:
-			return True  # Η εικόνα υπάρχει και είναι έγκυρη
+			return True
 		try:
-			# Κατεβάζουμε την εικόνα
+			# Download image
 			response = requests.get(url_image, stream=True, allow_redirects=True, verify=False)
 			if response.status_code != 200:
 				log_to_file(f"[ERROR] Failed to download image: {url_image} (HTTP {response.status_code})")
 				return False
-			
+
 			with open(dwn_image, 'wb') as f:
 				f.write(response.content)
 				f.close()
-	
-			# Ελέγχουμε αν η εικόνα είναι έγκυρη πριν την επεξεργασία
+
+			# Verify image before processing
 			if not self.verifyImage(dwn_image):
 				log_to_file(f"[ERROR] Invalid image file: {dwn_image}")
 				os.remove(dwn_image)
 				return False
-	
-			# Επεξεργασία της εικόνας
+			# Process image
 			if not self.create_valid_image(dwn_image, image_type):
 				log_to_file(f"[ERROR] Failed to process image: {dwn_image}")
 				os.remove(dwn_image)  # Αφαιρούμε την εικόνα αν η επεξεργασία αποτύχει
@@ -1165,9 +1133,9 @@ class PostersDB(threading.Thread):
 
 	def UNAC(self, string):
 		if string is None:
-			return ""  # Επιστροφή κενής συμβολοσειράς αν το string είναι None
+			return ""
 
-		# Αφαίρεση τόνων και διακριτικών
+		# Remove umlats etc
 		string = unicodedata.normalize('NFKD', string)
 		string = ''.join(c for c in string if not unicodedata.combining(c))
 		# replace special characters and HD from channel names
@@ -1179,7 +1147,7 @@ class PostersDB(threading.Thread):
 			u"[ÀÁÂÃÄàáâãäåª]": 'a', u"[ÈÉÊËèéêë]": 'e', u"[ÍÌÎÏìíîï]": 'i',
 			u"[ÒÓÔÕÖòóôõöº]": 'o', u"[ÙÚÛÜùúûü]": 'u', u"[Ññ]": 'n',
 			u"[Çç]": 'c', u"[Ÿýÿ]": 'y',
-			# Προσθήκη χαρακτήρων από άλλες γλώσσες (π.χ. ρώσικα)
+			# Add non latin chars (π.χ. ρώσικα)
 			u"[Аа]": 'a', u"[Бб]": 'b', u"[Вв]": 'v', u"[Гг]": 'g', u"[Дд]": 'd',
 			u"[Ее]": 'e', u"[Ёё]": 'yo', u"[Жж]": 'zh', u"[Зз]": 'z', u"[Ии]": 'i',
 			u"[Йй]": 'y', u"[Кк]": 'k', u"[Лл]": 'l', u"[Мм]": 'm', u"[Нн]": 'n',
@@ -1204,7 +1172,7 @@ class PostersDB(threading.Thread):
 			return 0
 		if textB.startswith(textA):
 			return 100  # full match
-		
+
 		# calculate match percentage
 		lId = len(textA.replace(" ", ""))
 		textA = textA.split()
@@ -1349,11 +1317,11 @@ class GlamPosters(Renderer):
 	def changed(self, what):
 		if not self.instance:
 			return
-	
+
 		if what[0] == self.CHANGED_CLEAR:
 			self.instance.hide()
 			return  # poster is hidden ONLY when image must be cleared
-	
+
 		servicetype = None
 		try:
 			service = None
@@ -1377,7 +1345,7 @@ class GlamPosters(Renderer):
 					self.canal[4] = self.source.event.getShortDescription()
 					self.canal[5] = convtext(self.canal[2], self.canal[3])  # convert to title + year
 				servicetype = "Event"
-	
+
 			if service:
 				events = epgcache.lookupEvent(['IBDCTESX', (service.toString(), 0, -1, -1)])
 				if events and len(events) > self.nxts:  # Check if events list is not empty and has enough elements
@@ -1399,12 +1367,12 @@ class GlamPosters(Renderer):
 			self.logPoster("Error (service) : " + str(e))
 			self.instance.hide()
 			return
-	
+
 		if not servicetype:
 			self.logPoster("Error service type undefined")
 			self.instance.hide()
 			return
-	
+
 		try:
 			curCanal = "{}-{}".format(self.canal[1], self.canal[2])
 			# **if the program is the same, do not hide poster**
@@ -1412,24 +1380,24 @@ class GlamPosters(Renderer):
 				return  
 			self.last_program = curCanal  # store last program
 			self.oldCanal = curCanal
-	
+
 			self.logPoster("Service : {} [{}] : {} : {}".format(servicetype, self.nxts, self.canal[0], self.oldCanal))
-	
+
 			# select correct image file by the usedImage skin attribute
 			subfolder = "backdrop/" if self.usedImage == "backdrop" else "poster/"
 			pstrNm = path_folder + subfolder + self.canal[5] + ".jpg"
-	
+
 			if os.path.exists(pstrNm):
 				self.timer.start(100, True)
 			else:
 				self.instance.hide()
 				canal_with_type = self.canal[:] + [self.usedImage]  # add usedImage in the list
-				
+		
 				# Έλεγχος αν το canal_with_type υπάρχει ήδη στο queue
 				if canal_with_type not in list(pdb.queue):
 					pdb.put(canal_with_type)
 					start_new_thread(self.waitPoster, ())
-	
+
 		except Exception as e:
 			self.logPoster("Error (eFile) : " + str(e))
 			self.instance.hide()
@@ -1439,18 +1407,18 @@ class GlamPosters(Renderer):
 		if self.canal[5]:
 			subfolder = "backdrop/" if self.usedImage == "backdrop" else "poster/"
 			pstrNm = path_folder + subfolder + self.canal[5] + ".jpg"
-	
+
 			if os.path.exists(pstrNm):
 				# Avoid flickering: Load only when image changes
 				if getattr(self, "current_poster", None) and self.current_poster == pstrNm:
 					return
-	
+
 				self.current_poster = pstrNm  # Store current image
 				if self.usedImage == "poster":
 					self.logPoster(f"[LOAD : showPoster] {pstrNm}")
 				else:
 					self.logPoster(f"[LOAD : showBackdrop] {pstrNm}")
-	
+
 				# Set the image
 				self.instance.setPixmap(loadJPG(pstrNm))
 				self.instance.setScale(2)
@@ -1466,7 +1434,7 @@ class GlamPosters(Renderer):
 			loop = 300
 			found = None
 			self.logPoster("[LOOP : waitPoster] {}".format(pstrNm))
-	
+
 			while loop >= 0:
 				if os.path.exists(pstrNm):
 					if os.path.getsize(pstrNm) > 0:
@@ -1474,7 +1442,7 @@ class GlamPosters(Renderer):
 						found = True
 				time.sleep(0.6)
 				loop -= 1
-	
+
 			if found:
 				self.timer.start(10, True)
 
