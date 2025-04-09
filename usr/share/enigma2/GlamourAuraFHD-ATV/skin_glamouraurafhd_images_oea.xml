@@ -92,21 +92,24 @@
   <screen name="DeviceManager" position="0,0" size="1920,1080" title="Devices Manager" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/input_devices.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="list" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/lanselfhd.png" alphatest="off" zPosition="5">
+    <widget source="devicelist" render="Listbox" position="540,90" size="1305,600" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="1">
       <convert type="TemplatedMultiContent">
-		{"template": [
-		MultiContentEntryText(pos = (100, 2), size = (1200, 45), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
-			  MultiContentEntryText(pos = (120, 45), size = (1180, 75), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-		MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), png = 2), # index 2 is the interface pixmap
-		],
-		"fonts": [gFont("RegularB", 32),gFont("Regular", 27)],
-		"itemHeight": 120}
-	  </convert>
+        {"template": [
+            MultiContentEntryPixmapAlphaBlend(pos = (5, 2), size = (45, 45), flags = BT_SCALE, png = 6), # Image
+            MultiContentEntryText(pos = (60, 0), size = (250, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # Device
+            MultiContentEntryText(pos = (110, 5), size = (50, 50), font=1, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 5), # PartitionSeparator
+            MultiContentEntryText(pos = (160, 0), size = (250, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), #DeviceIndent
+            MultiContentEntryText(pos = (300, 0), size = (800, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3), # Description
+            MultiContentEntryText(pos = (1105, 0), size = (200, 50), font=0, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text = 4), # Size
+        ],
+        "fonts": [gFont("RegularB", 32),gFont("Regular", 28)],
+        "itemHeight": 50}
+      </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,730" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1030,785" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
-    <widget source="lab1" render="Label" font="Regular; 32" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
-    <panel name="FullKeys1" />
+    <widget name="description" font="Regular; 32" backgroundColor="background20" position="540,730" size="1305,100" transparent="1" foregroundColor="sky" zPosition="5" />
+    <panel name="FullKeysMIH" />
   </screen>
   <!-- 06. OPENDROID IPK Tools Panel -->
   <screen name="ManualPanel" position="0,0" size="1920,1080" title="OPENDROID IPK Tools Panel" backgroundColor="transparent" flags="wfNoBorder">

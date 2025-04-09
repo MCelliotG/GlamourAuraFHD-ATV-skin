@@ -2300,4 +2300,19 @@
     <widget source="untestable_counter" render="Label" position="1260,815" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
     <widget source="CmdText" render="Label" position="1425,650" size="400,215" font="Regular; 32" zPosition="8" transparent="1" foregroundColor="amarillo" backgroundColor="background20" valign="center" halign="left" />
   </screen>
+  <!-- OAWeather Favourites -->
+  <screen name="OAWeatherFavorites" position="0,0" size="1920,1080" title="Manage your favourites" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/weather.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="favoriteList" render="Listbox" font="Regular; 32" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" >
+			<convert type="TemplatedMultiContent">{"template": [
+				MultiContentEntryText(pos=(5,0), size=(800,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0),  # city
+				MultiContentEntryText(pos=(805,2), size=(500,50), font=0, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=1),  # geodata
+				],
+				"fonts": [gFont("Regular",32),gFont("Regular",32),gFont("Regular",40)],
+				"itemHeight":50
+				}</convert>
+		</widget>
+    <panel name="FullKeys1" />
+  </screen>
 </skin>
