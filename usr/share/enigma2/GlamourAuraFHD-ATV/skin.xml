@@ -22,8 +22,6 @@
   <include filename="skin_glamouraurafhd_images_oea.xml" />
   <include filename="skin_glamouraurafhd_emc.xml" />
   <colors>
-    <color name="#178a9e" value="#00178a9e" />
-    <color name="#b0b0b0" value="#00b0b0b0" />
     <color name="amarillo" value="#00ffffc6" />
     <color name="amaryllis" value="#00e1107c" />
     <color name="background" value="#30000000" />
