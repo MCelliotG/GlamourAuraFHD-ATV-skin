@@ -866,9 +866,9 @@
     <ePixmap pixmap="GACommon/pointers/audio_late.png" position="32,105" size="25,450" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="AudioSliderBar" pixmap="GACommon/pointers/audio_early.png" position="32,105" size="25,450" transparent="1" orientation="orBottomToTop" alphatest="blend" zPosition="6" />
     <widget name="AudioSlider" position="0,315" size="90,40" font="Regular; 27" halign="center" valign="center" backgroundColor="background20" transparent="1" noWrap="1" zPosition="7" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="630,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_green.png" position="840,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_blue.png" position="630,45" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="630,5" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_green.png" position="840,5" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_blue.png" position="630,45" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
     <widget name="key_red" position="685,5" size="155,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="key_green" position="895,5" size="75,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="key_blue" position="685,45" size="210,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
@@ -2299,5 +2299,146 @@
     <widget name="Not_tested" position="900,815" size="350,50" font="Regular; 32" halign="right" transparent="1" zPosition="7" backgroundColor="background20" valign="center" />
     <widget source="untestable_counter" render="Label" position="1260,815" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
     <widget source="CmdText" render="Label" position="1425,650" size="400,215" font="Regular; 32" zPosition="8" transparent="1" foregroundColor="amarillo" backgroundColor="background20" valign="center" halign="left" />
+  </screen>
+  <!-- OAWeather Favourites -->
+  <screen name="OAWeatherFavorites" position="0,0" size="1920,1080" title="Manage your favourites" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/weather.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="favoriteList" render="Listbox" font="Regular; 32" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
+      <convert type="TemplatedMultiContent">{"template": [
+				MultiContentEntryText(pos=(5,0), size=(800,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0),  # city
+				MultiContentEntryText(pos=(805,2), size=(500,50), font=0, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=1),  # geodata
+				],
+				"fonts": [gFont("Regular",32),gFont("Regular",32),gFont("Regular",40)],
+				"itemHeight":50
+				}</convert>
+    </widget>
+    <panel name="FullKeys1" />
+  </screen>
+  <!-- WireguardVPN -->
+  <!-- Main Screen -->
+  <screen name="WireguardScreen" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="EventViewScreenT" />
+    <widget name="logo_wireguard" position="655,60" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="1080,85" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="logo" position="165,165" size="368,85" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="info_account" position="35,260" size="600,50" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="6" transparent="1" />
+    <widget name="reset" position="90,105" size="155,50" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="reset_label" position="156,105" size="450,50" backgroundColor="cyan1" font="Regular; 32" halign="center" valign="center" zPosition="5" transparent="1" />
+    <widget name="list" position="655,150" size="1200,650" font="RegularB;32" itemHeight="50" foregroundColor="white" backgroundColor="background20" foregroundColorSelected="white" backgroundColorSelected="clearcyan" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="logogreen" position="140,315" size="400,100" alphatest="blend" zPosition="4" transparent="1" />
+    <ePixmap pixmap="GACommon/infobar/infobar_bitrate.png" position="0,432" zPosition="2" size="645,50" alphatest="off" transparent="1" />
+    <widget name="flags" position="310,430" size="66,50" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="logoreceived" position="165,435" size="40,40" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="datareceived" position="60,490" size="250,45" backgroundColor="sky" font="Numbers; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="logosend" position="475,435" size="40,40" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="datasend" position="370,490" size="250,45" backgroundColor="sky" font="Numbers; 30" halign="center" zPosition="5" transparent="1" />
+    <widget name="vpnInfo" position="50,545" size="590,70" backgroundColor="cyan1" font="RegularB; 34" halign="center" zPosition="5" transparent="1" />
+    <widget name="provLabel" position="50,625" size="590,50" backgroundColor="cyan1" halign="center" font="Regular; 32" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="ping_text" position="50,690" size="590,50" font="Regular; 32" halign="center" zPosition="5" backgroundColor="cyan1" transparent="1" />
+    <widget name="DateConnected" position="50,750" size="590,45" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="CheckKey" position="655,150" size="1200,700" backgroundColor="background20" foregroundColor="white" font="Regular;40" halign="center" zPosition="11" transparent="1" />
+    <widget name="updateon" position="40,815" size="590,100" font="RegularB; 34" halign="center" valign="center" foregroundColor="white" backgroundColor="cyan1" transparent="1" zPosition="5" />
+    <widget name="vpnLoad" position="965,420" size="570,160" backgroundColor="background20" foregroundColor="sky" font="RegularB;40" halign="center" zPosition="12" transparent="1" />
+    <widget name="vpnStatus" position="140,315" size="400,50" backgroundColor="turquoise" foregroundColor="white" font="RegularB; 40" halign="center" zPosition="6" transparent="1" valign="top" noWrap="1" />
+    <widget name="ip" position="140,365" size="400,50" font="Regular; 32" halign="center" zPosition="6" foregroundColor="white" backgroundColor="turquoise" transparent="1" noWrap="1" />
+    <widget name="TotServer" position="655,800" size="900,50" backgroundColor="background20" transparent="1" zPosition="9" font="RegularB; 32" halign="left" />
+    <widget name="Page" position="1555,800" size="300,50" backgroundColor="background20" transparent="1" zPosition="10" font="RegularB; 32" halign="right" />
+    <widget name="keyDns" position="1240,870" size="120,0" backgroundColor="background20" foregroundColor="cyan1" font="RegularB; 32" halign="center" valign="center" zPosition="14" transparent="1" />
+    <widget name="menu" position="655,870" size="120,0" backgroundColor="background20" foregroundColor="cyan1" font="RegularB;32" halign="center" valign="center" zPosition="14" transparent="1" scrollbarMode="showNever" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" position="655,840" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="pluginupdate" position="785,850" size="450,45" backgroundColor="black" font="Regular;30" halign="left" valign="center" zPosition="13" transparent="1" foregroundColor="cyan1" noWrap="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1240,840" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="CheckDns" position="1365,850" size="480,45" backgroundColor="background20" font="Regular;30" halign="left" valign="center" zPosition="15" transparent="1" foregroundColor="cyan1" noWrap="1" />
+    <widget name="search" position="1175,45" size="140,45" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="search_label" position="1225,45" size="440,45" backgroundColor="background20" font="Regular; 32" halign="left" valign="center" zPosition="4" transparent="1" />
+    <widget name="copy" position="1175,90" size="140,45" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="copy_label" position="1225,90" size="440,45" backgroundColor="background20" font="Regular; 32" halign="left" valign="center" zPosition="4" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <!-- Wireguard Configuration -->
+  <screen name="WireguardConfig" position="0,0" size="1920,1080" title="Wireguard Config" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EventViewScreenT" />
+    <widget name="logo_wireguard" position="655,60" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="1080,85" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="logo" position="165,165" size="368,85" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="config" font="Regular; 32" position="656,143" size="1200,720" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="description" font="Regular; 30" backgroundColor="cyan1" position="53,270" size="580,545" halign="center" valign="top" transparent="1" zPosition="11" />
+    <widget name="HelpWindow" position="565,855" size="1320,90" zPosition="11" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <!-- Wireguard Speedtest -->
+  <screen name="WireguardSpeedtest" position="center,center" size="1950,1080" backgroundColor="transparent" title="Wireguard Speedtest" flags="wfNoBorder" resolution="1920,1080">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel3" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/wireguard.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="255,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <ePixmap position="760,310" size="400,400" pixmap="GACommon/images/speedtest.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="555,710" size="810,45" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="555,815" size="810,45" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="65,465" size="300,270" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1531,430" size="300,270" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap position="1495,465" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
+    <ePixmap position="345,465" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
+    <widget name="ip" position="80,145" size="620,320" font="RegularB; 40" foregroundColor="cyan" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="8" />
+    <widget name="host" position="560,810" size="800,50" font="RegularB; 38" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="5" />
+    <widget name="download" position="65,520" size="600,100" font="Regular;85" foregroundColor="yellow" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget name="upload" position="1230,520" size="600,100" font="Regular;85" foregroundColor="orange" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <ePixmap position="560,860" size="100,100" pixmap="GACommon/images/ping.png" alphatest="on" transparent="1" zPosition="5" scale="1" />
+    <widget name="ping" position="660,880" size="600,60" font="Regular;50" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget name="data" position="210,710" size="1500,100" font="Regular;36" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget source="session.CurrentService" render="Label" position="120,620" size="500,80" font="Regular;50" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="4">
+      <convert type="WireNetSpeedInfo">RC</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1285,620" size="500,80" font="Regular;50" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="4">
+      <convert type="WireNetSpeedInfo">TM</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/images/lan.png" position="1420,185" size="200,200" alphatest="on" transparent="1" zPosition="6" scale="1">
+      <convert type="WireRouteInfo">Lan</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/images/wifi.png" position="1420,185" size="200,200" alphatest="on" transparent="1" zPosition="6" scale="1">
+      <convert type="WireRouteInfo">Wifi</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1420,385" size="200,60" halign="center" font="Numbers; 50" foregroundColor="amarillo" backgroundColor="background20" zPosition="3" transparent="1">
+      <convert type="WireRouteInfo">Vpn</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1300,900" size="120,60" alphatest="blend" zPosition="14" transparent="1" />
+    <widget name="keyList" position="1360,860" size="210,0" zPosition="11" font="RegularB; 32" halign="center" valign="center" foregroundColor="cyan1" backgroundColor="background20" transparent="1" scrollbarMode="showNever" />
+    <widget name="favServ" position="1425,900" size="460,60" zPosition="11" font="Regular; 32" halign="left" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" />
+    <panel name="FullKeysBT" />
+  </screen>
+  <!-- Wireguard Server Selection -->
+  <screen name="WireguardSpeedtestListServers" position="0,0" size="1920,1080" title="Wireguard Speedtest List Servers" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wireguard.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="wait" position="535,785" size="1305,80" backgroundColor="background20" font="RegularB; 32" halign="left" zPosition="13" transparent="1" valign="top" foregroundColor="amarillo" />
+    <widget name="list" font="Regular; 32" position="534,60" size="1320,720" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="introduction" font="RegularB; 32" backgroundColor="background20" position="535,785" size="1305,80" foregroundColor="sky" halign="left" valign="top" transparent="1" zPosition="11" />
+    <panel name="FullKeys3" />
+  </screen>
+  <screen name="WireguardScreenDns" position="0,0" size="1920,1080" title="Wireguard DNS" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wireguard.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="logo_wireguard" position="50,715" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="205,790" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="list" font="Regular; 32" position="534,50" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="CheckKey" font="RegularB; 45" backgroundColor="background20" position="534,50" size="1305,810" foregroundColor="sky" halign="left" valign="center" transparent="1" zPosition="11" />
+    <widget name="HelpWindow" position="540,870" size="1320,90" zPosition="11" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <screen name="WireguardSpeedtestListServersFav" position="center,center" size="1950,1080" backgroundColor="transparent" title="Wireguard Speedtest" flags="wfNoBorder" resolution="1920,1080">
+    <panel name="WireguardSpeedtest" />
+  </screen>
+  <!-- Wireguard Popup Message -->
+  <screen name="VpnWireguardScreen" position="0,200" zPosition="12" size="720,55" backgroundColor="transparent" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_timeshift.png" position="0,0" zPosition="-2" size="720,55" alphatest="off" />
+    <widget name="flags" position="50,10" size="45,35" alphatest="blend" transparent="1" zPosition="5" />
+    <widget name="MessageScreenIp" font="Regular; 33" position="100,2" zPosition="2" valign="center" halign="center" size="600,50" backgroundColor="background20" foregroundColor="amarillo" transparent="1" noWrap="1" />
+    <widget name="MessageScreen" font="Regular; 33" position="100,2" zPosition="5" valign="center" halign="center" size="600,50" backgroundColor="background20" foregroundColor="cyan1" transparent="1" noWrap="1" />
   </screen>
 </skin>

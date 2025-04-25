@@ -287,6 +287,7 @@
     <menu key="PrimeVideo" image="GACommon/images/prime.png" />
     <menu key="Stalker Plugin" image="GACommon/images/stalker.png" />
     <menu key="startsetup" image="GACommon/images/alexa.png" />
+    <menu key="Wireguard" image="GACommon/images/wireguard.png" />
     <menu key="XCplugin" image="GACommon/images/xc.png" />
     <menu key="XStreamity" image="GACommon/images/xstreamity.png" />
   </menus>
@@ -731,26 +732,26 @@
     <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1270,0" size="450,75" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="MenuKeysUP" flags="wfNoBorder">
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,25" size="50,30" alphatest="blend" zPosition="5" transparent="1">
+    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap objectTypes="red,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap objectTypes="green,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap objectTypes="yellow,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
-    <ePixmap objectTypes="blue,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,25" size="50,30" alphatest="blend" zPosition="5" transparent="1" />
+    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <ePixmap objectTypes="red,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="480,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <ePixmap objectTypes="green,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="800,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <ePixmap objectTypes="yellow,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="1120,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
+    <ePixmap objectTypes="blue,Label,Button" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="1440,20" size="35,35" alphatest="blend" zPosition="5" transparent="1" scale="1" />
     <widget objectTypes="red,Label,Button" name="red" position="530,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
     <widget objectTypes="green,Label,Button" name="green" position="850,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
     <widget objectTypes="yellow,Label,Button" name="yellow" position="1170,20" size="270,40" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="center" />
@@ -818,7 +819,7 @@
   </screen>
   <!-- 02. Menu Labels -->
   <screen name="MenuEntriesNew" flags="wfNoBorder">
-    <widget source="menu" render="Listbox" position="770,60" size="920,880" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5">
+    <widget source="menu" render="Listbox" position="770,60" size="920,880" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/menuself920.png" alphatest="off" zPosition="5" scrollbarMode="showNever">
       <convert type="TemplatedMultiContent">
 	 {"templates":
 	  {"default": (80,[MultiContentEntryText(pos = (50, 0), size = (870, 80), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)]),
