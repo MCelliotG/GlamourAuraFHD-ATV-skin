@@ -804,10 +804,10 @@
     <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap objectTypes="red,Label,Button" pixmap="GACommon/buttons/aura_red.png" position="1240,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
     <ePixmap objectTypes="green,Label,Button" pixmap="GACommon/buttons/aura_green.png" position="1545,30" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
-    <widget objectTypes="red,Label,Button" name="red" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="green,Label,Button" name="green" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
-    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="center" />
+    <widget objectTypes="red,Label,Button" name="red" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="1200,45" size="300,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="1500,45" size="320,60" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="RGKeysCO" flags="wfNoBorder">
     <ePixmap pixmap="GACommon/buttons/aura_red.png" position="580,870" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
