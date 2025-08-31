@@ -2333,12 +2333,12 @@
     <widget name="datareceived" position="60,490" size="250,45" backgroundColor="sky" font="Numbers; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
     <widget name="logosend" position="475,435" size="40,40" alphatest="blend" zPosition="5" transparent="1" />
     <widget name="datasend" position="370,490" size="250,45" backgroundColor="sky" font="Numbers; 30" halign="center" zPosition="5" transparent="1" />
-    <widget name="vpnInfo" position="50,545" size="590,70" backgroundColor="cyan1" font="RegularB; 34" halign="center" zPosition="5" transparent="1" />
-    <widget name="provLabel" position="50,625" size="590,50" backgroundColor="cyan1" halign="center" font="Regular; 32" zPosition="5" transparent="1" noWrap="1" />
-    <widget name="ping_text" position="50,690" size="590,50" font="Regular; 32" halign="center" zPosition="5" backgroundColor="cyan1" transparent="1" />
-    <widget name="DateConnected" position="50,750" size="590,45" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="vpnInfo" position="50,545" size="590,70" foregroundColor="white" backgroundColor="cyan1" font="RegularB; 34" halign="center" zPosition="5" transparent="1" />
+    <widget name="provLabel" position="50,615" size="590,110" foregroundColor="amarillo" backgroundColor="cyan1" halign="center" font="Numbers; 42" zPosition="5" transparent="1" />
+    <widget name="ping_text" position="50,725" size="590,50" font="Regular; 32" halign="center" zPosition="5" foregroundColor="white" backgroundColor="cyan1" transparent="1" />
+    <widget name="DateConnected" position="50,775" size="590,45" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
     <widget name="CheckKey" position="655,150" size="1200,700" backgroundColor="background20" foregroundColor="white" font="Regular;40" halign="center" zPosition="11" transparent="1" />
-    <widget name="updateon" position="40,815" size="590,100" font="RegularB; 34" halign="center" valign="center" foregroundColor="white" backgroundColor="cyan1" transparent="1" zPosition="5" />
+    <widget name="updateon" position="50,825" size="590,100" font="RegularB; 34" halign="center" valign="center" foregroundColor="white" backgroundColor="cyan1" transparent="1" zPosition="5" />
     <widget name="vpnLoad" position="965,420" size="570,160" backgroundColor="background20" foregroundColor="sky" font="RegularB;40" halign="center" zPosition="12" transparent="1" />
     <widget name="vpnStatus" position="140,315" size="400,50" backgroundColor="turquoise" foregroundColor="white" font="RegularB; 40" halign="center" zPosition="6" transparent="1" valign="top" noWrap="1" />
     <widget name="ip" position="140,365" size="400,50" font="Regular; 32" halign="center" zPosition="6" foregroundColor="white" backgroundColor="turquoise" transparent="1" noWrap="1" />
