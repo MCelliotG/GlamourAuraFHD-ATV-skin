@@ -1,4 +1,4 @@
-﻿#GlamBitrate converter (Python 3)
+#GlamBitrate converter (Python 3)
 #Modded and recoded by MCelliotG for use in Glamour skins or standalone
 #If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
@@ -118,6 +118,10 @@ class GlamBitrate(Converter, object):
 		print(f"[GlamBitrate] Executing: {cmd}")
 		self.container.execute(cmd)
 
+	@staticmethod
+	def sanitize(value):
+		return value if value <= 999999 else 0
+
 	def processOutput(self, data):
 		try:
 			output = data.decode('utf-8').strip()
@@ -128,13 +132,17 @@ class GlamBitrate(Converter, object):
 				adata = [int(x) if x.isdigit() else 0 for x in lines[1].split()]
 				self.vmin, self.vmax, self.vavg, self.vcur = (vdata + [0, 0, 0, 0])[:4]
 				self.amin, self.amax, self.aavg, self.acur = (adata + [0, 0, 0, 0])[:4]
+
+				# --- Sanitize fake large values ---
+				for attr in ["vmin", "vmax", "vavg", "vcur", "amin", "amax", "aavg", "acur"]:
+					setattr(self, attr, self.sanitize(getattr(self, attr)))
+				# ------------------------------------------------------
+
 				print(f"[GlamBitrate] Video - Min: {self.vmin}, Max: {self.vmax}, Avg: {self.vavg}, Cur: {self.vcur}")
 				print(f"[GlamBitrate] Audio - Min: {self.amin}, Max: {self.amax}, Avg: {self.aavg}, Cur: {self.acur}")
 				Converter.changed(self, (self.CHANGED_POLL,))
 		except Exception as e:
 			self.clearValues()
-			print(f"[GlamBitrate] Error processing bitrate output: {e}")
-		except Exception as e:
 			print(f"[GlamBitrate] Error processing bitrate output: {e}")
 
 	def updateBitrate(self):
