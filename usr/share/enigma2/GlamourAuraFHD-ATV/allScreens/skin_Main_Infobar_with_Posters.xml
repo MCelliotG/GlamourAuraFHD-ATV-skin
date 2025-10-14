@@ -11,7 +11,7 @@
 	<!-- Crypt Info -->
 	<panel name="CasInfo" />
 	<!-- Weather Info -->
-	<panel name="WeatherToday2" />
+	<panel name="WeatherToday" />
 	<panel name="PostersMainInfobar" />
   </screen>
 </skin>

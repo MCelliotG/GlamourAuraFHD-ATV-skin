@@ -22,6 +22,6 @@
 	<ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
 	<panel name="ECMInfo" />
 	<!-- Weather Info -->
-	<panel name="WeatherF2" />
+	<panel name="WeatherForecast" />
   </screen>
 </skin>

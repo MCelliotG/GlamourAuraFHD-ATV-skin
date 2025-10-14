@@ -20,6 +20,7 @@
     <menu key="media_player" image="GACommon/images/media.png" />
     <menu key="merlin_music_player" image="GACommon/images/merlin.png" />
     <menu key="moviebrowser" image="GACommon/images/movie.png" />
+    <menu key="movie_selection" image="GACommon/images/movie.png" />
     <menu key="OpenStore" image="GACommon/images/openstore.png" />
     <menu key="play_cd" image="GACommon/images/cdplay.png" />
     <menu key="plugin_selection" image="GACommon/images/plugins.png" />
@@ -115,6 +116,7 @@
     <menu key="buttonsetup_setup" image="GACommon/images/hotkey.png" />
     <menu key="channelselection_setup" image="GACommon/images/channelselection.png" />
     <menu key="deviceManager" image="GACommon/images/devicemanager.png" />
+    <menu key="device_manager" image="GACommon/images/devicemanager.png" />
     <menu key="dvdplayer_setup" image="GACommon/images/dvd.png" />
     <menu key="iptv_config" image="GACommon/images/iptv_config.png" />
     <menu key="iptv_player" image="GACommon/images/iptv_player.png" />
@@ -243,8 +245,10 @@
     <menu key="softcam_setup" image="GACommon/images/camsetup.png" />
     <menu key="streamrelay_settings" image="GACommon/images/streaming.png" />
     <!-- Shutdown -->
+    <menu key="chkroot_multiboot" image="GACommon/images/multiboot.png" />
     <menu key="deep_standby" image="GACommon/images/deep_standby.png" />
     <menu key="Hardreset" image="GACommon/images/power.png" />
+    <menu key="kexec_multiboot" image="GACommon/images/multiboot.png" />
     <menu key="maintenance_mode" image="GACommon/images/backup.png" />
     <menu key="restart" image="GACommon/images/restart.png" />
     <menu key="restart_enigma" image="GACommon/images/restart_enigma.png" />
@@ -260,6 +264,7 @@
     <menu key="flash_online" image="GACommon/images/flashimage.png" />
     <menu key="install_local" image="GACommon/images/install_local.png" />
     <menu key="manage_extensions" image="GACommon/images/extension_manager.png" />
+    <menu key="manage_plugins" image="GACommon/images/packet.png" />
     <menu key="multiboot" image="GACommon/images/multiboot.png" />
     <menu key="restore_system" image="GACommon/images/restore.png" />
     <menu key="software_restore" image="GACommon/images/softrestore.png" />
@@ -272,6 +277,7 @@
     <menu key="backup_excluded" image="GACommon/images/backup_ex.png" />
     <menu key="backup_location" image="GACommon/images/backup_location.png" />
     <menu key="package_manager" image="GACommon/images/package_manager.png" />
+    <menu key="upgrade_settings" image="GACommon/images/softwaremanager.png" />
     <menu key="upgrade_source" image="GACommon/images/upgrade_source.png" />
     <!-- Misc -->
     <menu key="bluetooth_setup" image="GACommon/images/bluetooth.png" />
@@ -303,7 +309,9 @@
     <setup key="ChannelSelection" image="GACommon/images/channelselection.png" />
     <setup key="CiSelection" image="GACommon/images/cisetup.png" />
     <setup key="CISettings" image="GACommon/images/cisettings.png" />
+    <setup key="DeviceManager" image="GACommon/images/devicemanager.png" />
     <setup key="Display" image="GACommon/images/lcd.png" />
+    <setup key="Display" image="GACommon/images/displaysetup.png" />
     <setup key="DNS" image="GACommon/images/dns.png" />
     <setup key="dvdplayer" image="GACommon/images/dvd.png" />
     <setup key="EditBirthdaySetting" image="GACommon/images/bday.png" />
@@ -326,15 +334,19 @@
     <setup key="Keyboard" image="GACommon/images/keyboard.png" />
     <setup key="KexecSlotManager" image="GACommon/images/slotmanager.png" />
     <setup key="LEDs" image="GACommon/images/led.png" />
+    <setup key="LEDS" image="GACommon/images/led.png" />
     <setup key="Locale" image="GACommon/images/hdmicec.png" />
     <setup key="Logs" image="GACommon/images/crashlog.png" />
     <setup key="MisPlsLcnScanScreen" image="GACommon/images/misplslcn.png" />
     <setup key="MovieSelection" image="GACommon/images/movie.png" />
     <setup key="Network" image="GACommon/images/network.png" />
+    <setup key="NetworkAdapterSelection" image="GACommon/images/networkadapter.png" />
     <setup key="NetworkInadynSetup" image="GACommon/images/inadyn.png" />
     <setup key="NetworkMiniDLNASetup" image="GACommon/images/minidlna.png" />
+    <setup key="NetworkServices" image="GACommon/images/netservices.png" />
     <setup key="NetworkServicesSetup" image="GACommon/images/netservices.png" />
     <setup key="NetworkuShareSetup" image="GACommon/images/ushare.png" />
+    <setup key="OpenWebif" image="GACommon/images/webif.png" />
     <setup key="openwebif" image="GACommon/images/webif.png" />
     <setup key="OSCamInfoSetup" image="GACommon/images/oscam.png" />
     <setup key="OSD3D" image="GACommon/images/auto_3d.png" />
@@ -356,6 +368,7 @@
     <setup key="SoftwareManager" image="GACommon/images/softwaremanager.png" />
     <setup key="SpecialFeatures" image="GACommon/images/specialfeatures.png" />
     <setup key="StreamRelay" image="GACommon/images/streaming.png" />
+    <setup key="SystemTime" image="GACommon/images/ntp.png" />
     <setup key="Subtitle" image="GACommon/images/subsetup.png" />
     <setup key="TMDB" image="GACommon/images/tmdb.png" />
     <setup key="Time" image="GACommon/images/timezone.png" />
@@ -449,6 +462,63 @@
     <widget objectTypes="blue,Label,Button" name="blue" position="1300,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
     <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1300,855" size="255,90" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
+  <screen name="FullKeysMIHOK" flags="wfNoBorder" position="0,0" backgroundColor="transparent">
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="90,960" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GACommon/buttons/aura_red.png" position="90,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GACommon/buttons/aura_green.png" position="390,960" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GACommon/buttons/aura_green.png" position="390,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GACommon/buttons/aura_yellow.png" position="690,960" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GACommon/buttons/aura_yellow.png" position="690,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GACommon/buttons/aura_blue.png" position="990,960" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="990,960" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <!-- Button MIH -->
+    <widget objectTypes="key_menu,StaticText" source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1260,945" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_menu,menu,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1260,945" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_info,StaticText" source="key_info" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1260,990" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_info,info,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1260,990" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_ok,StaticText" source="key_ok" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1570,945" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_ok,ok,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1570,945" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_help,StaticText" source="key_help" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1570,990" size="90,45" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_help,help,Button,Label" pixmap="GlamourAuraFHD-ATV/buttons/key_help_medium.png" position="1570,990" size="90,45" alphatest="blend" zPosition="5" transparent="1" />
+    <!-- Labels -->
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="50,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="50,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="50,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="350,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="350,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="350,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="650,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="650,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="650,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="950,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="950,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="950,940" size="300,95" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_menu,Label,Button" name="key_menu" position="1360,945" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="menu,Label,Button" name="menu" position="1360,945" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" scrollbarMode="showNever" />
+    <widget objectTypes="key_menu,StaticText" source="key_menu" render="Label" position="1360,945" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_info,Label,Button" name="key_info" position="1360,990" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="info,Label,Button" name="info" position="1360,990" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_info,StaticText" source="key_info" render="Label" position="1360,990" size="200,45" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_ok,Label,Button" name="key_ok" position="1670,945" size="200,90" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="top" />
+    <widget objectTypes="ok,Label,Button" name="ok" position="1670,945" size="200,90" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="top" />
+    <widget objectTypes="key_ok,StaticText" source="key_ok" render="Label" position="1670,945" size="200,90" zPosition="6" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" valign="top" />
+  </screen>
   <screen name="FullKeysCH" flags="wfNoBorder">
     <widget source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="550,870" size="225,75" conditional="key_red" alphatest="blend" transparent="1" zPosition="4">
       <convert type="ConditionalShowHide" />
@@ -491,14 +561,36 @@
     <widget name="key_blue" position="1300,5855" size="0,0" font="Regular; 0" transparent="1" zPosition="5" />
   </screen>
   <screen name="FullKeysBT" flags="wfNoBorder">
-    <ePixmap pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_yellow.png" position="1060,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <ePixmap pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" zPosition="5" alphatest="blend" transparent="1" />
-    <widget name="key_red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
-    <widget name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" noWrap="1" />
+    <!-- Button Graphics -->
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Pixmap" pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_red,red,Button,Label" pixmap="GACommon/buttons/aura_red.png" position="170,965" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Pixmap" pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_green,green,Button,Label" pixmap="GACommon/buttons/aura_green.png" position="620,965" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Pixmap" pixmap="GACommon/buttons/aura_yellow.png" position="1070,965" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_yellow,yellow,Button,Label" pixmap="GACommon/buttons/aura_yellow.png" position="1070,965" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Pixmap" pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" alphatest="blend" zPosition="5" transparent="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap objectTypes="key_blue,blue,Button,Label" pixmap="GACommon/buttons/aura_blue.png" position="1520,965" size="225,75" alphatest="blend" zPosition="5" transparent="1" />
+    <!-- Button Labels -->
+    <widget objectTypes="key_red,Label,Button" name="key_red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="red,Label,Button" name="red" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_red,StaticText" source="key_red" render="Label" position="65,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,Label,Button" name="key_green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="green,Label,Button" name="green" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_green,StaticText" source="key_green" render="Label" position="515,990" size="450,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,Label,Button" name="key_yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="yellow,Label,Button" name="yellow" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label" position="980,990" size="380,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,Label,Button" name="key_blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="blue,Label,Button" name="blue" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
+    <widget objectTypes="key_blue,StaticText" source="key_blue" render="Label" position="1360,990" size="530,50" zPosition="6" font="Regular; 32" halign="center" backgroundColor="background20" transparent="1" valign="bottom" />
   </screen>
   <screen name="FullKeys1" flags="wfNoBorder">
     <!-- Button Graphics -->
@@ -1912,54 +2004,119 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
     <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
   </screen>
-  <!-- 07-1 Weather 2nd Infobar -->
-  <screen name="WeatherF1" flags="wfNoBorder">
-    <widget source="global.CurrentTime" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Location</convert>
+  <screen name="WeatherLocation" flags="wfNoBorder">
+    <widget source="session.OAWeather" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">city</convert>
     </widget>
+  </screen>
+  <screen name="WeatherCommons" flags="wfNoBorder">
+    <panel name="WeatherBackground" />
+    <panel name="WeatherLocation" />
+  </screen>
+  <!-- OAWEATHER -->
+  <!-- 07-1 OAWeather Today -->
+  <screen name="WeatherToday" flags="wfNoBorder">
+    <panel name="WeatherCommons" />
+    <!--/* TODAY -->
+    <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="80,35" font="Regular; 23" halign="center" text="Sd0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">weekshortday,day1</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">temperature_high,day1</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">temperature_low,day1</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="OAWeatherPixmap" position="150,60" size="60,60" zPosition="4" alphatest="blend">
+      <convert type="OAWeather">weathericon,day1,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/humidity.png" position="230,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="255,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="99%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
+      <convert type="OAWeather">humidity</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/feelslike.png" position="150,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="175,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="100F" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
+      <convert type="OAWeather">feelslike</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/precipitation.png" position="310,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="335,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="98%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
+      <convert type="OAWeather">precipitation,day1</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" position="50,150" zPosition="4" size="345,65" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="top" foregroundColor="lightciel" backgroundColor="background20">
+      <convert type="OAWeather">temperature_text,day1</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunrise.png" position="210,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="245,65" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="06:55" transparent="1" valign="top" foregroundColor="yellow" backgroundColor="background20" noWrap="1">
+      <convert type="OAWeather">sunrise</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunset.png" position="210,90" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="245,92" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="20:25" transparent="1" valign="top" foregroundColor="orange" backgroundColor="background20" noWrap="1">
+      <convert type="OAWeather">sunset</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/wind.png" position="300,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="310,65" zPosition="6" size="85,30" font="Regular; 21" halign="center" text="Wind" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
+      <convert type="OAWeather">winddirsign</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" position="310,90" zPosition="6" size="85,30" font="Numbers; 24" halign="center" text="Windsp" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
+      <convert type="OAWeather">windspeed</convert>
+    </widget>
+  </screen>
+  <!-- 07-2 OAWeather Forecast 2nd Infobar -->
+  <screen name="WeatherForecast" flags="wfNoBorder">
+    <panel name="WeatherCommons" />
     <!--/* DAY 2 -->
-    <widget source="global.CurrentTime" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Shortday1</convert>
+    <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">weekshortday,day2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="105,60" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Date1</convert>
+    <widget source="session.OAWeather" render="Label" position="105,60" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">date,day2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Hightemp1</convert>
+    <widget source="session.OAWeather" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="OAWeather">temperature_high,day2</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Lowtemp1</convert>
+    <widget source="session.OAWeather" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+      <convert type="OAWeather">temperature_low,day2</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="150,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="GlamMSNWeather">Picon1</convert>
+    <widget source="session.OAWeather" render="OAWeatherPixmap" position="150,90" size="60,60" zPosition="4" alphatest="blend">
+      <convert type="OAWeather">weathericon,day2,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="GlamMSNWeather">Skytext1</convert>
+    <widget source="session.OAWeather" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
+      <convert type="OAWeather">temperature_text,day2</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <!--/* DAY 3 -->
-    <widget source="global.CurrentTime" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Shortday2</convert>
+    <widget source="session.OAWeather" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="OAWeather">weekshortday,day3</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="280,60" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Date2</convert>
+    <widget source="session.OAWeather" render="Label" position="280,60" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="OAWeather">date,day3</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="230,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Hightemp2</convert>
+    <widget source="session.OAWeather" render="Label" position="230,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="OAWeather">temperature_high,day3</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="230,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low2" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Lowtemp2</convert>
+    <widget source="session.OAWeather" render="Label" position="230,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low2" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+      <convert type="OAWeather">temperature_low,day3</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="325,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="GlamMSNWeather">Picon2</convert>
+    <widget source="session.OAWeather" render="OAWeatherPixmap" position="325,90" size="60,60" zPosition="4" alphatest="blend">
+      <convert type="OAWeather">weathericon,day3,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
     </widget>
-    <widget source="global.CurrentTime" render="Label" position="228,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext2" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="GlamMSNWeather">Skytext2</convert>
+    <widget source="session.OAWeather" render="Label" position="228,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext2" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
+      <convert type="OAWeather">temperature_text,day3</convert>
     </widget>
-    <panel name="WeatherBackground" />
   </screen>
-  <!-- 07-2 Weather Today -->
-  <screen name="WeatherToday" flags="wfNoBorder">
+  <!-- 07-3 OAWeather Infobar -->
+  <screen name="WeatherOnInfobar" flags="wfNoBorder">
+    <widget source="session.OAWeather" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
+      <convert type="OAWeather">temperature_current</convert>
+    </widget>
+    <widget source="session.OAWeather" render="OAWeatherPixmap" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
+      <convert type="OAWeather">weathericon,current,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/small/,png</convert>
+    </widget>
+  </screen>
+  <!-- MSN WEATHER -->
+  <!-- 07-4 MSN Weather Today -->
+  <screen name="MSNWeatherToday" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
       <convert type="GlamMSNWeather">Location</convert>
     </widget>
@@ -2009,119 +2166,59 @@
     </widget>
     <panel name="WeatherBackground" />
   </screen>
-  <!-- 07-3 OAWeather 2nd Infobar -->
-  <screen name="WeatherF2" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">city</convert>
+  <!-- 07-5 Weather MSN 2nd Infobar -->
+  <screen name="MSNWeatherForecast" flags="wfNoBorder">
+    <widget source="global.CurrentTime" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
+      <convert type="GlamMSNWeather">Location</convert>
     </widget>
     <!--/* DAY 2 -->
-    <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">weekshortday,day2</convert>
+    <widget source="global.CurrentTime" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="GlamMSNWeather">Shortday1</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="105,60" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">date,day2</convert>
+    <widget source="global.CurrentTime" render="Label" position="105,60" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="GlamMSNWeather">Date1</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">temperature_high,day2</convert>
+    <widget source="global.CurrentTime" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
+      <convert type="GlamMSNWeather">Hightemp1</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="OAWeather">temperature_low,day2</convert>
+    <widget source="global.CurrentTime" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+      <convert type="GlamMSNWeather">Lowtemp1</convert>
     </widget>
-    <widget source="session.OAWeather" render="OAWeatherPixmap" position="150,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="OAWeather">weathericon,day2,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="150,90" size="60,60" zPosition="4" alphatest="blend">
+      <convert type="GlamMSNWeather">Picon1</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="OAWeather">temperature_text,day2</convert>
+    <widget source="global.CurrentTime" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
+      <convert type="GlamMSNWeather">Skytext1</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <!--/* DAY 3 -->
-    <widget source="session.OAWeather" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="OAWeather">weekshortday,day3</convert>
+    <widget source="global.CurrentTime" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="GlamMSNWeather">Shortday2</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="280,60" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="OAWeather">date,day3</convert>
+    <widget source="global.CurrentTime" render="Label" position="280,60" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="GlamMSNWeather">Date2</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="230,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="OAWeather">temperature_high,day3</convert>
+    <widget source="global.CurrentTime" render="Label" position="230,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
+      <convert type="GlamMSNWeather">Hightemp2</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="230,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low2" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="OAWeather">temperature_low,day3</convert>
+    <widget source="global.CurrentTime" render="Label" position="230,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low2" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
+      <convert type="GlamMSNWeather">Lowtemp2</convert>
     </widget>
-    <widget source="session.OAWeather" render="OAWeatherPixmap" position="325,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="OAWeather">weathericon,day3,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
+    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="325,90" size="60,60" zPosition="4" alphatest="blend">
+      <convert type="GlamMSNWeather">Picon2</convert>
     </widget>
-    <widget source="session.OAWeather" render="Label" position="228,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext2" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="OAWeather">temperature_text,day3</convert>
-    </widget>
-    <panel name="WeatherBackground" />
-  </screen>
-  <!-- 07-4 OAWeather Today -->
-  <screen name="WeatherToday2" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">city</convert>
-    </widget>
-    <!--/* TODAY -->
-    <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="80,35" font="Regular; 23" halign="center" text="Sd0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">weekshortday,day1</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">temperature_high,day1</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="background20">
-      <convert type="OAWeather">temperature_low,day1</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="OAWeatherPixmap" position="150,60" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="OAWeather">weathericon,day1,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/humidity.png" position="230,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="255,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="99%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="OAWeather">humidity</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/feelslike.png" position="150,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="175,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="100F" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="OAWeather">feelslike</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/precipitation.png" position="310,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="335,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="98%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="OAWeather">precipitation,day1</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Label" position="50,150" zPosition="4" size="345,65" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="top" foregroundColor="lightciel" backgroundColor="background20">
-      <convert type="OAWeather">temperature_text,day1</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunrise.png" position="210,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="245,65" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="06:55" transparent="1" valign="top" foregroundColor="yellow" backgroundColor="background20" noWrap="1">
-      <convert type="OAWeather">sunrise</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunset.png" position="210,90" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="245,92" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="20:25" transparent="1" valign="top" foregroundColor="orange" backgroundColor="background20" noWrap="1">
-      <convert type="OAWeather">sunset</convert>
-    </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/wind.png" position="300,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="310,65" zPosition="6" size="85,30" font="Regular; 21" halign="center" text="Wind" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="OAWeather">winddirsign</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Label" position="310,90" zPosition="6" size="85,30" font="Numbers; 24" halign="center" text="Windsp" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="OAWeather">windspeed</convert>
+    <widget source="global.CurrentTime" render="Label" position="228,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext2" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
+      <convert type="GlamMSNWeather">Skytext2</convert>
     </widget>
     <panel name="WeatherBackground" />
   </screen>
-  <!-- 07-5 Weather Infobar -->
-  <screen name="WeatherInfobar" flags="wfNoBorder">
+  <!-- 07-6 MSN Weather Infobar -->
+  <screen name="MSNWeatherOnInfobar" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
       <convert type="GlamMSNWeather">Temp</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
       <convert type="GlamMSNWeather">Picon</convert>
-    </widget>
-  </screen>
-  <!-- 07-6 OAWeather Infobar -->
-  <screen name="WeatherInfobar2" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
-      <convert type="OAWeather">temperature_current</convert>
-    </widget>
-    <widget source="session.OAWeather" render="OAWeatherPixmap" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
-      <convert type="OAWeather">weathericon,current,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/small/,png</convert>
     </widget>
   </screen>
   <!-- 08. INFOBARS -->
@@ -3062,7 +3159,7 @@
     <panel name="CryptInfo" />
     <panel name="SourceInfo" />
     <!-- WEATHER Current Temp on Infobar -->
-    <panel name="WeatherInfobar2" />
+    <panel name="WeatherOnInfobar" />
   </screen>
   <!-- 09. SETUP TEMPLATES -->
   <!-- 09-1 Common Setup -->
@@ -3473,6 +3570,11 @@
   <screen name="MovieSIcons" flags="wfNoBorder">
     <widget name="movie_sort" pixmaps="GACommon/icons/movie/az.png,GACommon/icons/movie/newtop.png,GACommon/icons/movie/shuffle.png,GACommon/icons/movie/za.png,GACommon/icons/movie/oldtop.png,GACommon/icons/movie/faz.png,GACommon/icons/movie/fza.png" position="860,905" zPosition="7" size="90,45" transparent="1" alphatest="blend" backgroundColor="background20" />
     <widget name="movie_off" pixmaps="GACommon/icons/movie/ask.png,GACommon/icons/movie/movielist.png,GACommon/icons/movie/quit.png,GACommon/icons/movie/pause.png,GACommon/icons/movie/playlist.png,GACommon/icons/movie/playlistquit.png,GACommon/icons/movie/loop.png" position="960,905" zPosition="7" size="90,45" transparent="1" alphatest="blend" backgroundColor="background20" />
+  </screen>
+  <!-- 11-9 MOVIE PVR STATES -->
+  <screen name="MoviePVRState" flags="wfNoBorder">
+    <widget name="statusicon" position="65,875" size="180,180" pixmaps="GACommon/pvrstate/pvr_playing.png,GACommon/pvrstate/pvr_paused.png,GACommon/pvrstate/pvr_stop.png,GACommon/pvrstate/pvr_fwd.png,GACommon/pvrstate/pvr_rwd.png,GACommon/pvrstate/pvr_slow.png" backgroundColor="background90" alphatest="blend" transparent="1" scale="1" zPosition="10" />
+    <widget name="speed" position="255,995" size="135,60" font="Numbers; 60" halign="center" valign="center" foregroundColor="cyan2" backgroundColor="background90" transparent="1" zPosition="12" noWrap="1" />
   </screen>
   <!-- 12. HELP KEYS -->
   <screen name="RCKeys" flags="wfNoBorder">
@@ -3970,8 +4072,8 @@
     <!-- Clock -->
     <panel name="ClockLabel2" />
     <!--Upper Infobar -->
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="400,35" zPosition="-12" size="1230,95" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb500.png" position="1125,80" size="500,45" zPosition="-10" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_tuner.png" position="395,40" zPosition="-12" size="1260,85" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb540.png" position="1100,95" size="540,30" zPosition="-10" alphatest="blend" transparent="1" />
     <widget source="Event" render="Label" position="450,45" size="1175,50" font="Regular; 33" backgroundColor="background20" transparent="1" foregroundColor="sky" zPosition="5" halign="center">
       <convert type="EventName">Name</convert>
     </widget>
@@ -3988,21 +4090,13 @@
       <convert type="ClockToText">Format:%H:%M</convert>
     </widget>
     <!-- Provider name and Reference -->
-    <ePixmap pixmap="GACommon/infobar/infobar_provider2IB.png" position="400,133" zPosition="-12" size="1230,50" alphatest="off" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="1025,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center" foregroundColor="deepgrey">
-      <convert type="ServiceName">Provider</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="420,140" size="600,35" font="Regular; 26" valign="center" backgroundColor="deepgrey" transparent="1" zPosition="7" halign="center">
-      <convert type="ServiceName">Reference</convert>
-    </widget>
+    <panel name="P+RInfobar" />
     <!-- EPG Infobar -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="345,708" zPosition="-1" size="1520,130" alphatest="off" transparent="1" />
     <ePixmap position="170,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" transparent="1" alphatest="blend" />
     <ePixmap position="65,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" transparent="1" alphatest="blend" />
     <ePixmap position="270,785" size="90,45" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" transparent="1" alphatest="blend" />
     <panel name="FullKeysBT" />
-    <!--WEATHER WIDGETS -->
-    <panel name="WeatherF2" />
   </screen>
   <!-- 15. EXTRA SCREENS -->
   <!-- 15-1 Posters in Main Infobar -->

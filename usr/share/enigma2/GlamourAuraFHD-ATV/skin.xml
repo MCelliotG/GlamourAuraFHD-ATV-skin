@@ -252,7 +252,7 @@
     <!-- Crypt Info -->
     <panel name="CasInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherToday2" />
+    <panel name="WeatherToday" />
     <panel name="FullKeysTR" />
   </screen>
   <!-- 02. Second Infobar -->
@@ -277,7 +277,7 @@
     <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherF2" />
+    <panel name="WeatherForecast" />
     <panel name="FullKeysTR" />
   </screen>
   <!-- 03. Radio Infobar -->
@@ -384,7 +384,7 @@
     <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherToday2" />
+    <panel name="WeatherToday" />
   </screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
@@ -2043,6 +2043,7 @@ if not self["videofps"].text:
     <panel name="MovieD+P" flags="wfNoBorder" />
     <!-- MOVIE AND SERVICE INFOS -->
     <panel name="MovieServiceInfos" flags="wfNoBorder" />
+    <panel name="MoviePVRState" flags="wfNoBorder" />
   </screen>
   <!-- 02. Media player -->
   <screen name="MediaPlayer" position="center,center" size="1920,1080" title="Media player" backgroundColor="transparent" flags="wfNoBorder">
