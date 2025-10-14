@@ -866,9 +866,9 @@
     <ePixmap pixmap="GACommon/pointers/audio_late.png" position="32,105" size="25,450" alphatest="blend" transparent="1" zPosition="5" />
     <widget name="AudioSliderBar" pixmap="GACommon/pointers/audio_early.png" position="32,105" size="25,450" transparent="1" orientation="orBottomToTop" alphatest="blend" zPosition="6" />
     <widget name="AudioSlider" position="0,315" size="90,40" font="Regular; 27" halign="center" valign="center" backgroundColor="background20" transparent="1" noWrap="1" zPosition="7" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="630,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_green.png" position="840,5" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_blue.png" position="630,45" size="50,30" alphatest="blend" transparent="1" zPosition="3" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="630,5" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_green.png" position="840,5" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_blue.png" position="630,45" size="30,30" alphatest="blend" transparent="1" zPosition="3" scale="1" />
     <widget name="key_red" position="685,5" size="155,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="key_green" position="895,5" size="75,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="key_blue" position="685,45" size="210,40" zPosition="4" font="Regular; 28" halign="left" valign="bottom" backgroundColor="background20" transparent="1" />
@@ -2300,19 +2300,486 @@
     <widget source="untestable_counter" render="Label" position="1260,815" size="150,50" font="Numbers; 35" zPosition="7" transparent="1" backgroundColor="background20" valign="center" halign="left" />
     <widget source="CmdText" render="Label" position="1425,650" size="400,215" font="Regular; 32" zPosition="8" transparent="1" foregroundColor="amarillo" backgroundColor="background20" valign="center" halign="left" />
   </screen>
+  <!-- OAWeather -->
+  <!-- OAWeather Overview -->
+  <screen name="OAWeatherOverview" position="0,0" size="1920,1080" title="Weather Overview" flags="wfNoBorder" backgroundColor="transparent">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel3" />
+    <ePixmap position="1530,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/weather.png" transparent="1" alphatest="on" />
+    <widget source="version" render="Label" position="60,45" size="360,50" font="Regular; 32" backgroundColor="transparent" zPosition="5" transparent="1" halign="center" valign="center" />
+    <widget name="current" font="Regular; 40" position="60,155" size="430,50" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt335.png" position="110,205" size="335,30" zPosition="-8" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="50,150" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="190,360" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/update.png" position="60,215" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget name="update" font="Regular; 38" position="115,215" size="240,50" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center" />
+    <widget render="Label" noWrap="1" source="session.OAWeather" font="Numbers; 50" position="360,215" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">observationtime</convert>
+    </widget>
+    <widget alphatest="blend" render="OAWeatherPixmap" position="70,95" size="340,45" source="session.OAWeather" transparent="1" zPosition="10" scale="1">
+      <convert type="OAWeather">logo</convert>
+    </widget>
+    <widget noWrap="1" font="Numbers; 60" position="60,430" size="430,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_current</convert>
+    </widget>
+    <widget noWrap="1" font="Regular; 32" position="60,490" size="430,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">feelslikefull</convert>
+    </widget>
+    <widget font="Regular;33" position="60,540" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,current</convert>
+    </widget>
+    <widget font="Regular; 33" position="1410,540" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,day1</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/umbrella.png" position="520,275" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="Regular;36" position="580,275" size="490,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">precipitationfull,current</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/home.png" position="485,65" size="80,80" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="RegularB; 42" position="570,65" size="1090,80" backgroundColor="cyan1" zPosition="5" transparent="1" halign="left" valign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">cityarea</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/temperature_high.png" position="1430,380" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1485,380" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_high,day1</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/temperature_low.png" position="1625,380" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" render="Label" font="Numbers; 42" position="1680,380" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" source="session.OAWeather">
+      <convert type="OAWeather">temperature_low,day1</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/sunrise.png" position="1430,435" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1485,435" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">sunrise</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/sunset.png" position="1625,435" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1680,435" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">sunset</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/moonrise.png" position="1430,490" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1485,490" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">moonrise</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/moonset.png" position="1625,490" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1680,490" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">moonset</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" position="1410,360" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1540,150" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget alphatest="blend" render="OAWeatherPixmap" position="1540,210" size="162,162" source="session.OAWeather" transparent="1" zPosition="5" scale="1">
+      <convert type="OAWeather">weathericon,day1</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="1410,155" size="215,50" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center">
+      <convert type="OAWeather">weekday,day1</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="1625,155" size="215,50" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">date,day1</convert>
+    </widget>
+    <widget alphatest="blend" position="205,270" size="160,160" zPosition="5" transparent="1" render="OAWeatherPixmap" source="session.OAWeather" scale="1">
+      <convert type="OAWeather">weathericon,current</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="510,150" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1090,360" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" position="1090,150" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" position="510,360" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/wind.png" position="520,155" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="Regular;36" position="580,155" size="430,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">winddisplay</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/hygrometer.png" position="520,215" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="Regular;36" position="580,215" size="490,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">humidityfull</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/windgust.png" position="1080,155" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="Regular;36" position="1140,155" size="250,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">windgusts</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/binoculars.png" position="1080,215" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="Regular;36" position="1140,215" size="250,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">visibility</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/uv_index.png" position="1080,275" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1">
+      <convert type="OAWeather">uvindex</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget font="Regular;36" position="1140,275" size="250,50" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="left" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">uvindex</convert>
+    </widget>
+    <!--day2 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="50,640" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="190,680" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget font="Regular; 32" position="220,795" size="270,45" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="center" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">precipitationfull,day2</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="60,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center">
+      <convert type="OAWeather">weekday,day2</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="275,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">date,day2</convert>
+    </widget>
+    <widget alphatest="blend" render="OAWeatherPixmap" position="60,700" size="160,160" source="session.OAWeather" transparent="1" zPosition="6" scale="1">
+      <convert type="OAWeather">weathericon,day2</convert>
+    </widget>
+    <widget font="Numbers; 60" position="220,725" size="270,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather" noWrap="1">
+      <convert type="OAWeather">temperature_high_low,day2</convert>
+    </widget>
+    <widget font="Regular; 36" position="60,860" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,day2</convert>
+    </widget>
+    <!-- day3 -->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="510,640" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="640,680" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget font="Regular; 32" position="670,795" size="270,45" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="center" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">precipitationfull,day3</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="510,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center">
+      <convert type="OAWeather">weekday,day3</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="725,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">date,day3</convert>
+    </widget>
+    <widget alphatest="blend" render="OAWeatherPixmap" position="510,700" size="160,160" source="session.OAWeather" transparent="1" zPosition="6" scale="1">
+      <convert type="OAWeather">weathericon,day3</convert>
+    </widget>
+    <widget font="Numbers; 60" position="670,725" size="270,60" backgroundColor="background20" zPosition="4" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather" noWrap="1">
+      <convert type="OAWeather">temperature_high_low,day3</convert>
+    </widget>
+    <widget font="Regular; 36" position="510,860" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,day3</convert>
+    </widget>
+    <!--day4-->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="960,640" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1090,680" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget font="Regular; 32" position="1120,795" size="270,45" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="center" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">precipitationfull,day4</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="960,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center">
+      <convert type="OAWeather">weekday,day4</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="1175,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">date,day4</convert>
+    </widget>
+    <widget alphatest="blend" render="OAWeatherPixmap" position="960,700" size="160,160" source="session.OAWeather" transparent="1" zPosition="6" scale="1">
+      <convert type="OAWeather">weathericon,day4</convert>
+    </widget>
+    <widget font="Numbers; 60" position="1120,725" size="270,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather" noWrap="1">
+      <convert type="OAWeather">temperature_high_low,day4</convert>
+    </widget>
+    <widget font="Regular; 38" position="960,860" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,day4</convert>
+    </widget>
+    <!--day5-->
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1410,640" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1540,680" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <widget font="Regular; 32" position="1570,795" size="270,45" backgroundColor="background20" zPosition="5" transparent="1" valign="center" halign="center" noWrap="1" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">precipitationfull,day5</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="1410,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center">
+      <convert type="OAWeather">weekday,day5</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" font="Regular; 38" position="1625,640" size="215,60" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">date,day5</convert>
+    </widget>
+    <widget alphatest="blend" render="OAWeatherPixmap" position="1410,700" size="160,160" source="session.OAWeather" transparent="1" zPosition="6" scale="1">
+      <convert type="OAWeather">weathericon,day5</convert>
+    </widget>
+    <widget font="Numbers; 60" position="1570,725" size="270,60" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather" noWrap="1">
+      <convert type="OAWeather">temperature_high_low,day5</convert>
+    </widget>
+    <widget font="Regular; 38" position="1410,860" size="430,90" backgroundColor="background20" zPosition="5" transparent="1" halign="center" valign="top" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">temperature_text,day5</convert>
+    </widget>
+    <!-- Summary -->
+    <widget source="session.OAWeather" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/precipitation.png" position="520,335" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1">
+      <convert type="OAWeather">raintext</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/day.png" position="520,410" size="50,75" zPosition="5" transparent="1" alphatest="blend" scale="1">
+      <convert type="OAWeather">daySummary0,day1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/night.png" position="520,525" size="50,75" zPosition="5" transparent="1" alphatest="blend" scale="1">
+      <convert type="OAWeather">nightSummary0,day1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget position="580,335" size="810,50" backgroundColor="background20" foregroundColor="white" render="Label" font="Regular;32" source="session.OAWeather" zPosition="5" halign="left" transparent="1">
+      <convert type="OAWeather">raintext</convert>
+    </widget>
+    <widget position="580,570" size="810,50" backgroundColor="background20" foregroundColor="white" render="Label" font="Regular;32" source="session.OAWeather" zPosition="5" halign="left" transparent="1">
+      <convert type="OAWeather">nightSummary1,day1</convert>
+    </widget>
+    <widget position="580,515" size="810,50" backgroundColor="background20" foregroundColor="white" render="Label" font="Regular;32" source="session.OAWeather" zPosition="5" halign="left" transparent="1">
+      <convert type="OAWeather">nightSummary0,day1</convert>
+    </widget>
+    <widget position="580,450" size="810,50" backgroundColor="background20" foregroundColor="white" render="Label" font="Regular;32" source="session.OAWeather" zPosition="5" halign="left" transparent="1">
+      <convert type="OAWeather">daySummary1,day1</convert>
+    </widget>
+    <widget position="580,395" size="810,50" backgroundColor="background20" foregroundColor="white" render="Label" font="Regular;32" source="session.OAWeather" zPosition="5" halign="left" transparent="1">
+      <convert type="OAWeather">daySummary0,day1</convert>
+    </widget>
+    <panel name="FullKeysMIHOK" />
+  </screen>
   <!-- OAWeather Favourites -->
   <screen name="OAWeatherFavorites" position="0,0" size="1920,1080" title="Manage your favourites" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/weather.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="favoriteList" render="Listbox" font="Regular; 32" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" >
-			<convert type="TemplatedMultiContent">{"template": [
+    <widget source="favoriteList" render="Listbox" font="Regular; 32" position="540,90" size="1305,700" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9">
+      <convert type="TemplatedMultiContent">{"template": [
 				MultiContentEntryText(pos=(5,0), size=(800,50), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0),  # city
 				MultiContentEntryText(pos=(805,2), size=(500,50), font=0, flags=RT_HALIGN_RIGHT|RT_VALIGN_CENTER, text=1),  # geodata
 				],
 				"fonts": [gFont("Regular",32),gFont("Regular",32),gFont("Regular",40)],
 				"itemHeight":50
 				}</convert>
-		</widget>
+    </widget>
     <panel name="FullKeys1" />
+  </screen>
+  <!-- OAWeather Detail View -->
+  <screen name="OAWeatherDetailview" position="0,0" size="1920,1080" title="Weather Detailview" flags="wfNoBorder" backgroundColor="transparent">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel3" />
+    <ePixmap position="1530,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/weather.png" transparent="1" alphatest="on" />
+    <widget source="version" render="Label" position="60,45" size="360,50" font="Regular; 32" backgroundColor="transparent" zPosition="5" transparent="1" halign="center" valign="center" />
+    <widget alphatest="blend" render="OAWeatherPixmap" position="70,95" size="340,45" source="session.OAWeather" transparent="1" zPosition="10" scale="1">
+      <convert type="OAWeather">logo</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/home.png" position="485,65" size="80,80" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget font="RegularB; 42" position="570,65" size="1090,80" backgroundColor="cyan1" zPosition="5" transparent="1" halign="left" valign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">cityarea</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/update.png" position="1535,225" size="50,50" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget name="update" font="Regular; 32" position="1595,225" size="180,50" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center" />
+    <widget render="Label" noWrap="1" source="session.OAWeather" font="Numbers; 38" position="1775,225" size="130,50" backgroundColor="background20" zPosition="5" transparent="1" halign="left" valign="center">
+      <convert type="OAWeather">observationtime</convert>
+    </widget>
+    <widget name="currdatetime" font="Regular; 38" position="1535,155" size="370,50" backgroundColor="background20" zPosition="3" transparent="1" halign="center" valign="center" />
+    <widget source="detailList" render="Listbox" position="50,155" size="1480,770" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/weathersel.png" alphatest="off" scrollbarMode="showNever" zPosition="6">
+      <convert type="TemplatedMultiContent">
+				{"templates": # timestr, press, temp, feels, humid, precip, windSpd, windDir, shortDesc, longDesc, iconpix
+					{"default": (110,[
+						MultiContentEntryText(pos=(6,6), size=(171,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
+						MultiContentEntryPixmapAlphaBlend(pos=(150,9), size=(96,96), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=13), # weathericon
+						MultiContentEntryPixmapAlphaBlend(pos=(258,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=15), # icon temp
+						MultiContentEntryText(pos=(318,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
+						MultiContentEntryPixmapAlphaBlend(pos=(258,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=17), # icon humid
+						MultiContentEntryText(pos=(318,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
+						MultiContentEntryPixmapAlphaBlend(pos=(450,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=16), # icon feels
+						MultiContentEntryText(pos=(510,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=3), # value feels
+						MultiContentEntryPixmapAlphaBlend(pos=(453,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=18), # icon precip
+						MultiContentEntryText(pos=(510,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # value precip
+						MultiContentEntryPixmapAlphaBlend(pos=(645,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=19), # icon windSpd
+						MultiContentEntryText(pos=(705,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
+						MultiContentEntryPixmapAlphaBlend(pos=(645,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=20), # windDirIcon
+						MultiContentEntryText(pos=(705,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=7), # value windDir
+						MultiContentEntryPixmapAlphaBlend(pos=(870,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=21), # windGustIcon
+						MultiContentEntryText(pos=(930,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=8), # windGust
+						MultiContentEntryPixmapAlphaBlend(pos=(873,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=23), # visibilityIcon
+						MultiContentEntryText(pos=(930,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=10), # visibility
+						MultiContentEntryText(pos=(1110,9), size=(405,90), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text=11), # shortDesc(text=12 is longDesc)
+						MultiContentEntryPixmapAlphaBlend(pos=(1110,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=14), # icon pressure
+						MultiContentEntryText(pos=(1170,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # pressure
+						MultiContentEntryPixmapAlphaBlend(pos=(1350,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=22), # uvIcon
+						MultiContentEntryText(pos=(1410,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=9), # uvIndex
+						]),
+						"reduced": (110, [
+						MultiContentEntryText(pos=(6,3), size=(171,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
+						MultiContentEntryPixmapAlphaBlend(pos=(150,3), size=(96,96), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=13), # weathericon
+						MultiContentEntryText(pos=(255,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
+						MultiContentEntryPixmapAlphaBlend(pos=(375,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=17), # icon humid
+						MultiContentEntryText(pos=(435,3), size=(150,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
+						MultiContentEntryPixmapAlphaBlend(pos=(525,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=19), # icon windSpd
+						MultiContentEntryText(pos=(585,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
+						MultiContentEntryText(pos=(735,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=7), # value windDir
+						MultiContentEntryText(pos=(855,3), size=(180,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # pressure
+						MultiContentEntryPixmapAlphaBlend(pos=(1050,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=22), # uvIcon
+						MultiContentEntryText(pos=(1110,3), size=(90,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=9), # uvIndex
+						MultiContentEntryText(pos=(1155,3), size=(285,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=11), # shortDesc(text=12 is longDesc)
+						],True)
+					},
+				"fonts": [gFont("Regular",32), gFont("Numbers",40)],}
+			</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="1530,150" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1605,665" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="2,145" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1240,670" size="300,270" zPosition="-9" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/sunrise.png" position="1635,305" size="50,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="sunrise" render="Label" position="1695,305" size="150,50" font="Numbers; 42" backgroundColor="background20" transparent="1" zPosition="3" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/sunset.png" position="1635,385" size="50,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="sunset" render="Label" position="1695,385" size="150,50" font="Numbers; 42" backgroundColor="background20" transparent="1" zPosition="3" halign="left" valign="center" />
+    <widget name="moonrisepix" position="1635,465" size="50,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="moonrise" render="Label" position="1695,465" size="150,50" font="Numbers; 42" backgroundColor="background20" transparent="1" zPosition="3" halign="left" valign="center" />
+    <widget name="moonsetpix" position="1635,545" size="50,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="moonset" render="Label" position="1695,545" size="150,50" font="Numbers; 42" backgroundColor="background20" transparent="1" zPosition="3" halign="left" valign="center" />
+    <widget alphatest="blend" render="OAWeatherPixmap" position="1610,625" size="55,55" source="session.OAWeather" transparent="1" zPosition="3" scale="1">
+      <convert type="OAWeather">moonphaseicon</convert>
+    </widget>
+    <widget noWrap="1" font="Numbers; 42" position="1675,625" size="170,55" backgroundColor="background20" zPosition="3" transparent="1" halign="left" valign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">moonillumination</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/moondist.png" position="1635,705" size="150,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget noWrap="1" font="Numbers; 42" position="1590,765" size="240,50" backgroundColor="background20" zPosition="3" transparent="1" halign="center" valign="center" render="Label" source="session.OAWeather">
+      <convert type="OAWeather">moondistance</convert>
+    </widget>
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/ch_plus-minus.png" position="1565,845" size="80,50" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="key_channel" render="Label" position="1660,845" size="240,50" font="Regular; 36" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <panel name="FullKeysMIHOK" />
+  </screen>
+  <!-- OAWeather Detail Frame -->
+  <screen name="OAWeatherDetailFrame" position="50,155" size="1480,770" zPosition="6" title="Weather Detailframe" flags="wfNoBorder" backgroundColor="background20">
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/background_detail.png" position="0,0" size="1480,770" zPosition="-1" transparent="1" alphatest="blend" scale="1" />
+    <widget name="icon" position="450,5" size="160,160" alphatest="blend" scaleFlags="scale" zPosition="1" />
+    <widget source="time" render="Label" position="630,45" size="630,80" font="Numbers; 80" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/temp.png" position="30,165" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="temp" render="Label" position="125,165" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/feels.png" position="755,165" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="feels" render="Label" position="850,165" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/hygrometer.png" position="30,250" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="humid" render="Label" position="125,250" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/umbrella.png" position="755,250" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="precip" render="Label" position="850,250" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/wind.png" position="30,335" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="windspeed" render="Label" position="125,335" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/compass.png" position="755,335" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="winddir" render="Label" position="850,335" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/windgust.png" position="30,420" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="windgusts" render="Label" position="125,420" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/binoculars.png" position="755,420" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="visibility" render="Label" position="850,420" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/barometer.png" position="30,505" size="80,80" zPosition="5" transparent="1" alphatest="blend" scale="1" />
+    <widget source="pressure" render="Label" position="125,505" size="615,80" font="Numbers;75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OAWeather/Images/uv_index.png" position="755,505" size="80,80" zPosition="3" transparent="1" alphatest="blend" scale="1" />
+    <widget source="uvindex" render="Label" position="850,505" size="615,80" font="Numbers; 75" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <widget source="shortdesc" render="Label" position="30,585" size="1435,90" font="Regular; 42" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" />
+    <widget source="longdesc" render="Label" position="30,675" size="1435,90" font="Regular; 42" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" halign="left" valign="center" noWrap="0" />
+  </screen>
+  <!-- WireguardVPN -->
+  <!-- Main Screen -->
+  <screen name="WireguardScreen" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="EventViewScreenT" />
+    <widget name="logo_wireguard" position="655,60" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="1080,85" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="logo" position="165,165" size="368,85" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="info_account" position="35,260" size="600,50" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="6" transparent="1" />
+    <widget name="reset" position="90,105" size="155,50" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="reset_label" position="156,105" size="450,50" backgroundColor="cyan1" font="Regular; 32" halign="center" valign="center" zPosition="5" transparent="1" />
+    <widget name="list" position="655,150" size="1200,650" font="RegularB;32" itemHeight="50" foregroundColor="white" backgroundColor="background20" foregroundColorSelected="white" backgroundColorSelected="clearcyan" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="logogreen" position="140,315" size="400,100" alphatest="blend" zPosition="4" transparent="1" />
+    <ePixmap pixmap="GACommon/infobar/infobar_bitrate.png" position="0,432" zPosition="2" size="645,50" alphatest="off" transparent="1" />
+    <widget name="flags" position="310,430" size="66,50" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="logoreceived" position="165,435" size="40,40" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="datareceived" position="60,490" size="250,45" backgroundColor="sky" font="Numbers; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="logosend" position="475,435" size="40,40" alphatest="blend" zPosition="5" transparent="1" />
+    <widget name="datasend" position="370,490" size="250,45" backgroundColor="sky" font="Numbers; 30" halign="center" zPosition="5" transparent="1" />
+    <widget name="vpnInfo" position="50,545" size="590,70" foregroundColor="white" backgroundColor="cyan1" font="RegularB; 34" halign="center" zPosition="5" transparent="1" />
+    <widget name="provLabel" position="50,615" size="590,110" foregroundColor="amarillo" backgroundColor="cyan1" halign="center" font="Numbers; 42" zPosition="5" transparent="1" />
+    <widget name="ping_text" position="50,725" size="590,50" font="Regular; 32" halign="center" zPosition="5" foregroundColor="white" backgroundColor="cyan1" transparent="1" />
+    <widget name="DateConnected" position="50,775" size="590,45" backgroundColor="cyan1" foregroundColor="white" font="Regular; 32" halign="center" zPosition="5" transparent="1" noWrap="1" />
+    <widget name="CheckKey" position="655,150" size="1200,700" backgroundColor="background20" foregroundColor="white" font="Regular;40" halign="center" zPosition="11" transparent="1" />
+    <widget name="updateon" position="50,825" size="590,100" font="RegularB; 34" halign="center" valign="center" foregroundColor="white" backgroundColor="cyan1" transparent="1" zPosition="5" />
+    <widget name="vpnLoad" position="965,420" size="570,160" backgroundColor="background20" foregroundColor="sky" font="RegularB;40" halign="center" zPosition="12" transparent="1" />
+    <widget name="vpnStatus" position="140,315" size="400,50" backgroundColor="turquoise" foregroundColor="white" font="RegularB; 40" halign="center" zPosition="6" transparent="1" valign="top" noWrap="1" />
+    <widget name="ip" position="140,365" size="400,50" font="Regular; 32" halign="center" zPosition="6" foregroundColor="white" backgroundColor="turquoise" transparent="1" noWrap="1" />
+    <widget name="TotServer" position="655,800" size="900,50" backgroundColor="background20" transparent="1" zPosition="9" font="RegularB; 32" halign="left" />
+    <widget name="Page" position="1555,800" size="300,50" backgroundColor="background20" transparent="1" zPosition="10" font="RegularB; 32" halign="right" />
+    <widget name="keyDns" position="1240,870" size="120,0" backgroundColor="background20" foregroundColor="cyan1" font="RegularB; 32" halign="center" valign="center" zPosition="14" transparent="1" />
+    <widget name="menu" position="655,870" size="120,0" backgroundColor="background20" foregroundColor="cyan1" font="RegularB;32" halign="center" valign="center" zPosition="14" transparent="1" scrollbarMode="showNever" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_big.png" position="655,840" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="pluginupdate" position="785,850" size="450,45" backgroundColor="black" font="Regular;30" halign="left" valign="center" zPosition="13" transparent="1" foregroundColor="cyan1" noWrap="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1240,840" size="120,60" alphatest="blend" zPosition="4" transparent="1" />
+    <widget name="CheckDns" position="1365,850" size="480,45" backgroundColor="background20" font="Regular;30" halign="left" valign="center" zPosition="15" transparent="1" foregroundColor="cyan1" noWrap="1" />
+    <widget name="search" position="1175,45" size="140,45" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="search_label" position="1225,45" size="440,45" backgroundColor="background20" font="Regular; 32" halign="left" valign="center" zPosition="4" transparent="1" />
+    <widget name="copy" position="1175,90" size="140,45" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="copy_label" position="1225,90" size="440,45" backgroundColor="background20" font="Regular; 32" halign="left" valign="center" zPosition="4" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <!-- Wireguard Configuration -->
+  <screen name="WireguardConfig" position="0,0" size="1920,1080" title="Wireguard Config" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="EventViewScreenT" />
+    <widget name="logo_wireguard" position="655,60" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="1080,85" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="logo" position="165,165" size="368,85" alphatest="blend" transparent="1" zPosition="6" />
+    <widget name="config" font="Regular; 32" position="656,143" size="1200,720" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="description" font="Regular; 30" backgroundColor="cyan1" position="53,270" size="580,545" halign="center" valign="top" transparent="1" zPosition="11" />
+    <widget name="HelpWindow" position="565,855" size="1320,90" zPosition="11" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <!-- Wireguard Speedtest -->
+  <screen name="WireguardSpeedtest" position="center,center" size="1950,1080" backgroundColor="transparent" title="Wireguard Speedtest" flags="wfNoBorder" resolution="1920,1080">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
+    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
+    <panel name="ClockLabel3" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/wireguard.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="255,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <ePixmap position="760,310" size="400,400" pixmap="GACommon/images/speedtest.png" alphatest="on" transparent="1" zPosition="5" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="555,710" size="810,45" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="555,815" size="810,45" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="65,465" size="300,270" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowbr.png" position="1531,430" size="300,270" zPosition="2" alphatest="blend" transparent="1" />
+    <ePixmap position="1495,465" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
+    <ePixmap position="345,465" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
+    <widget name="ip" position="80,145" size="620,320" font="RegularB; 40" foregroundColor="cyan" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="8" />
+    <widget name="host" position="560,810" size="800,50" font="RegularB; 38" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="5" />
+    <widget name="download" position="65,520" size="600,100" font="Regular;85" foregroundColor="yellow" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget name="upload" position="1230,520" size="600,100" font="Regular;85" foregroundColor="orange" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <ePixmap position="560,860" size="100,100" pixmap="GACommon/images/ping.png" alphatest="on" transparent="1" zPosition="5" scale="1" />
+    <widget name="ping" position="660,880" size="600,60" font="Regular;50" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget name="data" position="210,710" size="1500,100" font="Regular;36" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="center" zPosition="4" />
+    <widget source="session.CurrentService" render="Label" position="120,620" size="500,80" font="Regular;50" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="4">
+      <convert type="WireNetSpeedInfo">RC</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1285,620" size="500,80" font="Regular;50" foregroundColor="white" backgroundColor="background20" transparent="1" halign="center" zPosition="4">
+      <convert type="WireNetSpeedInfo">TM</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/images/lan.png" position="1420,185" size="200,200" alphatest="on" transparent="1" zPosition="6" scale="1">
+      <convert type="WireRouteInfo">Lan</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/images/wifi.png" position="1420,185" size="200,200" alphatest="on" transparent="1" zPosition="6" scale="1">
+      <convert type="WireRouteInfo">Wifi</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="1420,385" size="200,60" halign="center" font="Numbers; 50" foregroundColor="amarillo" backgroundColor="background20" zPosition="3" transparent="1">
+      <convert type="WireRouteInfo">Vpn</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_big.png" position="1300,900" size="120,60" alphatest="blend" zPosition="14" transparent="1" />
+    <widget name="keyList" position="1360,860" size="210,0" zPosition="11" font="RegularB; 32" halign="center" valign="center" foregroundColor="cyan1" backgroundColor="background20" transparent="1" scrollbarMode="showNever" />
+    <widget name="favServ" position="1425,900" size="460,60" zPosition="11" font="Regular; 32" halign="left" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" />
+    <panel name="FullKeysBT" />
+  </screen>
+  <!-- Wireguard Server Selection -->
+  <screen name="WireguardSpeedtestListServers" position="0,0" size="1920,1080" title="Wireguard Speedtest List Servers" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wireguard.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="wait" position="535,785" size="1305,80" backgroundColor="background20" font="RegularB; 32" halign="left" zPosition="13" transparent="1" valign="top" foregroundColor="amarillo" />
+    <widget name="list" font="Regular; 32" position="534,60" size="1320,720" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="introduction" font="RegularB; 32" backgroundColor="background20" position="535,785" size="1305,80" foregroundColor="sky" halign="left" valign="top" transparent="1" zPosition="11" />
+    <panel name="FullKeys3" />
+  </screen>
+  <screen name="WireguardScreenDns" position="0,0" size="1920,1080" title="Wireguard DNS" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wireguard.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="logo_wireguard" position="50,715" size="420,75" alphatest="blend" zPosition="3" transparent="1" />
+    <widget name="Version" position="205,790" size="90,50" backgroundColor="background20" font="Regular; 27" halign="left" zPosition="3" transparent="1" />
+    <widget name="list" font="Regular; 32" position="534,50" size="1320,810" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="CheckKey" font="RegularB; 45" backgroundColor="background20" position="534,50" size="1305,810" foregroundColor="sky" halign="left" valign="center" transparent="1" zPosition="11" />
+    <widget name="HelpWindow" position="540,870" size="1320,90" zPosition="11" transparent="1" />
+    <panel name="FullKeys3" />
+  </screen>
+  <screen name="WireguardSpeedtestListServersFav" position="center,center" size="1950,1080" backgroundColor="transparent" title="Wireguard Speedtest" flags="wfNoBorder" resolution="1920,1080">
+    <panel name="WireguardSpeedtest" />
+  </screen>
+  <!-- Wireguard Popup Message -->
+  <screen name="VpnWireguardScreen" position="0,200" zPosition="12" size="720,55" backgroundColor="transparent" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_timeshift.png" position="0,0" zPosition="-2" size="720,55" alphatest="off" />
+    <widget name="flags" position="50,10" size="45,35" alphatest="blend" transparent="1" zPosition="5" />
+    <widget name="MessageScreenIp" font="Regular; 33" position="100,2" zPosition="2" valign="center" halign="center" size="600,50" backgroundColor="background20" foregroundColor="amarillo" transparent="1" noWrap="1" />
+    <widget name="MessageScreen" font="Regular; 33" position="100,2" zPosition="5" valign="center" halign="center" size="600,50" backgroundColor="background20" foregroundColor="cyan1" transparent="1" noWrap="1" />
   </screen>
 </skin>

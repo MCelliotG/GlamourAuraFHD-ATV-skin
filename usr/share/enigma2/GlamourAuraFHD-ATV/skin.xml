@@ -252,7 +252,7 @@
     <!-- Crypt Info -->
     <panel name="CasInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherToday2" />
+    <panel name="WeatherToday" />
     <panel name="FullKeysTR" />
   </screen>
   <!-- 02. Second Infobar -->
@@ -277,7 +277,7 @@
     <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherF2" />
+    <panel name="WeatherForecast" />
     <panel name="FullKeysTR" />
   </screen>
   <!-- 03. Radio Infobar -->
@@ -384,7 +384,7 @@
     <ePixmap pixmap="GACommon/infobar/infobar_ecminfo.png" position="0,1030" zPosition="-2" size="1920,35" alphatest="off" transparent="1" />
     <panel name="ECMInfo" />
     <!-- Weather Info -->
-    <panel name="WeatherToday2" />
+    <panel name="WeatherToday" />
   </screen>
   <!-- ###MENUS -->
   <!-- 00. Menu General-->
@@ -776,6 +776,31 @@
     <widget source="session.CurrentService" render="Label" position="20,175" size="140,40" font="Numbers; 40" halign="left" foregroundColor="amarillo" backgroundColor="background90" transparent="1" zPosition="8" noWrap="1">
       <convert type="ServicePosition">Remaining,ShowHours</convert>
     </widget>
+  </screen>
+  <screen name="SeekBar" position="center,0" zPosition="12" size="1150,250" backgroundColor="transparent" flags="wfNoBorder">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,0" size="300,250" zPosition="-10" alphatest="blend" transparent="1" />
+    <eLabel name="menubig" position="0,0" size="1150,175" backgroundColor="background90" foregroundColor="background90" zPosition="-11" />
+    <ePixmap pixmap="GACommon/menu/menufadebottom2.png" position="0,175" zPosition="-11" size="1150,75" alphatest="off" transparent="1" />
+    <widget name="target" position="380,20" size="400,140" font="Numbers; 130" foregroundColor="amarillo" backgroundColor="background90" halign="center" valign="center" transparent="1" zPosition="7" />
+    <widget source="session.CurrentService" render="Progress" position="20,160" size="1110,12" pixmap="GlamourAuraFHD-ATV/pointers/pointer_main.png" alphatest="blend" transparent="1" zPosition="7">
+      <convert type="ServicePosition">Position</convert>
+    </widget>
+    <eLabel name="progressback" position="20,162" size="1110,3" backgroundColor="grey2" foregroundColor="grey" zPosition="2" />
+    <widget source="session.CurrentService" render="Label" position="20,175" size="140,40" font="Numbers; 40" halign="left" foregroundColor="amarillo" backgroundColor="background90" transparent="1" zPosition="8" noWrap="1">
+      <convert type="ServicePosition">Position,ShowHours</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="840,175" size="140,40" font="Numbers; 40" halign="right" foregroundColor="amarillo" backgroundColor="background90" zPosition="8" transparent="1" noWrap="1">
+      <convert type="ServicePosition">Remaining,ShowHours</convert>
+    </widget>
+    <eLabel text="/" position="980,175" size="25,40" font="Numbers; 40" halign="center" foregroundColor="amarillo" backgroundColor="background90" zPosition="8" transparent="1" noWrap="1" />
+    <widget source="session.CurrentService" render="Label" position="1004,175" size="140,40" font="Numbers; 40" halign="left" foregroundColor="amarillo" backgroundColor="background90" zPosition="8" transparent="1" valign="center" noWrap="1">
+      <convert type="ServicePosition">Length,ShowHours</convert>
+    </widget>
+    <widget source="session.CurrentService" render="PositionGauge" position="120,10" size="0,0" foregroundColor="grey" transparent="1">
+      <convert type="ServicePosition">Gauge</convert>
+    </widget>
+    <widget name="cursor" position="0,0" size="20,170" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" alphatest="blend" zPosition="6" />
+    <widget name="length" position="580,10" size="0,0" foregroundColor="white" backgroundColor="background90" font="Numbers; 130" halign="center" transparent="1" valign="top" zPosition="2" />
   </screen>
   <!-- 06. Task View -->
   <screen name="TaskView" position="0,0" size="1920,1080" title="Task View" flags="wfNoBorder" backgroundColor="transparent">
@@ -1560,16 +1585,16 @@
     <panel name="ScreenElements4" />
     <ePixmap pixmap="GACommon/images/audiosetup.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="config" font="Regular; 32" position="875,75" size="930,300" scrollbarMode="showOnDemand" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" transparent="1" zPosition="3" />
-    <widget source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="795,80" size="75,45" transparent="1" zPosition="3" alphatest="blend" scale="1">
+    <widget source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="815,80" size="45,45" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="795,130" size="75,45" transparent="1" zPosition="3" alphatest="blend" scale="1">
+    <widget source="key_green" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/green.png" position="815,130" size="45,45" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="795,180" size="75,45" transparent="1" zPosition="3" alphatest="blend" scale="1">
+    <widget source="key_yellow" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/yellow.png" position="815,180" size="45,45" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="795,230" size="75,45" transparent="1" zPosition="3" alphatest="blend" scale="1">
+    <widget source="key_blue" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/blue.png" position="815,230" size="45,45" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget name="key_left" position="805,380" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
@@ -1951,8 +1976,8 @@ if not self["videofps"].text:
   <screen name="MessageBox" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
     <widget name="icon" pixmaps="GACommon/icons/message/input_question.png,GACommon/icons/message/input_info.png,GACommon/icons/message/input_warning.png,GACommon/icons/message/input_error.png,GACommon/icons/message/input_message.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
     <panel name="ScreenElements6" />
-    <widget name="text" position="810,60" size="1050,480" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
-    <widget name="list" font="Regular; 32" position="810,540" size="1050,400" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
+    <widget name="text" position="810,60" size="1050,580" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
+    <widget name="list" font="Regular; 32" position="810,640" size="1050,300" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
   </screen>
   <!-- 06. MessageBox Simple -->
   <screen name="MessageBoxSimple" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
@@ -2018,6 +2043,7 @@ if not self["videofps"].text:
     <panel name="MovieD+P" flags="wfNoBorder" />
     <!-- MOVIE AND SERVICE INFOS -->
     <panel name="MovieServiceInfos" flags="wfNoBorder" />
+    <panel name="MoviePVRState" flags="wfNoBorder" />
   </screen>
   <!-- 02. Media player -->
   <screen name="MediaPlayer" position="center,center" size="1920,1080" title="Media player" backgroundColor="transparent" flags="wfNoBorder">
@@ -3019,7 +3045,7 @@ if not self["videofps"].text:
   <screen name="TimerEditList" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" rowSplit="50" timerNameFont="RegularB;30" statusFont="Regular;30" detailFont="Regular;28" topHeight="44" bottomHeight="44" indent="30" satPosLeft="250" iconWidth="44" iconHeight="44" iconMargin="10" statusOffset="0" setEventNameFont="Regular;30" setServiceNameFont="Regular;30" setFont="Regular;28" showSeparator="True" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
+    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" rowSplit="50" timerNameFont="RegularB;32" statusFont="Regular;32" detailFont="Regular;28" topHeight="45" bottomHeight="45" indent="30" satPosLeft="250" iconWidth="45" iconHeight="45" iconMargin="10" statusOffset="0" setEventNameFont="Regular;32" setServiceNameFont="Regular;32" setFont="Regular;28" showSeparator="True" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
     <widget name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
@@ -3027,8 +3053,9 @@ if not self["videofps"].text:
   <screen name="TimerEntry" position="0,0" size="1920,1080" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 32" position="540,75" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
-    <widget name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
+    <widget name="config" font="Regular; 32" position="540,50" size="1305,650" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="5" />
+    <widget name="description" position="540,700" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 32" zPosition="5" foregroundColor="sky" />
+    <widget name="HelpWindow" position="540,815" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 03. Timer Sanity Check -->
@@ -3042,7 +3069,10 @@ if not self["videofps"].text:
   </screen>
   <!-- 04. Timer Selection -->
   <screen name="TimerSelection" position="0,0" size="1920,1080" title="Timer selection" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="TimerEntry" />
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timer.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="timerlist" position="540,55" size="1305,810" itemHeight="90" rowSplit="50" timerNameFont="RegularB;32" statusFont="Regular;32" detailFont="Regular;28" topHeight="45" bottomHeight="45" indent="30" satPosLeft="250" iconWidth="45" iconHeight="45" iconMargin="10" statusOffset="0" setEventNameFont="Regular;32" setServiceNameFont="Regular;32" setFont="Regular;28" showSeparator="True" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
+    <panel name="FullKeys1" />
   </screen>
   <!-- 05. Timer Log -->
   <screen name="TimerLog" position="0,0" size="1920,1080" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">

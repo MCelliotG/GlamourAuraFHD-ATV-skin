@@ -1147,6 +1147,13 @@
     <widget source="options" render="Label" position="540,600" size="1305,80" halign="center" valign="center" font="Regular; 34" backgroundColor="background20" foregroundColor="amarillo" transparent="1" zPosition="6" />
     <widget name="description" position="540,280" size="1305,80" halign="center" valign="center" font="Regular; 32" backgroundColor="background20" foregroundColor="sky" transparent="1" zPosition="8" />
   </screen>
+  <screen name="Scripts" position="0,0" size="1920,1080" title="Multiboot" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/multiboot.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="header" position="535,60" size="1305,50" font="RegularB;40" backgroundColor="background20" foregroundColor="cyan" halign="center" valign="center" zPosition="5" transparent="1" />
+    <widget name="list" font="Regular; 32" position="535,120" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="FullKeys1" />
+  </screen>
   <!-- 18. CI SCREENS -->
   <screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />

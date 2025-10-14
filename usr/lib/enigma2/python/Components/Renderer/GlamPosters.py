@@ -353,7 +353,7 @@ class PostersDB(threading.Thread):
 			# Search and store image functions (without google searches)
 			search_functions = [
 				self.search_tmdb, self.search_tvdb, self.search_fanart,
-				self.search_imdb, self.search_filmy, self.search_tvmaze, self.search_impawards
+				self.search_imdb, self.search_tvmaze, self.search_impawards
 			]
 
 			# Search and store image functions (google searches)
@@ -709,61 +709,6 @@ class PostersDB(threading.Thread):
 			if os.path.exists(dwn_image):
 				os.remove(dwn_image)
 			return False, f"[ERROR : imdb] {title} [{chkType}-{year}] => {url_mimdb} ({str(e)})"
-
-#Filmy Search
-	@lru_cache(maxsize=500)
-	def search_filmy(self, dwn_image, title, shortdesc, fulldesc, usedImage, channel=None):
-		try:
-			# Check type
-			chkType, fd = self.checkType(shortdesc, fulldesc)
-			if chkType.startswith("tv"):
-				return False, f"[SKIP : filmy.gr] {title} (TV show detected, skipping filmy.gr)"
-			# Year extraction from fulldesc
-			year_matches = re.findall(r'\b(19\d{2}|20\d{2})\b', fulldesc)
-			year = year_matches[0] if year_matches else None
-			# Create URL
-			search_query = quote(title)  # Κωδικοποίηση του τίτλου για το URL
-			url_filmy = f"https://www.filmy.gr/?s={search_query}&post_type=amy_movie&amy_type=movie"
-			# Add year if available
-			if year:
-				url_filmy += f"&year={year}"
-
-			headers = {
-				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-			}
-
-			response = requests.get(url_filmy, headers=headers, timeout=10)
-			if response.status_code != 200:
-				return False, f"[ERROR : filmy.gr] {title} => {url_filmy} (HTTP {response.status_code})"
-			# Extract titles and images from HTML response
-			result_pattern = re.compile(r'<img[^>]+src="([^">]+)"[^>]+alt="([^">]+)"')
-			matches = result_pattern.findall(response.text)
-
-			if not matches:
-				return False, f"[SKIP : filmy.gr] {title} (No results found)"
-			# Choose best image by year and score
-			best_image = None
-			best_score = 0
-
-			for image_url, image_title in matches:
-				# Calculate score with PMATCH
-				score = self.PMATCH(title, image_title)
-				# Add score for year if available
-				if year and year in image_title:
-					score += 50
-
-				if score > best_score:
-					best_score = score
-					best_image = image_url
-
-			if best_image:
-				self.saveImage(dwn_image, best_image, usedImage)
-				return True, f"[SUCCESS : filmy.gr] {title} => {best_image} (Score: {best_score})"
-			else:
-				return False, f"[SKIP : filmy.gr] {title} (No suitable image found)"
-
-		except Exception as e:
-			return False, f"[ERROR : filmy.gr] {title} ({str(e)})"
 
 #IMPAwards Search
 	@lru_cache(maxsize=500)
@@ -1225,7 +1170,7 @@ class PosterAutoDB(PostersDB):
 								# Search and store image functions (without google searches)
 								search_functions = [
 									self.search_tmdb, self.search_tvdb, self.search_fanart,
-									self.search_imdb, self.search_filmy, self.search_tvmaze, self.search_impawards
+									self.search_imdb, self.search_tvmaze, self.search_impawards
 								]
 
 								# Search and store image functions (google searches)
