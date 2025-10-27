@@ -2560,18 +2560,18 @@
       <convert type="TemplatedMultiContent">
 				{"templates": # timestr, press, temp, feels, humid, precip, windSpd, windDir, shortDesc, longDesc, iconpix
 					{"default": (110,[
-						MultiContentEntryText(pos=(6,6), size=(171,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
+						MultiContentEntryText(pos=(5,0), size=(170,110), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
 						MultiContentEntryPixmapAlphaBlend(pos=(150,9), size=(96,96), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=13), # weathericon
-						MultiContentEntryPixmapAlphaBlend(pos=(258,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=15), # icon temp
-						MultiContentEntryText(pos=(318,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
-						MultiContentEntryPixmapAlphaBlend(pos=(258,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=17), # icon humid
-						MultiContentEntryText(pos=(318,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
+						MultiContentEntryPixmapAlphaBlend(pos=(260,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=15), # icon temp
+						MultiContentEntryText(pos=(320,3), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
+						MultiContentEntryPixmapAlphaBlend(pos=(260,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=17), # icon humid
+						MultiContentEntryText(pos=(320,63), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
 						MultiContentEntryPixmapAlphaBlend(pos=(450,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=16), # icon feels
-						MultiContentEntryText(pos=(510,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=3), # value feels
-						MultiContentEntryPixmapAlphaBlend(pos=(453,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=18), # icon precip
-						MultiContentEntryText(pos=(510,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # value precip
+						MultiContentEntryText(pos=(510,3), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=3), # value feels
+						MultiContentEntryPixmapAlphaBlend(pos=(455,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=18), # icon precip
+						MultiContentEntryText(pos=(510,63), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=5), # value precip
 						MultiContentEntryPixmapAlphaBlend(pos=(645,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=19), # icon windSpd
-						MultiContentEntryText(pos=(705,3), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
+						MultiContentEntryText(pos=(705,3), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
 						MultiContentEntryPixmapAlphaBlend(pos=(645,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=20), # windDirIcon
 						MultiContentEntryText(pos=(705,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=7), # value windDir
 						MultiContentEntryPixmapAlphaBlend(pos=(870,3), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=21), # windGustIcon
@@ -2582,21 +2582,21 @@
 						MultiContentEntryPixmapAlphaBlend(pos=(1110,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=14), # icon pressure
 						MultiContentEntryText(pos=(1170,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # pressure
 						MultiContentEntryPixmapAlphaBlend(pos=(1350,60), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=22), # uvIcon
-						MultiContentEntryText(pos=(1410,63), size=(150,48), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=9), # uvIndex
+						MultiContentEntryText(pos=(1410,63), size=(150,48), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=9), # uvIndex
 						]),
 						"reduced": (110, [
-						MultiContentEntryText(pos=(6,3), size=(171,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
-						MultiContentEntryPixmapAlphaBlend(pos=(150,3), size=(96,96), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=13), # weathericon
-						MultiContentEntryText(pos=(255,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
+						MultiContentEntryText(pos=(5,0), size=(170,110), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0), # timestr
+						MultiContentEntryPixmapAlphaBlend(pos=(150,9), size=(96,96), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=13), # weathericon
+						MultiContentEntryText(pos=(260,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2), # value temp
 						MultiContentEntryPixmapAlphaBlend(pos=(375,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=17), # icon humid
-						MultiContentEntryText(pos=(435,3), size=(150,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
+						MultiContentEntryText(pos=(435,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4), # value humid
 						MultiContentEntryPixmapAlphaBlend(pos=(525,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=19), # icon windSpd
-						MultiContentEntryText(pos=(585,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
-						MultiContentEntryText(pos=(735,3), size=(150,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=7), # value windDir
-						MultiContentEntryText(pos=(855,3), size=(180,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # pressure
+						MultiContentEntryText(pos=(585,3), size=(150,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=6), # value windSpd
+						MultiContentEntryText(pos=(735,3), size=(150,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=7), # value windDir
+						MultiContentEntryText(pos=(855,3), size=(180,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # pressure
 						MultiContentEntryPixmapAlphaBlend(pos=(1050,27), size=(48,48), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE, png=22), # uvIcon
 						MultiContentEntryText(pos=(1110,3), size=(90,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=9), # uvIndex
-						MultiContentEntryText(pos=(1155,3), size=(285,96), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=11), # shortDesc(text=12 is longDesc)
+						MultiContentEntryText(pos=(1155,3), size=(285,96), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=11), # shortDesc(text=12 is longDesc)
 						],True)
 					},
 				"fonts": [gFont("Regular",32), gFont("Numbers",40)],}
