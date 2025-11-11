@@ -1662,8 +1662,8 @@
     <widget source="session.CurrentService" render="Label" position="810,790" size="1050,60" font="RegularB; 36" valign="center" noWrap="1" backgroundColor="background20" transparent="1" zPosition="9" halign="center" foregroundColor="sky">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="810,890" size="1050,60" font="RegularB; 28" transparent="1" zPosition="5" foregroundColor="cyan" backgroundColor="background20" halign="center" valign="center" text="PidHexInfo">
-      <convert type="GlamourBase">PidInfo,Hex</convert>
+    <widget source="session.CurrentService" render="Label" position="810,890" size="1050,60" font="Numbers; 38" transparent="1" zPosition="5" foregroundColor="cyan" backgroundColor="background20" halign="center" valign="center">
+      <convert type="GlamourBase">PidInfoHex</convert>
     </widget>
     <widget source="session.CurrentService" render="Pixmap" position="1035,855" size="76,30" zPosition="4" pixmap="GlamourAuraFHD-ATV/icons/infobar/hd_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">VideoHeight</convert>
@@ -1893,6 +1893,9 @@ if not self["videofps"].text:
   <!-- 07. Graphical EPG PIG -->
   <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="GraphicalEPGPIGCommon" />
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,625" size="900,310" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
   </screen>
   <!-- 08. Movie EPG -->
   <screen name="MovieEpgSetup" position="0,0" size="1920,1080" title="MovieEpg Setup" flags="wfNoBorder" backgroundColor="transparent">

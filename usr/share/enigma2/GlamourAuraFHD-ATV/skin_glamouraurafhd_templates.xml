@@ -2000,9 +2000,15 @@
   <!-- 07. WEATHER -->
   <!-- 07-0 Weather Background -->
   <screen name="WeatherBackground" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/weather_back.png" position="50,0" zPosition="1" size="345,195" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1" />
-    <eLabel name="clockin" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/weather_back.png" position="50,0" zPosition="1" size="345,195" alphatest="off" transparent="1">
+      <convert type="OAWeather">city</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1">
+      <convert type="OAWeather">city</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Label" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" font="Regular;0">
+      <convert type="OAWeather">city</convert>
+    </widget>
   </screen>
   <screen name="WeatherLocation" flags="wfNoBorder">
     <widget source="session.OAWeather" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
@@ -2027,36 +2033,51 @@
     <widget source="session.OAWeather" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="background20">
       <convert type="OAWeather">temperature_low,day1</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <widget source="session.OAWeather" render="OAWeatherPixmap" position="150,60" size="60,60" zPosition="4" alphatest="blend">
       <convert type="OAWeather">weathericon,day1,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/humidity.png" position="230,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/humidity.png" position="230,120" zPosition="5" size="30,30" alphatest="blend" transparent="1">
+      <convert type="OAWeather">humidity</convert>
+    </widget>
     <widget source="session.OAWeather" render="Label" position="255,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="99%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">humidity</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/feelslike.png" position="150,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/feelslike.png" position="150,120" zPosition="5" size="30,30" alphatest="blend" transparent="1">
+      <convert type="OAWeather">feelslike</convert>
+    </widget>
     <widget source="session.OAWeather" render="Label" position="175,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="100F" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">feelslike</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/precipitation.png" position="310,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/precipitation.png" position="310,120" zPosition="5" size="30,30" alphatest="blend" transparent="1">
+      <convert type="OAWeather">precipitation,day1</convert>
+    </widget>
     <widget source="session.OAWeather" render="Label" position="335,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="98%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">precipitation,day1</convert>
     </widget>
     <widget source="session.OAWeather" render="Label" position="50,150" zPosition="4" size="345,65" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="top" foregroundColor="lightciel" backgroundColor="background20">
       <convert type="OAWeather">temperature_text,day1</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunrise.png" position="210,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="245,65" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="06:55" transparent="1" valign="top" foregroundColor="yellow" backgroundColor="background20" noWrap="1">
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunrise.png" position="210,65" zPosition="5" size="36,30" alphatest="blend" transparent="1">
       <convert type="OAWeather">sunrise</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunset.png" position="210,90" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
-    <widget source="session.OAWeather" render="Label" position="245,92" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="20:25" transparent="1" valign="top" foregroundColor="orange" backgroundColor="background20" noWrap="1">
+    <widget source="session.OAWeather" render="Label" position="245,65" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="srise" transparent="1" valign="top" foregroundColor="yellow" backgroundColor="background20" noWrap="1">
+      <convert type="OAWeather">sunrise</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunset.png" position="210,90" zPosition="5" size="36,30" alphatest="blend" transparent="1">
       <convert type="OAWeather">sunset</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/wind.png" position="300,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Label" position="245,92" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="sset" transparent="1" valign="top" foregroundColor="orange" backgroundColor="background20" noWrap="1">
+      <convert type="OAWeather">sunset</convert>
+    </widget>
+    <ePixmap />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/WeatherIcons/wind.png" position="300,65" zPosition="5" size="36,30" alphatest="blend" transparent="1">
+      <convert type="OAWeather">winddirsign</convert>
+    </widget>
     <widget source="session.OAWeather" render="Label" position="310,65" zPosition="6" size="85,30" font="Regular; 21" halign="center" text="Wind" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">winddirsign</convert>
+    </widget>
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1">
+      <convert type="OAWeather">windspeed</convert>
     </widget>
     <widget source="session.OAWeather" render="Label" position="310,90" zPosition="6" size="85,30" font="Numbers; 24" halign="center" text="Windsp" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">windspeed</convert>
@@ -2084,7 +2105,9 @@
     <widget source="session.OAWeather" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
       <convert type="OAWeather">temperature_text,day2</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1">
+      <convert type="OAWeather">temperature_text,day2</convert>
+    </widget>
     <!--/* DAY 3 -->
     <widget source="session.OAWeather" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
       <convert type="OAWeather">weekshortday,day3</convert>
@@ -2107,10 +2130,10 @@
   </screen>
   <!-- 07-3 OAWeather Infobar -->
   <screen name="WeatherOnInfobar" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
+    <widget source="session.OAWeather" render="Label" position="470,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
       <convert type="OAWeather">temperature_current</convert>
     </widget>
-    <widget source="session.OAWeather" render="OAWeatherPixmap" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
+    <widget source="session.OAWeather" render="OAWeatherPixmap" position="570,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
       <convert type="OAWeather">weathericon,current,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/small/,png</convert>
     </widget>
   </screen>
@@ -2708,7 +2731,7 @@
       <convert type="ServiceInfo">IsCrypted</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/fta.png" position="440,949" size="65,25" zPosition="2" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GACommon/caids/fta.png" position="395,949" size="65,25" zPosition="2" alphatest="blend" transparent="1">
       <convert type="GlamourAccess">Fta</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -2789,11 +2812,18 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- Resolution info -->
-    <widget source="session.CurrentService" render="Label" position="665,942" size="140,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="620,942" size="140,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">VideoSize</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="810,942" size="135,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="765,942" size="135,40" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="13" font="Numbers; 33" halign="center" valign="center" noWrap="1">
       <convert type="GlamourBase">Fps</convert>
+    </widget>
+    <!-- Network info -->
+    <widget source="session.CurrentService" render="GlamNetIcon" position="907,947" size="36,30" path="icons/network" alphatest="blend" transparent="1" zPosition="12">
+      <convert type="GlamourNetInfo">Icon</convert>
+    </widget>
+    <widget source="session.CurrentService" render="GlamNetIcon" position="934,965" size="10,12" path="icons/network" alphatest="blend" transparent="1" zPosition="13">
+      <convert type="GlamourNetInfo">WifiBandIcon</convert>
     </widget>
   </screen>
   <!-- Provider name and Reference -->
@@ -2878,30 +2908,38 @@
   </screen>
   <!-- CPU & Temp Infobar -->
   <screen name="CPUTempInfobar" flags="wfNoBorder">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,395" zPosition="-6" size="420,290" alphatest="off" transparent="1" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,420" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,420" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_cpu.png" position="0,355" zPosition="-6" size="420,370" alphatest="off" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cputemp.png" position="45,380" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,380" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="Temperature" noWrap="1">
       <convert type="GlamourExtra">Temperature</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,580" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,580" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1" foregroundColor="white">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/fanspeed.png" position="45,540" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,540" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="FanInfo" noWrap="1" foregroundColor="white">
       <convert type="GlamourExtra">FanInfo,Short</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,460" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuload.png" position="45,420" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,420" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="white" text="CPUload" halign="left" noWrap="1">
       <convert type="GlamourExtra">CPULoad</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,500" size="330,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,460" size="330,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
       <convert type="GlamCPU">All,Default</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,540" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,540" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,500" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
       <convert type="GlamourExtra">CPUSpeed</convert>
     </widget>
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/uptime.png" position="45,620" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Label" position="90,620" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="Uptime" halign="left" noWrap="1" foregroundColor="white">
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/uptime.png" position="45,580" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,580" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="Uptime" halign="left" noWrap="1" foregroundColor="white">
       <convert type="GlamourExtra">Uptime,Short</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ip_wan.png" position="45,620" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,620" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="External IP" halign="left" noWrap="1">
+      <convert type="GlamourNetInfo">ExternalIP</convert>
+    </widget>
+    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ip_lan.png" position="45,660" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Label" position="90,660" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="Internal IP" halign="left" noWrap="1">
+      <convert type="GlamourNetInfo">InternalIP</convert>
     </widget>
   </screen>
   <!-- HDD/USB Infopanel -->
@@ -3854,13 +3892,10 @@
       <convert type="EventTime">Progress</convert>
     </widget>
     <ePixmap position="845,620" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowtr.png" transparent="1" alphatest="blend" />
-    <ePixmap position="233,681" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,620" size="900,330" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
+    <ePixmap position="233,667" size="300,270" zPosition="-10" pixmap="GlamourAuraFHD-ATV/menu/accentglowbl.png" transparent="1" alphatest="blend" />
     <widget name="list" position="240,180" size="1620,360" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="240,180" size="1620,360" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
-    <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" foregroundColor="yellow" />
+    <widget name="timeline_text" position="240,135" size="1620,45" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 32" itemHeight="50" foregroundColor="yellow" scrollbarMode="showNever" />
     <eLabel position="240,180" size="1620,3" backgroundColor="cyan1" zPosition="22" />
     <widget name="timeline_now" position="255,181" zPosition="9" size="18,360" pixmap="GlamourAuraFHD-ATV/menu/timeline-now.png" transparent="1" alphatest="blend" />
     <widget name="timeline0" position="255,180" size="1,360" pixmap="GlamourAuraFHD-ATV/menu/timeline.png" zPosition="8" />
@@ -4026,9 +4061,6 @@
     <eLabel position="1310,608" size="410,1" backgroundColor="grey2" zPosition="5" foregroundColor="darkgrey" />
     <widget source="Event" render="Progress" position="1310,605" size="410,7" pixmap="GlamourAuraFHD-ATV/pointers/pointer_infobar.png" transparent="1" zPosition="11">
       <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,655" size="715,260" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
-      <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Event" render="Label" position="1430,615" size="180,35" font="Regular; 27" backgroundColor="background20" foregroundColor="cyan" transparent="1" halign="center" valign="center" zPosition="7">
       <convert type="EventTime">Remaining</convert>
