@@ -1,4 +1,4 @@
-#GlamBitrate converter (Python 3)
+#GlamourBitrate converter (Python 3)
 #Modded and recoded by MCelliotG for use in Glamour skins or standalone
 #If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
@@ -12,7 +12,7 @@ from Components.ServiceEventTracker import ServiceEventTracker
 BITRATE_BINARY_PATH = 'bitrate'
 binaryfound = shutil.which(BITRATE_BINARY_PATH) is not None
 
-class GlamBitrate(Converter, object):
+class GlamourBitrate(Converter, object):
 	VIDEOBITRATE = -1
 	AUDIOBITRATE = 0
 	VCUR = 1
@@ -49,25 +49,25 @@ class GlamBitrate(Converter, object):
 
 	def initBitrate(self):
 		if not binaryfound:
-			print("[GlamBitrate] Bitrate binary not found!")
+			print("[GlamourBitrate] Bitrate binary not found!")
 			return
-		print("[GlamBitrate] Using bitrate binary.")
+		print("[GlamourBitrate] Using bitrate binary.")
 		self.timer.start(1000, True)  # Refresh rate
 
 	def clearValues(self):
-		print("[GlamBitrate] Clearing values.")
+		print("[GlamourBitrate] Clearing values.")
 		self.vmin = self.vmax = self.vavg = self.vcur = 0
 		self.amin = self.amax = self.aavg = self.acur = 0
 		Converter.changed(self, (self.CHANGED_POLL,))
 
 	def serviceChanged(self):
-		print("[GlamBitrate] Service changed, checking PIDs.")
+		print("[GlamourBitrate] Service changed, checking PIDs.")
 		vpid, apid = self.getServicePIDs()
 		if vpid <= 0 and apid <= 0:
-			print("[GlamBitrate] No valid PIDs found, clearing values.")
+			print("[GlamourBitrate] No valid PIDs found, clearing values.")
 			self.clearValues()
 		else:
-			print("[GlamBitrate] Valid PIDs found, restarting bitrate process.")
+			print("[GlamourBitrate] Valid PIDs found, restarting bitrate process.")
 			self.startBitrateProcess()
 
 	def getCurrentlyPlayingServiceReference(self):
@@ -95,9 +95,9 @@ class GlamBitrate(Converter, object):
 				streamdata = service.stream().getStreamingData()
 				adapter = streamdata.get('adapter', 0)
 				demux = streamdata.get('demux', 0)
-				print(f"[GlamBitrate] Adapter: {adapter}, Demux: {demux}")
+				print(f"[GlamourBitrate] Adapter: {adapter}, Demux: {demux}")
 			except Exception as e:
-				print(f"[GlamBitrate] Error getting adapter/demux: {e}")
+				print(f"[GlamourBitrate] Error getting adapter/demux: {e}")
 		return adapter, demux
 
 	def stopBitrateProcess(self):
@@ -112,10 +112,10 @@ class GlamBitrate(Converter, object):
 		adapter, demux = self.getAdapterAndDemux()
 		if vpid == 0 and apid == 0:
 			self.clearValues()
-			print("[GlamBitrate] Invalid PIDs, clearing values.")
+			print("[GlamourBitrate] Invalid PIDs, clearing values.")
 			return
 		cmd = f"{BITRATE_BINARY_PATH} {adapter} {demux} {vpid} {apid}"
-		print(f"[GlamBitrate] Executing: {cmd}")
+		print(f"[GlamourBitrate] Executing: {cmd}")
 		self.container.execute(cmd)
 
 	@staticmethod
@@ -125,7 +125,7 @@ class GlamBitrate(Converter, object):
 	def processOutput(self, data):
 		try:
 			output = data.decode('utf-8').strip()
-			print(f"[GlamBitrate] Raw Output: {output}")
+			print(f"[GlamourBitrate] Raw Output: {output}")
 			lines = output.split("\n")
 			if len(lines) >= 2:
 				vdata = [int(x) if x.isdigit() else 0 for x in lines[0].split()]
@@ -138,12 +138,12 @@ class GlamBitrate(Converter, object):
 					setattr(self, attr, self.sanitize(getattr(self, attr)))
 				# ------------------------------------------------------
 
-				print(f"[GlamBitrate] Video - Min: {self.vmin}, Max: {self.vmax}, Avg: {self.vavg}, Cur: {self.vcur}")
-				print(f"[GlamBitrate] Audio - Min: {self.amin}, Max: {self.amax}, Avg: {self.aavg}, Cur: {self.acur}")
+				print(f"[GlamourBitrate] Video - Min: {self.vmin}, Max: {self.vmax}, Avg: {self.vavg}, Cur: {self.vcur}")
+				print(f"[GlamourBitrate] Audio - Min: {self.amin}, Max: {self.amax}, Avg: {self.aavg}, Cur: {self.acur}")
 				Converter.changed(self, (self.CHANGED_POLL,))
 		except Exception as e:
 			self.clearValues()
-			print(f"[GlamBitrate] Error processing bitrate output: {e}")
+			print(f"[GlamourBitrate] Error processing bitrate output: {e}")
 
 	def updateBitrate(self):
 		if binaryfound:

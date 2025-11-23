@@ -53,7 +53,7 @@
     </widget>
   </screen>
   <screen name="EMCExtra" flags="wfNoBorder">
-    <widget source="session.CurrentService" position="665,905" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="665,905" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
   </screen>

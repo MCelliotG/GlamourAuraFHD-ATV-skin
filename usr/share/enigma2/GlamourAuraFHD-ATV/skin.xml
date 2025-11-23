@@ -292,7 +292,7 @@
     <!-- Service info and icons -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_icons.png" position="350,942" zPosition="-3" size="1570,40" alphatest="off" transparent="1" />
     <ePixmap pixmap="GACommon/icons/audio/audio_off.png" position="1538,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" position="1538,947" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1538,947" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/rec_off.png" position="1320,947" zPosition="1" size="49,30" alphatest="blend" />
@@ -338,7 +338,7 @@
     </widget>
     <!-- Bitrate and CPU info -->
     <widget source="session.CurrentService" render="Label" position="1615,890" size="260,35" font="Numbers; 33" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">Audio:  %ACUR kbit/s</convert>
+      <convert type="GlamourBitrate">Audio:  %ACUR kbit/s</convert>
     </widget>
     <!-- MIDDLE INFOBAR MAIN INFO -->
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="350,708" zPosition="-1" size="1570,130" alphatest="off" transparent="1" />
@@ -361,10 +361,10 @@
     <panel name="WeatherToday" />
     <!-- WEATHER Current Temp on Infobar -->
     <widget source="global.CurrentTime" render="Label" position="1175,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
-      <convert type="GlamMSNWeather">Temp</convert>
+      <convert type="GlamourMSNWeather">Temp</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="1275,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
-      <convert type="GlamMSNWeather">Picon</convert>
+      <convert type="GlamourMSNWeather">Picon</convert>
     </widget>
   </screen>
   <!-- 04. Subservices Quickzap -->
@@ -987,7 +987,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/audio/audio_off.png" position="380,833" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" position="380,833" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="380,833" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/rec_off.png" position="565,795" zPosition="1" size="49,30" alphatest="blend" transparent="1" />
@@ -1006,7 +1006,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Label" position="656,830" size="130,35" font="Numbers; 33" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="cyan" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">A:%ACUR kb/s</convert>
+      <convert type="GlamourBitrate">A:%ACUR kb/s</convert>
     </widget>
     <widget source="RdsDecoder" render="Label" position="760,790" size="920,40" font="LCDA; 38" halign="center" valign="center" foregroundColor="cyan" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
       <convert type="RdsInfo">RadioText</convert>
@@ -1687,7 +1687,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/audio/audio_off.png" position="1120,855" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" position="1120,855" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1120,855" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/wide_off.png" position="1310,855" size="54,30" zPosition="3" alphatest="blend" transparent="1" />
@@ -2072,7 +2072,7 @@ if not self["videofps"].text:
     <widget source="session.CurrentService" render="Label" position="1600,270" size="180,45" zPosition="2" font="Numbers; 40" halign="right" backgroundColor="background20" noWrap="1" transparent="1" foregroundColor="cyan1">
       <convert type="ServicePosition">Length,ShowHours</convert>
     </widget>
-    <widget source="session.CurrentService" position="1220,275" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1220,275" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <widget name="albumtext" position="700,420" size="165,45" font="Regular; 32" valign="center" backgroundColor="turquoise" transparent="1" halign="left" zPosition="4" />
@@ -2165,7 +2165,7 @@ if not self["videofps"].text:
     <widget source="Service" render="Label" position="50,80" size="580,90" zPosition="9" foregroundColor="black" font="Caps; 36" halign="center" transparent="1" backgroundColor="grey2" valign="center">
       <convert type="MovieInfo">RecordServiceName</convert>
     </widget>
-    <widget source="session.CurrentService" position="1540,90" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1540,90" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1540,40" size="90,45" alphatest="blend" zPosition="4" transparent="1" />

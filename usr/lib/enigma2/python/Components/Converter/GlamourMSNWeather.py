@@ -49,7 +49,7 @@ if weather_location == 'en-EN':
 time_update = 30
 time_update_ms = 3000
 
-class GlamMSNWeather(Poll, Converter, object):
+class GlamourMSNWeather(Poll, Converter, object):
 
 	VFD = 1
 	DATE = 2

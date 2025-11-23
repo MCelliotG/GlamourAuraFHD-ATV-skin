@@ -1,21 +1,25 @@
-﻿#GlamourBase converter (Python 3)
-#Modded and recoded by MCelliotG for use in Glamour skins or standalone
-#If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+﻿# GlamourBase converter (Python 3)
+# Modded and recoded by MCelliotG for use in Glamour skins or standalone
+# If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
-from ServiceReference import ServiceReference, resolveAlternate 
-from enigma import eAVControl, iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceCenter
+from ServiceReference import ServiceReference
+from enigma import eAVControl, iServiceInformation, iPlayableService
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
-import os.path
 import re
+
+# -------------------------------------------------------------------
+# Helpers / globals
+# -------------------------------------------------------------------
 
 def sp(text):
 	if text:
-		text += " "
-	return text
+		return text + " "
+	return ""
+
 
 # codec map
 codecs = {
@@ -272,6 +276,35 @@ satnames = (
 	(-176.7, -177.4, "NSS 9")
 )
 
+_SAT_XML_CACHE = None
+_SAT_XML_RE = re.compile(r'<sat name="(.*?)" position="(-?\d+)"')
+_SAT_XML_PATH = "/etc/tuxbox/satellites.xml"
+
+
+def _load_satellite_xml():
+	global _SAT_XML_CACHE
+	if _SAT_XML_CACHE is not None:
+		return
+	cache = {}
+	try:
+		with open(_SAT_XML_PATH, "r", encoding="utf-8") as f:
+			for line in f:
+				m = _SAT_XML_RE.search(line)
+				if m:
+					try:
+						pos = int(m.group(2))
+						cache[pos] = m.group(1)
+					except ValueError:
+						continue
+	except Exception:
+		cache = {}
+	_SAT_XML_CACHE = cache
+
+
+# -------------------------------------------------------------------
+# GlamourBase Converter
+# -------------------------------------------------------------------
+
 class GlamourBase(Poll, Converter, object):
 	TYPE_MAP = {
 		"FreqInfo": 0, "Orbital": 1, "ResCodec": 2,
@@ -295,13 +328,13 @@ class GlamourBase(Poll, Converter, object):
 		Poll.__init__(self)
 		self.poll_interval = 1000
 		self.poll_enabled = True
-		self.list = []
 		self.tp = None
 		self.tpinfo = None
 		self.tpDataUpdate = None
 		self.type = self.TYPE_MAP.get(type, 0)
 
-######### COMMON VARIABLES #################
+	# ------- COMMON VARIABLES / HELPERS -------
+
 	def _read_value(self, path, base=16):
 		try:
 			with open(path, "r") as f:
@@ -311,54 +344,66 @@ class GlamourBase(Poll, Converter, object):
 
 	def videowidth(self, info):
 		width = self._read_value("/proc/stb/vmpeg/0/xres")
-		if width is None or width in {-1, 4294967295}:
+		if width is None or width in (-1, 4294967295):
 			width = eAVControl.getInstance().getResolutionX(0)
-		return width if width not in {-1, 4294967295} else ""
+		return width if width not in (-1, 4294967295) else ""
 
 	def videoheight(self, info):
 		height = self._read_value("/proc/stb/vmpeg/0/yres")
-		if height is None or height in {-1, 4294967295}:
+		if height is None or height in (-1, 4294967295):
 			height = eAVControl.getInstance().getResolutionY(0)
-		return height if height not in {-1, 4294967295} else ""
+		return height if height not in (-1, 4294967295) else ""
 
 	def proginfo(self, info):
 		progrs = self._read_value("/proc/stb/vmpeg/0/progressive")
 		if progrs is None or progrs == -1:
 			progrs = eAVControl.getInstance().getProgressive()
-		return "p" if progrs == 1 else "i" if progrs == 0 else ""
+		if progrs == 1:
+			return "p"
+		if progrs == 0:
+			return "i"
+		return ""
 
 	def videosize(self, info):
-		xres, yres, prog = self.videowidth(info), self.videoheight(info), self.proginfo(info)
-		return f"{xres}x{yres}{prog}" if xres and yres and prog else ""
+		xres = self.videowidth(info)
+		yres = self.videoheight(info)
+		prog = self.proginfo(info)
+		if xres and yres and prog:
+			return f"{xres}x{yres}{prog}"
+		return ""
 
 	def framerate(self, info):
 		fps = self._read_value("/proc/stb/vmpeg/0/framerate", base=10)
 		if fps is None or fps <= 0 or fps == -1:
 			fps = eAVControl.getInstance().getFrameRate(0)
-		return f"{fps / 1000:.3f}".rstrip("0").rstrip(".") + " fps" if fps and fps != -1 else ""
-
+		if fps and fps != -1:
+			val = f"{fps / 1000:.3f}".rstrip("0").rstrip(".")
+			return f"{val} fps"
+		return ""
 
 	def videocodec(self, info):
-		vcodec = codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
-		return vcodec
+		return codecs.get(info.getInfo(iServiceInformation.sVideoType), "N/A")
 
 	def hdr(self, info):
 		gamma_map = {0: "SDR", 1: "HDR", 2: "HDR10", 3: "HLG"}
-		gamma = gamma_map.get(info.getInfo(iServiceInformation.sGamma), "")
-		return gamma
+		return gamma_map.get(info.getInfo(iServiceInformation.sGamma), "")
 
 	def frequency(self, tp):
-		freq = tp.get("frequency", 0) + 500
+		freq = (tp.get("frequency") or 0) + 500
 		return str(freq // 1000) if freq else ""
 
 	def terrafreq(self, tp):
-		return str((tp.get("frequency", 0) + 1) // 1000000) if tp else ""
+		if not tp:
+			return ""
+		return str(((tp.get("frequency") or 0) + 1) // 1000000)
 
 	def channel(self, tpinfo):
 		return str(tpinfo.get("channel", ""))
 
 	def symbolrate(self, tp):
-		return str(tp.get("symbol_rate", 0) // 1000) if tp else ""
+		if not tp:
+			return ""
+		return str((tp.get("symbol_rate") or 0) // 1000)
 
 	def polarization(self, tpinfo):
 		return str(tpinfo.get("polarization_abbreviation", ""))
@@ -382,55 +427,66 @@ class GlamourBase(Poll, Converter, object):
 		return str(tp.get("tuner_type", "")) if tp else ""
 
 	def terrafec(self, tpinfo):
-		return f"LP:{tpinfo.get('code_rate_lp', '')} HP:{tpinfo.get('code_rate_hp', '')} GI:{tpinfo.get('guard_interval', '')}"
+		return (
+			f"LP:{tpinfo.get('code_rate_lp', '')} "
+			f"HP:{tpinfo.get('code_rate_hp', '')} "
+			f"GI:{tpinfo.get('guard_interval', '')}"
+		)
 
 	def plpid(self, tpinfo):
 		plpid = tpinfo.get("plp_id", 0)
-		return f"PLP ID:{plpid}" if plpid not in (None, -1) else ""
+		if plpid in (None, -1):
+			return ""
+		return f"PLP ID:{plpid}"
 
 	def t2mi_info(self, tpinfo):
 		t2mi_id = tpinfo.get("t2mi_plp_id")
 		t2mi_pid = tpinfo.get("t2mi_pid")
 		if t2mi_id in (None, -1) or t2mi_pid == 0:
 			return ""
-		t2mi_id = f"T2MI PLP {t2mi_id}" if t2mi_id is not None else ""
-		t2mi_pid = f"PID {t2mi_pid}" if t2mi_pid not in (None, "None") else ""
-		return sp(t2mi_id) + sp(t2mi_pid)
+		id_str = f"T2MI PLP {t2mi_id}" if t2mi_id is not None else ""
+		pid_str = f"PID {t2mi_pid}" if t2mi_pid not in (None, "None") else ""
+		return sp(id_str) + sp(pid_str)
 
 	def multistream(self, tpinfo):
 		isid = str(tpinfo.get("is_id", 0))
 		plscode = str(tpinfo.get("pls_code", 0))
 		plsmode = str(tpinfo.get("pls_mode", "None"))
+
 		if plsmode in ("None", "Unknown"):
 			plsmode = ""
 		if plsmode in ("Gold", "Root", "Combo") and plscode == "0":
 			plsmode = ""
+
 		isid = "" if isid in ("None", "-1", "0") else f"IS:{isid}"
 		plscode = "" if plscode in ("None", "-1", "0") else plscode
-		if not any([isid, plscode, plsmode]):
+
+		if not (isid or plscode or plsmode):
 			return ""
+
 		return sp(isid) + sp(plsmode) + sp(plscode)
- 
+
 	def satname(self, tp):
 		sat = "Satellite:"
-		orb = int(tp.get("orbital_position"))
+		orb = int(tp.get("orbital_position") or 0)
+		if not orb:
+			return sat
+
 		orbe = orb / 10.0
 		orbw = (orb - 3600) / 10.0
+
 		for min_pos, max_pos, name in satnames:
 			if min_pos <= orbe <= max_pos or max_pos <= orbw <= min_pos:
 				return name
-		try:
-			with open("/etc/tuxbox/satellites.xml", "r", encoding="utf-8") as f:
-				for line in f:
-					match = re.search(r'<sat name="(.*?)" position="(-?\d+)"', line)
-					if match and int(match.group(2)) == orb:
-						return match.group(1)
-		except Exception:
-			pass
+
+		# satellites.xml fallback (cached)
+		_load_satellite_xml()
+		if _SAT_XML_CACHE:
+			return _SAT_XML_CACHE.get(orb, sat)
 		return sat
 
 	def orbital(self, tp):
-		orbp = tp.get("orbital_position", 0)
+		orbp = tp.get("orbital_position", 0) or 0
 		if orbp > 1800:
 			return f"{(3600 - orbp) / 10:.1f}°W"
 		return f"{orbp / 10:.1f}°E"
@@ -439,6 +495,7 @@ class GlamourBase(Poll, Converter, object):
 		ref = info.getInfoString(iServiceInformation.sServiceref).lower()
 		if "%3a/" in ref or ":/" in ref:
 			return ref.replace("%3a", ":")
+		return None
 
 	def streamtype(self, info):
 		ref = self.reference(info)
@@ -459,7 +516,9 @@ class GlamourBase(Poll, Converter, object):
 		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
 		if "%3a/" in streamref or ":/" in streamref:
 			streamurl = streamref.split(":")[10].replace("%3a", ":")
-			return f"{streamurl[:79]}..." if len(streamurl) > 80 else streamurl
+			if len(streamurl) > 80:
+				return streamurl[:79] + "..."
+			return streamurl
 		return ""
 
 	def format_pid(self, pid, prefix, mode):
@@ -467,27 +526,30 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 		decval = f"{pid:04d}"
 		hexval = f"{pid:04X}"
-		formats = {
-			"Dec": f"{prefix}:{decval}",
-			"Hex": f"{prefix}:{hexval}",
-			"DecHex": f"{prefix}:{decval}({hexval})"
-		}
-		return formats.get(mode, "")
+		if mode == "Dec":
+			return f"{prefix}:{decval}"
+		if mode == "Hex":
+			return f"{prefix}:{hexval}"
+		if mode == "DecHex":
+			return f"{prefix}:{decval}({hexval})"
+		return ""
 
 	@cached
 	def getText(self):
 		service = self.source.service
 		if service is None:
 			return ""
-		info = service and service.info()
+		info = service.info()
 		if not info:
 			return ""
+
 		if self.tpDataUpdate:
 			feinfo = service.frontendInfo()
 			if feinfo:
 				self.tp = feinfo.getAll(config.usage.infobar_frontend_source.value == "settings")
 				if self.tp:
 					self.tpinfo = ConvertToHumanReadable(self.tp)
+
 		tp = self.tp
 		if not tp:
 			tp = info.getInfoObject(iServiceInformation.sTransponderData)
@@ -511,14 +573,31 @@ class GlamourBase(Poll, Converter, object):
 				return self.streamurl(info)
 			tunertype = self.tunertype(tp)
 			if "DVB-S" in tunertype:
-				satf = f"{self.frequency(tp)} {self.polarization(tpinfo)} {self.system(tpinfo)} {self.modulation(tpinfo)} {self.symbolrate(tp)} {self.fecinfo(tpinfo)}"
+				satf = (
+					f"{self.frequency(tp)} "
+					f"{self.polarization(tpinfo)} "
+					f"{self.system(tpinfo)} "
+					f"{self.modulation(tpinfo)} "
+					f"{self.symbolrate(tp)} "
+					f"{self.fecinfo(tpinfo)}"
+				)
 				if any(k in tpinfo for k in ("is_id", "pls_code", "pls_mode", "t2mi_plp_id")):
 					return sp(satf) + self.multistream(tpinfo) + self.t2mi_info(tpinfo)
 				return satf
 			if "DVB-C" in tunertype:
-				return f"{self.frequency(tp)} MHz {self.modulation(tpinfo)} SR: {self.symbolrate(tp)} FEC: {self.fecinfo(tpinfo)}"
+				return (
+					f"{self.frequency(tp)} MHz "
+					f"{self.modulation(tpinfo)} "
+					f"SR: {self.symbolrate(tp)} "
+					f"FEC: {self.fecinfo(tpinfo)}"
+				)
 			if "DVB-T" in tunertype:
-				terf = f"{self.channel(tpinfo)} ({self.terrafreq(tp)} MHz)  {self.constellation(tpinfo)}  {self.terrafec(tpinfo)}"
+				terf = (
+					f"{self.channel(tpinfo)} "
+					f"({self.terrafreq(tp)} MHz)  "
+					f"{self.constellation(tpinfo)}  "
+					f"{self.terrafec(tpinfo)}"
+				)
 				if "DVB-T2" in tunertype:
 					return sp(terf) + self.plpid(tpinfo)
 				return terf
@@ -564,20 +643,21 @@ class GlamourBase(Poll, Converter, object):
 		pidtypes_mapping = {
 			self.PIDINFODEC: "Dec",
 			self.PIDINFOHEX: "Hex",
-			self.PIDINFODECHEX: "DecHex"
+			self.PIDINFODECHEX: "DecHex",
 		}
 
 		if self.type in pidtypes_mapping:
 			pid_type = pidtypes_mapping[self.type]
-			return " ".join([
+			parts = [
 				self.format_pid(vpid, "VPID", pid_type),
 				self.format_pid(apid, "APID", pid_type),
 				self.format_pid(sid, "SID", pid_type),
 				self.format_pid(pcr, "PCR", pid_type),
 				self.format_pid(pmt, "PMT", pid_type),
 				self.format_pid(tsid, "TSID", pid_type),
-				self.format_pid(onid, "ONID", pid_type)
-			])
+				self.format_pid(onid, "ONID", pid_type),
+			]
+			return " ".join(p for p in parts if p)
 
 		return ""
 
@@ -589,23 +669,31 @@ class GlamourBase(Poll, Converter, object):
 		info = service and service.info()
 		if not info:
 			return False
-		xresol = info.getInfo(iServiceInformation.sVideoWidth) if info.getInfo(iServiceInformation.sVideoWidth) != -1 else eAVControl.getInstance().getResolutionX(0)
-		yresol = info.getInfo(iServiceInformation.sVideoHeight) if info.getInfo(iServiceInformation.sVideoHeight) != -1 else eAVControl.getInstance().getResolutionY(0)
+
+		xresol = info.getInfo(iServiceInformation.sVideoWidth)
+		if xresol == -1:
+			xresol = eAVControl.getInstance().getResolutionX(0)
+
+		yresol = info.getInfo(iServiceInformation.sVideoHeight)
+		if yresol == -1:
+			yresol = eAVControl.getInstance().getResolutionY(0)
+
 		progrs = self.proginfo(info)
 		vcodec = self.videocodec(info)
 		streamurl = self.streamurl(info)
 		gamma = self.hdr(info)
+
 		resolutions = {
 			self.IS2160: (2160 <= xresol <= 5150) and (1570 <= yresol <= 2170),
-			self.IS1440: (1430 <= yresol <= 1450),
+			self.IS1440: 1430 <= yresol <= 1450,
 			self.IS1080: (1320 <= xresol <= 3840) and (780 <= yresol <= 1090),
-			self.IS720: (601 <= yresol <= 740),
-			self.IS576: (501 <= yresol <= 600),
-			self.IS480: (380 <= yresol <= 500),
-			self.IS360: (300 <= yresol <= 379),
-			self.IS288: (261 <= yresol <= 299),
-			self.IS240: (181 <= yresol <= 260),
-			self.IS144: (120 <= yresol <= 180),
+			self.IS720: 601 <= yresol <= 740,
+			self.IS576: 501 <= yresol <= 600,
+			self.IS480: 380 <= yresol <= 500,
+			self.IS360: 300 <= yresol <= 379,
+			self.IS288: 261 <= yresol <= 299,
+			self.IS240: 181 <= yresol <= 260,
+			self.IS144: 120 <= yresol <= 180,
 		}
 		videoinfos = {
 			self.ISPROGRESSIVE: progrs == "p",
@@ -631,7 +719,9 @@ class GlamourBase(Poll, Converter, object):
 			self.ISHDR10: gamma == "HDR10",
 			self.ISHLG: gamma == "HLG",
 		}
-		return resolutions.get(self.type, videoinfos.get(self.type, False))
+		if self.type in resolutions:
+			return resolutions[self.type]
+		return videoinfos.get(self.type, False)
 
 	boolean = property(getBoolean)
 

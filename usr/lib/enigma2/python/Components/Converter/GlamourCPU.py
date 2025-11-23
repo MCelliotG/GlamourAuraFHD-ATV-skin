@@ -1,4 +1,4 @@
-# GlamCPU converter (Python 3)
+# GlamourCPU converter (Python 3)
 # Modded and recoded by MCelliotG for use in Glamour skins or standalone
 # If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
@@ -6,7 +6,7 @@ from Components.Converter.Converter import Converter
 from Components.Converter.Poll import Poll
 from Components.Element import cached
 
-class GlamCPU(Converter, object):
+class GlamourCPU(Converter, object):
 	CPU_ALL = -2
 	CPU_TOTAL = -1
 
