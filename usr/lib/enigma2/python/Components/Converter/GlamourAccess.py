@@ -14,7 +14,13 @@ old_ecm_mtime = None
 try:
 	config.softcam_actCam = ConfigText()
 	config.softcam_actCam2 = ConfigText()
-except:
+except Exception:
+	pass
+
+try:
+	config.glamour = ConfigSubsection()
+	config.glamour.freely = ConfigText(default="FTA service")
+except Exception:
 	pass
 
 cainfo = (
@@ -188,6 +194,7 @@ cainfo = (
 	("FFFE", "FFFE", "Trophyaccess")
 )
 
+
 class GlamourAccess(Poll, Converter):
 	CAID, PID, BETACAS, IRDCAS, SECACAS, VIACAS, NAGRACAS, CRWCAS, NDSCAS, CONAXCAS, DRCCAS, BISSCAS, BULCAS, VMXCAS, PWVCAS, TBGCAS, TGFCAS, PANCAS, EXSCAS, CGDCAS, VCRCAS = range(21)
 	BETAECM, IRDECM, SECAECM, VIAECM, NAGRAECM, CRWECM, NDSECM, CONAXECM, DRCECM, BISSECM, BULECM, VMXECM, PWVECM, TBGECM, TGFECM, PANECM, EXSECM, CGDECM, VCRECM = range(21, 40)
@@ -215,6 +222,11 @@ class GlamourAccess(Poll, Converter):
 		self.type = self.TYPE_MAP.get(type, self.FORMAT)
 		if self.type == self.FORMAT:
 			self.sfmt = type[:]
+
+	def resetCaches(self):
+		global info, old_ecm_mtime
+		info = {}
+		old_ecm_mtime = None
 
 	@cached
 	def getBoolean(self):
@@ -251,8 +263,8 @@ class GlamourAccess(Poll, Converter):
 			self.VMXCAS: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
 			self.PWVCAS: [("0E00", "0EFF")],
 			self.TBGCAS: [("1000", "10FF")],
-			self.TGFCAS: [("4B00", "4B09"), ("4AF6")],
-			self.PANCAS: [("4AFC")],
+			self.TGFCAS: [("4B00", "4B09"), ("4AF6", "4AF6")],
+			self.PANCAS: [("4AFC", "4AFC")],
 			self.EXSCAS: [("2700", "27FF")],
 			self.RUSCAS: [("A100", "A1FF"), ("44A0", "44A0")],
 			self.CODICAS: [("2200", "22FF")],
@@ -277,9 +289,15 @@ class GlamourAccess(Poll, Converter):
 				frm = str(ecm_info.get("from", ""))
 				using = str(ecm_info.get("using", ""))
 				source = str(ecm_info.get("source", ""))
-				caid = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
+				try:
+					caid = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
+				except Exception:
+					caid = ""
+
+				if self.type == self.BETAECM and caid in ("1702", "1722", "1762"):
+					return True
+
 				ecm_caid_ranges = {
-					self.BETAECM: ["1702", "1722", "1762"],
 					self.IRDECM: [("0600", "06FF")],
 					self.SECAECM: [("0100", "01FF")],
 					self.VIAECM: [("0500", "05FF")],
@@ -289,25 +307,31 @@ class GlamourAccess(Poll, Converter):
 					self.CONAXECM: [("0B00", "0BFF")],
 					self.DRCECM: [("4A00", "4AE9"), ("5000", "50FF"), ("7BE0", "7BE1"), ("0700", "07FF"), ("4700", "47FF")],
 					self.BISSECM: [("2600", "26FF")],
-					self.BULECM: [("4AEE"), ("5501", "55FF")],
+					self.BULECM: [("4AEE", "4AEE"), ("5501", "55FF")],
 					self.VMXECM: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
 					self.PWVECM: [("0E00", "0EFF")],
 					self.TBGECM: [("1000", "10FF")],
-					self.TGFECM: [("4B00", "4B09"), ("4AF6")],
-					self.PANECM: [("4AFC")],
+					self.TGFECM: [("4B00", "4B09"), ("4AF6", "4AF6")],
+					self.PANECM: [("4AFC", "4AFC")],
 					self.EXSECM: [("2700", "27FF")],
 					self.CGDECM: [("4AEA", "4AEA"), ("1EC0", "1ECF")],
-					self.VCRECM: [("5448", "5449"), ("7AC8")],
+					self.VCRECM: [("5448", "5449"), ("7AC8", "7AC8")],
 				}
 				if self.type in ecm_caid_ranges:
-					for valid_caid in ecm_caid_ranges[self.type]:
-						if isinstance(valid_caid, tuple):
-							if valid_caid[0] <= caid <= valid_caid[1]:
+					for valid_caid_range in ecm_caid_ranges[self.type]:
+						if isinstance(valid_caid_range, tuple):
+							start, end = valid_caid_range
+							if start <= caid <= end:
 								return True
-						elif valid_caid == caid:
+						elif valid_caid_range == caid:
 							return True
 
-				if int(config.usage.show_cryptoinfo.value) == 0:
+				try:
+					show_crypto = int(config.usage.show_cryptoinfo.value)
+				except Exception:
+					show_crypto = 0
+
+				if show_crypto == 0:
 					return False
 
 				if self.type == self.CRD:
@@ -317,9 +341,7 @@ class GlamourAccess(Poll, Converter):
 					return source == "cache" or reader == "Cache" or "cache" in frm
 
 				if self.type == self.EMU:
-					return using == "emu" or source in {"emu", "card"} or reader == "emu" or \
-						any(x in source for x in {"card", "emu", "biss", "tb"}) or \
-						"constant_cw" in reader or any(x in protocol for x in {"constcw", "static"})
+					return using == "emu" or source in {"emu", "card"} or reader == "emu" or any(x in source for x in {"card", "emu", "biss", "tb"}) or "constant_cw" in reader or any(x in protocol for x in {"constcw", "static"})
 
 				if self.type == self.NET:
 					return source == "net" and all(x not in protocol for x in {"unsupported", "static", "fta"}) and "cache" not in frm
@@ -345,11 +367,11 @@ class GlamourAccess(Poll, Converter):
 			info = service.info() if service else None
 
 			if self.type == self.CRYPTINFO:
-				if os.path.exists(ecmpath):
+				if ecmpath and os.path.exists(ecmpath):
 					try:
-						caid = f"{int(ecm_info.get('caid', ''), 16):04X}"
+						_ = f"{int(ecm_info.get('caid', ''), 16):04X}"
 						return caidname
-					except:
+					except Exception:
 						return "Unknown CA Info"
 				return "CA Info not available"
 
@@ -365,44 +387,62 @@ class GlamourAccess(Poll, Converter):
 				if caids or ecm_info:
 					if caids:
 						caidtxt = self.CaidTxtList()
-						caids = [f"{int(cas):04X}" for cas in caids]
+						caids = [f"{int(cas):04X}" for cas in caids]  # форматирование CAID в 4-значный HEX
 
 					if ecm_info:
-						caid = f"{int(ecm_info.get('caid', ''), 16):04X}"
+						try:
+							caid = f"{int(ecm_info.get('caid', ''), 16):04X}"  # CAID
+						except Exception:
+							caid = ""
 
 						if self.type == self.CAID:
 							return caid
 
-						pid = f"{int(ecm_info.get('pid', ''), 16):04X}" if ecm_info.get('pid') else ""
+						# PID
+						pid = ""
+						if ecm_info.get("pid"):
+							try:
+								pid = f"{int(ecm_info.get("pid", ''), 16):04X}"
+							except Exception:
+								pid = ""
 						if self.type == self.PID:
 							return pid
 
-						prov = f"{int(ecm_info.get('prov', ''), 16):06X}" if ecm_info.get('prov') else ecm_info.get('prov', "")
+						# Provider ID (Prov)
+						prov = ecm_info.get("prov", "")
+						if prov:
+							try:
+								prov = f"{int(prov, 16):06X}"
+							except Exception:
+								prov = str(prov)
 						if self.type == self.PROV:
 							return prov
 
 						ecm_time = ""
 						if "ecm time" in ecm_info:
-							if "msec" in ecm_info["ecm time"]:
-								ecm_time = ecm_info["ecm time"].replace("msec", "ms")
+							t = ecm_info["ecm time"]
+							if "msec" in t:
+								ecm_time = t.replace("msec", "ms")
 							else:
-								ecm_time = f"{ecm_info['ecm time'].replace('.', '').lstrip('0')} ms"
+								ecm_time = f"{t.replace('.', '').lstrip('0')} ms"
 						if self.type == self.ECMTIME:
 							return ecm_time
 
 						csi = f"Service with {caidtxt} encryption"
 						casi = f"Service with {caidtxt} encryption ({caidlist})"
+
 						protocol = ecm_info.get("protocol", "")
 						port = ecm_info.get("port", "")
 						source = ecm_info.get("source", "")
 						server = ecm_info.get("server", "")
 
-						hop = ecm_info.get("hops", "")
-						if hop and hop.isdigit() and int(hop) > 0:
-							hop = str(hop)
-							hops = f" Hops: {hop}"
+						# Проверка на hops, только если значение > 0
+						hop_value = str(ecm_info.get("hops", "")).strip()
+						if hop_value.isdigit() and int(hop_value) > 0:
+							hops = f" Hops: {hop_value}"
 						else:
-							hops = hop = ""
+							hop_value = ""
+							hops = ""
 
 						system = ecm_info.get("system", "")
 						frm = ecm_info.get("from", "")
@@ -418,6 +458,17 @@ class GlamourAccess(Poll, Converter):
 						if len(reader) > 36:
 							reader = f"{reader[:35]}..."
 
+						try:
+							hide_server_attr = getattr(getattr(config, "softcam", None), "hideServerName", None)
+							hide_server = bool(hide_server_attr and hide_server_attr.value)
+						except Exception:
+							hide_server = False
+
+						if hide_server:
+							server = ""
+							frm = ""
+							reader = ""
+
 						if self.type == self.CRDTXT:
 							return "True" if source == "sci" or (source not in {"cache", "net"} and "emu" not in source) else "False"
 
@@ -428,112 +479,133 @@ class GlamourAccess(Poll, Converter):
 							ecminfo = ""
 							params = self.sfmt.split(" ")
 							for param in params:
-								if param != "":
-									if param[0] != "%":
-										ecminfo += param
-									elif param == "%S":
-										ecminfo += server
-									elif param == "%H":
-										ecminfo += hops
-									elif param == "%SY":
-										ecminfo += system
-									elif param == "%PV":
-										ecminfo += provider
-									elif param == "%SP":
-										ecminfo += port
-									elif param == "%PR":
-										ecminfo += protocol
-									elif param == "%C":
-										ecminfo += caid
-									elif param == "%P":
-										ecminfo += pid
-									elif param == "%p":
-										ecminfo += prov
-									elif param == "%O":
-										ecminfo += source
-									elif param == "%R":
-										ecminfo += reader
-									elif param == "%FR":
-										ecminfo += frm
-									elif param == "%T":
-										ecminfo += ecm_time
-									elif param == "%t":
-										ecminfo += "\t"
-									elif param == "%n":
-										ecminfo += "\n"
-									elif param[1:].isdigit():
-										ecminfo = ecminfo.ljust(len(ecminfo) + int(param[1:]))
-									if len(ecminfo) > 0 and ecminfo[-1] not in ["\t", "\n"]:
-										ecminfo += " "
+								if not param:
+									continue
+								if param[0] != "%":
+									ecminfo += param
+								elif param == "%S":
+									ecminfo += server
+								elif param == "%H":
+									ecminfo += hops
+								elif param == "%SY":
+									ecminfo += system
+								elif param == "%PV":
+									ecminfo += provider
+								elif param == "%SP":
+									ecminfo += port
+								elif param == "%PR":
+									ecminfo += protocol
+								elif param == "%C":
+									ecminfo += caid
+								elif param == "%P":
+									ecminfo += pid
+								elif param == "%p":
+									ecminfo += prov
+								elif param == "%O":
+									ecminfo += source
+								elif param == "%R":
+									ecminfo += reader
+								elif param == "%FR":
+									ecminfo += frm
+								elif param == "%T":
+									ecminfo += ecm_time
+								elif param == "%t":
+									ecminfo += "\t"
+								elif param == "%n":
+									ecminfo += "\n"
+								elif param[1:].isdigit():
+									ecminfo = ecminfo.ljust(len(ecminfo) + int(param[1:]))
+								if ecminfo and ecminfo[-1] not in ("\t", "\n"):
+									ecminfo += " "
 							return ecminfo.rstrip()
 
-						if self.type in [self.ECMINFO, self.SHORTINFO, self.CASINFO]:
-								if "fta" in protocol:
-									ecminfo = "FTA service"
-								elif int(config.usage.show_cryptoinfo.value) > 0:
-									if self.type == self.SHORTINFO:
-										if source == "emu":
-											ecminfo = f"{caid}:{prov} - {source} - {caidname}"
-										elif not server and not port:
-											ecminfo = f"{caid}:{prov} - {source} - {ecm_time}"
-										else:
-											try:
-												if reader:
-													ecminfo = f"{caid}:{prov} - {frm} ({hop}) - {ecm_time}" if hop else f"{caid}:{prov} - {frm} - {ecm_time}"
+						if self.type in (self.ECMINFO, self.SHORTINFO, self.CASINFO):
+							try:
+								show_crypto = int(config.usage.show_cryptoinfo.value)
+							except Exception:
+								show_crypto = 0
+
+							if "fta" in protocol:
+								ecminfo = "FTA service"
+							elif show_crypto > 0:
+								if self.type == self.SHORTINFO:
+									if source == "emu":
+										ecminfo = f"{caid}:{prov} - {source} - {caidname}"
+									elif not server and not port:
+										ecminfo = f"{caid}:{prov} - {source} - {ecm_time}"
+									else:
+										try:
+											if reader:
+												if hop_value:
+													ecminfo = f"{caid}:{prov} - {frm} ({hop_value}) - {ecm_time}"
 												else:
-													ecminfo = f"{caid}:{prov} - {server} ({hop}) - {ecm_time}" if hop else f"{caid}:{prov} - {server} - {ecm_time}"
-											except:
-												pass
-
-									elif self.type == self.CASINFO:
-										if source == "emu" or not server and not port:
-											ecminfo = f"{csi} [{caid}:{prov} - {source} - {ecm_time}]"
-										else:
-											try:
-												if reader:
-													ecminfo = f"{csi} [{caid}:{prov} - {reader}@{hop} - {ecm_time}]" if hop else f"{csi} [{caid}:{prov} - {reader} - {ecm_time}]"
+													ecminfo = f"{caid}:{prov} - {frm} - {ecm_time}"
+											else:
+												if hop_value:
+													ecminfo = f"{caid}:{prov} - {server} ({hop_value}) - {ecm_time}"
 												else:
-													ecminfo = f"{csi} [{caid}:{prov} - {server}@{hop} - {ecm_time}]" if hop else f"{csi} [{caid}:{prov} - {server} - {ecm_time}]"
-											except:
-												pass
-
-									elif self.type == self.ECMINFO:
-										if source == "emu":
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Source: {source}@{frm}  Ecm Time: {ecm_time}"
-										elif reader and source == "net" and port:
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Prtc:{protocol} ({source})  Source: {server}:{port} {hops}  Ecm Time: {ecm_time}  {provider}"
-										elif reader and source == "net" and "fta" not in protocol:
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Ptrc:{protocol} ({source})  Source: {server} {hops}  Ecm Time: {ecm_time}  {provider}"
-										elif reader and source != "net":
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Prtc:{protocol} (local) - {source} {hops}  Ecm Time: {ecm_time}  {provider}"
-										elif not server and not port and protocol:
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Prtc: {protocol} ({source}) {hops} Ecm Time: {ecm_time}"
-										elif not server and not port and not protocol:
-											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Source: {source}  Ecm Time: {ecm_time}"
-										else:
-											try:
-												ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Addr:{server}:{port}  Prtc: {protocol} ({source}) {hops}  Ecm Time: {ecm_time}  {provider}"
-											except:
-												pass
-								else:
-									ecminfo = casi
-
-					elif self.type == self.ECMINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
+													ecminfo = f"{caid}:{prov} - {server} - {ecm_time}"
+										except Exception:
+											pass
+								elif self.type == self.CASINFO:
+									if source == "emu" or not server and not port:
+										ecminfo = f"{csi} [{caid}:{prov} - {source} - {ecm_time}]"
+									else:
+										try:
+											if reader:
+												if hop_value:
+													ecminfo = f"{csi} [{caid}:{prov} - {reader}@{hop_value} - {ecm_time}]"
+												else:
+													ecminfo = f"{csi} [{caid}:{prov} - {reader} - {ecm_time}]"
+											else:
+												if hop_value:
+													ecminfo = f"{csi} [{caid}:{prov} - {server}@{hop_value} - {ecm_time}]"
+												else:
+													ecminfo = f"{csi} [{caid}:{prov} - {server} - {ecm_time}]"
+										except Exception:
+											pass
+								elif self.type == self.ECMINFO:
+									if source == "emu":
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Source: {source}@{frm}  Ecm Time: {ecm_time}"
+									elif reader and source == "net" and port:
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Prtc:{protocol} ({source})  Source: {server}:{port}{hops}  Ecm Time: {ecm_time}  {provider}"
+									elif reader and source == "net" and "fta" not in protocol:
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Ptrc:{protocol} ({source})  Source: {server}{hops}  Ecm Time: {ecm_time}  {provider}"
+									elif reader and source != "net":
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Reader: {reader}@{frm}  Prtc:{protocol} (local) - {source}{hops}  Ecm Time: {ecm_time}  {provider}"
+									elif not server and not port and protocol:
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Prtc: {protocol} ({source}){hops} Ecm Time: {ecm_time}"
+									elif not server and not port and not protocol:
+										ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Source: {source}  Ecm Time: {ecm_time}"
+									else:
+										try:
+											ecminfo = f"CA: {caid}:{prov}  PID:{pid}  Addr:{server}:{port}  Prtc: {protocol} ({source}){hops}  Ecm Time: {ecm_time}  {provider}"
+										except Exception:
+											pass
+							else:
+								ecminfo = casi
+					elif self.type == self.ECMINFO or (self.type == self.FORMAT and self.sfmt.count("%") > 3):
 						ecminfo = f"Service with {caidtxt} encryption ({caidlist})"
-					elif self.type == self.SHORTINFO or self.type == self.CASINFO:
+					elif self.type in (self.SHORTINFO, self.CASINFO):
 						ecminfo = f"Service with {caidtxt} encryption"
-				elif self.type == self.ECMINFO or self.type == self.SHORTINFO or self.type == self.CASINFO or self.type == self.FORMAT and self.sfmt.count("%") > 3:
-					ecminfo = "FTA service"
+				elif self.type in (self.ECMINFO, self.SHORTINFO, self.CASINFO) or (self.type == self.FORMAT and self.sfmt.count("%") > 3):
+					try:
+						text = config.glamour.freely.value
+						ecminfo = text if text.strip() else "FTA service"
+					except Exception:
+						ecminfo = "FTA service"
+
+		if self.type in (self.ECMINFO, self.SHORTINFO, self.CASINFO):
+			ecminfo = self.splitInfoLines(ecminfo, self.type)
 		return ecminfo
 
 	text = property(getText)
 
-	# Helper function for reading lines from a file
 	def read_file(self, file_path):
 		try:
-			with open(file_path) as f:
+			with open(file_path, "r") as f:
 				return f.readlines()
-		except:
+		except Exception:
 			return []
 
 	def CamName(self):
@@ -545,127 +617,205 @@ class GlamourAccess(Poll, Converter):
 		sername = []
 
 		# OpenPLI/SatDreamGr
-		if os.path.exists("/etc/init.d/softcam") and not os.path.exists("/etc/image-version") or os.path.exists("/etc/init.d/cardserver") and not os.path.exists("/etc/image-version"):
+		if os.path.exists("/etc/init.d/softcam") and not os.path.exists("/etc/image-version"):
 			lines = self.read_file("/etc/init.d/softcam")
 			for line in lines:
 				if line.startswith("CAMNAME="):
 					cam1 = line.split('"')[1]
 				elif "echo" in line:
 					camdname.append(line)
-			if camdname:
+			if camdname and not cam1:
 				cam2 = camdname[1].split('"')[1]
 			camdlist = cam1 if cam1 else cam2
 			if not camdlist:
 				camdlist = ""
-			serlist = self.read_cardserver()
-			return f"{serlist} {camdlist}" if camdlist else "No active softcam"
+			if os.path.exists("/etc/init.d/cardserver"):
+				lines = self.read_file("/etc/init.d/cardserver")
+				for line in lines:
+					if line.startswith("CAMNAME="):
+						serlist = line.split('"')[1]
+					elif "echo" in line:
+						sername.append(line)
+				if sername and not serlist:
+					serlist = sername[1].split('"')[1]
+			try:
+				if serlist:
+					return f"{serlist} {camdlist}"
+			except Exception:
+				pass
+			return camdlist
 
-		# OE-A (OpenATV)
+		# OpenVix, OpenATV, OpenESI, PurE2
 		if os.path.exists("/etc/image-version") and not os.path.exists("/etc/.emustart"):
-			lines = self.read_file("/etc/enigma2/settings")
-			active_softcam = ""
-			for line in lines:
-				if line.startswith("config.misc.softcams="):
-					active_softcam = line.split('=')[1].strip()
-					break
-			# Alternative search method for softcam name
-			if not active_softcam or active_softcam.lower() == "none":
-				softcam_init_file = "/etc/init.d/softcam"
-				if os.path.exists(softcam_init_file):
-					with open(softcam_init_file, "r") as f:
-						for line in f:
-							if "Short-Description:" in line:
-								active_softcam = line.split(":")[1].strip()
-								break
-			if not active_softcam or active_softcam.lower() in {"nocam", "none"}:
-				return "No active softcam"
-			active_softcam = active_softcam.capitalize()
-			if "oscam" in active_softcam.lower() or "ncam" in active_softcam.lower():
-				version_file = "/tmp/.oscam/oscam.version" if "oscam" in active_softcam.lower() else "/tmp/.ncam/ncam.version"
-				if os.path.exists(version_file):
-					version = self.read_version_from_file(version_file)
-					if "oscam" in active_softcam.lower() and "@" in version:
-						version = f"v.{version.split('-')[1].split('@')[0]}"
-					elif "oscam" in active_softcam.lower() and "svn" in version:
-						version = version.split('_')[1]
-					return f"{active_softcam} {version}"
-			return active_softcam
+			try:
+				with open("/etc/enigma2/settings", "r") as f:
+					for line in f:
+						if "config.misc.softcams=" in line:
+							active_softcam = line.split("=", 1)[1].strip()
+							if not active_softcam or active_softcam.lower() == "none":
+								if os.path.exists("/etc/init.d/softcam"):
+									with open("/etc/init.d/softcam", "r") as f2:
+										for line in f2:
+											if "Short-Description:" in line:
+												active_softcam = line.split(":", 1)[1].strip()
+												break
+							if not active_softcam or active_softcam.lower() in ("nocam", "none"):
+								return "No active softcam"
+							active_softcam_cap = active_softcam.capitalize()
+							lower_softcam = active_softcam.lower()
+							if "oscam" in lower_softcam or "ncam" in lower_softcam:
+								if "oscam" in lower_softcam:
+									version_file = "/tmp/.oscam/oscam.version"
+								else:
+									version_file = "/tmp/.ncam/ncam.version"
+								if os.path.exists(version_file):
+									with open(version_file, "r") as vf:
+										version = ""
+										for line in vf:
+											if "Version:" in line:
+												version = line.split(":", 1)[1].strip()
+												break
+									if version:
+										if "oscam" in active_softcam.lower():
+											if "@" in version:
+												version = f"v.{version.split('-')[1].split('@')[0]}"
+											elif "svn" in version:
+												version = version.split("_")[1]
+										active_softcam_cap = f"{active_softcam_cap} {version}"
+							return active_softcam_cap
+			except Exception:
+				pass
+			return "No active softcam"
 
-		# Handle other cases (BLACKHOLE, HDMU, Domica, etc.)
+		# BlackHole/Pli-based images
 		if os.path.exists("/etc/CurrentDelCamName"):
 			camdlist = self.read_file("/etc/CurrentDelCamName")
 		elif os.path.exists("/etc/CurrentBhCamName"):
 			camdlist = self.read_file("/etc/CurrentBhCamName")
 		elif os.path.exists("/etc/BhFpConf"):
 			camdlist = self.read_file("/etc/BhCamConf")
+		else:
+			camdlist = None
 
+		# Egami
 		if os.path.exists("/etc/.emustart") and os.path.exists("/etc/image-version"):
-			lines = self.read_file("/etc/.emustart")
-			if lines:
-				return lines[0].split()[0].split("/")[-1]
+			try:
+				with open("/etc/.emustart", "r") as f:
+					camdlist = f.readline().split()[0].split("/")[-1]
+				return camdlist
+			except Exception:
+				pass
 
-		# Additional checks for specific systems
 		if os.path.exists("/tmp/egami.inf"):
-			return self.read_egami_info("/tmp/egami.inf")
+			try:
+				with open("/tmp/egami.inf", "r") as f:
+					return f.readline().strip()
+			except Exception:
+				pass
 
-		# Others
 		if serlist:
-			cardserver = self.read_lines(serlist)
+			try:
+				with open(serlist, "r") as f:
+					cardserver = f.read()
+			except Exception:
+				cardserver = "N/A"
 		else:
 			cardserver = "N/A"
 		if camdlist:
-			emu = self.read_lines(camdlist)
+			try:
+				emu = "".join(camdlist)
+			except Exception:
+				emu = "No active softcam"
 		else:
 			emu = "No active softcam"
-		
-		return f"{cardserver.split('\n')[0]} {emu.split('\n')[0]}"
+		try:
+			card_line = cardserver.split("\n")[0]
+		except Exception:
+			card_line = ""
+		try:
+			emu_line = emu.split("\n")[0]
+		except Exception:
+			emu_line = ""
+		return f"{card_line} {emu_line}"
 
-	# Helper method to read lines
-	def read_lines(self, file_path):
-		with open(file_path, "r") as f:
-			return f.readlines()
-
-	# Read version from a file
-	def read_version_from_file(self, file_path):
-		lines = self.read_file(file_path)
-		for line in lines:
-			if line.startswith("Version:"):
-				return line.split(':')[1].strip()
-		return ""
-
-	# Helper function for extracting CAID name from a list of ranges
 	def get_caid_name(self, caidr):
 		for ce in cainfo:
 			try:
 				if ce[0] <= caidr <= ce[1] or caidr.startswith(ce[0]):
 					return ce[2]
-			except:
+			except Exception:
 				pass
 		return ""
 
-	def Caids(self):
-		caids = ""
+	def formatProviderForCAID(self, caid_hex, provid):
+		if not caid_hex:
+			return ""
+		if not provid:
+			return caid_hex
+		provid = str(provid).upper().replace("0X", "").strip()
+		if provid in ("0000", "FFFF", "000000", "FFFFFF"):
+			return caid_hex
+		if caid_hex.startswith("01"):
+			return f"{caid_hex}:{provid[-4:]}"
+		if caid_hex.startswith("18"):
+			return f"{caid_hex}:{provid[-4:]}"
+		if caid_hex.startswith("05"):
+			return f"{caid_hex}:{provid[-6:]}"
+		return caid_hex
+
+	def CaidList(self):
 		service = self.source.service
+		value = ""
 		if service:
 			info = service.info()
 			if info:
-				caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
-		return sorted(caids)
+				caidpids = info.getInfoObject(iServiceInformation.sCAIDPIDs)
+				if caidpids:
+					results = []
+					for entry in caidpids:
+						try:
+							caid, pid, provid = entry
+						except Exception:
+							continue
+						try:
+							caid_hex = f"{int(caid):04X}"
+						except Exception:
+							try:
+								caid_hex = f"{int(str(caid), 16):04X}"
+							except Exception:
+								continue
+						provid_str = ""
+						if isinstance(provid, str):
+							provid_str = provid.strip()
+						elif provid not in (None, ""):
+							try:
+								provid_str = f"{int(provid):X}"
+							except Exception:
+								provid_str = ""
+						formatted = self.formatProviderForCAID(caid_hex, provid_str)
+						if formatted:
+							results.append(formatted)
+					if results:
+						unique = sorted(set(results))
+						value = ", ".join(unique)
+						return value
 
-	def CaidList(self):
 		caids = self.Caids()
 		if caids:
 			caidlist = ", ".join(("{:04x}".format(x) for x in caids)).upper()
 			return caidlist
+
 		return ""
 
 	def CaidName(self):
 		ecm_info = self.ecmfile()
-		caidname = ""
 		if ecm_info:
-			caidr = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
-			caidname = self.get_caid_name(caidr)
-		return caidname
+			try:
+				caidr = ("%0.4X" % int(ecm_info.get("caid", ""), 16))[:4]
+				return self.get_caid_name(caidr)
+			except Exception:
+				return ""
+		return ""
 
 	def CaidNames(self):
 		caidnames = []
@@ -682,24 +832,65 @@ class GlamourAccess(Poll, Converter):
 		caidtxt = ""
 		caidnames = self.CaidNames()
 		if caidnames:
-			unique_names = list(dict.fromkeys(caidnames.split(", ")))
-			if len(unique_names) > 1:
-				caidtxt = ", ".join(unique_names[:-1]) + " & " + unique_names[-1]
+			caidnames = caidnames.split(", ")
+			caidnames = list(dict.fromkeys(caidnames))
+			if len(caidnames) > 1:
+				caidtxt = ", ".join(caidnames[:-1]) + " & " + caidnames[-1]
 			else:
-				caidtxt = unique_names[0]
+				caidtxt = caidnames[0]
 		return caidtxt
+
+	def Caids(self):
+		caids = []
+		service = self.source.service
+		if service:
+			info = service.info()
+			if info:
+				try:
+					caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+				except Exception:
+					caids = []
+		caids.sort()
+		return caids
 
 	def CaidInfo(self):
 		caids = self.CaidList()
 		caidnames = self.CaidNames()
 		if caids and caidnames:
 			caidlist = f"{caids} ({caidnames})"
-			if config.osd.language.value == "el_GR":
-				return f"Συστήματα κωδικοποίησης: {caidlist}"
-			else:
-				return f"Coding systems: {caidlist}"
+			try:
+				if config.osd.language.value == "el_GR":
+					return f"Συστήματα κωδικοποίησης: {caidlist}"
+			except Exception:
+				pass
+			return f"Coding systems: {caidlist}"
 		elif not caids:
-				return "Free to air or no descriptor"
+			return "Free to air or no descriptor"
+
+	def splitInfoLines(self, text, info_type):
+		try:
+			if not text:
+				return text
+			try:
+				mode = int(config.usage.show_cryptoinfo.value)
+			except Exception:
+				return text
+			if mode != 2:
+				return text
+			if info_type == self.ECMINFO:
+				for key in ["  Reader:", "  Addr:", "  Prtc:", "  Ptrc:", "  Source:", "  Ecm Time:"]:
+					idx = text.find(key)
+					if idx != -1:
+						return text[:idx].rstrip() + "\n" + text[idx + 2:].lstrip()
+				return text
+			if info_type in (self.SHORTINFO, self.CASINFO):
+				sep = " - "
+				idx = text.rfind(sep)
+				if idx != -1:
+					return text[:idx].rstrip() + "\n" + text[idx + 1:].lstrip()
+			return text
+		except Exception:
+			return text
 
 	def ecmpath(self):
 		for i in range(7, 0, -1):
@@ -713,7 +904,7 @@ class GlamourAccess(Poll, Converter):
 		global old_ecm_mtime
 		ecmpath = self.ecmpath()
 		service = self.source.service
-		if not service:
+		if not service or not ecmpath:
 			return info
 
 		try:
@@ -730,7 +921,10 @@ class GlamourAccess(Poll, Converter):
 				ecm = ecmf.readlines()
 
 			if not ecm:
+				info = {}
 				return info
+
+			info = {}
 
 			for line in ecm:
 				line_lower = line.lower()
@@ -775,11 +969,11 @@ class GlamourAccess(Poll, Converter):
 							info["protocol"] = it_tmp[-1].split("[")[1][:-1]
 						elif "(" in it_tmp[-1]:
 							info["server"] = it_tmp[-1].split("(")[-1].split(":")[0]
-							info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1].rstrip(")")
+							info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1][:-1]
 						else:
 							key = "source"
 							value = "sci"
-						if any(x in it_tmp[-1] for x in ["emu", "card", "biss", "tb"]):
+						if "emu" in it_tmp[-1] or "card" in it_tmp[-1] or "biss" in it_tmp[-1] or "tb" in it_tmp[-1]:
 							key = "source"
 							value = "emu"
 					case "hops" | "from" | "system" | "provider":
@@ -838,4 +1032,17 @@ class GlamourAccess(Poll, Converter):
 		return info
 
 	def changed(self, what):
+		try:
+			reason = what[0]
+		except Exception:
+			reason = None
+
+		service = getattr(self.source, "service", None)
+		if not service:
+			Converter.changed(self, what)
+			return
+
+		if reason != self.CHANGED_POLL:
+			self.resetCaches()
+
 		Converter.changed(self, (self.CHANGED_POLL,))

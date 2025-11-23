@@ -1999,14 +1999,13 @@
   </screen>
   <!-- 07. WEATHER -->
   <!-- 07-0 Weather Background -->
-  <screen name="WeatherBackground" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/weather_back.png" position="50,0" zPosition="1" size="345,195" alphatest="off" transparent="1">
+  <screen name="WeatherBackground1" flags="wfNoBorder">
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/weather_back1.png" position="0,0" zPosition="-1" size="395,195" alphatest="off" transparent="1">
       <convert type="OAWeather">city</convert>
     </widget>
-    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/clockglowtl.png" position="0,45" zPosition="-8" size="50,105" alphatest="blend" transparent="1">
-      <convert type="OAWeather">city</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Label" position="0,45" size="50,105" backgroundColor="background20" foregroundColor="background20" zPosition="-11" font="Regular;0">
+  </screen>
+  <screen name="WeatherBackground2" flags="wfNoBorder">
+    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/weather_back2.png" position="0,0" zPosition="-1" size="395,195" alphatest="off" transparent="1">
       <convert type="OAWeather">city</convert>
     </widget>
   </screen>
@@ -2015,14 +2014,11 @@
       <convert type="OAWeather">city</convert>
     </widget>
   </screen>
-  <screen name="WeatherCommons" flags="wfNoBorder">
-    <panel name="WeatherBackground" />
-    <panel name="WeatherLocation" />
-  </screen>
   <!-- OAWEATHER -->
   <!-- 07-1 OAWeather Today -->
   <screen name="WeatherToday" flags="wfNoBorder">
-    <panel name="WeatherCommons" />
+    <panel name="WeatherBackground1" />
+    <panel name="WeatherLocation" />
     <!--/* TODAY -->
     <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="80,35" font="Regular; 23" halign="center" text="Sd0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
       <convert type="OAWeather">weekshortday,day1</convert>
@@ -2076,16 +2072,14 @@
     <widget source="session.OAWeather" render="Label" position="310,65" zPosition="6" size="85,30" font="Regular; 21" halign="center" text="Wind" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">winddirsign</convert>
     </widget>
-    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1">
-      <convert type="OAWeather">windspeed</convert>
-    </widget>
     <widget source="session.OAWeather" render="Label" position="310,90" zPosition="6" size="85,30" font="Numbers; 24" halign="center" text="Windsp" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
       <convert type="OAWeather">windspeed</convert>
     </widget>
   </screen>
   <!-- 07-2 OAWeather Forecast 2nd Infobar -->
   <screen name="WeatherForecast" flags="wfNoBorder">
-    <panel name="WeatherCommons" />
+    <panel name="WeatherBackground2" />
+    <panel name="WeatherLocation" />
     <!--/* DAY 2 -->
     <widget source="session.OAWeather" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
       <convert type="OAWeather">weekshortday,day2</convert>
@@ -2103,9 +2097,6 @@
       <convert type="OAWeather">weathericon,day2,/usr/share/enigma2/GlamourAuraFHD-ATV/WeatherIcons/big/,png</convert>
     </widget>
     <widget source="session.OAWeather" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="OAWeather">temperature_text,day2</convert>
-    </widget>
-    <widget source="session.OAWeather" render="Pixmap" pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1">
       <convert type="OAWeather">temperature_text,day2</convert>
     </widget>
     <!--/* DAY 3 -->
@@ -2130,7 +2121,7 @@
   </screen>
   <!-- 07-3 OAWeather Infobar -->
   <screen name="WeatherOnInfobar" flags="wfNoBorder">
-    <widget source="session.OAWeather" render="Label" position="470,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
+    <widget source="session.OAWeather" render="Label" position="470,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 C" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
       <convert type="OAWeather">temperature_current</convert>
     </widget>
     <widget source="session.OAWeather" render="OAWeatherPixmap" position="570,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
@@ -2141,107 +2132,107 @@
   <!-- 07-4 MSN Weather Today -->
   <screen name="MSNWeatherToday" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Location</convert>
+      <convert type="GlamourMSNWeather">Location</convert>
     </widget>
     <!--/* TODAY -->
     <widget source="global.CurrentTime" render="Label" position="55,60" zPosition="2" size="80,35" font="Regular; 23" halign="center" text="Sd0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Shortdate0</convert>
+      <convert type="GlamourMSNWeather">Shortdate0</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High0" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Hightemp0</convert>
+      <convert type="GlamourMSNWeather">Hightemp0</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low0" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Lowtemp0</convert>
+      <convert type="GlamourMSNWeather">Lowtemp0</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="139,50" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="150,60" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="GlamMSNWeather">Picon0</convert>
+      <convert type="GlamourMSNWeather">Picon0</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/humidity.png" position="230,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="255,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="99%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="GlamMSNWeather">Humidity</convert>
+      <convert type="GlamourMSNWeather">Humidity</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/feelslike.png" position="150,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="175,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="100F" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="GlamMSNWeather">Feelslike</convert>
+      <convert type="GlamourMSNWeather">Feelslike</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/precipitation.png" position="310,120" zPosition="5" size="30,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="335,120" zPosition="6" size="60,30" font="Numbers; 24" halign="center" text="98%" transparent="1" valign="center" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="GlamMSNWeather">Precip0</convert>
+      <convert type="GlamourMSNWeather">Precip0</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="50,150" zPosition="4" size="345,65" font="Regular; 23" halign="center" text="Skytext" transparent="1" valign="top" foregroundColor="lightciel" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Skytext</convert>
+      <convert type="GlamourMSNWeather">Skytext</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunrise.png" position="210,65" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="245,65" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="06:55" transparent="1" valign="top" foregroundColor="yellow" backgroundColor="background20" noWrap="1">
-      <convert type="GlamMSNWeather">Sunrise</convert>
+      <convert type="GlamourMSNWeather">Sunrise</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/sunset.png" position="210,90" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="245,92" zPosition="4" size="55,30" font="Numbers; 24" halign="center" text="20:25" transparent="1" valign="top" foregroundColor="orange" backgroundColor="background20" noWrap="1">
-      <convert type="GlamMSNWeather">Sunset</convert>
+      <convert type="GlamourMSNWeather">Sunset</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/WeatherIcons/wind.png" position="300,95" zPosition="5" size="36,30" alphatest="blend" transparent="1" />
     <widget source="global.CurrentTime" render="Label" position="300,65" zPosition="6" size="95,30" font="Regular; 21" halign="center" text="Wind" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="GlamMSNWeather">Wind</convert>
+      <convert type="GlamourMSNWeather">Wind</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="310,90" zPosition="6" size="85,30" font="Numbers; 24" halign="center" text="Windsp" transparent="1" valign="top" backgroundColor="background20" foregroundColor="amarillo" noWrap="1">
-      <convert type="GlamMSNWeather">Windspeed</convert>
+      <convert type="GlamourMSNWeather">Windspeed</convert>
     </widget>
     <panel name="WeatherBackground" />
   </screen>
   <!-- 07-5 Weather MSN 2nd Infobar -->
   <screen name="MSNWeatherForecast" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="50,25" zPosition="5" size="345,40" font="RegularB; 29" halign="center" transparent="1" text="Location" foregroundColor="cyan2" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Location</convert>
+      <convert type="GlamourMSNWeather">Location</convert>
     </widget>
     <!--/* DAY 2 -->
     <widget source="global.CurrentTime" render="Label" position="55,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Shortday1</convert>
+      <convert type="GlamourMSNWeather">Shortday1</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="105,60" zPosition="2" size="115,35" font="Regular; 24" halign="center" text="Date1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Date1</convert>
+      <convert type="GlamourMSNWeather">Date1</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="55,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High1" transparent="1" valign="center" noWrap="1" backgroundColor="background20">
-      <convert type="GlamMSNWeather">Hightemp1</convert>
+      <convert type="GlamourMSNWeather">Hightemp1</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="55,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low1" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Lowtemp1</convert>
+      <convert type="GlamourMSNWeather">Lowtemp1</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="150,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="GlamMSNWeather">Picon1</convert>
+      <convert type="GlamourMSNWeather">Picon1</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="50,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext1" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="GlamMSNWeather">Skytext1</convert>
+      <convert type="GlamourMSNWeather">Skytext1</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/timesep.png" position="220,65" zPosition="6" size="6,120" alphatest="blend" transparent="1" />
     <!--/* DAY 3 -->
     <widget source="global.CurrentTime" render="Label" position="230,60" zPosition="2" size="50,35" font="Regular; 24" halign="center" text="Sd2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Shortday2</convert>
+      <convert type="GlamourMSNWeather">Shortday2</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="280,60" zPosition="2" size="110,35" font="Regular; 24" halign="center" text="Date2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Date2</convert>
+      <convert type="GlamourMSNWeather">Date2</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="230,85" zPosition="2" size="80,40" font="Numbers; 37" halign="left" text="High2" transparent="1" valign="center" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Hightemp2</convert>
+      <convert type="GlamourMSNWeather">Hightemp2</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="230,120" zPosition="2" size="80,35" font="Numbers; 29" halign="right" text="Low2" transparent="1" valign="center" foregroundColor="sky" noWrap="1" backgroundColor="black">
-      <convert type="GlamMSNWeather">Lowtemp2</convert>
+      <convert type="GlamourMSNWeather">Lowtemp2</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/big/" position="325,90" size="60,60" zPosition="4" alphatest="blend">
-      <convert type="GlamMSNWeather">Picon2</convert>
+      <convert type="GlamourMSNWeather">Picon2</convert>
     </widget>
     <widget source="global.CurrentTime" render="Label" position="228,150" zPosition="6" size="170,65" font="Regular; 23" halign="center" text="Skytext2" transparent="1" valign="top" backgroundColor="background20" foregroundColor="lightciel">
-      <convert type="GlamMSNWeather">Skytext2</convert>
+      <convert type="GlamourMSNWeather">Skytext2</convert>
     </widget>
     <panel name="WeatherBackground" />
   </screen>
   <!-- 07-6 MSN Weather Infobar -->
   <screen name="MSNWeatherOnInfobar" flags="wfNoBorder">
     <widget source="global.CurrentTime" render="Label" position="510,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
-      <convert type="GlamMSNWeather">Temp</convert>
+      <convert type="GlamourMSNWeather">Temp</convert>
     </widget>
     <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="610,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
-      <convert type="GlamMSNWeather">Picon</convert>
+      <convert type="GlamourMSNWeather">Picon</convert>
     </widget>
   </screen>
   <!-- 08. INFOBARS -->
@@ -2688,7 +2679,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/audio/audio_off.png" position="1110,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" position="1110,947" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1110,947" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/dolby_off.png" position="1400,947" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -2819,10 +2810,10 @@
       <convert type="GlamourBase">Fps</convert>
     </widget>
     <!-- Network info -->
-    <widget source="session.CurrentService" render="GlamNetIcon" position="907,947" size="36,30" path="icons/network" alphatest="blend" transparent="1" zPosition="12">
+    <widget source="session.CurrentService" render="GlamBaseIcons" position="907,947" size="36,30" path="icons/network" alphatest="blend" transparent="1" zPosition="12">
       <convert type="GlamourNetInfo">Icon</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamNetIcon" position="934,965" size="10,12" path="icons/network" alphatest="blend" transparent="1" zPosition="13">
+    <widget source="session.CurrentService" render="GlamBaseIcons" position="934,965" size="10,12" path="icons/network" alphatest="blend" transparent="1" zPosition="13">
       <convert type="GlamourNetInfo">WifiBandIcon</convert>
     </widget>
   </screen>
@@ -2892,18 +2883,18 @@
   <!-- Bitrate Infobar -->
   <screen name="BitrateSimple" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="1615,840" size="285,40" font="Numbers; 33" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">Video:  %VCUR kbit/s</convert>
+      <convert type="GlamourBitrate">Video:  %VCUR kbit/s</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="1615,890" size="285,40" font="Numbers; 33" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">Audio:  %ACUR kbit/s</convert>
+      <convert type="GlamourBitrate">Audio:  %ACUR kbit/s</convert>
     </widget>
   </screen>
   <screen name="BitrateAdv" flags="wfNoBorder">
     <widget source="session.CurrentService" render="Label" position="1615,840" size="285,40" font="Numbers; 25" zPosition="6" backgroundColor="grey" transparent="1" foregroundColor="black" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">V:%VCUR ▼%VMIN ▲%VMAX μ:%VAVG</convert>
+      <convert type="GlamourBitrate">V:%VCUR ▼%VMIN ▲%VMAX μ:%VAVG</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="1615,890" size="285,40" font="Numbers; 25" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="white" noWrap="1" halign="left" valign="center">
-      <convert type="GlamBitrate">A:%ACUR ▼%AMIN ▲%AMAX μ:%AAVG</convert>
+      <convert type="GlamourBitrate">A:%ACUR ▼%AMIN ▲%AMAX μ:%AAVG</convert>
     </widget>
   </screen>
   <!-- CPU & Temp Infobar -->
@@ -2923,7 +2914,7 @@
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuinfo.png" position="45,460" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,460" size="330,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU Info" halign="left" noWrap="1" foregroundColor="white">
-      <convert type="GlamCPU">All,Default</convert>
+      <convert type="GlamourCPU">All,Default</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/cpuspeed.png" position="45,500" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,500" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="CPU speed" halign="left" noWrap="1">
@@ -2936,6 +2927,8 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ip_wan.png" position="45,620" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,620" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="External IP" halign="left" noWrap="1">
       <convert type="GlamourNetInfo">ExternalIP</convert>
+      <convert type="GlamourNetInfo">ISPName,ISPCountry;sep=", "</convert>
+      <convert type="ConverterRotator">5</convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/ip_lan.png" position="45,660" zPosition="3" size="40,40" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Label" position="90,660" size="310,40" font="Numbers; 29" zPosition="6" backgroundColor="background20" transparent="1" text="Internal IP" halign="left" noWrap="1">
@@ -3170,13 +3163,13 @@
   </screen>
   <!--	Ecm info -->
   <screen name="ECMInfo" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" halign="center" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="center" noWrap="1" foregroundColor="amarillo">
+    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" halign="center" zPosition="7" backgroundColor="grey" transparent="1" text="Ecm Info" valign="top" noWrap="1" foregroundColor="amarillo">
       <convert type="GlamourAccess">EcmInfo</convert>
     </widget>
   </screen>
   <!--	CAS info -->
   <screen name="CasInfo" flags="wfNoBorder">
-    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" foregroundColor="amarillo" backgroundColor="transparent" transparent="1" text="CAS Info" valign="center" halign="center" noWrap="1" shadowColor="grey" shadowOffset="1,0" zPosition="7">
+    <widget source="session.CurrentService" render="Label" position="50,1030" size="1860,35" font="Numbers; 31" foregroundColor="amarillo" backgroundColor="transparent" transparent="1" text="CAS Info" valign="top" halign="center" noWrap="1" shadowColor="grey" shadowOffset="1,0" zPosition="7">
       <convert type="GlamourAccess">CasInfo</convert>
     </widget>
   </screen>
@@ -3247,78 +3240,78 @@
   <!-- 10-3 Next Events -->
   <screen name="CSNextEvents" flags="wfNoBorder">
     <widget source="ServiceEvent" render="Label" position="50,755" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
-      <convert type="GlamNextEvents">Event1,beginTime</convert>
+      <convert type="GlamourNextEvents">Event1,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,795" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
-      <convert type="GlamNextEvents">Event2,beginTime</convert>
+      <convert type="GlamourNextEvents">Event2,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,835" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
-      <convert type="GlamNextEvents">Event3,beginTime</convert>
+      <convert type="GlamourNextEvents">Event3,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,875" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
-      <convert type="GlamNextEvents">Event4,beginTime</convert>
+      <convert type="GlamourNextEvents">Event4,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,915" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event5,beginTime</convert>
+      <convert type="GlamourNextEvents">Event5,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,755" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
-      <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event1,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,795" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
-      <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event2,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,835" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
-      <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event3,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,875" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
-      <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event4,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,915" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event5,titleWithDuration</convert>
     </widget>
   </screen>
   <screen name="CSNextEventsPIG" flags="wfNoBorder">
     <widget source="ServiceEvent" render="Label" position="50,665" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
-      <convert type="GlamNextEvents">Event1,beginTime</convert>
+      <convert type="GlamourNextEvents">Event1,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,705" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
-      <convert type="GlamNextEvents">Event2,beginTime</convert>
+      <convert type="GlamourNextEvents">Event2,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,745" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
-      <convert type="GlamNextEvents">Event3,beginTime</convert>
+      <convert type="GlamourNextEvents">Event3,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,785" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
-      <convert type="GlamNextEvents">Event4,beginTime</convert>
+      <convert type="GlamourNextEvents">Event4,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,825" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event5,beginTime</convert>
+      <convert type="GlamourNextEvents">Event5,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,865" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event6,beginTime</convert>
+      <convert type="GlamourNextEvents">Event6,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="50,905" size="80,40" halign="left" valign="top" foregroundColor="amarillo" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event7,beginTime</convert>
+      <convert type="GlamourNextEvents">Event7,beginTime</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="130,665" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="1">
-      <convert type="GlamNextEvents">Event1,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event1,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=800,nowrap,oneshot=1,always=0,ellipsis=1" position="130,705" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="2">
-      <convert type="GlamNextEvents">Event2,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event2,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=900,nowrap,oneshot=1,always=0,ellipsis=1" position="130,745" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="3">
-      <convert type="GlamNextEvents">Event3,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event3,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1000,nowrap,oneshot=1,always=0,ellipsis=1" position="130,785" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="4">
-      <convert type="GlamNextEvents">Event4,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event4,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1100,nowrap,oneshot=1,always=0,ellipsis=1" position="130,825" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event5,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event5,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1200,nowrap,oneshot=1,always=0,ellipsis=1" position="130,865" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event6,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event6,titleWithDuration</convert>
     </widget>
     <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=1300,nowrap,oneshot=1,always=0,ellipsis=1" position="130,905" size="640,40" halign="left" valign="top" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" font="Regular; 29" zPosition="5">
-      <convert type="GlamNextEvents">Event7,titleWithDuration</convert>
+      <convert type="GlamourNextEvents">Event7,titleWithDuration</convert>
     </widget>
   </screen>
   <!-- 10-4 Channel Infos -->
@@ -3406,7 +3399,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/audio/audio_off.png" position="1515,1015" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="GlamAudioIcon" position="1515,1015" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" render="GlamBaseIcons" position="1515,1015" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/dolby_off.png" position="1605,1015" size="84,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -3567,7 +3560,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Label" position="395,1005" size="340,45" font="Numbers; 36" zPosition="6" backgroundColor="grey2" transparent="1" foregroundColor="amarillo" noWrap="1" halign="right" valign="center">
-      <convert type="GlamBitrate">V:%VCUR kb/s A:%ACUR kb/s</convert>
+      <convert type="GlamourBitrate">V:%VCUR kb/s A:%ACUR kb/s</convert>
     </widget>
   </screen>
   <!-- 11-6 MOVIESELECTION LAYOUT  -->
@@ -3600,7 +3593,7 @@
     <widget source="Service" render="Label" position="50,80" size="580,90" zPosition="9" foregroundColor="black" font="RegularB; 36" halign="center" transparent="1" backgroundColor="grey2" valign="center">
       <convert type="MovieInfo">RecordServiceName</convert>
     </widget>
-    <widget source="session.CurrentService" position="1060,910" render="GlamAudioIcon" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
+    <widget source="session.CurrentService" position="1060,910" render="GlamBaseIcons" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
   </screen>
@@ -4170,7 +4163,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1555,95" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_epg_medium.png" position="1465,95" size="90,45" alphatest="blend" transparent="1" zPosition="5" />
     <widget source="Title" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="5">
-      <convert type="GlamRefString">CurrentRef</convert>
+      <convert type="GlamourRefString">CurrentRef</convert>
     </widget>
     <!--widget source="ServiceEvent" render="Picon" position="125,90" size="400,240" transparent="1" alphatest="blend" zPosition="4">
 	  <convert type="ServiceName">Reference</convert>

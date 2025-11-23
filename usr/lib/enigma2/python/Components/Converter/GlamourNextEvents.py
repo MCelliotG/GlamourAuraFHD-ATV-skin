@@ -1,4 +1,4 @@
-﻿#GlamNextEvents converter (Python 3)
+﻿#GlamourNextEvents converter (Python 3)
 #Modded and recoded by MCelliotG for use in Glamour skins or standalone
 #If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
@@ -8,7 +8,7 @@ from enigma import eEPGCache, eServiceReference
 from time import localtime, strftime, mktime, time
 from datetime import datetime
 
-class GlamNextEvents(Converter, object):
+class GlamourNextEvents(Converter, object):
 	EVENT_TYPES = {f"Event{i}": i - 1 for i in range(1, 11)}  # Event1 to Event10
 	EVENT_TYPES.update({"PrimeTime": 10})
 

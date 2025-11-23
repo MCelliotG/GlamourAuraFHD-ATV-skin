@@ -1,333 +1,182 @@
-# GlamourNetInfo converter (Python 3)
-# Fully coded by MCelliotG for use in Glamour skins or standalone universal E2
-# Ethernet-first & Full WiFi Interface Polling
-# If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
+# GlamourNetInfo converter (python 3)
+# Fully coded by MCelliotG, optimized and enhanced for Enigma2 performance
+# If you use this converter for other skins and rename it, please keep the lines above adding your credits below
 
 import os
-import shlex
 import time
+import socket
+import struct
+import fcntl
+from json import loads
+
 from Components.Converter.Converter import Converter
-from Components.Element import cached
 from Components.Converter.Poll import Poll
 from enigma import eConsoleAppContainer
 
+SIOCGIFADDR = 0x8915
+
+
 class GlamourNetInfo(Poll, Converter):
-	ICON = 0
-	INTERNAL_IP = 1
-	EXTERNAL_IP = 2
-	NET_TYPE = 3
-	NET_STATUS = 4
-	WIFI_PERCENT = 5
-	WIFI_BARS = 6
-	WIFI_RSSI = 7
-	WIFI_RSSI_VALUE = 8
-	WIFI_LINKSPEED = 9
-	WIFI_LINKSPEED_VALUE = 10
-	WIFI_FREQUENCY = 11
-	WIFI_BAND = 12
-	WIFI_BAND_ICON = 13
-	WIFI_CHANNEL = 14
-	ETH_SPEED = 15
-	ETH_SPEED_VALUE = 16
-	ETH_CARRIER = 17
-	IP_TYPE = 18
-	HAS_IPV6 = 19
 
-	EXTERNAL_IP_INTERVAL = 20*60  # 20 minutes
-	WIFI_REFRESH_INTERVAL = 2	 # seconds
+	# Time intervals (seconds)
+	EXTERNAL_IP_INTERVAL = 60
+	WPACLI_INTERVAL = 8
+	WG_INTERVAL = 5
 
-	def __init__(self, type, wifi_interval=None, external_ip_interval=None):
+	IFACES_CACHE_TTL = 20
+	WIRELESS_CACHE_TTL = 3
+	INET6_CACHE_TTL = 3
+
+	def __init__(self, type):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
-		self.type = self.getType(type)
 
-		# Custom intervals
-		self.WIFI_REFRESH_INTERVAL = wifi_interval or self.WIFI_REFRESH_INTERVAL
-		self.EXTERNAL_IP_INTERVAL = external_ip_interval or self.EXTERNAL_IP_INTERVAL
+		self.raw_type = type.strip()
 
-		# Containers
-		self._container_iface = eConsoleAppContainer()
-		self._container_iface.dataAvail.append(self._onIfaceData)
-		self._container_iface.appClosed.append(self._onIfaceFetched)
+		# Parse fields
+		self._fields, self._sep = self._parse_fields_and_sep(self.raw_type)
 
-		self._container_external_ip = eConsoleAppContainer()
-		self._container_external_ip.dataAvail.append(self._onExternalIPData)
-		self._container_external_ip.appClosed.append(self._onExternalIPFetched)
-
-		# Cached values
+		# Internal network state
+		self._net_type = "offline"          # "wifi", "ethernet", "offline"
+		self._net_status = "not connected"  # "connected", "not connected", "connecting"
 		self._internal_ip = ""
+		self._last_internal_ip = ""
 		self._external_ip = ""
 		self._external_ip_ts = 0
-		self._iface_buffer = ""
-		self._external_ip_buffer = ""
-		self._eth_carrier = "0"
-		self._eth_speed = None
-		self._net_type = "offline"
-		self._net_status = "no_carrier"
+
 		self._ip_type = "ipv4"
 		self._has_ipv6 = "0"
+
+		self._eth_speed = None
+		self._eth_carrier = "0"
+
+		# WiFi
 		self._wifi_percent = 0
 		self._wifi_bars = 0
 		self._wifi_rssi = None
 		self._wifi_freq = None
+		self._wifi_speed = None
 		self._wifi_channel = None
 		self._wifi_bandid = None
-		self._wifi_speed = None
-		self._last_status = None
-		self._last_wifi_update = 0
 
-		# Start polling
-		self.poll_interval = 1000
+		# ISP / Country
+		self._isp_name = ""
+		self._isp_cc = ""
+
+		# Async containers
+		self._extip_buf = ""
+		self._extip_running = False
+		self._container_extip = eConsoleAppContainer()
+		self._container_extip.dataAvail.append(self._onExtIpData)
+		self._container_extip.appClosed.append(self._onExtIpClosed)
+
+		self._wpa_buf = ""
+		self._wpa_running = False
+		self._wpa_last_ts = 0
+		self._container_wpa = eConsoleAppContainer()
+		self._container_wpa.dataAvail.append(self._onWpaData)
+		self._container_wpa.appClosed.append(self._onWpaClosed)
+
+		self._wg_buf = ""
+		self._wg_running = False
+		self._wg_last_ts = 0
+		self._wg_endpoint = ""
+		self._container_wg = eConsoleAppContainer()
+		self._container_wg.dataAvail.append(self._onWgData)
+		self._container_wg.appClosed.append(self._onWgClosed)
+
+		# Caches
+		self._ifaces_cache = []
+		self._ifaces_cache_ts = 0
+
+		self._wireless_cache = {}
+		self._wireless_cache_ts = 0
+
+		self._inet6_cache = {}
+		self._inet6_cache_ts = 0
+
+		# Output cache
+		self._cache_key = None
+		self._cache_value = ""
+
+		# Whether we need WAN/ISP state:
+		# ICON επίσης απαιτεί WAN λογική για ethernet_con / no_ethernet / no_wifi / no_inet
+		self._need_external = any(
+			k in ("EXTERNALIP", "ISPNAME", "ISPCOUNTRY", "COUNTRY", "ICON")
+			for k in self._fields
+		)
+
+		# Field mapping
+		self._mapping = self._build_mapping()
+
+		# Base poll; adaptive logic applied inside _update_network()
+		self.poll_interval = 1500
 		self.poll_enabled = True
-		self.poll()
 
-	def getType(self, type):
-		m = {
-			"Icon": self.ICON,
-			"InternalIP": self.INTERNAL_IP,
-			"ExternalIP": self.EXTERNAL_IP,
-			"NetType": self.NET_TYPE,
-			"NetStatus": self.NET_STATUS,
-			"WifiPercent": self.WIFI_PERCENT,
-			"WifiBars": self.WIFI_BARS,
-			"WifiRSSI": self.WIFI_RSSI,
-			"WifiRSSIValue": self.WIFI_RSSI_VALUE,
-			"WifiLinkSpeed": self.WIFI_LINKSPEED,
-			"WifiLinkSpeedValue": self.WIFI_LINKSPEED_VALUE,
-			"WifiFrequency": self.WIFI_FREQUENCY,
-			"WifiBand": self.WIFI_BAND,
-			"WifiBandIcon": self.WIFI_BAND_ICON,
-			"WifiChannel": self.WIFI_CHANNEL,
-			"EthSpeed": self.ETH_SPEED,
-			"EthSpeedValue": self.ETH_SPEED_VALUE,
-			"EthCarrier": self.ETH_CARRIER,
-			"IPType": self.IP_TYPE,
-			"HasIPv6": self.HAS_IPV6
-		}
-		return m.get(type.split(",")[0], self.ICON)
+	# ---------------------------------------------------------
+	# Field parsing
+	# ---------------------------------------------------------
 
-	# External IP
-	def _fetch_external_ip(self):
+	def _parse_fields_and_sep(self, raw):
+		fields_part = raw
+		sep = ", "
+
+		if ";" in raw:
+			fields_part, opts = raw.split(";", 1)
+			fields_part = fields_part.strip()
+			opts = opts.strip().lower()
+
+			idx = opts.find("sep=")
+			if idx != -1:
+				s = opts[idx + 4:].lstrip()
+				if s:
+					if s[0] in ("'", '"'):
+						q = s[0]
+						end = s.find(q, 1)
+						if end != -1:
+							sep = s[1:end]
+					else:
+						end = s.find(" ")
+						sep = s if end == -1 else s[:end]
+
+		fields = [f.strip().upper() for f in fields_part.split(",") if f.strip()]
+		if not fields:
+			fields = ["INTERNALIP"]
+
+		return fields, sep
+
+	# ---------------------------------------------------------
+	# Helper: reset WAN state
+	# ---------------------------------------------------------
+
+	def _reset_external(self):
+		self._external_ip = ""
+		self._external_ip_ts = 0
+		self._isp_name = ""
+		self._isp_cc = ""
+		self._extip_running = False
+		try:
+			self._container_extip.kill()
+		except:
+			pass
+
+	# ---------------------------------------------------------
+	# Network values
+	# ---------------------------------------------------------
+
+	def _list_interfaces(self):
 		now = time.time()
-		# If external ip exists and it's fresh, skip
-		# (but if external_ip_ts was set to 0 elsewhere, this will run)
-		if now - self._external_ip_ts < self.EXTERNAL_IP_INTERVAL and self._external_ip:
-			return
-		cmd = "wget -qO- https://api.ipify.org"
-		self._external_ip_buffer = ""
+		if now - self._ifaces_cache_ts < self.IFACES_CACHE_TTL and self._ifaces_cache:
+			return self._ifaces_cache
+
 		try:
-			self._container_external_ip.execute(cmd)
+			ifaces = os.listdir("/sys/class/net")
 		except:
-			# container failed — bail silently
-			self._extip_running = False
+			ifaces = []
 
-	def _onExternalIPData(self, data):
-		try:
-			self._external_ip_buffer += data.decode("utf-8", "ignore")
-		except:
-			pass
-
-	def _onExternalIPFetched(self, retval):
-		val = self._external_ip_buffer.strip()
-		self._external_ip_buffer = ""
-		if val and not val.startswith("/bin/sh:"):
-			self._external_ip = val
-		else:
-			self._external_ip = ""
-		self._external_ip_ts = time.time()
-		Converter.changed(self, (self.CHANGED_POLL,))
-
-	# Interface polling
-	def _fetch_iface_info(self, iface, is_wifi=False):
-		# rate-limit wifi intensive queries
-		now = time.time()
-		update_wifi = is_wifi and (now - self._last_wifi_update > self.WIFI_REFRESH_INTERVAL)
-		# For wifi: only skip if not time yet
-		if is_wifi and not update_wifi:
-			return
-
-		# build command: ipv4 + ipv6, and wpa_cli only for wifi
-		cmd = f"/sbin/ip -4 addr show dev {shlex.quote(iface)} ; /sbin/ip -6 addr show dev {shlex.quote(iface)}"
-		if is_wifi:
-			cmd += f" ; wpa_cli -i {shlex.quote(iface)} signal_poll"
-			self._last_wifi_update = now
-
-		self._iface_buffer = ""
-		try:
-			self._container_iface.execute(cmd)
-		except:
-			# container execute failed — ignore
-			pass
-
-	def _onIfaceData(self, data):
-		try:
-			self._iface_buffer += data.decode("utf-8", "ignore")
-		except:
-			pass
-
-	def _onIfaceFetched(self, retval):
-		# keep previous internal ip to detect changes
-		prev_internal = self._internal_ip
-
-		lines = self._iface_buffer.splitlines()
-		# Clear only those fields which will be re-parsed
-		new_internal = ""
-		new_has_ipv6 = "0"
-		new_ip_type = "ipv4"
-		new_wifi_rssi = None
-		new_wifi_freq = None
-		new_wifi_speed = None
-
-		for line in lines:
-			line = line.strip()
-			if line.startswith("inet "):
-				new_internal = line.split()[1].split("/")[0]
-			if line.startswith("inet6") and "scope global" in line:
-				new_has_ipv6 = "1"
-				new_ip_type = "dual"
-			if "=" in line:
-				k,v = line.split("=",1)
-				if k=="RSSI":
-					try: new_wifi_rssi = int(v)
-					except: pass
-				if k=="FREQUENCY":
-					try: new_wifi_freq = int(v)
-					except: pass
-				if k=="LINKSPEED":
-					try: new_wifi_speed = int(v)
-					except: pass
-
-		# apply parsed results
-		self._internal_ip = new_internal
-		self._has_ipv6 = new_has_ipv6
-		self._ip_type = new_ip_type
-		if new_wifi_rssi is not None:
-			self._wifi_rssi = new_wifi_rssi
-		if new_wifi_freq is not None:
-			self._wifi_freq = new_wifi_freq
-		if new_wifi_speed is not None:
-			self._wifi_speed = new_wifi_speed
-
-		# update band/channel if freq present
-		if self._wifi_freq:
-			self._wifi_bandid = self._freq_to_band(self._wifi_freq)
-			self._wifi_channel = self._freq_to_channel(self._wifi_freq)
-
-		# update wifi percent/bars (reads /proc/net/wireless)
-		self._update_wifi_percent()
-
-		# If internal IP changed -> force external IP refresh or clear
-		if prev_internal != self._internal_ip:
-			# Log.w("[GlamourNetInfo] internal IP changed from %s to %s" % (prev_internal, self._internal_ip))
-			if self._internal_ip:
-				# acquired an IP — force external fetch by resetting timestamp
-				self._external_ip_ts = 0
-				self._fetch_external_ip()
-			else:
-				# lost IP — clear external immediately
-				self._external_ip = ""
-				self._external_ip_ts = 0
-
-		Converter.changed(self, (self.CHANGED_POLL,))
-
-	# WiFi helpers
-	def _update_wifi_percent(self):
-		try:
-			with open("/proc/net/wireless") as f:
-				lines = f.readlines()[2:]
-				found = False
-				for line in lines:
-					parts = line.split()
-					if parts:
-						# use iface quality mapping if available; convert to percent roughly
-						# If proc has multiple interfaces, last value overrides
-						self._wifi_percent = max(0, min(100, int((float(parts[2]) + 100)*2)))
-						self._wifi_bars = self._percent_to_bars(self._wifi_percent)
-						found = True
-				if not found:
-					# leave previous percent if none found
-					pass
-		except:
-			# on error, keep previous values
-			pass
-
-	def _percent_to_bars(self, p):
-		if p <= 0: return 0
-		if p <= 25: return 1
-		if p <= 50: return 2
-		if p <= 75: return 3
-		return 4
-
-	def _freq_to_band(self, freq):
-		if 2400 <= freq <= 2500: return "24"
-		if 4900 <= freq <= 5899: return "5"
-		if 5925 <= freq <= 7125: return "6"
-		return None
-
-	def _freq_to_channel(self, freq):
-		try:
-			return int((freq - 5000)/5) if freq else None
-		except:
-			return None
-
-	# Network update
-	def _update_network_info(self):
-		ifaces = os.listdir("/sys/class/net")
-		eth_if = None
-		wifi_if = None
-		# Determine active interfaces
-		for iface in ifaces:
-			state = self._operstate(iface)
-			if iface.startswith("eth") or iface.startswith("en"):
-				if state=="up" and not eth_if:
-					eth_if = iface
-			elif iface.startswith("wlan") or iface.startswith("wl"):
-				if state=="up" and not wifi_if:
-					wifi_if = iface
-
-		# Ethernet preferred
-		status = (eth_if, wifi_if)
-		if status != self._last_status:
-			# status changed -> update cached state
-			self._last_status = status
-			if eth_if:
-				self._net_type = "ethernet"
-				self._net_status = "connected"
-				self._eth_carrier = "1"
-				self._eth_speed = self._get_eth_speed(eth_if)
-				# refresh internal ip for that iface
-				# call iface info container (async) to parse ipv4/6
-				self._fetch_iface_info(eth_if, is_wifi=False)
-				# ipv6 will be parsed in _onIfaceFetched
-			elif wifi_if:
-				self._net_type = "wifi"
-				self._net_status = "connected"
-				self._eth_carrier = "0"
-				self._eth_speed = None
-				# always fetch iface info (wifi) when status changes
-				self._fetch_iface_info(wifi_if, is_wifi=True)
-			else:
-				self._net_type = "offline"
-				self._net_status = "no_carrier"
-				self._eth_carrier = "0"
-				self._eth_speed = None
-				self._internal_ip = ""
-				self._has_ipv6 = "0"
-				self._ip_type = "ipv4"
-		else:
-			# status unchanged: still, ensure we refresh iface info for wifi periodically
-			if wifi_if:
-				# this call is rate-limited inside by WIFI_REFRESH_INTERVAL
-				self._fetch_iface_info(wifi_if, is_wifi=True)
-			elif eth_if:
-				# for ethernet, occasional refresh (no heavy cost)
-				self._fetch_iface_info(eth_if, is_wifi=False)
-
-		# External IP fetch (guarded by interval) — will be forced if internal IP changed by _onIfaceFetched
-		if self._net_type != "offline":
-			self._fetch_external_ip()
-
-		Converter.changed(self, (self.CHANGED_POLL,))
+		self._ifaces_cache = ifaces
+		self._ifaces_cache_ts = now
+		return ifaces
 
 	def _operstate(self, iface):
 		try:
@@ -336,67 +185,624 @@ class GlamourNetInfo(Poll, Converter):
 		except:
 			return "down"
 
+	def _has_carrier(self, iface):
+		return self._operstate(iface) == "up"
+
+	def _get_ipv4(self, iface):
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			req = struct.pack('256s', iface[:15].encode())
+			res = fcntl.ioctl(s.fileno(), SIOCGIFADDR, req)
+			return socket.inet_ntoa(res[20:24])
+		except:
+			return ""
+
+	# IPv6
+	def _refresh_inet6_cache(self):
+		now = time.time()
+		if now - self._inet6_cache_ts < self.INET6_CACHE_TTL and self._inet6_cache:
+			return
+
+		cache = {}
+		try:
+			with open("/proc/net/if_inet6") as f:
+				for ln in f:
+					parts = ln.split()
+					if len(parts) >= 6:
+						raw = parts[0]
+						iface = parts[5]
+						hexes = [raw[i:i + 4] for i in range(0, 32, 4)]
+						cache[iface] = ":".join(hexes)
+		except:
+			cache = {}
+
+		self._inet6_cache = cache
+		self._inet6_cache_ts = now
+
+	def _get_ipv6(self, iface):
+		self._refresh_inet6_cache()
+		return self._inet6_cache.get(iface, "")
+
+	# Ethernet speed
 	def _get_eth_speed(self, iface):
 		try:
 			with open(f"/sys/class/net/{iface}/speed") as f:
-				return int(f.read().strip())
+				return int(f.read())
 		except:
 			return None
 
-	def _get_ip_for_iface(self, iface):
-		# kept for compatibility but not used in main flow
+	# ---------------------------------------------------------
+	# Wireless / WPA
+	# ---------------------------------------------------------
+
+	def _read_wireless(self):
+		"""
+		Ελαφρύ /proc/net/wireless reader.
+		Εκτελείται μόνο όταν ΔΕΝ έχουμε ήδη RSSI από wpa_cli.
+		"""
+		if self._wifi_rssi is not None:
+			# RSSI ήδη γνωστό → δεν χρειάζεται scan
+			return self._wireless_cache
+
+		now = time.time()
+		if now - self._wireless_cache_ts < self.WIRELESS_CACHE_TTL and self._wireless_cache:
+			return self._wireless_cache
+
+		res = {}
 		try:
-			out = os.popen(f"/sbin/ip -4 addr show dev {shlex.quote(iface)}").read()
-			for line in out.splitlines():
-				if line.strip().startswith("inet "):
-					return line.split()[1].split("/")[0]
+			with open("/proc/net/wireless") as f:
+				lines = f.readlines()[2:]
+				for ln in lines:
+					p = ln.split()
+					if not p:
+						continue
+					iface = p[0].strip(":")
+					try:
+						q = float(p[2].strip("."))
+					except:
+						q = 0.0
+					res[iface] = q
+		except:
+			res = {}
+
+		self._wireless_cache = res
+		self._wireless_cache_ts = now
+		return res
+
+	def _map_quality(self, q):
+		try:
+			return int(max(0, min(100, (q / 70.0) * 100)))
+		except:
+			return 0
+
+	def _rssi_to_percent(self, r):
+		try:
+			return int(max(0, min(100, (r + 100) * 2)))
+		except:
+			return 0
+
+	def _bars(self, p):
+		if p <= 0: return 0
+		if p <= 25: return 1
+		if p <= 50: return 2
+		if p <= 75: return 3
+		return 4
+
+	def _freq_band(self, f):
+		if f is None: return None
+		if 2400 <= f <= 2500: return "24"
+		if 4900 <= f <= 5899: return "5"
+		if 5925 <= f <= 7125: return "6"
+		return None
+
+	def _freq_channel(self, f):
+		if f is None: return None
+		try:
+			if f >= 5000:
+				return int((f - 5000) / 5)
+			if 2400 <= f <= 2500:
+				return int((f - 2407) / 5)
+		except:
+			return None
+		return None
+
+	# WPA CLI async
+	def _start_wpa(self, iface):
+		if self._wpa_running:
+			return
+		now = time.time()
+		if now - self._wpa_last_ts < self.WPACLI_INTERVAL:
+			return
+
+		self._wpa_running = True
+		self._wpa_last_ts = now
+		self._wpa_buf = ""
+
+		try:
+			self._container_wpa.execute(f"wpa_cli -i {iface} signal_poll")
+		except:
+			self._wpa_running = False
+
+	def _onWpaData(self, data):
+		try:
+			self._wpa_buf += data.decode("utf-8", "ignore")
 		except:
 			pass
-		return ""
 
-	def _get_ipv6_for_iface(self, iface):
-		# kept for compatibility but not used in main flow
+	def _onWpaClosed(self, retval):
+		self._wpa_running = False
+		buf = self._wpa_buf.strip()
+		self._wpa_buf = ""
+		if not buf:
+			return
+
+		rssi = None
+		freq = None
+		speed = None
+
+		for ln in buf.splitlines():
+			ln = ln.strip()
+			if not ln:
+				continue
+			up = ln.upper()
+			if up.startswith("RSSI="):
+				try:
+					rssi = int(ln.split("=", 1)[1])
+				except:
+					pass
+			elif up.startswith("FREQUENCY="):
+				try:
+					freq = int(ln.split("=", 1)[1])
+				except:
+					pass
+			elif up.startswith("LINKSPEED="):
+				try:
+					speed = int(ln.split("=", 1)[1])
+				except:
+					pass
+
+		if rssi is not None:
+			self._wifi_rssi = rssi
+		if freq is not None:
+			self._wifi_freq = freq
+			self._wifi_bandid = self._freq_band(freq)
+			self._wifi_channel = self._freq_channel(freq)
+		if speed is not None:
+			self._wifi_speed = speed
+
+		Converter.changed(self, (self.CHANGED_POLL,))
+
+	# ---------------------------------------------------------
+	# External IP + ISP (single ip-api.com call)
+	# ---------------------------------------------------------
+
+	def _fetch_external_ip(self, force=False):
+		if not self._need_external:
+			return
+
+		if not self._internal_ip or self._net_type == "offline":
+			return
+
+		now = time.time()
+
+		if not force and self._external_ip_ts and (now - self._external_ip_ts) < self.EXTERNAL_IP_INTERVAL:
+			return
+
+		if self._extip_running:
+			return
+
+		self._extip_running = True
+		self._extip_buf = ""
+
+		cmd = 'wget -qO- "http://ip-api.com/json/?fields=status,message,country,countryCode,query,isp" || echo'
 		try:
-			out = os.popen(f"/sbin/ip -6 addr show dev {shlex.quote(iface)}").read()
-			for line in out.splitlines():
-				line = line.strip()
-				if line.startswith("inet6") and "scope global" in line:
-					return line.split()[1].split("/")[0]
+			self._container_extip.execute(cmd)
+		except:
+			self._extip_running = False
+
+	def _onExtIpData(self, data):
+		try:
+			self._extip_buf += data.decode("utf-8", "ignore")
 		except:
 			pass
-		return ""
 
+	def _onExtIpClosed(self, retval):
+		self._extip_running = False
+
+		self._external_ip_ts = time.time()
+		out = self._extip_buf.strip()
+		self._extip_buf = ""
+
+		def mark_no_internet():
+			self._external_ip = ""
+			self._isp_name = ""
+			self._isp_cc = ""
+			if self._internal_ip:
+				self._net_status = "not connected"
+			else:
+				self._net_status = "not connected"
+
+		if not out:
+			mark_no_internet()
+			Converter.changed(self, (self.CHANGED_POLL,))
+			return
+
+		try:
+			data = loads(out)
+		except:
+			mark_no_internet()
+			Converter.changed(self, (self.CHANGED_POLL,))
+			return
+
+		if not isinstance(data, dict) or data.get("status") != "success":
+			mark_no_internet()
+			Converter.changed(self, (self.CHANGED_POLL,))
+			return
+
+		# Επιτυχία
+		self._external_ip = data.get("query", "") or ""
+		raw_isp = data.get("isp") or ""
+		self._isp_name = raw_isp.replace("\\", "")
+
+		cc = data.get("countryCode") or data.get("country") or ""
+		self._isp_cc = cc
+
+		if self._internal_ip:
+			self._net_status = "connected"
+		else:
+			self._net_status = "not connected"
+
+		Converter.changed(self, (self.CHANGED_POLL,))
+
+	# ---------------------------------------------------------
+	# WireGuard
+	# ---------------------------------------------------------
+
+	def _start_wg(self):
+		if self._wg_running:
+			return
+		now = time.time()
+		if now - self._wg_last_ts < self.WG_INTERVAL:
+			return
+
+		self._wg_running = True
+		self._wg_last_ts = now
+		self._wg_buf = ""
+
+		try:
+			self._container_wg.execute("wg show wg0 endpoints")
+		except:
+			self._wg_running = False
+
+	def _onWgData(self, data):
+		try:
+			self._wg_buf += data.decode("utf-8", "ignore")
+		except:
+			pass
+
+	def _onWgClosed(self, retval):
+		self._wg_running = False
+		out = self._wg_buf.strip()
+		self._wg_buf = ""
+
+		endpoint = ""
+		if out:
+			ln = out.splitlines()[0].strip()
+			parts = ln.split()
+			if len(parts) >= 2:
+				endpoint = parts[1]
+
+		if endpoint != self._wg_endpoint:
+			self._wg_endpoint = endpoint
+			# Αλλάζει endpoint → θεωρούμε ότι αλλάζει και public IP
+			self._reset_external()
+			self._fetch_external_ip(force=True)
+			Converter.changed(self, (self.CHANGED_POLL,))
+
+	# ---------------------------------------------------------
 	# Poll
-	def poll(self):
-		self._update_network_info()
+	# ---------------------------------------------------------
 
-	# Output
-	@cached
-	def getText(self):
-		t = self.type
-		if t == self.ICON:
-			if self._net_type=="wifi": return "wifi_%d"%self._wifi_bars
-			if self._net_type=="ethernet": return "ethernet"
+	def poll(self):
+		try:
+			self._start_wg()
+		except:
+			pass
+
+		self._update_network()
+
+	def _update_network(self):
+		ifaces = self._list_interfaces()
+
+		wifi = None
+		eth = None
+
+		for iface in ifaces:
+			if iface == "lo":
+				continue
+			is_wifi = iface.startswith("wlan") or iface.startswith("wl")
+			is_eth = iface.startswith("eth") or iface.startswith("en")
+
+			if not (is_wifi or is_eth):
+				continue
+
+			if not self._has_carrier(iface):
+				continue
+
+			if is_wifi and wifi is None:
+				wifi = iface
+			elif is_eth and eth is None:
+				eth = iface
+
+			if wifi and eth:
+				break
+
+		self._last_internal_ip = self._internal_ip
+		self._internal_ip = ""
+		self._has_ipv6 = "0"
+		self._ip_type = "ipv4"
+		self._eth_carrier = "0"
+		self._eth_speed = None
+
+		self._wifi_percent = 0
+		self._wifi_bars = 0
+
+		# Προεπιλογή: τίποτα συνδεδεμένο
+		self._net_type = "offline"
+		self._net_status = "not connected"
+
+		# -----------------------------
+		# WiFi
+		# -----------------------------
+		if wifi:
+			self._net_type = "wifi"
+			ipv4 = self._get_ipv4(wifi)
+			ipv6 = self._get_ipv6(wifi)
+
+			if ipv4 or ipv6:
+				self._internal_ip = ipv4
+				if ipv6:
+					self._has_ipv6 = "1"
+					self._ip_type = "dual"
+
+				# Αν άλλαξε η LAN IP καθαρίζουμε full WAN state
+				if self._internal_ip != self._last_internal_ip:
+					self._reset_external()
+
+				# Έχουμε IP → LAN OK
+				if self._need_external:
+					if self._external_ip:
+						self._net_status = "connected"
+					elif self._extip_running or not self._external_ip_ts:
+						self._net_status = "connecting"
+					else:
+						self._net_status = "not connected"
+				else:
+					self._net_status = "connected"
+
+				qmap = self._read_wireless()
+				q = qmap.get(wifi, 0)
+				if q > 0:
+					self._wifi_percent = self._map_quality(q)
+				else:
+					if self._wifi_rssi is not None:
+						self._wifi_percent = self._rssi_to_percent(self._wifi_rssi)
+					else:
+						self._wifi_percent = 0
+						self._start_wpa(wifi)
+
+				self._wifi_bars = self._bars(self._wifi_percent)
+			else:
+				# carrier αλλά χωρίς IP
+				self._internal_ip = ""
+				self._reset_external()
+				self._net_status = "not connected"
+
+			# Adaptive poll for wifi
+			self.poll_interval = 1500
+
+		# -----------------------------
+		# Ethernet
+		# -----------------------------
+		elif eth:
+			self._net_type = "ethernet"
+			ipv4 = self._get_ipv4(eth)
+			ipv6 = self._get_ipv6(eth)
+
+			if ipv4 or ipv6:
+				self._internal_ip = ipv4
+				if ipv6:
+					self._has_ipv6 = "1"
+					self._ip_type = "dual"
+
+				self._eth_carrier = "1"
+				self._eth_speed = self._get_eth_speed(eth)
+
+				# Αν άλλαξε η LAN IP καθαρίζουμε full WAN state
+				if self._internal_ip != self._last_internal_ip:
+					self._reset_external()
+
+				if self._need_external:
+					if self._external_ip:
+						self._net_status = "connected"
+					elif self._extip_running or not self._external_ip_ts:
+						self._net_status = "connecting"
+					else:
+						self._net_status = "not connected"
+				else:
+					self._net_status = "connected"
+			else:
+				# carrier αλλά χωρίς IP
+				self._internal_ip = ""
+				self._reset_external()
+				self._eth_carrier = "1"
+				self._net_status = "not connected"
+
+			# Adaptive poll for ethernet
+			self.poll_interval = 4000
+
+		else:
+			# Καθόλου carrier → πλήρες offline
+			self._net_type = "offline"
+			self._net_status = "not connected"
+			self._internal_ip = ""
+			self._reset_external()
+			self.poll_interval = 5000
+
+		# External IP logic:
+		if self._net_type != "offline" and self._internal_ip and self._need_external:
+			now = time.time()
+			# Αν δεν έχουμε ξαναδοκιμάσει ή έχει λήξει το TTL → κάνε fetch
+			if (not self._external_ip_ts) or ((now - self._external_ip_ts) >= self.EXTERNAL_IP_INTERVAL):
+				force = not self._external_ip_ts
+				self._fetch_external_ip(force=force)
+		else:
+			if self._net_type == "offline":
+				self._net_status = "not connected"
+			if not self._need_external:
+				pass
+			else:
+				self._reset_external()
+
+		Converter.changed(self, (self.CHANGED_POLL,))
+
+	# ---------------------------------------------------------
+	# Field mapping & helpers
+	# ---------------------------------------------------------
+
+	def _icon_for_state(self):
+		# Χωρίς internal IP → no_inet
+		if not self._internal_ip:
 			return "no_inet"
-		if t == self.INTERNAL_IP: return self._internal_ip if self._internal_ip else "not connected"
-		if t == self.EXTERNAL_IP: return self._external_ip if self._external_ip else "not connected"
-		if t == self.NET_TYPE: return self._net_type
-		if t == self.NET_STATUS: return self._net_status
-		if t == self.WIFI_PERCENT: return str(self._wifi_percent)
-		if t == self.WIFI_BARS: return str(self._wifi_bars)
-		if t == self.WIFI_RSSI: return ("%s dBm"%self._wifi_rssi) if self._wifi_rssi else ""
-		if t == self.WIFI_RSSI_VALUE: return str(self._wifi_rssi) if self._wifi_rssi else ""
-		if t == self.WIFI_LINKSPEED: return ("%s Mbps"%self._wifi_speed) if self._wifi_speed else ""
-		if t == self.WIFI_LINKSPEED_VALUE: return str(self._wifi_speed) if self._wifi_speed else ""
-		if t == self.WIFI_FREQUENCY: return ("%s MHz"%self._wifi_freq) if self._wifi_freq else ""
-		if t == self.WIFI_BAND: return self._wifi_bandid or ""
-		if t == self.WIFI_BAND_ICON: return "wifi_band_%s"%self._wifi_bandid if self._wifi_bandid else ""
-		if t == self.WIFI_CHANNEL: return str(self._wifi_channel) if self._wifi_channel else ""
-		if t == self.ETH_SPEED: return ("%s Mbps"%self._eth_speed) if self._eth_speed else ""
-		if t == self.ETH_SPEED_VALUE: return str(self._eth_speed) if self._eth_speed else ""
-		if t == self.ETH_CARRIER: return self._eth_carrier
-		if t == self.HAS_IPV6: return self._has_ipv6
-		if t == self.IP_TYPE: return self._ip_type
-		return ""
+
+		# Ethernet προτεραιότητα
+		if self._net_type == "ethernet":
+			if self._net_status == "connected":
+				return "ethernet"
+			elif self._net_status == "connecting":
+				return "ethernet_con"
+			else:
+				return "no_ethernet"
+
+		# WiFi
+		if self._net_type == "wifi":
+			if self._net_status == "connected":
+				return f"wifi_{self._wifi_bars}"
+			elif self._net_status == "connecting":
+				return "wifi_con"
+			else:
+				return "no_wifi"
+
+		return "no_inet"
+
+	def _value_internal_ip(self):
+		if self._internal_ip:
+			return self._internal_ip
+		return "not connected"
+
+	def _value_external_ip(self):
+		if not self._need_external:
+			return ""
+		if self._external_ip:
+			return self._external_ip
+		if self._net_status == "connecting":
+			return "connecting..."
+		return "not connected"
+
+	def _value_ispname(self):
+		if not self._need_external:
+			return ""
+		if self._isp_name:
+			return self._isp_name
+		if self._net_status == "connecting":
+			return "connecting..."
+		return "not connected"
+
+	def _build_mapping(self):
+		return {
+			"ICON":       lambda s: s._icon_for_state(),
+			"INTERNALIP": lambda s: s._value_internal_ip(),
+			"EXTERNALIP": lambda s: s._value_external_ip(),
+			"NETTYPE":    lambda s: s._net_type,
+			"NETSTATUS":  lambda s: s._net_status,
+
+			"WIFIPERCENT":      lambda s: str(s._wifi_percent),
+			"WIFIBARS":         lambda s: str(s._wifi_bars),
+			"WIFIRSSI":         lambda s: f"{s._wifi_rssi} dBm" if s._wifi_rssi is not None else "",
+			"WIFIRSSIVALUE":    lambda s: str(s._wifi_rssi) if s._wifi_rssi is not None else "",
+			"WIFILINKSPEED":    lambda s: f"{s._wifi_speed} Mbps" if s._wifi_speed else "",
+			"WIFILINKSPEEDVALUE": lambda s: str(s._wifi_speed) if s._wifi_speed else "",
+			"WIFIFREQUENCY":    lambda s: f"{s._wifi_freq} MHz" if s._wifi_freq else "",
+			"WIFIBAND":         lambda s: s._wifi_bandid or "",
+			"WIFIBANDICON":     lambda s: f"wifi_band_{s._wifi_bandid}" if s._wifi_bandid else "",
+			"WIFICHANNEL":      lambda s: str(s._wifi_channel) if s._wifi_channel else "",
+
+			"ETHSPEED":      lambda s: f"{s._eth_speed} Mbps" if s._eth_speed else "",
+			"ETHSPEEDVALUE": lambda s: str(s._eth_speed) if s._eth_speed else "",
+			"ETHCARRIER":    lambda s: s._eth_carrier,
+
+			"IPTYPE":   lambda s: s._ip_type,
+			"HASIPV6":  lambda s: s._has_ipv6,
+
+			"ISPNAME":     lambda s: s._value_ispname(),
+			"ISPCOUNTRY":  lambda s: s._isp_cc,
+			"COUNTRY":     lambda s: s._isp_cc,
+		}
+
+	def _value_for_key(self, key):
+		f = self._mapping.get(key)
+		if not f:
+			return ""
+		try:
+			return f(self) or ""
+		except:
+			return ""
+
+	# ---------------------------------------------------------
+	# Output
+	# ---------------------------------------------------------
+
+	def _cache_tuple(self):
+		return (
+			tuple(self._fields),
+			self._sep,
+			self._internal_ip,
+			self._external_ip,
+			self._net_type,
+			self._net_status,
+			self._wifi_percent,
+			self._wifi_bars,
+			self._wifi_rssi,
+			self._wifi_speed,
+			self._wifi_freq,
+			self._wifi_channel,
+			self._eth_speed,
+			self._eth_carrier,
+			self._ip_type,
+			self._has_ipv6,
+			self._isp_name,
+			self._isp_cc,
+		)
+
+	def getText(self):
+		key = self._cache_tuple()
+		if key == self._cache_key:
+			return self._cache_value
+
+		out = []
+		for k in self._fields:
+			val = self._value_for_key(k)
+			if val:
+				out.append(val)
+
+		res = self._sep.join(out)
+
+		self._cache_key = key
+		self._cache_value = res
+		return res
 
 	text = property(getText)
+
+	def changed(self, what):
+		if what[0] == self.CHANGED_POLL:
+			self.downstream_elements.changed(what)
