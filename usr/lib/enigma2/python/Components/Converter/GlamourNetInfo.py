@@ -17,12 +17,10 @@ SIOCGIFADDR = 0x8915
 
 
 class GlamourNetInfo(Poll, Converter):
-
 	# Time intervals (seconds)
 	EXTERNAL_IP_INTERVAL = 60
 	WPACLI_INTERVAL = 8
 	WG_INTERVAL = 5
-
 	IFACES_CACHE_TTL = 20
 	WIRELESS_CACHE_TTL = 3
 	INET6_CACHE_TTL = 3
@@ -99,8 +97,7 @@ class GlamourNetInfo(Poll, Converter):
 		self._cache_key = None
 		self._cache_value = ""
 
-		# Whether we need WAN/ISP state:
-		# ICON επίσης απαιτεί WAN λογική για ethernet_con / no_ethernet / no_wifi / no_inet
+		# WAN/ISP state:
 		self._need_external = any(
 			k in ("EXTERNALIP", "ISPNAME", "ISPCOUNTRY", "COUNTRY", "ICON")
 			for k in self._fields
@@ -113,10 +110,7 @@ class GlamourNetInfo(Poll, Converter):
 		self.poll_interval = 1500
 		self.poll_enabled = True
 
-	# ---------------------------------------------------------
 	# Field parsing
-	# ---------------------------------------------------------
-
 	def _parse_fields_and_sep(self, raw):
 		fields_part = raw
 		sep = ", "
@@ -145,10 +139,7 @@ class GlamourNetInfo(Poll, Converter):
 
 		return fields, sep
 
-	# ---------------------------------------------------------
 	# Helper: reset WAN state
-	# ---------------------------------------------------------
-
 	def _reset_external(self):
 		self._external_ip = ""
 		self._external_ip_ts = 0
@@ -160,10 +151,7 @@ class GlamourNetInfo(Poll, Converter):
 		except:
 			pass
 
-	# ---------------------------------------------------------
 	# Network values
-	# ---------------------------------------------------------
-
 	def _list_interfaces(self):
 		now = time.time()
 		if now - self._ifaces_cache_ts < self.IFACES_CACHE_TTL and self._ifaces_cache:
@@ -231,17 +219,9 @@ class GlamourNetInfo(Poll, Converter):
 		except:
 			return None
 
-	# ---------------------------------------------------------
 	# Wireless / WPA
-	# ---------------------------------------------------------
-
 	def _read_wireless(self):
-		"""
-		Ελαφρύ /proc/net/wireless reader.
-		Εκτελείται μόνο όταν ΔΕΝ έχουμε ήδη RSSI από wpa_cli.
-		"""
 		if self._wifi_rssi is not None:
-			# RSSI ήδη γνωστό → δεν χρειάζεται scan
 			return self._wireless_cache
 
 		now = time.time()
@@ -372,10 +352,7 @@ class GlamourNetInfo(Poll, Converter):
 
 		Converter.changed(self, (self.CHANGED_POLL,))
 
-	# ---------------------------------------------------------
 	# External IP + ISP (single ip-api.com call)
-	# ---------------------------------------------------------
-
 	def _fetch_external_ip(self, force=False):
 		if not self._need_external:
 			return
@@ -439,7 +416,6 @@ class GlamourNetInfo(Poll, Converter):
 			Converter.changed(self, (self.CHANGED_POLL,))
 			return
 
-		# Επιτυχία
 		self._external_ip = data.get("query", "") or ""
 		raw_isp = data.get("isp") or ""
 		self._isp_name = raw_isp.replace("\\", "")
@@ -454,10 +430,7 @@ class GlamourNetInfo(Poll, Converter):
 
 		Converter.changed(self, (self.CHANGED_POLL,))
 
-	# ---------------------------------------------------------
 	# WireGuard
-	# ---------------------------------------------------------
-
 	def _start_wg(self):
 		if self._wg_running:
 			return
@@ -494,14 +467,9 @@ class GlamourNetInfo(Poll, Converter):
 
 		if endpoint != self._wg_endpoint:
 			self._wg_endpoint = endpoint
-			# Αλλάζει endpoint → θεωρούμε ότι αλλάζει και public IP
 			self._reset_external()
 			self._fetch_external_ip(force=True)
 			Converter.changed(self, (self.CHANGED_POLL,))
-
-	# ---------------------------------------------------------
-	# Poll
-	# ---------------------------------------------------------
 
 	def poll(self):
 		try:
@@ -547,13 +515,10 @@ class GlamourNetInfo(Poll, Converter):
 		self._wifi_percent = 0
 		self._wifi_bars = 0
 
-		# Προεπιλογή: τίποτα συνδεδεμένο
 		self._net_type = "offline"
 		self._net_status = "not connected"
 
-		# -----------------------------
 		# WiFi
-		# -----------------------------
 		if wifi:
 			self._net_type = "wifi"
 			ipv4 = self._get_ipv4(wifi)
@@ -565,11 +530,9 @@ class GlamourNetInfo(Poll, Converter):
 					self._has_ipv6 = "1"
 					self._ip_type = "dual"
 
-				# Αν άλλαξε η LAN IP καθαρίζουμε full WAN state
 				if self._internal_ip != self._last_internal_ip:
 					self._reset_external()
 
-				# Έχουμε IP → LAN OK
 				if self._need_external:
 					if self._external_ip:
 						self._net_status = "connected"
@@ -593,17 +556,13 @@ class GlamourNetInfo(Poll, Converter):
 
 				self._wifi_bars = self._bars(self._wifi_percent)
 			else:
-				# carrier αλλά χωρίς IP
 				self._internal_ip = ""
 				self._reset_external()
 				self._net_status = "not connected"
 
-			# Adaptive poll for wifi
 			self.poll_interval = 1500
 
-		# -----------------------------
 		# Ethernet
-		# -----------------------------
 		elif eth:
 			self._net_type = "ethernet"
 			ipv4 = self._get_ipv4(eth)
@@ -618,7 +577,6 @@ class GlamourNetInfo(Poll, Converter):
 				self._eth_carrier = "1"
 				self._eth_speed = self._get_eth_speed(eth)
 
-				# Αν άλλαξε η LAN IP καθαρίζουμε full WAN state
 				if self._internal_ip != self._last_internal_ip:
 					self._reset_external()
 
@@ -632,17 +590,14 @@ class GlamourNetInfo(Poll, Converter):
 				else:
 					self._net_status = "connected"
 			else:
-				# carrier αλλά χωρίς IP
 				self._internal_ip = ""
 				self._reset_external()
 				self._eth_carrier = "1"
 				self._net_status = "not connected"
 
-			# Adaptive poll for ethernet
 			self.poll_interval = 4000
 
 		else:
-			# Καθόλου carrier → πλήρες offline
 			self._net_type = "offline"
 			self._net_status = "not connected"
 			self._internal_ip = ""
@@ -652,7 +607,6 @@ class GlamourNetInfo(Poll, Converter):
 		# External IP logic:
 		if self._net_type != "offline" and self._internal_ip and self._need_external:
 			now = time.time()
-			# Αν δεν έχουμε ξαναδοκιμάσει ή έχει λήξει το TTL → κάνε fetch
 			if (not self._external_ip_ts) or ((now - self._external_ip_ts) >= self.EXTERNAL_IP_INTERVAL):
 				force = not self._external_ip_ts
 				self._fetch_external_ip(force=force)
@@ -666,16 +620,11 @@ class GlamourNetInfo(Poll, Converter):
 
 		Converter.changed(self, (self.CHANGED_POLL,))
 
-	# ---------------------------------------------------------
 	# Field mapping & helpers
-	# ---------------------------------------------------------
-
 	def _icon_for_state(self):
-		# Χωρίς internal IP → no_inet
 		if not self._internal_ip:
 			return "no_inet"
 
-		# Ethernet προτεραιότητα
 		if self._net_type == "ethernet":
 			if self._net_status == "connected":
 				return "ethernet"
@@ -758,10 +707,7 @@ class GlamourNetInfo(Poll, Converter):
 		except:
 			return ""
 
-	# ---------------------------------------------------------
 	# Output
-	# ---------------------------------------------------------
-
 	def _cache_tuple(self):
 		return (
 			tuple(self._fields),
