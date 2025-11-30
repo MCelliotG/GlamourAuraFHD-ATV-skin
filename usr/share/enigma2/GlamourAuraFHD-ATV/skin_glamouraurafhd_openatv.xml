@@ -353,7 +353,7 @@
   {"template": [
   MultiContentEntryPixmapAlphaBlend(pos = (2, 2), size = (80, 80), png = 2), # index 2 is the interface pixmap
   MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0), # index 0 is the interfacename
-	 MultiContentEntryText(pos = (110, 52), size = (1200, 38), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
+     MultiContentEntryText(pos = (110, 52), size = (1200, 38), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
   ],
   "fonts": [gFont("RegularB", 32),gFont("Regular", 24)],
   "itemHeight": 90}
@@ -466,10 +466,10 @@
     <widget source="list" render="Listbox" position="540,90" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1305.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-	MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
-	MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-	MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-	MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
+    MultiContentEntryPixmapAlphaBlend(pos = (20, 15), size = (72, 72), png = 4), # index 4 is the status pixmap
+    MultiContentEntryText(pos = (100, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+    MultiContentEntryText(pos = (100, 50), size = (1200, 40), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 4 is the div pixmap
    ],
   "fonts": [gFont("RegularB", 34),gFont("Regular", 26)],
   "itemHeight": 90
@@ -486,10 +486,10 @@
     <widget source="list" render="Listbox" position="540,305" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
-	MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-	MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
-	MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
-	MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
+    MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+    MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
+    MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
+    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
    ],
   "fonts": [gFont("RegularB",29),gFont("Regular",23)],
   "itemHeight": 80
@@ -927,7 +927,7 @@
    {"template": [ MultiContentEntryText(pos = (20, 0), size = (1000, 50), flags = RT_HALIGN_LEFT, text = 0) ],
   "fonts": [gFont("Regular", 33)],
   "itemHeight": 50
-	 }
+     }
  </convert>
     </widget>
     <widget name="config" font="Regular; 32" position="800,430" size="1050,400" itemHeight="50" zPosition="14" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" />
@@ -1351,16 +1351,16 @@
     <widget name="activity" position="535,280" size="1305,25" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" scale="1" alphatest="blend" transparent="1" zPosition="4" />
     <widget source="list" render="Listbox" position="535,305" size="1305,560" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <convert type="TemplatedMultiContent">
-	  {"template": [
-					MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
-					MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
-					MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
-					MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
-					],
-	   "fonts": [gFont("RegularB",29),gFont("Regular",23)],
-	   "itemHeight": 80
-	  }
-	 </convert>
+      {"template": [
+                    MultiContentEntryText(pos = (5, 2), size = (1200, 50), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 0, color=0x90e6, color_sel=0xdeff), # index 0 is the name
+                    MultiContentEntryText(pos = (5, 45), size = (1200, 30), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # index 2 is the description
+                    MultiContentEntryPixmapAlphaBlend(pos = (1150, 5), size = (72, 72), png = 4), # index 4 is the status pixmap
+                    MultiContentEntryPixmapAlphaBlend(pos = (5, 50), size = (0, 0), png = 5), # index 5 is the div pixmap
+                    ],
+       "fonts": [gFont("RegularB",29),gFont("Regular",23)],
+       "itemHeight": 80
+      }
+     </convert>
     </widget>
     <widget name="traffic_off" position="530,30" zPosition="11" size="155,250" pixmap="GACommon/icons/sources_off.png" alphatest="blend" transparent="1" />
     <widget name="traffic_red" position="530,30" zPosition="12" size="155,250" pixmap="GACommon/icons/sources_red.png" alphatest="on" transparent="1" />
@@ -1395,7 +1395,7 @@
  "fonts": [parseFont("RegularB;32"), parseFont("Regular;25")],
  "itemHeight": 75
  }
-	</convert>
+    </convert>
     </widget>
   </screen>
   <!-- 2-04. Plugin Browser Grid -->
@@ -1415,7 +1415,7 @@
  "itemWidth": 250,
  "itemHeight": 160
  }
-	</convert>
+    </convert>
     </widget>
   </screen>
   <!-- 2-05. Plugins Common Template -->
@@ -1485,20 +1485,20 @@
     <widget name="icons" position="0,0" size="60,20" pixmaps="switches/menu_download.png,switches/menu_off.png,switches/menu_on.png" alphatest="blend" transparent="1" />
     <widget source="locales" render="Listbox" position="535,60" size="1305,700" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6">
       <convert type="TemplatedMultiContent">
-	   {
-		"template":
-				  [
-				  MultiContentEntryPixmapAlphaBlend(pos = (5, 2), size = (90, 45), flags = BT_SCALE, png = 0),	# Flag.
-				  MultiContentEntryText(pos = (115, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff),  # native name
-				  MultiContentEntryText(pos = (615, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2, color=0xffffc6, color_sel=0xdeff),	 # language name
-				  # MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),	 # locale name
-				  MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),  # package name
-				  MultiContentEntryPixmapAlphaBlend(pos = (1215, 15), size = (60, 20), flags = BT_SCALE, png = 5)  # status
-				 ],
-		"fonts": [gFont("Regular", 32)],
-		"itemHeight": 50
-	  }
-	 </convert>
+       {
+        "template":
+                  [
+                  MultiContentEntryPixmapAlphaBlend(pos = (5, 2), size = (90, 45), flags = BT_SCALE, png = 0),    # Flag.
+                  MultiContentEntryText(pos = (115, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1, color=0x90e6, color_sel=0xdeff),  # native name
+                  MultiContentEntryText(pos = (615, 0), size = (480, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2, color=0xffffc6, color_sel=0xdeff),     # language name
+                  # MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),     # locale name
+                  MultiContentEntryText(pos = (1115, 0), size = (90, 50), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),  # package name
+                  MultiContentEntryPixmapAlphaBlend(pos = (1215, 15), size = (60, 20), flags = BT_SCALE, png = 5)  # status
+                 ],
+        "fonts": [gFont("Regular", 32)],
+        "itemHeight": 50
+      }
+     </convert>
     </widget>
     <widget source="description" render="Label" position="535,760" size="1305,100" font="Regular;32" valign="center" zPosition="5" transparent="1" foregroundColor="cyan1" backgroundColor="background20" halign="center" />
     <panel name="FullKeysMIH" />
@@ -1546,12 +1546,9 @@
     <widget name="quickselect" position="540,230" size="1305,650" backgroundColor="background20" foregroundColor="amarillo" font="Regular;100" halign="center" transparent="1" valign="center" zPosition="8" />
     <panel name="FullKeysMIH" />
   </screen>
-  <!-- 6. OscamInfo Main Screen -->
-  <screen name="OSCamInfo" position="center,center" size="1950,1080" backgroundColor="transparent" title="OSCam Information" flags="wfNoBorder" resolution="1920,1080">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/infobar_chname.png" position="165,15" size="1590,130" transparent="1" alphatest="off" zPosition="-11" />
-    <eLabel name="eventview" position="0,145" size="1920,860" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
-    <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
-    <panel name="ClockLabel3" />
+  <!-- 6.1 OscamInfo Main Screen -->
+  <screen name="OSCamInfo" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Information" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
     <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
     <widget source="Title" render="Label" position="265,20" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
     <ePixmap pixmap="GACommon/infobar/swap.png" position="45,960" zPosition="7" size="40,40" alphatest="blend" transparent="1" />
@@ -1570,47 +1567,171 @@
     <eLabel text="LB Value/Reader" position="1295,145" size="235,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
     <eLabel text="Online/Idle" position="1530,145" size="165,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
     <eLabel text="Status" position="1695,145" size="210,35" font="Regular;27" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="5" />
-    <widget source="outlist" render="Listbox" position="15,180" size="1890,525" backgroundColor="#10b3b3b3" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8">
+    <widget source="outlist" render="Listbox" position="15,180" size="1890,525" backgroundColor="darkgrey" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" zPosition="8">
       <convert type="TemplatedMultiContent">
-		{"template": [	# index 0 is backgroundcolor
-			MultiContentEntryText(pos=(0,0), size=(23,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # type
-			MultiContentEntryText(pos=(25,0), size=(173,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),	# Reader/User
-			MultiContentEntryText(pos=(200,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),	# AU
-			MultiContentEntryText(pos=(290,0), size=(168,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),	 # Adress
-			MultiContentEntryText(pos=(460,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),	# Port
-			MultiContentEntryText(pos=(550,0), size=(223,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),	 # Protocol
-			MultiContentEntryText(pos=(775,0), size=(268,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),	 # srvid:caid@provid
-			MultiContentEntryText(pos=(1045,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Last Channel
-			MultiContentEntryText(pos=(1280,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # LB Value/Reader
-			MultiContentEntryText(pos=(1515,0), size=(163,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Online+Idle
-			MultiContentEntryText(pos=(1680,0), size=(210,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11)  # Status
-			], "fonts": [gFont("Regular",27)], "itemHeight":75
-		}
-	</convert>
+        {"template": [    # index 0 is backgroundcolor
+            MultiContentEntryText(pos=(0,0), size=(23,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # type
+            MultiContentEntryText(pos=(25,0), size=(173,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),    # Reader/User
+            MultiContentEntryText(pos=(200,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),    # AU
+            MultiContentEntryText(pos=(290,0), size=(168,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),     # Adress
+            MultiContentEntryText(pos=(460,0), size=(88,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),    # Port
+            MultiContentEntryText(pos=(550,0), size=(223,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),     # Protocol
+            MultiContentEntryText(pos=(775,0), size=(268,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),     # srvid:caid@provid
+            MultiContentEntryText(pos=(1045,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Last Channel
+            MultiContentEntryText(pos=(1280,0), size=(233,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # LB Value/Reader
+            MultiContentEntryText(pos=(1515,0), size=(163,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Online+Idle
+            MultiContentEntryText(pos=(1680,0), size=(210,75), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11)  # Status
+            ], "fonts": [gFont("Regular",27)], "itemHeight":75
+        }
+    </convert>
     </widget>
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="15,720" size="300,150" zPosition="-9" alphatest="blend" transparent="1" />
     <widget name="logtext" position="15,720" size="1890,150" font="Regular; 26" halign="left" valign="top" foregroundColor="cyan1" backgroundColor="background20" noWrap="0" scrollbarMode="showNever" transparent="1" zPosition="6" />
     <widget source="camname" render="Label" position="15,905" size="125,35" font="Regular;27" valign="center" halign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
     <widget source="virtuell" render="Label" position="780,940" size="350,40" font="Regular;27" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
     <widget source="resident" render="Label" position="1215,940" size="340,40" font="Regular;27" halign="center" valign="center" foregroundColor="amarillo" backgroundColor="background20" transparent="1" zPosition="8" />
-    <widget source="key_entitlements" render="Label" position="1265,990" size="300,45" font="Regular;30" halign="center" valign="center" foregroundColor="yellow" transparent="1" zPosition="8" backgroundColor="background20">
+    <widget source="key_entitlements" render="Label" position="360,990" size="300,45" font="Regular;30" halign="center" valign="center" transparent="1" zPosition="8" backgroundColor="background20">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Label" position="95,940" size="570,40" font="Regular; 27" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="RamInfo" noWrap="1" halign="left">
       <convert type="GlamourSpace">RAMInfo</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="95,980" size="500,35" font="Regular; 27" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="BufferInfo" noWrap="1" halign="left">
+    <widget source="session.CurrentService" render="Label" position="95,980" size="200,35" font="Regular; 27" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="amarillo" text="BufferInfo" noWrap="1" halign="left">
       <convert type="GlamourSpace">BufferInfo</convert>
     </widget>
-    <widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1615,905" size="60,45" alphatest="blend" zPosition="4" transparent="1">
+    <widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="300,990" size="60,45" alphatest="blend" zPosition="4" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1680,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_info_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
+    <widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
       <convert type="ConditionalShowHide" />
     </widget>
     <panel name="FullKeys2" />
+  </screen>
+  <!-- 6.2 OSCam Entitlements -->
+  <screen name="OSCamEntitlements" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Entitlements" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="265,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <!-- Entitlement Headers -->
+    <widget source="dheader0" render="Label" position="0,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Type
+    <widget source="dheader1" render="Label" position="90,145" size="105,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # CAID
+    <widget source="dheader2" render="Label" position="195,145" size="120,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Provid
+    <widget source="dheader3" render="Label" position="315,145" size="270,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # ID
+    <widget source="dheader4" render="Label" position="585,145" size="150,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Class
+    <widget source="dheader5" render="Label" position="735,145" size="165,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Start Date
+    <widget source="dheader6" render="Label" position="900,145" size="165,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Expire Date
+    <widget source="dheader7" render="Label" position="1065,145" size="825,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Name
+    <!-- Card Headers -->     
+    <widget source="cheader0" render="Label" position="0,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # CAID
+    <widget source="cheader1" render="Label" position="90,145" size="210,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # System
+    <widget source="cheader6" render="Label" position="300,145" size="120,50" font="Numbers;31" halign="left" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # ProvIDs
+    <widget source="cheader7" render="Label" position="420,145" size="315,50" font="Numbers;31" halign="left" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Providers
+    <widget source="cheader8" render="Label" position="735,145" size="270,50" font="Numbers;31" halign="left" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Nodes
+    <widget source="cheader9" render="Label" position="1005,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Locals
+    <widget source="cheader10" render="Label" position="1095,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Count
+    <widget source="cheader11" render="Label" position="1185,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Hop1
+    <widget source="cheader12" render="Label" position="1260,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Hop2
+    <widget source="cheader13" render="Label" position="1335,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Hopx
+    <widget source="cheader14" render="Label" position="1410,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Curr
+    <widget source="cheader15" render="Label" position="1485,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Res0
+    <widget source="cheader16" render="Label" position="1560,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Res1
+    <widget source="cheader17" render="Label" position="1635,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Res2
+    <widget source="cheader18" render="Label" position="1710,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Resx
+    <widget source="cheader19" render="Label" position="1785,145" size="105,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Reshare
+    <!-- Lists -->     
+    <widget source="entitleslist" render="Listbox" position="0,200" size="1890,700" backgroundColor="background20" enableWrapAround="1" scrollbarMode="showOnDemand" zPosition="6" transparent="1"><convert type="TemplatedMultiContent">
+      {"templates": # index 0 is backgroundcolor
+      {"default": (35, [
+          MultiContentEntryText(pos=(0,0), size=(90,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # Type
+          MultiContentEntryText(pos=(90,0), size=(105,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),  # CAID
+          MultiContentEntryText(pos=(195,0), size=(120,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=3),  # Provid
+          MultiContentEntryText(pos=(315,0), size=(270,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=4),  # ID
+          MultiContentEntryText(pos=(585,0), size=(150,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=5),  # Class
+          MultiContentEntryText(pos=(735,0), size=(165,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=6),  # Start Date
+          MultiContentEntryText(pos=(900,0), size=(165,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),  # Expire Date
+          MultiContentEntryText(pos=(1065,0), size=(825,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8)  # Name
+          ]),
+     "entitlements": (35, [  # index 3 to 6 (Reshare, Hop, ShareID, RemoteID) are not used here
+          MultiContentEntryText(pos=(0,0), size=(90,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # Caid
+          MultiContentEntryText(pos=(90,0), size=(210,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=2),  # System
+          MultiContentEntryText(pos=(300,0), size=(120,35), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS, color=0x000000, backcolor=MultiContentTemplateColor(0), text=7),  # ProvIDs
+          MultiContentEntryText(pos=(420,0), size=(315,35), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS, color=0x000000, backcolor=MultiContentTemplateColor(0), text=8),  # Providers
+          MultiContentEntryText(pos=(735,0), size=(270,35), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS, color=0x000000, backcolor=MultiContentTemplateColor(0), text=9),  # Nodes
+          MultiContentEntryText(pos=(1005,0), size=(90,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=10),  # Locals
+          MultiContentEntryText(pos=(1095,0), size=(90,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=11),  # Count
+          MultiContentEntryText(pos=(1185,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=12),  # Hop1
+          MultiContentEntryText(pos=(1260,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=13),  # Hop2
+          MultiContentEntryText(pos=(1335,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=14),  # Hopx
+          MultiContentEntryText(pos=(1410,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=15),  # Curr
+          MultiContentEntryText(pos=(1485,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=16),  # Res0
+          MultiContentEntryText(pos=(1560,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=17),  # Res1
+          MultiContentEntryText(pos=(1635,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=18),  # Res2
+          MultiContentEntryText(pos=(1710,0), size=(75,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=19),  # Resx
+          MultiContentEntryText(pos=(1785,0), size=(105,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=20)  # Reshare
+          ])
+          },
+     "fonts": [gFont("Numbers",31)], "itemHeight":35
+      }
+    </convert>
+   </widget>
+     <widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1245,905" size="60,45" alphatest="blend" zPosition="4" transparent="1">
+       <convert type="ConditionalShowHide" />
+     </widget>
+     <widget source="key_detailed" render="Label" position="1315,905" size="450,45" font="Regular; 32" halign="center" valign="bottom" zPosition="5" transparent="1">
+       <convert type="ConditionalShowHide" />
+     </widget>
+     <widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
+       <convert type="ConditionalShowHide" />
+     </widget>
+     <panel name="FullKeysBT" />
+    </screen>
+  <!-- 6.3 OSCam Entitlement Details -->
+  <screen name="OSCamEntitleDetails" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Entitle Details" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="265,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <eLabel text="CAID" position="260,155" size="200,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="4" />
+    <eLabel text="System" position="465,155" size="330,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="4" />
+    <eLabel text="Reshare" position="800,155" size="220,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="4" />
+    <eLabel text="Hop" position="1025,155" size="135,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="4" />
+    <eLabel text="ShareID" position="1165,155" size="245,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="5" />
+    <eLabel text="RemoteID" position="1415,155" size="245,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="4" />
+    <widget source="label0" render="Label" position="260,210" size="200,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # CAID
+    <widget source="label1" render="Label" position="465,210" size="330,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # System
+    <widget source="label2" render="Label" position="800,210" size="220,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # Reshare
+    <widget source="label3" render="Label" position="1025,210" size="135,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # Hop
+    <widget source="label4" render="Label" position="1165,210" size="245,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # ShareID
+    <widget source="label5" render="Label" position="1415,210" size="245,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # RemoteID
+    <eLabel text="ProvIDs" position="260,265" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />
+    <widget source="ProvIDlist" render="Listbox" position="260,315" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="white" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
+        <convert type="StringList" />
+    </widget>    
+    <eLabel text="Providers" position="260,515" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />
+    <widget source="Providerlist" render="Listbox" position="260,565" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
+        <convert type="StringList" />
+    </widget>    
+    <eLabel text="Nodes" position="260,765" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />    
+    <widget source="Nodelist" render="Listbox" position="260,815" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
+        <convert type="StringList" />    
+    </widget><widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">    
+        <convert type="ConditionalShowHide" />    
+    </widget>
+</screen>
+  <!-- 6.4 OSCam Capabilities -->
+  <screen name="OSCamInfoCapability" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Info Capability" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="265,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <widget name="captext" position="50,155" size="1790,850" font="Console; 32" halign="left" valign="top" itemHeight="50" padding="10,0,10,0" foregroundColor="white" backgroundColor="background20" noWrap="0" scrollbarMode="showOnDemand" scrollbarForegroundColor="white" transparent="1" zPosition="5" />
+  </screen>
+  <!-- 6.5 OSCam Info Logs -->
+  <screen name="OSCamInfoLog" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Info Log" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
+    <ePixmap position="25,15" size="130,130" scale="1" zPosition="10" pixmap="GACommon/images/oscam.png" transparent="1" alphatest="on" />
+    <widget source="Title" render="Label" position="265,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
+    <widget name="logtext" position="50,155" size="1790,850" font="Console; 32" halign="left" valign="top" itemHeight="50" padding="10,0,10,0" foregroundColor="white" backgroundColor="background20" noWrap="0" scrollbarMode="showOnDemand" scrollbarForegroundColor="white" transparent="1" zPosition="5" />
   </screen>
 </skin>
