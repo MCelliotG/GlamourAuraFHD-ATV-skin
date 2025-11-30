@@ -1,7 +1,7 @@
 <skin>
-  <!--	Original Skin: GlamourAuraFHD-ATV by MCelliotG	-->
-  <!--	SKIN FILE -->
-  <!--	GlamourAuraFHD-ATV Enhanced Movie Center by MCelliotG -->
+  <!--    Original Skin: GlamourAuraFHD-ATV by MCelliotG    -->
+  <!--    SKIN FILE -->
+  <!--    GlamourAuraFHD-ATV Enhanced Movie Center by MCelliotG -->
   <!-- EMC Templates -->
   <screen name="EMCList" flags="wfNoBorder">
     <widget name="wait" position="665,135" size="1200,750" font="Regular; 37" halign="center" valign="center" zPosition="12" transparent="0" backgroundColor="background20" foregroundColor="sky" />
