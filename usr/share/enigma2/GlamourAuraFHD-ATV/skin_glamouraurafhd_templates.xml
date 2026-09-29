@@ -43,6 +43,7 @@
     <menu key="opd_boot" image="GACommon/images/opdboot.png" />
     <!-- Information -->
     <menu key="about_screen" image="GACommon/images/about.png" />
+    <menu key="benchmark_info_screen" image="GACommon/images/benchmark.png" />
     <menu key="build_info_screen" image="GACommon/images/build_info.png" />
     <menu key="commit_info_screen" image="GACommon/images/commit_info.png" />
     <menu key="debug_info_screen" image="GACommon/images/debug_info.png" />
@@ -92,7 +93,9 @@
     <menu key="autobouquetsmakermaker" image="GACommon/images/abm.png" />
     <menu key="blindscan" image="GACommon/images/blind_scan.png" />
     <menu key="cablescan" image="GACommon/images/cable_scan.png" />
-    <menu key="default_lists" image="GACommon/images/manual_scan.png" />
+    <menu key="dab_scan" image="GACommon/images/dab_scan.png" />
+    <menu key="dab_usb_setup" image="GACommon/images/dab_usb_setup.png" />
+    <menu key="default_lists" image="GACommon/images/default_lists.png" />
     <menu key="diseqc_tester" image="GACommon/images/diseqc.png" />
     <menu key="fallbacktuner_settings" image="GACommon/images/remotereceiver.png" />
     <menu key="fastscan" image="GACommon/images/fast_scan.png" />
@@ -121,12 +124,14 @@
     <menu key="iptv_config" image="GACommon/images/iptv_config.png" />
     <menu key="iptv_player" image="GACommon/images/iptv_player.png" />
     <menu key="language_setup" image="GACommon/images/languages.png" />
+    <menu key="led_setup" image="GACommon/images/led.png" />
     <menu key="LED_Giga" image="GACommon/images/gigaled.png" />
     <menu key="ledManager" image="GACommon/images/led.png" />
     <menu key="numzapext_setup" image="GACommon/images/numzap.png" />
     <menu key="osd_setup" image="GACommon/images/osdmenu.png" />
     <menu key="permanent_clock" image="GACommon/images/permanentclock.png" />
     <menu key="pip_setup" image="GACommon/images/pipsetup.png" />
+    <menu key="picon_setup" image="GACommon/images/piconupdater.png" />
     <menu key="pluginhider_setup" image="GACommon/images/pluginhide.png" />
     <menu key="RCU Select" image="GACommon/images/rcu.png" />
     <menu key="remote_setup" image="GACommon/images/remotesetup.png" />
@@ -203,8 +208,10 @@
     <menu key="setup_epgvertical" image="GACommon/images/epgvertical.png" />
     <!-- Network -->
     <menu key="device_setup" image="GACommon/images/networkadapter.png" />
+    <menu key="dns_setup" image="GACommon/images/dns.png" />
     <menu key="Inadyn_setup" image="GACommon/images/inadyn.png" />
     <menu key="minidlna_setup" image="GACommon/images/minidlna.png" />
+    <menu key="mount_setup" image="GACommon/images/netmounts.png" />
     <menu key="netafp_setup" image="GACommon/images/netafp.png" />
     <menu key="netftp_setup" image="GACommon/images/netftp.png" />
     <menu key="netmounts_setup" image="GACommon/images/netmounts.png" />
@@ -215,6 +222,7 @@
     <menu key="netrts_setup" image="GACommon/images/rtsp.png" />
     <menu key="netsabnzbd_setup" image="GACommon/images/sabnzbd.png" />
     <menu key="netsatpi_setup" image="GACommon/images/satpi.png" />
+    <menu key="netsamba_setup" image="GACommon/images/samba.png" />
     <menu key="netsmba_setup" image="GACommon/images/samba.png" />
     <menu key="nettelnet_setup" image="GACommon/images/telnet.png" />
     <menu key="netushare_setup" image="GACommon/images/ushare.png" />
@@ -222,6 +230,7 @@
     <menu key="network" image="GACommon/images/network.png" />
     <menu key="openwebif" image="GACommon/images/webif.png" />
     <menu key="password_setup" image="GACommon/images/pininput.png" />
+    <menu key="zerotier_setup" image="GACommon/images/zerotier.png" />
     <!-- Storage -->
     <menu key="flash_expander" image="GACommon/images/flashexpander.png" />
     <menu key="harddisk_check" image="GACommon/images/hddcheck.png" />
@@ -243,6 +252,7 @@
     <menu key="parental_setup" image="GACommon/images/parental.png" />
     <menu key="softcam_settings" image="GACommon/images/camd.png" />
     <menu key="softcam_setup" image="GACommon/images/camsetup.png" />
+    <menu key="softcsa_settings" image="GACommon/images/camsetup.png" />
     <menu key="streamrelay_settings" image="GACommon/images/streaming.png" />
     <!-- Shutdown -->
     <menu key="chkroot_multiboot" image="GACommon/images/multiboot.png" />
@@ -300,6 +310,7 @@
   <setups>
     <setup key="default" image="GACommon/images/setup.png" />
     <setup key="Audio" image="GACommon/images/audiosetup.png" />
+    <setup key="audio_setup" image="GACommon/images/avsetup.png" />
     <setup key="AutoCam" image="GACommon/images/autocam_settings.png" />
     <setup key="AutoLanguage" image="GACommon/images/autolang.png" />
     <setup key="BirthdayReminderSettings" image="GACommon/images/bday.png" />
@@ -322,6 +333,7 @@
     <setup key="EPGInfobarGraphical" image="GACommon/images/epginfobargraphical.png" />
     <setup key="EPGJumpTime" image="GACommon/images/timer.png" />
     <setup key="EPGMulti" image="GACommon/images/epgmulti.png" />
+    <setup key="EPGSingle" image="GACommon/images/epgsettings.png" />
     <setup key="EPGVertical" image="GACommon/images/epgvertical.png" />
     <setup key="FactoryReset" image="GACommon/images/factory.png" />
     <setup key="Fallbacktuner" image="GACommon/images/remotereceiver.png" />
@@ -333,6 +345,8 @@
     <setup key="InputDeviceSetup" image="GACommon/images/hdmicec.png" />
     <setup key="Keyboard" image="GACommon/images/keyboard.png" />
     <setup key="KexecSlotManager" image="GACommon/images/slotmanager.png" />
+    <setup key="ChkrootSlotManager" image="GACommon/images/slotmanager.png" />
+    <setup key="NativeSlotManager" image="GACommon/images/slotmanager.png" />
     <setup key="LEDs" image="GACommon/images/led.png" />
     <setup key="LEDS" image="GACommon/images/led.png" />
     <setup key="Locale" image="GACommon/images/hdmicec.png" />
@@ -340,11 +354,18 @@
     <setup key="MisPlsLcnScanScreen" image="GACommon/images/misplslcn.png" />
     <setup key="MovieSelection" image="GACommon/images/movie.png" />
     <setup key="Network" image="GACommon/images/network.png" />
+    <setup key="NetworkAdapter" image="GACommon/images/networkadapter.png" />
     <setup key="NetworkAdapterSelection" image="GACommon/images/networkadapter.png" />
+    <setup key="NetworkCredentials" image="GACommon/images/networkcredentials.png" />
     <setup key="NetworkInadynSetup" image="GACommon/images/inadyn.png" />
     <setup key="NetworkMiniDLNASetup" image="GACommon/images/minidlna.png" />
+    <setup key="NetworkMounts" image="GACommon/images/netmounts.png" />
+    <setup key="NetworkNFS" image="GACommon/images/netnfs.png" />
+    <setup key="NetworkSamba" image="GACommon/images/samba.png" />
     <setup key="NetworkServices" image="GACommon/images/netservices.png" />
     <setup key="NetworkServicesSetup" image="GACommon/images/netservices.png" />
+    <setup key="NetworkWiFi" image="GACommon/images/wifi.png" />
+    <setup key="NetworkZeroTier" image="GACommon/images/zerotier.png" />
     <setup key="NetworkuShareSetup" image="GACommon/images/ushare.png" />
     <setup key="OpenWebif" image="GACommon/images/webif.png" />
     <setup key="openwebif" image="GACommon/images/webif.png" />
@@ -353,6 +374,7 @@
     <setup key="OSD3DCalibration" image="GACommon/images/auto_3d.png" />
     <setup key="OSDCalibration" image="GACommon/images/osdmenu.png" />
     <setup key="Password" image="GACommon/images/panel+.png" />
+    <setup key="Picon" image="GACommon/images/piconupdater.png" />
     <setup key="Playback" image="GACommon/images/play_big.png" />
     <setup key="PluginBrowser" image="GACommon/images/plugins.png" />
     <setup key="PowerTimer" image="GACommon/images/powertimer.png" />
@@ -360,11 +382,13 @@
     <setup key="RecordTimer" image="GACommon/images/timer.png" />
     <setup key="RemoteButton" image="GACommon/images/remotesetup.png" />
     <setup key="RFModulator" image="GACommon/images/rfmod.png" />
+    <setup key="RTLSDRSetup" image="GACommon/images/dab_usb_setup.png" />
     <setup key="Satellite" image="GACommon/images/satellite.png" />
     <setup key="Scheduler" image="GACommon/images/timeshift.png" />
     <setup key="Skin" image="GACommon/images/skins.png" />
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
     <setup key="Softcam" image="GACommon/images/camsetup.png" />
+    <setup key="SoftCSA" image="GACommon/images/camsetup.png" />
     <setup key="SoftwareManager" image="GACommon/images/softwaremanager.png" />
     <setup key="SpecialFeatures" image="GACommon/images/specialfeatures.png" />
     <setup key="StreamRelay" image="GACommon/images/streaming.png" />
@@ -380,6 +404,7 @@
     <setup key="video_setup" image="GACommon/images/videosettings.png" />
     <setup key="VolumeAdjust" image="GACommon/images/volumeadjust.png" />
     <setup key="vps" image="GACommon/images/vps.png" />
+    <setup key="UBISlotManager" image="GACommon/images/slotmanager.png" />
   </setups>
   <!-- PANELS -->
   <!-- 01. Key Panels -->
@@ -1095,6 +1120,10 @@
   <!-- 02-2. MenuInfo -->
   <screen name="MenuInfo" flags="wfNoBorder">
     <widget name="menuimage" position="515,425" size="180,180" alphatest="on" conditional="menuimage" scaleFlags="scaleCenter" transparent="1" zPosition="5" />
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/benchmark.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">benchmark_info_screen</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/service_info.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">service_info_screen</convert>
       <convert type="ConditionalShowHide" />
@@ -1223,6 +1252,14 @@
       <convert type="MenuEntryCompare">manual_scan</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/dab_scan.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">dab_scan</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/dab_usb_setup.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">dab_usb_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/fast_scan.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">fastscan</convert>
       <convert type="ConditionalShowHide" />
@@ -1287,6 +1324,10 @@
   <!-- 02-6. MenuSystem -->
   <screen name="MenuSystem" flags="wfNoBorder">
     <widget name="menuimage" position="515,425" size="180,180" alphatest="on" conditional="menuimage" scaleFlags="scaleCenter" transparent="1" zPosition="5" />
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/led.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">led_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/ui.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">user_interface</convert>
       <convert type="ConditionalShowHide" />
@@ -1309,6 +1350,10 @@
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/pipsetup.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">pip_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/piconupdater.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">picon_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/skins.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -1632,8 +1677,16 @@
       <convert type="MenuEntryCompare">device_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/dns.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">dns_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/netmounts.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">netmounts_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/netmounts.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">mount_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/pininput.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -1668,12 +1721,20 @@
       <convert type="MenuEntryCompare">netvpn_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/zerotier.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">zerotier_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/sabnzbd.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">netsabnzbd_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/samba.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">netsmba_setup</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/samba.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">netsamba_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/telnet.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="5">
@@ -1720,6 +1781,10 @@
   <!-- 02-17. MenuCam -->
   <screen name="MenuCam" flags="wfNoBorder">
     <widget name="menuimage" position="355,315" size="400,400" alphatest="on" conditional="menuimage" scaleFlags="scaleCenter" transparent="1" zPosition="5" />
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/camsetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
+      <convert type="MenuEntryCompare">softcsa_settings</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <widget source="menu" render="Pixmap" pixmap="GACommon/images/camsetup.png" position="355,315" size="400,400" transparent="1" alphatest="on" zPosition="5">
       <convert type="MenuEntryCompare">softcam_setup</convert>
       <convert type="ConditionalShowHide" />

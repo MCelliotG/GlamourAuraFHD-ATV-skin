@@ -39,6 +39,150 @@
     <widget name="labrun" position="1180,420" size="600,50" font="Regular; 32" valign="center" halign="center" backgroundColor="green" zPosition="7" />
     <panel name="FullKeys1" />
   </screen>
+  <!-- 02a. Network Overview (OpenATV 8.x) -->
+  <screen name="NetworkOverview" position="0,0" size="1920,1080" title="Network Overview" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/networkadapter.png" alphatest="on" transparent="1" zPosition="5" />
+    <!-- Network adapters -->
+    <widget source="adapterList" render="Listbox" position="540,105" size="1305,320" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+  <!-- connected, no-link, idle -->
+  <template name="Default" colors="cyan,red,grey" fonts="Numbers;30,enigma2icons;42,Numbers;34,Numbers;26,Regular;30,Numbers;32,enigma2icons;36" itemHeight="80">
+    <!-- Header -->
+    <rowtemplate>
+      <text index="AdapterName" position="0,0" size="270,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+      <text index="StatusText" position="330,0" size="180,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+      <text index="MAC" position="540,0" size="220,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+      <text index="IPAddress" position="770,0" size="190,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+      <text index="Gateway" position="970,0" size="190,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+      <text index="Speed" position="1170,0" size="150,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+    </rowtemplate>
+    <!-- Data -->
+    <rowtemplate>
+      <text index="AdapterGlyph" position="0,8" size="60,65" font="1" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+      <text index="AdapterName" position="75,0" size="195,40" font="2" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+      <text index="AdapterType" position="75,40" size="195,40" font="3" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+      <text index="InternetGlyph" position="280,20" size="50,45" font="6" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+      <text index="StatusText" position="330,0" size="200,80" font="4" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColorSelected" padding="5,0" verticalAlignment="center" />
+      <text index="MAC" position="540,0" size="220,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+      <text index="IPAddress" position="770,0" size="190,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+      <text index="Gateway" position="970,0" size="190,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+      <text index="Speed" position="1170,0" size="150,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+    </rowtemplate>
+  </template>
+</widget>
+    <!-- Saved Wi-Fi networks -->
+    <widget source="savedLabel" render="Label" position="540,480" size="1305,50" font="Regular:32" foregroundColor="white" backgroundColor="background20" padding="15,0" verticalAlignment="center" widgetBorderColor="cyan" widgetBorderWidth="1">
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="savedList" render="Listbox" position="540,535" size="1305,320" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="Regular;30,Numbers;30,enigma2icons;36" itemHeight="80">
+        <!-- Header -->
+        <rowtemplate>
+          <text index="SSID" position="0,0" size="370,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="StatusText" position="380,0" size="150,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="BSSID" position="540,0" size="190,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="Frequency" position="750,0" size="160,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="Channel" position="920,0" size="120,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="Encryption" position="1045,0" size="260,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+        </rowtemplate>
+        <!-- Data -->
+        <rowtemplate>
+          <text index="SSID" position="0,0" size="370,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="StatusGlyph" position="380,0" size="80,80" font="2" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColorSelected" padding="5,0" verticalAlignment="center" horizontalAlignment="center" />
+          <text index="BSSID" position="540,0" size="190,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Frequency" position="750,0" size="160,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Channel" position="920,0" size="120,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Encryption" position="1045,0" size="260,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+        </rowtemplate>
+      </template>
+    </widget>
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 02b. Network Mounts Overview -->
+  <screen name="NetworkMountsOverview" position="0,0" size="1920,1080" title="Network Mounts Overview" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="mountList" render="Listbox" position="540,105" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="Regular;30,Regular;26" itemHeight="80">
+        <mode name="default">
+          <text index="ShareName" position="0,0" size="300,80" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Description" position="315,0" size="540,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Mounted" position="875,0" size="205,80" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Active" position="1095,0" size="210,80" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" horizontalAlignment="right" />
+        </mode>
+      </template>
+    </widget>
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 02c. Network Shares Browser -->
+  <screen name="NetworkShares" position="0,0" size="1920,1080" title="Network Shares Browser" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts_manager.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="list" render="Listbox" position="540,105" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="enigma2icons;48,Regular;30,enigma2icons;42,Regular;26" itemHeight="80">
+        <rowtemplate>
+          <text index="Glyph" position="0,0" size="70,80" font="0" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+          <text index="IPAddress" position="80,0" size="260,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Name" position="355,0" size="540,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Username" position="910,0" size="395,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+        </rowtemplate>
+        <rowtemplate>
+          <text index="Glyph" position="30,0" size="70,80" font="2" foregroundColor="+GlyphColor" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+          <text index="Type" position="115,0" size="120,80" font="3" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Name" position="250,0" size="270,80" font="3" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Description" position="535,0" size="770,40" font="3" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="LocalPath" position="535,40" size="770,40" font="3" foregroundColor="grey" padding="5,0" verticalAlignment="center" />
+        </rowtemplate>
+      </template>
+    </widget>
+    <widget name="description" position="540,835" size="1305,35" font="Regular;26" foregroundColor="white" backgroundColor="background20" padding="10,0" verticalAlignment="center" widgetBorderColor="cyan" widgetBorderWidth="1" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 02d. Wi-Fi Scan -->
+  <screen name="NetworkWiFiScan" position="0,0" size="1920,1080" title="Wi-Fi Scan" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wifi.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="list" render="Listbox" position="540,105" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="Regular;30,Numbers;30,enigma2icons;42" itemHeight="80">
+        <mode name="default">
+          <panel position="0,0" size="e,e" >
+            <text index="Name" position="0,0" size="530,80" flags="scroll" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+            <text index="Glyph" position="540,0" size="80,80" font="2" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+            <text index="Percentage" position="630,0" size="100,80" font="1" foregroundColor="white" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+            <text index="dBm" position="750,0" size="100,80" font="1" foregroundColor="white" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+            <text index="Encryption" position="860,0" size="160,80" font="1" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+            <text index="Channel" position="1030,0" size="100,80" font="1" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+            <text index="Frequency" position="1140,0" size="165,80" font="1" foregroundColor="white" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+          </panel>
+        </mode>
+      </template>
+    </widget>
+    <widget name="description" position="540,845" size="1305,45" font="Regular;26" foregroundColor="white" backgroundColor="background20" padding="10,0" verticalAlignment="center" widgetBorderColor="cyan1" widgetBorderWidth="1" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 02e. Wi-Fi Activator -->
+  <screen name="NetworkWiFiActivator" position="0,0" size="1920,1080" title="Wi-Fi Activator" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/wifi.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="status" position="540,180" size="1305,560" font="Regular;38" foregroundColor="white" backgroundColor="background20" horizontalAlignment="center" verticalAlignment="center" transparent="1" zPosition="5" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 02f. Network Test -->
+  <screen name="NetworkTest" position="0,0" size="1920,1080" title="Network Test" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/network.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="list" render="Listbox" position="540,105" size="1305,640" scrollbarMode="showNever" selection="false" backgroundColor="background20" backgroundColorSelected="cyan1" transparent="1" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="enigma2icons;42,Regular;30" itemHeight="80">
+        <mode name="default">
+          <text index="Glyph" position="0,0" size="70,80" font="0" foregroundColor="+Color" foregroundColorSelected="+Color" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+          <text index="Label" position="85,0" size="250,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Result" position="350,0" size="330,80" font="1" foregroundColor="+Color" foregroundColorSelected="+Color" padding="5,0" verticalAlignment="center" />
+          <text index="Detail" position="700,0" size="605,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+        </mode>
+      </template>
+    </widget>
+    <panel name="FullKeysMIH" />
+  </screen>
   <screen name="NetworkMacSetup" position="0,0" size="1920,1080" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/nim2.png" alphatest="on" transparent="1" zPosition="5" />
@@ -332,6 +476,27 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/softupdate.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="text" render="Label" position="540,90" size="1305,80" font="Regular; 32" backgroundColor="background20" transparent="1" valign="center" zPosition="5" halign="left" foregroundColor="lightciel" scrollbarMode="showOnDemand" />
     <widget name="list" font="Regular; 32" position="540,190" size="1305,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="5" />
+  </screen>
+  <!-- Package Feed Selection -->
+  <screen name="PackageFeedSelection" position="0,0" size="1920,1080" title="Package Feed Selection" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/upgrade_source.png" alphatest="on" transparent="1" zPosition="5" />
+
+  <widget name="feeds"
+    position="540,105"
+    size="1305,700"
+    font="Regular;32"
+    itemHeight="50"
+    scrollbarMode="showOnDemand"
+    enableWrapAround="1"
+    selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png"
+    alphatest="off"
+    backgroundColor="background20"
+    transparent="1"
+    zPosition="5" />
+
+  <panel name="FullKeysMIH" />
   </screen>
   <!-- 04. HDD SCREENS -->
   <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder">
@@ -1157,6 +1322,25 @@
     <widget name="list" font="Regular; 32" position="535,120" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
     <panel name="FullKeys1" />
   </screen>
+  <!-- Kexec/Chkroot MultiBoot Initialization -->
+  <screen name="KexecInit" position="0,0" size="1920,1080" title="Kexec MultiBoot Manager" flags="wfNoBorder" backgroundColor="transparent">
+  <panel name="ScreenElements2" />
+
+  <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/slotmanager.png" alphatest="on" transparent="1" zPosition="5" />
+
+  <widget name="description"
+    position="540,120"
+    size="1305,650"
+    font="Regular;36"
+    foregroundColor="white"
+    backgroundColor="background20"
+    transparent="1"
+    valign="center"
+    halign="center"
+    zPosition="5" />
+
+  <panel name="FullKeysMIH" />
+  </screen>
   <!-- 18. CI SCREENS -->
   <screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
@@ -1303,7 +1487,7 @@
   <screen name="PictureInformation" position="0,0" size="1920,1080" title="Picture Information" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pictures.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="image" position="535,60" size="700,480" alphatest="on" scaleFlags="scaleCenter" transparent="1" zPosition="10" />
+    <widget name="picture" position="535,60" size="700,480" alphatest="on" scaleFlags="scaleCenter" transparent="1" zPosition="10" />
     <widget source="name" render="Label" position="1240,60" size="600,480" conditional="description" font="RegularB; 32" foregroundColor="amarillo" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="7" />
     <widget name="description" position="535,540" size="1305,315" conditional="decription" font="Regular; 32" noWrap="0" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" foregroundColor="cyan1" />
     <panel name="FullKeysMIH" />
@@ -1624,8 +1808,7 @@
     <widget source="dheader5" render="Label" position="735,145" size="165,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Start Date
     <widget source="dheader6" render="Label" position="900,145" size="165,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Expire Date
     <widget source="dheader7" render="Label" position="1065,145" size="825,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" noWrap="1" />  # Name
-    <!-- Card Headers -->     
-    <widget source="cheader0" render="Label" position="0,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # CAID
+    <!-- Card Headers --><widget source="cheader0" render="Label" position="0,145" size="90,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # CAID
     <widget source="cheader1" render="Label" position="90,145" size="210,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # System
     <widget source="cheader6" render="Label" position="300,145" size="120,50" font="Numbers;31" halign="left" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # ProvIDs
     <widget source="cheader7" render="Label" position="420,145" size="315,50" font="Numbers;31" halign="left" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Providers
@@ -1641,8 +1824,7 @@
     <widget source="cheader17" render="Label" position="1635,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Res2
     <widget source="cheader18" render="Label" position="1710,145" size="75,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Resx
     <widget source="cheader19" render="Label" position="1785,145" size="105,50" font="Numbers;31" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="7" transparent="1" noWrap="1" />  # Reshare
-    <!-- Lists -->     
-    <widget source="entitleslist" render="Listbox" position="0,200" size="1890,700" backgroundColor="background20" enableWrapAround="1" scrollbarMode="showOnDemand" zPosition="6" transparent="1"><convert type="TemplatedMultiContent">
+    <!-- Lists --><widget source="entitleslist" render="Listbox" position="0,200" size="1890,700" backgroundColor="background20" enableWrapAround="1" scrollbarMode="showOnDemand" zPosition="6" transparent="1"><convert type="TemplatedMultiContent">
       {"templates": # index 0 is backgroundcolor
       {"default": (35, [
           MultiContentEntryText(pos=(0,0), size=(90,35), font=0, flags=RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x000000, backcolor=MultiContentTemplateColor(0), text=1),  # Type
@@ -1675,19 +1857,7 @@
           },
      "fonts": [gFont("Numbers",31)], "itemHeight":35
       }
-    </convert>
-   </widget>
-     <widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1245,905" size="60,45" alphatest="blend" zPosition="4" transparent="1">
-       <convert type="ConditionalShowHide" />
-     </widget>
-     <widget source="key_detailed" render="Label" position="1315,905" size="450,45" font="Regular; 32" halign="center" valign="bottom" zPosition="5" transparent="1">
-       <convert type="ConditionalShowHide" />
-     </widget>
-     <widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">
-       <convert type="ConditionalShowHide" />
-     </widget>
-     <panel name="FullKeysBT" />
-    </screen>
+    </convert></widget><widget source="key_OK" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_ok_medium.png" position="1245,905" size="60,45" alphatest="blend" zPosition="4" transparent="1"><convert type="ConditionalShowHide" /></widget><widget source="key_detailed" render="Label" position="1315,905" size="450,45" font="Regular; 32" halign="center" valign="bottom" zPosition="5" transparent="1"><convert type="ConditionalShowHide" /></widget><widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1"><convert type="ConditionalShowHide" /></widget><panel name="FullKeysBT" /></screen>
   <!-- 6.3 OSCam Entitlement Details -->
   <screen name="OSCamEntitleDetails" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Entitle Details" flags="wfNoBorder">
     <panel name="ScreenElements7" />
@@ -1705,21 +1875,7 @@
     <widget source="label3" render="Label" position="1025,210" size="135,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # Hop
     <widget source="label4" render="Label" position="1165,210" size="245,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # ShareID
     <widget source="label5" render="Label" position="1415,210" size="245,50" font="Numbers;32" halign="center" valign="center" foregroundColor="black" backgroundColor="amarillo" zPosition="5" />  # RemoteID
-    <eLabel text="ProvIDs" position="260,265" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />
-    <widget source="ProvIDlist" render="Listbox" position="260,315" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="white" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
-        <convert type="StringList" />
-    </widget>    
-    <eLabel text="Providers" position="260,515" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />
-    <widget source="Providerlist" render="Listbox" position="260,565" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
-        <convert type="StringList" />
-    </widget>    
-    <eLabel text="Nodes" position="260,765" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" />    
-    <widget source="Nodelist" render="Listbox" position="260,815" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6" >    
-        <convert type="StringList" />    
-    </widget><widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1">    
-        <convert type="ConditionalShowHide" />    
-    </widget>
-</screen>
+    <eLabel text="ProvIDs" position="260,265" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" /><widget source="ProvIDlist" render="Listbox" position="260,315" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="white" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6"><convert type="StringList" /></widget><eLabel text="Providers" position="260,515" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" /><widget source="Providerlist" render="Listbox" position="260,565" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6"><convert type="StringList" /></widget><eLabel text="Nodes" position="260,765" size="1400,50" font="Regular; 32" halign="center" valign="center" foregroundColor="white" backgroundColor="darkgrey" zPosition="6" /><widget source="Nodelist" render="Listbox" position="260,815" size="1400,200" font="Numbers;32" itemHeight="40" foregroundColor="black" backgroundColor="amarillo" foregroundColorSelected="white" halign="center" valign="center" scrollbarMode="showOnDemand" zPosition="6"><convert type="StringList" /></widget><widget source="key_exit" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_exit_medium.png" position="1775,905" size="90,45" alphatest="blend" zPosition="4" transparent="1"><convert type="ConditionalShowHide" /></widget></screen>
   <!-- 6.4 OSCam Capabilities -->
   <screen name="OSCamInfoCapability" position="0,0" size="1920,1080" backgroundColor="transparent" title="OSCam Info Capability" flags="wfNoBorder">
     <panel name="ScreenElements7" />
