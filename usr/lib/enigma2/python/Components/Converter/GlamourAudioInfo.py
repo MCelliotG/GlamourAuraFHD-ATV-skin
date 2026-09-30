@@ -2,7 +2,7 @@
 #Modded and recoded by MCelliotG for use in Glamour skins or standalone, based on VAudioInfo converter
 #If you use this Converter with its modifications as it is for other skins and rename it, please keep the lines above adding your credits below
 
-from enigma import iPlayableService
+from enigma import eServiceReference, iPlayableService, iServiceInformation
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
@@ -48,24 +48,25 @@ class GlamourAudioInfo(Poll, Converter):
 			"gre": "Ελληνικά", "ell": "Ελληνικά", "greek": "Ελληνικά"
 		}
 		self.codecs = {
-			"01_dolbydigitalplus": ("digital+", "digitalplus", "ac3+", "e-ac-3",),
-			"02_dolbydigital": ("dolbyac3", "ac3", "ac-3", "dolbydigital",),
-			"03_mp3": ("mp3",),
-			"04_wma": ("wma",),
-			"05_flac": ("flac",),
-			"06_he-aac": ("he-aac",),
+			"00_dolbydigitalplus": ("digital+", "digitalplus", "ac3+", "e-ac-3",),
+			"01_dolbydigital": ("dolbyac3", "ac3", "ac-3", "dolbydigital",),
+			"02_mp3": ("mp3",),
+			"03_wma": ("wma",),
+			"04_flac": ("flac",),
+			"05_mp2": ("mp2",),
+			"06_mpeg-4_aac": ("he-aac",),
 			"07_aac": ("aac", "mpeg-4 aac", "mpeg-4",),
 			"08_lpcm": ("lpcm",),
 			"09_dts-hd": ("dts-hd",),
 			"10_dts": ("dts",),
 			"11_pcm": ("pcm",),
 			"12_mpeg": ("mpeg",),
-			"13_dolbytruehd": ("truehd","dolbytruehd",),
+			"13_dolbytruehd": ("truehd", "dolbytruehd",),
 			"14_opus": ("opus",),
-			"15_dolbyac4": ("dolbyac4","ac4","ac-4",),
+			"15_dolbyac4": ("dolbyac4", "ac4", "ac-4",),
 			"16_ogg": ("vorbis", "ogg",),
 			"17_dolbyatmos": ("atmos", "doblyatmos",)
-			}
+		}
 		self.codec_info = {
 			"dolbydigitalplus": ("51", "20", "71"),
 			"dolbydigital": ("51", "20", "10", "71"),
@@ -77,8 +78,8 @@ class GlamourAudioInfo(Poll, Converter):
 			}[type]
 
 	def getAudio(self):
-		service = self.source.service
-		audio = service.audioTracks()
+		service = getattr(self.source, "service", None)
+		audio = service and service.audioTracks()
 		if audio:
 			self.current_track = audio.getCurrentTrack()
 			self.number_of_tracks = audio.getNumberOfTracks()
@@ -87,11 +88,40 @@ class GlamourAudioInfo(Poll, Converter):
 				return True
 		return False
 
+	def isDABService(self):
+		service = getattr(self.source, "service", None)
+		if service is None:
+			return False
+		try:
+			serviceInfo = service.info()
+			serviceRef = serviceInfo.getInfoString(iServiceInformation.sServiceref)
+			dabType = getattr(eServiceReference, "idServiceDAB", None)
+			return bool(dabType is not None and serviceRef and eServiceReference(serviceRef).type == dabType)
+		except Exception as err:
+			print("[GlamourAudioInfo] DAB detection failed: %s" % err)
+			return False
+
+	def getDABCodec(self, info):
+		if not self.isDABService():
+			return ""
+		try:
+			codec = (info.getInfoString(iServiceInformation.sTagCodec) or "").strip().upper()
+			if codec.startswith("DAB+ HE-AAC"):
+				return "HE-AAC"
+			if codec.startswith("DAB MPEG AUDIO LAYER II"):
+				return "MP2"
+		except (AttributeError, TypeError):
+			pass
+		return ""
+
 	def getLanguage(self):
 		languages = self.audio_info.getLanguage()
 		return self.lang_dict.get(languages.lower(), languages).replace("und ", "")
 
 	def getAudioCodec(self, info):
+		dabCodec = self.getDABCodec(info)
+		if dabCodec:
+			return dabCodec
 		description_str = _("unknown")
 		if self.getAudio():
 			try:
@@ -120,7 +150,7 @@ class GlamourAudioInfo(Poll, Converter):
 		for return_codec, codecs in sorted(iter(self.codecs.items())):
 			for codec in codecs:
 				if codec in audioName:
-					codec = return_codec.split('_')[1]
+					codec = return_codec.split('_', 1)[1]
 					if codec in self.codec_info:
 						for ex_codec in self.codec_info[codec]:
 							if ex_codec in audioName:

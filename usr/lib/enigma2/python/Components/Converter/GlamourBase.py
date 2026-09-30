@@ -6,10 +6,11 @@ from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
 from ServiceReference import ServiceReference
-from enigma import eAVControl, iServiceInformation, iPlayableService
+from enigma import eAVControl, eServiceReference, iServiceInformation, iPlayableService
 from Tools.Transponder import ConvertToHumanReadable
 from Components.config import config
 import re
+from urllib.parse import unquote, urlsplit
 
 # -------------------------------------------------------------------
 # Helpers / globals
@@ -69,12 +70,11 @@ satnames = (
 	(149.7, 150.3, "JCSat 1C"),
 	(145.7, 146.3, "Nusantara Satu"),
 	(144.7, 145.4, "Express AMU7"),
-	(143.7, 144.3, "Superbird C2"),
 	(142.7, 143.3, "Inmarsat-4F1"),
 	(141.7, 142.3, "Apstar 9"),
 	(139.7, 140.4, "Express AM5/AT2"),
 	(137.7, 138.3, "Telstar 18 Vantage"),
-	(135.7, 136.4, "JCSat 16"),
+	(135.7, 136.4, "JCSAT-16 & JSAT-136E"),
 	(133.7, 134.3, "Apstar 6C"),
 	(131.7, 132.3, "Vinasat 1/2 & JCSat 5A"),
 	(130.4, 130.8, "ChinaSat 6C"),
@@ -120,8 +120,8 @@ satnames = (
 	(73.7, 74.4, "GSat 18"),
 	(71.7, 72.4, "Intelsat 22"),
 	(70.3, 70.8, "Eutelsat 70B"),
-	(69.8, 70.2, "Blagovest 3"),
-	(68.3, 68.8, "Intelsat 20/36"),
+	(69.8, 70.2, "Blagovest 3 & Raduga 1M-2"),
+	(68.3, 68.8, "Intelsat 20"),
 	(65.8, 66.3, "Intelsat 17"),
 	(64.8, 65.3, "Amos 4"),
 	(63.8, 64.4, "Intelsat 906 & Inmarsat-4F2"),
@@ -131,24 +131,21 @@ satnames = (
 	(61.7, 62.3, "Intelsat 39"),
 	(60.8, 61.2, "ABS 4"),
 	(60.2, 60.4, "WGS 2"),
-	(59.9, 60.1, "Intelsat 33e"),
 	(59.4, 59.8, "Ovzon 3"),
 	(58.3, 58.7, "KazSat 3"),
 	(56.8, 57.3, "NSS 12"),
 	(56.4, 56.7, "Inmarsat GX4"),
-	(55.7, 56.3, "Express AT1"),
 	(55.0, 55.4, "Yamal 402 & GSat 8"),
 	(54.6, 54.9, "Yamal 402"),
-	(52.9, 53.3, "Express AM6"),
+	(52.9, 53.3, "Express AM6 & Eutelsat 53A"),
 	(52.7, 52.8, "Skynet 5D"),
 	(52.3, 52.6, "Al Yah 1"),
 	(51.8, 52.2, "TurkmenÄlem/MonacoSat"),
 	(51.2, 51.7, "Belintersat 1"),
-	(50.3, 50.7, "Thaicom 9A"),
+	(50.3, 50.7, "Eutelsat 50A"),
 	(49.7, 50.2, "Türksat 4B"),
 	(48.7, 49.3, "Yamal 601"),
-	(47.8, 48.3, "GSat 19/31"),
-	(47.8, 48.3, "Eutelsat Quantum & GSat 12"),
+	(47.8, 48.3, "GSat 19/31 & Eutelsat Quantum"),
 	(47.6, 47.7, "Al Yah 2"),
 	(45.7, 46.3, "AzerSpace 1"),
 	(44.7, 45.3, "AzerSpace 2, Intelsat 38 & Cosmos 2520"),
@@ -157,31 +154,30 @@ satnames = (
 	(41.7, 42.3, "Türksat 3A/4A/5B/6A"),
 	(39.8, 40.3, "Express AM7"),
 	(38.7, 39.3, "HellasSat 3/4"),
-	(37.9, 38.5, "Paksat 1R"),
+	(37.9, 38.5, "Paksat MM1/1R"),
 	(37.6, 37.8, "Athena Fidus"),
 	(36.8, 37.3, "Sicral 2"),
-	(35.7, 36.3, "Eutelsat 36D & Express AMU1"),
+	(35.7, 36.3, "Eutelsat 36C/36D & Express AMU1"),
 	(32.9, 33.3, "Eutelsat 33F"),
-	(32.6, 32.8, "Intelsat 28"),
 	(31.4, 31.8, "Astra 5B"),
 	(31.1, 31.3, "Hylas 2/3"),
 	(30.7, 31.0, "Türksat 5A"),
 	(30.2, 30.6, "Arabsat 5A/6A"),
 	(28.0, 28.8, "Astra 2E/2F/2G"),
-	(25.2, 26.3, "Badr 7,8 & Es'hail 1/2"),
+	(25.2, 26.3, "Badr 4/5/7/8 & Es'hail 1/2"),
 	(24.3, 24.8, "Skynet 5B"),
-	(23.0, 23.8, "Astra 3B/3C"),
-	(21.4, 21.8, "Eutelsat 21B"),
-	(20.8, 21.2, "AfriStar 1"),
+	(22.5, 23.2, "Angosat 2"),
+	(23.3, 23.8, "Astra 3B/3C"),
+	(21.4, 21.8, "Eutelsat 21B & GovSat-1"),
 	(19.8, 20.5, "Arabsat 5C"),
 	(18.8, 19.5, "Astra 1M/1N/1P"),
 	(16.6, 17.3, "Amos 17"),
-	(15.6, 16.3, "Eutelsat 16A"),
+	(15.6, 16.3, "Eutelsat 16D"),
 	(12.7, 13.5, "HotBird 13F/13G"),
 	(11.5, 11.9, "Sicral 1B"),
 	(9.7, 10.3, "Eutelsat 10B"),
 	(8.7, 9.3, "Eutelsat 9B & Ka-Sat 9A"),
-	(6.7, 7.3, "Eutelsat 7B/7C"),
+	(6.7, 7.3, "Eutelsat 7C & Eutelsat Konnect"),
 	(5.7, 6.3, "WGS 1"),
 	(4.5, 5.4, "Astra 4A & SES 5"),
 	(3.0, 3.6, "Eutelsat 3B"),
@@ -189,7 +185,7 @@ satnames = (
 	(1.4, 2.4, "BulgariaSat 1"),
 	(-0.5, -1.2, "Thor 5/6/7 & Intelsat 10-02"),
 	(-2.7, -3.3, "ABS 3A"),
-	(-3.7, -4.4, "Amos 7"),
+	(-3.5, -4.5, "Dror 1 & Amos 7"),
 	(-4.7, -5.4, "Eutelsat 5WB"),
 	(-6.7, -7.2, "Nilesat 201/301 & Eutelsat 7WA"),
 	(-7.3, -7.4, "Eutelsat 7 West A"),
@@ -209,7 +205,7 @@ satnames = (
 	(-27.2, -27.8, "Intelsat 901"),
 	(-29.3, -29.7, "Intelsat 904"),
 	(-29.8, -30.5, "Hispasat 30W-5/30W-6"),
-	(-31.2, -31.8, "Intelsat 25"),
+	(-31.2, -31.8, "Intelsat 25 & Intelsat 28"),
 	(-33.3, -33.7, "Hylas 4"),
 	(-34.2, -34.8, "Intelsat 35e"),
 	(-35.7, -36.3, "Hispasat 36W-1"),
@@ -318,7 +314,7 @@ class GlamourBase(Poll, Converter, object):
 		"HasMPEG4VC": 29, "HasHEVC": 30, "HasMPEG1": 31, "HasVP8": 32,
 		"HasVP9": 33, "HasVP6": 34, "HasDIVX": 35, "HasXVID": 36,
 		"HasSPARK": 37, "HasAVS": 38, "HasVCC": 39, "IsSDR": 40,
-		"IsHDR": 41, "IsHDR10": 42, "IsHLG": 43
+		"IsHDR": 41, "IsHDR10": 42, "IsHLG": 43, "IsDAB": 44
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -396,6 +392,88 @@ class GlamourBase(Poll, Converter, object):
 		if not tp:
 			return ""
 		return str(((tp.get("frequency") or 0) + 1) // 1000000)
+
+	def serviceReference(self, info):
+		try:
+			serviceRef = info.getInfoString(iServiceInformation.sServiceref)
+			return eServiceReference(serviceRef) if serviceRef else None
+		except (AttributeError, TypeError, ValueError):
+			return None
+
+	def dabChannel(self, info, serviceRef=None):
+		field = getattr(iServiceInformation, "sDABChannel", None)
+		if field is not None:
+			try:
+				channel = (info.getInfoString(field) or "").strip().upper()
+				if channel:
+					return channel
+			except (AttributeError, TypeError):
+				pass
+
+		# OpenATV 8 exposes sDABChannel. This fallback also keeps the
+		# converter usable with early DAB implementations which only exposed
+		# the channel in the direct RTL-SDR service reference.
+		try:
+			path = serviceRef.getPath() if serviceRef is not None else ""
+			prefix = "dab://rtlsdr/"
+			if path.lower().startswith(prefix):
+				return path[len(prefix):].split("/", 1)[0].upper()
+		except (AttributeError, TypeError):
+			pass
+		return ""
+
+	def dabFrequency(self, info):
+		serviceRef = self.serviceReference(info)
+		channel = self.dabChannel(info, serviceRef)
+		if not channel:
+			return ""
+
+		frequency = 0
+		try:
+			# This helper is new with the OpenATV DAB implementation. Import it
+			# lazily so OpenATV 7.6 remains completely safe.
+			from Components.RTLSDR import getRTLSDRChannelFrequency
+			frequency = getRTLSDRChannelFrequency(channel) or 0
+		except (ImportError, AttributeError, TypeError, ValueError):
+			pass
+
+		if frequency > 0:
+			return f"{channel} {frequency / 1000.0:.3f} MHz"
+		return channel
+
+	def dabSatelliteName(self, serviceRef):
+		if serviceRef is None:
+			return ""
+		try:
+			# DAB-over-DVB stores the parent DVB namespace in data field 4.
+			# For satellite services the high 16 bits encode the orbital
+			# position in tenths of a degree (e.g. 0xC00000 -> 19.2E).
+			namespace = serviceRef.getUnsignedData(4)
+			orbital = (namespace >> 16) & 0xFFFF
+			if orbital:
+				return self.satname({"orbital_position": orbital})
+		except (AttributeError, TypeError, ValueError):
+			pass
+		return ""
+
+	def getTransponder(self, service, info):
+		if self.tpDataUpdate:
+			try:
+				feinfo = service.frontendInfo()
+				if feinfo:
+					frontendData = feinfo.getAll(config.usage.infobar_frontend_source.value == "settings")
+					if frontendData:
+						self.tp = frontendData
+						self.tpinfo = ConvertToHumanReadable(frontendData) or {}
+			except (AttributeError, TypeError, ValueError):
+				pass
+
+		if not self.tp:
+			self.tp = info.getInfoObject(iServiceInformation.sTransponderData)
+			if self.tp is None:
+				return None, {}
+			self.tpinfo = ConvertToHumanReadable(self.tp) or {}
+		return self.tp, self.tpinfo
 
 	def channel(self, tpinfo):
 		return str(tpinfo.get("channel", ""))
@@ -492,34 +570,173 @@ class GlamourBase(Poll, Converter, object):
 		return f"{orbp / 10:.1f}°E"
 
 	def reference(self, info):
-		ref = info.getInfoString(iServiceInformation.sServiceref).lower()
-		if "%3a/" in ref or ":/" in ref:
-			return ref.replace("%3a", ":")
-		return None
+		streamInfo = self.getStreamInfo(info)
+		return streamInfo["url"] if streamInfo["is_stream"] else None
+
+	def getStreamInfo(self, info):
+		"""Return a normalized description of the current service reference.
+
+		The service type is authoritative for DVB/radio/GStreamer services;
+		the decoded URI scheme is used only to identify an actual URL.  This
+		keeps DAB, media files and alternative services out of IPTV detection.
+		"""
+		result = {
+			"url": "",
+			"scheme": "",
+			"service_type": None,
+			"is_url": False,
+			"is_stream": False,
+			"is_ts": False,
+			"is_radio": False,
+			"is_alternative": False,
+			"is_relay": False,
+			"is_dab": False,
+		}
+		if info is None:
+			return result
+
+		raw = info.getInfoString(iServiceInformation.sServiceref) or ""
+		raw_lower = raw.lower()
+		serviceRef = self.serviceReference(info)
+		if serviceRef is not None:
+			result["service_type"] = getattr(serviceRef, "type", None)
+			getData = getattr(serviceRef, "getUnsignedData", None) or getattr(serviceRef, "getData", None)
+			try:
+				serviceData0 = int(getData(0)) if getData else -1
+			except (AttributeError, TypeError, ValueError):
+				serviceData0 = -1
+		else:
+			serviceData0 = -1
+
+		dabType = getattr(eServiceReference, "idServiceDAB", None)
+		result["is_dab"] = bool(
+			(raw_lower.startswith("dab://")) or
+			(dabType is not None and serviceRef is not None and result["service_type"] == dabType)
+		)
+		if result["is_dab"]:
+			return result
+
+		# eServiceReference.getPath() is already URL-decoded by Enigma2.
+		# Keep a raw-string fallback for older images and unit-test doubles.
+		path = ""
+		if serviceRef is not None:
+			try:
+				path = serviceRef.getPath() or ""
+			except (AttributeError, TypeError):
+				path = ""
+		if not path:
+			parts = raw.split(":", 10)
+			path = parts[10] if len(parts) > 10 else ""
+		path = unquote(path)
+		result["url"] = path
+
+		try:
+			result["scheme"] = urlsplit(path).scheme.lower()
+		except ValueError:
+			result["scheme"] = ""
+		# Alternative references must be checked before the normal 1:0 DVB
+		# branch.  Their URL, when present, is still a stream alternative.
+		result["is_alternative"] = raw_lower.startswith("1:134:")
+		dvbType = getattr(eServiceReference, "idDVB", 1)
+		scrambledType = getattr(eServiceReference, "idDVBScrambled", dvbType + 0x100)
+		result["is_ts"] = result["service_type"] in (dvbType, scrambledType)
+		result["is_radio"] = result["is_ts"] and serviceData0 in (2, 10)
+
+		result["is_url"] = "://" in path or "%3a//" in raw_lower
+		if not result["is_url"]:
+			result["url"] = ""
+			return result
+
+		file_schemes = {"file", "cdda", "vcd", "bluray"}
+		stream_schemes = {
+			"http", "https", "rtsp", "rtmp", "udp", "rtp", "mms", "srt"
+		}
+		result["is_stream"] = result["scheme"] in stream_schemes
+		if result["scheme"] in file_schemes:
+			result["is_stream"] = False
+
+		# OpenATV's Stream Relay may retain the DVB service type while
+		# replacing its URL with a local HTTP endpoint.  Newer builds expose
+		# the explicit flag; localhost detection keeps older builds working.
+		try:
+			result["is_relay"] = bool(serviceRef and serviceRef.getIsStreamRelay())
+		except (AttributeError, TypeError):
+			result["is_relay"] = False
+		try:
+			host = (urlsplit(path).hostname or "").lower()
+		except ValueError:
+			host = ""
+		if host in ("0.0.0.0", "127.0.0.1", "localhost"):
+			result["is_relay"] = True
+
+		return result
 
 	def streamtype(self, info):
-		ref = self.reference(info)
-		if not ref:
+		streamInfo = self.getStreamInfo(info)
+		if streamInfo["is_dab"]:
+			return self.dabRadioType(info)
+		if streamInfo["is_alternative"]:
+			return "Alternative"
+		if streamInfo["is_radio"]:
+			return "Radio"
+		if not streamInfo["is_stream"]:
 			return ""
-		if ref.startswith("1:0:"):
-			if "0.0.0.0:" in ref or "127.0.0.1:" in ref or "localhost:" in ref:
-				return "Internal TS Relay"
-			if "%3a/" in ref:
-				return "IPTV/TS Stream"
-			if ref.startswith("1:134:"):
-				return "Alternative"
-		else:
-			return "IPTV/Non-TS Stream"
-		return ""
+		if streamInfo["is_relay"]:
+			return "Stream Relay"
+		if self.isIPRadio(info, streamInfo):
+			return "IP Radio"
+		if streamInfo["is_ts"]:
+			return "IPTV/TS Stream"
+		return "IPTV/Non-TS Stream"
+
+	def dabRadioType(self, info):
+		"""Return the actual native DAB audio family when available."""
+		try:
+			codec = (info.getInfoString(iServiceInformation.sTagCodec) or "").upper()
+		except (AttributeError, TypeError):
+			codec = ""
+		return "DAB+ Radio" if "DAB+" in codec or "HE-AAC" in codec else "DAB Radio"
+
+	def isIPRadio(self, info, streamInfo=None):
+		"""Identify audio-only network streams without guessing from service ID.
+
+		OpenATV commonly uses 4097/5001/5002/5003 for both IPTV video and
+		audio streams, so the service type alone is insufficient.  We accept an
+		explicit audio codec, a known audio-only URL suffix, or a reference whose
+		video PID and dimensions explicitly show that no video exists.
+		"""
+		streamInfo = streamInfo or self.getStreamInfo(info)
+		if not streamInfo["is_stream"] or streamInfo["is_ts"] or streamInfo["is_dab"]:
+			return False
+
+		try:
+			codec = (info.getInfoString(iServiceInformation.sTagCodec) or "").lower()
+		except (AttributeError, TypeError):
+			codec = ""
+		audioCodecs = ("mp3", "mpeg audio", "aac", "he-aac", "aac-lc", "opus", "vorbis", "flac", "ac-3", "e-ac-3", "pcm")
+		if any(token in codec for token in audioCodecs):
+			return True
+
+		try:
+			videoPid = info.getInfo(iServiceInformation.sVideoPID)
+			videoWidth = info.getInfo(iServiceInformation.sVideoWidth)
+			videoHeight = info.getInfo(iServiceInformation.sVideoHeight)
+			if videoPid not in (-1, 0, None) or videoWidth not in (-1, 0, None) or videoHeight not in (-1, 0, None):
+				return False
+		except (AttributeError, TypeError, ValueError):
+			pass
+
+		path = (streamInfo.get("url") or "").lower().split("?", 1)[0].split("#", 1)[0]
+		return path.endswith((".mp3", ".aac", ".m4a", ".ogg", ".oga", ".opus", ".flac", ".wav"))
 
 	def streamurl(self, info):
-		streamref = info.getInfoString(iServiceInformation.sServiceref).lower()
-		if "%3a/" in streamref or ":/" in streamref:
-			streamurl = streamref.split(":")[10].replace("%3a", ":")
-			if len(streamurl) > 80:
-				return streamurl[:79] + "..."
-			return streamurl
-		return ""
+		streamInfo = self.getStreamInfo(info)
+		if not streamInfo["is_stream"]:
+			return ""
+		streamurl = streamInfo["url"]
+		if len(streamurl) > 80:
+			return streamurl[:79] + "..."
+		return streamurl
 
 	def format_pid(self, pid, prefix, mode):
 		if pid < 0 or mode is None:
@@ -534,43 +751,38 @@ class GlamourBase(Poll, Converter, object):
 			return f"{prefix}:{decval}({hexval})"
 		return ""
 
+	def isDABService(self, info):
+		if info is None:
+			return False
+		try:
+			serviceRef = self.serviceReference(info)
+			dabType = getattr(eServiceReference, "idServiceDAB", None)
+			return bool(dabType is not None and serviceRef is not None and serviceRef.type == dabType)
+		except Exception as err:
+			print("[GlamourBase] DAB detection failed: %s" % err)
+			return False
+
 	@cached
 	def getText(self):
-		service = self.source.service
+		service = getattr(self.source, "service", None)
 		if service is None:
 			return ""
 		info = service.info()
 		if not info:
 			return ""
 
-		if self.tpDataUpdate:
-			feinfo = service.frontendInfo()
-			if feinfo:
-				self.tp = feinfo.getAll(config.usage.infobar_frontend_source.value == "settings")
-				if self.tp:
-					self.tpinfo = ConvertToHumanReadable(self.tp)
-
-		tp = self.tp
-		if not tp:
-			tp = info.getInfoObject(iServiceInformation.sTransponderData)
-			if tp is None:
-				return ""
-			tpinfo = ConvertToHumanReadable(tp)
-		else:
-			tpinfo = self.tpinfo
-
-		vpid = info.getInfo(iServiceInformation.sVideoPID)
-		apid = info.getInfo(iServiceInformation.sAudioPID)
-		sid = info.getInfo(iServiceInformation.sSID)
-		pcr = info.getInfo(iServiceInformation.sPCRPID)
-		pmt = info.getInfo(iServiceInformation.sPMTPID)
-		tsid = info.getInfo(iServiceInformation.sTSID)
-		onid = info.getInfo(iServiceInformation.sONID)
+		if self.type == self.ISDAB:
+			return "1" if self.isDABService(info) else "0"
 
 		if self.type == self.FREQINFO:
+			if self.isDABService(info):
+				return self.dabFrequency(info)
 			ref = self.reference(info)
 			if ref:
 				return self.streamurl(info)
+			tp, tpinfo = self.getTransponder(service, info)
+			if not tp:
+				return ""
 			tunertype = self.tunertype(tp)
 			if "DVB-S" in tunertype:
 				satf = (
@@ -606,9 +818,14 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 
 		if self.type == self.ORBITAL:
+			if self.isDABService(info):
+				return self.dabSatelliteName(self.serviceReference(info))
 			ref = self.reference(info)
 			if ref:
-				return self.streamtype(info)
+				return ""
+			tp, tpinfo = self.getTransponder(service, info)
+			if not tp:
+				return ""
 			tunertype = self.tunertype(tp)
 			if "DVB-S" in tunertype:
 				return f"{self.satname(tp)} ({self.orbital(tp)})"
@@ -640,6 +857,14 @@ class GlamourBase(Poll, Converter, object):
 		if self.type == self.STREAMTYPE:
 			return self.streamtype(info)
 
+		vpid = info.getInfo(iServiceInformation.sVideoPID)
+		apid = info.getInfo(iServiceInformation.sAudioPID)
+		sid = info.getInfo(iServiceInformation.sSID)
+		pcr = info.getInfo(iServiceInformation.sPCRPID)
+		pmt = info.getInfo(iServiceInformation.sPMTPID)
+		tsid = info.getInfo(iServiceInformation.sTSID)
+		onid = info.getInfo(iServiceInformation.sONID)
+
 		pidtypes_mapping = {
 			self.PIDINFODEC: "Dec",
 			self.PIDINFOHEX: "Hex",
@@ -665,10 +890,13 @@ class GlamourBase(Poll, Converter, object):
 
 	@cached
 	def getBoolean(self):
-		service = self.source.service
+		service = getattr(self.source, "service", None)
 		info = service and service.info()
 		if not info:
 			return False
+
+		if self.type == self.ISDAB:
+			return self.isDABService(info)
 
 		xresol = info.getInfo(iServiceInformation.sVideoWidth)
 		if xresol == -1:
@@ -728,8 +956,11 @@ class GlamourBase(Poll, Converter, object):
 	def changed(self, what):
 		if what[0] == self.CHANGED_SPECIFIC:
 			self.tpDataUpdate = False
-			if what[1] == iPlayableService.evNewProgramInfo:
+			if what[1] in (iPlayableService.evNewProgramInfo, iPlayableService.evUpdatedInfo):
 				self.tpDataUpdate = True
+				if what[1] == iPlayableService.evNewProgramInfo:
+					self.tp = None
+					self.tpinfo = None
 			if what[1] == iPlayableService.evEnd:
 				self.tp = None
 				self.tpinfo = None
