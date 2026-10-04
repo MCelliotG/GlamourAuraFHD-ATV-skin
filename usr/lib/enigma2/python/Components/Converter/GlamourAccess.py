@@ -8,7 +8,34 @@ from Components.Element import cached
 from Components.config import config, ConfigText, ConfigSubsection
 from Components.Converter.Poll import Poll
 import os
+from functools import wraps
 from os import path
+
+def _with_snapshot(method):
+	"""Share helper results within one evaluation; never retain service data across polls."""
+	@wraps(method)
+	def wrapper(self):
+		previous = getattr(self, "_access_snapshot", None)
+		self._access_snapshot = {}
+		try:
+			return method(self)
+		finally:
+			self._access_snapshot = previous
+	return wrapper
+
+
+def _snapshot_cached(method):
+	@wraps(method)
+	def wrapper(self):
+		snapshot = getattr(self, "_access_snapshot", None)
+		if snapshot is None:
+			return method(self)
+		key = method.__name__
+		if key not in snapshot:
+			snapshot[key] = method(self)
+		return snapshot[key]
+	return wrapper
+
 info = {}
 old_ecm_mtime = None
 try:
@@ -216,12 +243,80 @@ class GlamourAccess(Poll, Converter):
 		"EcmInfo": ECMINFO, "Default": ECMINFO, "": ECMINFO, None: ECMINFO, "%": ECMINFO
 	}
 
+	CAID_RANGES = {
+		BETACAS: [("1702", "1762")],
+		IRDCAS: [("0600", "06FF")],
+		SECACAS: [("0100", "01FF")],
+		VIACAS: [("0500", "05FF")],
+		NAGRACAS: [("1800", "18FF")],
+		CRWCAS: [("0D00", "0DFF"), ("4900", "49FF")],
+		NDSCAS: [("0900", "09FF")],
+		CONAXCAS: [("0B00", "0BFF")],
+		DRCCAS: [("4A00", "4AE9"), ("5000", "50FF"), ("7BE0", "7BE1"), ("0700", "07FF"), ("4700", "47FF")],
+		BISSCAS: [("2600", "26FF")],
+		BULCAS: [("4AEE", "4AEE"), ("5501", "55FF")],
+		VMXCAS: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
+		PWVCAS: [("0E00", "0EFF")],
+		TBGCAS: [("1000", "10FF")],
+		TGFCAS: [("4B00", "4B09"), ("4AF6", "4AF6")],
+		PANCAS: [("4AFC", "4AFC")],
+		EXSCAS: [("2700", "27FF")],
+		RUSCAS: [("A100", "A1FF"), ("44A0", "44A0")],
+		CODICAS: [("2200", "22FF")],
+		CGDCAS: [("4AEA", "4AEA"), ("1EC0", "1ECF")],
+		VCRCAS: [("5448", "5449"), ("7AC8")],
+		AGTCAS: [("4800", "48FF")],
+		SAMCAS: [("4B64", "4B64")],
+	}
+	ECM_CAID_RANGES = {
+		IRDECM: [("0600", "06FF")],
+		SECAECM: [("0100", "01FF")],
+		VIAECM: [("0500", "05FF")],
+		NAGRAECM: [("1800", "18FF")],
+		CRWECM: [("0D00", "0DFF"), ("4900", "49FF")],
+		NDSECM: [("0900", "09FF")],
+		CONAXECM: [("0B00", "0BFF")],
+		DRCECM: [("4A00", "4AE9"), ("5000", "50FF"), ("7BE0", "7BE1"), ("0700", "07FF"), ("4700", "47FF")],
+		BISSECM: [("2600", "26FF")],
+		BULECM: [("4AEE", "4AEE"), ("5501", "55FF")],
+		VMXECM: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
+		PWVECM: [("0E00", "0EFF")],
+		TBGECM: [("1000", "10FF")],
+		TGFECM: [("4B00", "4B09"), ("4AF6", "4AF6")],
+		PANECM: [("4AFC", "4AFC")],
+		EXSECM: [("2700", "27FF")],
+		CGDECM: [("4AEA", "4AEA"), ("1EC0", "1ECF")],
+		VCRECM: [("5448", "5449"), ("7AC8", "7AC8")],
+	}
+
 	def __init__(self, type):
 		Poll.__init__(self)
 		Converter.__init__(self, type)
 		self.type = self.TYPE_MAP.get(type, self.FORMAT)
 		if self.type == self.FORMAT:
 			self.sfmt = type[:]
+			self._format_params = tuple(self.sfmt.split(" "))
+
+	def _enablePolling(self):
+		if self.poll_interval != self.timespan:
+			self.poll_interval = self.timespan
+		if not self.poll_enabled:
+			self.poll_enabled = True
+
+	@_snapshot_cached
+	def _serviceInfo(self):
+		service = getattr(self.source, "service", None)
+		return service.info() if service else None
+
+	@_snapshot_cached
+	def _caidDescriptors(self):
+		service_info = self._serviceInfo()
+		if not service_info:
+			return ()
+		try:
+			return tuple(service_info.getInfoObject(iServiceInformation.sCAIDPIDs) or ())
+		except (AttributeError, TypeError, ValueError):
+			return ()
 
 	def resetCaches(self):
 		global info, old_ecm_mtime
@@ -229,13 +324,13 @@ class GlamourAccess(Poll, Converter):
 		old_ecm_mtime = None
 
 	@cached
+	@_with_snapshot
 	def getBoolean(self):
 		service = self.source.service
-		info = service and service.info()
+		info = self._serviceInfo()
 		ecm_info = self.ecmfile()
 		protocol = str(ecm_info.get("protocol", ""))
-		self.poll_interval = self.timespan
-		self.poll_enabled = True
+		self._enablePolling()
 		if not info:
 			return False
 		caids = self.CaidList().strip(", ").split()
@@ -248,31 +343,7 @@ class GlamourAccess(Poll, Converter):
 		if self.type == self.ISCRYPTED:
 			return bool(caids)
 
-		caid_ranges = {
-			self.BETACAS: [("1702", "1762")],
-			self.IRDCAS: [("0600", "06FF")],
-			self.SECACAS: [("0100", "01FF")],
-			self.VIACAS: [("0500", "05FF")],
-			self.NAGRACAS: [("1800", "18FF")],
-			self.CRWCAS: [("0D00", "0DFF"), ("4900", "49FF")],
-			self.NDSCAS: [("0900", "09FF")],
-			self.CONAXCAS: [("0B00", "0BFF")],
-			self.DRCCAS: [("4A00", "4AE9"), ("5000", "50FF"), ("7BE0", "7BE1"), ("0700", "07FF"), ("4700", "47FF")],
-			self.BISSCAS: [("2600", "26FF")],
-			self.BULCAS: [("4AEE", "4AEE"), ("5501", "55FF")],
-			self.VMXCAS: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
-			self.PWVCAS: [("0E00", "0EFF")],
-			self.TBGCAS: [("1000", "10FF")],
-			self.TGFCAS: [("4B00", "4B09"), ("4AF6", "4AF6")],
-			self.PANCAS: [("4AFC", "4AFC")],
-			self.EXSCAS: [("2700", "27FF")],
-			self.RUSCAS: [("A100", "A1FF"), ("44A0", "44A0")],
-			self.CODICAS: [("2200", "22FF")],
-			self.CGDCAS: [("4AEA", "4AEA"), ("1EC0", "1ECF")],
-			self.VCRCAS: [("5448", "5449"), ("7AC8")],
-			self.AGTCAS: [("4800", "48FF")],
-			self.SAMCAS: [("4B64", "4B64")],
-		}
+		caid_ranges = self.CAID_RANGES
 		if caids or ecm_info:
 			for caid in caids:
 				for valid_caid_range in caid_ranges.get(self.type, []):
@@ -297,26 +368,7 @@ class GlamourAccess(Poll, Converter):
 				if self.type == self.BETAECM and caid in ("1702", "1722", "1762"):
 					return True
 
-				ecm_caid_ranges = {
-					self.IRDECM: [("0600", "06FF")],
-					self.SECAECM: [("0100", "01FF")],
-					self.VIAECM: [("0500", "05FF")],
-					self.NAGRAECM: [("1800", "18FF")],
-					self.CRWECM: [("0D00", "0DFF"), ("4900", "49FF")],
-					self.NDSECM: [("0900", "09FF")],
-					self.CONAXECM: [("0B00", "0BFF")],
-					self.DRCECM: [("4A00", "4AE9"), ("5000", "50FF"), ("7BE0", "7BE1"), ("0700", "07FF"), ("4700", "47FF")],
-					self.BISSECM: [("2600", "26FF")],
-					self.BULECM: [("4AEE", "4AEE"), ("5501", "55FF")],
-					self.VMXECM: [("5600", "5604"), ("1700", "1701"), ("1703", "1721"), ("1723", "1761"), ("1763", "17FF")],
-					self.PWVECM: [("0E00", "0EFF")],
-					self.TBGECM: [("1000", "10FF")],
-					self.TGFECM: [("4B00", "4B09"), ("4AF6", "4AF6")],
-					self.PANECM: [("4AFC", "4AFC")],
-					self.EXSECM: [("2700", "27FF")],
-					self.CGDECM: [("4AEA", "4AEA"), ("1EC0", "1ECF")],
-					self.VCRECM: [("5448", "5449"), ("7AC8", "7AC8")],
-				}
+				ecm_caid_ranges = self.ECM_CAID_RANGES
 				if self.type in ecm_caid_ranges:
 					for valid_caid_range in ecm_caid_ranges[self.type]:
 						if isinstance(valid_caid_range, tuple):
@@ -351,24 +403,24 @@ class GlamourAccess(Poll, Converter):
 	boolean = property(getBoolean)
 
 	@cached
+	@_with_snapshot
 	def getText(self):
 		if self.type == self.CAMNAME:
-			self.poll_interval = self.timespan
-			self.poll_enabled = True
+			self._enablePolling()
 			return self.CamName()
 		ecminfo = ""
 		server = ""
-		caidlist = self.CaidList()
+		composite = self.type in (self.ECMINFO, self.SHORTINFO, self.CASINFO, self.FORMAT)
+		caidlist = self.CaidList() if composite else ""
 		caidtxt = "hidden or custom"
-		caidname = self.CaidName()
+		caidname = self.CaidName() if self.type in (self.CRYPTINFO, self.SHORTINFO) else ""
 		ecm_info = self.ecmfile()
 		ecmpath = self.ecmpath()
-		self.poll_interval = self.timespan
-		self.poll_enabled = True
+		self._enablePolling()
 		service = self.source.service
 
 		if service:
-			info = service.info() if service else None
+			info = self._serviceInfo()
 
 			if self.type == self.CRYPTINFO:
 				if ecmpath and os.path.exists(ecmpath):
@@ -380,7 +432,7 @@ class GlamourAccess(Poll, Converter):
 				return "CA Info not available"
 
 			if info:
-				caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+				caids = self.Caids()
 
 
 				if self.type == self.CAIDINFO:
@@ -388,7 +440,7 @@ class GlamourAccess(Poll, Converter):
 
 				if caids or ecm_info:
 					if caids:
-						caidtxt = self.CaidTxtList()
+						caidtxt = self.CaidTxtList() if composite else "hidden or custom"
 						caids = [f"{int(cas):04X}" for cas in caids]  # форматирование CAID в 4-значный HEX
 
 					if ecm_info:
@@ -404,7 +456,7 @@ class GlamourAccess(Poll, Converter):
 						pid = ""
 						if ecm_info.get("pid"):
 							try:
-								pid = f"{int(ecm_info.get("pid", ''), 16):04X}"
+								pid = f"{int(ecm_info.get('pid', ''), 16):04X}"
 							except Exception:
 								pid = ""
 						if self.type == self.PID:
@@ -479,7 +531,7 @@ class GlamourAccess(Poll, Converter):
 
 						if self.type == self.FORMAT:
 							ecminfo = ""
-							params = self.sfmt.split(" ")
+							params = self._format_params
 							for param in params:
 								if not param:
 									continue
@@ -787,13 +839,14 @@ class GlamourAccess(Poll, Converter):
 			return f"{caid_hex}:{provid[-6:]}"
 		return caid_hex
 
+	@_snapshot_cached
 	def CaidList(self):
 		service = self.source.service
 		value = ""
 		if service:
-			info = service.info()
+			info = self._serviceInfo()
 			if info:
-				caidpids = info.getInfoObject(iServiceInformation.sCAIDPIDs)
+				caidpids = self._caidDescriptors()
 				if caidpids:
 					results = []
 					for entry in caidpids:
@@ -831,6 +884,7 @@ class GlamourAccess(Poll, Converter):
 
 		return ""
 
+	@_snapshot_cached
 	def CaidName(self):
 		ecm_info = self.ecmfile()
 		if ecm_info:
@@ -841,6 +895,7 @@ class GlamourAccess(Poll, Converter):
 				return ""
 		return ""
 
+	@_snapshot_cached
 	def CaidNames(self):
 		caidnames = []
 		caids = self.CaidList().strip(",").split()
@@ -852,6 +907,7 @@ class GlamourAccess(Poll, Converter):
 				caidnames.append(caid)
 		return ", ".join(caidnames)
 
+	@_snapshot_cached
 	def CaidTxtList(self):
 		caidtxt = ""
 		caidnames = self.CaidNames()
@@ -864,19 +920,21 @@ class GlamourAccess(Poll, Converter):
 				caidtxt = caidnames[0]
 		return caidtxt
 
+	@_snapshot_cached
 	def Caids(self):
 		caids = []
 		service = self.source.service
 		if service:
-			info = service.info()
+			info = self._serviceInfo()
 			if info:
 				try:
-					caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
+					caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs) or ()))
 				except Exception:
 					caids = []
 		caids.sort()
 		return caids
 
+	@_snapshot_cached
 	def CaidInfo(self):
 		caids = self.CaidList()
 		caidnames = self.CaidNames()
@@ -916,6 +974,7 @@ class GlamourAccess(Poll, Converter):
 		except Exception:
 			return text
 
+	@_snapshot_cached
 	def ecmpath(self):
 		for i in range(7, 0, -1):
 			ecm_file = f"/tmp/ecm{i}.info"
@@ -923,6 +982,112 @@ class GlamourAccess(Poll, Converter):
 				return ecm_file
 		return "/tmp/ecm.info" if os.path.exists("/tmp/ecm.info") else None
 
+	@staticmethod
+	def _parseEcm(ecm):
+		"""Normalize supported softcam ECM formats without touching shared state."""
+		info = {}
+		for line in ecm:
+			line_lower = line.lower()
+			x = line_lower.find("msec")
+			if x != -1:
+				info["ecm time"] = line[:x + 4]
+				continue
+
+			item = line.split(":", 1)
+			if len(item) <= 1:
+				if "caid" not in info:
+					x = line_lower.find("caid")
+					if x != -1:
+						y = line.find(",")
+						if y != -1:
+							info["caid"] = line[x + 5:y]
+				if "pid" not in info:
+					x = line_lower.find("pid")
+					if x != -1:
+						y = line.find(" =")
+						z = line.find(" *")
+						if y != -1:
+							info["pid"] = line[x + 4:y]
+						elif z != -1:
+							info["pid"] = line[x + 4:z]
+				continue
+
+			key, value = item[0].strip().lower(), item[1].strip()
+
+			match key:
+				case "provider":
+					key = "prov"
+					value = value[2:]
+				case "ecm pid":
+					key = "pid"
+				case "response time":
+					info["source"] = "net"
+					it_tmp = value.split(" ")
+					info["ecm time"] = f"{it_tmp[0]} msec"
+					if "[" in it_tmp[-1]:
+						info["server"] = it_tmp[-1].split("[")[0]
+						info["protocol"] = it_tmp[-1].split("[")[1][:-1]
+					elif "(" in it_tmp[-1]:
+						info["server"] = it_tmp[-1].split("(")[-1].split(":")[0]
+						info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1][:-1]
+					else:
+						key = "source"
+						value = "sci"
+					if "emu" in it_tmp[-1] or "card" in it_tmp[-1] or "biss" in it_tmp[-1] or "tb" in it_tmp[-1]:
+						key = "source"
+						value = "emu"
+				case "hops" | "from" | "system" | "provider":
+					value = value.rstrip("\n")
+				case "source":
+					if value.startswith("net"):
+						it_tmp = value.split(" ")
+						info["protocol"] = it_tmp[1][1:]
+						if ":" in it_tmp[-1]:
+							info["server"], info["port"] = it_tmp[-1].split(":", 1)
+							info["port"] = info["port"][:-1]
+						else:
+							try:
+								info["server"], info["port"] = it_tmp[3].split(":", 1)
+								info["port"] = info["port"][:-1]
+							except (IndexError, ValueError):
+								info["server"] = info["port"] = ""
+						value = "net"
+				case "prov":
+					if "," in value:
+						value = value.split(",")[0]
+				case "reader":
+					if value == "emu":
+						key = "source"
+				case "protocol":
+					match value:
+						case "emu" | "constcw":
+							key, value = "source", "emu"
+						case "internal":
+							key, value = "source", "sci"
+						case _:
+							info["source"] = "net"
+							key = "server"
+				case "provid":
+					key = "prov"
+				case "using":
+					match value:
+						case "emu" | "sci":
+							key = "source"
+						case _:
+							info["source"] = "net"
+							key = "protocol"
+				case "address":
+					if ":" in value:
+						info["server"], value = value.split(":", 1)
+						key = "port"
+				case _:
+					pass
+
+			info[key] = value
+
+		return info
+
+	@_snapshot_cached
 	def ecmfile(self):
 		global info
 		global old_ecm_mtime
@@ -933,7 +1098,7 @@ class GlamourAccess(Poll, Converter):
 
 		try:
 			stat = os.stat(ecmpath)
-			ecm_mtime = stat.st_mtime
+			ecm_mtime = (ecmpath, getattr(stat, "st_mtime_ns", stat.st_mtime), stat.st_size, stat.st_ino)
 			if not stat.st_size > 0:
 				info = {}
 				return info
@@ -950,104 +1115,7 @@ class GlamourAccess(Poll, Converter):
 
 			info = {}
 
-			for line in ecm:
-				line_lower = line.lower()
-				x = line_lower.find("msec")
-				if x != -1:
-					info["ecm time"] = line[:x + 4]
-					continue
-
-				item = line.split(":", 1)
-				if len(item) <= 1:
-					if "caid" not in info:
-						x = line_lower.find("caid")
-						if x != -1:
-							y = line.find(",")
-							if y != -1:
-								info["caid"] = line[x + 5:y]
-					if "pid" not in info:
-						x = line_lower.find("pid")
-						if x != -1:
-							y = line.find(" =")
-							z = line.find(" *")
-							if y != -1:
-								info["pid"] = line[x + 4:y]
-							elif z != -1:
-								info["pid"] = line[x + 4:z]
-					continue
-
-				key, value = item[0].strip().lower(), item[1].strip()
-
-				match key:
-					case "provider":
-						key = "prov"
-						value = value[2:]
-					case "ecm pid":
-						key = "pid"
-					case "response time":
-						info["source"] = "net"
-						it_tmp = value.split(" ")
-						info["ecm time"] = f"{it_tmp[0]} msec"
-						if "[" in it_tmp[-1]:
-							info["server"] = it_tmp[-1].split("[")[0]
-							info["protocol"] = it_tmp[-1].split("[")[1][:-1]
-						elif "(" in it_tmp[-1]:
-							info["server"] = it_tmp[-1].split("(")[-1].split(":")[0]
-							info["port"] = it_tmp[-1].split("(")[-1].split(":")[-1][:-1]
-						else:
-							key = "source"
-							value = "sci"
-						if "emu" in it_tmp[-1] or "card" in it_tmp[-1] or "biss" in it_tmp[-1] or "tb" in it_tmp[-1]:
-							key = "source"
-							value = "emu"
-					case "hops" | "from" | "system" | "provider":
-						value = value.rstrip("\n")
-					case "source":
-						if value.startswith("net"):
-							it_tmp = value.split(" ")
-							info["protocol"] = it_tmp[1][1:]
-							if ":" in it_tmp[-1]:
-								info["server"], info["port"] = it_tmp[-1].split(":", 1)
-								info["port"] = info["port"][:-1]
-							else:
-								try:
-									info["server"], info["port"] = it_tmp[3].split(":", 1)
-									info["port"] = info["port"][:-1]
-								except (IndexError, ValueError):
-									info["server"] = info["port"] = ""
-							value = "net"
-					case "prov":
-						if "," in value:
-							value = value.split(",")[0]
-					case "reader":
-						if value == "emu":
-							key = "source"
-					case "protocol":
-						match value:
-							case "emu" | "constcw":
-								key, value = "source", "emu"
-							case "internal":
-								key, value = "source", "sci"
-							case _:
-								info["source"] = "net"
-								key = "server"
-					case "provid":
-						key = "prov"
-					case "using":
-						match value:
-							case "emu" | "sci":
-								key = "source"
-							case _:
-								info["source"] = "net"
-								key = "protocol"
-					case "address":
-						if ":" in value:
-							info["server"], value = value.split(":", 1)
-							key = "port"
-					case _:
-						pass
-
-				info[key] = value
+			info = self._parseEcm(ecm)
 
 		except Exception:
 			old_ecm_mtime = None
