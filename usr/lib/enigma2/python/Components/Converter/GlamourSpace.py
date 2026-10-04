@@ -3,15 +3,44 @@
 #If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
 import os
+import re
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
 from os import statvfs
 
-SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "EB"]
+SIZE_UNITS = ("B", "KB", "MB", "GB", "TB", "PB", "EB")
 
 class GlamourSpace(Poll, Converter):
 	MEMTOTAL, MEMFREE, SWAPTOTAL, SWAPFREE, USBSPACE, HDDSPACE, FLASHINFO, DATASPACE, NETSPACE, RAMINFO, SWAPINFO, BUFFERINFO = range(12)
+
+	TYPE_MAPPING = {
+		"MemTotal": MEMTOTAL,
+		"MemFree": MEMFREE,
+		"SwapTotal": SWAPTOTAL,
+		"SwapFree": SWAPFREE,
+		"USBSpace": USBSPACE,
+		"HDDSpace": HDDSPACE,
+		"RAMInfo": RAMINFO,
+		"SwapInfo": SWAPINFO,
+		"NetSpace": NETSPACE,
+		"DataSpace": DATASPACE,
+		"FlashInfo": FLASHINFO,
+		"BufferInfo": BUFFERINFO
+	}
+
+	MEMORY_FIELDS = {
+		MEMTOTAL: ("Mem", "MemTotal"),
+		MEMFREE: ("Mem", "MemFree"),
+		SWAPTOTAL: ("Swap", "SwapTotal"),
+		SWAPFREE: ("Swap", "SwapFree"),
+	}
+	DISK_ENTRIES = {
+		USBSPACE: ("USB", "/media/usb"),
+		HDDSPACE: ("HDD", "/media/hdd"),
+		FLASHINFO: ("Flash", "/"),
+		DATASPACE: ("Data", "/data"),
+	}
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -23,21 +52,7 @@ class GlamourSpace(Poll, Converter):
 		self.mainFormat = "Main" in type
 		self.simpleFormat = "Simple" in type
 
-		type_mapping = {
-			"MemTotal": self.MEMTOTAL,
-			"MemFree": self.MEMFREE,
-			"SwapTotal": self.SWAPTOTAL,
-			"SwapFree": self.SWAPFREE,
-			"USBSpace": self.USBSPACE,
-			"HDDSpace": self.HDDSPACE,
-			"RAMInfo": self.RAMINFO,
-			"SwapInfo": self.SWAPINFO,
-			"NetSpace": self.NETSPACE,
-			"DataSpace": self.DATASPACE,
-			"FlashInfo": self.FLASHINFO,
-			"BufferInfo": self.BUFFERINFO
-		}
-		self.type = type_mapping.get(type[0], None)
+		self.type = self.TYPE_MAPPING.get(type[0])
 		self.poll_interval = 5000 if self.type in (self.FLASHINFO, self.BUFFERINFO, self.DATASPACE, self.HDDSPACE, self.USBSPACE, self.NETSPACE) else 1000
 		self.poll_enabled = True
 
@@ -52,36 +67,52 @@ class GlamourSpace(Poll, Converter):
 		if self.type in (self.RAMINFO, self.SWAPINFO, self.BUFFERINFO):
 			return self.getMemoryInfo()
 
-		entry_mapping = {
-			self.MEMTOTAL: ("Mem", "/proc/meminfo"),
-			self.MEMFREE: ("Mem", "/proc/meminfo"),
-			self.SWAPTOTAL: ("Swap", "/proc/meminfo"),
-			self.SWAPFREE: ("Swap", "/proc/meminfo"),
-			self.USBSPACE: ("USB", "/media/usb"),
-			self.HDDSPACE: ("HDD", "/media/hdd"),
-			self.FLASHINFO: ("Flash", "/"),
-			self.DATASPACE: ("Data", "/data")
-		}
-		if self.type in entry_mapping:
-			label, path = entry_mapping[self.type]
+		if self.type in self.MEMORY_FIELDS:
+			return self.getMemoryInfo()
+
+		entry = self.DISK_ENTRIES.get(self.type)
+		if entry:
+			label, path = entry
 			return self.getDiskUsage(path, label)
 
 		return "N/A"
 
+	NETWORK_FILESYSTEMS = frozenset(("nfs", "nfs4", "cifs", "smb3", "smbfs", "fuse.sshfs", "sshfs", "davfs", "davfs2", "fuse.davfs"))
+
+	@staticmethod
+	def _decodeMountPath(value):
+		return re.sub(r"\\([0-7]{3})", lambda match: chr(int(match.group(1), 8)), value)
+
 	def getNetworkMount(self):
+		"""Find the mounted network filesystem used as /media/hdd, not another share."""
 		try:
-			for entry in os.scandir("/media/net"):
-				if entry.is_dir():
-					return entry.path
-		except:
+			hdd_path = os.path.realpath("/media/hdd")
+			selected_mount = None
+			selected_type = None
+			with open("/proc/mounts", "r") as mounts:
+				for line in mounts:
+					fields = line.split()
+					if len(fields) < 3:
+						continue
+					mount_path = os.path.normpath(self._decodeMountPath(fields[1]))
+					if not mount_path.startswith("/"):
+						continue
+					# The most specific mount wins, including a local filesystem
+					# mounted inside a network share.
+					prefix = mount_path.rstrip("/") + "/"
+					if hdd_path == mount_path or hdd_path.startswith(prefix):
+						if selected_mount is None or len(mount_path) >= len(selected_mount):
+							selected_mount, selected_type = mount_path, fields[2].lower()
+			if selected_type in self.NETWORK_FILESYSTEMS:
+				return selected_mount
+		except (OSError, ValueError):
 			pass
 		return None
 
 	def getDiskUsage(self, path, label):
-		if not os.path.ismount(path):
-			return f"{label}: N/A"
-
 		try:
+			if not os.path.ismount(path):
+				return f"{label}: N/A"
 			st = statvfs(path)
 			total = (st.f_blocks * st.f_frsize) // 1024
 			free = (st.f_bavail * st.f_frsize) // 1024
@@ -98,7 +129,7 @@ class GlamourSpace(Poll, Converter):
 				return f"{label}: {percent}% ({self.formatSize(free)} Free, {self.formatSize(used)} Used, {self.formatSize(total)} Total)"
 			else:
 				return f"{label}: {self.formatSize(total)} ({self.formatSize(used)} Used, {self.formatSize(free)} Free)"
-		except:
+		except (OSError, ValueError, TypeError, ArithmeticError):
 			return f"{label}: N/A"
 
 	def getMemoryInfo(self):
@@ -110,21 +141,19 @@ class GlamourSpace(Poll, Converter):
 					if len(parts) > 1:
 						meminfo[parts[0].rstrip(":")] = int(parts[1])
 
-			total_ram = meminfo.get('MemTotal', 0)
-			free_ram = meminfo.get('MemFree', 0)
-			used_ram = total_ram - free_ram
-			total_swap = meminfo.get('SwapTotal', 0)
-			free_swap = meminfo.get('SwapFree', 0)
-			used_swap = total_swap - free_swap
-			buffers = meminfo.get('Buffers', 0)
-			ram = f"RAM: Total {self.formatSize(total_ram)}, Used {self.formatSize(used_ram)}, Free {self.formatSize(free_ram)}"
-			swap = f"Swap: Total {self.formatSize(total_swap)}, Used {self.formatSize(used_swap)}, Free {self.formatSize(free_swap)}"
-			buffer_info = f"Buffer: {self.formatSize(buffers)}"
-
-			return {
-				self.RAMINFO: ram,
-				self.BUFFERINFO: buffer_info
-			}.get(self.type, swap)  # Default to swap if type is unknown
+			field = self.MEMORY_FIELDS.get(self.type)
+			if field:
+				label, key = field
+				return f"{label}: {self.formatSize(meminfo.get(key, 0))}"
+			if self.type == self.BUFFERINFO:
+				return f"Buffer: {self.formatSize(meminfo.get('Buffers', 0))}"
+			if self.type == self.RAMINFO:
+				label, total_key, free_key = "RAM", "MemTotal", "MemFree"
+			else:
+				label, total_key, free_key = "Swap", "SwapTotal", "SwapFree"
+			total = meminfo.get(total_key, 0)
+			free = meminfo.get(free_key, 0)
+			return f"{label}: Total {self.formatSize(total)}, Used {self.formatSize(total - free)}, Free {self.formatSize(free)}"
 
 		except (OSError, ValueError, KeyError):
 			return "Memory Info: N/A"

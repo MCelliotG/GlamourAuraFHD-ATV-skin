@@ -2,6 +2,8 @@
 # Modded and recoded by MCelliotG for use in Glamour skins or standalone
 # If you use this Converter for other skins and rename it, please keep the lines above adding your credits below
 
+import re
+
 from Components.Converter.Converter import Converter
 from Components.Converter.Poll import Poll
 from Components.Element import cached
@@ -9,6 +11,7 @@ from Components.Element import cached
 class GlamourCPU(Converter, object):
 	CPU_ALL = -2
 	CPU_TOTAL = -1
+	PLACEHOLDER = re.compile(r"\$(\d+|\?)")
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -27,6 +30,10 @@ class GlamourCPU(Converter, object):
 		else:
 			cpuUsageMonitor.connectCallback(self.gotPercentage)
 
+	def destroy(self):
+		cpuUsageMonitor.disconnectCallback(self.gotPercentage)
+		Converter.destroy(self)
+
 	def gotPercentage(self, list):
 		self.percentlist = list
 		self.changed((self.CHANGED_POLL,))
@@ -36,16 +43,7 @@ class GlamourCPU(Converter, object):
 		if not self.percentlist:
 			return ""
 		
-		cpu_count = len(self.percentlist)
-		res = self.sfmt[:]
-		
-		for i in range(16):
-			if f"${i}" in res:
-				res = res.replace(f"${i}", f"{self.percentlist[i]}%" if i < cpu_count else "")
-		
-		res = res.replace("$?", str(cpu_count - 1))
-		
-		if self.sfmt in ["All", "Default"]:
+		if self.sfmt in ("All", "Default"):
 			if self.format_type == "Separator":
 				return f"CPU: {self.percentlist[0]}% (" + " | ".join(f"{p}%" for p in self.percentlist[1:]) + ")"
 			elif self.format_type == "Newline":
@@ -56,12 +54,21 @@ class GlamourCPU(Converter, object):
 				core_loads = " ".join(f"{p}%" for p in self.percentlist[1:])
 				return f"CPU: {self.percentlist[0]}% ({core_loads})" if core_loads else f"CPU: {self.percentlist[0]}%"
 		
-		return res.strip()
+		def replace(match):
+			key = match.group(1)
+			if key == "?":
+				return str(len(self.percentlist) - 1)
+			try:
+				index = int(key)
+			except ValueError:
+				return ""
+			return f"{self.percentlist[index]}%" if index < len(self.percentlist) else ""
+		return self.PLACEHOLDER.sub(replace, self.sfmt).strip()
 
 	@cached
 	def getValue(self):
 		try:
-			return self.percentlist[0] if self.sfmt in ["All", "Default"] else self.percentlist[int(self.sfmt)]
+			return self.percentlist[0] if self.sfmt in ("All", "Default") else self.percentlist[int(self.sfmt)]
 		except (IndexError, ValueError):
 			return 0
 
@@ -82,33 +89,46 @@ class CpuUsageMonitor(Poll, object):
 	def getCpusInfo(self):
 		res = []
 		try:
-			fd = open("/proc/stat", "r")
-			for l in fd:
-				if l.startswith("cpu"):
-					total = busy = 0
-					tmp = l.split()
-					for i in range(1, len(tmp)):
-						tmp[i] = int(tmp[i])
-						total += tmp[i]
-					busy = total - tmp[4] - tmp[5]
-					res.append([tmp[0], total, busy])
-			fd.close()
-		except:
+			with open("/proc/stat", "r") as fd:
+				for line in fd:
+					if not line.startswith("cpu"):
+						continue
+					fields = line.split()
+					if not fields or (fields[0] != "cpu" and not fields[0][3:].isdigit()):
+						continue
+					try:
+						values = [int(value) for value in fields[1:]]
+						if len(values) < 4:
+							continue
+						total = sum(values)
+						idle = values[3] + (values[4] if len(values) > 4 else 0)
+						res.append([fields[0], total, total - idle])
+					except ValueError:
+						continue
+		except OSError:
 			pass
 		return res
 
 	def poll(self):
-		prev_info, self.__curr_info = self.__curr_info, self.getCpusInfo()
-		if len(self.__callbacks):
-			info = []
-			for i in range(len(self.__curr_info)):
-				try:
-					p = 100 * (self.__curr_info[i][2] - prev_info[i][2]) // (self.__curr_info[i][1] - prev_info[i][1])
-				except ZeroDivisionError:
-					p = 0
-				info.append(p)
-			for f in self.__callbacks:
-				f(info)
+		if not self.__callbacks:
+			return
+		current = self.getCpusInfo()
+		if not current:
+			# Preserve the last valid reading; do not compare against an empty snapshot.
+			return
+		previous = {entry[0]: entry for entry in self.__curr_info}
+		self.__curr_info = current
+		info = []
+		for name, total, busy in current:
+			old = previous.get(name)
+			percent = 0
+			if old is not None:
+				delta_total, delta_busy = total - old[1], busy - old[2]
+				if delta_total > 0 and delta_busy >= 0:
+					percent = max(0, min(100, 100 * delta_busy // delta_total))
+			info.append(percent)
+		for callback in tuple(self.__callbacks):
+			callback(info)
 
 	def connectCallback(self, func):
 		if func not in self.__callbacks:
