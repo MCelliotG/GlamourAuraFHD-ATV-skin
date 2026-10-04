@@ -25,7 +25,19 @@ class GlamourNextEvents(Converter, object):
 		if len(args) != 2:
 			raise ValueError("Type must contain exactly 2 arguments")
 		
-		self.type = self.EVENT_TYPES.get(args[0], 0)  # Default to Event1
+		# Keep the historical type values; PrimeTime is tracked separately
+		# because Event11 also has the zero-based index 10.
+		self.isPrimeTime = args[0] == "PrimeTime"
+		self.type = self.EVENT_TYPES.get(args[0], 0)
+		if not self.isPrimeTime and args[0].startswith("Event"):
+			number = args[0][5:]
+			if number.isascii() and number.isdecimal():
+				try:
+					index = int(number)
+				except ValueError:
+					index = 0
+				if index > 0:
+					self.type = index - 1
 		self.showDuration = self.DISPLAY_TYPES.get(args[1], 18)  # Default to withDuration
 
 	@cached
@@ -39,10 +51,13 @@ class GlamourNextEvents(Converter, object):
 		if not curEvent:
 			return ""
 		
-		if self.type < 10:
+		if not self.isPrimeTime:
 			self.epgcache.startTimeQuery(eServiceReference(ref.toString()), curEvent.getBeginTime() + curEvent.getDuration())
-			nextEvents = [self.epgcache.getNextTimeEntry() for _ in range(self.type + 1)]
-			nextEvent = nextEvents[-1] if nextEvents else None
+			nextEvent = None
+			for _ in range(self.type + 1):
+				nextEvent = self.epgcache.getNextTimeEntry()
+				if not nextEvent:
+					break
 		else:
 			now = localtime(time())
 			dt = datetime(now.tm_year, now.tm_mon, now.tm_mday, 20, 15)
@@ -55,21 +70,30 @@ class GlamourNextEvents(Converter, object):
 		return self.formatEvent(nextEvent) if nextEvent else ""
 
 	def formatEvent(self, event):
-		begin = strftime("%H:%M", localtime(event.getBeginTime()))
-		end = strftime("%H:%M", localtime(event.getBeginTime() + event.getDuration()))
+		mode = self.showDuration
+		if mode == 12:
+			return event.getEventName()
+		if mode not in (11, 13, 14, 15, 16, 17, 18):
+			return ""
+
+		if mode in (11, 17):
+			duration = "%d min" % (event.getDuration() // 60)
+			return duration if mode == 17 else f"{event.getEventName()} ({duration})"
+
+		begin_time = event.getBeginTime()
+		if mode == 13:
+			return strftime("%H:%M", localtime(begin_time))
+		duration_seconds = event.getDuration()
+		end = strftime("%H:%M", localtime(begin_time + duration_seconds))
+		if mode == 14:
+			return end
+		begin = strftime("%H:%M", localtime(begin_time))
+		if mode == 15:
+			return f"{begin} - {end}"
 		title = event.getEventName()
-		duration = "%d min" % (event.getDuration() // 60)
-		
-		formats = {
-			18: f"{begin} - {end} {title} ({duration})",
-			17: duration,
-			16: f"{begin} - {end} {title}",
-			12: title,
-			11: f"{title} ({duration})",
-			13: begin,
-			14: end,
-			15: f"{begin} - {end}"
-		}
-		return formats.get(self.showDuration, "")
+		if mode == 16:
+			return f"{begin} - {end} {title}"
+		duration = "%d min" % (duration_seconds // 60)
+		return f"{begin} - {end} {title} ({duration})"
 
 	text = property(getText)
