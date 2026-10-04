@@ -1,5 +1,9 @@
 Package: enigma2-plugin-skins-glamouraurafhd-atv
+<<<<<<< Updated upstream
 Version: Μ.32
+=======
+Version: K.24
+>>>>>>> Stashed changes
 Section: skins
 Priority: optional
 Architecture: all

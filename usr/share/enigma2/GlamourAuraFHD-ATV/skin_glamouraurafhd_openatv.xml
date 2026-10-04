@@ -44,6 +44,7 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/networkadapter.png" alphatest="on" transparent="1" zPosition="5" />
     <!-- Network adapters -->
+<<<<<<< Updated upstream
     <widget source="adapterList" render="Listbox" position="540,105" size="1305,320" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
   <!-- connected, no-link, idle -->
   <template name="Default" colors="cyan,red,grey" fonts="Numbers;30,enigma2icons;42,Numbers;34,Numbers;26,Regular;30,Numbers;32,enigma2icons;36" itemHeight="80">
@@ -70,6 +71,34 @@
     </rowtemplate>
   </template>
 </widget>
+=======
+    <widget source="adapterList" render="Listbox" position="540,105" size="1305,320" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <!-- connected, no-link, idle -->
+      <template name="Default" colors="cyan,red,grey" fonts="Numbers;30,enigma2icons;42,Numbers;34,Numbers;26,Regular;30,Numbers;32,enigma2icons;36" itemHeight="80">
+        <!-- Header -->
+        <rowtemplate>
+          <text index="AdapterName" position="0,0" size="270,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="StatusText" position="330,0" size="180,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" wrap="1" />
+          <text index="MAC" position="540,0" size="220,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="IPAddress" position="770,0" size="190,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="Gateway" position="970,0" size="190,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+          <text index="Speed" position="1170,0" size="150,50" font="4" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+        </rowtemplate>
+        <!-- Data -->
+        <rowtemplate>
+          <text index="AdapterGlyph" position="0,8" size="60,65" font="1" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+          <text index="AdapterName" position="75,0" size="195,40" font="2" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="AdapterType" position="75,40" size="195,40" font="3" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="InternetGlyph" position="280,20" size="50,45" font="6" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+          <text index="StatusText" position="330,0" size="200,80" font="4" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColorSelected" padding="5,0" verticalAlignment="center" wrap="1" />
+          <text index="MAC" position="540,0" size="220,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="IPAddress" position="770,0" size="190,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Gateway" position="970,0" size="190,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+          <text index="Speed" position="1170,0" size="150,80" font="5" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+        </rowtemplate>
+      </template>
+    </widget>
+>>>>>>> Stashed changes
     <!-- Saved Wi-Fi networks -->
     <widget source="savedLabel" render="Label" position="540,480" size="1305,50" font="Regular:32" foregroundColor="white" backgroundColor="background20" padding="15,0" verticalAlignment="center" widgetBorderColor="cyan" widgetBorderWidth="1">
       <convert type="ConditionalShowHide" />
@@ -79,7 +108,11 @@
         <!-- Header -->
         <rowtemplate>
           <text index="SSID" position="0,0" size="370,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+<<<<<<< Updated upstream
           <text index="StatusText" position="380,0" size="150,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
+=======
+          <text index="StatusText" position="380,0" size="150,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" wrap="1" />
+>>>>>>> Stashed changes
           <text index="BSSID" position="540,0" size="190,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
           <text index="Frequency" position="750,0" size="160,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
           <text index="Channel" position="920,0" size="120,80" font="0" foregroundColor="white" backgroundColor="background20" padding="5,0" verticalAlignment="center" horizontalAlignment="left" />
@@ -102,8 +135,13 @@
   <screen name="NetworkMountsOverview" position="0,0" size="1920,1080" title="Network Mounts Overview" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts.png" alphatest="on" transparent="1" zPosition="5" />
+<<<<<<< Updated upstream
     <widget source="mountList" render="Listbox" position="540,105" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <template name="Default" colors="cyan,red,grey" fonts="Regular;30,Regular;26" itemHeight="80">
+=======
+    <widget source="mountList" render="Listbox" position="540,105" size="1305,640" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="RegularB;34,Regular;30" itemHeight="80">
+>>>>>>> Stashed changes
         <mode name="default">
           <text index="ShareName" position="0,0" size="300,80" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" />
           <text index="Description" position="315,0" size="540,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
@@ -118,8 +156,13 @@
   <screen name="NetworkShares" position="0,0" size="1920,1080" title="Network Shares Browser" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/netmounts_manager.png" alphatest="on" transparent="1" zPosition="5" />
+<<<<<<< Updated upstream
     <widget source="list" render="Listbox" position="540,105" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand"  transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <template name="Default" colors="cyan,red,grey" fonts="enigma2icons;48,Regular;30,enigma2icons;42,Regular;26" itemHeight="80">
+=======
+    <widget source="list" render="Listbox" position="540,105" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+      <template name="Default" colors="cyan,red,grey" fonts="enigma2icons;48,RegularB;34,enigma2icons;42,Regular;28" itemHeight="80">
+>>>>>>> Stashed changes
         <rowtemplate>
           <text index="Glyph" position="0,0" size="70,80" font="0" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
           <text index="IPAddress" position="80,0" size="260,80" font="1" foregroundColor="white" padding="5,0" verticalAlignment="center" />
@@ -145,8 +188,13 @@
     <widget source="list" render="Listbox" position="540,105" size="1305,720" enableWrapAround="1" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
       <template name="Default" colors="cyan,red,grey" fonts="Regular;30,Numbers;30,enigma2icons;42" itemHeight="80">
         <mode name="default">
+<<<<<<< Updated upstream
           <panel position="0,0" size="e,e" >
             <text index="Name" position="0,0" size="530,80" flags="scroll" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" />
+=======
+          <panel position="0,0" size="e,e">
+            <text index="Name" position="0,0" size="530,80" flags="scroll" font="0" foregroundColor="white" padding="5,0" verticalAlignment="center" wrap="1" />
+>>>>>>> Stashed changes
             <text index="Glyph" position="540,0" size="80,80" font="2" foregroundColor="white" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
             <text index="Percentage" position="630,0" size="100,80" font="1" foregroundColor="white" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
             <text index="dBm" position="750,0" size="100,80" font="1" foregroundColor="white" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
@@ -408,7 +456,7 @@
     <widget source="lab2" render="Label" position="540,110" size="650,50" font="Regular; 32" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="6" />
     <widget source="lab3" render="Label" position="1195,110" size="650,50" font="Regular; 32" backgroundColor="background20" foregroundColor="white" transparent="1" zPosition="6" />
     <widget name="AboutScrollLabel" position="540,160" size="1305,700" font="Regular; 32" halign="left" backgroundColor="background20" transparent="1" foregroundColor="cyan1" zPosition="6" />
-    <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" shadowColor="black" shadowOffset="-2,-2" transparent="1" valign="top" halign="center" zPosition="1" />
+    <eLabel text="Glamour Aura FHD Skin by MCelliotG" position="75,705" size="400,155" font="Regular; 42" backgroundColor="transparent" transparent="1" valign="top" halign="center" zPosition="1" />
     <panel name="FullKeys1" />
   </screen>
   <screen name="SystemMemoryInfo" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder">
@@ -479,6 +527,7 @@
   </screen>
   <!-- Package Feed Selection -->
   <screen name="PackageFeedSelection" position="0,0" size="1920,1080" title="Package Feed Selection" flags="wfNoBorder" backgroundColor="transparent">
+<<<<<<< Updated upstream
   <panel name="ScreenElements2" />
 
   <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/upgrade_source.png" alphatest="on" transparent="1" zPosition="5" />
@@ -497,6 +546,12 @@
     zPosition="5" />
 
   <panel name="FullKeysMIH" />
+=======
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/upgrade_source.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="feeds" position="540,105" size="1305,700" font="Regular;32" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" transparent="1" zPosition="5" />
+    <panel name="FullKeysMIH" />
+>>>>>>> Stashed changes
   </screen>
   <!-- 04. HDD SCREENS -->
   <screen name="Devices" position="0,0" size="1920,1080" title=" System Info" backgroundColor="transparent" flags="wfNoBorder">
@@ -1324,6 +1379,7 @@
   </screen>
   <!-- Kexec/Chkroot MultiBoot Initialization -->
   <screen name="KexecInit" position="0,0" size="1920,1080" title="Kexec MultiBoot Manager" flags="wfNoBorder" backgroundColor="transparent">
+<<<<<<< Updated upstream
   <panel name="ScreenElements2" />
 
   <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/slotmanager.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1340,6 +1396,12 @@
     zPosition="5" />
 
   <panel name="FullKeysMIH" />
+=======
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/slotmanager.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="description" position="540,120" size="1305,650" font="Regular;36" foregroundColor="white" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="5" />
+    <panel name="FullKeysMIH" />
+>>>>>>> Stashed changes
   </screen>
   <!-- 18. CI SCREENS -->
   <screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
@@ -1388,7 +1450,7 @@
   <!-- OPENATV 7.xx SCREENS -->
   <!-- 1. Info Screens -->
   <screen name="CommonInfo">
-    <widget source="description" render="Label" position="50,715" size="475,230" conditional="description" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <widget source="description" render="Label" position="50,715" size="475,230" conditional="description" font="Regular; 32" foregroundColor="white" backgroundColor="black" transparent="1" valign="top" halign="center" zPosition="7" />
     <widget name="information" position="535,70" size="1305,745" colPosition="540" conditional="information" divideChar="|" font="Regular; 32" noWrap="0" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" />
     <panel name="FullKeysMIH" />
   </screen>
@@ -1524,6 +1586,14 @@
       <convert type="ServiceInfo">HasHBBTV</convert>
     </widget>
   </screen>
+  <!-- 1-20. User Manual/QR code -->
+  <screen name="UserManual" position="0,0" size="1920,1080" title="User Manual" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <widget name="qrcode" position="930,150" size="540,540" zPosition="6" />
+    <widget name="text" position="570,720" size="1260,130" font="Regular;32" halign="center" valign="center" foregroundColor="white" backgroundColor="background20" transparent="1" zPosition="6" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_ok_big.png" position="1080,900" size="90,60" alphatest="blend" transparent="1" zPosition="6" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_exit_big.png" position="1190,900" size="120,60" alphatest="blend" transparent="1" zPosition="6" />
+  </screen>
   <!-- 2. New Update Panel -->
   <!-- 2-01. Software Update -->
   <screen name="SoftwareUpdate" position="0,0" size="1920,1080" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
@@ -1612,7 +1682,7 @@
     </widget>
     <ePixmap pixmap="GACommon/images/plugins.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget name="quickselect" position="815,145" size="990,825" font="Regular;100" foregroundColor="cyan" backgroundColor="background20" halign="center" valign="center" transparent="1" zPosition="4" />
-    <widget name="description" position="50,790" size="700,150" font="Regular; 32" foregroundColor="white" backgroundColor="black" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <widget name="description" position="50,790" size="700,150" font="Regular; 32" foregroundColor="white" backgroundColor="black" transparent="1" valign="top" halign="center" zPosition="7" />
     <panel name="FullKeysUP" />
     <!-- Button MIH -->
     <widget objectTypes="key_menu,StaticText,Label" source="key_menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/key_menu_medium.png" position="1725,50" size="90,45" alphatest="blend" zPosition="5" transparent="1">
@@ -1651,7 +1721,7 @@
     <widget source="Title" render="Label" position="220,15" size="1070,80" font="RegularB; 45" foregroundColor="white" backgroundColor="background20" valign="center" halign="center" transparent="1" zPosition="8" />
     <ePixmap pixmap="GACommon/pointers/scanpointer_back.png" position="220,100" size="1070,30" transparent="1" alphatest="blend" scale="1" zPosition="4" />
     <widget name="progress" position="220,102" size="1070,25" pixmap="GlamourAuraFHD-ATV/pointers/slider_main.png" alphatest="blend" scale="1" transparent="1" zPosition="7" />
-    <widget name="description" position="220,135" size="1070,80" font="Regular; 32" foregroundColor="cyan1" backgroundColor="background20" shadowColor="black" shadowOffset="2,1" transparent="1" valign="top" halign="center" zPosition="7" />
+    <widget name="description" position="220,135" size="1070,80" font="Regular; 32" foregroundColor="cyan1" backgroundColor="background20" transparent="1" valign="top" halign="center" zPosition="7" />
   </screen>
   <!-- 2-07. Plugin Action Log -->
   <screen name="PluginActionLog" position="0,0" size="1920,1080" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
@@ -1890,4 +1960,13 @@
     <widget source="Title" render="Label" position="265,50" size="1390,90" font="RegularB; 45" foregroundColor="white" backgroundColor="sky" transparent="1" valign="bottom" zPosition="5" halign="center" noWrap="1" />
     <widget name="logtext" position="50,155" size="1790,850" font="Console; 32" halign="left" valign="top" itemHeight="50" padding="10,0,10,0" foregroundColor="white" backgroundColor="background20" noWrap="0" scrollbarMode="showOnDemand" scrollbarForegroundColor="white" transparent="1" zPosition="5" />
   </screen>
+<<<<<<< Updated upstream
+=======
+  <!-- 7. ToastScreen -->
+  <screen name="ToastScreen" position="0,0" size="1920,1080" resolution="1920,1080" backgroundColor="#FE000000" flags="wfNoBorder,wfModal" zPosition="101">
+    <widget name="border" position="0,0" size="60,60" backgroundColor="background20" widgetBorderColor="cyan1" widgetBorderWidth="3" />
+    <widget name="icon" position="0,0" size="60,60" font="enigma2icons;50" halign="center" valign="center" backgroundColor="background20" foregroundColor="cyan1" />
+    <widget name="text" position="0,0" size="1920,1080" font="RegularB;38" halign="center" valign="center" backgroundColor="background20" foregroundColor="white" />
+  </screen>
+>>>>>>> Stashed changes
 </skin>

@@ -352,6 +352,10 @@ class GlamourAccess(Poll, Converter):
 
 	@cached
 	def getText(self):
+		if self.type == self.CAMNAME:
+			self.poll_interval = self.timespan
+			self.poll_enabled = True
+			return self.CamName()
 		ecminfo = ""
 		server = ""
 		caidlist = self.CaidList()
@@ -378,8 +382,6 @@ class GlamourAccess(Poll, Converter):
 			if info:
 				caids = list(set(info.getInfoObject(iServiceInformation.sCAIDs)))
 
-				if self.type == self.CAMNAME:
-					return self.CamName()
 
 				if self.type == self.CAIDINFO:
 					return self.CaidInfo()
@@ -608,6 +610,59 @@ class GlamourAccess(Poll, Converter):
 		except Exception:
 			return []
 
+	def _selectedSoftcam(self):
+		"""Read the applied init-script selection before UI/persisted config.
+
+		Do not import image-specific managers: this converter also runs on
+		images using other cam panels. None means no selection source found.
+		"""
+		link = "/etc/init.d/softcam"
+		try:
+			target = os.path.basename(os.readlink(link))
+			if target.startswith("softcam."):
+				return target[len("softcam."):] if os.path.exists(link) else "None"
+		except OSError:
+			pass
+		try:
+			selection = getattr(getattr(config, "misc", None), "softcams", None)
+			if selection is not None:
+				return str(selection.value).strip()
+		except (AttributeError, TypeError, ValueError):
+			pass
+		try:
+			with open("/etc/enigma2/settings", "r") as settings:
+				for line in settings:
+					if line.startswith("config.misc.softcams="):
+						return line.split("=", 1)[1].strip()
+		except OSError:
+			pass
+		return None
+
+	def _formatSoftcam(self, name):
+		if not name or name.lower() in ("none", "nocam"):
+			return "No active softcam"
+		label = name.capitalize()
+		lower = name.lower()
+		versionFile = "/tmp/.oscam/oscam.version" if "oscam" in lower else "/tmp/.ncam/ncam.version" if "ncam" in lower else None
+		if versionFile:
+			try:
+				with open(versionFile, "r") as versionData:
+					for line in versionData:
+						if "Version:" not in line:
+							continue
+						version = line.split(":", 1)[1].strip()
+						if "oscam" in lower:
+							if "@" in version and "-" in version:
+								version = "v." + version.split("-", 1)[1].split("@", 1)[0]
+							elif "svn" in version and "_" in version:
+								version = version.split("_", 1)[1]
+						if version:
+							label += " " + version
+						break
+			except (OSError, ValueError):
+				pass
+		return label
+
 	def CamName(self):
 		cam1 = ""
 		cam2 = ""
@@ -645,47 +700,16 @@ class GlamourAccess(Poll, Converter):
 				pass
 			return camdlist
 
-		# OpenVix, OpenATV, OpenESI, PurE2
+		# OpenVix, OpenATV, OpenESI, PurE2: applied link takes priority.
 		if os.path.exists("/etc/image-version") and not os.path.exists("/etc/.emustart"):
-			try:
-				with open("/etc/enigma2/settings", "r") as f:
-					for line in f:
-						if "config.misc.softcams=" in line:
-							active_softcam = line.split("=", 1)[1].strip()
-							if not active_softcam or active_softcam.lower() == "none":
-								if os.path.exists("/etc/init.d/softcam"):
-									with open("/etc/init.d/softcam", "r") as f2:
-										for line in f2:
-											if "Short-Description:" in line:
-												active_softcam = line.split(":", 1)[1].strip()
-												break
-							if not active_softcam or active_softcam.lower() in ("nocam", "none"):
-								return "No active softcam"
-							active_softcam_cap = active_softcam.capitalize()
-							lower_softcam = active_softcam.lower()
-							if "oscam" in lower_softcam or "ncam" in lower_softcam:
-								if "oscam" in lower_softcam:
-									version_file = "/tmp/.oscam/oscam.version"
-								else:
-									version_file = "/tmp/.ncam/ncam.version"
-								if os.path.exists(version_file):
-									with open(version_file, "r") as vf:
-										version = ""
-										for line in vf:
-											if "Version:" in line:
-												version = line.split(":", 1)[1].strip()
-												break
-									if version:
-										if "oscam" in active_softcam.lower():
-											if "@" in version:
-												version = f"v.{version.split('-')[1].split('@')[0]}"
-											elif "svn" in version:
-												version = version.split("_")[1]
-										active_softcam_cap = f"{active_softcam_cap} {version}"
-							return active_softcam_cap
-			except Exception:
-				pass
-			return "No active softcam"
+			active_softcam = self._selectedSoftcam()
+			if active_softcam is None and os.path.exists("/etc/init.d/softcam"):
+				# Legacy panels may provide a regular script rather than a link.
+				for line in self.read_file("/etc/init.d/softcam"):
+					if "Short-Description:" in line:
+						active_softcam = line.split(":", 1)[1].strip()
+						break
+			return self._formatSoftcam(active_softcam)
 
 		# BlackHole/Pli-based images
 		if os.path.exists("/etc/CurrentDelCamName"):

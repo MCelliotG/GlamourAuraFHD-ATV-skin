@@ -69,7 +69,7 @@
     <widget source="session.CurrentService" render="GlamBaseIcons" position="1450,1015" size="84,30" alphatest="blend" path="icons/audio" zPosition="4" transparent="1">
       <convert type="GlamourAudioInfo">AudioIcon</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="255,930" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" shadowColor="black" shadowOffset="-1,-1" transparent="1" noWrap="1">
+    <widget source="session.CurrentService" render="Label" position="255,930" size="180,52" font="Numbers; 45" halign="right" valign="center" backgroundColor="background20" transparent="1" noWrap="1">
       <convert type="ServicePosition">Position,ShowHours</convert>
     </widget>
     <eLabel name="sliderbg" position="465,955" size="1200,4" backgroundColor="grey" foregroundColor="grey" zPosition="3" />
@@ -1185,16 +1185,16 @@
     <widget name="btt_green" position="870,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="btt_yellow" position="1185,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
     <widget name="btt_blue" position="1500,860" size="305,85" zPosition="5" font="Regular; 32" halign="center" valign="bottom" backgroundColor="background20" transparent="1" />
-    <widget name="ok" position="540,660" zPosition="5" size="700,40" font="Regular; 28" halign="left" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" />
-    <widget name="menu" position="540,700" zPosition="6" size="700,40" font="Regular;28" halign="left" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" />
-    <widget name="infos" position="540,740" zPosition="8" size="700,40" font="Regular; 28" halign="left" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" />
-    <widget name="bouquets" position="540,780" zPosition="7" size="700,40" font="Regular; 28" halign="left" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" />
-    <widget name="netservers" position="540,820" zPosition="9" size="700,40" font="Regular; 28" halign="left" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" />
-    <widget name="driverupdateavail" position="1250,680" zPosition="8" size="600,80" font="Regular; 32" halign="center" valign="center" transparent="1" shadowColor="black" shadowOffset="-3,-3" foregroundColor="orange" />
-    <widget name="updateavail" position="1250,760" zPosition="9" size="600,80" font="Regular; 32" halign="center" valign="center" transparent="1" shadowColor="black" shadowOffset="-3,-3" foregroundColor="cabbage" />
-    <widget name="version" position="540,60" zPosition="7" size="430,100" font="Regular; 32" halign="center" valign="center" transparent="1" shadowColor="black" shadowOffset="-3,-3" foregroundColor="cyan" />
-    <widget name="tunerone" position="540,270" zPosition="6" size="430,100" font="Regular; 32" halign="center" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" foregroundColor="lightciel" />
-    <widget name="tunertwo" position="540,370" zPosition="6" size="430,100" font="Regular; 32" halign="center" valign="center" shadowColor="black" shadowOffset="-1,-1" transparent="1" foregroundColor="cyan1" />
+    <widget name="ok" position="540,660" zPosition="5" size="700,40" font="Regular; 28" halign="left" valign="center" transparent="1" />
+    <widget name="menu" position="540,700" zPosition="6" size="700,40" font="Regular;28" halign="left" valign="center" transparent="1" />
+    <widget name="infos" position="540,740" zPosition="8" size="700,40" font="Regular; 28" halign="left" valign="center" transparent="1" />
+    <widget name="bouquets" position="540,780" zPosition="7" size="700,40" font="Regular; 28" halign="left" valign="center" transparent="1" />
+    <widget name="netservers" position="540,820" zPosition="9" size="700,40" font="Regular; 28" halign="left" valign="center" transparent="1" />
+    <widget name="driverupdateavail" position="1250,680" zPosition="8" size="600,80" font="Regular; 32" halign="center" valign="center" transparent="1" foregroundColor="orange" />
+    <widget name="updateavail" position="1250,760" zPosition="9" size="600,80" font="Regular; 32" halign="center" valign="center" transparent="1" foregroundColor="cabbage" />
+    <widget name="version" position="540,60" zPosition="7" size="430,100" font="Regular; 32" halign="center" valign="center" transparent="1" foregroundColor="cyan" />
+    <widget name="tunerone" position="540,270" zPosition="6" size="430,100" font="Regular; 32" halign="center" valign="center" transparent="1" foregroundColor="lightciel" />
+    <widget name="tunertwo" position="540,370" zPosition="6" size="430,100" font="Regular; 32" halign="center" valign="center" transparent="1" foregroundColor="cyan1" />
   </screen>
   <!-- MultiBoot Switcher -->
   <screen name="MultiBootSwitcher" position="0,0" size="1920,1080" title="MultiBoot STARTUP Selector" flags="wfNoBorder" backgroundColor="transparent">
