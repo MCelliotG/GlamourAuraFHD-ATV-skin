@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <template component="serviceList" name="Single-line list" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,13" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,45" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,1" size="86,43" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="ServiceName" position="left,0" size="280,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="Title1" position="left,0" size="e,45" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,13" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,45" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,1" size="86,43" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="ServiceName" position="left,0" size="280,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="Title1" position="left,0" size="e,45" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="MarkerName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,1" size="86,43" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="EntryName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="MarkerName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Two-line list" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,90" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,36" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,90" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,90" layout="stack">
+          <text index="ServiceName" position="0,5" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,49" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,90" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,36" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,90" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,90" layout="stack">
+          <text index="ServiceName" position="0,5" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,49" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,90" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <text index="EntryName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="MarkerName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Picture list with remaining time" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,90" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,0" size="100,90" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,90" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="ImageOrPicon1" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,90" layout="stack">
+          <text index="ServiceName" position="0,5" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,49" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,90" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,0" size="100,90" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,90" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="ImageOrPicon1" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,90" layout="stack">
+          <text index="ServiceName" position="0,5" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,49" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="90" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,90" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,5" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,22" size="45,45" alpha="blend" scale="centerScaled" />
+        <text index="EntryName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="MarkerName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,90" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Channel grid" screens="ChannelSelection_Details" fonts="Numbers;26,RegularB;28,Regular;25">
+    <mode name="services" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <text index="Number" position="15,10" size="65,35" font="0" verticalAlignment="center" wrap="ellipsis" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="236,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="CryptoImage" position="268,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="RecordingIndicator" position="300,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ImageOrPicon1" position="25,50" size="300,145" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="ServiceName" position="15,195" size="320,33" font="1" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Title1" position="15,230" size="320,30" font="2" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+    <mode name="bouquets" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <text index="Number" position="15,10" size="65,35" font="0" verticalAlignment="center" wrap="ellipsis" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="236,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="CryptoImage" position="268,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="RecordingIndicator" position="300,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ImageOrPicon1" position="25,50" size="300,145" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="ServiceName" position="15,195" size="320,33" font="1" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Title1" position="15,230" size="320,30" font="2" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="MarkerImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="FolderImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="MarkerName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="FolderName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+    <mode name="other" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <pixmap index="Picon" position="65,35" size="220,110" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="160,150" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="EntryName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="MarkerImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="FolderImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="MarkerName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="FolderName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+  </template>
+  <template component="serviceList" name="Now / Next" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,43" size="100,36" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="StartTime2" position="0,82" size="90,36" font="0" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="Title2" position="100,82" size="e-100,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,43" size="100,36" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="StartTime2" position="0,82" size="90,36" font="0" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="Title2" position="100,82" size="e-100,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,135" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="EntryName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Compact list" screens="ChannelSelection_Details" fonts="Numbers;25,RegularB;27,Regular;25">
+    <mode name="services" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,13" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,45" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,7" size="60,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="ServiceName" position="left,0" size="230,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="Title1" position="left,0" size="e,45" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <progress index="Progress" position="right,13" size="60,18" borderWidth="2" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+        <text index="Number" position="left,0" size="55,45" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,7" size="60,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="ServiceName" position="left,0" size="230,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="Title1" position="left,0" size="e,45" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="MarkerName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="45" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,45" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,7" size="60,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,7" size="30,30" alpha="blend" scale="centerScaled" />
+        <text index="EntryName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="MarkerName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+        <text index="FolderName" position="left,0" size="e,45" font="1" verticalAlignment="center" wrap="ellipsis" />
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Detailed list" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="StartEndTime1" position="right,43" size="190,36" font="2" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="ShortDescription1" position="0,82" size="e,50" font="2" verticalAlignment="top" wrap="wrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="StartEndTime1" position="right,43" size="190,36" font="2" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="ShortDescription1" position="0,82" size="e,50" font="2" verticalAlignment="top" wrap="wrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,135" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="EntryName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Prime time" screens="ChannelSelection_Details" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,43" size="100,36" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="StartTimeP" position="35,82" size="90,36" font="0" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="TitleP" position="135,82" size="e-135,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text text="★" position="0,82" size="30,36" font="2" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-34,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,43" size="100,36" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="55,135" font="0" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" />
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,38" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,43" size="e,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="StartTimeP" position="35,82" size="90,36" font="0" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="TitleP" position="135,82" size="e-135,36" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text text="★" position="0,82" size="30,36" font="2" verticalAlignment="center" wrap="noWrap" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <panel position="15,0" size="e-30,135" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,20" size="160,80" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,37" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="EntryName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+  </template>
+  <template component="serviceList" name="Channel grid with progress" screens="ChannelSelection_Details" fonts="Numbers;26,RegularB;28,Regular;25">
+    <mode name="services" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <text index="Number" position="15,10" size="65,35" font="0" verticalAlignment="center" wrap="ellipsis" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="236,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="CryptoImage" position="268,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="RecordingIndicator" position="300,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ImageOrPicon1" position="25,50" size="300,125" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="ServiceName" position="15,175" size="320,33" font="1" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Title1" position="15,208" size="320,30" font="2" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+      <progress index="Progress" position="15,244" size="210,14" borderWidth="1" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Remain" position="230,236" size="100,28" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+    <mode name="bouquets" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <text index="Number" position="15,10" size="65,35" font="0" verticalAlignment="center" wrap="ellipsis" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="236,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="CryptoImage" position="268,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="RecordingIndicator" position="300,12" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ImageOrPicon1" position="25,50" size="300,125" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="ServiceName" position="15,175" size="320,33" font="1" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Title1" position="15,208" size="320,30" font="2" verticalAlignment="center" wrap="ellipsis" horizontalAlignment="center" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="MarkerImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="FolderImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="MarkerName" position="15,175" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="FolderName" position="15,175" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <progress index="Progress" position="15,244" size="210,14" borderWidth="1" borderColor="white" borderColorSelected="white" foregroundColor="sky" foregroundColorSelected="cyan2" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="Remain" position="230,236" size="100,28" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+    <mode name="other" orientation="grid" itemWidth="350" itemHeight="270" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="background20" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel">
+      <rectangle position="5,5" size="340,260" foregroundColor="background20" foregroundColorSelected="clearsky" borderWidth="2" borderColor="grey" borderColorSelected="cyan" serviceNotAvailColor="background20" serviceNotAvailColorSelected="clearsky" fallbackColor="background20" fallbackColorSelected="clearsky" />
+      <pixmap index="Picon" position="65,35" size="220,110" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="ServiceTypeImage" position="160,150" size="30,30" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="EntryName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="MarkerImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <pixmap index="FolderImage" position="135,75" size="80,80" alpha="blend" scale="centerScaled" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="MarkerName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+      <text index="FolderName" position="15,190" size="320,65" font="1" verticalAlignment="center" wrap="wrap" horizontalAlignment="center" backgroundColor="background20" backgroundColorSelected="background20" />
+    </mode>
+  </template>
+  <template component="serviceList" name="Full rows" screens="ChannelSelection_Full" fonts="Numbers;30,RegularB;32,Regular;29">
+    <mode name="services" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="clearsky" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel" itemWidth="1920" orientation="vertical">
+      <panel position="25,0" size="e-50,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,38" size="125,35" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="75,135" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="ImageOrPicon1" position="left,12" size="220,110" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,35" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,38" size="e,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="StartTime2" position="0,70" size="100,31" font="0" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="Title2" position="110,70" size="e-110,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="ShortDescription1" position="0,102" size="e,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="bouquets" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="clearsky" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel" itemWidth="1920" orientation="vertical">
+      <panel position="25,0" size="e-50,135" layout="horizontal" spacing="4">
+        <text index="Remain" position="right,38" size="125,35" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="noWrap" foregroundColor="lightciel" foregroundColorSelected="sky" />
+        <text index="Number" position="left,0" size="75,135" font="0" verticalAlignment="center" horizontalAlignment="right" wrap="ellipsis" />
+        <pixmap index="ImageOrPicon1" position="left,12" size="220,110" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="ServiceName" position="0,2" size="e,35" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="Title1" position="0,38" size="e,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="StartTime2" position="0,70" size="100,31" font="0" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="Title2" position="110,70" size="e-110,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="amarillo" foregroundColorSelected="amarillo" />
+          <text index="ShortDescription1" position="0,102" size="e,31" font="2" verticalAlignment="center" wrap="ellipsis" foregroundColor="lightciel" foregroundColorSelected="sky" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+    <mode name="other" itemHeight="135" foregroundColor="white" foregroundColorSelected="lightciel" backgroundColor="background20" backgroundColorSelected="clearsky" serviceNotAvailColor="darkgrey" recordColor="red" recordColorSelected="red" streamColor="blue" streamColorSelected="blue" pseudoColor="lightciel" pseudoColorSelected="lightciel" itemWidth="1920" orientation="vertical">
+      <panel position="25,0" size="e-50,135" layout="horizontal" spacing="4">
+        <pixmap index="Picon" position="left,12" size="220,110" alpha="blend" scale="centerScaled" />
+        <pixmap index="ServiceTypeImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="CryptoImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="RecordingIndicator" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="MarkerImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <pixmap index="FolderImage" position="left,45" size="45,45" alpha="blend" scale="centerScaled" />
+        <panel position="left" size="e,135" layout="stack">
+          <text index="EntryName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="MarkerName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+          <text index="FolderName" position="0,0" size="e,135" font="1" verticalAlignment="center" wrap="ellipsis" />
+        </panel>
+      </panel>
+    </mode>
+  </template>
+</templates>

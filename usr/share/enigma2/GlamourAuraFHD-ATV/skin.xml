@@ -944,6 +944,10 @@
     <panel name="CSChannelInfos" />
     <panel name="FullKeysCC" />
   </screen>
+
+  <screen name="ChannelSelection_Details" label="List and event details" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ChannelSelection" />
+  </screen>
   <!-- 02. Channel Selection Radio -->
   <screen name="ChannelSelectionRadio" position="0,0" size="1920,1080" title="Radio Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
     <!-- Background -->
@@ -3376,4 +3380,11 @@ if not self["videofps"].text:
     <ePixmap pixmap="GACommon/images/plugins.png" position="50,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="statusbar" render="Label" position="540,275" size="1305,600" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
   </screen>
+<screen name="ChannelSelection_Full" label="Full-screen channel list" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
+  <panel name="ScreenElements7" />
+  <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="40,35" size="1620,95" font="RegularB;50" foregroundColor="white" backgroundColor="cyan1" transparent="1" valign="bottom" halign="center" zPosition="4" />
+  <widget name="list" position="0,145" size="1920,810" itemHeight="135" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="not (config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress'))" />
+  <widget name="list" position="85,145" size="1750,810" itemHeight="270" scrollbarMode="showNever" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress')" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" />
+  <panel name="FullKeysBT" />
+</screen>
 </skin>
