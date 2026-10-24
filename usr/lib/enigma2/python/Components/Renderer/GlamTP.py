@@ -10,6 +10,24 @@ from Components.VariableText import VariableText
 from enigma import eServiceCenter, eServiceReference, iServiceInformation, eDVBFrontendParametersSatellite
 from Tools.Transponder import ConvertToHumanReadable
 
+try:
+	from ServiceReference import isRadioServiceReference
+except ImportError:
+	isRadioServiceReference = None
+
+
+def _isRadioReference(refstr):
+	try:
+		if isRadioServiceReference is not None:
+			return isRadioServiceReference(refstr)
+		reference = eServiceReference(refstr)
+		return bool(reference.valid() and (
+			reference.type == getattr(eServiceReference, "idServiceDAB", 4115)
+			or reference.getUnsignedData(0) in (0x02, 0x0A)
+		))
+	except (AttributeError, TypeError, ValueError, RuntimeError):
+		return False
+
 def sp(text: str) -> str:
 	return f"{text} " if text else ""
 
@@ -87,7 +105,6 @@ class GlamTP(VariableText, Renderer):
 			return 0
 
 	def _dabParentTransponder(self, service):
-		"""Resolve the selected DAB service's parent through static DVB info."""
 		try:
 			# Mirrors eServiceDAB::parentReference(): DVB type, SID, TSID,
 			# ONID and namespace occupy unsigned data fields 0 through 4.
@@ -133,7 +150,7 @@ class GlamTP(VariableText, Renderer):
 		elif "%3a/" in refstr or ":/" in refstr:
 			parts = refstr.split(":", 10)
 			url = parts[10].split(":", 1)[0].replace("%3a", ":") if len(parts) > 10 else ""
-		if refstr.startswith("1:0:2"):
+		if _isRadioReference(refstr):
 			kind = "Radio"
 		elif not curref.startswith("1:0:") and "%3a/" in refstr:
 			kind = "Stream"
@@ -293,3 +310,4 @@ class GlamTP(VariableText, Renderer):
 				self.text = f"{self.text[:-3]}..."
 		if self.status != "end":
 			self.moveTimerText.start(150)
+
