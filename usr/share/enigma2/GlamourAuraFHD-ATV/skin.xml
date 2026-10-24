@@ -625,27 +625,27 @@
   <!-- 04. Dish -->
   <screen name="Dish" position="1350,150" size="340,220" backgroundColor="transparent" flags="wfNoBorder" zPosition="-1">
     <widget name="Dishpixmap" pixmap="GlamourAuraFHD-ATV/icons/tuner/dishflash.png" position="0,0" size="160,160" alphatest="blend" transparent="1" zPosition="1" />
-    <widget name="turnTime" position="160,70" size="150,35" zPosition="2" font="RegularB; 27" halign="center" transparent="1" noWrap="1" foregroundColor="white" backgroundColor="transparent" />
-    <widget name="From" position="160,105" size="80,35" zPosition="2" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="transparent" noWrap="1" />
-    <widget name="posFrom" position="240,105" size="90,35" zPosition="3" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="transparent" noWrap="1" />
-    <widget name="Goto" position="160,140" size="80,35" zPosition="2" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="transparent" noWrap="1" />
-    <widget name="posGoto" position="240,140" size="90,35" zPosition="3" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="transparent" noWrap="1" />
-    <widget name="tunerName" position="160,0" size="170,35" zPosition="2" font="RegularB; 30" halign="center" foregroundColor="sky" backgroundColor="transparent" transparent="1" noWrap="1" />
-    <widget name="turnSpeed" position="160,35" size="150,35" zPosition="4" font="Regular; 27" halign="center" foregroundColor="white" backgroundColor="transparent" transparent="1" noWrap="1" />
+    <widget name="turnTime" position="160,70" size="150,35" zPosition="2" font="RegularB; 27" halign="center" transparent="1" noWrap="1" foregroundColor="white" backgroundColor="background20" />
+    <widget name="From" position="160,105" size="80,35" zPosition="2" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" noWrap="1" />
+    <widget name="posFrom" position="240,105" size="90,35" zPosition="3" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" noWrap="1" />
+    <widget name="Goto" position="160,140" size="80,35" zPosition="2" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" noWrap="1" />
+    <widget name="posGoto" position="240,140" size="90,35" zPosition="3" font="Regular; 26" halign="left" transparent="1" foregroundColor="white" backgroundColor="background20" noWrap="1" />
+    <widget name="tunerName" position="160,0" size="170,35" zPosition="2" font="RegularB; 30" halign="center" foregroundColor="sky" backgroundColor="background20" transparent="1" noWrap="1" />
+    <widget name="turnSpeed" position="160,35" size="150,35" zPosition="4" font="Regular; 27" halign="center" foregroundColor="white" backgroundColor="background20" transparent="1" noWrap="1" />
     <widget source="session.FrontendStatus" render="Progress" position="15,182" size="195,22" pixmap="GlamourAuraFHD-ATV/pointers/activityslider_white.png" alphatest="blend" zPosition="6" borderWidth="1" borderColor="white" transparent="1">
       <convert type="FrontendInfo">SNR</convert>
     </widget>
-    <widget source="session.FrontendStatus" render="Label" position="220,175" size="120,35" font="RegularB; 27" backgroundColor="transparent" transparent="1" halign="center" foregroundColor="cyan1" zPosition="3" noWrap="1">
+    <widget source="session.FrontendStatus" render="Label" position="220,175" size="120,35" font="RegularB; 27" backgroundColor="background20" transparent="1" halign="center" foregroundColor="cyan1" zPosition="3" noWrap="1">
       <convert type="FrontendInfo">SNR</convert>
     </widget>
   </screen>
   <!-- 05. Standby -->
   <screen name="Standby" position="0,0" size="1920,1080" title="Standby" flags="wfNoBorder" backgroundColor="background20" />
-  <!-- 06. RDS/DAB info display -->
+  <!-- 06a. RDS/DAB info display -->
   <screen name="RdsInfoDisplay" position="0,870" size="1920,210" zPosition="-2" backgroundColor="transparent" flags="wfNoBorder">
     <widget name="RassLogo" pixmap="GlamourAuraFHD-ATV/icons/infobar/rass_on.png" position="120,55" size="84,40" alphatest="blend" zPosition="3" />
-    <widget name="RadioText" position="220,10" size="1650,50" font="LCDA; 45" noWrap="1" backgroundColor="background40" foregroundColor="cyan1" halign="left" valign="bottom" transparent="0" zPosition="7" />
-    <widget name="RtpText" position="220,65" size="1650,50" font="RegularB; 36" noWrap="1" backgroundColor="background40" foregroundColor="amarillo" halign="left" valign="center" transparent="0" zPosition="9" />
+    <widget name="RadioText" position="230,10" size="1640,50" font="LCDA; 45" noWrap="1" backgroundColor="background20" foregroundColor="cyan1" halign="left" valign="bottom" transparent="0" zPosition="7" />
+    <widget name="RtpText" position="230,65" size="1640,50" font="RegularB; 36" noWrap="1" backgroundColor="background20" foregroundColor="amarillo" halign="left" valign="center" transparent="0" zPosition="9" />
     <!-- DAB / DAB+ info -->
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/dab_on.png" position="90,10" size="60,30" zPosition="2" alphatest="blend" transparent="1">
       <convert type="GlamourBase">IsDAB</convert>
@@ -659,9 +659,20 @@
       <convert type="GlamourBase">HasMOT</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="session.CurrentService" render="Label" position="900,120" size="970,45" foregroundColor="lightciel" backgroundColor="background20" zPosition="3" font="RegularB; 32" halign="left" valign="center" noWrap="1">
+      <convert type="GlamourBase">Orbital</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="230,120" size="650,45" foregroundColor="cyan2" backgroundColor="background20" zPosition="3" font="RegularB; 32" halign="left" valign="center" noWrap="1">
+      <convert type="GlamourBase">DABSidHex | DABLanguage | DABGenre</convert>
+    </widget>
   </screen>
-  <screen name="DABSlideDisplay" position="0,0" size="1920,870" zPosition="-2" backgroundColor="transparent" flags="wfNoBorder">
+  <screen name="RdsDisplay" position="0,870" size="1920,210" zPosition="-2" backgroundColor="background20" flags="wfNoBorder">
+    <panel name="RdsInfoDisplay" />
+  </screen>
+  <!-- 06b. DAB slide display -->
+  <screen name="DABSlideDisplay" position="0,0" size="1920,870" zPosition="-2" backgroundColor="background20" flags="wfNoBorder">
     <widget name="picture" position="0,0" size="1920,870" zPosition="3" alphatest="blend" scaleFlags="centerScaled" />
+    <widget name="technicalInfo" position="230,815" size="1650,55" zPosition="4" font="RegularB;34" foregroundColor="cyan1" backgroundColor="background20" padding="230,0,0,10" halign="left" valign="center" noWrap="1" />
   </screen>
   <!-- 07. Virtual Keyboard -->
   <screen name="VirtualKeyBoard" position="0,0" size="1920,1080" zPosition="99" title="Virtual KeyBoard" flags="wfNoBorder" backgroundColor="transparent">
@@ -944,9 +955,17 @@
     <panel name="CSChannelInfos" />
     <panel name="FullKeysCC" />
   </screen>
-
+  <!-- 01-3. Channel Selection Details -->
   <screen name="ChannelSelection_Details" label="List and event details" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ChannelSelection" />
+  </screen>
+  <!-- 01-4. Channel Selection Full screen -->
+  <screen name="ChannelSelection_Full" label="Full-screen channel list" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="ScreenElements7" />
+    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="40,35" size="1620,95" font="RegularB;50" foregroundColor="white" backgroundColor="cyan1" transparent="1" valign="bottom" halign="center" zPosition="4" />
+    <widget name="list" position="0,145" size="1920,810" itemHeight="135" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="not (config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress'))" />
+    <widget name="list" position="85,145" size="1750,810" itemHeight="270" scrollbarMode="showNever" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress')" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" />
+    <panel name="FullKeysBT" />
   </screen>
   <!-- 02. Channel Selection Radio -->
   <screen name="ChannelSelectionRadio" position="0,0" size="1920,1080" title="Radio Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
@@ -1040,16 +1059,10 @@
       <convert type="GlamourBase">HasMOT</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Label" position="405,795" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="cyan1" zPosition="6">
-      <convert type="GlamourBase">DABEnsemble</convert>
-    </widget>
-    <widget source="session.CurrentService" render="Label" position="580,902" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="lightciel" zPosition="6">
-      <convert type="GlamourBase">DABProtection</convert>
+    <widget source="session.CurrentService" render="Label" position="405,795" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="lightciel" zPosition="6">
+      <convert type="GlamourBase">DABProtection | DABGenre</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="405,833" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="amarillo" zPosition="6">
-      <convert type="GlamourBase">DABGenre</convert>
-    </widget>
-    <widget source="session.CurrentService" render="Label" position="580,937" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="cyan1" zPosition="6">
       <convert type="GlamourBase">DABLanguage</convert>
     </widget>
     <!-- Signal and Orbital Infos  -->
@@ -3380,11 +3393,4 @@ if not self["videofps"].text:
     <ePixmap pixmap="GACommon/images/plugins.png" position="50,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
     <widget source="statusbar" render="Label" position="540,275" size="1305,600" font="Regular; 36" backgroundColor="background20" transparent="1" zPosition="7" foregroundColor="sky" valign="center" halign="center" />
   </screen>
-<screen name="ChannelSelection_Full" label="Full-screen channel list" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
-  <panel name="ScreenElements7" />
-  <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="40,35" size="1620,95" font="RegularB;50" foregroundColor="white" backgroundColor="cyan1" transparent="1" valign="bottom" halign="center" zPosition="4" />
-  <widget name="list" position="0,145" size="1920,810" itemHeight="135" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="not (config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress'))" />
-  <widget name="list" position="85,145" size="1750,810" itemHeight="270" scrollbarMode="showNever" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress')" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" />
-  <panel name="FullKeysBT" />
-</screen>
 </skin>

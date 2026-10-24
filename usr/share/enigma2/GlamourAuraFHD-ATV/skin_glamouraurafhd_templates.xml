@@ -291,7 +291,8 @@
     <menu key="upgrade_source" image="GACommon/images/upgrade_source.png" />
     <!-- Misc -->
     <menu key="bluetooth_setup" image="GACommon/images/bluetooth.png" />
-    <menu key="Chromium Plugin" image="GACommon/images/browser.png" />
+    <menu key="Chromium Plugin" image="GACommon/images/chromium.png" />
+    <menu key="Chromium Portals" image="GACommon/images/chromium.png" />
     <menu key="Dazn" image="GACommon/images/dazn.png" />
     <menu key="Disney Plugin" image="GACommon/images/disney.png" />
     <menu key="dual_mode" image="GACommon/images/dualmode.png" />
@@ -375,6 +376,7 @@
     <setup key="OSDCalibration" image="GACommon/images/osdmenu.png" />
     <setup key="Password" image="GACommon/images/panel+.png" />
     <setup key="Picon" image="GACommon/images/piconupdater.png" />
+    <setup key="PiconBrowser" image="GACommon/images/piconupdater.png" />
     <setup key="Playback" image="GACommon/images/play_big.png" />
     <setup key="PluginBrowser" image="GACommon/images/plugins.png" />
     <setup key="PowerTimer" image="GACommon/images/powertimer.png" />
@@ -3278,7 +3280,7 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,915" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <widget name="description" position="540,780" size="1320,180" backgroundColor="background20" transparent="1" font="Regular; 32" zPosition="5" foregroundColor="sky" />
-    <widget name="config" font="Regular; 32" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular; 32" headerFont="RegularB;34" headerForegroundColor="cyan1" position="540,105" size="1320,675" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" itemHeight="45" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="footnote" position="50,730" size="470,200" font="Regular; 32" foregroundColor="white" backgroundColor="black" transparent="1" valign="top" halign="center" zPosition="7" />
     <widget name="HelpWindow" position="540,870" size="1320,90" zPosition="11" transparent="1" />
     <widget name="setupimage" position="50,315" size="400,400" conditional="setupimage" alphatest="on" transparent="1" zPosition="5" />

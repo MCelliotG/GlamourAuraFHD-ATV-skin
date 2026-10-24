@@ -372,7 +372,7 @@
     <widget source="introduction" render="Label" position="540,645" size="1305,200" font="RegularB; 33" halign="center" backgroundColor="background20" transparent="1" zPosition="6" foregroundColor="sky" valign="center" />
     <panel name="FullKeys1" />
   </screen>
-  <screen name="RestartNetwork" position="0, 0" flags="wfNoBorders" title="Restart Network Adapter" backgroundColor="transparent" size="1920, 1080">
+  <screen name="RestartNetwork" position="0, 0" flags="wfNoBorder" title="Restart Network Adapter" backgroundColor="transparent" size="1920, 1080">
     <ePixmap pixmap="GACommon/images/network.png" position="255,315" size="400,400" zPosition="2" transparent="1" alphatest="on" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/menuhalo.png" position="562,60" size="232,900" transparent="1" alphatest="off" zPosition="-11" />
     <eLabel name="menubig" position="795,0" size="1050,1005" backgroundColor="background20" foregroundColor="background20" zPosition="-11" />
@@ -1110,6 +1110,9 @@
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/videosettings.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
   </screen>
+  <screen name="VideoSettings" position="0,0" size="1920,1080" title="Video Settings" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
+    <panel name="VideoSetup" />
+  </screen>
   <screen name="setup_osd3d" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/auto_3d.png" alphatest="on" transparent="1" zPosition="5" />
@@ -1341,7 +1344,7 @@
     <panel name="FullKeys1" />
   </screen>
   <!-- 19. SWAP SCREENS -->
-  <screen name="SwapManager" position="0, 0" flags="wfNoBorders" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
+  <screen name="SwapManager" position="0, 0" flags="wfNoBorder" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/swap.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="autostart_off" position="945,405" zPosition="3" pixmap="GlamourAuraFHD-ATV/icons/lock_off.png" size="40,40" alphatest="on" transparent="1" />
@@ -1356,7 +1359,7 @@
     <widget name="active" position="1140,610" size="690,50" font="RegularB; 32" valign="center" halign="center" backgroundColor="green" zPosition="4" noWrap="1" />
     <panel name="FullKeys1" />
   </screen>
-  <screen name="Swap" position="0, 0" flags="wfNoBorders" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
+  <screen name="Swap" position="0, 0" flags="wfNoBorder" title="Swap File Manager" backgroundColor="transparent" size="1920, 1080">
     <panel name="SwapManager" />
   </screen>
   <!-- OPENATV 7.xx SCREENS -->
@@ -1877,5 +1880,92 @@
     <widget name="border" position="0,0" size="60,60" backgroundColor="background20" widgetBorderColor="cyan1" widgetBorderWidth="3" />
     <widget name="icon" position="0,0" size="60,60" font="enigma2icons;50" halign="center" valign="center" backgroundColor="background20" foregroundColor="cyan1" />
     <widget name="text" position="0,0" size="1920,1080" font="RegularB;38" halign="center" valign="center" backgroundColor="background20" foregroundColor="white" />
+  </screen>
+  <!-- 8. Crash Reporter -->
+  <screen name="CrashReporter" position="0,0" size="1920,1080" resolution="1920,1080" title="OpenATV Crash Reporter" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="logs" position="540,80" size="1305,650" font="RegularB;32" itemHeight="50" enableWrapAround="1" scrollbarMode="showOnDemand" foregroundColor="white" foregroundColorSelected="white" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="6" />
+    <widget name="description" position="540,735" size="1305,115" font="Regular;30" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="left" valign="top" noWrap="0" zPosition="6" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <screen name="CrashReporterResult" position="0,0" size="1920,1080" resolution="1920,1080" title="Complete Your Crash Report" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <widget name="qr" position="70,300" size="360,360" foregroundColor="black" backgroundColor="white" quietZone="4" errorCorrection="medium" zPosition="6" />
+    <widget name="qrStatus" position="50,695" size="400,135" font="Regular;27" backgroundColor="background20" transparent="1" halign="center" valign="top" noWrap="0" zPosition="6" />
+    <widget name="intro" position="540,90" size="1305,100" font="RegularB;34" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="left" valign="top" noWrap="0" zPosition="6" />
+    <widget name="tracking" position="540,190" size="1305,80" font="RegularB; 45" foregroundColor="amarillo" backgroundColor="background20" transparent="1" halign="left" valign="center" noWrap="1" zPosition="6" />
+    <widget name="details" position="540,275" size="1305,550" font="RegularB;32" foregroundColor="white" backgroundColor="background20" transparent="1" halign="left" valign="top" noWrap="0" zPosition="6" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <screen name="CrashReporterReports" position="0,0" size="1920,1080" resolution="1920,1080" title="My Crash Reports" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/crashlog.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="reports" position="540,80" size="1305,650" font="RegularB;32" itemHeight="50" enableWrapAround="1" scrollbarMode="showOnDemand" foregroundColor="white" foregroundColorSelected="white" backgroundColor="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" transparent="1" zPosition="6" />
+    <widget name="description" position="540,735" size="1305,115" font="Regular;30" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="left" valign="top" noWrap="0" zPosition="6" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <screen name="CrashReporterReport" position="0,0" size="1920,1080" resolution="1920,1080" title="Crash Report" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <widget name="qr" position="70,300" size="360,360" foregroundColor="black" backgroundColor="white" quietZone="4" errorCorrection="medium" zPosition="6" />
+    <widget name="qrStatus" position="50,695" size="400,135" font="Regular;27" backgroundColor="background20" transparent="1" halign="center" valign="top" noWrap="0" zPosition="6" />
+    <widget name="text" position="540,80" size="1305,745" font="RegularB;32" foregroundColor="white" backgroundColor="background20" transparent="1" halign="left" valign="top" scrollbarMode="showOnDemand" noWrap="0" zPosition="6" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 9a. QUADPIP -->
+  <!-- 9a. QuadPiP Main -->
+  <screen name="QuadPipScreen" position="0,0" size="1920,1080" resolution="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+    <widget name="focus" position="0,0" size="960,540" zPosition="-1" backgroundColor="transparent" borderWidth="5" borderColor="cyan1" alphatest="on" />
+    <widget name="ch1" position="240,240" size="480,60" font="RegularB;34" foregroundColor="white" backgroundColor="background20" halign="center" valign="center" noWrap="1" zPosition="2" />
+    <widget name="ch2" position="1200,240" size="480,60" font="RegularB;34" foregroundColor="white" backgroundColor="background20" halign="center" valign="center" noWrap="1" zPosition="2" />
+    <widget name="ch3" position="240,780" size="480,60" font="RegularB;34" foregroundColor="white" backgroundColor="background20" halign="center" valign="center" noWrap="1" zPosition="2" />
+    <widget name="ch4" position="1200,780" size="480,60" font="RegularB;34" foregroundColor="white" backgroundColor="background20" halign="center" valign="center" noWrap="1" zPosition="2" />
+    <widget name="keyRedBackground" position="15,1005" size="930,60" backgroundColor="background20" zPosition="1" />
+    <widget name="keyMenuBackground" position="975,1005" size="930,60" backgroundColor="background20" zPosition="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_red.png" position="50,1015" size="45,45" alphatest="blend" scale="1" zPosition="3" />
+    <widget source="key_red" render="Label" position="105,1005" size="830,60" font="Regular;30" foregroundColor="white" backgroundColor="background20" transparent="1" halign="left" valign="center" noWrap="1" zPosition="2" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/buttons/key_menu.png" position="1820,1015" size="60,35" alphatest="blend" scale="1" zPosition="3" />
+    <widget source="key_menu" render="Label" position="985,1005" size="830,60" font="Regular;30" foregroundColor="white" backgroundColor="background20" transparent="1" halign="right" valign="center" noWrap="1" zPosition="2" />
+  </screen>
+  <!-- 9b. QuadPiP channel selection -->
+  <screen name="QuadPiPChannelSelection" position="0,0" size="1920,1080" resolution="1920,1080" title="Quad PiP Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pipsetup.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget source="ChannelList" render="Listbox" position="540,90" size="1305,720" scrollbarMode="showOnDemand" enableWrapAround="1" foregroundColor="white" foregroundColorSelected="white" backgroundColor="background20" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" transparent="1" zPosition="6">
+      <convert type="TemplatedMultiContent">
+      {"template": [
+        MultiContentEntryText(pos=(15,5), size=(1260,40), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=0),
+        MultiContentEntryText(pos=(15,60), size=(620,40), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1),
+        MultiContentEntryText(pos=(660,60), size=(620,40), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=2),
+        MultiContentEntryText(pos=(15,115), size=(620,40), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=3),
+        MultiContentEntryText(pos=(660,115), size=(620,40), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4)
+      ],
+      "fonts": [gFont("RegularB",34), gFont("Regular",29)],
+      "itemHeight":180}
+    </convert>
+    </widget>
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 9c. QuadPiP Channel entry -->
+  <screen name="CreateQuadPipChannelEntry" position="0,0" size="1920,1080" resolution="1920,1080" title="Quad PiP Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pipsetup.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="list" position="540,70" size="1305,530" serviceItemHeight="45" serviceNumberFont="Numbers;28" serviceNameFont="RegularB;30" serviceInfoFont="Regular;26" foregroundColor="white" foregroundColorServiceNotAvail="darkgrey" backgroundColor="background20" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" transparent="1" scrollbarMode="showOnDemand" zPosition="6" />
+    <widget name="textChannels" position="540,610" size="1305,45" font="RegularB;32" foregroundColor="cyan1" backgroundColor="background20" transparent="1" halign="left" valign="center" noWrap="1" zPosition="6" />
+    <widget name="selectedList" position="540,660" size="660,180" font="Regular;29" itemHeight="45" foregroundColor="white" foregroundColorSelected="white" backgroundColor="background20" backgroundColorSelected="cyan" selectionPixmap="GlamourAuraFHD-ATV/selections/boxsel.png" alphatest="off" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1" zPosition="6" />
+    <widget name="description" position="1200,660" size="620,200" font="Regular;27" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="left" valign="top" noWrap="0" zPosition="6" />
+    <panel name="FullKeysMIH" />
+  </screen>
+  <!-- 10. Picon Browser -->
+  <screen name="PiconBrowserSetup" position="0,0" size="1920,1080" title="Picon Browser Settings" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <panel name="SetupCommon" />
+  </screen>
+  <!-- 11. Chromium -->
+  <screen name="ChromiumEd" position="0,0" size="1920,1080" title="Chromium Setup" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="ScreenElements2" />
+    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/chromium.png" alphatest="on" transparent="1" zPosition="5" />
+    <widget name="config" position="540,105" size="1320,810" itemHeight="45" font="Regular;32" scrollbarMode="showOnDemand" foregroundColorSelected="cyan1" backgroundColorSelected="background20" selectionPixmap="GlamourAuraFHD-ATV/selections/setupsel.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
+    <panel name="SetupKeys" />
   </screen>
 </skin>
