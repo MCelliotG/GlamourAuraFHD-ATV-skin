@@ -341,6 +341,9 @@ class GlamourBase(Poll, Converter, object):
 		self.tpDataUpdate = None
 		self.converterName = type
 		self.type = self.TYPE_MAP.get(type, 0)
+		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57)]
+		self.dabTemplatePattern = re.compile(r"\b(?:" + "|".join(re.escape(token) for token in sorted(textTokens, key=len, reverse=True)) + r")\b")
+		self.isDABTemplate = bool(self.dabTemplatePattern.search(type))
 		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT)
 		if self.isRdsText:
 			self.poll_enabled = False
@@ -537,7 +540,6 @@ class GlamourBase(Poll, Converter, object):
 			return False
 
 	def isDABUSBService(self, info):
-		"""Return True for an RTL-SDR DAB service carried by type 4115."""
 		if not self.isDABOverDVB(info):
 			return False
 		try:
@@ -549,7 +551,6 @@ class GlamourBase(Poll, Converter, object):
 			return False
 
 	def dabOverDVBTransponder(self, service, info):
-		"""Get the parent DVB transponder used by a 4115 DAB service."""
 		try:
 			frontend = service.frontendInfo()
 			if frontend:
@@ -623,7 +624,6 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 
 	def dabInfoValue(self, info, fieldName):
-		"""Read an optional DAB information field on old and new images."""
 		field = getattr(iServiceInformation, fieldName, None)
 		if field is None or info is None:
 			return ""
@@ -649,7 +649,6 @@ class GlamourBase(Poll, Converter, object):
 			return str(value).strip() if value else ""
 
 	def dabSidHex(self, info):
-		"""Return the SID as uppercase hex without a prefix or truncation."""
 		try:
 			value = int(self.dabInfoValue(info, "sSID"))
 		except (TypeError, ValueError):
@@ -663,11 +662,6 @@ class GlamourBase(Poll, Converter, object):
 		return any(token in codec for token in ("DAB+", "HE-AAC", "HEAAC", "AAC"))
 
 	def dabHasMOT(self, info):
-		"""A received or cached DAB slideshow image is available.
-
-		sTagPreviewImage is the backend's slideshow path; sTagImage is
-		station artwork and must not turn on the MOT indicator.
-		"""
 		if not self.isDABService(info):
 			return False
 		field = getattr(iServiceInformation, "sTagPreviewImage", None)
@@ -680,7 +674,6 @@ class GlamourBase(Poll, Converter, object):
 			return False
 
 	def dabLanguage(self, info):
-		"""Format current DAB codes while retaining legacy language strings."""
 		value = self.dabInfoValue(info, "sTagLanguageCode")
 		text = str(value).strip() if value is not None else ""
 		if not text or text.lower() in ("unknown", "n/a", "none", "-1", "-2"):
@@ -694,7 +687,6 @@ class GlamourBase(Poll, Converter, object):
 		return dabMetadata.languageName(code) or ""
 
 	def dabTemplate(self, info):
-		"""Expand DAB tokens inside an arbitrary converter type string."""
 		values = {
 			"DABSid": self.dabNumber(self.dabInfoValue(info, "sSID")),
 			"DABSidHex": self.dabSidHex(info),
@@ -709,11 +701,7 @@ class GlamourBase(Poll, Converter, object):
 		# Keep the legacy spellings usable in templates too.
 		values["DABSID"] = values["DABSid"]
 		values["DABEID"] = values["DABEid"]
-		pattern = re.compile(
-			r"\b(?:"
-			+ "|".join(re.escape(token) for token in sorted(values, key=len, reverse=True))
-			+ r")\b"
-		)
+		pattern = self.dabTemplatePattern
 		if not pattern.search(self.converterName):
 			return None
 
@@ -747,7 +735,6 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 
 	def _stream_url(self, info):
-		"""Return the decoded URL carried by an Enigma2 service reference."""
 		raw = info.getInfoString(iServiceInformation.sServiceref) or ""
 		parts = raw.split(":", 10)
 		candidates = []
@@ -821,11 +808,6 @@ class GlamourBase(Poll, Converter, object):
 		return ""
 
 	def rdsTextIfNoEvent(self):
-		"""RdsDecoder source: leave both EPG rows free when Now exists.
-
-		DAB exposes its dynamic label and ensemble summary through the same
-		RadioText / RtpText interface as DVB radio. No DAB-only API is needed.
-		"""
 		try:
 			service = self.source.navcore.getCurrentService()
 			if service is None:
@@ -856,10 +838,8 @@ class GlamourBase(Poll, Converter, object):
 		# DAB metadata is exposed as regular text converters, so it can be
 		# placed in either a Label or a String widget by the skin.  A type such
 		# as "SID: DABSid" is also accepted as a template.
-		if self.isDABService(info):
-			templateValue = self.dabTemplate(info)
-			if templateValue is not None:
-				return templateValue
+		if self.isDABTemplate:
+			return self.dabTemplate(info) if self.isDABService(info) else ""
 
 		# Direct RTL-SDR DAB has no DVB transponder object.  Handle it before
 		# the normal frontend/transponder path; DAB-over-DVB continues through
