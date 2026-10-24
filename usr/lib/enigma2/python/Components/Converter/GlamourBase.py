@@ -8,6 +8,10 @@ from Components.Converter.Poll import Poll
 from ServiceReference import ServiceReference
 from enigma import eAVControl, iServiceInformation, iPlayableService, eServiceReference, iRdsDecoder
 from Tools.Transponder import ConvertToHumanReadable
+try:
+	from Tools.DAB import dabMetadata
+except ImportError:
+	dabMetadata = None
 from Components.config import config
 import re
 from urllib.parse import unquote, urlsplit
@@ -321,7 +325,8 @@ class GlamourBase(Poll, Converter, object):
 		"DABPayloadPID": 53, "DABMot": 54, "HasMOT": 54, "hasMOT": 54,
 		# Legacy aliases retained for existing skin XML.
 		"DABSID": 46, "DABEID": 47, "DABMOT": 54,
-		"RadioTextIfNoEvent": 55, "RtpTextIfNoEvent": 56
+		"RadioTextIfNoEvent": 55, "RtpTextIfNoEvent": 56,
+		"DABSidHex": 57
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -643,6 +648,14 @@ class GlamourBase(Poll, Converter, object):
 		except (TypeError, ValueError):
 			return str(value).strip() if value else ""
 
+	def dabSidHex(self, info):
+		"""Return the SID as uppercase hex without a prefix or truncation."""
+		try:
+			value = int(self.dabInfoValue(info, "sSID"))
+		except (TypeError, ValueError):
+			return ""
+		return f"{value:04X}" if value >= 0 else ""
+
 	def isDABPlusService(self, info):
 		if not self.isDABService(info):
 			return False
@@ -666,25 +679,62 @@ class GlamourBase(Poll, Converter, object):
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			return False
 
+	def dabLanguage(self, info):
+		"""Format current DAB codes while retaining legacy language strings."""
+		value = self.dabInfoValue(info, "sTagLanguageCode")
+		text = str(value).strip() if value is not None else ""
+		if not text or text.lower() in ("unknown", "n/a", "none", "-1", "-2"):
+			return ""
+		try:
+			code = int(text)
+		except (TypeError, ValueError):
+			return text
+		if dabMetadata is None:
+			return ""
+		return dabMetadata.languageName(code) or ""
+
 	def dabTemplate(self, info):
 		"""Expand DAB tokens inside an arbitrary converter type string."""
 		values = {
 			"DABSid": self.dabNumber(self.dabInfoValue(info, "sSID")),
+			"DABSidHex": self.dabSidHex(info),
 			"DABEid": self.dabNumber(self.dabInfoValue(info, "sDABEnsembleId")),
 			"DABProtection": str(self.dabInfoValue(info, "sDABProtection") or ""),
 			"DABEnsemble": str(self.dabInfoValue(info, "sDABEnsembleLabel") or ""),
 			"DABGenre": str(self.dabInfoValue(info, "sTagGenre") or ""),
-			"DABLanguage": str(self.dabInfoValue(info, "sTagLanguageCode") or ""),
+			"DABLanguage": self.dabLanguage(info),
 			"DABReceiver": str(self.dabInfoValue(info, "sDABReceiverName") or ""),
 			"DABPayloadPID": self.dabPayloadPID(info),
 		}
 		# Keep the legacy spellings usable in templates too.
 		values["DABSID"] = values["DABSid"]
 		values["DABEID"] = values["DABEid"]
-		for token in sorted(values, key=len, reverse=True):
-			if token in self.converterName:
-				return self.converterName.replace(token, values[token]) if values[token] else ""
-		return None
+		pattern = re.compile(
+			r"\b(?:"
+			+ "|".join(re.escape(token) for token in sorted(values, key=len, reverse=True))
+			+ r")\b"
+		)
+		if not pattern.search(self.converterName):
+			return None
+
+		# A pipe separates optional sections. Preserve the author's spacing
+		# and other literal text, but omit sections with no metadata value.
+		sections = re.split(r"(\s*\|\s*)", self.converterName)
+		parts = []
+		for index in range(0, len(sections), 2):
+			section = sections[index]
+			tokens = pattern.findall(section)
+			if tokens and not any(str(values[token]).strip() for token in tokens):
+				continue
+			text = pattern.sub(lambda match: str(values[match.group(0)]), section)
+			if not text.strip():
+				continue
+			if parts:
+				parts.append(sections[index - 1])
+			parts.append(text)
+		if not any(str(values[token]).strip() for token in pattern.findall(self.converterName)):
+			return ""
+		return "".join(parts).strip()
 
 	def dabPayloadPID(self, info):
 		if not self.isDABOverDVB(info):
@@ -1047,3 +1097,4 @@ class GlamourBase(Poll, Converter, object):
 		elif what[0] == self.CHANGED_POLL and self.tpDataUpdate is not None:
 			self.tpDataUpdate = False
 			Converter.changed(self, what)
+
