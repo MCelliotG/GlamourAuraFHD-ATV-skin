@@ -326,7 +326,9 @@ class GlamourBase(Poll, Converter, object):
 		# Legacy aliases retained for existing skin XML.
 		"DABSID": 46, "DABEID": 47, "DABMOT": 54,
 		"RadioTextIfNoEvent": 55, "RtpTextIfNoEvent": 56,
-		"DABSidHex": 57
+		"DABSidHex": 57, "DABPTY": 58,
+		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
+		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -341,11 +343,11 @@ class GlamourBase(Poll, Converter, object):
 		self.tpDataUpdate = None
 		self.converterName = type
 		self.type = self.TYPE_MAP.get(type, 0)
-		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57)]
+		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57, 58)]
 		self.dabTemplatePattern = re.compile(r"\b(?:" + "|".join(re.escape(token) for token in sorted(textTokens, key=len, reverse=True)) + r")\b")
 		self.isDABTemplate = bool(self.dabTemplatePattern.search(type))
-		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT)
-		if self.isRdsText:
+		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT, self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION, self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG)
+		if self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT):
 			self.poll_enabled = False
 
 	# ------- COMMON VARIABLES / HELPERS -------
@@ -686,6 +688,17 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 		return dabMetadata.languageName(code) or ""
 
+	def dabPTY(self, info):
+		formatter = getattr(dabMetadata, "programmeTypeName", None)
+		ptyField = getattr(iServiceInformation, "sDABPTY", None)
+		tableField = getattr(iServiceInformation, "sDABPTYTable", None)
+		if not callable(formatter) or ptyField is None or tableField is None:
+			return ""
+		try:
+			return formatter(info.getInfo(ptyField), info.getInfo(tableField)) or ""
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return ""
+
 	def dabTemplate(self, info):
 		values = {
 			"DABSid": self.dabNumber(self.dabInfoValue(info, "sSID")),
@@ -695,6 +708,7 @@ class GlamourBase(Poll, Converter, object):
 			"DABEnsemble": str(self.dabInfoValue(info, "sDABEnsembleLabel") or ""),
 			"DABGenre": str(self.dabInfoValue(info, "sTagGenre") or ""),
 			"DABLanguage": self.dabLanguage(info),
+			"DABPTY": self.dabPTY(info),
 			"DABReceiver": str(self.dabInfoValue(info, "sDABReceiverName") or ""),
 			"DABPayloadPID": self.dabPayloadPID(info),
 		}
@@ -824,9 +838,44 @@ class GlamourBase(Poll, Converter, object):
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			return ""
 
+	def radioTextData(self, description=False):
+		try:
+			service = self.source.service
+		except (AttributeError, TypeError, RuntimeError):
+			return "", ""
+		if service is None:
+			return "", ""
+		try:
+			decoder = service.rdsDecoder()
+			field = iRdsDecoder.RtpText if description else iRdsDecoder.RadioText
+			text = decoder.getText(field) if decoder is not None else ""
+			if text and text.strip():
+				try:
+					kind = "DLS" if self.isDABService(service.info()) else "RDS"
+				except (AttributeError, TypeError, ValueError, RuntimeError):
+					kind = "RDS"
+				return text, kind
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			pass
+		try:
+			info = service.info()
+			event = info.getEvent(0) if info is not None else None
+			if event is None:
+				return "", ""
+			text = event.getShortDescription() if description else event.getEventName()
+			text = " ".join((text or "").split())
+			return text, "EPG" if text else ""
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return "", ""
+
+	def rdsTextOrEvent(self):
+		return self.radioTextData(self.type == self.RTPTEXTOREVENTDESCRIPTION)[0]
+
 	@cached
 	def getText(self):
 		if self.isRdsText:
+			if self.type in (self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION):
+				return self.rdsTextOrEvent()
 			return self.rdsTextIfNoEvent()
 		service = self.source.service
 		if service is None:
@@ -991,6 +1040,9 @@ class GlamourBase(Poll, Converter, object):
 
 	@cached
 	def getBoolean(self):
+		if self.type in (self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG):
+			kind = {self.ISRADIOTEXTRDS: "RDS", self.ISRADIOTEXTDLS: "DLS", self.ISRADIOTEXTEPG: "EPG"}[self.type]
+			return self.radioTextData()[1] == kind
 		if self.isRdsText:
 			return bool(self.getText())
 		service = self.source.service
