@@ -328,7 +328,8 @@ class GlamourBase(Poll, Converter, object):
 		"RadioTextIfNoEvent": 55, "RtpTextIfNoEvent": 56,
 		"DABSidHex": 57, "DABPTY": 58,
 		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
-		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63
+		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63,
+		"IsRadioService": 64, "RadioOrbital": 1
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -336,6 +337,7 @@ class GlamourBase(Poll, Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
+		self._lastRadioText = None
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.tp = None
@@ -514,6 +516,15 @@ class GlamourBase(Poll, Converter, object):
 			return eServiceReference(ref) if ref else None
 		except (AttributeError, TypeError, ValueError):
 			return None
+
+	def isRadioService(self, info):
+		if self.isDABService(info):
+			return True
+		try:
+			ref = self.serviceReference(info)
+			return bool(ref is not None and ref.valid() and ref.getUnsignedData(0) in (0x02, 0x0A))
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return False
 
 	def isDABService(self, info):
 		if info is None:
@@ -846,6 +857,11 @@ class GlamourBase(Poll, Converter, object):
 		if service is None:
 			return "", ""
 		try:
+			if not self.isRadioService(service.info()):
+				return "", ""
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return "", ""
+		try:
 			decoder = service.rdsDecoder()
 			field = iRdsDecoder.RtpText if description else iRdsDecoder.RadioText
 			text = decoder.getText(field) if decoder is not None else ""
@@ -882,6 +898,9 @@ class GlamourBase(Poll, Converter, object):
 			return ""
 		info = service.info()
 		if not info:
+			return ""
+
+		if self.converterName == "RadioOrbital" and not self.isRadioService(info):
 			return ""
 
 		# DAB metadata is exposed as regular text converters, so it can be
@@ -1040,6 +1059,12 @@ class GlamourBase(Poll, Converter, object):
 
 	@cached
 	def getBoolean(self):
+		if self.type == self.ISRADIOSERVICE:
+			try:
+				service = self.source.service
+				return bool(service and self.isRadioService(service.info()))
+			except (AttributeError, TypeError, ValueError, RuntimeError):
+				return False
 		if self.type in (self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG):
 			kind = {self.ISRADIOTEXTRDS: "RDS", self.ISRADIOTEXTDLS: "DLS", self.ISRADIOTEXTEPG: "EPG"}[self.type]
 			return self.radioTextData()[1] == kind
@@ -1113,6 +1138,16 @@ class GlamourBase(Poll, Converter, object):
 	boolean = property(getBoolean)
 
 	def changed(self, what):
+		if self.type in (self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION):
+			if what[0] == self.CHANGED_CLEAR:
+				self._lastRadioText = None
+			else:
+				text = self.rdsTextOrEvent()
+				if text == self._lastRadioText:
+					return
+				self._lastRadioText = text
+			Converter.changed(self, what)
+			return
 		if self.isRdsText:
 			# Forward RDS, EPG, start/end and clear notifications to invalidate
 			# cached text. Keep the existing DVB update path below unchanged.
