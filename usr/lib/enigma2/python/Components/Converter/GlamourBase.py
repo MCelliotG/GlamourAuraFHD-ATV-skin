@@ -1059,6 +1059,8 @@ class GlamourBase(Poll, Converter, object):
 
 	@cached
 	def getBoolean(self):
+		if self.isDABTemplate or self.converterName == "RadioOrbital":
+			return bool(self.text)
 		if self.type == self.ISRADIOSERVICE:
 			try:
 				service = self.source.service
