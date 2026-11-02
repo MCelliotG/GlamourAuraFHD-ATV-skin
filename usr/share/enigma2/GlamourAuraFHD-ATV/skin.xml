@@ -324,6 +324,10 @@
       <convert type="ServiceInfo">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="45,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">DABStereo</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <ePixmap pixmap="GACommon/icons/infobar/multiaudio_off.png" position="1770,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/multiaudio_on.png" position="1770,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">AudioTracksAvailable</convert>
@@ -688,7 +692,7 @@
       <convert type="ConditionalShowHide" />
     </widget>
     <widget source="session.CurrentService" render="Label" position="230,120" size="650,45" foregroundColor="cyan2" backgroundColor="background20" font="RegularB; 32" alphaBlend="1" halign="left" valign="center" noWrap="1" zPosition="7">
-      <convert type="GlamourBase">DABSidHex | DABPTY | DABLanguage</convert>
+      <convert type="GlamourBase">DABSidHex | DABPTY | DABLanguage | DABSampleRate | DABChannelMode</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <applet type="onLayoutFinish">
@@ -1040,6 +1044,10 @@ self.instance.child().setTransparent(1)
       <convert type="ServiceInfo">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="45,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">DABStereo</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
     <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="145,833" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Pixmap" position="145,833" size="60,30" zPosition="2" pixmap="GACommon/icons/infobar/hbbtv_on.png" alphatest="blend" transparent="1">
       <convert type="ServiceInfo">HasHBBTV</convert>
@@ -1106,7 +1114,7 @@ self.instance.child().setTransparent(1)
       <convert type="GlamourBase">DABProtection | DABPTY</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="405,833" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="amarillo" zPosition="6">
-      <convert type="GlamourBase">DABLanguage</convert>
+      <convert type="GlamourBase">DABLanguage | DABSampleRate | DABChannelMode</convert>
     </widget>
     <!-- Signal and Orbital Infos  -->
     <eLabel text="SNR:" position="1550,867" size="65,35" halign="left" font="Regular; 26" backgroundColor="background20" transparent="1" valign="center" zPosition="2" />
