@@ -1464,10 +1464,12 @@
   <screen name="PictureInformation" position="0,0" size="1920,1080" title="Picture Information" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/pictures.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="picture" position="535,60" size="700,480" alphatest="on" scaleFlags="scaleCenter" transparent="1" zPosition="10" />
-    <widget source="name" render="Label" position="1240,60" size="600,480" conditional="description" font="RegularB; 32" foregroundColor="amarillo" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="7" />
-    <widget name="description" position="535,540" size="1305,315" conditional="decription" font="Regular; 32" noWrap="0" backgroundColor="background20" transparent="1" zPosition="7" valign="top" halign="left" foregroundColor="cyan1" />
+    <widget name="picture" position="535,60" size="1305,700" alphatest="on" scaleFlags="scaleCenter" transparent="1" zPosition="10" />
+    <widget source="name" render="Label" position="535,760" size="1305,90" conditional="description" font="RegularB; 32" foregroundColor="amarillo" backgroundColor="background20" transparent="1" valign="center" halign="center" zPosition="7" />
     <panel name="FullKeysMIH" />
+  </screen>
+  <screen name="InformationPicture" position="0,0" size="1920,1080" title="Picture Information" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="PictureInformation" />
   </screen>
   <!-- 1-16. Benchmark Info -->
   <screen name="BenchmarkInformation" position="0,0" size="1920,1080" title="Benchmark Information" flags="wfNoBorder" backgroundColor="transparent">

@@ -165,6 +165,8 @@
     <parameter name="PluginBrowserDownloadName" value="80,2,50" />
     <parameter name="PluginBrowserIcon" value="10,15,150,60" />
     <parameter name="PluginBrowserName" value="180,2,50" />
+    <parameter name="ProgrammlistenUpdaterListFont" value="Regular;32" />
+    <parameter name="ProgrammlistenUpdaterList" value="15,5,840,420,40" />
     <parameter name="SelectionListDescr" value="70,2,1000,50" />
     <parameter name="SelectionListDescription" value="70,2,1000,50" />
     <parameter name="SelectionListLock" value="10,0,50,50" />
@@ -3256,7 +3258,9 @@ if not self["videofps"].text:
   <screen name="BitrateViewerSetup" position="0,0" size="1920,1080" title="BitrateViewer" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/bitrate.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="config" font="Regular; 32" position="540,75" size="1305,750" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="config" font="Regular;32" position="540,75" size="1305,600" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" backgroundColor="background20" itemHeight="50" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget name="description" position="540,685" size="1305,150" font="Regular;32" foregroundColor="sky" backgroundColor="background20" transparent="1" zPosition="5" />
+    <widget name="footnote" position="50,730" size="450,200" font="Regular;32" foregroundColor="white" backgroundColor="background20" transparent="1" valign="top" halign="center" zPosition="7" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. ServiceApp -->
