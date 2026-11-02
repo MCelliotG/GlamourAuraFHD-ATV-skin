@@ -69,7 +69,7 @@
     <menu key="autotimer_setup" image="GACommon/images/autotimer.png" />
     <menu key="crontimer_edit" image="GACommon/images/crontimer.png" />
     <menu key="powertimer_edit" image="GACommon/images/powertimer.png" />
-    <menu key="remotetimer" image="GACommon/images/menu_timermenu_timers.png" />
+    <menu key="remotetimer" image="GACommon/images/timer.png" />
     <menu key="timer_edit" image="GACommon/images/timer.png" />
     <!-- Menu Setup -->
     <menu key="audio_menu" image="GACommon/images/audiosetup.png" />
