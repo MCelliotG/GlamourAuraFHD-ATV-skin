@@ -329,7 +329,8 @@ class GlamourBase(Poll, Converter, object):
 		"DABSidHex": 57, "DABPTY": 58,
 		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
 		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63,
-		"IsRadioService": 64, "RadioOrbital": 1
+		"IsRadioService": 64, "DABSampleRate": 65, "DABChannelMode": 66,
+		"DABStereo": 67, "RadioOrbital": 1
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -345,7 +346,7 @@ class GlamourBase(Poll, Converter, object):
 		self.tpDataUpdate = None
 		self.converterName = type
 		self.type = self.TYPE_MAP.get(type, 0)
-		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57, 58)]
+		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57, 58, 65, 66)]
 		self.dabTemplatePattern = re.compile(r"\b(?:" + "|".join(re.escape(token) for token in sorted(textTokens, key=len, reverse=True)) + r")\b")
 		self.isDABTemplate = bool(self.dabTemplatePattern.search(type))
 		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT, self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION, self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG)
@@ -710,6 +711,29 @@ class GlamourBase(Poll, Converter, object):
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			return ""
 
+	def dabSampleRate(self, info):
+		field = getattr(iServiceInformation, "sDABSampleRate", None)
+		if field is None:
+			return ""
+		try:
+			rate = info.getInfo(field)
+			return f"{rate / 1000:g} kHz" if rate > 0 else ""
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return ""
+
+	def dabChannelMode(self, info):
+		field = getattr(iServiceInformation, "sTagChannelMode", None)
+		if field is None:
+			return ""
+		try:
+			return (info.getInfoString(field) or "").strip().lower()
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return ""
+
+	def dabChannelModeText(self, info):
+		modes = {"mono": _("Mono"), "stereo": _("Stereo"), "joint-stereo": _("Joint stereo"), "dual-channel": _("Dual channel"), "surround-5.1": _("Surround 5.1"), "surround-7.1": _("Surround 7.1"), "surround": _("Surround")}
+		return modes.get(self.dabChannelMode(info), "")
+
 	def dabTemplate(self, info):
 		values = {
 			"DABSid": self.dabNumber(self.dabInfoValue(info, "sSID")),
@@ -720,6 +744,8 @@ class GlamourBase(Poll, Converter, object):
 			"DABGenre": str(self.dabInfoValue(info, "sTagGenre") or ""),
 			"DABLanguage": self.dabLanguage(info),
 			"DABPTY": self.dabPTY(info),
+			"DABSampleRate": self.dabSampleRate(info),
+			"DABChannelMode": self.dabChannelModeText(info),
 			"DABReceiver": str(self.dabInfoValue(info, "sDABReceiverName") or ""),
 			"DABPayloadPID": self.dabPayloadPID(info),
 		}
@@ -1076,6 +1102,9 @@ class GlamourBase(Poll, Converter, object):
 		info = service and service.info()
 		if not info:
 			return False
+
+		if self.type == self.DABSTEREO:
+			return self.isDABService(info) and self.dabChannelMode(info) in ("stereo", "joint-stereo")
 
 		if self.type == self.ISDAB:
 			return self.isDABService(info) and not self.isDABPlusService(info)
