@@ -1513,7 +1513,7 @@
       <convert type="MenuEntryCompare">vod_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="menu" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/hdmi.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="6">
+    <widget source="menu" render="Pixmap" pixmap="GACommon/images/hdmi.png" position="515,425" size="180,180" scale="1" transparent="1" alphatest="on" zPosition="6">
       <convert type="MenuEntryCompare">hdmirecord_setup</convert>
       <convert type="ConditionalShowHide" />
     </widget>

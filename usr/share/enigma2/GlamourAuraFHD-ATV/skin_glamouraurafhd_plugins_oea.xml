@@ -106,7 +106,7 @@
     <ePixmap pixmap="GACommon/menu/menufadebottom.png" position="0,1005" zPosition="-11" size="1920,75" alphatest="off" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowtl.png" position="0,180" size="300,270" zPosition="-10" alphatest="blend" transparent="1" />
     <panel name="ClockLabel3" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/underlineblue.png" position="0,1035" zPosition="-10" size="1050,7" alphatest="blend" />
+    <eLabel name="underlineblue" position="0,1035" size="1050,7" backgroundColor="blue" foregroundColor="cyan2" zPosition="-10" />
     <widget source="Title" render="Label" position="305,90" size="1305,95" font="Regular; 60" foregroundColor="white" backgroundColor="transparent" transparent="1" valign="bottom" zPosition="-8" halign="center" noWrap="1" />
     <eLabel name="videobackground1" position="90,195" size="1080,607" backgroundColor="white" zPosition="2" />
     <eLabel name="videobackground" position="90,195" size="1080,607" backgroundColor="transparent2" zPosition="3" />
@@ -939,8 +939,8 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/webif.png" alphatest="on" transparent="1" zPosition="5" />
     <widget name="config" font="Regular; 32" position="540,80" size="1305,160" itemHeight="50" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="6" />
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/rc_wb_desc.png" position="1020,247" size="463,444" alphatest="blend" />
-    <widget name="info" position="540,700" halign="center" size="1305,90" zPosition="4" font="Regular; 31" valign="top" transparent="1" foregroundColor="sky" backgroundColor="background20" />
+    <ePixmap pixmap="GACommon/menu/rc_wb_desc.png" position="950,295" size="465,445" scale="1" alphatest="blend" zPosition="8" />
+    <widget name="info" position="540,760" halign="center" size="1305,90" zPosition="4" font="Regular; 31" valign="top" transparent="1" foregroundColor="sky" backgroundColor="background20" />
     <panel name="FullKeys1" />
   </screen>
   <!-- Crashlog Report -->
