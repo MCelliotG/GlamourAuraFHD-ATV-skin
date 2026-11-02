@@ -344,6 +344,7 @@
     <setup key="HardDisk" image="GACommon/images/hdd-big.png" />
     <setup key="HDMICEC" image="GACommon/images/hdmicec.png" />
     <setup key="HDMIRecord" image="GACommon/images/hdmicec.png" />
+    <setup key="imdb" image="GACommon/images/imdb.png" />
     <setup key="InputDeviceSetup" image="GACommon/images/hdmicec.png" />
     <setup key="Keyboard" image="GACommon/images/keyboard.png" />
     <setup key="KexecSlotManager" image="GACommon/images/slotmanager.png" />
@@ -2064,12 +2065,12 @@
   </screen>
   <!-- 06. TITLES -->
   <screen name="Title1" flags="wfNoBorder" alphaBlend="1" zPosition="6">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />
     <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="75,945" size="1830,100" font="Regular; 70" foregroundColor="white" backgroundColor="transparent" transparent="1" valign="center" zPosition="8" noWrap="1" />
     <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="77,947" size="1830,100" font="Regular; 70" foregroundColor="background20" backgroundColor="background20" transparent="1" valign="center" zPosition="7" noWrap="1" />
   </screen>
   <screen name="Title2" flags="wfNoBorder" alphaBlend="1" zPosition="6">
-    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="blend" transparent="1" />
+    <ePixmap pixmap="GlamourAuraFHD-ATV/menu/title_aura.png" position="0,945" zPosition="6" size="1920,135" alphatest="on" transparent="1" />
     <widget source="Title" render="Label" position="200,945" size="1660,100" font="Regular; 70" foregroundColor="white" backgroundColor="transparent" transparent="1" valign="center" zPosition="7" noWrap="1" />
   </screen>
   <!-- 07. WEATHER -->
