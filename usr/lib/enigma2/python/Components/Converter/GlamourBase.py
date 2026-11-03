@@ -330,7 +330,7 @@ class GlamourBase(Poll, Converter, object):
 		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
 		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63,
 		"IsRadioService": 64, "DABSampleRate": 65, "DABChannelMode": 66,
-		"DABStereo": 67, "RadioOrbital": 1
+		"DABStereo": 67, "IsStereo": 68, "IsJointStereo": 69, "RadioOrbital": 1
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -339,6 +339,7 @@ class GlamourBase(Poll, Converter, object):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
 		self._lastRadioText = None
+		self._lastDisplayText = None
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.tp = None
@@ -840,10 +841,7 @@ class GlamourBase(Poll, Converter, object):
 		return "IPTV/Non-TS Stream"
 
 	def streamurl(self, info):
-		streamurl = self._stream_url(info)
-		if len(streamurl) > 80:
-			return streamurl[:79] + "..."
-		return streamurl
+		return self._stream_url(info)
 
 	def format_pid(self, pid, prefix, mode):
 		if pid < 0 or mode is None:
@@ -1103,6 +1101,23 @@ class GlamourBase(Poll, Converter, object):
 		if not info:
 			return False
 
+		if self.type in (self.ISSTEREO, self.ISJOINTSTEREO):
+			if self.isDABService(info):
+				return self.dabChannelMode(info) == ("stereo" if self.type == self.ISSTEREO else "joint-stereo")
+			if self.type == self.ISJOINTSTEREO:
+				return False
+			try:
+				audio = service.audioTracks()
+				if not audio or not audio.getNumberOfTracks():
+					return False
+				track = audio.getCurrentTrack()
+				if track < 0:
+					return False
+				description = audio.getTrackInfo(track).getDescription()
+				return not bool(description and description.split()[0] in ("AC3", "AC3+", "DTS", "DTS-HD", "AC4", "LPCM", "Dolby", "HE-AAC", "AAC+", "WMA"))
+			except (AttributeError, TypeError, ValueError, RuntimeError, IndexError):
+				return False
+
 		if self.type == self.DABSTEREO:
 			return self.isDABService(info) and self.dabChannelMode(info) in ("stereo", "joint-stereo")
 
@@ -1169,6 +1184,32 @@ class GlamourBase(Poll, Converter, object):
 	boolean = property(getBoolean)
 
 	def changed(self, what):
+		if self.isDABTemplate or self.type in (self.FREQINFO, self.ORBITAL, self.RESCODEC, self.PIDINFODEC, self.PIDINFOHEX, self.PIDINFODECHEX, self.HDRINFO, self.VIDEOCODEC, self.FPS, self.VIDEOSIZE, self.STREAMURL, self.STREAMTYPE):
+			if what[0] == self.CHANGED_CLEAR:
+				self._lastDisplayText = None
+				self.tp = None
+				self.tpinfo = None
+				self.tpDataUpdate = None
+				Converter.changed(self, what)
+				return
+			if what[0] == self.CHANGED_SPECIFIC:
+				self.tpDataUpdate = what[1] == iPlayableService.evNewProgramInfo
+				if what[1] in (iPlayableService.evStart, iPlayableService.evEnd):
+					self.tp = None
+					self.tpinfo = None
+					self._lastDisplayText = None
+			elif what[0] == self.CHANGED_POLL:
+				if self.tpDataUpdate is None:
+					return
+				self.tpDataUpdate = False
+			elif what[0] != self.CHANGED_DEFAULT:
+				Converter.changed(self, what)
+				return
+			text = self.getText()
+			if text != self._lastDisplayText:
+				self._lastDisplayText = text
+				Converter.changed(self, what)
+			return
 		if self.type in (self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION):
 			if what[0] == self.CHANGED_CLEAR:
 				self._lastRadioText = None

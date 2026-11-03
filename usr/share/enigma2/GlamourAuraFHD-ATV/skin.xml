@@ -306,7 +306,7 @@
       <convert type="RdsInfo">RasInteractiveAvailable</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="RdsDecoder" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="360,942" size="740,40" font="Numbers; 35" halign="center" valign="center" foregroundColor="cyan1" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS test sample">
+    <widget source="RdsDecoder" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="360,942" size="740,40" font="Numbers; 35" halign="center" valign="center" foregroundColor="cyan1" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS test sample">
       <convert type="RdsInfo">RadioText</convert>
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="1468,947" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -319,13 +319,13 @@
       <convert type="ServiceInfo">IsMultichannel</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="1720,947" size="45,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="45,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsStereo</convert>
+    <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="1720,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="45,30" zPosition="3" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">DABStereo</convert>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/joint_stereo_on.png" position="1720,947" size="50,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsJointStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/multiaudio_off.png" position="1770,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -955,7 +955,7 @@ self.instance.child().setTransparent(1)
     <!-- CS Event Infos -->
     <panel name="CSEventInfos" />
     <!-- CS Extended Description -->
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=50,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,225" size="720,520" font="RegularB; 29" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=50,repeat=1,startdelay=5000,wrap,oneshot=1,always=0" position="50,225" size="720,520" font="RegularB; 29" backgroundColor="sky" transparent="1" valign="top" zPosition="4">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- CS Next Events -->
@@ -980,7 +980,7 @@ self.instance.child().setTransparent(1)
     <!-- CS Event Infos -->
     <panel name="CSEventInfos" />
     <!-- CS Extended Description -->
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="785,685" size="1095,280" font="RegularB; 29" foregroundColor="cyan1" backgroundColor="background20" transparent="1" valign="top" zPosition="6">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=1,startdelay=5000,wrap,oneshot=1,always=0" position="785,685" size="1095,280" font="RegularB; 29" foregroundColor="cyan1" backgroundColor="background20" transparent="1" valign="top" zPosition="6">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- CS Next Events -->
@@ -996,7 +996,7 @@ self.instance.child().setTransparent(1)
   <!-- 01-4. Channel Selection Full screen -->
   <screen name="ChannelSelection_Full" label="Full-screen channel list" base="ChannelSelection" position="0,0" size="1920,1080" title="Channel Selection" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements7" />
-    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="40,35" size="1620,95" font="RegularB;50" foregroundColor="white" backgroundColor="cyan1" transparent="1" valign="bottom" halign="center" zPosition="4" />
+    <widget source="Title" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="40,35" size="1620,95" font="RegularB;50" foregroundColor="white" backgroundColor="cyan1" transparent="1" valign="bottom" halign="center" zPosition="4" />
     <widget name="list" position="0,145" size="1920,810" itemHeight="135" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="not (config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress'))" />
     <widget name="list" position="85,145" size="1750,810" itemHeight="270" scrollbarMode="showNever" enableWrapAround="1" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="lightciel" foregroundColorServiceNotAvail="darkgrey" transparent="1" alphatest="off" zPosition="3" backgroundColorMarked="sky" backgroundColorMarkedSelected="cyan" foregroundColorMarked="white" foregroundColorMarkedSelected="lightciel" condition="config.channelSelection.widgetStyle.value in ('Channel grid', 'Channel grid with progress')" selectionPixmap="GlamourAuraFHD-ATV/selections/channelselfull.png" />
     <panel name="FullKeysBT" />
@@ -1014,7 +1014,7 @@ self.instance.child().setTransparent(1)
     <widget source="ServiceEvent" render="Label" position="215,30" size="565,100" font="RegularB; 34" backgroundColor="sky" transparent="1" valign="bottom" halign="center" foregroundColor="white" zPosition="7">
       <convert type="ServiceName">Name</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="50,190" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="black" zPosition="7">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="50,190" size="715,50" font="RegularB; 36" backgroundColor="grey2" transparent="1" valign="center" halign="center" noWrap="1" foregroundColor="black" zPosition="7">
       <convert type="EventName">Name</convert>
     </widget>
     <widget source="ServiceEvent" render="Label" position="45,135" size="95,45" font="Numbers; 42" backgroundColor="background20" transparent="1" halign="center" valign="center" zPosition="6" noWrap="1">
@@ -1030,7 +1030,7 @@ self.instance.child().setTransparent(1)
     <widget source="ServiceEvent" render="Progress" pixmap="GlamourAuraFHD-ATV/pointers/pointer_white.png" alphatest="blend" position="150,155" size="515,8" transparent="1" zPosition="1">
       <convert type="EventTime">Progress</convert>
     </widget>
-    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="55,265" size="720,520" font="RegularB; 29" backgroundColor="background20" transparent="1" valign="top" zPosition="8">
+    <widget source="ServiceEvent" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=1,startdelay=5000,wrap,oneshot=1,always=0" position="55,265" size="720,520" font="RegularB; 29" backgroundColor="background20" transparent="1" valign="top" zPosition="8">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <!-- Program Infobar  -->
@@ -1039,13 +1039,13 @@ self.instance.child().setTransparent(1)
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt335.png" position="1400,790" size="335,30" zPosition="-3" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb335.png" position="1000,838" size="335,30" zPosition="-3" alphatest="blend" transparent="1" />
     <!-- Program Infos  -->
-    <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="55,795" size="45,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="45,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsStereo</convert>
+    <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="55,795" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="45,30" zPosition="3" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">DABStereo</convert>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/joint_stereo_on.png" position="55,795" size="50,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsJointStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="145,833" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -1067,16 +1067,16 @@ self.instance.child().setTransparent(1)
       <convert type="ConditionalShowHide" />
     </widget>
     <!-- RDS Info  -->
-    <ePixmap pixmap="GACommon/icons/dab/rds-dls_off.png" position="225,795" size="50,30" alphatest="blend" zPosition="3" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-rds_on.png" position="225,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
+    <ePixmap pixmap="GACommon/icons/dab/rds-dls_off.png" position="230,795" size="50,30" alphatest="blend" zPosition="3" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-rds_on.png" position="230,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
       <convert type="GlamourBase">IsRadioTextRDS</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-dls_on.png" position="225,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-dls_on.png" position="230,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
       <convert type="GlamourBase">IsRadioTextDLS</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-epg_on.png" position="225,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/rds-epg_on.png" position="230,795" size="50,30" alphatest="blend" transparent="1" zPosition="4">
       <convert type="GlamourBase">IsRadioTextEPG</convert>
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1085,35 +1085,35 @@ self.instance.child().setTransparent(1)
       <convert type="RdsInfo">RasInteractiveAvailable</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Label" position="280,795" size="125,35" font="Numbers; 30" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="cyan" noWrap="1" halign="left" valign="center">
+    <widget source="session.CurrentService" render="Label" position="285,795" size="125,35" font="Numbers; 30" zPosition="6" backgroundColor="background20" transparent="1" foregroundColor="cyan" noWrap="1" halign="left" valign="center">
       <convert type="GlamourBitrate">A:%ACUR kb/s</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="725,790" size="950,40" font="LCDA; 34" halign="center" valign="center" foregroundColor="cyan" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="725,790" size="950,40" font="LCDA; 34" halign="center" valign="center" foregroundColor="cyan" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
       <convert type="GlamourBase">RadioTextOrEvent</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="725,830" size="950,35" font="Regular; 27" halign="center" valign="top" foregroundColor="amarillo" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=700,nowrap,oneshot=1,always=0,ellipsis=1" position="725,830" size="950,35" font="Regular; 27" halign="center" valign="top" foregroundColor="amarillo" backgroundColor="background20" noWrap="1" transparent="1" zPosition="4" text="RDS Text Sample">
       <convert type="GlamourBase">RtpTextOrEventDescription</convert>
     </widget>
     <!-- DAB / DAB+ info -->
     <widget source="session.CurrentService" render="GlamDABSlide" position="105,325" size="600,400" zPosition="7" transparent="1" alphatest="on" />
-    <ePixmap pixmap="GACommon/icons/dab/dab_off.png" position="105,795" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/dab_on.png" position="105,795" size="60,30" zPosition="2" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/dab/dab_off.png" position="110,795" size="60,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/dab_on.png" position="110,795" size="60,30" zPosition="2" alphatest="blend" transparent="1">
       <convert type="GlamourBase">IsDAB</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/dabplus_on.png" position="105,795" size="60,30" zPosition="3" alphatest="blend" transparent="1">
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/dabplus_on.png" position="110,795" size="60,30" zPosition="3" alphatest="blend" transparent="1">
       <convert type="GlamourBase">IsDABPlus</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <ePixmap pixmap="GACommon/icons/dab/mot_off.png" position="170,795" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/mot_on.png" position="170,795" size="50,30" zPosition="2" alphatest="blend" transparent="1">
+    <ePixmap pixmap="GACommon/icons/dab/mot_off.png" position="175,795" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/dab/mot_on.png" position="175,795" size="50,30" zPosition="2" alphatest="blend" transparent="1">
       <convert type="GlamourBase">HasMOT</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Label" position="405,795" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="lightciel" zPosition="6">
+    <widget source="session.CurrentService" render="Label" position="410,795" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="lightciel" zPosition="6">
       <convert type="GlamourBase">DABProtection | DABPTY</convert>
     </widget>
-    <widget source="session.CurrentService" render="Label" position="405,833" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="amarillo" zPosition="6">
+    <widget source="session.CurrentService" render="Label" position="410,833" size="315,35" font="Numbers; 30" halign="left" valign="center" noWrap="1" transparent="1" backgroundColor="background20" foregroundColor="amarillo" zPosition="6">
       <convert type="GlamourBase">DABLanguage | DABSampleRate | DABChannelMode</convert>
     </widget>
     <!-- Signal and Orbital Infos  -->
@@ -1131,7 +1131,7 @@ self.instance.child().setTransparent(1)
     <widget source="session.CurrentService" render="Label" position="1375,937" size="520,35" backgroundColor="background20" transparent="1" zPosition="12" font="Regular; 26" halign="left" valign="center" noWrap="1" foregroundColor="cyan1" text="Orbital">
       <convert type="GlamourBase">Orbital</convert>
     </widget>
-    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="905,937" size="465,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular; 26" halign="center" valign="center" noWrap="1" foregroundColor="cyan" text="Provider">
+    <widget source="session.CurrentService" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=500,nowrap,oneshot=1,always=0,ellipsis=1" position="905,937" size="465,35" backgroundColor="background20" transparent="1" zPosition="13" font="Regular; 26" halign="center" valign="center" noWrap="1" foregroundColor="cyan" text="Provider">
       <convert type="ServiceName">Provider</convert>
     </widget>
     <!-- Frequency Info  -->
@@ -1995,7 +1995,7 @@ if not self["videofps"].text:
   <!-- 07. Graphical EPG PIG -->
   <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="GraphicalEPGPIGCommon" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,625" size="900,310" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=1,startdelay=5000,wrap,oneshot=1,always=0" position="240,625" size="900,310" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
   </screen>
@@ -2247,10 +2247,10 @@ if not self["videofps"].text:
     <widget source="Title" render="Label" position="655,35" size="875,95" font="RegularB; 40" backgroundColor="background20" halign="left" transparent="1" foregroundColor="cyan1" zPosition="3" />
     <widget name="config" position="655,130" font="RegularB;40" size="1200,750" itemHeight="50" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/epgselmulti.png" alphatest="off" zPosition="5" />
     <widget name="description" position="50,785" size="580,100" font="Regular; 32" valign="top" backgroundColor="transwhite" transparent="0" halign="center" foregroundColor="black" zPosition="5" />
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=2,startdelay=3000,nowrap,oneshot=1,always=0" position="655,880" size="1200,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=left,step=6,steptime=50,repeat=1,startdelay=3000,nowrap,oneshot=1,always=0" position="655,880" size="1200,45" foregroundColor="cyan1" font="Regular; 32" transparent="1" backgroundColor="background20" zPosition="7">
       <convert type="MovieInfo">ShortDescription</convert>
     </widget>
-    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,600" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
+    <widget source="Service" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=1,startdelay=5000,wrap,oneshot=1,always=0" position="50,185" size="580,600" font="Regular; 32" valign="top" transparent="1" backgroundColor="sky" zPosition="8">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
     <widget source="Service" render="Label" position="50,910" size="100,40" foregroundColor="cyan1" font="RegularB; 30" halign="left" transparent="1" backgroundColor="background20" zPosition="7" noWrap="1">

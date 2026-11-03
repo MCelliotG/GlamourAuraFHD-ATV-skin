@@ -1,4 +1,4 @@
-﻿#	GlamRun renderer (Python 3)
+#	GlamRun renderer (Python 3)
 #	Initial work by vlamo and Dr. Best
 # Modded and recoded by MCelliotG for use in Glamour skins or standalone
 # If you use this Renderer for other skins and rename it, please keep the first and second line adding your credits below
@@ -41,6 +41,10 @@ class GlamRun(Renderer):
 		self.lineHeight = 0
 		self.mShown = 0
 		self.ellipsis = False  # New attribute for ellipsis
+		self.seamless = True
+		self.seamlessGap = 300
+		self.seamlessActive = False
+		self.seamlessLabel = None
 
 	GUI_WIDGET = eWidget
 
@@ -51,6 +55,8 @@ class GlamRun(Renderer):
 		self.instance.move(ePoint(0, 0))
 		self.instance.resize(eSize(self.W, self.H))
 		self.scroll_label = eLabel(instance)
+		self.seamlessLabel = eLabel(instance)
+		self.seamlessLabel.hide()
 		self.mTimer = eTimer()
 		self.mTimer.callback.append(self.movingLoop)
 
@@ -59,6 +65,7 @@ class GlamRun(Renderer):
 		self.mTimer.callback.remove(self.movingLoop)
 		self.mTimer = None
 		self.scroll_label = None
+		self.seamlessLabel = None
 
 	def applySkin(self, desktop, screen):
 		def retValue(val, limit, default, min_flag=False):
@@ -83,11 +90,14 @@ class GlamRun(Renderer):
 						self.txfont = parseFont(value, ((1, 1), (1, 1)))
 					case "foregroundColor":
 						self.scroll_label.setForegroundColor(parseColor(value))
+						self.seamlessLabel.setForegroundColor(parseColor(value))
 					case "shadowColor" | "borderColor":
 						self.scroll_label.setShadowColor(parseColor(value))
+						self.seamlessLabel.setShadowColor(parseColor(value))
 					case "shadowOffset":
 						self.soffset = tuple(map(int, value.split(',')))
 						self.scroll_label.setShadowOffset(ePoint(self.soffset))
+						self.seamlessLabel.setShadowOffset(ePoint(self.soffset))
 					case "borderWidth":
 						self.soffset = (-int(value), -int(value))
 					case "valign" if value in ("top", "center", "bottom"):
@@ -99,7 +109,7 @@ class GlamRun(Renderer):
 					case "noWrap":
 						setWrapFlag(attrib, value)
 					case "options":
-						for opt, val in (o.split('=', 1) if '=' in o else (o.strip(), "") for o in value.split(',')):
+						for opt, val in ((x.strip() for x in o.split('=', 1)) if '=' in o else (o.strip(), "") for o in value.split(',')):
 							if not opt:
 								continue
 							match opt:
@@ -129,6 +139,12 @@ class GlamRun(Renderer):
 									self.mPageDelay = retValue(val, 0, self.mPageDelay)
 								case "pagelength" if val:
 									self.mPageLength = retValue(val, 0, self.mPageLength)
+								case "gap" if val:
+									if val == "-1":
+										self.seamless = False
+									else:
+										self.seamless = True
+										self.seamlessGap = retValue(val, 0, 300)
 								case "ellipsis" if val:
 									self.ellipsis = int(val)
 									print(f"[GlamRun] Ellipsis enabled: {self.ellipsis}")
@@ -137,8 +153,10 @@ class GlamRun(Renderer):
 						match attrib:
 							case "backgroundColor":
 								self.scroll_label.setBackgroundColor(parseColor(value))
+								self.seamlessLabel.setBackgroundColor(parseColor(value))
 							case "transparent":
 								self.scroll_label.setTransparent(int(value))
+								self.seamlessLabel.setTransparent(int(value))
 			self.skinAttributes = attribs
 
 		ret = Renderer.applySkin(self, desktop, screen)
@@ -151,10 +169,14 @@ class GlamRun(Renderer):
 			self.mPageDelay = max(self.mStepTimeout, self.mPageDelay)
 
 		self.scroll_label.setFont(self.txfont)
+		self.seamlessLabel.setFont(self.txfont)
 		if not (self.txtflags & RT_WRAP):
 			self.scroll_label.setNoWrap(1)
+			self.seamlessLabel.setNoWrap(1)
 		self.scroll_label.setVAlign(valign)
+		self.seamlessLabel.setVAlign(valign)
 		self.scroll_label.setHAlign(self.halign)
+		self.seamlessLabel.setHAlign(self.halign)
 		self.scroll_label.move(ePoint(0, 0))
 		self.scroll_label.resize(eSize(self.W, self.H))
 
@@ -178,6 +200,9 @@ class GlamRun(Renderer):
 		Renderer.connect(self, source)
 
 	def changed(self, what):
+		self.seamlessActive = False
+		if self.seamlessLabel is not None:
+			self.seamlessLabel.hide()
 		if self.mTimer is not None:
 			self.mTimer.stop()
 		if what[0] == self.CHANGED_CLEAR:
@@ -255,6 +280,38 @@ class GlamRun(Renderer):
 		text_size = self.scroll_label.calculateSize()
 		text_width = text_size.width()
 		text_height = text_size.height()
+
+		if self.seamless and self.type == RUNNING and self.direction in (LEFT, RIGHT) and text_width > self.W:
+			self.seamlessActive = True
+			self.seamlessWidth = text_width
+			self.seamlessPeriod = text_width + self.seamlessGap
+			self.scroll_label.resize(eSize(text_width, self.H))
+			self.seamlessLabel.setText(self.txtext)
+			self.seamlessLabel.resize(eSize(text_width, self.H))
+			self.seamlessLabel.show()
+			self.mStep = -abs(self.mStep) if self.direction == LEFT else abs(self.mStep)
+			self.P = 0
+			self.mCount = self.mRepeat
+			self.moveSeamless()
+			self.mTimer.start(self.mStartDelay, True)
+			return True
+
+		if self.seamless and self.type == RUNNING and self.direction in (TOP, BOTTOM) and text_height > self.H:
+			if self.lineHeight:
+				text_height = (text_height + self.lineHeight - 1) // self.lineHeight * self.lineHeight
+			self.seamlessActive = True
+			self.seamlessPeriod = text_height + self.seamlessGap
+			width = max(self.W, text_width) if not (self.txtflags & RT_WRAP) else self.W
+			self.scroll_label.resize(eSize(width, text_height))
+			self.seamlessLabel.setText(self.txtext)
+			self.seamlessLabel.resize(eSize(width, text_height))
+			self.seamlessLabel.show()
+			self.mStep = -abs(self.mStep) if self.direction == TOP else abs(self.mStep)
+			self.P = 0
+			self.mCount = self.mRepeat
+			self.moveSeamless()
+			self.mTimer.start(self.mStartDelay, True)
+			return True
 
 		if self.direction in (LEFT, RIGHT) or not (self.txtflags & RT_WRAP):
 			text_width += 10
@@ -374,7 +431,33 @@ class GlamRun(Renderer):
 		print(f"[GlamRun] Timer started with delay: {self.mStartDelay}")
 		return True
 
+	def moveSeamless(self):
+		offset = self.seamlessPeriod if self.direction in (LEFT, TOP) else -self.seamlessPeriod
+		if self.direction in (LEFT, RIGHT):
+			self.moveLabel(self.P, self.Y)
+			self.seamlessLabel.move(ePoint(self.P + offset - self.soffset[0], self.Y - self.soffset[1]))
+		else:
+			self.moveLabel(self.X, self.P)
+			self.seamlessLabel.move(ePoint(self.X - self.soffset[0], self.P + offset - self.soffset[1]))
+
 	def movingLoop(self):
+		if self.seamlessActive:
+			self.P += self.mStep
+			completed = self.P <= -self.seamlessPeriod if self.direction in (LEFT, TOP) else self.P >= self.seamlessPeriod
+			if completed:
+				if self.mRepeat > 0:
+					self.mCount -= 1
+					if self.mCount <= 0:
+						self.seamlessActive = False
+						self.seamlessLabel.hide()
+						self.P = 0
+						self.moveLabel(self.X, self.Y)
+						self.applyEllipsis()
+						return
+				self.P += self.seamlessPeriod if self.direction in (LEFT, TOP) else -self.seamlessPeriod
+			self.moveSeamless()
+			self.mTimer.start(self.mStepTimeout, True)
+			return
 		if self.A <= self.P <= self.B:
 			if self.direction in (LEFT, RIGHT):
 				self.moveLabel(self.P, self.Y)
