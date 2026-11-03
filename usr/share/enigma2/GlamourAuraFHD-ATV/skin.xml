@@ -321,11 +321,11 @@
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="1720,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsStereo</convert>
+      <convert type="GlamourBase">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="1720,947" size="50,30" zPosition="3" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">DABStereo</convert>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/joint_stereo_on.png" position="1720,947" size="50,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsJointStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/multiaudio_off.png" position="1770,947" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
@@ -1041,11 +1041,11 @@ self.instance.child().setTransparent(1)
     <!-- Program Infos  -->
     <ePixmap pixmap="GACommon/icons/infobar/stereo_off.png" position="55,795" size="50,30" zPosition="1" alphatest="blend" transparent="1" />
     <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="50,30" zPosition="2" alphatest="blend" transparent="1">
-      <convert type="ServiceInfo">IsStereo</convert>
+      <convert type="GlamourBase">IsStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
-    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/stereo_on.png" position="55,795" size="50,30" zPosition="3" alphatest="blend" transparent="1">
-      <convert type="GlamourBase">DABStereo</convert>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="GlamourAuraFHD-ATV/icons/infobar/joint_stereo_on.png" position="55,795" size="50,30" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="GlamourBase">IsJointStereo</convert>
       <convert type="ConditionalShowHide" />
     </widget>
     <ePixmap pixmap="GACommon/icons/infobar/hbbtv_off.png" position="145,833" size="60,30" zPosition="1" alphatest="blend" transparent="1" />

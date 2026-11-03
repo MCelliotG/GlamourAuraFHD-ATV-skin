@@ -330,7 +330,7 @@ class GlamourBase(Poll, Converter, object):
 		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
 		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63,
 		"IsRadioService": 64, "DABSampleRate": 65, "DABChannelMode": 66,
-		"DABStereo": 67, "RadioOrbital": 1
+		"DABStereo": 67, "IsStereo": 68, "IsJointStereo": 69, "RadioOrbital": 1
 	}
 	for key, value in TYPE_MAP.items():
 		locals()[key.upper()] = value
@@ -1100,6 +1100,23 @@ class GlamourBase(Poll, Converter, object):
 		info = service and service.info()
 		if not info:
 			return False
+
+		if self.type in (self.ISSTEREO, self.ISJOINTSTEREO):
+			if self.isDABService(info):
+				return self.dabChannelMode(info) == ("stereo" if self.type == self.ISSTEREO else "joint-stereo")
+			if self.type == self.ISJOINTSTEREO:
+				return False
+			try:
+				audio = service.audioTracks()
+				if not audio or not audio.getNumberOfTracks():
+					return False
+				track = audio.getCurrentTrack()
+				if track < 0:
+					return False
+				description = audio.getTrackInfo(track).getDescription()
+				return not bool(description and description.split()[0] in ("AC3", "AC3+", "DTS", "DTS-HD", "AC4", "LPCM", "Dolby", "HE-AAC", "AAC+", "WMA"))
+			except (AttributeError, TypeError, ValueError, RuntimeError, IndexError):
+				return False
 
 		if self.type == self.DABSTEREO:
 			return self.isDABService(info) and self.dabChannelMode(info) in ("stereo", "joint-stereo")

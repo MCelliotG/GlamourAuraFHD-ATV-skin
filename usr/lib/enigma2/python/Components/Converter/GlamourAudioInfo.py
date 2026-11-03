@@ -106,13 +106,28 @@ class GlamourAudioInfo(Poll, Converter):
 			return ""
 		try:
 			codec = (info.getInfoString(iServiceInformation.sTagCodec) or "").strip().upper()
+			if codec.startswith("DAB+ HE-AAC V2"):
+				return "HE-AAC v2"
 			if codec.startswith("DAB+ HE-AAC"):
 				return "HE-AAC"
+			if codec.startswith("DAB+ AAC-LC"):
+				return "AAC-LC"
+			if codec.startswith("DAB+ AAC"):
+				return "AAC"
 			if codec.startswith("DAB MPEG AUDIO LAYER II"):
 				return "MP2"
-		except (AttributeError, TypeError):
+		except (AttributeError, TypeError, ValueError, RuntimeError):
 			pass
 		return ""
+
+	def getDABChannelMode(self, info):
+		field = getattr(iServiceInformation, "sTagChannelMode", None)
+		if field is None:
+			return ""
+		try:
+			return (info.getInfoString(field) or "").strip().lower()
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return ""
 
 	def getLanguage(self):
 		languages = self.audio_info.getLanguage()
@@ -143,6 +158,12 @@ class GlamourAudioInfo(Poll, Converter):
 		return description_str
 
 	def getAudioIcon(self, info):
+		dabCodec = self.getDABCodec(info)
+		if dabCodec:
+			icon = {"HE-AAC v2": "heaacv2", "HE-AAC": "mpeg-4_aac", "AAC-LC": "aac", "AAC": "aac", "MP2": "mp2"}[dabCodec]
+			if dabCodec in ("HE-AAC v2", "HE-AAC", "AAC-LC"):
+				icon += {"surround-5.1": "51", "surround-7.1": "71"}.get(self.getDABChannelMode(info), "")
+			return icon
 		description_str = self.get_short(self.getAudioCodec(info).translate(str.maketrans("", "", ' .')).lower())
 		return description_str
 
