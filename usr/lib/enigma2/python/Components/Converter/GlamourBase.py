@@ -339,6 +339,7 @@ class GlamourBase(Poll, Converter, object):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
 		self._lastRadioText = None
+		self._lastDisplayText = None
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.tp = None
@@ -840,10 +841,7 @@ class GlamourBase(Poll, Converter, object):
 		return "IPTV/Non-TS Stream"
 
 	def streamurl(self, info):
-		streamurl = self._stream_url(info)
-		if len(streamurl) > 80:
-			return streamurl[:79] + "..."
-		return streamurl
+		return self._stream_url(info)
 
 	def format_pid(self, pid, prefix, mode):
 		if pid < 0 or mode is None:
@@ -1169,6 +1167,32 @@ class GlamourBase(Poll, Converter, object):
 	boolean = property(getBoolean)
 
 	def changed(self, what):
+		if self.isDABTemplate or self.type in (self.FREQINFO, self.ORBITAL, self.RESCODEC, self.PIDINFODEC, self.PIDINFOHEX, self.PIDINFODECHEX, self.HDRINFO, self.VIDEOCODEC, self.FPS, self.VIDEOSIZE, self.STREAMURL, self.STREAMTYPE):
+			if what[0] == self.CHANGED_CLEAR:
+				self._lastDisplayText = None
+				self.tp = None
+				self.tpinfo = None
+				self.tpDataUpdate = None
+				Converter.changed(self, what)
+				return
+			if what[0] == self.CHANGED_SPECIFIC:
+				self.tpDataUpdate = what[1] == iPlayableService.evNewProgramInfo
+				if what[1] in (iPlayableService.evStart, iPlayableService.evEnd):
+					self.tp = None
+					self.tpinfo = None
+					self._lastDisplayText = None
+			elif what[0] == self.CHANGED_POLL:
+				if self.tpDataUpdate is None:
+					return
+				self.tpDataUpdate = False
+			elif what[0] != self.CHANGED_DEFAULT:
+				Converter.changed(self, what)
+				return
+			text = self.getText()
+			if text != self._lastDisplayText:
+				self._lastDisplayText = text
+				Converter.changed(self, what)
+			return
 		if self.type in (self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION):
 			if what[0] == self.CHANGED_CLEAR:
 				self._lastRadioText = None
