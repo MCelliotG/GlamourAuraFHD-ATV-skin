@@ -365,13 +365,6 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/infobar/halo_bottom.png" position="0,975" zPosition="-12" size="1920,88" alphatest="off" transparent="1" />
     <!--/* WEATHER WIDGET -->
     <panel name="WeatherToday" />
-    <!-- WEATHER Current Temp on Infobar -->
-    <widget source="global.CurrentTime" render="Label" position="1175,942" zPosition="1" size="100,40" font="Numbers; 36" halign="center" text="+100 F" transparent="1" foregroundColor="cyan" noWrap="1" backgroundColor="black" valign="top">
-      <convert type="GlamourMSNWeather">Temp</convert>
-    </widget>
-    <widget source="session.CurrentService" render="GlamPiconUni" path="GlamourAuraFHD-ATV/WeatherIcons/small/" position="1275,942" size="40,40" zPosition="5" alphatest="blend" transparent="1">
-      <convert type="GlamourMSNWeather">Picon</convert>
-    </widget>
   </screen>
   <!-- 04. Subservices Quickzap -->
   <screen name="SubservicesQuickzap" position="0,0" size="1920,1080" title="Subservices" backgroundColor="transparent" flags="wfNoBorder">
@@ -1686,7 +1679,7 @@ self.instance.child().setTransparent(1)
   <screen name="AudioSelection" title="Audio Selection" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements4" />
     <ePixmap pixmap="GACommon/images/audiosetup.png" position="255,315" size="400,400" transparent="1" alphatest="on" zPosition="5" />
-    <widget name="config" font="Regular; 32" position="875,75" size="930,300" scrollbarMode="showOnDemand" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" alphatest="off" transparent="1" zPosition="3" />
+    <widget name="config" font="Regular; 32" position="875,75" size="930,300" scrollbarMode="showOnDemand" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/listsel930.png" transparent="1" zPosition="3" />
     <widget source="key_red" render="Pixmap" pixmap="GlamourAuraFHD-ATV/buttons/red.png" position="815,80" size="45,45" transparent="1" zPosition="3" alphatest="blend">
       <convert type="ConditionalShowHide" />
     </widget>
@@ -1702,7 +1695,7 @@ self.instance.child().setTransparent(1)
     <widget name="key_left" position="805,380" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_left2.png" transparent="1" alphatest="on" />
     <widget name="key_right" position="1750,380" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_right2.png" transparent="1" alphatest="on" />
     <widget name="switchdescription" position="860,383" size="890,50" font="Regular; 32" foregroundColor="sky" backgroundColor="background20" transparent="1" halign="center" zPosition="3" />
-    <widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="770,440" size="1055,500" selectionPixmap="GlamourAuraFHD-ATV/selections/streamsel.png" alphatest="off" zPosition="3" transparent="1">
+    <widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="770,440" size="1055,500" selectionPixmap="GlamourAuraFHD-ATV/selections/streamsel.png" zPosition="3" transparent="1">
       <convert type="TemplatedMultiContent">
         {"templates":
           {"default": (50, [
@@ -1882,11 +1875,11 @@ if not self["videofps"].text:
   <screen name="HelpMenu" position="0,0" size="1920,1080" title="Help" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <panel name="HelpKeys" />
-    <widget name="list" position="535,70" size="1305,800" font="Regular; 32" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="4" />
+    <widget name="list" position="535,70" size="1305,800" font="Regular; 32" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="4" />
     <!-- New Help -->
     <panel name="RCKeys" />
     <widget name="description" position="1240,470" size="610,450" backgroundColor="background20" transparent="1" font="Regular; 32" zPosition="7" foregroundColor="sky" halign="center" />
-    <widget source="list" render="Listbox" position="535,70" size="1305,850" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" alphatest="off" zPosition="6">
+    <widget source="list" render="Listbox" position="535,70" size="1305,850" scrollbarMode="showOnDemand" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/nimsel.png" zPosition="6">
       <convert type="TemplatedMultiContent">
     {"templates": {
     "default": (60,[MultiContentEntryText(pos=(5, 0), size=(1300, 60), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),]),
@@ -2051,8 +2044,8 @@ if not self["videofps"].text:
   <screen name="ChoiceBox" position="0,0" size="1920,1080" flags="wfNoBorder" title="Input" backgroundColor="transparent">
     <panel name="ScreenElements4" />
     <ePixmap position="255,315" size="400,400" pixmap="GACommon/images/choice.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="text" position="805,60" size="1050,240" font="RegularB; 34" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" enableWrapAround="1" />
-    <widget name="list" position="805,300" size="1050,550" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" alphatest="off" transparent="1" zPosition="6" />
+    <widget name="text" position="805,60" size="1050,240" font="RegularB; 34" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
+    <widget name="list" position="805,300" size="1050,550" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" zPosition="6" />
     <ePixmap position="720,110" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_up2.png" transparent="1" alphatest="on" />
     <ePixmap position="720,880" size="54,54" zPosition="10" pixmap="GlamourAuraFHD-ATV/buttons/key_down2.png" transparent="1" alphatest="on" />
   </screen>
@@ -2082,7 +2075,7 @@ if not self["videofps"].text:
     <widget name="icon" pixmaps="GACommon/icons/message/input_question.png,GACommon/icons/message/input_info.png,GACommon/icons/message/input_warning.png,GACommon/icons/message/input_error.png,GACommon/icons/message/input_message.png" position="255,315" size="400,400" zPosition="4" transparent="1" alphatest="on" />
     <panel name="ScreenElements6" />
     <widget name="text" position="810,60" size="1050,580" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
-    <widget name="list" font="Regular; 32" position="810,640" size="1050,300" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" alphatest="off" zPosition="6" />
+    <widget name="list" font="Regular; 32" position="810,640" size="1050,300" itemHeight="50" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel1050.png" transparent="1" zPosition="6" />
   </screen>
   <!-- 06. MessageBox Simple -->
   <screen name="MessageBoxSimple" position="0,0" size="1920,1080" zPosition="1" title="Message" backgroundColor="transparent" flags="wfNoBorder">
@@ -3155,8 +3148,8 @@ if not self["videofps"].text:
   <screen name="TimerEditList" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/timer.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" rowSplit="50" timerNameFont="RegularB;32" statusFont="Regular;32" detailFont="Regular;28" topHeight="45" bottomHeight="45" indent="30" satPosLeft="250" iconWidth="45" iconHeight="45" iconMargin="10" statusOffset="0" setEventNameFont="Regular;32" setServiceNameFont="Regular;32" setFont="Regular;28" showSeparator="True" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" alphatest="off" zPosition="5" />
-    <widget name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
+    <widget name="timerlist" position="540,75" size="1305,720" itemHeight="90" rowSplit="50" timerNameFont="RegularB;32" statusFont="Regular;32" detailFont="Regular;28" topHeight="45" bottomHeight="45" indent="30" satPosLeft="250" iconWidth="45" iconHeight="45" iconMargin="10" statusOffset="0" setEventNameFont="Regular;32" setServiceNameFont="Regular;32" setFont="Regular;28" showSeparator="True" scrollbarMode="showOnDemand" backgroundColor="background20" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/timersel.png" zPosition="5" />
+    <widget conditional="HelpWindow" name="HelpWindow" position="540,780" size="1320,130" zPosition="11" transparent="1" />
     <panel name="FullKeys1" />
   </screen>
   <!-- 02. Timer Entry -->
@@ -3281,11 +3274,6 @@ if not self["videofps"].text:
     <panel name="ClockLabel1" />
     <panel name="Title1" />
     <widget name="text" position="810,60" size="1050,830" font="RegularB; 33" backgroundColor="background20" zPosition="4" foregroundColor="sky" halign="center" transparent="1" valign="center" />
-  </screen>
-  <screen name="ServiceAppSettings" position="0,0" size="1920,1080" title="ServiceApp" flags="wfNoBorder" backgroundColor="transparent">
-    <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/serviceapp.png" alphatest="on" transparent="1" zPosition="4" />
-    <panel name="SetupCommon" />
   </screen>
   <!-- ### CI SCREENS -->
   <!-- 01. CI Selection -->
