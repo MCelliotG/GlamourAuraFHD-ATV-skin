@@ -518,7 +518,7 @@
     <widget name="ratinglabel" position="215,255" size="420,50" halign="left" font="Regular; 32" zPosition="7" transparent="1" backgroundColor="sky" valign="center" noWrap="1" />
     <widget name="statusbar" position="650,750" size="1225,80" font="Regular; 32" foregroundColor="cyan1" zPosition="8" transparent="1" backgroundColor="background20" halign="left" valign="center" />
     <widget name="poster" position="65,150" size="145,210" alphatest="blend" transparent="1" zPosition="5" />
-    <widget name="menu" font="Regular; 32" position="650,225" size="1225,500" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" alphatest="off" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="menu" font="Regular; 32" position="650,225" size="1225,500" itemHeight="50" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel.png" zPosition="13" scrollbarMode="showOnDemand" transparent="1" />
     <widget name="starsbg" pixmap="GACommon/icons/menuicons/starsbar_empty.png" position="215,215" zPosition="5" size="375,40" transparent="1" alphatest="blend" />
     <widget name="stars" position="215,215" size="375,40" pixmap="GACommon/icons/menuicons/starsbar_filled.png" alphatest="blend" transparent="1" zPosition="6" />
     <panel name="FullKeys3" />

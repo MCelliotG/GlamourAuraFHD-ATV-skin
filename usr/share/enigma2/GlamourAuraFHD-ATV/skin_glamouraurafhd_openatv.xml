@@ -566,10 +566,10 @@
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowt810.png" position="540,780" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <ePixmap pixmap="GlamourAuraFHD-ATV/menu/accentglowb810.png" position="1040,815" size="810,45" zPosition="5" alphatest="blend" transparent="1" />
     <!-- Old Lists -->
-    <widget name="list" font="Regular; 32" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
+    <widget conditional="list" name="list" font="Regular; 32" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9" />
     <widget name="sublist" font="Regular; 32" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" alphatest="off" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9" />
     <!-- New Lists -->
-    <widget source="mainlist" render="Listbox" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" alphatest="off" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
+    <widget source="mainlist" render="Listbox" position="540,60" size="620,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GlamourAuraFHD-ATV/selections/aurasel620.png" backgroundColor="background20" enableWrapAround="1" transparent="1" zPosition="9">
       <templates>
         <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="620" itemHeight="80">
           <mode name="default">
@@ -580,7 +580,7 @@
         </template>
       </templates>
     </widget>
-    <widget source="sublist" render="Listbox" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" alphatest="off" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9">
+    <widget source="sublist" render="Listbox" position="1165,60" size="700,720" itemHeight="80" scrollbarMode="showOnDemand" selectionPixmap="GACommon/selections/auraselwhite700.png" backgroundColor="background20" foregroundColor="white" foregroundColorSelected="sky" backgroundColorSelected="clearsky" enableWrapAround="1" transparent="1" zPosition="9">
       <templates>
         <template name="Default" fonts="RegularB;30,Regular;26" itemWidth="700" itemHeight="80">
           <mode name="default">
@@ -694,7 +694,7 @@
     <panel name="QuickEPGCommons" />
     <!--Main EPG Infobar -->
     <widget source="Title" render="Label" position="345,725" size="1520,120" font="Regular; 55" halign="center" valign="bottom" foregroundColor="white" backgroundColor="sky" transparent="1" zPosition="9" />
-    <widget name="bouquetlist" position="65,890" size="1800,100" itemHeight="60" ServiceBackgroundColor="background20" ServiceBorderColor="darkgrey" ServiceBorderWidth="0" ServiceForegroundColorSelected="lightciel" EntryBackgroundColor="grey2" EntryBackgroundColorNow="grey" EntryBackgroundColorSelected="cyan1" EntryBorderColor="darkgrey" EntryForegroundColor="white" EntryForegroundColorNow="sky" EntryForegroundColorSelected="white" EventBorderWidth="0" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
+    <widget name="bouquetlist" position="65,890" size="1800,100" itemHeight="60" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="list" position="65,890" size="1800,100" font="Regular; 25" ServiceBackgroundColor="background20" ServiceBorderColor="grey" ServiceBorderWidth="1" EntryBackgroundColor="transpdark" EntryBackgroundColorNow="clearpurple" EntryBackgroundColorNowSelected="clearorange" EntryBackgroundColorSelected="clearcyan" EntryBorderColor="grey" EntryForegroundColor="white" EntryForegroundColorNow="white" EntryForegroundColorSelected="amarillo" EventBorderWidth="1" EntryFontWrap="no" scrollbarMode="showOnDemand" transparent="1" zPosition="8" />
     <widget name="lab1" position="65,890" size="1800,100" halign="center" valign="center" backgroundColor="background20" transparent="0" zPosition="20" />
     <widget name="timeline_text" position="65,840" size="1800,50" selectionDisabled="1" backgroundColor="background20" transparent="1" zPosition="8" font="Regular; 22" itemHeight="50" />
@@ -753,7 +753,7 @@
   <screen name="HistoryZapSelector" position="0,0" size="1920,1080" title="History Zap Selector" backgroundColor="transparent" flags="wfNoBorder">
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/numzap.png" alphatest="on" transparent="1" zPosition="5" />
-    <widget source="menu" render="Listbox" position="540,115" size="1305,800" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" alphatest="off" zPosition="5">
+    <widget source="menu" render="Listbox" position="540,115" size="1305,800" backgroundColor="background20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" selectionPixmap="GlamourAuraFHD-ATV/selections/updatesel.png" zPosition="5">
       <convert type="TemplatedMultiContent">
   {"template": [
    MultiContentEntryText(pos = (150, 0), size = (35, 80), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1, color = 0xffffff, color_sel = 0xf47d19), #index 1 is the selected program icon
@@ -1104,14 +1104,6 @@
     <panel name="ScreenElements2" />
     <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/audiosetup.png" alphatest="on" transparent="1" zPosition="5" />
     <panel name="SetupCommon" />
-  </screen>
-  <screen name="VideoSetup" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="ScreenElements2" />
-    <ePixmap position="50,315" size="400,400" pixmap="GACommon/images/videosettings.png" alphatest="on" transparent="1" zPosition="5" />
-    <panel name="SetupCommon" />
-  </screen>
-  <screen name="VideoSettings" position="0,0" size="1920,1080" title="Video Settings" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
-    <panel name="VideoSetup" />
   </screen>
   <screen name="setup_osd3d" position="0,0" size="1920,1080" title="Setup" flags="wfNoBorder" backgroundColor="transparent" alphatest="on">
     <panel name="ScreenElements2" />
