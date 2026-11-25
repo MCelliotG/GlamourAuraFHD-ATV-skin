@@ -329,6 +329,7 @@ class GlamourBase(Poll, Converter, object):
 		"DABSidHex": 57, "DABPTY": 58,
 		"RadioTextOrEvent": 59, "RtpTextOrEventDescription": 60,
 		"IsRadioTextRDS": 61, "IsRadioTextDLS": 62, "IsRadioTextEPG": 63,
+		"IsRadioTextMETA": 70,
 		"IsRadioService": 64, "DABSampleRate": 65, "DABChannelMode": 66,
 		"DABStereo": 67, "IsStereo": 68, "IsJointStereo": 69, "RadioOrbital": 1
 	}
@@ -350,7 +351,7 @@ class GlamourBase(Poll, Converter, object):
 		textTokens = [name for name, value in self.TYPE_MAP.items() if value in (46, 47, 48, 49, 50, 51, 52, 53, 57, 58, 65, 66)]
 		self.dabTemplatePattern = re.compile(r"\b(?:" + "|".join(re.escape(token) for token in sorted(textTokens, key=len, reverse=True)) + r")\b")
 		self.isDABTemplate = bool(self.dabTemplatePattern.search(type))
-		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT, self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION, self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG)
+		self.isRdsText = self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT, self.RADIOTEXTOREVENT, self.RTPTEXTOREVENTDESCRIPTION, self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG, self.ISRADIOTEXTMETA)
 		if self.type in (self.RADIOTEXTIFNOEVENT, self.RTPTEXTIFNOEVENT):
 			self.poll_enabled = False
 
@@ -873,6 +874,43 @@ class GlamourBase(Poll, Converter, object):
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			return ""
 
+	# INTERNET_RADIO_METADATA_FALLBACK v1
+	def internetRadioMetadata(self, info, description=False):
+		"""Return stream tags only when the service is an actual URL stream.
+
+		Never synthesize an upcoming event: title and artist belong to the
+		currently playing track. Real RDS/DLS and EPG always take priority.
+		"""
+		try:
+			if not self._stream_url(info):
+				return "", ""
+
+			def tag(field):
+				value = info.getInfoString(field)
+				return " ".join((value or "").split())
+
+			title = tag(iServiceInformation.sTagTitle)
+			artist = tag(iServiceInformation.sTagArtist)
+			if description:
+				# Optional second line, but no duplicated track/artist text.
+				album = tag(iServiceInformation.sTagAlbum)
+				genre = tag(iServiceInformation.sTagGenre)
+				parts = [part for part in (album, genre) if part]
+				if len(parts) == 2 and parts[0].casefold() == parts[1].casefold():
+					parts.pop()
+				text = " - ".join(parts)
+			else:
+				text = title or artist
+				if title and artist:
+					# ICY/GStreamer may already include both in sTagTitle.
+					# Do not print 'Artist - Song - Artist'.
+					segments = [part.strip().casefold() for part in re.split(r"\s+[-–—]\s+", title)]
+					if artist.casefold() not in segments and artist.casefold() not in title.casefold():
+						text = "%s - %s" % (title, artist)
+			return text, "STREAM" if text else ""
+		except (AttributeError, TypeError, ValueError, RuntimeError):
+			return "", ""
+
 	def radioTextData(self, description=False):
 		try:
 			service = self.source.service
@@ -881,7 +919,13 @@ class GlamourBase(Poll, Converter, object):
 		if service is None:
 			return "", ""
 		try:
-			if not self.isRadioService(service.info()):
+			info = service.info()
+			if info is None:
+				return "", ""
+			# IPTV audio sources can carry a 4097/500x service reference instead
+			# of the usual DVB-radio (0x02/0x0A) type. Accept URL streams
+			# here, without changing the global isRadioService() behaviour.
+			if not self.isRadioService(info) and not self._stream_url(info):
 				return "", ""
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			return "", ""
@@ -891,23 +935,22 @@ class GlamourBase(Poll, Converter, object):
 			text = decoder.getText(field) if decoder is not None else ""
 			if text and text.strip():
 				try:
-					kind = "DLS" if self.isDABService(service.info()) else "RDS"
+					kind = "DLS" if self.isDABService(info) else "RDS"
 				except (AttributeError, TypeError, ValueError, RuntimeError):
 					kind = "RDS"
 				return text, kind
 		except (AttributeError, TypeError, ValueError, RuntimeError):
 			pass
 		try:
-			info = service.info()
-			event = info.getEvent(0) if info is not None else None
-			if event is None:
-				return "", ""
-			text = event.getShortDescription() if description else event.getEventName()
-			text = " ".join((text or "").split())
-			return text, "EPG" if text else ""
+			event = info.getEvent(0)
+			if event is not None:
+				text = event.getShortDescription() if description else event.getEventName()
+				text = " ".join((text or "").split())
+				if text:
+					return text, "EPG"
 		except (AttributeError, TypeError, ValueError, RuntimeError):
-			return "", ""
-
+			pass
+		return self.internetRadioMetadata(info, description)
 	def rdsTextOrEvent(self):
 		return self.radioTextData(self.type == self.RTPTEXTOREVENTDESCRIPTION)[0]
 
@@ -1091,8 +1134,8 @@ class GlamourBase(Poll, Converter, object):
 				return bool(service and self.isRadioService(service.info()))
 			except (AttributeError, TypeError, ValueError, RuntimeError):
 				return False
-		if self.type in (self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG):
-			kind = {self.ISRADIOTEXTRDS: "RDS", self.ISRADIOTEXTDLS: "DLS", self.ISRADIOTEXTEPG: "EPG"}[self.type]
+		if self.type in (self.ISRADIOTEXTRDS, self.ISRADIOTEXTDLS, self.ISRADIOTEXTEPG, self.ISRADIOTEXTMETA):
+			kind = {self.ISRADIOTEXTRDS: "RDS", self.ISRADIOTEXTDLS: "DLS", self.ISRADIOTEXTEPG: "EPG", self.ISRADIOTEXTMETA: "STREAM"}[self.type]
 			return self.radioTextData()[1] == kind
 		if self.isRdsText:
 			return bool(self.getText())
