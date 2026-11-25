@@ -21,7 +21,7 @@
   <screen name="GraphicalEPGPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 	<panel name="GraphicalEPGPIGCommon" />
 	<ePixmap pixmap="GACommon/menu/menufaderight.png" position="870,620" zPosition="6" size="75,330" alphatest="blend" transparent="1" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="240,625" size="650,310" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,direction=top,speed=40,repeat=2,startdelay=5000,wrap" position="240,625" size="650,310" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
 	<widget source="Event" render="GlamPosters" nexts="0" usedImage="poster" position="890,620" size="250,330" zPosition="5" transparent="1" />
@@ -29,7 +29,7 @@
   <!-- 05. EPG Vertical PIG-->
   <screen name="EPGverticalPIG" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 	<panel name="EPGverticalPIGCommon" />
-    <widget source="Event" render="GlamRun" options="movetype=running,startpoint=0,direction=top,step=3,steptime=60,repeat=2,startdelay=5000,wrap,oneshot=1,always=0" position="1160,655" size="510,260" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
+    <widget source="Event" render="GlamRun" options="movetype=running,direction=top,speed=40,repeat=2,startdelay=5000,wrap" position="1160,655" size="510,260" font="Regular; 32" backgroundColor="background20" foregroundColor="lightciel" transparent="1" valign="top" zPosition="7">
       <convert type="EventName">ExtendedDescription</convert>
     </widget>
 	<widget source="Event" render="GlamPosters" nexts="0" usedImage="poster" position="1670,650" size="200,260" zPosition="5" transparent="1" />

@@ -1,504 +1,354 @@
-#	GlamRun renderer (Python 3)
-#	Initial work by vlamo and Dr. Best
+# GlamRun renderer for Enigma2 / OpenATV (Python 3)
+# Initial work by vlamo and Dr. Best
 # Modded and recoded by MCelliotG for use in Glamour skins or standalone
-# If you use this Renderer for other skins and rename it, please keep the first and second line adding your credits below
+# Smooth seamless rendering refactor (2026)
+# Please preserve the original credits when redistributing this renderer.
+#
+# RUNNING options: movetype, direction, speed (px/s), startdelay (ms),
+# repeat (0=infinite), gap (px), wrap/nowrap, always, ellipsis.
+# Frame timing is internal (~60 Hz); step, steptime, fps and smooth are retired.
 
-from enigma import eWidget, eLabel, eTimer, ePoint, eSize, gFont, \
-	RT_HALIGN_LEFT, RT_HALIGN_CENTER, RT_HALIGN_RIGHT, RT_HALIGN_BLOCK, \
-	RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, RT_WRAP
+from time import monotonic
 
+from enigma import (
+    eWidget, eLabel, eTimer, ePoint, eSize, gFont,
+    RT_WRAP,
+)
 from Components.Renderer.Renderer import Renderer
 from skin import parseColor, parseFont
 
-# Constants for scroll type and direction
-NONE = 0
-RUNNING = 1
-SWIMMING = 2
-AUTO = 3
+NONE, RUNNING = 0, 1
+LEFT, RIGHT, TOP, BOTTOM = 0, 1, 2, 3
 
-LEFT = 0
-RIGHT = 1
-TOP = 2
-BOTTOM = 3
 
 class GlamRun(Renderer):
-	def __init__(self):
-		Renderer.__init__(self)
-		self.type = NONE
-		self.txfont = gFont("Regular", 14)
-		self.soffset = (0, 0)
-		self.txtflags = 0
-		self.txtext = ""
-		self.scroll_label = self.mTimer = self.mStartPoint = None
-		self.X = self.Y = self.W = self.H = self.mStartDelay = 0
-		self.mAlways = 1
-		self.mStep = 1
-		self.mStepTimeout = 50
-		self.direction = LEFT
-		self.mLoopTimeout = self.mOneShot = 0
-		self.mRepeat = 0
-		self.mPageDelay = self.mPageLength = 0
-		self.lineHeight = 0
-		self.mShown = 0
-		self.ellipsis = False  # New attribute for ellipsis
-		self.seamless = True
-		self.seamlessGap = 300
-		self.seamlessActive = False
-		self.seamlessLabel = None
+    GUI_WIDGET = eWidget
+    FRAME_MS = 17                     # approx. 60 Hz; no XML fps setting
+    MAX_DELTA = 0.12                 # avoid a huge jump after a GUI stall
+    DEFAULT_HORIZONTAL_SPEED = 80.0  # px/s
+    DEFAULT_VERTICAL_SPEED = 40.0    # px/s
+    DEFAULT_GAP = 300                # px; capped to half of viewport
 
-	GUI_WIDGET = eWidget
+    def __init__(self):
+        Renderer.__init__(self)
+        self.type = NONE
+        self.direction = LEFT
+        self.txfont = gFont('Regular', 14)
+        self.txtflags = 0
+        self.halign = eLabel.alignLeft
+        self.soffset = (0, 0)
+        self.W = self.H = 0
+        self.mShown = 0
 
-	def postWidgetCreate(self, instance):
-		for attrib, value in self.skinAttributes:
-			if attrib == "size":
-				self.W, self.H = map(int, value.split(','))
-		self.instance.move(ePoint(0, 0))
-		self.instance.resize(eSize(self.W, self.H))
-		self.scroll_label = eLabel(instance)
-		self.seamlessLabel = eLabel(instance)
-		self.seamlessLabel.hide()
-		self.mTimer = eTimer()
-		self.mTimer.callback.append(self.movingLoop)
+        self.speed = None
+        self.startdelay = 0
+        self.repeat = 0
+        self.gap = self.DEFAULT_GAP
+        self.always = False
+        self.ellipsis = False
 
-	def preWidgetRemove(self, instance):
-		self.mTimer.stop()
-		self.mTimer.callback.remove(self.movingLoop)
-		self.mTimer = None
-		self.scroll_label = None
-		self.seamlessLabel = None
+        self.txtext = ''
+        self._source_text = None
+        self.scroll_label = None
+        self.seamlessLabel = None
+        self.mTimer = None
+        self.lineHeight = 0
+        self._active = False
+        self._phase = 0.0
+        self._period = 0
+        self._last_time = None
+        self._last_pixel = None
+        self._cycles_left = 0
 
-	def applySkin(self, desktop, screen):
-		def retValue(val, limit, default, min_flag=False):
-			try:
-				x = int(val)
-				return min(limit, x) if min_flag else max(limit, x)
-			except:
-				return default
+    def postWidgetCreate(self, instance):
+        for name, value in (self.skinAttributes or []):
+            if name == 'size':
+                self.W, self.H = map(int, value.split(','))
+        instance.move(ePoint(0, 0))
+        instance.resize(eSize(self.W, self.H))
+        self.scroll_label = eLabel(instance)
+        self.seamlessLabel = eLabel(instance)
+        self.seamlessLabel.hide()
+        self.mTimer = eTimer()
+        self.mTimer.callback.append(self.movingLoop)
 
-		def setWrapFlag(attrib, value):
-			if (attrib.lower() == "wrap" and value == "0") or (attrib.lower() == "nowrap" and value != "0"):
-				self.txtflags &= ~RT_WRAP
-			else:
-				self.txtflags |= RT_WRAP
+    def preWidgetRemove(self, instance):
+        self._stop()
+        if self.mTimer is not None:
+            try:
+                self.mTimer.callback.remove(self.movingLoop)
+            except ValueError:
+                pass
+        self.mTimer = None
+        self.scroll_label = None
+        self.seamlessLabel = None
 
-		self.halign = valign = eLabel.alignLeft
-		if self.skinAttributes:
-			attribs = []
-			for attrib, value in self.skinAttributes:
-				match attrib:
-					case "font":
-						self.txfont = parseFont(value, ((1, 1), (1, 1)))
-					case "foregroundColor":
-						self.scroll_label.setForegroundColor(parseColor(value))
-						self.seamlessLabel.setForegroundColor(parseColor(value))
-					case "shadowColor" | "borderColor":
-						self.scroll_label.setShadowColor(parseColor(value))
-						self.seamlessLabel.setShadowColor(parseColor(value))
-					case "shadowOffset":
-						self.soffset = tuple(map(int, value.split(',')))
-						self.scroll_label.setShadowOffset(ePoint(self.soffset))
-						self.seamlessLabel.setShadowOffset(ePoint(self.soffset))
-					case "borderWidth":
-						self.soffset = (-int(value), -int(value))
-					case "valign" if value in ("top", "center", "bottom"):
-						valign = {"top": eLabel.alignTop, "center": eLabel.alignCenter, "bottom": eLabel.alignBottom}[value]
-						self.txtflags |= {"top": RT_VALIGN_TOP, "center": RT_VALIGN_CENTER, "bottom": RT_VALIGN_BOTTOM}[value]
-					case "halign" if value in ("left", "center", "right", "block"):
-						self.halign = {"left": eLabel.alignLeft, "center": eLabel.alignCenter, "right": eLabel.alignRight, "block": eLabel.alignBlock}[value]
-						self.txtflags |= {"left": RT_HALIGN_LEFT, "center": RT_HALIGN_CENTER, "right": RT_HALIGN_RIGHT, "block": RT_HALIGN_BLOCK}[value]
-					case "noWrap":
-						setWrapFlag(attrib, value)
-					case "options":
-						for opt, val in ((x.strip() for x in o.split('=', 1)) if '=' in o else (o.strip(), "") for o in value.split(',')):
-							if not opt:
-								continue
-							match opt:
-								case "wrap" | "nowrap":
-									setWrapFlag(opt, val)
-								case "movetype" if val in ("none", "running", "swimming"):
-									self.type = {"none": NONE, "running": RUNNING, "swimming": SWIMMING}[val]
-								case "direction" if val in ("left", "right", "top", "bottom"):
-									self.direction = {"left": LEFT, "right": RIGHT, "top": TOP, "bottom": BOTTOM}[val]
-								case "step" if val:
-									self.mStep = retValue(val, 1, self.mStep)
-								case "steptime" if val:
-									self.mStepTimeout = retValue(val, 25, self.mStepTimeout)
-								case "startdelay" if val:
-									self.mStartDelay = retValue(val, 0, self.mStartDelay)
-								case "pause" if val:
-									self.mLoopTimeout = retValue(val, 0, self.mLoopTimeout)
-								case "oneshot" if val:
-									self.mOneShot = retValue(val, 0, self.mOneShot)
-								case "repeat" if val:
-									self.mRepeat = retValue(val, 0, self.mRepeat)
-								case "always" if val:
-									self.mAlways = retValue(val, 0, self.mAlways)
-								case "startpoint" if val:
-									self.mStartPoint = int(val)
-								case "pagedelay" if val:
-									self.mPageDelay = retValue(val, 0, self.mPageDelay)
-								case "pagelength" if val:
-									self.mPageLength = retValue(val, 0, self.mPageLength)
-								case "gap" if val:
-									if val == "-1":
-										self.seamless = False
-									else:
-										self.seamless = True
-										self.seamlessGap = retValue(val, 0, 300)
-								case "ellipsis" if val:
-									self.ellipsis = int(val)
-									print(f"[GlamRun] Ellipsis enabled: {self.ellipsis}")
-					case _:
-						attribs.append((attrib, value))
-						match attrib:
-							case "backgroundColor":
-								self.scroll_label.setBackgroundColor(parseColor(value))
-								self.seamlessLabel.setBackgroundColor(parseColor(value))
-							case "transparent":
-								self.scroll_label.setTransparent(int(value))
-								self.seamlessLabel.setTransparent(int(value))
-			self.skinAttributes = attribs
+    @staticmethod
+    def _nonnegative(value, default):
+        try:
+            return max(0, int(value))
+        except (TypeError, ValueError):
+            return default
 
-		ret = Renderer.applySkin(self, desktop, screen)
+    @staticmethod
+    def _boolean(value, implicit=True):
+        if value == '':
+            return implicit
+        return str(value).lower() not in ('0', 'false', 'no', 'off')
 
-		if self.mOneShot:
-			self.mOneShot = max(self.mStepTimeout, self.mOneShot)
-		if self.mLoopTimeout:
-			self.mLoopTimeout = max(self.mStepTimeout, self.mLoopTimeout)
-		if self.mPageDelay:
-			self.mPageDelay = max(self.mStepTimeout, self.mPageDelay)
+    def _wrap_option(self, key, value):
+        if (key.lower() == 'wrap' and value == '0') or (key.lower() == 'nowrap' and value != '0'):
+            self.txtflags &= ~RT_WRAP
+        else:
+            self.txtflags |= RT_WRAP
 
-		self.scroll_label.setFont(self.txfont)
-		self.seamlessLabel.setFont(self.txfont)
-		if not (self.txtflags & RT_WRAP):
-			self.scroll_label.setNoWrap(1)
-			self.seamlessLabel.setNoWrap(1)
-		self.scroll_label.setVAlign(valign)
-		self.seamlessLabel.setVAlign(valign)
-		self.scroll_label.setHAlign(self.halign)
-		self.seamlessLabel.setHAlign(self.halign)
-		self.scroll_label.move(ePoint(0, 0))
-		self.scroll_label.resize(eSize(self.W, self.H))
+    def _read_options(self, options):
+        for raw in options.split(','):
+            raw = raw.strip()
+            if not raw:
+                continue
+            key, separator, value = raw.partition('=')
+            key, value = key.strip(), value.strip() if separator else ''
+            if key in ('wrap', 'nowrap'):
+                self._wrap_option(key, value)
+            elif key == 'movetype' and value in ('none', 'running'):
+                self.type = {'none': NONE, 'running': RUNNING}[value]
+            elif key == 'direction' and value in ('left', 'right', 'top', 'bottom'):
+                self.direction = {'left': LEFT, 'right': RIGHT, 'top': TOP, 'bottom': BOTTOM}[value]
+            elif key == 'speed':
+                try:
+                    speed = float(value)
+                    if 1 <= speed <= 1000 and speed == speed:  # exclude NaN
+                        self.speed = speed
+                except ValueError:
+                    pass
+            elif key == 'startdelay':
+                self.startdelay = self._nonnegative(value, self.startdelay)
+            elif key == 'repeat':
+                self.repeat = self._nonnegative(value, self.repeat)
+            elif key == 'gap':
+                self.gap = self._nonnegative(value, self.gap)
+            elif key == 'always':
+                self.always = self._boolean(value)
+            elif key == 'ellipsis':
+                self.ellipsis = self._boolean(value)
 
-		if self.direction in (TOP, BOTTOM):
-			from enigma import fontRenderClass
-			flh = int(fontRenderClass.getInstance().getLineHeight(self.txfont) or self.txfont.pointSize / 6 + self.txfont.pointSize)
-			self.scroll_label.setText("WQq")
-			if flh > self.scroll_label.calculateSize().height():
-				self.lineHeight = flh
-			self.scroll_label.setText("")
-		return ret
+    def applySkin(self, desktop, screen):
+        valign = eLabel.alignTop
+        haligns = {
+            'left': eLabel.alignLeft, 'center': eLabel.alignCenter,
+            'right': eLabel.alignRight, 'block': eLabel.alignBlock,
+        }
+        valigns = {
+            'top': eLabel.alignTop, 'center': eLabel.alignCenter,
+            'bottom': eLabel.alignBottom,
+        }
+        inherited = []
+        for name, value in (self.skinAttributes or []):
+            if name == 'font':
+                self.txfont = parseFont(value, ((1, 1), (1, 1)))
+            elif name == 'foregroundColor':
+                color = parseColor(value)
+                self.scroll_label.setForegroundColor(color)
+                self.seamlessLabel.setForegroundColor(color)
+            elif name in ('shadowColor', 'borderColor'):
+                color = parseColor(value)
+                self.scroll_label.setShadowColor(color)
+                self.seamlessLabel.setShadowColor(color)
+            elif name == 'shadowOffset':
+                self.soffset = tuple(map(int, value.split(',')))
+                offset = ePoint(self.soffset)
+                self.scroll_label.setShadowOffset(offset)
+                self.seamlessLabel.setShadowOffset(offset)
+            elif name == 'borderWidth':
+                border = int(value)
+                self.soffset = (-border, -border)
+            elif name == 'halign' and value in haligns:
+                self.halign = haligns[value]
+            elif name == 'valign' and value in valigns:
+                valign = valigns[value]
+            elif name == 'noWrap':
+                self._wrap_option(name, value)
+            elif name == 'options':
+                self._read_options(value)
+            else:
+                inherited.append((name, value))
+                if name == 'backgroundColor':
+                    color = parseColor(value)
+                    self.scroll_label.setBackgroundColor(color)
+                    self.seamlessLabel.setBackgroundColor(color)
+                elif name == 'transparent':
+                    transparent = int(value)
+                    self.scroll_label.setTransparent(transparent)
+                    self.seamlessLabel.setTransparent(transparent)
 
-	def doSuspend(self, suspended):
-		self.mShown = 1 - suspended
-		if suspended:
-			self.changed((self.CHANGED_CLEAR,))
-		else:
-			self.changed((self.CHANGED_DEFAULT,))
+        self.skinAttributes = inherited
+        result = Renderer.applySkin(self, desktop, screen)
+        for label in (self.scroll_label, self.seamlessLabel):
+            label.setFont(self.txfont)
+            label.setNoWrap(0 if self.txtflags & RT_WRAP else 1)
+            label.setHAlign(self.halign)
+            label.setVAlign(valign)
+        self.scroll_label.move(ePoint(0, 0))
+        self.scroll_label.resize(eSize(self.W, self.H))
+        if self.direction in (TOP, BOTTOM):
+            from enigma import fontRenderClass
+            font = fontRenderClass.getInstance()
+            line_height = int(font.getLineHeight(self.txfont) or
+                              self.txfont.pointSize / 6 + self.txfont.pointSize)
+            self.scroll_label.setText('WQq')
+            if line_height > self.scroll_label.calculateSize().height():
+                self.lineHeight = line_height
+            self.scroll_label.setText('')
+        return result
 
-	def connect(self, source):
-		Renderer.connect(self, source)
+    def doSuspend(self, suspended):
+        self.mShown = 0 if suspended else 1
+        self.changed((self.CHANGED_CLEAR if suspended else self.CHANGED_DEFAULT,))
 
-	def changed(self, what):
-		self.seamlessActive = False
-		if self.seamlessLabel is not None:
-			self.seamlessLabel.hide()
-		if self.mTimer is not None:
-			self.mTimer.stop()
-		if what[0] == self.CHANGED_CLEAR:
-			self.txtext = ""
-			if self.instance:
-				self.scroll_label.setText("")
-		else:
-			if self.mShown:
-				self.txtext = self.source.text or ""
-				if self.instance and not self.calcMoving():
-					self.scroll_label.resize(eSize(self.W, self.H))
-					self.moveLabel(self.X, self.Y)
+    def connect(self, source):
+        Renderer.connect(self, source)
 
-	def moveLabel(self, X, Y):
-		self.scroll_label.move(ePoint(X - self.soffset[0], Y - self.soffset[1]))
+    def _stop(self):
+        if self.mTimer is not None:
+            self.mTimer.stop()
+        self._active = False
+        self._last_time = None
+        self._last_pixel = None
+        if self.seamlessLabel is not None:
+            self.seamlessLabel.hide()
 
-	def applyEllipsis(self):
-		if not self.ellipsis:
-			return
+    def changed(self, what):
+        if what[0] == self.CHANGED_CLEAR:
+            self._stop()
+            self._source_text = None
+            self.txtext = ''
+            if self.scroll_label is not None:
+                self.scroll_label.setText('')
+            return
+        if not self.mShown or self.instance is None or self.scroll_label is None:
+            return
+        value = self.source.text or ''
+        if not isinstance(value, str):
+            value = str(value)
+        if value == self._source_text:
+            return  # do not restart running text on unrelated source updates
+        self._source_text = value
+        self._stop()
+        self.txtext = value
+        self._layout()
 
-		text_size = self.scroll_label.calculateSize()
-		text_width = text_size.width()
-		text_height = text_size.height()
+    def _move(self, label, x, y):
+        label.move(ePoint(int(x) - self.soffset[0], int(y) - self.soffset[1]))
 
-		if self.direction in (LEFT, RIGHT):
-			if text_width <= self.W:
-				return
+    def _layout(self):
+        self.scroll_label.resize(eSize(self.W, self.H))
+        text = self.txtext
+        if not (self.txtflags & RT_WRAP):
+            text = text.replace('\n', ' ').replace('\r', ' ')
+        self.txtext = text
+        self.scroll_label.setText(text)
+        self._move(self.scroll_label, 0, 0)
+        if not text or self.type != RUNNING:
+            return
 
-			# Calculate the visible text based on the widget width
-			visible_chars = int((self.W / text_width) * len(self.txtext))
-			visible_text = self.txtext[:visible_chars]
+        horizontal = self.direction in (LEFT, RIGHT)
+        if horizontal or not (self.txtflags & RT_WRAP):
+            # Use a generously sized temporary label for accurate text width.
+            self.scroll_label.resize(eSize(max(self.W, self.txfont.pointSize * len(text)), self.H))
+        dimensions = self.scroll_label.calculateSize()
+        text_width = max(1, int(dimensions.width()))
+        text_height = max(1, int(dimensions.height()))
+        if self.lineHeight and not horizontal:
+            text_height = ((text_height + self.lineHeight - 1) //
+                           self.lineHeight) * self.lineHeight
 
-			# Find the last space in the visible text
-			last_space_index = visible_text.rfind(' ')
-			if last_space_index != -1:
-				visible_text = visible_text[:last_space_index] + "..."
-			else:
-				visible_text = visible_text + "..."
+        viewport = self.W if horizontal else self.H
+        extent = text_width if horizontal else text_height
+        if not self.always and extent <= viewport:
+            self.scroll_label.resize(eSize(self.W, self.H))
+            return
 
-			self.scroll_label.setText(visible_text)
-			self.scroll_label.resize(eSize(self.W, self.H))
+        width = max(self.W, text_width) if horizontal or not (self.txtflags & RT_WRAP) else self.W
+        height = max(self.H, text_height) if horizontal else text_height
+        size = eSize(max(1, width), max(1, height))
+        self.scroll_label.resize(size)
+        self.seamlessLabel.resize(size)
+        self.seamlessLabel.setText(text)
 
-		elif self.direction in (TOP, BOTTOM):
-			if text_height <= self.H:
-				return
+        # Keep some part of a copy visible while the next copy approaches.
+        # A gap smaller than the viewport prevents the entire widget going blank.
+        effective_gap = min(self.gap, max(0, viewport // 2))
+        self._period = extent + effective_gap
+        self._phase = 0.0
+        self._last_pixel = None
+        self._cycles_left = self.repeat
+        self._active = True
+        self.seamlessLabel.show()
+        self._paint()
+        self.mTimer.start(self.startdelay, True)
 
-			# Calculate the visible lines based on the widget height
-			line_height = self.lineHeight if self.lineHeight else self.txfont.pointSize
-			visible_lines = int(self.H / line_height)
-			lines = self.txtext.split('\n')
-			visible_text = '\n'.join(lines[:visible_lines])
+    def _paint(self):
+        pixel = int(round(self._phase))
+        if pixel == self._last_pixel:
+            return
+        if self.direction in (LEFT, TOP):
+            first, second = -pixel, self._period - pixel
+        else:
+            first, second = pixel, pixel - self._period
+        if self.direction in (LEFT, RIGHT):
+            self._move(self.scroll_label, first, 0)
+            self._move(self.seamlessLabel, second, 0)
+        else:
+            self._move(self.scroll_label, 0, first)
+            self._move(self.seamlessLabel, 0, second)
+        self._last_pixel = pixel
 
-			# Add ellipsis to the last visible line
-			if len(lines) > visible_lines:
-				last_line = lines[visible_lines - 1]
-				if len(last_line) > 0:
-					visible_text = visible_text[:-len(last_line)] + last_line[:10] + "..."  # Adjust as needed
+    def movingLoop(self):
+        if not self._active or self.mTimer is None:
+            return
+        now = monotonic()
+        if self._last_time is None:
+            self._last_time = now
+        else:
+            dt = min(self.MAX_DELTA, max(0.0, now - self._last_time))
+            self._last_time = now
+            speed = self.speed if self.speed is not None else (
+                self.DEFAULT_HORIZONTAL_SPEED if self.direction in (LEFT, RIGHT)
+                else self.DEFAULT_VERTICAL_SPEED)
+            self._phase += speed * dt
+            if self._phase >= self._period:
+                completed = int(self._phase // self._period)
+                if self.repeat:
+                    self._cycles_left -= completed
+                    if self._cycles_left <= 0:
+                        self._finish()
+                        return
+                self._phase %= self._period
+            self._paint()
+        self.mTimer.start(self.FRAME_MS, True)
 
-			self.scroll_label.setText(visible_text)
-			self.scroll_label.resize(eSize(self.W, self.H))
+    def _finish(self):
+        self._stop()
+        self._move(self.scroll_label, 0, 0)
+        self._add_ellipsis()
 
-	def calcMoving(self):
-		self.X = self.Y = 0
-		if not (self.txtflags & RT_WRAP):
-			self.txtext = self.txtext.replace("\n", " ").replace("\r", " ")
-
-		self.scroll_label.setText(self.txtext)
-
-		if self.txtext == "" or self.type == NONE or self.scroll_label is None:
-			return False
-
-		if self.direction in (LEFT, RIGHT) or not (self.txtflags & RT_WRAP):
-			self.scroll_label.resize(eSize(self.txfont.pointSize * len(self.txtext), self.H))
-
-		text_size = self.scroll_label.calculateSize()
-		text_width = text_size.width()
-		text_height = text_size.height()
-
-		if self.seamless and self.type == RUNNING and self.direction in (LEFT, RIGHT) and text_width > self.W:
-			self.seamlessActive = True
-			self.seamlessWidth = text_width
-			self.seamlessPeriod = text_width + self.seamlessGap
-			self.scroll_label.resize(eSize(text_width, self.H))
-			self.seamlessLabel.setText(self.txtext)
-			self.seamlessLabel.resize(eSize(text_width, self.H))
-			self.seamlessLabel.show()
-			self.mStep = -abs(self.mStep) if self.direction == LEFT else abs(self.mStep)
-			self.P = 0
-			self.mCount = self.mRepeat
-			self.moveSeamless()
-			self.mTimer.start(self.mStartDelay, True)
-			return True
-
-		if self.seamless and self.type == RUNNING and self.direction in (TOP, BOTTOM) and text_height > self.H:
-			if self.lineHeight:
-				text_height = (text_height + self.lineHeight - 1) // self.lineHeight * self.lineHeight
-			self.seamlessActive = True
-			self.seamlessPeriod = text_height + self.seamlessGap
-			width = max(self.W, text_width) if not (self.txtflags & RT_WRAP) else self.W
-			self.scroll_label.resize(eSize(width, text_height))
-			self.seamlessLabel.setText(self.txtext)
-			self.seamlessLabel.resize(eSize(width, text_height))
-			self.seamlessLabel.show()
-			self.mStep = -abs(self.mStep) if self.direction == TOP else abs(self.mStep)
-			self.P = 0
-			self.mCount = self.mRepeat
-			self.moveSeamless()
-			self.mTimer.start(self.mStartDelay, True)
-			return True
-
-		if self.direction in (LEFT, RIGHT) or not (self.txtflags & RT_WRAP):
-			text_width += 10
-
-		self.mStop = None
-		if self.lineHeight and self.direction in (TOP, BOTTOM):
-			text_height = max(text_height, (text_height + self.lineHeight - 1) // self.lineHeight * self.lineHeight)
-
-		if self.direction in (LEFT, RIGHT):
-			if not self.mAlways and text_width <= self.W:
-				return False
-			if self.type == RUNNING:
-				self.A = self.X - text_width - self.soffset[0] - abs(self.mStep)
-				self.B = self.W - self.soffset[0] + abs(self.mStep)
-				if self.direction == LEFT:
-					self.mStep = -abs(self.mStep)
-					self.mStop = self.X
-					self.P = self.B
-				else:
-					self.mStep = abs(self.mStep)
-					self.mStop = self.B - text_width + self.soffset[0] - self.mStep
-					self.P = self.A
-				if self.mStartPoint is not None:
-					if self.direction == LEFT:
-						self.mStop = self.P = max(self.A, min(self.W, self.mStartPoint))
-					else:
-						self.mStop = self.P = max(self.A, min(self.B, self.mStartPoint - text_width + self.soffset[0]))
-			elif self.type == SWIMMING:
-				if text_width < self.W:
-					self.A = self.X + 1
-					self.B = self.W - text_width - 1
-					if self.halign == LEFT:
-						self.P = self.A
-						self.mStep = abs(self.mStep)
-					elif self.halign == RIGHT:
-						self.P = self.B
-						self.mStep = -abs(self.mStep)
-					else:
-						self.P = self.B // 2
-						self.mStep = abs(self.mStep) if self.direction == RIGHT else -abs(self.mStep)
-				else:
-					if text_width == self.W:
-						text_width += max(2, text_width // 20)
-					self.A = self.W - text_width
-					self.B = self.X
-					if self.halign == LEFT:
-						self.P = self.B
-						self.mStep = -abs(self.mStep)
-					elif self.halign == RIGHT:
-						self.P = self.A
-						self.mStep = abs(self.mStep)
-					else:
-						self.P = self.A // 2
-						self.mStep = abs(self.mStep) if self.direction == RIGHT else -abs(self.mStep)
-			else:
-				return False
-		elif self.direction in (TOP, BOTTOM):
-			if not self.mAlways and text_height <= self.H:
-				return False
-			if self.type == RUNNING:
-				self.A = self.Y - text_height - self.soffset[1] - abs(self.mStep)
-				self.B = self.H - self.soffset[1] + abs(self.mStep)
-				if self.direction == TOP:
-					self.mStep = -abs(self.mStep)
-					self.mStop = self.Y
-					self.P = self.B
-				else:
-					self.mStep = abs(self.mStep)
-					self.mStop = self.B - text_height + self.soffset[1] - self.mStep
-					self.P = self.A
-				if self.mStartPoint is not None:
-					if self.direction == TOP:
-						self.mStop = self.P = max(self.A, min(self.H, self.mStartPoint))
-					else:
-						self.mStop = self.P = max(self.A, min(self.B, self.mStartPoint - text_height + self.soffset[1]))
-			elif self.type == SWIMMING:
-				if text_height < self.H:
-					self.A = self.Y
-					self.B = self.H - text_height
-					if self.direction == TOP:
-						self.P = self.B
-						self.mStep = -abs(self.mStep)
-					else:
-						self.P = self.A
-						self.mStep = abs(self.mStep)
-				else:
-					if text_height == self.H:
-						text_height += max(2, text_height // 40)
-					self.A = self.H - text_height
-					self.B = self.Y
-					if self.direction == TOP:
-						self.P = self.B
-						self.mStep = -abs(self.mStep)
-						self.mStop = self.B
-					else:
-						self.P = self.A
-						self.mStep = abs(self.mStep)
-						self.mStop = self.A
-			else:
-				return False
-		else:
-			return False
-
-		self.xW = max(self.W, text_width)
-		self.xH = max(self.H, text_height)
-
-		self.scroll_label.resize(eSize(self.xW, self.xH))
-
-		if self.mStartDelay:
-			if self.direction in (LEFT, RIGHT):
-				self.moveLabel(self.P, self.Y)
-			else:
-				self.moveLabel(self.X, self.P)
-
-		self.mCount = self.mRepeat
-		self.mTimer.start(self.mStartDelay, True)
-		print(f"[GlamRun] Timer started with delay: {self.mStartDelay}")
-		return True
-
-	def moveSeamless(self):
-		offset = self.seamlessPeriod if self.direction in (LEFT, TOP) else -self.seamlessPeriod
-		if self.direction in (LEFT, RIGHT):
-			self.moveLabel(self.P, self.Y)
-			self.seamlessLabel.move(ePoint(self.P + offset - self.soffset[0], self.Y - self.soffset[1]))
-		else:
-			self.moveLabel(self.X, self.P)
-			self.seamlessLabel.move(ePoint(self.X - self.soffset[0], self.P + offset - self.soffset[1]))
-
-	def movingLoop(self):
-		if self.seamlessActive:
-			self.P += self.mStep
-			completed = self.P <= -self.seamlessPeriod if self.direction in (LEFT, TOP) else self.P >= self.seamlessPeriod
-			if completed:
-				if self.mRepeat > 0:
-					self.mCount -= 1
-					if self.mCount <= 0:
-						self.seamlessActive = False
-						self.seamlessLabel.hide()
-						self.P = 0
-						self.moveLabel(self.X, self.Y)
-						self.applyEllipsis()
-						return
-				self.P += self.seamlessPeriod if self.direction in (LEFT, TOP) else -self.seamlessPeriod
-			self.moveSeamless()
-			self.mTimer.start(self.mStepTimeout, True)
-			return
-		if self.A <= self.P <= self.B:
-			if self.direction in (LEFT, RIGHT):
-				self.moveLabel(self.P, self.Y)
-			else:
-				self.moveLabel(self.X, self.P)
-
-			timeout = self.mStepTimeout
-			if self.mStop is not None and self.mStop + abs(self.mStep) > self.P >= self.mStop:
-				if self.type == RUNNING and self.mOneShot > 0:
-					if self.mRepeat > 0 and self.mCount - 1 <= 0:
-						self.applyEllipsis()  # Apply ellipsis when repeat count reaches 0
-						return
-					timeout = self.mOneShot
-				elif self.type == SWIMMING and self.mPageLength > 0 and self.mPageDelay > 0:
-					if self.direction == TOP and self.mStep < 0:
-						self.mStop -= self.mPageLength
-						if self.mStop < self.A:
-							self.mStop = self.B
-						timeout = self.mPageDelay
-					elif self.direction == BOTTOM and self.mStep > 0:
-						self.mStop += self.mPageLength
-						if self.mStop > self.B:
-							self.mStop = self.A
-						timeout = self.mPageDelay
-		else:
-			if self.mRepeat > 0:
-				print(f"[GlamRun] movingLoop: Repeat count: {self.mCount}")
-				self.mCount -= 1
-				if self.mCount == 0:
-					print("[GlamRun] movingLoop: Repeat count reached 0, applying ellipsis.")
-					self.applyEllipsis()  # Apply ellipsis when repeat count reaches 0
-					return
-
-				timeout = self.mLoopTimeout
-				if self.type == RUNNING:
-					if self.P < self.A:
-						self.P = self.B + abs(self.mStep)
-					else:
-						self.P = self.A - abs(self.mStep)
-				else:
-					self.mStep = -self.mStep
-
-		self.P += self.mStep
-		self.mTimer.start(timeout, True)
+    def _add_ellipsis(self):
+        if not self.ellipsis or not self.txtext:
+            return
+        if self.direction not in (LEFT, RIGHT):
+            return  # Preserve wrapped descriptions exactly as authored.
+        # Determine a fitting prefix by measuring actual font glyphs, once only.
+        original = self.txtext
+        if self.scroll_label.calculateSize().width() <= self.W:
+            return
+        lo, hi = 0, len(original)
+        while lo < hi:
+            mid = (lo + hi + 1) // 2
+            self.scroll_label.setText(original[:mid].rstrip() + '...')
+            if self.scroll_label.calculateSize().width() <= self.W:
+                lo = mid
+            else:
+                hi = mid - 1
+        self.scroll_label.setText(original[:lo].rstrip() + '...')
+        self.scroll_label.resize(eSize(self.W, self.H))

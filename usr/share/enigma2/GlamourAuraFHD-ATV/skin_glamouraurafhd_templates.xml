@@ -118,6 +118,7 @@
     <menu key="autores_setup" image="GACommon/images/autores.png" />
     <menu key="buttonsetup_setup" image="GACommon/images/hotkey.png" />
     <menu key="channelselection_setup" image="GACommon/images/channelselection.png" />
+    <menu key="datetime_setup" image="GACommon/images/timezone.png" />
     <menu key="deviceManager" image="GACommon/images/devicemanager.png" />
     <menu key="device_manager" image="GACommon/images/devicemanager.png" />
     <menu key="dvdplayer_setup" image="GACommon/images/dvd.png" />
@@ -310,9 +311,6 @@
   </menus>
   <setups>
     <setup key="default" image="GACommon/images/setup.png" />
-    <setup key="ParentalControlSetup" image="GACommon/images/parental.png" />
-    <setup key="Video" image="GACommon/images/videosettings.png" />
-    <setup key="serviceapp" image="GACommon/images/serviceapp.png" />
     <setup key="AnimationSetup" image="GACommon/images/animation.png" />
     <setup key="Audio" image="GACommon/images/audiosetup.png" />
     <setup key="audio_setup" image="GACommon/images/avsetup.png" />
@@ -325,6 +323,7 @@
     <setup key="ChannelSelection" image="GACommon/images/channelselection.png" />
     <setup key="CiSelection" image="GACommon/images/cisetup.png" />
     <setup key="CISettings" image="GACommon/images/cisettings.png" />
+    <setup key="DateTime" image="GACommon/images/timezone.png" />
     <setup key="DeviceManager" image="GACommon/images/devicemanager.png" />
     <setup key="Display" image="GACommon/images/lcd.png" />
     <setup key="Display" image="GACommon/images/displaysetup.png" />
@@ -379,6 +378,7 @@
     <setup key="OSD3D" image="GACommon/images/auto_3d.png" />
     <setup key="OSD3DCalibration" image="GACommon/images/auto_3d.png" />
     <setup key="OSDCalibration" image="GACommon/images/osdmenu.png" />
+    <setup key="ParentalControlSetup" image="GACommon/images/parental.png" />
     <setup key="Password" image="GACommon/images/panel+.png" />
     <setup key="Picon" image="GACommon/images/piconupdater.png" />
     <setup key="PiconBrowser" image="GACommon/images/piconupdater.png" />
@@ -392,6 +392,7 @@
     <setup key="RTLSDRSetup" image="GACommon/images/dab_usb_setup.png" />
     <setup key="Satellite" image="GACommon/images/satellite.png" />
     <setup key="Scheduler" image="GACommon/images/timeshift.png" />
+    <setup key="serviceapp" image="GACommon/images/serviceapp.png" />
     <setup key="Skin" image="GACommon/images/skins.png" />
     <setup key="SleepTimer" image="GACommon/images/sleep.png" />
     <setup key="Softcam" image="GACommon/images/camsetup.png" />
@@ -408,6 +409,7 @@
     <setup key="Usage" image="GACommon/images/customize.png" />
     <setup key="UserInterface" image="GACommon/images/ui.png" />
     <setup key="WeatherSettings" image="GACommon/images/weather.png" />
+    <setup key="Video" image="GACommon/images/videosettings.png" />
     <setup key="video_setup" image="GACommon/images/videosettings.png" />
     <setup key="VolumeAdjust" image="GACommon/images/volumeadjust.png" />
     <setup key="vps" image="GACommon/images/vps.png" />
